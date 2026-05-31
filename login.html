@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log In | Prime Point Health</title>
+    <meta
+      name="description"
+      content="Log in to the Prime Point Health patient experience."
+    />
+    <link rel="stylesheet" href="styles.css?v=color-v2-neutral" />
+  </head>
+  <body>
+    <header class="site-header" aria-label="Primary navigation">
+      <div class="nav-shell">
+        <a class="brand" href="index.html" aria-label="Prime Point Health home">
+          <img class="brand-logo" src="assets/prime-point-logo.svg?v=pph-logo" alt="" />
+          <span>Prime Point Health</span>
+        </a>
+        <nav class="nav-links" aria-label="Main navigation">
+          <div class="nav-dropdown">
+            <a class="nav-dropdown-trigger" href="peptides.html" aria-haspopup="true" aria-expanded="false">Treatments</a>
+            <div class="nav-dropdown-menu" aria-label="Treatments submenu">
+              <a href="peptides.html#programs">Peptide Consults</a>
+              <a href="blood-work.html">Blood Work</a>
+              <a href="supplements.html">Supplement Planning</a>
+            </div>
+          </div>
+          <a href="process.html">Learn</a>
+          <a href="index.html#reviews">Reviews</a>
+          <a href="about.html">About</a>
+          <a href="live-chat.html">Live Chat</a>
+        </nav>
+        <div class="nav-actions" aria-label="Account actions">
+          <a class="header-action header-login" href="login.html">Log In</a>
+          <a class="header-action header-start" href="consult.html">Get Started</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero login-hero" aria-labelledby="page-title">
+        <div class="page-hero-overlay"></div>
+        <div class="page-hero-content">
+          <p class="eyebrow">Patient access</p>
+          <h1 id="page-title">Log in to Prime Point.</h1>
+          <p>
+            Access your care experience, review next steps, and keep your plan
+            organized.
+          </p>
+        </div>
+      </section>
+
+      <section class="consult-page-grid">
+        <div>
+          <p class="eyebrow">Secure access</p>
+          <h2>Your patient portal placeholder.</h2>
+          <p>
+            Connect this page to your preferred patient portal or authentication
+            provider when the operational system is ready.
+          </p>
+        </div>
+        <form class="lead-form" aria-label="Log in form">
+          <label>
+            Email
+            <input type="email" name="email" autocomplete="email" placeholder="alex@example.com" />
+          </label>
+          <label>
+            Password
+            <input type="password" name="password" autocomplete="current-password" placeholder="Password" />
+          </label>
+          <button class="button primary" type="submit">Log In</button>
+          <p class="form-note" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        Peptide therapies require medical review and may not be appropriate for
+        everyone. Information on this site is educational and is not a diagnosis,
+        treatment claim, or guarantee of results.
+      </p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="peptides.html">Peptides</a>
+        <a href="process.html">Process</a>
+        <a href="faq.html">FAQ</a>
+        <a href="consult.html">Consult</a>
+      </nav>
+      <p>&copy; 2026 Prime Point Health</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,14 +1,14 @@
 :root {
-  --ink: #1f2825;
-  --muted: #69736f;
-  --paper: #f4f5f1;
+  --ink: #111918;
+  --muted: #5d6b68;
+  --paper: #f6f7f3;
   --surface: #ffffff;
-  --line: #d9ded8;
-  --green: #2f8b70;
-  --green-dark: #3f5b53;
-  --blue: #587987;
-  --gold: #a77f45;
-  --shadow: 0 24px 70px rgba(37, 47, 42, 0.13);
+  --line: #dce2df;
+  --green: #16815f;
+  --green-dark: #0f463b;
+  --blue: #2d5d7b;
+  --gold: #b8893b;
+  --shadow: 0 24px 70px rgba(21, 32, 29, 0.14);
 }
 
 * {
@@ -22,7 +22,7 @@ html {
 body {
   margin: 0;
   color: var(--ink);
-  background: #eef1ec;
+  background: #071512;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-weight: 800;
   text-transform: uppercase;
@@ -49,7 +49,7 @@ a {
   gap: 16px;
   min-height: 34px;
   padding: 0 clamp(20px, 4vw, 56px);
-  background: rgba(83, 100, 92, 0.94);
+  background: rgba(12, 45, 37, 0.94);
   font-size: 0.8rem;
   font-weight: 900;
 }
@@ -66,7 +66,7 @@ a {
   align-items: center;
   gap: 24px;
   padding: 16px clamp(20px, 4vw, 56px);
-  background: rgba(38, 48, 44, 0.76);
+  background: rgba(8, 20, 17, 0.68);
   backdrop-filter: blur(18px);
 }
 
@@ -142,8 +142,8 @@ a {
   padding: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 8px;
-  background: rgba(47, 58, 54, 0.96);
-  box-shadow: 0 22px 48px rgba(27, 34, 31, 0.24);
+  background: rgba(8, 20, 17, 0.96);
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.3);
   opacity: 0;
   visibility: hidden;
   transform: translateY(-6px);
@@ -221,8 +221,8 @@ a {
 
 .hero-overlay {
   background:
-    linear-gradient(90deg, rgba(43, 52, 48, 0.84), rgba(55, 66, 61, 0.46) 48%, rgba(68, 78, 72, 0.2)),
-    linear-gradient(180deg, rgba(43, 52, 48, 0.08), rgba(43, 52, 48, 0.56));
+    linear-gradient(90deg, rgba(5, 18, 15, 0.9), rgba(5, 18, 15, 0.5) 48%, rgba(5, 18, 15, 0.2)),
+    linear-gradient(180deg, rgba(5, 18, 15, 0.12), rgba(5, 18, 15, 0.68));
 }
 
 .hero-content {
@@ -414,8 +414,8 @@ section:not(.hero) {
 .program-section,
 .process-section {
   background:
-    linear-gradient(180deg, #4d5d56 0%, #65756b 18%, #5a7678 50%, #65756b 82%, #4d5d56 100%),
-    radial-gradient(circle at 76% 36%, rgba(244, 245, 241, 0.18), transparent 38%);
+    linear-gradient(180deg, #04110f 0%, #0a302f 18%, #103f48 48%, #0a302f 78%, #04110f 100%),
+    radial-gradient(circle at 76% 36%, rgba(22, 129, 95, 0.2), transparent 38%);
 }
 
 .intro-section,
@@ -565,7 +565,7 @@ section:not(.hero) {
 
 .program-card.featured {
   color: #fff;
-  background: linear-gradient(135deg, #49665e, #557284);
+  background: linear-gradient(135deg, var(--green-dark), #213f5f);
   border-color: transparent;
 }
 
@@ -625,8 +625,8 @@ section:not(.hero) {
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   color: #fff;
   background:
-    linear-gradient(180deg, #4d5d56 0%, #68786f 16%, #5d777b 50%, #68786f 84%, #4d5d56 100%),
-    radial-gradient(circle at 78% 28%, rgba(244, 245, 241, 0.16), transparent 38%);
+    linear-gradient(180deg, #04110f 0%, #0b302d 16%, #123f48 50%, #0b302d 84%, #04110f 100%),
+    radial-gradient(circle at 78% 28%, rgba(22, 129, 95, 0.18), transparent 38%);
 }
 
 .education-section::before,
@@ -641,12 +641,12 @@ section:not(.hero) {
 
 .education-section::before {
   top: 0;
-  background: linear-gradient(180deg, rgba(77, 93, 86, 0.92), rgba(77, 93, 86, 0));
+  background: linear-gradient(180deg, rgba(4, 17, 15, 0.92), rgba(4, 17, 15, 0));
 }
 
 .education-section::after {
   bottom: 0;
-  background: linear-gradient(0deg, rgba(77, 93, 86, 0.92), rgba(77, 93, 86, 0));
+  background: linear-gradient(0deg, rgba(4, 17, 15, 0.92), rgba(4, 17, 15, 0));
 }
 
 .education-section > * {
@@ -831,7 +831,7 @@ textarea {
   gap: 24px;
   padding: 30px clamp(20px, 5vw, 72px);
   border-top: 1px solid var(--line);
-  background: #eef1ec;
+  background: #e9eee9;
 }
 
 .site-footer p {
@@ -868,8 +868,8 @@ textarea {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(43, 52, 48, 0.84), rgba(55, 66, 61, 0.48) 58%, rgba(68, 78, 72, 0.24)),
-    linear-gradient(180deg, rgba(43, 52, 48, 0.06), rgba(43, 52, 48, 0.62));
+    linear-gradient(90deg, rgba(5, 18, 15, 0.9), rgba(5, 18, 15, 0.48) 58%, rgba(5, 18, 15, 0.24)),
+    linear-gradient(180deg, rgba(5, 18, 15, 0.06), rgba(5, 18, 15, 0.74));
 }
 
 .page-hero-content {
@@ -986,7 +986,7 @@ textarea {
 
 .feature-list article:first-child {
   color: #fff;
-  background: linear-gradient(135deg, #49665e, #557284);
+  background: linear-gradient(135deg, var(--green-dark), #1c5671);
   border-color: transparent;
 }
 

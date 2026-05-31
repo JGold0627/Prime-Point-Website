@@ -6,84 +6,86 @@
     <title>Prime Point Health | Clinician-Guided Peptide Care</title>
     <meta
       name="description"
-      content="Prime Point Health offers clinician-guided telehealth for peptide-focused wellness, recovery, sleep, and lifestyle optimization."
+      content="Prime Point Health offers clinician-guided telehealth consultations for adults exploring peptide-focused care, education, and individualized care planning."
     />
     <link rel="preconnect" href="https://images.unsplash.com" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=homepage-lifestyle-removed" />
   </head>
   <body>
     <header class="site-header" aria-label="Primary navigation">
-      <div class="utility-bar">
-        <span>Clinician-guided telehealth peptide programs</span>
-        <a href="#consult">Check eligibility</a>
-      </div>
       <div class="nav-shell">
-        <a class="brand" href="#top" aria-label="Prime Point Health home">
-          <span class="brand-mark">P</span>
+        <a class="brand" href="index.html" aria-label="Prime Point Health home">
+          <img class="brand-logo" src="assets/prime-point-logo.svg?v=pph-logo" alt="" />
           <span>Prime Point Health</span>
         </a>
-        <nav class="nav-links" aria-label="Page sections">
-          <a href="#programs">Peptides</a>
-          <a href="#consult">Consult</a>
-          <a href="#process">How it works</a>
-          <a href="#lifestyle">Lifestyle</a>
+        <nav class="nav-links" aria-label="Main navigation">
+          <div class="nav-dropdown">
+            <a class="nav-dropdown-trigger" href="peptides.html" aria-haspopup="true" aria-expanded="false">Treatments</a>
+            <div class="nav-dropdown-menu" aria-label="Treatments submenu">
+              <a href="peptides.html#programs">Peptide Consults</a>
+              <a href="blood-work.html">Blood Work</a>
+              <a href="supplements.html">Supplement Planning</a>
+            </div>
+          </div>
+          <a href="process.html">Learn</a>
+          <a href="index.html#reviews">Reviews</a>
+          <a href="about.html">About</a>
+          <a href="live-chat.html">Live Chat</a>
         </nav>
-        <a class="header-cta" href="#consult">Start consult</a>
+        <div class="nav-actions" aria-label="Account actions">
+          <a class="header-action header-login" href="login.html">Log In</a>
+          <a class="header-action header-start" href="consult.html">Get Started</a>
+        </div>
       </div>
     </header>
 
     <main id="top">
-      <section class="hero" aria-labelledby="hero-title">
+      <section class="hero" aria-label="Prime Point Health telehealth peptide consultations">
         <div class="hero-media" aria-hidden="true"></div>
         <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <p class="eyebrow">Recovery, sleep, performance lifestyle</p>
-          <h1 id="hero-title">Prime Point Health</h1>
-          <p class="hero-copy">
-            A telehealth clinic for active adults exploring peptides like
-            BPC-157 and TP-500 with licensed provider review, education, and
-            lifestyle support.
-          </p>
-          <div class="hero-actions">
-            <a class="button primary" href="#consult">Start peptide consult</a>
-            <a class="button secondary" href="#programs">View programs</a>
+        <div class="hero-content hero-content-compact">
+          <div class="hero-copy-placeholder" aria-label="Hero copy placeholder">
+            <span>Doctor-prescribed treatment designed for your goals</span>
+            <ul class="hero-benefit-list" aria-label="Care highlights">
+              <li>Doctor Led Treatments</li>
+              <li>Ships directly to your door</li>
+              <li>100% Online, unlimited access to care</li>
+            </ul>
           </div>
-          <div class="trust-row" aria-label="Care standards">
-            <span>Consult required</span>
-            <span>Provider-directed protocols</span>
-            <span>Built for everyday athletes</span>
+          <div class="hero-actions">
+            <a class="button primary" href="consult.html">Request consult</a>
           </div>
         </div>
       </section>
 
       <section class="intro-section" aria-labelledby="intro-title">
         <div class="section-copy">
-          <p class="eyebrow">For the everyday optimizer</p>
-          <h2 id="intro-title">A clearer path than guessing alone.</h2>
+          <h2 id="intro-title">A clearer path, step by step.</h2>
         </div>
         <div class="intro-grid">
           <article>
             <span class="metric">01</span>
             <h3>Tell us your goals</h3>
             <p>
-              Recovery, sleep, training consistency, mobility, and day-to-day
-              energy all belong in the intake.
+              Share your goals, daily routine, health history, current
+              medications, symptoms or concerns, and any questions you want to
+              discuss.
             </p>
           </article>
           <article>
             <span class="metric">02</span>
             <h3>Review with a clinician</h3>
             <p>
-              A licensed provider reviews your history and determines whether
-              peptide care is appropriate.
+              A licensed provider looks at your intake and helps identify
+              which options are worth discussing.
             </p>
           </article>
           <article>
             <span class="metric">03</span>
             <h3>Follow a guided plan</h3>
             <p>
-              If eligible, your plan includes education, protocol guidance, and
-              practical lifestyle support.
+              If appropriate, your plan may include education, lifestyle
+              guidance, follow-up, and practical next steps.
             </p>
           </article>
         </div>
@@ -91,120 +93,123 @@
 
       <section class="program-section" id="programs" aria-labelledby="program-title">
         <div class="section-copy">
-          <p class="eyebrow">Peptide programs</p>
-          <h2 id="program-title">Start with a consult. Build from there.</h2>
-          <p>
-            Peptide access begins with a provider review. These options are
-            built to expand as Prime Point adds more protocols.
-          </p>
+          <h2 id="program-title">Choose the conversation that fits your priorities.</h2>
         </div>
 
         <div class="consult-card">
           <div>
-            <span class="tag">First step</span>
             <h3>Peptide consult</h3>
             <p>
-              Discuss goals, contraindications, expectations, and next steps
-              before any medication is considered.
+              Use the consult to share what is happening now, what you want to
+              improve, and the questions you want answered.
             </p>
           </div>
-          <a class="button primary" href="#consult">Request consult</a>
+          <a class="button primary" href="consult.html">Request consult</a>
         </div>
 
         <div class="program-grid">
-          <article class="program-card featured">
+          <article class="program-card">
             <div>
-              <span class="tag">Recovery focus</span>
-              <h3>BPC-157</h3>
+              <h3>Cognitive &amp; Neurological</h3>
             </div>
             <p>
-              A peptide commonly discussed for recovery-oriented wellness
-              programs. Your provider will determine whether it fits your goals
-              and medical profile.
+              Talk through focus, mood, sleep, memory, and neurological
+              concerns in a structured visit built around your priorities.
             </p>
             <ul>
-              <li>Recovery conversations</li>
-              <li>Mobility and training support</li>
-              <li>Clinician-directed use only</li>
+              <li>Goal-setting support</li>
+              <li>Priority mapping</li>
+              <li>Clear discussion points</li>
             </ul>
           </article>
 
           <article class="program-card">
             <div>
-              <span class="tag">Performance lifestyle</span>
-              <h3>TP-500</h3>
+              <h3>Repair &amp; Recovery</h3>
             </div>
             <p>
-              Designed for people who want to explore peptide-supported
-              lifestyle care under medical supervision.
+              Review recovery demands, training load, soreness patterns,
+              mobility, and routines that may shape your support plan.
             </p>
             <ul>
-              <li>Active lifestyle support</li>
-              <li>Protocol education</li>
-              <li>Ongoing guidance</li>
+              <li>Recovery priorities</li>
+              <li>Training context</li>
+              <li>Next-step planning</li>
             </ul>
           </article>
 
           <article class="program-card muted">
             <div>
-              <span class="tag">Coming soon</span>
-              <h3>Add-on protocols</h3>
+              <h3>Metabolic Support &amp; Weight Loss</h3>
             </div>
             <p>
-              Additional peptide and wellness tracks can be added as Prime Point
-              expands its care menu.
+              Explore appetite patterns, metabolic health, lifestyle habits,
+              and weight-management priorities with provider guidance.
             </p>
             <ul>
-              <li>Sleep optimization</li>
-              <li>Metabolic wellness</li>
-              <li>Longevity support</li>
+              <li>Weight-loss priorities</li>
+              <li>Metabolic context</li>
+              <li>Support planning</li>
             </ul>
           </article>
         </div>
       </section>
 
-      <section class="process-section" id="process" aria-labelledby="process-title">
+      <section class="education-section" aria-labelledby="education-title">
         <div class="section-copy">
-          <p class="eyebrow">How it works</p>
-          <h2 id="process-title">Telehealth that keeps the bar high.</h2>
+          <h2 id="education-title">What your provider helps clarify.</h2>
+          <p>
+            Peptides are short chains of amino acids. Different options can
+            carry different uses and considerations, so your discussion should
+            be individualized.
+          </p>
         </div>
-        <div class="timeline">
+        <div class="review-grid" aria-label="What your provider reviews">
           <article>
-            <span>1</span>
-            <h3>Complete intake</h3>
-            <p>Share goals, medical history, lifestyle details, and current routines.</p>
+            <h3>What your provider reviews</h3>
+            <ul>
+              <li>Goals and questions</li>
+              <li>Health history and current medications</li>
+              <li>Prior labs, if available</li>
+              <li>Lifestyle, routines, and follow-up needs</li>
+            </ul>
           </article>
           <article>
-            <span>2</span>
-            <h3>Meet your provider</h3>
-            <p>A licensed clinician reviews eligibility and discusses appropriate options.</p>
-          </article>
-          <article>
-            <span>3</span>
-            <h3>Start your plan</h3>
-            <p>Receive clear instructions, check-ins, and lifestyle recommendations.</p>
+            <h3>What the visit helps clarify</h3>
+            <p>
+              The visit helps connect your priorities, health background, and
+              care preferences into a clearer direction.
+            </p>
           </article>
         </div>
       </section>
 
-      <section class="lifestyle-section" id="lifestyle" aria-labelledby="lifestyle-title">
-        <div class="lifestyle-image" aria-hidden="true"></div>
-        <div class="lifestyle-panel">
-          <p class="eyebrow">Beyond the vial</p>
-          <h2 id="lifestyle-title">Better inputs, better outcomes.</h2>
-          <p>
-            Peptides are only one part of the conversation. Prime Point centers
-            sleep quality, protein intake, training volume, mobility work, and
-            stress management so your plan fits real life.
-          </p>
-          <div class="pill-list" aria-label="Lifestyle focus areas">
-            <span>Sleep</span>
-            <span>Training</span>
-            <span>Nutrition</span>
-            <span>Recovery</span>
-            <span>Routine</span>
-          </div>
+      <section class="faq-section home-faq" id="faq" aria-labelledby="faq-title">
+        <div class="section-copy">
+          <p class="eyebrow">FAQ</p>
+          <h2 id="faq-title">Common questions.</h2>
         </div>
+        <details>
+          <summary>What happens after I share my intake?</summary>
+          <p>
+            A licensed provider reviews your goals, health history, available
+            lab information, and questions before discussing a care path.
+          </p>
+        </details>
+        <details>
+          <summary>What will we talk about?</summary>
+          <p>
+            You can discuss your goals, routines, current medications, prior
+            labs, and the questions you want answered.
+          </p>
+        </details>
+        <details>
+          <summary>How do I get started?</summary>
+          <p>
+            Start with the consult form. The Prime Point team will follow up
+            with next steps for your private review.
+          </p>
+        </details>
       </section>
 
       <section class="consult-section" id="consult" aria-labelledby="consult-title">
@@ -212,8 +217,9 @@
           <p class="eyebrow">Ready when you are</p>
           <h2 id="consult-title">Find your Prime Point.</h2>
           <p>
-            Start with a private eligibility review and a provider-led discussion
-            about what fits your body, goals, and lifestyle.
+            Start with a private provider review and a guided conversation
+            about your goals, health history, medications, questions, and
+            next steps.
           </p>
         </div>
         <form class="lead-form" aria-label="Consult request form">
@@ -228,9 +234,9 @@
           <label>
             Primary goal
             <select name="goal">
-              <option>Recovery and training consistency</option>
-              <option>Sleep and lifestyle optimization</option>
-              <option>Quality of life and mobility</option>
+              <option>Provider-led peptide care review</option>
+              <option>Sleep and routine education</option>
+              <option>Metabolic-health conversation</option>
               <option>General peptide education</option>
             </select>
           </label>
@@ -238,14 +244,22 @@
           <p class="form-note" role="status" aria-live="polite"></p>
         </form>
       </section>
+
     </main>
 
     <footer class="site-footer">
       <p>
-        Peptide therapies require medical review and may not be appropriate for
-        everyone. Information on this site is educational and is not a diagnosis,
-        treatment claim, or guarantee of results.
+        Information on this site is educational and is not a diagnosis, treatment
+        claim, or guarantee of results. Peptide therapies require clinical
+        review, may not be appropriate for everyone, and are not guaranteed after
+        a consult. Prescriptions are considered only when clinically appropriate.
       </p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="peptides.html">Peptides</a>
+        <a href="process.html">Process</a>
+        <a href="faq.html">FAQ</a>
+        <a href="consult.html">Consult</a>
+      </nav>
       <p>&copy; 2026 Prime Point Health</p>
     </footer>
 
