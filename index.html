@@ -9,7 +9,10 @@
       content="Prime Point Health offers clinician-guided telehealth consultations for adults exploring peptide-focused care, education, and individualized care planning."
     />
     <link rel="preconnect" href="https://images.unsplash.com" />
-    <link rel="stylesheet" href="styles.css?v=homepage-lifestyle-removed" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css?v=checkpoint-2-saved" />
   </head>
   <body>
     <header class="site-header" aria-label="Primary navigation">
@@ -19,18 +22,27 @@
           <span>Prime Point Health</span>
         </a>
         <nav class="nav-links" aria-label="Main navigation">
-          <div class="nav-dropdown">
-            <a class="nav-dropdown-trigger" href="peptides.html" aria-haspopup="true" aria-expanded="false">Treatments</a>
-            <div class="nav-dropdown-menu" aria-label="Treatments submenu">
-              <a href="peptides.html#programs">Peptide Consults</a>
-              <a href="blood-work.html">Blood Work</a>
-              <a href="supplements.html">Supplement Planning</a>
+          <a href="peptides.html#programs">Peptide Consults</a>
+          <div class="nav-dropdown treatment-dropdown">
+            <a class="nav-dropdown-trigger" href="peptides.html#glp-1s" aria-haspopup="true" aria-expanded="false">GLP-1's</a>
+            <div class="nav-dropdown-menu treatment-menu" aria-label="GLP-1 treatments submenu">
+              <span class="treatment-menu-label">Injectable</span>
+              <a href="peptides.html#glp-1s">Semaglutide</a>
+              <a href="peptides.html#glp-1s">Tirzepatide</a>
+              <a href="peptides.html#glp-1s">NAD+</a>
             </div>
           </div>
-          <a href="process.html">Learn</a>
-          <a href="index.html#reviews">Reviews</a>
-          <a href="about.html">About</a>
-          <a href="live-chat.html">Live Chat</a>
+          <a href="blood-work.html">Blood Work</a>
+          <a href="supplements.html">Supplement Planning</a>
+          <div class="nav-dropdown">
+            <a class="nav-dropdown-trigger" href="about.html" aria-haspopup="true" aria-expanded="false">About</a>
+            <div class="nav-dropdown-menu about-menu" aria-label="About submenu">
+              <a href="about.html">About Prime Point</a>
+              <a href="index.html#reviews">Reviews</a>
+              <a href="faq.html">FAQ</a>
+              <a href="live-chat.html">Live Chat</a>
+            </div>
+          </div>
         </nav>
         <div class="nav-actions" aria-label="Account actions">
           <a class="header-action header-login" href="login.html">Log In</a>
@@ -64,7 +76,7 @@
         </div>
         <div class="intro-grid">
           <article>
-            <span class="metric">01</span>
+            <span class="metric">Step 1</span>
             <h3>Tell us your goals</h3>
             <p>
               Share your goals, daily routine, health history, current
@@ -73,7 +85,7 @@
             </p>
           </article>
           <article>
-            <span class="metric">02</span>
+            <span class="metric">Step 2</span>
             <h3>Review with a clinician</h3>
             <p>
               A licensed provider looks at your intake and helps identify
@@ -81,7 +93,7 @@
             </p>
           </article>
           <article>
-            <span class="metric">03</span>
+            <span class="metric">Step 3</span>
             <h3>Follow a guided plan</h3>
             <p>
               If appropriate, your plan may include education, lifestyle
@@ -93,7 +105,15 @@
 
       <section class="program-section" id="programs" aria-labelledby="program-title">
         <div class="section-copy">
-          <h2 id="program-title">Choose the conversation that fits your priorities.</h2>
+          <div>
+            <h2 id="program-title">Choose the conversation that fits your priorities.</h2>
+          </div>
+          <figure class="section-visual" aria-label="Patient speaking with a provider">
+            <img
+              src="assets/provider-consultation-young-male-doctor.png"
+              alt="A young smiling male doctor speaking with a patient during a consultation"
+            />
+          </figure>
         </div>
 
         <div class="consult-card">
