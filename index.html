@@ -12,24 +12,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=checkpoint-2-saved" />
+    <link rel="stylesheet" href="styles.css?v=fixed-consult-form" />
   </head>
   <body>
     <header class="site-header" aria-label="Primary navigation">
       <div class="nav-shell">
         <a class="brand" href="index.html" aria-label="Prime Point Health home">
-          <img class="brand-logo" src="assets/prime-point-logo.svg?v=pph-logo" alt="" />
+          <img class="brand-logo" src="Prime Point Health Logo/ChatGPT Image Jun 1, 2026, 10_20_04 AM.png" alt="" />
           <span>Prime Point Health</span>
         </a>
         <nav class="nav-links" aria-label="Main navigation">
-          <a href="peptides.html#programs">Peptide Consults</a>
+          <a href="peptides.html#programs">Peptides</a>
           <div class="nav-dropdown treatment-dropdown">
             <a class="nav-dropdown-trigger" href="peptides.html#glp-1s" aria-haspopup="true" aria-expanded="false">GLP-1's</a>
             <div class="nav-dropdown-menu treatment-menu" aria-label="GLP-1 treatments submenu">
               <span class="treatment-menu-label">Injectable</span>
               <a href="peptides.html#glp-1s">Semaglutide</a>
               <a href="peptides.html#glp-1s">Tirzepatide</a>
-              <a href="peptides.html#glp-1s">NAD+</a>
             </div>
           </div>
           <a href="blood-work.html">Blood Work</a>
@@ -72,41 +71,52 @@
 
       <section class="intro-section" aria-labelledby="intro-title">
         <div class="section-copy">
-          <h2 id="intro-title">A clearer path, step by step.</h2>
+          <h2 id="intro-title">Explore your Prime Point options</h2>
         </div>
-        <div class="intro-grid">
-          <article>
-            <span class="metric">Step 1</span>
-            <h3>Tell us your goals</h3>
-            <p>
-              Share your goals, daily routine, health history, current
-              medications, symptoms or concerns, and any questions you want to
-              discuss.
-            </p>
-          </article>
-          <article>
-            <span class="metric">Step 2</span>
-            <h3>Review with a clinician</h3>
-            <p>
-              A licensed provider looks at your intake and helps identify
-              which options are worth discussing.
-            </p>
-          </article>
-          <article>
-            <span class="metric">Step 3</span>
-            <h3>Follow a guided plan</h3>
-            <p>
-              If appropriate, your plan may include education, lifestyle
-              guidance, follow-up, and practical next steps.
-            </p>
-          </article>
+        <div class="service-bubble-grid" aria-label="Prime Point services">
+          <a class="service-bubble" href="peptides.html#programs">
+            <span class="service-kicker">Provider-led review</span>
+            <span class="service-title">Peptide Consults</span>
+            <span class="service-copy">
+              Talk through goals, health history, medications, and questions
+              with a licensed provider.
+            </span>
+            <span class="service-action">Learn more</span>
+          </a>
+          <a class="service-bubble" href="peptides.html#glp-1s">
+            <span class="service-kicker">Weight management</span>
+            <span class="service-title">GLP-1's</span>
+            <span class="service-copy">
+              Review metabolic priorities and whether GLP-1 topics are worth
+              discussing after clinical review.
+            </span>
+            <span class="service-action">Learn more</span>
+          </a>
+          <a class="service-bubble" href="blood-work.html">
+            <span class="service-kicker">Health markers</span>
+            <span class="service-title">Blood Work</span>
+            <span class="service-copy">
+              Use available labs to help guide a clearer provider conversation
+              about next steps.
+            </span>
+            <span class="service-action">Learn more</span>
+          </a>
+          <a class="service-bubble" href="supplements.html">
+            <span class="service-kicker">Daily support</span>
+            <span class="service-title">Supplement Planning</span>
+            <span class="service-copy">
+              Discuss practical supplement routines that fit your broader
+              health plan.
+            </span>
+            <span class="service-action">Learn more</span>
+          </a>
         </div>
       </section>
 
       <section class="program-section" id="programs" aria-labelledby="program-title">
         <div class="section-copy">
           <div>
-            <h2 id="program-title">Choose the conversation that fits your priorities.</h2>
+            <h2 id="program-title">Choose the conversation that fits your priorities</h2>
           </div>
           <figure class="section-visual" aria-label="Patient speaking with a provider">
             <img
@@ -114,17 +124,6 @@
               alt="A young smiling male doctor speaking with a patient during a consultation"
             />
           </figure>
-        </div>
-
-        <div class="consult-card">
-          <div>
-            <h3>Peptide consult</h3>
-            <p>
-              Use the consult to share what is happening now, what you want to
-              improve, and the questions you want answered.
-            </p>
-          </div>
-          <a class="button primary" href="consult.html">Request consult</a>
         </div>
 
         <div class="program-grid">
@@ -175,72 +174,99 @@
         </div>
       </section>
 
-      <section class="education-section" aria-labelledby="education-title">
-        <div class="section-copy">
-          <h2 id="education-title">What your provider helps clarify.</h2>
+      <section class="education-section member-section" aria-labelledby="education-title">
+        <div class="member-copy">
+          <h2 id="education-title">Build your Prime Point path</h2>
           <p>
-            Peptides are short chains of amino acids. Different options can
-            carry different uses and considerations, so your discussion should
-            be individualized.
+            Membership starts with a private intake and provider-guided review
+            of your goals, health history, medications, available labs, and
+            questions.
+          </p>
+          <div class="member-actions">
+            <a class="button primary" href="consult.html">Become a member</a>
+          </div>
+        </div>
+
+        <div class="member-panel" aria-label="Prime Point membership path">
+          <span>Step 1</span>
+          <h3>Join the membership</h3>
+          <p>
+            Start with a private intake so your provider has the goals, health
+            history, medications, available labs, and questions needed for a
+            clearer review.
           </p>
         </div>
-        <div class="review-grid" aria-label="What your provider reviews">
+
+        <div class="member-path-grid">
           <article>
-            <h3>What your provider reviews</h3>
-            <ul>
-              <li>Goals and questions</li>
-              <li>Health history and current medications</li>
-              <li>Prior labs, if available</li>
-              <li>Lifestyle, routines, and follow-up needs</li>
-            </ul>
+            <strong>Step 2</strong>
+            <span>Choose your path</span>
+            <p>
+              Based on your priorities, your conversation can focus on
+              peptides, GLP-1 topics, blood work, supplement planning, or a
+              broader care discussion.
+            </p>
           </article>
           <article>
-            <h3>What the visit helps clarify</h3>
+            <strong>Step 3</strong>
+            <span>Clinician access and continued care</span>
             <p>
-              The visit helps connect your priorities, health background, and
-              care preferences into a clearer direction.
+              Continue with provider guidance, education, follow-up priorities,
+              and next steps when they are clinically appropriate.
             </p>
           </article>
         </div>
       </section>
 
-      <section class="faq-section home-faq" id="faq" aria-labelledby="faq-title">
-        <div class="section-copy">
-          <p class="eyebrow">FAQ</p>
-          <h2 id="faq-title">Common questions.</h2>
-        </div>
-        <details>
-          <summary>What happens after I share my intake?</summary>
-          <p>
-            A licensed provider reviews your goals, health history, available
-            lab information, and questions before discussing a care path.
-          </p>
-        </details>
-        <details>
-          <summary>What will we talk about?</summary>
-          <p>
-            You can discuss your goals, routines, current medications, prior
-            labs, and the questions you want answered.
-          </p>
-        </details>
-        <details>
-          <summary>How do I get started?</summary>
-          <p>
-            Start with the consult form. The Prime Point team will follow up
-            with next steps for your private review.
-          </p>
-        </details>
-      </section>
-
       <section class="consult-section" id="consult" aria-labelledby="consult-title">
-        <div>
-          <p class="eyebrow">Ready when you are</p>
-          <h2 id="consult-title">Find your Prime Point.</h2>
-          <p>
-            Start with a private provider review and a guided conversation
-            about your goals, health history, medications, questions, and
-            next steps.
-          </p>
+        <div class="consult-copy">
+          <h2 id="consult-title">Find your Prime Point</h2>
+          <div class="faq-section compact-faq" id="faq" aria-labelledby="faq-title">
+            <div>
+              <p class="eyebrow">FAQ</p>
+              <h3 id="faq-title">Common questions</h3>
+            </div>
+            <details>
+              <summary>What are peptides and how do they work?</summary>
+              <p>
+                Peptides are short chains of amino acids. In a consult, your
+                provider can explain how different peptide topics may relate to
+                your goals, health history, and care preferences.
+              </p>
+            </details>
+            <details>
+              <summary>What peptide topics can I discuss?</summary>
+              <p>
+                You can ask about goals, routines, medications, available labs,
+                metabolic priorities, recovery needs, and whether any options
+                are worth reviewing further.
+              </p>
+            </details>
+            <details>
+              <summary>Are peptides right for everyone?</summary>
+              <p>
+                No. Peptide-related care requires clinical review and may not
+                be appropriate for every person, history, medication list, or
+                set of goals.
+              </p>
+            </details>
+            <details>
+              <summary>How long does the review take?</summary>
+              <p>
+                Timing can vary. After you share your intake, the next step is
+                a provider-led review of your goals, background, questions, and
+                available health information.
+              </p>
+            </details>
+            <details>
+              <summary>Are prescriptions guaranteed?</summary>
+              <p>
+                No. Prescriptions are considered only when clinically
+                appropriate after review, and eligibility, options, and next
+                steps can vary.
+              </p>
+            </details>
+          </div>
         </div>
         <form class="lead-form" aria-label="Consult request form">
           <label>
@@ -268,21 +294,21 @@
     </main>
 
     <footer class="site-footer">
-      <p>
+      <p class="footer-disclaimer">
         Information on this site is educational and is not a diagnosis, treatment
         claim, or guarantee of results. Peptide therapies require clinical
         review, may not be appropriate for everyone, and are not guaranteed after
         a consult. Prescriptions are considered only when clinically appropriate.
       </p>
-      <nav class="footer-links" aria-label="Footer navigation">
-        <a href="peptides.html">Peptides</a>
-        <a href="process.html">Process</a>
-        <a href="faq.html">FAQ</a>
-        <a href="consult.html">Consult</a>
-      </nav>
-      <p>&copy; 2026 Prime Point Health</p>
+      <div class="footer-meta">
+        <nav class="footer-policy-links" aria-label="Legal links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-of-service.html">Terms of Service</a>
+        </nav>
+        <p>&copy; 2026 Prime Point Health</p>
+      </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=faq-hover-display"></script>
   </body>
 </html>
