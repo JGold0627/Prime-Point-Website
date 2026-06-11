@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=aligned-expandable-faq" />
+    <link rel="stylesheet" href="styles.css?v=goal-dropdown-services" />
   </head>
   <body>
     <header class="site-header" aria-label="Primary navigation">
@@ -22,7 +22,7 @@
           <span>Prime Point Health</span>
         </a>
         <nav class="nav-links" aria-label="Main navigation">
-          <a href="peptides.html#programs">Peptides</a>
+          <a href="peptides.html">Peptides</a>
           <div class="nav-dropdown treatment-dropdown">
             <a class="nav-dropdown-trigger" href="peptides.html#glp-1s" aria-haspopup="true" aria-expanded="false">GLP-1's</a>
             <div class="nav-dropdown-menu treatment-menu" aria-label="GLP-1 treatments submenu">
@@ -52,7 +52,20 @@
 
     <main id="top">
       <section class="hero" aria-label="Prime Point Health telehealth peptide consultations">
-        <div class="hero-media" aria-hidden="true"></div>
+        <div class="hero-media-stack" aria-hidden="true">
+          <video class="hero-media is-active" autoplay muted loop playsinline preload="auto">
+            <source src="assets/hero-workout-bench.mp4" type="video/mp4" />
+          </video>
+          <video class="hero-media" autoplay muted loop playsinline preload="auto">
+            <source src="assets/hero-workout-rope.mp4" type="video/mp4" />
+          </video>
+          <video class="hero-media" autoplay muted loop playsinline preload="auto">
+            <source src="assets/hero-workout-bars.mp4" type="video/mp4" />
+          </video>
+          <video class="hero-media" autoplay muted loop playsinline preload="auto">
+            <source src="assets/hero-workout-battle-ropes.mp4" type="video/mp4" />
+          </video>
+        </div>
         <div class="hero-overlay"></div>
         <div class="hero-content hero-content-compact">
           <div class="hero-copy-placeholder" aria-label="Hero copy placeholder">
@@ -281,9 +294,9 @@
             Primary goal
             <select name="goal">
               <option>Provider-led peptide care review</option>
-              <option>Sleep and routine education</option>
-              <option>Metabolic-health conversation</option>
-              <option>General peptide education</option>
+              <option>GLP-1 and weight-loss discussion</option>
+              <option>Blood work and health-marker review</option>
+              <option>Supplement planning and general fitness</option>
             </select>
           </label>
           <button class="button primary" type="submit">Request consult</button>

@@ -41,6 +41,49 @@ document.querySelectorAll(".page-hero-video").forEach((video) => {
   });
 });
 
+document.querySelectorAll(".hero-media-stack").forEach((stack) => {
+  const videos = [...stack.querySelectorAll(".hero-media")];
+
+  if (videos.length < 2) {
+    return;
+  }
+
+  let activeIndex = videos.findIndex((video) => video.classList.contains("is-active"));
+
+  if (activeIndex < 0) {
+    activeIndex = 0;
+    videos[0].classList.add("is-active");
+  }
+
+  const playVideos = () => {
+    videos.forEach((video) => {
+      const playPromise = video.play?.();
+
+      if (playPromise?.catch) {
+        playPromise.catch(() => {});
+      }
+    });
+  };
+
+  const showVideo = (nextIndex) => {
+    videos[activeIndex].classList.remove("is-active");
+    activeIndex = nextIndex;
+    videos[activeIndex].classList.add("is-active");
+  };
+
+  playVideos();
+
+  window.setInterval(() => {
+    showVideo((activeIndex + 1) % videos.length);
+  }, 4300);
+
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) {
+      playVideos();
+    }
+  });
+});
+
 document.querySelectorAll(".cellular-motion-canvas").forEach((canvas) => {
   const context = canvas.getContext("2d");
   const cells = [];
