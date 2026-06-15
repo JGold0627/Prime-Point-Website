@@ -1053,7 +1053,7 @@ section:not(.hero) {
   position: relative;
   z-index: 1;
   display: inline-grid;
-  min-width: 76px;
+  width: 86px;
   height: 42px;
   padding: 0 14px;
   margin-bottom: 28px;
@@ -2083,7 +2083,7 @@ select option {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(320px, 0.88fr) minmax(420px, 1fr);
+  grid-template-columns: minmax(320px, 0.82fr) minmax(420px, 1fr);
   gap: clamp(34px, 5vw, 72px);
   align-items: start;
   width: min(100%, 1280px);
@@ -2092,22 +2092,209 @@ select option {
 }
 
 .peptide-plan-image {
-  min-height: clamp(420px, 48vw, 640px);
+  --bubble-x: 50%;
+  --bubble-y: 46%;
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: clamp(560px, 69vw, 730px);
   overflow: hidden;
-  border: 1px solid rgba(155, 214, 244, 0.2);
+  padding: clamp(22px, 4vw, 54px);
+  border: 1px solid rgba(155, 214, 244, 0.24);
   border-radius: 8px;
-  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.34);
+  background:
+    radial-gradient(circle at var(--bubble-x) var(--bubble-y), rgba(119, 189, 255, 0.32), transparent 24%),
+    radial-gradient(circle at 22% 18%, rgba(24, 216, 255, 0.28), transparent 30%),
+    radial-gradient(circle at 76% 78%, rgba(217, 70, 255, 0.2), transparent 36%),
+    linear-gradient(145deg, rgba(8, 27, 42, 0.94), rgba(15, 73, 101, 0.68));
+  box-shadow:
+    inset 0 0 70px rgba(24, 216, 255, 0.1),
+    0 28px 70px rgba(0, 0, 0, 0.34);
 }
 
 .peptide-plan-image img {
-  display: block;
+  display: none;
   width: 100%;
   height: 100%;
-  min-height: clamp(420px, 48vw, 640px);
+  min-height: clamp(560px, 69vw, 730px);
   object-fit: cover;
 }
 
+.peptide-plan-image::before,
+.peptide-plan-image::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+.peptide-plan-image::before {
+  width: clamp(320px, 40vw, 560px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(126, 202, 255, 0.28);
+  box-shadow:
+    0 0 0 34px rgba(24, 216, 255, 0.035),
+    inset 0 0 58px rgba(24, 216, 255, 0.1);
+  animation: plan-orbit-glow 11s ease-in-out infinite alternate;
+}
+
+.peptide-plan-image::after {
+  inset: 8%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    radial-gradient(circle at var(--bubble-x) var(--bubble-y), rgba(24, 216, 255, 0.24), transparent 30%),
+    radial-gradient(circle at 18% 24%, rgba(255, 255, 255, 0.16) 0 2px, transparent 3px),
+    radial-gradient(circle at 82% 34%, rgba(119, 189, 255, 0.24) 0 2px, transparent 3px),
+    radial-gradient(circle at 46% 82%, rgba(217, 70, 255, 0.22) 0 2px, transparent 3px);
+  opacity: 0.72;
+}
+
+.peptide-plan-bubble-field {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 560px);
+  min-height: clamp(480px, 57vw, 660px);
+}
+
+.plan-bubble {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: clamp(126px, 13vw, 184px);
+  aspect-ratio: 1;
+  padding: 14px;
+  border: 1px solid rgba(187, 226, 255, 0.44);
+  border-radius: 999px;
+  color: #fff;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 30% 24%, rgba(255, 255, 255, 0.28), transparent 28%),
+    linear-gradient(145deg, rgba(24, 216, 255, 0.2), rgba(217, 70, 255, 0.12));
+  background-size: 140% 140%;
+  box-shadow:
+    inset 0 0 30px rgba(255, 255, 255, 0.08),
+    0 18px 42px rgba(0, 0, 0, 0.28),
+    0 0 36px rgba(24, 216, 255, 0.12);
+  font-size: clamp(0.82rem, 1.06vw, 0.98rem);
+  font-weight: 950;
+  line-height: 1.08;
+  text-align: center;
+  text-transform: uppercase;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background 180ms ease, filter 180ms ease;
+  animation: plan-bubble-drift 7s ease-in-out infinite;
+}
+
+.plan-bubble::after {
+  content: "";
+  position: absolute;
+  inset: 15%;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(circle, rgba(24, 216, 255, 0.26), transparent 70%);
+  filter: blur(16px);
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.plan-bubble:hover,
+.plan-bubble:focus-visible {
+  transform: translateY(-8px) scale(1.07);
+  border-color: rgba(119, 189, 255, 0.92);
+  background:
+    radial-gradient(circle at 30% 24%, rgba(255, 255, 255, 0.34), transparent 28%),
+    linear-gradient(145deg, rgba(24, 216, 255, 0.34), rgba(217, 70, 255, 0.18));
+  box-shadow:
+    inset 0 0 34px rgba(255, 255, 255, 0.12),
+    0 24px 52px rgba(0, 0, 0, 0.34),
+    0 0 48px rgba(24, 216, 255, 0.28);
+  filter: saturate(1.22);
+  outline: none;
+}
+
+.plan-bubble:hover::after,
+.plan-bubble:focus-visible::after {
+  opacity: 1;
+}
+
+.plan-bubble-primary {
+  width: clamp(176px, 17vw, 246px);
+  background:
+    radial-gradient(circle at 30% 24%, rgba(255, 255, 255, 0.34), transparent 30%),
+    linear-gradient(145deg, rgba(24, 216, 255, 0.42), rgba(119, 189, 255, 0.18));
+  color: #03111d;
+}
+
+.plan-bubble:nth-child(1) {
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: -1s;
+}
+
+.plan-bubble:nth-child(1):hover,
+.plan-bubble:nth-child(1):focus-visible {
+  transform: translate(-50%, calc(-50% - 8px)) scale(1.07);
+}
+
+.plan-bubble:nth-child(2) {
+  top: 6%;
+  left: 5%;
+  animation-delay: -2.2s;
+}
+
+.plan-bubble:nth-child(3) {
+  top: 11%;
+  right: 2%;
+  animation-delay: -3.4s;
+}
+
+.plan-bubble:nth-child(4) {
+  bottom: 28%;
+  left: 0;
+  animation-delay: -4.6s;
+}
+
+.plan-bubble:nth-child(5) {
+  right: 0;
+  bottom: 22%;
+  animation-delay: -5.8s;
+}
+
+.plan-bubble:nth-child(6) {
+  bottom: 2%;
+  left: 33%;
+  animation-delay: -6.7s;
+}
+
+@keyframes plan-bubble-drift {
+  0%,
+  100% {
+    background-position: 20% 18%;
+  }
+
+  50% {
+    background-position: 78% 82%;
+  }
+}
+
+@keyframes plan-orbit-glow {
+  0% {
+    transform: scale(0.96) rotate(0deg);
+    opacity: 0.56;
+  }
+
+  100% {
+    transform: scale(1.04) rotate(10deg);
+    opacity: 0.86;
+  }
+}
+
 .peptide-plan-copy {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  align-content: space-between;
+  row-gap: clamp(20px, 2.4vw, 32px);
+  min-height: clamp(560px, 69vw, 730px);
   max-width: none;
   margin-bottom: 0;
 }
@@ -2116,32 +2303,49 @@ select option {
   max-width: 880px;
   color: #77bdff;
   margin-top: 0;
+  margin-bottom: 0;
   font-size: clamp(1.85rem, 2.6vw, 3.05rem);
   line-height: 1.04;
 }
 
 .peptide-plan-copy p:not(.eyebrow) {
   max-width: 880px;
+  margin-bottom: 0;
   color: #fff;
-  font-size: clamp(1rem, 1.35vw, 1.18rem);
+  font-size: clamp(1.08rem, 1.48vw, 1.26rem);
   font-weight: 650;
-  line-height: 1.58;
+  line-height: 1.68;
 }
 
 .peptide-plan-list {
   display: grid;
-  gap: 14px;
-  margin-top: clamp(24px, 3vw, 36px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  align-self: stretch;
+  margin-top: 0;
+  padding-top: clamp(8px, 1.2vw, 16px);
 }
 
 .peptide-plan-list span {
   position: relative;
-  padding-left: 42px;
+  min-height: 72px;
+  padding: 14px 18px 14px 48px;
+  border: 1px solid rgba(119, 189, 255, 0.22);
+  border-radius: 999px;
   color: #fff;
-  font-size: clamp(1rem, 1.35vw, 1.18rem);
+  background: rgba(5, 20, 31, 0.42);
+  font-size: clamp(0.9rem, 1.08vw, 1.02rem);
   font-weight: 950;
   line-height: 1.3;
   text-transform: uppercase;
+  box-shadow: inset 0 0 24px rgba(24, 216, 255, 0.05);
+  transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
+}
+
+.peptide-plan-list span:hover {
+  transform: translateY(-3px);
+  border-color: rgba(119, 189, 255, 0.56);
+  background: rgba(18, 78, 109, 0.48);
 }
 
 .peptide-plan-list span::before {
@@ -2152,6 +2356,13 @@ select option {
   color: #77bdff;
   font-size: 1.4em;
   line-height: 1;
+}
+
+.peptide-plan-list span::before {
+  content: "\2713";
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
 }
 
 .future-image-placeholder {
@@ -2212,9 +2423,10 @@ select option {
   padding-top: clamp(76px, 8.5vw, 122px);
   padding-bottom: clamp(92px, 9.5vw, 146px);
   background:
-    radial-gradient(circle at 16% 18%, rgba(24, 216, 255, 0.16), transparent 30%),
-    radial-gradient(circle at 82% 28%, rgba(217, 70, 255, 0.12), transparent 34%),
-    linear-gradient(180deg, #07131d 0%, #10253a 46%, #07131d 100%);
+    radial-gradient(circle at 18% 16%, rgba(24, 216, 255, 0.2), transparent 32%),
+    radial-gradient(circle at 84% 30%, rgba(217, 70, 255, 0.14), transparent 34%),
+    radial-gradient(circle at 48% 76%, rgba(119, 189, 255, 0.1), transparent 38%),
+    linear-gradient(180deg, #06131c 0%, #0d3048 48%, #06131c 100%);
 }
 
 .prime-page-section > .peptide-how-panel {
@@ -2232,25 +2444,30 @@ select option {
 .peptide-how-heading h2 {
   margin: 0;
   color: #fff;
-  font-size: clamp(2.6rem, 4.8vw, 5rem);
-  line-height: 0.95;
+  font-size: clamp(2.35rem, 3.8vw, 4.25rem);
+  font-weight: 800;
+  line-height: 1;
+  text-transform: none;
 }
 
 .peptide-how-panel {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(400px, 0.95fr) minmax(460px, 1.05fr);
-  gap: clamp(52px, 7vw, 104px);
+  grid-template-columns: minmax(360px, 0.88fr) minmax(480px, 1.12fr);
+  gap: clamp(34px, 5vw, 72px);
   align-items: center;
-  min-height: clamp(690px, 62vw, 860px);
+  min-height: clamp(620px, 58vw, 790px);
   padding: clamp(30px, 3.6vw, 52px);
-  border: 1px solid rgba(155, 214, 244, 0.14);
+  border: 1px solid rgba(155, 214, 244, 0.2);
   border-radius: 8px;
   background:
-    linear-gradient(115deg, rgba(5, 13, 21, 0.94), rgba(5, 13, 21, 0.76)),
-    radial-gradient(circle at 82% 36%, rgba(24, 216, 255, 0.08), transparent 34%);
-  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.36);
+    radial-gradient(circle at 18% 42%, rgba(24, 216, 255, 0.16), transparent 36%),
+    radial-gradient(circle at 78% 24%, rgba(119, 189, 255, 0.12), transparent 30%),
+    linear-gradient(135deg, rgba(5, 18, 29, 0.96), rgba(8, 42, 62, 0.84));
+  box-shadow:
+    inset 0 0 76px rgba(24, 216, 255, 0.06),
+    0 28px 80px rgba(0, 0, 0, 0.36);
   overflow: hidden;
 }
 
@@ -2259,68 +2476,241 @@ select option {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(62deg, transparent 0 54%, rgba(255, 255, 255, 0.025) 54% 68%, transparent 68%),
-    linear-gradient(118deg, transparent 0 68%, rgba(119, 189, 255, 0.035) 68% 80%, transparent 80%);
+    radial-gradient(circle at 24% 50%, rgba(24, 216, 255, 0.12), transparent 26%),
+    linear-gradient(62deg, transparent 0 54%, rgba(255, 255, 255, 0.022) 54% 68%, transparent 68%),
+    linear-gradient(118deg, transparent 0 68%, rgba(119, 189, 255, 0.03) 68% 80%, transparent 80%);
   pointer-events: none;
 }
 
 .peptide-how-image {
   position: relative;
   z-index: 1;
-  min-height: clamp(480px, 47vw, 700px);
+  min-height: clamp(470px, 45vw, 640px);
   overflow: hidden;
   border-radius: 8px;
-  background: #07131d;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(24, 216, 255, 0.22), transparent 35%),
+    linear-gradient(145deg, rgba(6, 21, 32, 0.94), rgba(13, 67, 95, 0.68));
 }
 
 .peptide-how-image img {
-  display: block;
+  display: none;
   width: 100%;
   height: 100%;
-  min-height: clamp(480px, 47vw, 700px);
+  min-height: clamp(470px, 45vw, 640px);
   object-fit: cover;
+}
+
+.peptide-path-visual {
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(155, 214, 244, 0.22);
+  background:
+    linear-gradient(118deg, rgba(3, 16, 26, 0.96), rgba(8, 45, 66, 0.76)),
+    repeating-linear-gradient(90deg, rgba(119, 189, 255, 0.05) 0 1px, transparent 1px 58px);
+  box-shadow:
+    inset 0 0 64px rgba(24, 216, 255, 0.08),
+    0 22px 54px rgba(0, 0, 0, 0.24);
+}
+
+.peptide-path-visual::before,
+.peptide-path-visual::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.peptide-path-visual::before {
+  inset: 13%;
+  border: 1px solid rgba(119, 189, 255, 0.18);
+  background:
+    linear-gradient(90deg, transparent, rgba(37, 216, 255, 0.16), transparent),
+    linear-gradient(135deg, transparent 0 44%, rgba(119, 189, 255, 0.09) 44% 47%, transparent 47% 100%);
+  transform: skewY(-7deg);
+  animation: path-scan 4.8s ease-in-out infinite;
+}
+
+.peptide-path-visual::after {
+  inset: 0;
+  background:
+    radial-gradient(circle at 22% 24%, rgba(24, 216, 255, 0.12), transparent 22%),
+    radial-gradient(circle at 80% 76%, rgba(217, 70, 255, 0.12), transparent 28%);
+}
+
+.path-console {
+  position: absolute;
+  top: clamp(28px, 4vw, 48px);
+  left: clamp(26px, 4vw, 46px);
+  z-index: 2;
+  display: grid;
+  max-width: 280px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.console-label {
+  color: rgba(217, 241, 255, 0.72);
+  font-size: 0.78rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+}
+
+.path-console strong {
+  color: #77bdff;
+  font-size: clamp(1.5rem, 2.6vw, 2.4rem);
+  line-height: 0.98;
+}
+
+.path-track {
+  position: absolute;
+  inset: 23% 12% 18%;
+  z-index: 1;
+}
+
+.path-track span {
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(37, 216, 255, 0.7), transparent);
+  box-shadow: 0 0 20px rgba(37, 216, 255, 0.26);
+  transform-origin: center;
+}
+
+.path-track span:nth-child(1) {
+  top: 28%;
+  transform: rotate(-16deg);
+}
+
+.path-track span:nth-child(2) {
+  top: 52%;
+}
+
+.path-track span:nth-child(3) {
+  top: 74%;
+  transform: rotate(16deg);
+}
+
+.path-stage {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  gap: 4px;
+  min-width: clamp(128px, 13vw, 170px);
+  padding: 16px 18px;
+  border: 1px solid rgba(155, 214, 244, 0.26);
+  border-radius: 8px;
+  color: #fff;
+  background:
+    linear-gradient(135deg, rgba(7, 25, 38, 0.92), rgba(15, 77, 108, 0.48));
+  box-shadow:
+    inset 0 0 24px rgba(24, 216, 255, 0.06),
+    0 16px 36px rgba(0, 0, 0, 0.24);
+  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 50%, calc(100% - 18px) 100%, 0 100%, 18px 50%);
+  text-align: center;
+  text-transform: uppercase;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.path-stage span {
+  color: #77bdff;
+  font-size: 0.84rem;
+  font-weight: 950;
+}
+
+.path-stage strong {
+  font-size: clamp(0.78rem, 1vw, 0.95rem);
+  line-height: 1;
+}
+
+.path-stage:hover,
+.path-stage:focus-visible {
+  transform: translateY(-7px);
+  border-color: rgba(37, 216, 255, 0.9);
+  background:
+    linear-gradient(135deg, rgba(37, 216, 255, 0.24), rgba(119, 189, 255, 0.14));
+  box-shadow:
+    inset 0 0 28px rgba(255, 255, 255, 0.08),
+    0 22px 46px rgba(0, 0, 0, 0.28),
+    0 0 42px rgba(24, 216, 255, 0.24);
+  outline: none;
+}
+
+.path-stage-1 {
+  top: 30%;
+  left: 7%;
+}
+
+.path-stage-2 {
+  top: 42%;
+  right: 7%;
+}
+
+.path-stage-3 {
+  bottom: 24%;
+  left: 12%;
+}
+
+.path-stage-4 {
+  bottom: 10%;
+  right: 12%;
+}
+
+@keyframes path-scan {
+  0%,
+  100% {
+    opacity: 0.46;
+    background-position: -160px 0, 0 0;
+  }
+
+  50% {
+    opacity: 0.9;
+    background-position: 180px 0, 0 0;
+  }
 }
 
 .peptide-how-timeline {
   position: relative;
   z-index: 1;
   display: grid;
-  gap: clamp(24px, 3vw, 38px);
+  gap: clamp(12px, 1.6vw, 20px);
   padding: clamp(8px, 1.8vw, 22px) 0;
 }
 
 .peptide-how-timeline::before {
-  content: "";
-  position: absolute;
-  top: 46px;
-  bottom: 46px;
-  left: 35px;
-  width: 2px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(119, 189, 255, 0.88));
+  content: none;
 }
 
 .peptide-how-timeline article {
   position: relative;
   display: grid;
-  grid-template-columns: 72px minmax(0, 1fr);
-  gap: clamp(22px, 2.8vw, 34px);
-  align-items: start;
+  grid-template-columns: 68px minmax(0, 1fr);
+  gap: clamp(18px, 2.2vw, 28px);
+  align-items: center;
+  min-height: 128px;
+  padding: clamp(16px, 1.8vw, 24px);
+  border: 1px solid rgba(119, 189, 255, 0.16);
   border-radius: 8px;
+  background:
+    radial-gradient(circle at 8% 28%, rgba(24, 216, 255, 0.12), transparent 28%),
+    rgba(5, 20, 31, 0.48);
+  box-shadow: inset 0 0 28px rgba(24, 216, 255, 0.04);
   outline: none;
-  transition: transform 180ms ease, background-color 180ms ease;
+  overflow: hidden;
+  transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
 }
 
 .peptide-step-icon {
   position: relative;
   z-index: 1;
   display: inline-grid;
-  width: 72px;
-  height: 72px;
+  width: 68px;
+  height: 68px;
   place-items: center;
-  border: 2px solid rgba(255, 255, 255, 0.9);
-  border-radius: 8px;
+  border: 1px solid rgba(187, 226, 255, 0.46);
+  border-radius: 999px;
   color: #77bdff;
-  background: rgba(5, 13, 21, 0.92);
+  background: rgba(5, 13, 21, 0.72);
   font-size: 1.12rem;
   font-weight: 950;
   box-shadow: 0 0 22px rgba(24, 216, 255, 0.18);
@@ -2334,7 +2724,14 @@ select option {
 
 .peptide-how-timeline article:hover,
 .peptide-how-timeline article:focus-visible {
-  transform: translateX(6px);
+  transform: translateY(-4px);
+  border-color: rgba(119, 189, 255, 0.42);
+  background:
+    radial-gradient(circle at 8% 28%, rgba(24, 216, 255, 0.22), transparent 30%),
+    rgba(10, 48, 72, 0.62);
+  box-shadow:
+    inset 0 0 32px rgba(24, 216, 255, 0.08),
+    0 18px 38px rgba(0, 0, 0, 0.22);
 }
 
 .peptide-how-timeline article:hover .peptide-step-icon,
@@ -2822,6 +3219,27 @@ select option {
     min-height: 300px;
   }
 
+  .peptide-plan-image {
+    padding: 20px;
+  }
+
+  .peptide-plan-bubble-field {
+    min-height: 360px;
+  }
+
+  .plan-bubble {
+    width: clamp(94px, 28vw, 132px);
+    font-size: 0.72rem;
+  }
+
+  .plan-bubble-primary {
+    width: clamp(128px, 36vw, 168px);
+  }
+
+  .peptide-plan-list {
+    grid-template-columns: 1fr;
+  }
+
   .peptide-how-panel {
     gap: 32px;
     padding: 18px;
@@ -2834,6 +3252,8 @@ select option {
   .peptide-how-timeline article {
     grid-template-columns: 58px minmax(0, 1fr);
     gap: 18px;
+    min-height: auto;
+    padding: 16px;
   }
 
   .peptide-step-icon {
@@ -2843,9 +3263,36 @@ select option {
   }
 
   .peptide-how-timeline::before {
-    top: 38px;
-    bottom: 38px;
-    left: 28px;
+    content: none;
+  }
+
+  .path-console {
+    top: 22px;
+    left: 22px;
+  }
+
+  .path-console strong {
+    font-size: clamp(1.25rem, 7vw, 1.8rem);
+  }
+
+  .path-track {
+    inset: 28% 8% 16%;
+  }
+
+  .path-stage {
+    min-width: 112px;
+    padding: 12px 14px;
+    font-size: 0.8rem;
+  }
+
+  .path-stage-1,
+  .path-stage-3 {
+    left: 5%;
+  }
+
+  .path-stage-2,
+  .path-stage-4 {
+    right: 5%;
   }
 
   .goal-tile-grid .button.secondary {

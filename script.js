@@ -84,6 +84,23 @@ document.querySelectorAll(".hero-media-stack").forEach((stack) => {
   });
 });
 
+document.querySelectorAll(".peptide-plan-image").forEach((panel) => {
+  const setGlowPosition = (event) => {
+    const rect = panel.getBoundingClientRect();
+    const x = ((event.clientX - rect.left) / rect.width) * 100;
+    const y = ((event.clientY - rect.top) / rect.height) * 100;
+
+    panel.style.setProperty("--bubble-x", `${x.toFixed(1)}%`);
+    panel.style.setProperty("--bubble-y", `${y.toFixed(1)}%`);
+  };
+
+  panel.addEventListener("pointermove", setGlowPosition);
+  panel.addEventListener("pointerleave", () => {
+    panel.style.setProperty("--bubble-x", "50%");
+    panel.style.setProperty("--bubble-y", "46%");
+  });
+});
+
 document.querySelectorAll(".cellular-motion-canvas").forEach((canvas) => {
   const context = canvas.getContext("2d");
   const cells = [];
