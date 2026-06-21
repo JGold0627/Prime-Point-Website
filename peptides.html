@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=prime-console-how-r10" />
+    <link rel="stylesheet" href="styles.css?v=glp-page-r1" />
   </head>
   <body class="peptides-page">
     <header class="site-header" aria-label="Primary navigation">
@@ -27,28 +27,27 @@
         <nav class="nav-links" aria-label="Main navigation">
           <a href="peptides.html" aria-current="page">Peptides</a>
           <div class="nav-dropdown treatment-dropdown">
-            <a class="nav-dropdown-trigger" href="peptides.html#glp-1s" aria-haspopup="true" aria-expanded="false">GLP-1's</a>
+            <a class="nav-dropdown-trigger" href="glp-1s.html" aria-haspopup="true" aria-expanded="false">GLP-1s</a>
             <div class="nav-dropdown-menu treatment-menu" aria-label="GLP-1 treatments submenu">
               <span class="treatment-menu-label">Injectable</span>
-              <a href="peptides.html#glp-1s">Semaglutide</a>
-              <a href="peptides.html#glp-1s">Tirzepatide</a>
+              <a href="glp-1s.html#semaglutide">Semaglutide</a>
+              <a href="glp-1s.html#tirzepatide">Tirzepatide</a>
             </div>
           </div>
-          <a href="blood-work.html">Blood Work</a>
-          <a href="supplements.html">Supplement Planning</a>
+          <a href="index.html#consult">Blood Work</a>
+          <a href="index.html#consult">Supplement Planning</a>
           <div class="nav-dropdown">
-            <a class="nav-dropdown-trigger" href="about.html" aria-haspopup="true" aria-expanded="false">About</a>
+            <a class="nav-dropdown-trigger" href="index.html#programs" aria-haspopup="true" aria-expanded="false">About</a>
             <div class="nav-dropdown-menu about-menu" aria-label="About submenu">
-              <a href="about.html">About Prime Point</a>
-              <a href="index.html#reviews">Reviews</a>
-              <a href="faq.html">FAQ</a>
-              <a href="live-chat.html">Live Chat</a>
+              <a href="index.html#programs">About Prime Point</a>
+              <a href="index.html#faq">FAQ</a>
+              <a href="index.html#consult">Contact</a>
             </div>
           </div>
         </nav>
         <div class="nav-actions" aria-label="Account actions">
-          <a class="header-action header-login" href="login.html">Log In</a>
-          <a class="header-action header-start" href="consult.html">Get Started</a>
+          <a class="header-action header-login" href="index.html#faq">FAQ</a>
+          <a class="header-action header-start" href="index.html#consult">Get Started</a>
         </div>
       </div>
     </header>
@@ -63,9 +62,9 @@
         <div class="page-hero-content">
           <h1 id="page-title">Clinician guided Peptide therapy</h1>
           <p class="hero-trust-line">
-            Pharmacy Grade
+            Licensed-provider review
             <span aria-hidden="true">✦</span>
-            Quality-focused review
+            Options only when appropriate
             <span aria-hidden="true">✦</span>
             Professional guidance
           </p>
@@ -75,7 +74,7 @@
             stronger, more confident version of yourself.
           </p>
           <div class="hero-actions">
-            <a class="button primary button-arrow hero-cta-title" href="index.html#consult">Book my peptide consultation</a>
+            <a class="button primary button-arrow hero-cta-title" href="index.html#consult">Request peptide consult</a>
           </div>
         </div>
       </section>
@@ -108,10 +107,10 @@
               options only when clinically appropriate.
             </p>
             <div class="peptide-plan-list" aria-label="How the consultation helps">
-              <span>Stay focused on what is relevant to your body</span>
-              <span>Avoid unnecessary guesswork</span>
-              <span>Leave with a clear, structured plan</span>
-              <span>Keep recommendations medically appropriate</span>
+              <span>Relevant to your body</span>
+              <span>Less guesswork</span>
+              <span>Clear structured plan</span>
+              <span>Medically appropriate</span>
             </div>
           </div>
         </div>
@@ -184,53 +183,101 @@
           </div>
         </div>
         <div class="peptide-how-actions">
-          <a class="button primary button-arrow" href="consult.html">Book consult</a>
+          <a class="button primary button-arrow" href="index.html#consult">Book consult</a>
         </div>
       </section>
 
-      <section class="prime-page-section prime-faq-section peptide-page-panel" aria-labelledby="peptide-faq-title">
-        <div class="section-copy">
-          <h2 id="peptide-faq-title">Practical answers before you request a consult.</h2>
+      <section class="prime-page-section prime-faq-section peptide-page-panel peptide-confidence-section" aria-labelledby="peptide-faq-title">
+        <div class="section-copy peptide-confidence-copy">
+          <h2 id="peptide-faq-title">Feel ready before you book.</h2>
+          <p>
+            Tap into the essentials that make your consult more useful: what
+            gets reviewed, what questions matter, and what can happen next.
+          </p>
         </div>
-        <div class="faq-section">
-          <details open>
-            <summary>Are peptides prescribed automatically after a consult?</summary>
+        <div class="peptide-confidence-grid peptide-confidence-deck" aria-label="Helpful information before booking">
+          <details>
+            <summary>
+              <span>Prescriptions</span>
+              <strong>Are peptides prescribed automatically?</strong>
+            </summary>
             <p>
-              No. A provider must review your health history, medications,
+              No. Your provider reviews your health history, medications,
               goals, risks, and eligibility before any prescription is
               considered.
             </p>
           </details>
           <details>
-            <summary>What information should I be ready to share?</summary>
+            <summary>
+              <span>Appropriateness</span>
+              <strong>How does a provider decide?</strong>
+            </summary>
             <p>
-              Be ready to discuss your goals, medical history, current
-              medications, allergies, routines, prior experiences, questions,
-              and any recent labs or relevant health data.
+              The decision is based on your goals, medical history,
+              medications, risks, contraindications, available labs, and
+              clinical judgment.
             </p>
           </details>
           <details>
-            <summary>Will I need lab work?</summary>
+            <summary>
+              <span>Your Info</span>
+              <strong>What may be reviewed?</strong>
+            </summary>
             <p>
-              It depends. Existing labs may be reviewed if available, and your
-              provider may recommend additional labs when they would help guide
-              a safer care decision.
+              Goals, health history, medications, allergies, lifestyle, prior
+              labs, contraindications, and your questions may all be part of
+              the review.
             </p>
           </details>
           <details>
-            <summary>What risks or limitations should be discussed?</summary>
+            <summary>
+              <span>Labs</span>
+              <strong>Will labs be required?</strong>
+            </summary>
             <p>
-              Your provider should discuss why a peptide topic may or may not
-              fit your situation, possible side effects, medication conflicts,
-              follow-up needs, and realistic expectations.
+              It depends. Existing labs may be reviewed, and additional labs
+              may be recommended when they would support a safer care decision.
             </p>
           </details>
           <details>
-            <summary>What happens if peptide therapy is not a fit?</summary>
+            <summary>
+              <span>Beyond Rx</span>
+              <strong>What can a consult include?</strong>
+            </summary>
             <p>
-              Your provider can still help clarify other next steps, such as
-              lifestyle priorities, labs, follow-up, or a different care path
-              that better matches your health profile.
+              A consult may include education, lifestyle guidance, monitoring
+              priorities, follow-up needs, or prescription options only when
+              clinically appropriate.
+            </p>
+          </details>
+          <details>
+            <summary>
+              <span>Risks</span>
+              <strong>What limitations should be discussed?</strong>
+            </summary>
+            <p>
+              The conversation should cover fit, possible side effects,
+              medication conflicts, follow-up needs, and realistic expectations.
+            </p>
+          </details>
+          <details>
+            <summary>
+              <span>Eligibility</span>
+              <strong>Who may not be a candidate?</strong>
+            </summary>
+            <p>
+              Some people may not be a fit based on medical history, current
+              medications, contraindications, risks, or provider judgment.
+            </p>
+          </details>
+          <details>
+            <summary>
+              <span>Next Steps</span>
+              <strong>What happens after review?</strong>
+            </summary>
+            <p>
+              Your provider can discuss reasonable next steps, which may include
+              education, labs, follow-up, monitoring, or a different care path.
             </p>
           </details>
         </div>
@@ -254,6 +301,6 @@
       </div>
     </footer>
 
-    <script src="script.js?v=prime-console-how-r10"></script>
+    <script src="script.js?v=glp-page-r1"></script>
   </body>
 </html>
