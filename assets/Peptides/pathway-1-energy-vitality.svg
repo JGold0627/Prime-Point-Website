@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="ppGold" x1="128" y1="64" x2="384" y2="448" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F6D978"/>
+      <stop offset="0.35" stop-color="#D8B24A"/>
+      <stop offset="0.7" stop-color="#A77B22"/>
+      <stop offset="1" stop-color="#F0C85A"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <path d="M286 54L126 282H246L214 458L386 218H266L286 54Z" stroke="url(#ppGold)" stroke-width="18" stroke-linejoin="round" stroke-linecap="round" filter="url(#softShadow)"/>
+</svg>

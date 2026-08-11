@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="ppGold" x1="128" y1="64" x2="384" y2="448" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F6D978"/>
+      <stop offset="0.35" stop-color="#D8B24A"/>
+      <stop offset="0.7" stop-color="#A77B22"/>
+      <stop offset="1" stop-color="#F0C85A"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <path d="M386 180C348 108 255 82 184 120C139 144 111 186 104 232" stroke="url(#ppGold)" stroke-width="18" stroke-linecap="round" filter="url(#softShadow)"/>
+  <path d="M372 112V184H444" stroke="url(#ppGold)" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" filter="url(#softShadow)"/>
+  <path d="M126 332C164 404 257 430 328 392C373 368 401 326 408 280" stroke="url(#ppGold)" stroke-width="18" stroke-linecap="round" filter="url(#softShadow)"/>
+  <path d="M140 400V328H68" stroke="url(#ppGold)" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" filter="url(#softShadow)"/>
+</svg>

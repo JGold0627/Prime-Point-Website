@@ -320,3 +320,48 @@ High-value trust signals to consider:
 - PUR-FORM is strongest for page architecture, goal-based navigation, and conversion flow, but it has several claim patterns that should be softened before Prime Point uses similar ideas.
 - Prime Point should aim for a more restrained, credible voice than PUR-FORM while keeping the user journey just as clear.
 - Best strategic angle: "consult-first, lab-informed, provider-guided optimization" with peptide therapy presented as one possible option, not a guaranteed treatment path.
+
+## Supplement Planning Competitor Notes
+
+Access date: June 21, 2026
+
+Research scope:
+- Thorne: https://www.thorne.com/
+- Momentous: https://www.livemomentous.com/
+- AG1: https://drinkag1.com/
+- Levels: https://www.levels.com/
+
+Role note: These notes are research findings only. Do not copy competitor language into Prime Point Wellness content. Claims and quality language should be substantiated before use.
+
+### Thorne
+
+- Strong positioning around supplements tailored to an individual's biology, goals, testing, and guidance.
+- Uses trust architecture heavily: testing, ingredient validation, third-party certifications, clinical experience, and professional guidance.
+- Useful Prime Point pattern: present supplement planning as a high-touch routine review, not a product shelf. Make personalization feel structured through current routine, goals, labs, medications, and follow-up.
+- Risk note: avoid borrowing unverified quality/certification claims such as NSF, TGA, FDA compliance, or four rounds of testing unless Prime Point can substantiate them.
+
+### Momentous
+
+- Organizes products by goal and category, including stacks, sports nutrition, sleep, cognitive function, foundational health, and routine guides.
+- Strong conversion pattern: goal-based cards, expert routines, quality standards, third-party testing, and direct CTAs.
+- Useful Prime Point pattern: add "stacks" as conservative planning categories: foundation, targeted, and situational. Frame them as discussion frameworks rather than promised benefit bundles.
+- Risk note: avoid direct performance, recovery, inflammation, or hormone-result claims unless reviewed and substantiated.
+
+### AG1
+
+- Leads with convenience and consistency: a daily ritual, all-in-one nutrition, ingredient categories, reviews, and simple how-it-works steps.
+- Useful Prime Point pattern: position the page around routine simplicity, overlap checks, and daily adherence rather than piling on more products.
+- Risk note: avoid claims that a plan "fills nutrient gaps," replaces multiple supplements, improves digestion, or produces energy benefits unless supported for Prime Point's actual offering.
+
+### Levels
+
+- Strongest pattern is personalization through feedback: data, personal responses, plan options, and "stop guessing" language.
+- Useful Prime Point pattern: make personalization visible through inputs reviewed, lab context, daily routine constraints, and adjustment triggers.
+- Risk note: avoid implying supplement planning can diagnose metabolic issues or produce guaranteed metabolic changes.
+
+### Implementation Ideas For Supplement Planning Page
+
+- Add a stack architecture: foundation stack, targeted stack, situational stack, and simplify/hold list.
+- Add personalization cards showing what gets reviewed: current products, health history, medications, available labs, diet pattern, training, sleep, travel, and follow-up triggers.
+- Add lifestyle cards that make the plan feel actionable: morning/evening cadence, meal timing, hydration, travel, training load, and review rhythm.
+- Improve CTA with a consult-first message, a compact "what to bring" checklist, and conservative disclaimers.

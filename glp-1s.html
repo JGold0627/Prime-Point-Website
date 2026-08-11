@@ -1,368 +1,630 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-    <title>GLP-1 Consults | Prime Point Health</title>
+    <title>GLP-1's | Prime Point Health</title>
     <meta
       name="description"
-      content="Learn about Prime Point Health provider-led GLP-1 consultations, including semaglutide and tirzepatide discussion topics, clinical review, and next steps."
+      content="Prime Point Health GLP-1 programs."
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=glp-treatment-premium-r13" />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/glp.css" />
   </head>
-  <body class="glp-page">
+  <body>
     <header class="site-header" aria-label="Primary navigation">
       <div class="nav-shell">
         <a class="brand" href="index.html" aria-label="Prime Point Health home">
-          <img class="brand-logo" src="Prime Point Health Logo/ChatGPT Image Jun 1, 2026, 10_20_04 AM.png" alt="" />
-          <span>Prime Point Health</span>
+          <img
+            class="brand-logo-reference"
+            src="assets/brand/Logo V1.png"
+            alt="Prime Point Health"
+          />
         </a>
+
         <nav class="nav-links" aria-label="Main navigation">
-          <a href="peptides.html">Peptides</a>
-          <div class="nav-dropdown treatment-dropdown">
-            <a class="nav-dropdown-trigger" href="glp-1s.html" aria-haspopup="true" aria-expanded="false" aria-current="page">GLP-1s</a>
-            <div class="nav-dropdown-menu treatment-menu" aria-label="GLP-1 treatments submenu">
-              <span class="treatment-menu-label">Injectable</span>
-              <a href="glp-1s.html#semaglutide">Semaglutide</a>
-              <a href="glp-1s.html#tirzepatide">Tirzepatide</a>
+          <a class="nav-link" href="peptides.html">Peptides</a>
+          <div class="glp-nav-dropdown">
+            <a class="nav-link nav-link-active glp-nav-link" href="glp-1s.html" aria-current="page">GLP-1's</a>
+            <button
+              class="glp-nav-trigger"
+              type="button"
+              aria-label="Show GLP-1 medications"
+              aria-haspopup="true"
+              aria-expanded="false"
+              aria-controls="glp-nav-menu"
+            >
+              <span class="glp-nav-chevron" aria-hidden="true"></span>
+            </button>
+            <div
+              class="glp-nav-menu"
+              id="glp-nav-menu"
+              aria-hidden="true"
+            >
+              <div class="glp-nav-menu-group">
+                <span class="glp-nav-menu-label">Injectable</span>
+                <a href="semaglutide.html">Semaglutide</a>
+                <a href="tirzepatide.html">Tirzepatide</a>
+              </div>
+              <div class="glp-nav-menu-group">
+                <span class="glp-nav-menu-label">Oral</span>
+                <a href="semaglutide-tablets.html">Semaglutide Tablets</a>
+              </div>
             </div>
           </div>
-          <a href="index.html#consult">Blood Work</a>
-          <a href="index.html#consult">Supplement Planning</a>
-          <div class="nav-dropdown">
-            <a class="nav-dropdown-trigger" href="index.html#programs" aria-haspopup="true" aria-expanded="false">About</a>
-            <div class="nav-dropdown-menu about-menu" aria-label="About submenu">
-              <a href="index.html#programs">About Prime Point</a>
-              <a href="index.html#faq">FAQ</a>
-              <a href="index.html#consult">Contact</a>
+          <a class="nav-link" href="blood-work.html">Blood Work</a>
+          <div class="glp-nav-dropdown about-nav-dropdown">
+            <a class="nav-link glp-nav-link" href="about.html">About Us</a>
+            <button
+              class="glp-nav-trigger"
+              type="button"
+              aria-label="Show About Us links"
+              aria-haspopup="true"
+              aria-expanded="false"
+              aria-controls="about-nav-menu"
+            >
+              <span class="glp-nav-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="glp-nav-menu" id="about-nav-menu" aria-hidden="true">
+              <div class="glp-nav-menu-group">
+                <a href="contact.html">Contact Us</a>
+              </div>
             </div>
           </div>
         </nav>
+
         <div class="nav-actions" aria-label="Account actions">
-          <a class="header-action header-login" href="index.html#faq">FAQ</a>
-          <a class="header-action header-start" href="index.html#consult">Get Started</a>
+          <a class="header-action header-login" href="#login">Log In</a>
+          <a class="header-action header-start" href="#get-started">Get Started</a>
         </div>
       </div>
     </header>
 
     <main>
-      <section class="page-hero glp-hero" aria-labelledby="page-title">
-        <div class="page-hero-overlay"></div>
-        <div class="glp-cover-shell">
-          <div class="page-hero-content glp-hero-content">
-            <h1 id="page-title">
-              <span>Weight management is</span>
-              <span>not just willpower.</span>
-              <em>It deserves clinical review.</em>
-            </h1>
-            <p>
-              Start with a personalized GLP-1 review guided by your goals,
-              health history, medications, labs, and questions. If appropriate,
-              your provider can discuss medication topics such as semaglutide
-              and tirzepatide, along with risks, limitations, and next steps.
-            </p>
-            <div class="glp-hero-checks" aria-label="GLP-1 consultation highlights">
-              <span>Private intake</span>
-              <span>Licensed-provider review</span>
-              <span>Options only when appropriate</span>
+      <section class="glp-hero" aria-label="GLP-1 first section">
+        <div class="glp-hero-copy">
+          <p class="glp-hero-kicker">MEDICAL WEIGHT LOSS. REAL RESULTS.</p>
+          <h1 class="glp-hero-title">
+            <span class="glp-hero-title-cream">GLP-1 Therapy</span>
+            <span>Lose Weight.</span>
+            <span>Feel Better. Live More.</span>
+          </h1>
+
+          <div class="glp-hero-benefits" aria-label="GLP-1 program highlights">
+            <div class="glp-hero-benefit">
+              <span>Physician<br />Guided Care</span>
             </div>
-            <div class="hero-actions">
-              <a class="button primary button-arrow" href="index.html#consult">Start your review</a>
-              <a class="button secondary" href="#glp-options">Compare GLP-1 options</a>
+
+            <div class="glp-hero-benefit">
+              <span>Personalized<br />Treatment</span>
+            </div>
+
+            <div class="glp-hero-benefit">
+              <span>Proven<br />Results</span>
+            </div>
+
+            <div class="glp-hero-benefit">
+              <span>Ongoing<br />Support</span>
             </div>
           </div>
-          <div class="glp-photo-showcase" aria-label="GLP-1 consultation lifestyle slideshow">
-            <div class="glp-photo-lane glp-photo-lane-up" aria-hidden="true">
-              <div class="glp-photo-strip">
-                <figure><img src="https://source.unsplash.com/900x1100/?plus-size,women,activewear,smiling&sig=11" alt="" /></figure>
-                <figure><img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=900&q=82" alt="" /></figure>
-                <figure><img src="https://source.unsplash.com/900x1100/?body-positive,fitness,women,smiling&sig=12" alt="" /></figure>
-                <figure><img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&fit=crop&w=900&q=82" alt="" /></figure>
-                <figure><img src="https://source.unsplash.com/900x1100/?plus-size,women,activewear,smiling&sig=11" alt="" /></figure>
-                <figure><img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=900&q=82" alt="" /></figure>
-                <figure><img src="https://source.unsplash.com/900x1100/?body-positive,fitness,women,smiling&sig=12" alt="" /></figure>
-                <figure><img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&fit=crop&w=900&q=82" alt="" /></figure>
+        </div>
+
+        <div class="glp-metrics-panel" aria-label="GLP-1 program metrics">
+          <div class="glp-metrics-list">
+            <div class="glp-metric">
+              <span class="glp-metric-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" focusable="false">
+                  <path d="M14 18h20"></path>
+                  <path d="M24 18v18"></path>
+                  <path d="M17 18l-6 10h12z"></path>
+                  <path d="M31 18l-6 10h12z"></path>
+                  <path d="M18 36h12"></path>
+                  <path d="M21 40h6"></path>
+                </svg>
+              </span>
+              <div class="glp-metric-copy">
+                <strong>15&ndash;20%</strong>
+                <span>Average weight loss in 16 weeks</span>
               </div>
             </div>
-            <div class="glp-photo-lane glp-photo-lane-down" aria-hidden="true">
-              <div class="glp-photo-strip">
-                <figure><img src="https://images.unsplash.com/photo-1534258936925-c58bed479fcb?auto=format&fit=crop&w=900&q=82" alt="" /></figure>
-                <figure><img src="https://source.unsplash.com/900x1100/?curvy,woman,wellness,happy&sig=21" alt="" /></figure>
-                <figure><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=900&q=82" alt="" /></figure>
-                <figure><img src="https://source.unsplash.com/900x1100/?inclusive,fitness,group,smiling&sig=22" alt="" /></figure>
-                <figure><img src="https://images.unsplash.com/photo-1534258936925-c58bed479fcb?auto=format&fit=crop&w=900&q=82" alt="" /></figure>
-                <figure><img src="https://source.unsplash.com/900x1100/?curvy,woman,wellness,happy&sig=21" alt="" /></figure>
-                <figure><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=900&q=82" alt="" /></figure>
-                <figure><img src="https://source.unsplash.com/900x1100/?inclusive,fitness,group,smiling&sig=22" alt="" /></figure>
+
+            <div class="glp-metric">
+              <span class="glp-metric-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" focusable="false">
+                  <path d="M27 5 13 27h11l-3 16 14-23H24z"></path>
+                </svg>
+              </span>
+              <div class="glp-metric-copy">
+                <strong>87%</strong>
+                <span>Improved energy &amp; daily wellness</span>
               </div>
             </div>
+
+            <div class="glp-metric">
+              <span class="glp-metric-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" focusable="false">
+                  <path d="m24 7 5.2 10.5 11.6 1.7-8.4 8.2 2 11.6L24 33.5 13.6 39l2-11.6-8.4-8.2 11.6-1.7z"></path>
+                </svg>
+              </span>
+              <div class="glp-metric-copy">
+                <strong>96%</strong>
+                <span>Patient satisfaction with results</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="glp-results-chart">
+            <h2>Real Progress. Real Results.</h2>
+            <svg viewBox="0 0 520 210" role="img" aria-labelledby="glp-chart-title glp-chart-desc">
+              <title id="glp-chart-title">GLP-1 progress chart</title>
+              <desc id="glp-chart-desc">A downward gold trend line over twenty weeks.</desc>
+              <g class="glp-chart-grid">
+                <path d="M50 20H500"></path>
+                <path d="M50 62H500"></path>
+                <path d="M50 104H500"></path>
+                <path d="M50 146H500"></path>
+                <path d="M50 188H500"></path>
+              </g>
+              <g class="glp-chart-axis">
+                <path d="M50 20V188H500"></path>
+              </g>
+              <g class="glp-chart-labels">
+                <text x="16" y="25">100</text>
+                <text x="24" y="67">75</text>
+                <text x="24" y="109">50</text>
+                <text x="24" y="151">25</text>
+                <text x="32" y="193">0</text>
+                <text x="50" y="208">0</text>
+                <text x="168" y="208">4</text>
+                <text x="278" y="208">8</text>
+                <text x="383" y="208">12</text>
+                <text x="493" y="208">20</text>
+                <text class="glp-chart-weeks" x="270" y="208">Weeks</text>
+              </g>
+              <path
+                class="glp-chart-line"
+                d="M50 24 98 32 137 52 171 60 220 64 256 82 305 92 343 112 382 114 421 134 458 140 500 152"
+              ></path>
+            </svg>
           </div>
         </div>
       </section>
 
-      <section class="prime-page-section glp-review-section glp-product-section glp-treatment-editable" id="glp-review" aria-labelledby="review-title">
-        <div class="glp-treatment-shell">
-          <div class="section-copy glp-treatment-heading">
-            <h2 id="review-title">
-              Choose Your
-              <span>Treatment</span>
-              Option
-            </h2>
-            <p>
-              Provider-guided review. Clear next steps. You stay in control.
-              Select the treatment topic that aligns with your goals.
-            </p>
+      <section class="glp-products-section" aria-label="GLP-1 product offering structure">
+        <div class="glp-products-shell">
+          <div class="glp-products-heading">
+            <span></span>
+            <h2>CONVENIENT &amp; ACCESSIBLE GLP-1 MEDICATIONS</h2>
+            <span></span>
           </div>
-
-          <div class="glp-treatment-card-grid" aria-label="Prime Point GLP-1 treatment options">
-            <article class="glp-treatment-card glp-treatment-card-green" id="semaglutide">
-              <figure class="glp-treatment-product">
-                <img src="assets/GLP-1%20Prime%20Point%20Rev%202.png" alt="Prime Point GLP-1 medication vial" />
-              </figure>
-              <div class="glp-treatment-content">
+          <div class="glp-products-grid" aria-label="GLP-1 medication options">
+            <article class="glp-product-card" id="semaglutide">
+              <div class="glp-product-card-content">
+                <p class="glp-product-label">SIGNATURE TREATMENT</p>
                 <h3>Semaglutide</h3>
-                <p class="glp-treatment-type">GLP-1</p>
-                <ul>
-                  <li>Review appetite and metabolic-health goals</li>
-                  <li>Discuss fit after health-history intake</li>
-                  <li>Talk through risks, labs, and next steps</li>
-                  <li>Once-weekly medication topic when appropriate</li>
-                </ul>
-                <a class="button primary button-arrow" href="index.html#consult">Request review</a>
+                <p class="glp-product-description">Weekly GLP-1 medication with a personalized formulation.</p>
               </div>
+              <div class="glp-product-image-space">
+                <img
+                  class="glp-product-image"
+                  src="assets/glp-page-pieces/Semaglutide Bottle.png"
+                  alt="Semaglutide injection bottle"
+                />
+              </div>
+              <a class="glp-product-start" href="#get-started" aria-label="Start Semaglutide treatment">
+                <span>START NOW</span>
+                <span class="glp-product-start-icon" aria-hidden="true">&rarr;</span>
+              </a>
             </article>
-
-            <article class="glp-treatment-card glp-treatment-card-gold" id="tirzepatide">
-              <figure class="glp-treatment-product">
-                <img src="assets/GLP-1%20Prime%20Point%20Rev%201.png" alt="Prime Point GLP-1 medication vial" />
-              </figure>
-              <div class="glp-treatment-content">
+            <article class="glp-product-card" id="semaglutide-tablets">
+              <div class="glp-product-card-content">
+                <p class="glp-product-label">ORAL TREATMENT</p>
+                <h3>Semaglutide Tablets</h3>
+                <p class="glp-product-description">Daily GLP-1 weight loss medication in a tablet designed to dissolve under your tongue.</p>
+              </div>
+              <div class="glp-product-image-space">
+                <img
+                  class="glp-product-image glp-product-image-pills"
+                  src="assets/glp-page-pieces/Semaglutide Pills.png"
+                  alt="Semaglutide tablets bottle"
+                />
+              </div>
+              <a class="glp-product-start" href="semaglutide-tablets.html" aria-label="Learn about Semaglutide Tablets">
+                <span>START NOW</span>
+                <span class="glp-product-start-icon" aria-hidden="true">&rarr;</span>
+              </a>
+            </article>
+            <article class="glp-product-card" id="tirzepatide">
+              <div class="glp-product-card-content">
+                <p class="glp-product-label">PREMIUM TREATMENT</p>
                 <h3>Tirzepatide</h3>
-                <p class="glp-treatment-type">GLP-1 + GIP</p>
-                <ul>
-                  <li>Discuss dual-pathway medication topics</li>
-                  <li>Review appetite support and treatment fit</li>
-                  <li>Consider labs, contraindications, and safety</li>
-                  <li>Once-weekly medication topic when appropriate</li>
-                </ul>
-                <a class="button primary button-arrow" href="index.html#consult">Request review</a>
+                <p class="glp-product-description">Weekly GLP-1 medication with a personalized formulation that helps you lose weight through deeper, more comprehensive appetite control.</p>
+              </div>
+              <div class="glp-product-image-space">
+                <img
+                  class="glp-product-image"
+                  src="assets/glp-page-pieces/Tirzepatide Bottle.png"
+                  alt="Tirzepatide injection bottle"
+                />
+              </div>
+              <a class="glp-product-start" href="tirzepatide.html" aria-label="Learn more about Tirzepatide">
+                <span>START NOW</span>
+                <span class="glp-product-start-icon" aria-hidden="true">&rarr;</span>
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="glp-steps-section" aria-label="Getting started section">
+        <div class="glp-steps-shell">
+          <div class="glp-steps-heading">
+            <div>
+              <h2>GETTING STARTED IS SIMPLE</h2>
+              <p>Three simple steps to weight loss care</p>
+            </div>
+          </div>
+
+          <div class="glp-steps-grid">
+            <article class="glp-step-card">
+              <div class="glp-step-copy">
+                <span class="glp-step-number">1</span>
+                <h3>Free assessment</h3>
+                <p>Complete a quick online assessment to help us understand your goals and health history.</p>
+              </div>
+              <img
+                class="glp-step-image glp-step-image-one"
+                src="assets/glp-page-pieces/Getting Started Card 1.png"
+                alt=""
+              />
+            </article>
+            <article class="glp-step-card">
+              <div class="glp-step-copy">
+                <span class="glp-step-number">2</span>
+                <h3>Choose your treatment option</h3>
+                <p>Select the GLP-1 medication that is right for you. A U.S. licensed provider reviews and confirms your prescription.</p>
+              </div>
+              <img
+                class="glp-step-image glp-step-image-two"
+                src="assets/glp-page-pieces/Getting Started Card 2.png"
+                alt=""
+              />
+            </article>
+            <article class="glp-step-card">
+              <div class="glp-step-copy">
+                <span class="glp-step-number">3</span>
+                <h3>Move forward with confidence</h3>
+                <p>Medications are shipped discreetly to your door and your care team is here to support you every step of the way.</p>
+              </div>
+              <img
+                class="glp-step-image glp-step-image-three"
+                src="assets/glp-page-pieces/Getting Started Card 3.png"
+                alt=""
+              />
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="get-started" class="glp-blank-cream-section" aria-labelledby="glp-options-title">
+        <div class="glp-products-shell glp-blank-products-shell">
+          <div class="glp-options-layout">
+            <div class="glp-options-copy">
+              <h2 id="glp-options-title">
+                <span>Weight Loss Options</span>
+                <span>For <em>Every Body</em></span>
+              </h2>
+              <p>Personalized tablets and injectable plans guided by licensed doctors, designed to put choice and confidence back in your hands.</p>
+              <a class="glp-options-start" href="#get-started">
+                <span>START NOW</span>
+                <span class="glp-options-start-icon" aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+
+            <div class="glp-options-visual" aria-label="Available GLP-1 medication formats">
+              <img
+                class="glp-options-image glp-options-image-semaglutide"
+                src="assets/glp-page-pieces/Semaglutide Bottle.png"
+                alt="Semaglutide injection bottle"
+              />
+              <img
+                class="glp-options-image glp-options-image-pills"
+                src="assets/glp-page-pieces/Semaglutide Pills.png"
+                alt="Semaglutide tablets bottle"
+              />
+              <img
+                class="glp-options-image glp-options-image-tirzepatide"
+                src="assets/glp-page-pieces/Tirzepatide Bottle.png"
+                alt="Tirzepatide injection bottle"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="glp-faq" aria-labelledby="glp-faq-title">
+        <div class="glp-faq-inner">
+          <div class="glp-faq-heading">
+            <h2 id="glp-faq-title">FREQUENTLY ASKED QUESTIONS</h2>
+          </div>
+
+          <div class="glp-faq-list">
+            <article class="glp-faq-item">
+              <h3>
+                <button
+                  class="glp-faq-question"
+                  type="button"
+                  id="glp-faq-question-1"
+                  aria-expanded="false"
+                  aria-controls="glp-faq-answer-1"
+                >
+                  <span>What is Prime Point, and how does it work?</span>
+                  <span class="glp-faq-icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div
+                class="glp-faq-panel"
+                id="glp-faq-answer-1"
+                role="region"
+                aria-labelledby="glp-faq-question-1"
+                aria-hidden="true"
+              >
+                <div class="glp-faq-answer">
+                  <p>
+                    Prime Point is a 100% online, medically supervised weight loss program that prescribes GLP-1 medication personalized to your body and goals. After a quick online assessment, a licensed U.S. doctor reviews your health history, creates a treatment plan, and prescribes medication, with ongoing care and support throughout your journey.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="glp-faq-item">
+              <h3>
+                <button
+                  class="glp-faq-question"
+                  type="button"
+                  id="glp-faq-question-2"
+                  aria-expanded="false"
+                  aria-controls="glp-faq-answer-2"
+                >
+                  <span>Who qualifies for GLP-1 treatment through Prime Point?</span>
+                  <span class="glp-faq-icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div
+                class="glp-faq-panel"
+                id="glp-faq-answer-2"
+                role="region"
+                aria-labelledby="glp-faq-question-2"
+                aria-hidden="true"
+              >
+                <div class="glp-faq-answer">
+                  <p>
+                    A U.S. licensed doctor reviews each patient's health history, weight loss goals, and individual needs to determine whether treatment is appropriate and safe, so you can move forward with confidence.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="glp-faq-item">
+              <h3>
+                <button
+                  class="glp-faq-question"
+                  type="button"
+                  id="glp-faq-question-3"
+                  aria-expanded="false"
+                  aria-controls="glp-faq-answer-3"
+                >
+                  <span>What are my weight loss treatment options through Prime Point?</span>
+                  <span class="glp-faq-icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div
+                class="glp-faq-panel"
+                id="glp-faq-answer-3"
+                role="region"
+                aria-labelledby="glp-faq-question-3"
+                aria-hidden="true"
+              >
+                <div class="glp-faq-answer">
+                  <p>
+                    Prime Point offers GLP-1 medications, including Semaglutide and Tirzepatide, when determined by a doctor to be medically appropriate. Both injectable and oral options are available. Your Prime Point doctor can help determine which treatment is right for you based on your health history and weight loss goals.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="glp-faq-item">
+              <h3>
+                <button
+                  class="glp-faq-question"
+                  type="button"
+                  id="glp-faq-question-4"
+                  aria-expanded="false"
+                  aria-controls="glp-faq-answer-4"
+                >
+                  <span>How much does weight loss treatment cost?</span>
+                  <span class="glp-faq-icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div
+                class="glp-faq-panel"
+                id="glp-faq-answer-4"
+                role="region"
+                aria-labelledby="glp-faq-question-4"
+                aria-hidden="true"
+              >
+                <div class="glp-faq-answer">
+                  <p>
+                    Prime Point treatment plans start at (PRICE TO BE ADDED LATER) per month and include:
+                  </p>
+                  <ul>
+                    <li>Personalized GLP-1 medication</li>
+                    <li>Your medical evaluation and personalized treatment plan</li>
+                    <li>Unlimited access to your Prime Point doctor</li>
+                    <li>24/7 online support from your Prime Point Care Team</li>
+                    <li>Free &amp; discreet shipping</li>
+                  </ul>
+                  <p>
+                    Your doctor will help you choose the plan that best fits your goals and needs. Pricing is transparent, with no hidden fees.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="glp-faq-item">
+              <h3>
+                <button
+                  class="glp-faq-question"
+                  type="button"
+                  id="glp-faq-question-5"
+                  aria-expanded="false"
+                  aria-controls="glp-faq-answer-5"
+                >
+                  <span>Do I need insurance to join Prime Point?</span>
+                  <span class="glp-faq-icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div
+                class="glp-faq-panel"
+                id="glp-faq-answer-5"
+                role="region"
+                aria-labelledby="glp-faq-question-5"
+                aria-hidden="true"
+              >
+                <div class="glp-faq-answer">
+                  <p>
+                    No. Prime Point does not require insurance. Pricing is transparent, with no hidden fees, and includes doctor oversight, GLP-1 treatment, and ongoing support.
+                  </p>
+                </div>
               </div>
             </article>
           </div>
+        </div>
+      </section>
 
-          <div class="glp-treatment-trust" aria-label="Prime Point GLP-1 review trust details">
-            <div>
-              <span class="glp-trust-icon" aria-hidden="true"></span>
-              <strong>Clinician reviewed</strong>
-              <p>Every option starts with a provider review.</p>
-            </div>
-            <div>
-              <span class="glp-trust-icon glp-trust-lock" aria-hidden="true"></span>
-              <strong>Secure & private</strong>
-              <p>Your health information stays protected.</p>
-            </div>
-            <div>
-              <span class="glp-trust-icon glp-trust-truck" aria-hidden="true"></span>
-              <strong>Clear next steps</strong>
-              <p>If appropriate, your provider explains what happens next.</p>
-            </div>
+      <section class="glp-confidence-section" aria-labelledby="glp-confidence-title">
+        <div class="glp-confidence-shell">
+          <div class="glp-confidence-copy">
+            <h2 id="glp-confidence-title">
+              <span>Your new confidence</span>
+              <em>is waiting for you</em>
+            </h2>
+            <a class="glp-confidence-start" href="#get-started">
+              <span>CHECK MY ELIGIBILITY</span>
+              <span class="glp-confidence-start-icon" aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+
+          <div class="glp-confidence-visual" aria-hidden="true">
+            <img
+              class="glp-confidence-image"
+              src="assets/glp-page-pieces/confidence-lifestyle-v2.png"
+              alt=""
+            />
           </div>
         </div>
       </section>
 
-      <section class="prime-page-section glp-readiness-section" id="glp-steps" aria-labelledby="readiness-title">
-        <div class="section-copy glp-readiness-copy">
-          <p class="eyebrow">How the visit flows</p>
-          <h2 id="readiness-title">A simple path from questions to a clinically grounded plan.</h2>
+      <section class="home-final-panel">
+        <div class="glp-legal-divider" aria-hidden="true">
+          <span></span>
+        </div>
+
+        <div class="home-social-follow" aria-label="Follow Prime Point Health on social media">
+          <span class="home-social-label">Follow us on:</span>
+          <div class="home-social-links">
+            <a href="#" aria-label="Follow Prime Point Health on Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="4" y="4" width="16" height="16" rx="5"></rect>
+                <circle cx="12" cy="12" r="3.5"></circle>
+                <circle cx="17" cy="7" r="0.8"></circle>
+              </svg>
+            </a>
+            <a href="#" aria-label="Follow Prime Point Health on Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14.5 8.2h2.2V4.6c-.4-.1-1.7-.2-3.2-.2-3.2 0-5.3 1.9-5.3 5.4v3H4.8v4h3.4v7h4.1v-7h3.3l.5-4h-3.8v-2.6c0-1.1.3-2 2.2-2Z"></path>
+              </svg>
+            </a>
+            <a href="#" aria-label="Follow Prime Point Health on X">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.451-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="home-legal-container">
           <p>
-            The structure is intentionally straightforward: share your context,
-            review fit with a provider, discuss reasonable options, then leave
-            with next steps that match the clinical review.
+            The information provided on the Prime Point Health website and social
+            media channels is for educational and informational purposes only and
+            is not intended to be a substitute for professional medical advice,
+            diagnosis, or treatment. We do not offer medical advice on this
+            website, and any clinical decisions should be made by a licensed
+            healthcare provider who can assess your individual medical needs and
+            provide appropriate treatment. Always seek the advice of a qualified
+            healthcare provider with any questions you may have regarding a medical
+            condition. If you think you may have a medical emergency, call your
+            healthcare provider or emergency services immediately. We are not
+            responsible for any reliance on information provided on this website.
+          </p>
+
+          <p>
+            Please note that some of the treatments or therapies offered by Prime
+            Point Health may not be approved by the US Food and Drug
+            Administration (FDA) and are offered at the discretion of licensed
+            medical professionals. These treatments may be considered experimental
+            or alternative, and their safety and efficacy may not be fully
+            established. While we strive to provide accurate information about
+            these treatments, we make no claims or guarantees regarding their
+            effectiveness or suitability for your individual needs.
+          </p>
+
+          <p>
+            It's important to understand that the results of any treatment may vary
+            from person to person, and there are no guarantees of success or
+            positive outcomes. Before undergoing any treatment or therapy, it's
+            important to consult with a licensed healthcare provider who can assess
+            your individual medical needs and provide appropriate guidance and
+            care.
+          </p>
+
+          <p>
+            By engaging in any treatments or therapies offered herein, you
+            acknowledge and agree that you assume all risks associated with such
+            treatment, and you release and hold harmless Prime Point Health and its
+            staff, agents, and affiliates from any and all claims or damages
+            arising from or related to your use of this website or any treatments
+            or therapies offered herein.
+          </p>
+
+          <p class="home-legal-copyright">
+            &copy; 2026 Prime Point Health all rights reserved.
           </p>
         </div>
-        <div class="glp-readiness-panel glp-step-accordion" aria-label="GLP-1 readiness review">
-          <article class="glp-step-card glp-step-card-wide glp-step-assessment glp-step-image-card" tabindex="0" aria-label="Step 1 personalized health evaluation">
-            <img src="assets/Phone%20Image.png" alt="" />
-          </article>
-          <article class="glp-step-card glp-step-treatment" tabindex="0">
-            <div class="glp-pill-choice" aria-hidden="true">
-              <div class="glp-pill-orbit"></div>
-              <div class="glp-branded-pill">
-                <img src="Prime Point Health Logo/ChatGPT Image Jun 1, 2026, 10_20_04 AM.png" alt="" />
-                <span>Prime Point</span>
-              </div>
-              <div class="glp-treatment-chip chip-one">Semaglutide</div>
-              <div class="glp-treatment-chip chip-two">Tirzepatide</div>
-            </div>
-            <div class="glp-step-copy">
-              <span>02</span>
-              <h3>Choose your treatment option</h3>
-              <p>Review GLP-1 topics with a provider and choose the option you want to discuss after your clinical context is reviewed.</p>
-            </div>
-          </article>
-          <article class="glp-step-card" tabindex="0">
-            <img src="https://images.unsplash.com/photo-1534258936925-c58bed479fcb?auto=format&fit=crop&w=900&q=82" alt="" />
-            <div class="glp-step-copy">
-              <span>03</span>
-              <h3>Move forward</h3>
-              <p>Leave with next steps that may include education, monitoring, follow-up priorities, labs, or prescription discussion.</p>
-            </div>
-          </article>
-        </div>
-      </section>
 
-      <section class="prime-page-section glp-medication-section" id="glp-options" aria-labelledby="medication-title">
-        <div class="section-copy glp-medication-heading">
-          <p class="eyebrow">Medication topics</p>
-          <h2 id="medication-title">Two GLP-1 conversations your provider may help you understand.</h2>
-          <p>
-            Semaglutide and tirzepatide are common GLP-1 topics. Prime Point
-            presents them as discussion areas, not automatic treatment paths.
-            Your provider determines what is appropriate to consider.
-          </p>
-        </div>
-
-        <div class="glp-medication-grid">
-          <article class="glp-medication-card" id="semaglutide-details" tabindex="0">
-            <div class="glp-card-orbit" aria-hidden="true">
-              <span></span>
-              <span></span>
-            </div>
-            <p class="eyebrow">Common first discussion</p>
-            <h3>Semaglutide</h3>
-            <p>
-              Semaglutide is often discussed as a GLP-1 option after your
-              provider reviews your goals, health history, current medications,
-              and risk factors.
-            </p>
-            <div class="glp-card-bubbles" aria-label="Semaglutide review focus">
-              <span>Medical history</span>
-              <span>Medication fit</span>
-              <span>Follow-up needs</span>
-            </div>
-            <ul>
-              <li>Reviewed through a consult-first process</li>
-              <li>Requires individualized safety discussion</li>
-              <li>Not automatically prescribed after booking</li>
-            </ul>
-          <a class="button secondary" href="index.html#consult">Ask about semaglutide</a>
-          </article>
-
-          <article class="glp-medication-card glp-medication-card-alt" id="tirzepatide-details" tabindex="0">
-            <div class="glp-card-orbit" aria-hidden="true">
-              <span></span>
-              <span></span>
-            </div>
-            <p class="eyebrow">Dual-pathway discussion</p>
-            <h3>Tirzepatide</h3>
-            <p>
-              Tirzepatide may be discussed when your provider is reviewing
-              metabolic priorities, medical history, medication fit, and
-              clinical appropriateness.
-            </p>
-            <div class="glp-card-bubbles" aria-label="Tirzepatide review focus">
-              <span>Risk review</span>
-              <span>Lab context</span>
-              <span>Provider judgment</span>
-            </div>
-            <ul>
-              <li>Appropriateness varies by person</li>
-              <li>Labs or follow-up may be recommended</li>
-              <li>Prescription decisions require provider judgment</li>
-            </ul>
-            <a class="button secondary" href="index.html#consult">Ask about tirzepatide</a>
-          </article>
-        </div>
-      </section>
-
-      <section class="prime-page-section glp-path-section" aria-labelledby="path-title">
-        <div class="glp-path-panel">
-          <div class="section-copy">
-            <p class="eyebrow">After the provider review</p>
-            <h2 id="path-title">Your plan can be broader than a prescription.</h2>
-            <p>
-              Your consult may lead to education, lab review, monitoring
-              priorities, follow-up planning, a prescription discussion when
-              clinically appropriate, or a different path entirely.
-            </p>
-          </div>
-          <div class="glp-path-steps" aria-label="GLP-1 consult path">
-            <article tabindex="0">
-              <span>01</span>
-              <strong>Share context</strong>
-              <p>Goals, routines, history, medications, labs, and questions.</p>
-            </article>
-            <article tabindex="0">
-              <span>02</span>
-              <strong>Review fit</strong>
-              <p>Discuss risks, limitations, eligibility, and clinical judgment.</p>
-            </article>
-            <article tabindex="0">
-              <span>03</span>
-              <strong>Map plan</strong>
-              <p>Leave with practical next steps based on the review.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="prime-page-section glp-confidence-section" id="glp-questions" aria-labelledby="confidence-title">
-        <div class="section-copy glp-confidence-copy">
-          <p class="eyebrow">Before you book</p>
-          <h2 id="confidence-title">Good GLP-1 care should answer the important questions early.</h2>
-        </div>
-        <div class="glp-confidence-grid">
-          <details open>
-            <summary>Are GLP-1 medications automatic?</summary>
-            <p>No. A provider reviews your health history, medications, goals, risks, and eligibility before any prescription is considered.</p>
-          </details>
-          <details>
-            <summary>Will labs be required?</summary>
-            <p>It depends. Existing labs may be reviewed, and additional labs may be recommended when they would support a safer decision.</p>
-          </details>
-          <details>
-            <summary>What risks should be discussed?</summary>
-            <p>Your provider can discuss side effects, medication conflicts, contraindications, follow-up needs, and realistic expectations.</p>
-          </details>
-          <details>
-            <summary>What if GLP-1 care is not a fit?</summary>
-            <p>Your next steps may include education, lifestyle guidance, monitoring priorities, labs, follow-up, or another care path.</p>
-          </details>
-        </div>
-      </section>
-
-      <section class="prime-page-section glp-final-cta" aria-labelledby="glp-final-title">
-        <div class="section-copy">
-          <p class="eyebrow">Ready when you are</p>
-          <h2 id="glp-final-title">Bring your questions. We will bring the clinical review.</h2>
-        </div>
-        <a class="button primary button-arrow" href="index.html#consult">Request a provider review</a>
+        <img
+          src="assets/brand/Logo V1.png"
+          alt="Prime Point Health"
+          class="home-final-logo"
+        />
       </section>
     </main>
 
-    <footer class="site-footer">
-      <p class="footer-disclaimer">
-        Information on this site is educational and is not a diagnosis,
-        treatment claim, or guarantee of results. GLP-1 medications require
-        clinical review, may not be appropriate for everyone, and are not
-        guaranteed after a consult. Prescriptions are considered only when
-        clinically appropriate.
-      </p>
-      <div class="footer-meta">
-        <nav class="footer-policy-links" aria-label="Legal links">
-          <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="terms-of-service.html">Terms of Service</a>
-        </nav>
-        <p>&copy; 2026 Prime Point Health</p>
-      </div>
-    </footer>
+    <script src="script.js"></script>
+    <script>
+      document.querySelectorAll(".glp-faq-question").forEach((button) => {
+        button.addEventListener("click", () => {
+          const item = button.closest(".glp-faq-item");
+          const panel = document.getElementById(button.getAttribute("aria-controls"));
+          const isOpen = button.getAttribute("aria-expanded") === "true";
 
-    <script src="script.js?v=glp-treatment-premium-r13"></script>
+          button.setAttribute("aria-expanded", String(!isOpen));
+          item.classList.toggle("is-open", !isOpen);
+          panel.setAttribute("aria-hidden", String(isOpen));
+        });
+      });
+
+    </script>
   </body>
 </html>
+

@@ -1,306 +1,844 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
     <title>Peptides | Prime Point Health</title>
     <meta
       name="description"
-      content="Learn about Prime Point Health provider-led peptide care reviews for adults exploring peptide-focused care, education, and individualized planning."
+      content="Prime Point Health peptide programs."
     />
-    <link rel="preconnect" href="https://images.unsplash.com" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=glp-page-r1" />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/peptides.css" />
   </head>
-  <body class="peptides-page">
+  <body>
     <header class="site-header" aria-label="Primary navigation">
       <div class="nav-shell">
         <a class="brand" href="index.html" aria-label="Prime Point Health home">
-          <img class="brand-logo" src="Prime Point Health Logo/ChatGPT Image Jun 1, 2026, 10_20_04 AM.png" alt="" />
-          <span>Prime Point Health</span>
+          <img
+            class="brand-logo-reference"
+            src="assets/brand/Logo V1.png"
+            alt="Prime Point Health"
+          />
         </a>
+
         <nav class="nav-links" aria-label="Main navigation">
-          <a href="peptides.html" aria-current="page">Peptides</a>
-          <div class="nav-dropdown treatment-dropdown">
-            <a class="nav-dropdown-trigger" href="glp-1s.html" aria-haspopup="true" aria-expanded="false">GLP-1s</a>
-            <div class="nav-dropdown-menu treatment-menu" aria-label="GLP-1 treatments submenu">
-              <span class="treatment-menu-label">Injectable</span>
-              <a href="glp-1s.html#semaglutide">Semaglutide</a>
-              <a href="glp-1s.html#tirzepatide">Tirzepatide</a>
+          <a class="nav-link nav-link-active" href="peptides.html" aria-current="page">Peptides</a>
+          <div class="glp-nav-dropdown">
+            <a class="nav-link glp-nav-link" href="glp-1s.html">GLP-1's</a>
+            <button
+              class="glp-nav-trigger"
+              type="button"
+              aria-label="Show GLP-1 medications"
+              aria-haspopup="true"
+              aria-expanded="false"
+              aria-controls="glp-nav-menu"
+            >
+              <span class="glp-nav-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="glp-nav-menu" id="glp-nav-menu" aria-hidden="true">
+              <div class="glp-nav-menu-group">
+                <span class="glp-nav-menu-label">Injectable</span>
+                <a href="semaglutide.html">Semaglutide</a>
+                <a href="tirzepatide.html">Tirzepatide</a>
+              </div>
+              <div class="glp-nav-menu-group">
+                <span class="glp-nav-menu-label">Oral</span>
+                <a href="semaglutide-tablets.html">Semaglutide Tablets</a>
+              </div>
             </div>
           </div>
-          <a href="index.html#consult">Blood Work</a>
-          <a href="index.html#consult">Supplement Planning</a>
-          <div class="nav-dropdown">
-            <a class="nav-dropdown-trigger" href="index.html#programs" aria-haspopup="true" aria-expanded="false">About</a>
-            <div class="nav-dropdown-menu about-menu" aria-label="About submenu">
-              <a href="index.html#programs">About Prime Point</a>
-              <a href="index.html#faq">FAQ</a>
-              <a href="index.html#consult">Contact</a>
+          <a class="nav-link" href="blood-work.html">Blood Work</a>
+          <div class="glp-nav-dropdown about-nav-dropdown">
+            <a class="nav-link glp-nav-link" href="about.html">About Us</a>
+            <button
+              class="glp-nav-trigger"
+              type="button"
+              aria-label="Show About Us links"
+              aria-haspopup="true"
+              aria-expanded="false"
+              aria-controls="about-nav-menu"
+            >
+              <span class="glp-nav-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="glp-nav-menu" id="about-nav-menu" aria-hidden="true">
+              <div class="glp-nav-menu-group">
+                <a href="contact.html">Contact Us</a>
+              </div>
             </div>
           </div>
         </nav>
+
         <div class="nav-actions" aria-label="Account actions">
-          <a class="header-action header-login" href="index.html#faq">FAQ</a>
-          <a class="header-action header-start" href="index.html#consult">Get Started</a>
+          <a class="header-action header-login" href="#login">Log In</a>
+          <a class="header-action header-start" href="#get-started">Get Started</a>
         </div>
       </div>
     </header>
 
     <main>
-      <section class="page-hero peptide-hero prime-peptide-hero" aria-labelledby="page-title">
-        <video class="page-hero-video" autoplay muted loop playsinline aria-hidden="true">
-          <source src="assets/cellular-peptide-hero.mp4" type="video/mp4" />
-        </video>
-        <canvas class="cellular-motion-canvas" aria-hidden="true"></canvas>
-        <div class="page-hero-overlay"></div>
-        <div class="page-hero-content">
-          <h1 id="page-title">Clinician guided Peptide therapy</h1>
-          <p class="hero-trust-line">
-            Licensed-provider review
-            <span aria-hidden="true">✦</span>
-            Options only when appropriate
-            <span aria-hidden="true">✦</span>
-            Professional guidance
-          </p>
-          <p class="hero-bottom-copy">
-            Begin a personalized peptide journey designed to support your
-            health goals, refine your routine, and help you move toward a
-            stronger, more confident version of yourself.
-          </p>
-          <div class="hero-actions">
-            <a class="button primary button-arrow hero-cta-title" href="index.html#consult">Request peptide consult</a>
-          </div>
-        </div>
-      </section>
-
-      <section class="prime-page-section peptide-plan-intro peptide-page-panel" id="programs">
-        <div class="peptide-plan-layout">
-          <div class="peptide-plan-image">
-            <div class="peptide-plan-bubble-field" aria-label="Consultation planning inputs">
-              <span class="plan-bubble plan-bubble-primary" tabindex="0">Goals</span>
-              <span class="plan-bubble" tabindex="0">Health history</span>
-              <span class="plan-bubble" tabindex="0">Lifestyle</span>
-              <span class="plan-bubble" tabindex="0">Labs</span>
-              <span class="plan-bubble" tabindex="0">Safety</span>
-              <span class="plan-bubble" tabindex="0">Next steps</span>
-            </div>
-          </div>
-          <div class="section-copy peptide-plan-copy">
-            <h2>Your consultation is focused on building a personalized treatment plan</h2>
-            <p>
-              This is a clinical strategy session. You will meet with a Prime
-              Point provider whose role is to evaluate your goals, health
-              history, lifestyle, available labs, and physiology, then use
-              clinical judgment to discuss what may be appropriate for you.
-              Recommendations are based on safety, alignment, and medical
-              appropriateness, not a one-size-fits-all menu of therapies. Not
-              every option is right for every person. Thoughtful selection
-              matters, and your plan can focus on practical next steps that fit
-              where you are now. Your provider may also outline education,
-              follow-up priorities, monitoring considerations, or prescription
-              options only when clinically appropriate.
+      <section class="peptides-hero" aria-label="Peptides hero">
+        <div class="peptides-hero-content">
+          <div class="peptides-hero-copy">
+            <p class="peptides-hero-kicker">Peptide Therapy</p>
+            <h1 class="peptides-hero-title">
+              <span>PEPTIDE THERAPY</span>
+              <span>TAILORED FOR YOU</span>
+            </h1>
+            <p class="peptides-hero-lede">
+              Physician-guided peptide therapy designed to support recovery, performance, metabolism, and healthy aging&mdash;personalized around your goals and your biology.
             </p>
-            <div class="peptide-plan-list" aria-label="How the consultation helps">
-              <span>Relevant to your body</span>
-              <span>Less guesswork</span>
-              <span>Clear structured plan</span>
-              <span>Medically appropriate</span>
+          </div>
+
+          <a class="peptides-assessment-bubble" href="#assessment">
+            <span>Book My Peptide Consult</span>
+            <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="peptides-how" aria-labelledby="peptides-how-title">
+        <div class="peptides-how-inner">
+          <div class="peptides-how-heading">
+            <p class="peptides-how-kicker"><span aria-hidden="true"></span>THE OPTIMIZATION LOOP</p>
+            <h2 id="peptides-how-title">
+              <span class="peptides-how-title-line">A measured path from</span>
+              <span class="peptides-how-title-line peptides-how-title-accent">consultation <span class="peptides-how-title-bridge">to</span> calibration</span>
+            </h2>
+            <p class="peptides-how-support">Every stage is a meaningful point in your protocol. Select a milestone to see what happens at that stage.</p>
+          </div>
+
+          <div class="peptides-how-experience peptides-roadmap" data-peptides-how style="--active-step: 0;">
+            <div class="peptides-roadmap-stage">
+              <div class="peptides-roadmap-viewport">
+                <svg class="peptides-roadmap-svg" viewBox="0 0 1100 520" preserveAspectRatio="none" role="img" aria-labelledby="peptides-roadmap-title peptides-roadmap-desc" focusable="false">
+                  <title id="peptides-roadmap-title">Peptide therapy optimization roadmap</title>
+                  <desc id="peptides-roadmap-desc">A curved gold path connecting four numbered milestones.</desc>
+                  <path class="peptides-roadmap-path" d="M112 418 C 186 414, 212 338, 310 318 S 454 300, 530 230 S 650 190, 720 210 S 842 184, 904 118 S 958 104, 986 98"></path>
+                  <path class="peptides-roadmap-progress" d="M112 418 C 186 414, 212 338, 310 318 S 454 300, 530 230 S 650 190, 720 210 S 842 184, 904 118 S 958 104, 986 98"></path>
+                  <circle class="peptides-roadmap-pulse" r="7"></circle>
+                </svg>
+
+                <div class="peptides-roadmap-steps" aria-label="Peptide therapy process" role="tablist" aria-orientation="horizontal">
+                  <button class="peptides-roadmap-step is-active" type="button" id="peptides-how-step-1" role="tab" aria-label="Step 1: Schedule Your Consultation" aria-selected="true" aria-controls="peptides-how-panel-1" data-step="0" style="--x: 10.2%; --y: 80.4%;">
+                    <span class="peptides-roadmap-marker" aria-hidden="true"><span></span></span>
+                    <span class="peptides-roadmap-label">
+                      <span>STEP 1</span>
+                    </span>
+                  </button>
+
+                  <button class="peptides-roadmap-step" type="button" id="peptides-how-step-2" role="tab" aria-label="Step 2: Meet With a Clinician" aria-selected="false" aria-controls="peptides-how-panel-2" data-step="1" style="--x: 28.2%; --y: 61.2%;">
+                    <span class="peptides-roadmap-marker" aria-hidden="true"><span></span></span>
+                    <span class="peptides-roadmap-label">
+                      <span>STEP 2</span>
+                    </span>
+                  </button>
+
+                  <button class="peptides-roadmap-step" type="button" id="peptides-how-step-3" role="tab" aria-label="Step 3: Receive Your Complete Kit" aria-selected="false" aria-controls="peptides-how-panel-3" data-step="2" style="--x: 65.5%; --y: 40.4%;">
+                    <span class="peptides-roadmap-marker" aria-hidden="true"><span></span></span>
+                    <span class="peptides-roadmap-label">
+                      <span>STEP 3</span>
+                    </span>
+                  </button>
+
+                  <button class="peptides-roadmap-step" type="button" id="peptides-how-step-4" role="tab" aria-label="Step 4: Ongoing Support" aria-selected="false" aria-controls="peptides-how-panel-4" data-step="3" style="--x: 89.6%; --y: 18.8%;">
+                    <span class="peptides-roadmap-marker" aria-hidden="true"><span></span></span>
+                    <span class="peptides-roadmap-label">
+                      <span>STEP 4</span>
+                    </span>
+                  </button>
+                </div>
+              </div>
             </div>
+
+            <div class="peptides-roadmap-details" aria-live="polite">
+              <article class="peptides-roadmap-panel is-active" id="peptides-how-panel-1" role="tabpanel" aria-labelledby="peptides-how-step-1" data-step-panel="0">
+                <p class="peptides-roadmap-panel-step">Step 01</p>
+                <h3>Schedule Your Consultation</h3>
+                <p>Begin with a secure online intake designed to capture your goals, health history, current routines, and the outcomes you want to discuss. This gives your clinician the context needed to approach the consultation with clarity.</p>
+              </article>
+
+              <article class="peptides-roadmap-panel" id="peptides-how-panel-2" role="tabpanel" aria-labelledby="peptides-how-step-2" data-step-panel="1" hidden>
+                <p class="peptides-roadmap-panel-step">Step 02</p>
+                <h3>Meet With a Clinician</h3>
+                <p>Meet with a clinician to review your goals, history, and personalized therapy options. Your discussion is guided by provider judgment, medical appropriateness, and the safest path for your long-term plan.</p>
+              </article>
+
+              <article class="peptides-roadmap-panel" id="peptides-how-panel-3" role="tabpanel" aria-labelledby="peptides-how-step-3" data-step-panel="2" hidden>
+                <p class="peptides-roadmap-panel-step">Step 03</p>
+                <h3>Receive Your Complete Kit</h3>
+                <p>If treatment is medically appropriate, your complete materials are prepared and delivered to your doorstep with clear instructions and physician-guided support included, so you can begin with confidence.</p>
+              </article>
+
+              <article class="peptides-roadmap-panel" id="peptides-how-panel-4" role="tabpanel" aria-labelledby="peptides-how-step-4" data-step-panel="3" hidden>
+                <p class="peptides-roadmap-panel-step">Step 04</p>
+                <h3>Ongoing Support</h3>
+                <p>Your clinician remains involved as your therapy progresses, helping guide next steps, answer questions, and adjust your plan as needed within an ongoing optimization pathway.</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="peptides-how-cta">
+            <a class="peptides-assessment-bubble" href="#assessment">
+              <span>Book My Peptide Consult</span>
+              <span aria-hidden="true">&rarr;</span>
+            </a>
           </div>
         </div>
       </section>
 
-      <section class="prime-page-section peptide-page-panel peptide-how-section" id="how-it-works" aria-labelledby="how-it-works-title">
-        <div class="peptide-how-heading">
-          <h2 id="how-it-works-title">How it works</h2>
-        </div>
-        <div class="peptide-how-panel">
-          <div class="peptide-how-image peptide-path-visual" aria-label="Prime Point consultation path">
-            <div class="path-console">
-              <strong>Consult Sequence</strong>
-            </div>
-            <div class="path-track" aria-hidden="true">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-            <div class="path-stage path-stage-1" tabindex="0">
-              <span>01</span>
-              <strong>Intake</strong>
-            </div>
-            <div class="path-stage path-stage-2" tabindex="0">
-              <span>02</span>
-              <strong>Review</strong>
-            </div>
-            <div class="path-stage path-stage-3" tabindex="0">
-              <span>03</span>
-              <strong>Plan</strong>
-            </div>
-            <div class="path-stage path-stage-4" tabindex="0">
-              <span>04</span>
-              <strong>Support</strong>
-            </div>
+      <section class="peptides-measure" aria-labelledby="peptides-measure-title">
+        <div class="peptides-measure-inner">
+          <div class="peptides-measure-heading">
+            <p class="peptides-measure-kicker"><span aria-hidden="true"></span>BIO-FEEDBACK DASHBOARD</p>
+            <h2 id="peptides-measure-title">
+              <span>We don&rsquo;t guess.</span>
+              <span>We measure.</span>
+            </h2>
+            <p class="peptides-measure-subcopy">
+              Monthly blood work and body analysis are the safety and efficacy anchor of every protocol. Your physician
+              sees the same data you do &mdash; every cycle.
+            </p>
           </div>
-          <div class="peptide-how-timeline" aria-label="Peptide consultation steps">
-            <article tabindex="0">
-              <span class="peptide-step-icon">01</span>
-              <div>
-                <p class="step-kicker">Step 1</p>
-                <h3>Request consult</h3>
-                <p>Share your goals, health history, medications, routines, and any recent lab information you have.</p>
+
+          <div class="peptides-measure-dashboard">
+            <article class="peptides-measure-card peptides-measure-trend">
+              <div class="peptides-measure-trend-header">
+                <div>
+                  <p class="peptides-measure-card-kicker">BIOMARKER REPORT &middot; CYCLE 03</p>
+                  <h3>Optimization Trajectory</h3>
+                </div>
+                <span class="peptides-measure-status"><span aria-hidden="true"></span>Live trend</span>
+              </div>
+
+              <div class="peptides-measure-chart" aria-label="Composite improvement trend">
+                <svg viewBox="0 0 800 260" role="img" aria-labelledby="peptides-measure-chart-title">
+                  <title id="peptides-measure-chart-title">Composite improvement trend rising across three monthly cycles</title>
+                  <defs>
+                    <linearGradient id="peptides-measure-area-fill" x1="0" x2="0" y1="0" y2="1">
+                      <stop offset="0%" stop-color="#d7b46a" stop-opacity="0.34"></stop>
+                      <stop offset="100%" stop-color="#d7b46a" stop-opacity="0"></stop>
+                    </linearGradient>
+                  </defs>
+                  <path class="peptides-measure-gridline" d="M40 214H760"></path>
+                  <path class="peptides-measure-area" fill="url(#peptides-measure-area-fill)" d="M40 186 C130 178, 170 144, 260 136 S400 96, 510 86 S660 56, 760 42 L760 224 L40 224 Z"></path>
+                  <path class="peptides-measure-line" pathLength="1" d="M40 186 C130 178, 170 144, 260 136 S400 96, 510 86 S660 56, 760 42"></path>
+                  <circle class="peptides-measure-dot peptides-measure-dot-1" cx="40" cy="186" r="7"></circle>
+                  <circle class="peptides-measure-dot peptides-measure-dot-2" cx="260" cy="136" r="7"></circle>
+                  <circle class="peptides-measure-dot peptides-measure-dot-3" cx="510" cy="86" r="7"></circle>
+                  <circle class="peptides-measure-dot peptides-measure-dot-4" cx="760" cy="42" r="7"></circle>
+                </svg>
+              </div>
+
+              <div class="peptides-measure-trend-footer">
+                <span class="peptides-measure-trend-icon" aria-hidden="true">
+                  <svg viewBox="0 0 32 32" focusable="false">
+                    <path d="M5 22l7-7 5 5 10-12"></path>
+                    <path d="M21 8h6v6"></path>
+                  </svg>
+                </span>
+                <strong>+62% composite improvement</strong>
+                <span>across 3 monthly cycles</span>
               </div>
             </article>
-            <article tabindex="0">
-              <span class="peptide-step-icon">02</span>
-              <div>
-                <p class="step-kicker">Step 2</p>
-                <h3>Meet with a provider</h3>
-                <p>Review your information with a licensed provider and talk through what may be reasonable to consider.</p>
+
+            <article class="peptides-measure-body">
+              <div class="peptides-measure-body-visual" aria-hidden="true">
+                <img src="assets/peptides/body-analysis-anatomy-v1.png" alt="" class="peptides-measure-body-image" />
               </div>
-            </article>
-            <article tabindex="0">
-              <span class="peptide-step-icon">03</span>
-              <div>
-                <p class="step-kicker">Step 3</p>
-                <h3>Map next steps</h3>
-                <p>If appropriate, your plan may include education, lifestyle guidance, monitoring, or prescription options.</p>
-              </div>
-            </article>
-            <article tabindex="0">
-              <span class="peptide-step-icon">04</span>
-              <div>
-                <p class="step-kicker">Step 4</p>
-                <h3>Continue support</h3>
-                <p>Stay connected for follow-up priorities, questions, and adjustments when clinically appropriate.</p>
+              <div class="peptides-measure-body-copy">
+                <p>BODY ANALYSIS</p>
+                <h3>See the tissue change.</h3>
+                <p>Composition tracking ties physical change to protocol efficacy.</p>
               </div>
             </article>
           </div>
-        </div>
-        <div class="peptide-how-actions">
-          <a class="button primary button-arrow" href="index.html#consult">Book consult</a>
+
+          <div class="peptides-measure-metrics">
+            <article class="peptides-measure-metric">
+              <div class="peptides-measure-metric-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" focusable="false">
+                  <path d="M24 39s-14-8.7-14-19a8 8 0 0 1 14-5.2A8 8 0 0 1 38 20c0 10.3-14 19-14 19z"></path>
+                  <path d="M14 24h6l3-6 4 12 3-6h5"></path>
+                </svg>
+              </div>
+              <div class="peptides-measure-metric-head">
+                <p>LONGEVITY &amp; CELLULAR HEALTH</p>
+                <strong>Optimized</strong>
+              </div>
+              <p>Reviewing cellular resilience, inflammation, and metabolic markers to guide longevity-focused protocol decisions.</p>
+            </article>
+
+            <article class="peptides-measure-metric">
+              <div class="peptides-measure-metric-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" focusable="false">
+                  <path d="M20 8h8"></path>
+                  <path d="M24 8v12"></path>
+                  <path d="M18 20h12"></path>
+                  <path d="M16 40h16"></path>
+                  <path d="M20 20l-5 12a6 6 0 0 0 5.5 8h7a6 6 0 0 0 5.5-8l-5-12"></path>
+                  <path d="M17 33h14"></path>
+                </svg>
+              </div>
+              <div class="peptides-measure-metric-head">
+                <p>INFLAMMATORY MARKERS</p>
+                <strong>-34%</strong>
+              </div>
+              <p>CRP and fasting insulin in your panels can show changes in inflammation, metabolic strain, and recovery load.</p>
+            </article>
+
+            <article class="peptides-measure-metric">
+              <div class="peptides-measure-metric-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" focusable="false">
+                  <circle cx="16" cy="18" r="5"></circle>
+                  <circle cx="32" cy="18" r="5"></circle>
+                  <circle cx="24" cy="32" r="5"></circle>
+                  <path d="M20 20l8 0"></path>
+                  <path d="M18.5 22.5L22 28"></path>
+                  <path d="M29.5 22.5L26 28"></path>
+                </svg>
+              </div>
+              <div class="peptides-measure-metric-head">
+                <p>RECOVERY &amp; REPAIR</p>
+                <strong>Improved</strong>
+              </div>
+              <p>Sleep quality, soreness, training output, and inflammatory trends help track recovery response between protocol reviews.</p>
+            </article>
+          </div>
+
+          <p class="peptides-measure-note">
+            Illustrative data shown. Your report is generated from your own monthly labs and reviewed by your physician
+            before any protocol adjustment.
+          </p>
         </div>
       </section>
 
-      <section class="prime-page-section prime-faq-section peptide-page-panel peptide-confidence-section" aria-labelledby="peptide-faq-title">
-        <div class="section-copy peptide-confidence-copy">
-          <h2 id="peptide-faq-title">Feel ready before you book.</h2>
+      <section class="peptides-faq" aria-labelledby="peptides-faq-title">
+        <div class="peptides-faq-inner">
+          <div class="peptides-faq-heading">
+            <h2 id="peptides-faq-title">Peptide Therapy FAQ</h2>
+            <p class="peptides-faq-kicker">Common Questions</p>
+          </div>
+
+          <div class="peptides-faq-list">
+            <article class="peptides-faq-item">
+              <h3>
+                <button
+                  class="peptides-faq-question"
+                  type="button"
+                  id="peptides-faq-question-1"
+                  aria-expanded="false"
+                  aria-controls="peptides-faq-answer-1"
+                >
+                  <span>What are peptides?</span>
+                  <span class="peptides-faq-icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div
+                class="peptides-faq-panel"
+                id="peptides-faq-answer-1"
+                role="region"
+                aria-labelledby="peptides-faq-question-1"
+                aria-hidden="true"
+              >
+                <div class="peptides-faq-answer">
+                  <p>
+                    Peptides are short chains of amino acids that act as signaling molecules in the body. Depending on the treatment plan, they may help support areas such as recovery, metabolism, energy, sleep, performance, and healthy aging.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="peptides-faq-item">
+              <h3>
+                <button
+                  class="peptides-faq-question"
+                  type="button"
+                  id="peptides-faq-question-2"
+                  aria-expanded="false"
+                  aria-controls="peptides-faq-answer-2"
+                >
+                  <span>How does peptide therapy work?</span>
+                  <span class="peptides-faq-icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div
+                class="peptides-faq-panel"
+                id="peptides-faq-answer-2"
+                role="region"
+                aria-labelledby="peptides-faq-question-2"
+                aria-hidden="true"
+              >
+                <div class="peptides-faq-answer">
+                  <p>
+                    Peptide therapy is designed to support specific biological pathways in the body. At Prime Point Health, every program begins with a physician-guided review to determine whether treatment is appropriate for your goals, health history, and overall wellness plan.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="peptides-faq-item">
+              <h3>
+                <button
+                  class="peptides-faq-question"
+                  type="button"
+                  id="peptides-faq-question-3"
+                  aria-expanded="false"
+                  aria-controls="peptides-faq-answer-3"
+                >
+                  <span>Who is a good candidate for peptide therapy?</span>
+                  <span class="peptides-faq-icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div
+                class="peptides-faq-panel"
+                id="peptides-faq-answer-3"
+                role="region"
+                aria-labelledby="peptides-faq-question-3"
+                aria-hidden="true"
+              >
+                <div class="peptides-faq-answer">
+                  <p>
+                    Peptide therapy may be appropriate for individuals looking to support recovery, energy, performance, body composition, metabolic health, or long-term wellness. Eligibility depends on your health history, goals, and provider review.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="peptides-faq-item">
+              <h3>
+                <button
+                  class="peptides-faq-question"
+                  type="button"
+                  id="peptides-faq-question-4"
+                  aria-expanded="false"
+                  aria-controls="peptides-faq-answer-4"
+                >
+                  <span>Do I need lab work before starting?</span>
+                  <span class="peptides-faq-icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div
+                class="peptides-faq-panel"
+                id="peptides-faq-answer-4"
+                role="region"
+                aria-labelledby="peptides-faq-question-4"
+                aria-hidden="true"
+              >
+                <div class="peptides-faq-answer">
+                  <p>
+                    Lab work may be recommended depending on your goals, medical history, and the peptide therapy being considered. Prime Point Health uses provider review to help determine what is appropriate before treatment begins.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="peptides-faq-item">
+              <h3>
+                <button
+                  class="peptides-faq-question"
+                  type="button"
+                  id="peptides-faq-question-5"
+                  aria-expanded="false"
+                  aria-controls="peptides-faq-answer-5"
+                >
+                  <span>How are peptides taken?</span>
+                  <span class="peptides-faq-icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div
+                class="peptides-faq-panel"
+                id="peptides-faq-answer-5"
+                role="region"
+                aria-labelledby="peptides-faq-question-5"
+                aria-hidden="true"
+              >
+                <div class="peptides-faq-answer">
+                  <p>
+                    Many peptide therapies are administered through subcutaneous injection, while some may be available in other forms depending on the treatment. Your provider will review the appropriate method, instructions, and expectations if you are approved.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="peptides-faq-item">
+              <h3>
+                <button
+                  class="peptides-faq-question"
+                  type="button"
+                  id="peptides-faq-question-6"
+                  aria-expanded="false"
+                  aria-controls="peptides-faq-answer-6"
+                >
+                  <span>How long does it take to notice results?</span>
+                  <span class="peptides-faq-icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div
+                class="peptides-faq-panel"
+                id="peptides-faq-answer-6"
+                role="region"
+                aria-labelledby="peptides-faq-question-6"
+                aria-hidden="true"
+              >
+                <div class="peptides-faq-answer">
+                  <p>
+                    Timelines vary based on the individual, the peptide used, consistency, lifestyle, and the treatment goal. Some people may notice changes within weeks, while others may require more time and ongoing provider guidance.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="peptides-faq-item">
+              <h3>
+                <button
+                  class="peptides-faq-question"
+                  type="button"
+                  id="peptides-faq-question-7"
+                  aria-expanded="false"
+                  aria-controls="peptides-faq-answer-7"
+                >
+                  <span>Is peptide therapy safe?</span>
+                  <span class="peptides-faq-icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div
+                class="peptides-faq-panel"
+                id="peptides-faq-answer-7"
+                role="region"
+                aria-labelledby="peptides-faq-question-7"
+                aria-hidden="true"
+              >
+                <div class="peptides-faq-answer">
+                  <p>
+                    Peptide therapy is not appropriate for everyone. Treatment should only be used under medical supervision. Prime Point Health uses physician-guided review to help assess eligibility, safety considerations, and ongoing support.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="peptides-faq-item">
+              <h3>
+                <button
+                  class="peptides-faq-question"
+                  type="button"
+                  id="peptides-faq-question-8"
+                  aria-expanded="false"
+                  aria-controls="peptides-faq-answer-8"
+                >
+                  <span>Is peptide therapy personalized?</span>
+                  <span class="peptides-faq-icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div
+                class="peptides-faq-panel"
+                id="peptides-faq-answer-8"
+                role="region"
+                aria-labelledby="peptides-faq-question-8"
+                aria-hidden="true"
+              >
+                <div class="peptides-faq-answer">
+                  <p>
+                    Yes. Prime Point Health does not use a one-size-fits-all approach. Your plan is based on your health goals, intake information, provider review, and long-term wellness priorities.
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="home-final-panel">
+        <div class="home-social-follow" aria-label="Follow Prime Point Health on social media">
+          <span class="home-social-label">Follow us on:</span>
+          <div class="home-social-links">
+            <a href="#" aria-label="Follow Prime Point Health on Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="4" y="4" width="16" height="16" rx="5"></rect>
+                <circle cx="12" cy="12" r="3.5"></circle>
+                <circle cx="17" cy="7" r="0.8"></circle>
+              </svg>
+            </a>
+            <a href="#" aria-label="Follow Prime Point Health on Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14.5 8.2h2.2V4.6c-.4-.1-1.7-.2-3.2-.2-3.2 0-5.3 1.9-5.3 5.4v3H4.8v4h3.4v7h4.1v-7h3.3l.5-4h-3.8v-2.6c0-1.1.3-2 2.2-2Z"></path>
+              </svg>
+            </a>
+            <a href="#" aria-label="Follow Prime Point Health on X">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.451-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="home-legal-container">
           <p>
-            Tap into the essentials that make your consult more useful: what
-            gets reviewed, what questions matter, and what can happen next.
+            The information provided on the Prime Point Health website and social
+            media channels is for educational and informational purposes only and
+            is not intended to be a substitute for professional medical advice,
+            diagnosis, or treatment. We do not offer medical advice on this
+            website, and any clinical decisions should be made by a licensed
+            healthcare provider who can assess your individual medical needs and
+            provide appropriate treatment. Always seek the advice of a qualified
+            healthcare provider with any questions you may have regarding a medical
+            condition. If you think you may have a medical emergency, call your
+            healthcare provider or emergency services immediately. We are not
+            responsible for any reliance on information provided on this website.
+          </p>
+
+          <p>
+            Please note that some of the treatments or therapies offered by Prime
+            Point Health may not be approved by the US Food and Drug
+            Administration (FDA) and are offered at the discretion of licensed
+            medical professionals. These treatments may be considered experimental
+            or alternative, and their safety and efficacy may not be fully
+            established. While we strive to provide accurate information about
+            these treatments, we make no claims or guarantees regarding their
+            effectiveness or suitability for your individual needs.
+          </p>
+
+          <p>
+            It's important to understand that the results of any treatment may vary
+            from person to person, and there are no guarantees of success or
+            positive outcomes. Before undergoing any treatment or therapy, it's
+            important to consult with a licensed healthcare provider who can assess
+            your individual medical needs and provide appropriate guidance and
+            care.
+          </p>
+
+          <p>
+            By engaging in any treatments or therapies offered herein, you
+            acknowledge and agree that you assume all risks associated with such
+            treatment, and you release and hold harmless Prime Point Health and its
+            staff, agents, and affiliates from any and all claims or damages
+            arising from or related to your use of this website or any treatments
+            or therapies offered herein.
+          </p>
+
+          <p class="home-legal-copyright">
+            &copy; 2026 Prime Point Health all rights reserved.
           </p>
         </div>
-        <div class="peptide-confidence-grid peptide-confidence-deck" aria-label="Helpful information before booking">
-          <details>
-            <summary>
-              <span>Prescriptions</span>
-              <strong>Are peptides prescribed automatically?</strong>
-            </summary>
-            <p>
-              No. Your provider reviews your health history, medications,
-              goals, risks, and eligibility before any prescription is
-              considered.
-            </p>
-          </details>
-          <details>
-            <summary>
-              <span>Appropriateness</span>
-              <strong>How does a provider decide?</strong>
-            </summary>
-            <p>
-              The decision is based on your goals, medical history,
-              medications, risks, contraindications, available labs, and
-              clinical judgment.
-            </p>
-          </details>
-          <details>
-            <summary>
-              <span>Your Info</span>
-              <strong>What may be reviewed?</strong>
-            </summary>
-            <p>
-              Goals, health history, medications, allergies, lifestyle, prior
-              labs, contraindications, and your questions may all be part of
-              the review.
-            </p>
-          </details>
-          <details>
-            <summary>
-              <span>Labs</span>
-              <strong>Will labs be required?</strong>
-            </summary>
-            <p>
-              It depends. Existing labs may be reviewed, and additional labs
-              may be recommended when they would support a safer care decision.
-            </p>
-          </details>
-          <details>
-            <summary>
-              <span>Beyond Rx</span>
-              <strong>What can a consult include?</strong>
-            </summary>
-            <p>
-              A consult may include education, lifestyle guidance, monitoring
-              priorities, follow-up needs, or prescription options only when
-              clinically appropriate.
-            </p>
-          </details>
-          <details>
-            <summary>
-              <span>Risks</span>
-              <strong>What limitations should be discussed?</strong>
-            </summary>
-            <p>
-              The conversation should cover fit, possible side effects,
-              medication conflicts, follow-up needs, and realistic expectations.
-            </p>
-          </details>
-          <details>
-            <summary>
-              <span>Eligibility</span>
-              <strong>Who may not be a candidate?</strong>
-            </summary>
-            <p>
-              Some people may not be a fit based on medical history, current
-              medications, contraindications, risks, or provider judgment.
-            </p>
-          </details>
-          <details>
-            <summary>
-              <span>Next Steps</span>
-              <strong>What happens after review?</strong>
-            </summary>
-            <p>
-              Your provider can discuss reasonable next steps, which may include
-              education, labs, follow-up, monitoring, or a different care path.
-            </p>
-          </details>
-        </div>
+        <img
+          src="assets/brand/Logo V1.png"
+          alt="Prime Point Health"
+          class="home-final-logo"
+        />
       </section>
-
     </main>
 
-    <footer class="site-footer">
-      <p class="footer-disclaimer">
-        Information on this site is educational and is not a diagnosis, treatment
-        claim, or guarantee of results. Peptide therapies require clinical
-        review, may not be appropriate for everyone, and are not guaranteed after
-        a consult. Prescriptions are considered only when clinically appropriate.
-      </p>
-      <div class="footer-meta">
-        <nav class="footer-policy-links" aria-label="Legal links">
-          <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="terms-of-service.html">Terms of Service</a>
-        </nav>
-        <p>&copy; 2026 Prime Point Health</p>
-      </div>
-    </footer>
+    <script src="script.js"></script>
+    <script>
+      document.querySelectorAll("[data-peptides-how]").forEach((section) => {
+        const steps = Array.from(section.querySelectorAll("[data-step]"));
+        const panels = Array.from(section.querySelectorAll("[data-step-panel]"));
+        const roadmapSvg = section.querySelector(".peptides-roadmap-svg");
+        const progressPath = section.querySelector(".peptides-roadmap-progress");
+        const pulse = section.querySelector(".peptides-roadmap-pulse");
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        let progressStops = [0, 0.28, 0.66, 1];
+        let activeIndex = 0;
+        let cycleTimer;
+        let isPaused = false;
+        let pathLength = 0;
+        let resizeFrame;
 
-    <script src="script.js?v=glp-page-r1"></script>
+        if (progressPath) {
+          pathLength = progressPath.getTotalLength();
+          progressPath.style.strokeDasharray = pathLength;
+          progressPath.style.strokeDashoffset = pathLength;
+        }
+
+        const getMarkerProgress = (step) => {
+          const marker = step.querySelector(".peptides-roadmap-marker");
+          const screenMatrix = roadmapSvg?.getScreenCTM();
+          if (!marker || !roadmapSvg || !progressPath || !pathLength || !screenMatrix) {
+            return null;
+          }
+
+          const markerBounds = marker.getBoundingClientRect();
+          const markerCenter = roadmapSvg.createSVGPoint();
+          markerCenter.x = markerBounds.left + markerBounds.width / 2;
+          markerCenter.y = markerBounds.top + markerBounds.height / 2;
+          const svgPoint = markerCenter.matrixTransform(screenMatrix.inverse());
+
+          const sampleCount = 240;
+          let nearestLength = 0;
+          let nearestDistance = Number.POSITIVE_INFINITY;
+
+          for (let sample = 0; sample <= sampleCount; sample += 1) {
+            const candidateLength = pathLength * (sample / sampleCount);
+            const candidate = progressPath.getPointAtLength(candidateLength);
+            const distance =
+              (candidate.x - svgPoint.x) ** 2 + (candidate.y - svgPoint.y) ** 2;
+
+            if (distance < nearestDistance) {
+              nearestDistance = distance;
+              nearestLength = candidateLength;
+            }
+          }
+
+          const sampleSpan = pathLength / sampleCount;
+          const refinementStart = Math.max(0, nearestLength - sampleSpan);
+          const refinementEnd = Math.min(pathLength, nearestLength + sampleSpan);
+
+          for (let sample = 0; sample <= 40; sample += 1) {
+            const candidateLength =
+              refinementStart +
+              (refinementEnd - refinementStart) * (sample / 40);
+            const candidate = progressPath.getPointAtLength(candidateLength);
+            const distance =
+              (candidate.x - svgPoint.x) ** 2 + (candidate.y - svgPoint.y) ** 2;
+
+            if (distance < nearestDistance) {
+              nearestDistance = distance;
+              nearestLength = candidateLength;
+            }
+          }
+
+          return nearestLength / pathLength;
+        };
+
+        const syncProgressStops = () => {
+          const measuredStops = steps.map(getMarkerProgress);
+          if (measuredStops.every(Number.isFinite)) {
+            progressStops = measuredStops.map((stop, index) => {
+              if (index === 0) return 0;
+              if (index === steps.length - 1) return 1;
+              return stop;
+            });
+          }
+        };
+
+        const placePulse = (index) => {
+          if (!progressPath || !pulse || !pathLength) return;
+          const point = progressPath.getPointAtLength(pathLength * progressStops[index]);
+          pulse.setAttribute("cx", point.x);
+          pulse.setAttribute("cy", point.y);
+        };
+
+        const activateStep = (index, focusStep = false) => {
+          activeIndex = index;
+          section.style.setProperty("--active-step", String(index));
+
+          if (progressPath && pathLength) {
+            progressPath.style.strokeDashoffset = pathLength * (1 - progressStops[index]);
+          }
+
+          placePulse(index);
+
+          steps.forEach((step, stepIndex) => {
+            const isActive = stepIndex === index;
+            step.classList.toggle("is-active", isActive);
+            step.setAttribute("aria-selected", String(isActive));
+            step.setAttribute("tabindex", isActive ? "0" : "-1");
+            if (isActive && focusStep) step.focus();
+          });
+
+          panels.forEach((panel, panelIndex) => {
+            const isActive = panelIndex === index;
+            panel.classList.toggle("is-active", isActive);
+            panel.toggleAttribute("hidden", !isActive);
+          });
+        };
+
+        const stopCycle = () => {
+          window.clearInterval(cycleTimer);
+        };
+
+        const startCycle = () => {
+          if (reduceMotion || isPaused || steps.length < 2) return;
+          stopCycle();
+          cycleTimer = window.setInterval(() => {
+            activateStep((activeIndex + 1) % steps.length);
+          }, 7000);
+        };
+
+        const pauseCycle = () => {
+          isPaused = true;
+          stopCycle();
+        };
+
+        const resumeCycle = () => {
+          isPaused = false;
+          startCycle();
+        };
+
+        steps.forEach((step, index) => {
+          step.addEventListener("mouseenter", () => {
+            pauseCycle();
+            activateStep(index);
+          });
+
+          step.addEventListener("focus", () => {
+            pauseCycle();
+            activateStep(index);
+          });
+
+          step.addEventListener("click", () => {
+            pauseCycle();
+            activateStep(index);
+          });
+
+          step.addEventListener("keydown", (event) => {
+            const keyActions = {
+              ArrowRight: (activeIndex + 1) % steps.length,
+              ArrowDown: (activeIndex + 1) % steps.length,
+              ArrowLeft: (activeIndex - 1 + steps.length) % steps.length,
+              ArrowUp: (activeIndex - 1 + steps.length) % steps.length,
+              Home: 0,
+              End: steps.length - 1
+            };
+
+            if (event.key === " " || event.key === "Enter") {
+              event.preventDefault();
+              activateStep(index, true);
+              return;
+            }
+
+            if (Object.prototype.hasOwnProperty.call(keyActions, event.key)) {
+              event.preventDefault();
+              activateStep(keyActions[event.key], true);
+            }
+          });
+        });
+
+        section.addEventListener("mouseenter", pauseCycle);
+        section.addEventListener("mouseleave", resumeCycle);
+
+        section.addEventListener("focusin", pauseCycle);
+        section.addEventListener("focusout", () => {
+          if (!section.contains(document.activeElement)) resumeCycle();
+        });
+
+        syncProgressStops();
+        window.addEventListener("resize", () => {
+          window.cancelAnimationFrame(resizeFrame);
+          resizeFrame = window.requestAnimationFrame(() => {
+            syncProgressStops();
+            if (progressPath && pathLength) {
+              progressPath.style.strokeDashoffset =
+                pathLength * (1 - progressStops[activeIndex]);
+            }
+            placePulse(activeIndex);
+          });
+        });
+        activateStep(0);
+        startCycle();
+      });
+
+      document.querySelectorAll(".peptides-faq-question").forEach((button) => {
+        button.addEventListener("click", () => {
+          const item = button.closest(".peptides-faq-item");
+          const panel = document.getElementById(button.getAttribute("aria-controls"));
+          const isOpen = button.getAttribute("aria-expanded") === "true";
+
+          button.setAttribute("aria-expanded", String(!isOpen));
+          item.classList.toggle("is-open", !isOpen);
+          panel.setAttribute("aria-hidden", String(isOpen));
+        });
+      });
+    </script>
   </body>
 </html>
+

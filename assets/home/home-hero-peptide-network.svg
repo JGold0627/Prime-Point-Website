@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" role="img" aria-labelledby="title desc">
+  <title id="title">Abstract peptide molecular network</title>
+  <desc id="desc">Subtle molecular bonds, nodes, and hexagonal structures arranged around an open center.</desc>
+  <defs>
+    <linearGradient id="greenLine" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f7562" stop-opacity="0.08"/>
+      <stop offset="0.55" stop-color="#739786" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#2d604f" stop-opacity="0.06"/>
+    </linearGradient>
+    <linearGradient id="goldLine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d7b46a" stop-opacity="0.04"/>
+      <stop offset="0.5" stop-color="#d7b46a" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#d7b46a" stop-opacity="0.04"/>
+    </linearGradient>
+    <radialGradient id="nodeGlow">
+      <stop offset="0" stop-color="#d7b46a" stop-opacity="0.42"/>
+      <stop offset="0.35" stop-color="#d7b46a" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#d7b46a" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+  </defs>
+
+  <g fill="none" stroke="url(#greenLine)" stroke-width="2">
+    <path d="M-80 170 90 90 240 155 388 88 520 176 650 126"/>
+    <path d="M-30 332 118 246 266 316 388 238 522 320"/>
+    <path d="M54 90 118 246 90 414 226 516 364 458 478 552"/>
+    <path d="M240 155 266 316 364 458 516 420"/>
+    <path d="M388 88 388 238 516 420 650 344"/>
+    <path d="M-60 710 92 618 242 686 360 612 492 698 624 634"/>
+    <path d="M92 618 54 814 190 924 344 862 492 972"/>
+    <path d="M242 686 344 862 500 808 624 914"/>
+
+    <path d="M1970 122 1822 72 1684 154 1534 96 1408 182 1280 132"/>
+    <path d="M1980 318 1838 244 1700 326 1560 252 1434 332"/>
+    <path d="M1870 72 1838 244 1878 416 1730 504 1592 442 1470 546"/>
+    <path d="M1684 154 1700 326 1592 442 1440 408"/>
+    <path d="M1534 96 1560 252 1440 408 1298 332"/>
+    <path d="M1980 700 1834 620 1682 696 1558 616 1424 704 1296 646"/>
+    <path d="M1834 620 1872 818 1738 924 1582 868 1434 974"/>
+    <path d="M1682 696 1582 868 1428 810 1296 918"/>
+  </g>
+
+  <g fill="none" stroke="#8cab9d" stroke-opacity="0.16" stroke-width="2">
+    <path d="m76 474 52-30 52 30v60l-52 30-52-30z"/>
+    <path d="m400 516 58-34 58 34v68l-58 34-58-34z"/>
+    <path d="m252 752 70-40 70 40v80l-70 40-70-40z"/>
+    <path d="m1740 468 52-30 52 30v60l-52 30-52-30z"/>
+    <path d="m1406 512 58-34 58 34v68l-58 34-58-34z"/>
+    <path d="m1530 752 70-40 70 40v80l-70 40-70-40z"/>
+  </g>
+
+  <g fill="#9bb6aa" fill-opacity="0.26">
+    <circle cx="90" cy="90" r="5"/><circle cx="240" cy="155" r="4"/><circle cx="388" cy="88" r="5"/>
+    <circle cx="118" cy="246" r="4"/><circle cx="266" cy="316" r="5"/><circle cx="388" cy="238" r="4"/>
+    <circle cx="92" cy="618" r="5"/><circle cx="242" cy="686" r="4"/><circle cx="344" cy="862" r="5"/>
+    <circle cx="1822" cy="72" r="5"/><circle cx="1684" cy="154" r="4"/><circle cx="1534" cy="96" r="5"/>
+    <circle cx="1838" cy="244" r="4"/><circle cx="1700" cy="326" r="5"/><circle cx="1560" cy="252" r="4"/>
+    <circle cx="1834" cy="620" r="5"/><circle cx="1682" cy="696" r="4"/><circle cx="1582" cy="868" r="5"/>
+  </g>
+
+  <g fill="none" stroke="url(#goldLine)" stroke-width="2">
+    <path d="M-20 534 76 474"/><path d="M516 550 650 500"/><path d="M-10 886 190 924"/>
+    <path d="M1940 528 1844 498"/><path d="M1406 546 1266 498"/><path d="M1930 884 1738 924"/>
+  </g>
+
+  <g fill="#d7b46a">
+    <circle cx="76" cy="474" r="4" fill-opacity="0.5"/><circle cx="458" cy="482" r="3" fill-opacity="0.38"/>
+    <circle cx="1844" cy="498" r="4" fill-opacity="0.5"/><circle cx="1464" cy="478" r="3" fill-opacity="0.38"/>
+  </g>
+  <g filter="url(#softGlow)">
+    <circle cx="76" cy="474" r="32" fill="url(#nodeGlow)"/><circle cx="1844" cy="498" r="32" fill="url(#nodeGlow)"/>
+  </g>
+</svg>

@@ -1,10 +1,120 @@
-const form = document.querySelector(".lead-form");
-const note = document.querySelector(".form-note");
+document.querySelectorAll(".site-header").forEach((header) => {
+  const navShell = header.querySelector(".nav-shell");
+  let actions = header.querySelector(".nav-actions");
 
-form?.addEventListener("submit", (event) => {
-  event.preventDefault();
-  note.textContent = "Thanks. Prime Point Health will follow up with next steps.";
-  form.reset();
+  if (!navShell) {
+    return;
+  }
+
+  if (!actions) {
+    actions = document.createElement("div");
+    actions.className = "nav-actions";
+    actions.setAttribute("aria-label", "Account actions");
+    navShell.append(actions);
+  }
+
+  if (actions.querySelector(".header-cart")) {
+    return;
+  }
+
+  const cartButton = document.createElement("button");
+  cartButton.className = "header-cart";
+  cartButton.type = "button";
+  cartButton.setAttribute("aria-label", "Shopping cart");
+  cartButton.title = "Shopping cart";
+  cartButton.innerHTML = `
+    <svg class="header-cart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="8" cy="21" r="1"></circle>
+      <circle cx="19" cy="21" r="1"></circle>
+      <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57L22 7H5.12"></path>
+    </svg>
+  `;
+  actions.append(cartButton);
+});
+
+document.querySelectorAll(".glp-nav-dropdown").forEach((dropdown) => {
+  const trigger = dropdown.querySelector(".glp-nav-trigger");
+  const pageLink = dropdown.querySelector(".glp-nav-link");
+  const menuId = trigger?.getAttribute("aria-controls");
+  const menu = menuId ? document.getElementById(menuId) : null;
+  const supportsHover = window.matchMedia("(hover: hover) and (pointer: fine)");
+  let closeTimer;
+
+  if (!trigger || !menu) {
+    return;
+  }
+
+  const setOpen = (isOpen, { restoreFocus = false } = {}) => {
+    window.clearTimeout(closeTimer);
+    dropdown.classList.toggle("is-open", isOpen);
+    trigger.setAttribute("aria-expanded", String(isOpen));
+    menu.setAttribute("aria-hidden", String(!isOpen));
+
+    if (restoreFocus) {
+      trigger.focus();
+    }
+  };
+
+  const scheduleClose = () => {
+    window.clearTimeout(closeTimer);
+    closeTimer = window.setTimeout(() => setOpen(false), 140);
+  };
+
+  trigger.addEventListener("click", () => {
+    setOpen(trigger.getAttribute("aria-expanded") !== "true");
+  });
+
+  dropdown.addEventListener("pointerenter", () => {
+    if (supportsHover.matches) {
+      setOpen(true);
+    }
+  });
+
+  dropdown.addEventListener("pointerleave", () => {
+    if (supportsHover.matches) {
+      scheduleClose();
+    }
+  });
+
+  dropdown.addEventListener("focusout", () => {
+    window.setTimeout(() => {
+      if (!dropdown.contains(document.activeElement)) {
+        setOpen(false);
+      }
+    });
+  });
+
+  pageLink?.addEventListener("click", () => setOpen(false));
+
+  menu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => setOpen(false));
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!dropdown.contains(event.target)) {
+      setOpen(false);
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && trigger.getAttribute("aria-expanded") === "true") {
+      setOpen(false, { restoreFocus: true });
+    }
+  });
+});
+
+document.querySelectorAll(".lead-form").forEach((form) => {
+  const note = form.querySelector(".form-note");
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    if (note) {
+      note.textContent = "Thanks. Prime Point Health will follow up with next steps.";
+    }
+
+    form.reset();
+  });
 });
 
 document.querySelectorAll(".compact-faq details").forEach((item) => {
@@ -175,3 +285,58 @@ document.querySelectorAll(".cellular-motion-canvas").forEach((canvas) => {
   });
   requestAnimationFrame(draw);
 });
+
+(() => {
+  if (
+    !("IntersectionObserver" in window) ||
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  ) {
+    return;
+  }
+
+  const revealSelector = "[data-pp-reveal]";
+  const sectionBlocks = [
+    ...document.querySelectorAll("main > section, body > section, main > article"),
+  ];
+  const ignoredElements =
+    "script, style, link, template, noscript, canvas, video, source, [hidden], [aria-hidden='true']";
+
+  sectionBlocks.forEach((block) => {
+    if (block.matches("[aria-hidden='true']") || block.querySelector(revealSelector)) {
+      return;
+    }
+
+    const candidates = [...block.children].filter(
+      (element) => !element.matches(ignoredElements)
+    );
+
+    candidates.forEach((element, index) => {
+      element.setAttribute("data-pp-reveal", "");
+      element.style.setProperty(
+        "--pp-reveal-delay",
+        `${Math.min(index * 70, 210)}ms`
+      );
+    });
+  });
+
+  const revealItems = [...document.querySelectorAll(revealSelector)];
+
+  if (!revealItems.length) {
+    return;
+  }
+
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        entry.target.classList.toggle("pp-reveal-visible", entry.isIntersecting);
+      });
+    },
+    {
+      rootMargin: "-12% 0px -12% 0px",
+      threshold: 0,
+    }
+  );
+
+  document.documentElement.classList.add("pp-reveal-ready");
+  revealItems.forEach((item) => revealObserver.observe(item));
+})();

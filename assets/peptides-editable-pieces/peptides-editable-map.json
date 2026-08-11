@@ -1,0 +1,111 @@
+{
+  "page": "peptides.html",
+  "source_mockup": "assets/Peptides page.png",
+  "implementation": "native-html-css",
+  "note": "The page has been rebuilt as editable HTML/CSS. Text, buttons, cards, process steps, trust items, and navigation are native DOM elements. Photo-style graphics are cropped from the supplied mockup and stored as reusable assets.",
+  "visual_assets": [
+    "assets/peptides-native/hero-product-scene.png",
+    "assets/peptides-native/pathway-energy-photo.png",
+    "assets/peptides-native/pathway-recovery-photo.png",
+    "assets/peptides-native/pathway-lean-photo.png",
+    "assets/peptides-native/pathway-cognitive-photo.png",
+    "assets/peptides-native/pathway-immune-photo.png",
+    "assets/peptides-native/pathway-longevity-photo.png",
+    "assets/peptides-native/cta-mountain-athlete.png"
+  ],
+  "sections": [
+    {
+      "id": "page-header",
+      "selector": "[data-editable-piece='page-header']",
+      "type": "native-layout",
+      "pieces": [
+        { "id": "hero-logo", "selector": "[data-editable-piece='hero-logo']", "type": "logo/link", "text": "Prime Point Wellness" },
+        { "id": "nav-peptides", "selector": "[data-editable-piece='nav-peptides']", "type": "nav/link", "text": "Peptides" },
+        { "id": "nav-glp-programs", "selector": "[data-editable-piece='nav-glp-programs']", "type": "nav/link", "text": "GLP-1 Programs" },
+        { "id": "nav-blood-work", "selector": "[data-editable-piece='nav-blood-work']", "type": "nav/link", "text": "Blood Work" },
+        { "id": "nav-supplements", "selector": "[data-editable-piece='nav-supplements']", "type": "nav/link", "text": "Supplements" },
+        { "id": "nav-about-us", "selector": "[data-editable-piece='nav-about-us']", "type": "nav/link", "text": "About Us" },
+        { "id": "nav-login", "selector": "[data-editable-piece='nav-login']", "type": "button/link", "text": "Log In" },
+        { "id": "nav-get-started", "selector": "[data-editable-piece='nav-get-started']", "type": "button/link", "text": "Get Started" }
+      ]
+    },
+    {
+      "id": "panel-1-hero-header",
+      "selector": "[data-editable-piece='panel-1-hero-header']",
+      "type": "native-layout",
+      "pieces": [
+        { "id": "hero-eyebrow", "selector": "[data-editable-piece='hero-eyebrow']", "type": "copy", "text": "Peptide Therapy" },
+        { "id": "hero-headline", "selector": "[data-editable-piece='hero-headline']", "type": "heading", "text": "Optimize. Restore. Elevate." },
+        { "id": "hero-subcopy", "selector": "[data-editable-piece='hero-subcopy']", "type": "copy", "text": "Evidence-informed peptide protocols designed to support your body at the cellular level.*" },
+        { "id": "hero-trust-row", "selector": "[data-editable-piece='hero-trust-row']", "type": "trust-row", "text": "Physician Guided | Science Backed | Individual Focused | Ongoing Support" },
+        { "id": "hero-primary-cta", "selector": "[data-editable-piece='hero-primary-cta']", "type": "button/link", "text": "Start Your Assessment" },
+        { "id": "hero-secondary-cta", "selector": "[data-editable-piece='hero-secondary-cta']", "type": "button/link", "text": "Learn More" },
+        { "id": "hero-product-visual", "selector": "[data-editable-piece='hero-product-visual']", "type": "image", "asset": "assets/peptides-native/hero-product-scene.png" }
+      ]
+    },
+    {
+      "id": "panel-2-peptide-difference",
+      "selector": "[data-editable-piece='panel-2-peptide-difference']",
+      "type": "native-layout",
+      "pieces": [
+        { "id": "difference-section-title", "selector": "[data-editable-piece='difference-section-title']", "type": "heading", "text": "The Prime Point Peptide Difference" },
+        { "id": "difference-targeted-support", "selector": "[data-editable-piece='difference-targeted-support']", "type": "benefit-card", "text": "Targeted Support" },
+        { "id": "difference-cellular-level-care", "selector": "[data-editable-piece='difference-cellular-level-care']", "type": "benefit-card", "text": "Cellular Level Care" },
+        { "id": "difference-physician-guided", "selector": "[data-editable-piece='difference-physician-guided']", "type": "benefit-card", "text": "Physician Guided" },
+        { "id": "difference-personalized", "selector": "[data-editable-piece='difference-personalized']", "type": "benefit-card", "text": "Personalized" },
+        { "id": "difference-continuous-optimization", "selector": "[data-editable-piece='difference-continuous-optimization']", "type": "benefit-card", "text": "Continuous Optimization" }
+      ]
+    },
+    {
+      "id": "panel-3-peptide-pathways",
+      "selector": "[data-editable-piece='panel-3-peptide-pathways']",
+      "type": "native-layout",
+      "pieces": [
+        { "id": "pathways-section-title", "selector": "[data-editable-piece='pathways-section-title']", "type": "heading", "text": "Peptide Pathways We Support" },
+        { "id": "pathway-card-energy-vitality", "selector": "[data-editable-piece='pathway-card-energy-vitality']", "type": "native-card", "text": "Energy & Vitality", "asset": "assets/peptides-native/pathway-energy-photo.png" },
+        { "id": "pathway-card-recovery-repair", "selector": "[data-editable-piece='pathway-card-recovery-repair']", "type": "native-card", "text": "Recovery & Repair", "asset": "assets/peptides-native/pathway-recovery-photo.png" },
+        { "id": "pathway-card-lean-body-composition", "selector": "[data-editable-piece='pathway-card-lean-body-composition']", "type": "native-card", "text": "Lean Body Composition", "asset": "assets/peptides-native/pathway-lean-photo.png" },
+        { "id": "pathway-card-cognitive-performance", "selector": "[data-editable-piece='pathway-card-cognitive-performance']", "type": "native-card", "text": "Cognitive Performance", "asset": "assets/peptides-native/pathway-cognitive-photo.png" },
+        { "id": "pathway-card-immune-wellness", "selector": "[data-editable-piece='pathway-card-immune-wellness']", "type": "native-card", "text": "Immune & Wellness", "asset": "assets/peptides-native/pathway-immune-photo.png" },
+        { "id": "pathway-card-longevity-cellular-health", "selector": "[data-editable-piece='pathway-card-longevity-cellular-health']", "type": "native-card", "text": "Longevity & Cellular Health", "asset": "assets/peptides-native/pathway-longevity-photo.png" }
+      ]
+    },
+    {
+      "id": "panel-4-peptide-journey",
+      "selector": "[data-editable-piece='panel-4-peptide-journey']",
+      "type": "native-layout",
+      "pieces": [
+        { "id": "journey-section-title", "selector": "[data-editable-piece='journey-section-title']", "type": "heading", "text": "Your Peptide Journey" },
+        { "id": "journey-step-assessment", "selector": "[data-editable-piece='journey-step-assessment']", "type": "process-step", "text": "1. Assessment" },
+        { "id": "journey-step-data-analysis", "selector": "[data-editable-piece='journey-step-data-analysis']", "type": "process-step", "text": "2. Data & Analysis" },
+        { "id": "journey-step-protocol-design", "selector": "[data-editable-piece='journey-step-protocol-design']", "type": "process-step", "text": "3. Protocol Design" },
+        { "id": "journey-step-start-support", "selector": "[data-editable-piece='journey-step-start-support']", "type": "process-step", "text": "4. Start & Support" },
+        { "id": "journey-step-review-optimize", "selector": "[data-editable-piece='journey-step-review-optimize']", "type": "process-step", "text": "5. Review & Optimize" }
+      ]
+    },
+    {
+      "id": "panel-5-cta-footer",
+      "selector": "[data-editable-piece='panel-5-cta-footer']",
+      "type": "native-layout",
+      "pieces": [
+        { "id": "cta-mountain-athlete-visual", "selector": "[data-editable-piece='cta-mountain-athlete-visual']", "type": "background-image", "asset": "assets/peptides-native/cta-mountain-athlete.png" },
+        { "id": "cta-headline", "selector": "[data-editable-piece='cta-headline']", "type": "heading", "text": "Peptides. Personalized. Performance. Elevated." },
+        { "id": "cta-subcopy", "selector": "[data-editable-piece='cta-subcopy']", "type": "copy", "text": "Science-backed protocols. Physician guided. Designed around you." },
+        { "id": "cta-primary-button", "selector": "[data-editable-piece='cta-primary-button']", "type": "button/link", "text": "Start Your Assessment" },
+        { "id": "cta-secondary-button", "selector": "[data-editable-piece='cta-secondary-button']", "type": "button/link", "text": "View All Programs" }
+      ]
+    },
+    {
+      "id": "footer-trust-row",
+      "selector": "[data-editable-piece='footer-trust-row']",
+      "type": "native-layout",
+      "pieces": [
+        { "id": "footer-secure-private", "selector": "[data-editable-piece='footer-secure-private']", "type": "trust-item", "text": "Secure & Private" },
+        { "id": "footer-physician-guided", "selector": "[data-editable-piece='footer-physician-guided']", "type": "trust-item", "text": "Physician Guided" },
+        { "id": "footer-science-backed", "selector": "[data-editable-piece='footer-science-backed']", "type": "trust-item", "text": "Science Backed" },
+        { "id": "footer-premium-quality", "selector": "[data-editable-piece='footer-premium-quality']", "type": "trust-item", "text": "Premium Quality" },
+        { "id": "footer-ongoing-support", "selector": "[data-editable-piece='footer-ongoing-support']", "type": "trust-item", "text": "Ongoing Support" }
+      ]
+    }
+  ]
+}

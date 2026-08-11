@@ -1,327 +1,362 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Prime Point Health | Clinician-Guided Peptide Care</title>
+    <title>Prime Point Health | Modern Health Optimization</title>
     <meta
       name="description"
-      content="Prime Point Health offers clinician-guided telehealth consultations for adults exploring peptide-focused care, education, and individualized care planning."
+      content="Prime Point Health is a luxury telehealth platform for physician-guided peptides, GLP-1 programs, blood work, and supplement planning."
     />
-    <link rel="preconnect" href="https://images.unsplash.com" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=prime-green-r1" />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/home.css" />
   </head>
-  <body>
+  <body class="home-page">
     <header class="site-header" aria-label="Primary navigation">
       <div class="nav-shell">
         <a class="brand" href="index.html" aria-label="Prime Point Health home">
-          <img class="brand-logo" src="Prime Point Health Logo/ChatGPT Image Jun 1, 2026, 10_20_04 AM.png" alt="" />
-          <span>Prime Point Health</span>
+          <img
+            class="brand-logo-reference"
+            src="assets/brand/Logo V1.png"
+            alt="Prime Point Health"
+          />
         </a>
+
         <nav class="nav-links" aria-label="Main navigation">
-          <a href="peptides.html">Peptides</a>
-          <div class="nav-dropdown treatment-dropdown">
-            <a class="nav-dropdown-trigger" href="glp-1s.html" aria-haspopup="true" aria-expanded="false">GLP-1s</a>
-            <div class="nav-dropdown-menu treatment-menu" aria-label="GLP-1 treatments submenu">
-              <span class="treatment-menu-label">Injectable</span>
-              <a href="glp-1s.html#semaglutide">Semaglutide</a>
-              <a href="glp-1s.html#tirzepatide">Tirzepatide</a>
+          <a class="nav-link" href="peptides.html">Peptides</a>
+          <div class="glp-nav-dropdown">
+            <a class="nav-link glp-nav-link" href="glp-1s.html">GLP-1's</a>
+            <button
+              class="glp-nav-trigger"
+              type="button"
+              aria-label="Show GLP-1 medications"
+              aria-haspopup="true"
+              aria-expanded="false"
+              aria-controls="glp-nav-menu"
+            >
+              <span class="glp-nav-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="glp-nav-menu" id="glp-nav-menu" aria-hidden="true">
+              <div class="glp-nav-menu-group">
+                <span class="glp-nav-menu-label">Injectable</span>
+                <a href="semaglutide.html">Semaglutide</a>
+                <a href="tirzepatide.html">Tirzepatide</a>
+              </div>
+              <div class="glp-nav-menu-group">
+                <span class="glp-nav-menu-label">Oral</span>
+                <a href="semaglutide-tablets.html">Semaglutide Tablets</a>
+              </div>
             </div>
           </div>
-          <a href="index.html#consult">Blood Work</a>
-          <a href="index.html#consult">Supplement Planning</a>
-          <div class="nav-dropdown">
-            <a class="nav-dropdown-trigger" href="index.html#programs" aria-haspopup="true" aria-expanded="false">About</a>
-            <div class="nav-dropdown-menu about-menu" aria-label="About submenu">
-              <a href="index.html#programs">About Prime Point</a>
-              <a href="index.html#faq">FAQ</a>
-              <a href="index.html#consult">Contact</a>
+          <a class="nav-link" href="blood-work.html">Blood Work</a>
+          <div class="glp-nav-dropdown about-nav-dropdown">
+            <a class="nav-link glp-nav-link" href="about.html">About Us</a>
+            <button
+              class="glp-nav-trigger"
+              type="button"
+              aria-label="Show About Us links"
+              aria-haspopup="true"
+              aria-expanded="false"
+              aria-controls="about-nav-menu"
+            >
+              <span class="glp-nav-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="glp-nav-menu" id="about-nav-menu" aria-hidden="true">
+              <div class="glp-nav-menu-group">
+                <a href="contact.html">Contact Us</a>
+              </div>
             </div>
           </div>
         </nav>
+
         <div class="nav-actions" aria-label="Account actions">
-          <a class="header-action header-login" href="index.html#faq">FAQ</a>
-          <a class="header-action header-start" href="index.html#consult">Get Started</a>
+          <a class="header-action header-login" href="#login">Log In</a>
+          <a class="header-action header-start" href="#services">Get Started</a>
         </div>
       </div>
     </header>
 
-    <main id="top">
-      <section class="hero" aria-label="Prime Point Health telehealth peptide consultations">
-        <div class="hero-media-stack" aria-hidden="true">
-          <video class="hero-media is-active" autoplay muted loop playsinline preload="auto">
-            <source src="assets/hero-workout-bench.mp4" type="video/mp4" />
-          </video>
-          <video class="hero-media" autoplay muted loop playsinline preload="auto">
-            <source src="assets/hero-workout-rope.mp4" type="video/mp4" />
-          </video>
-          <video class="hero-media" autoplay muted loop playsinline preload="auto">
-            <source src="assets/hero-workout-bars.mp4" type="video/mp4" />
-          </video>
-          <video class="hero-media" autoplay muted loop playsinline preload="auto">
-            <source src="assets/hero-workout-battle-ropes.mp4" type="video/mp4" />
-          </video>
-        </div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content hero-content-compact">
-          <div class="hero-copy-placeholder">
-            <h1>Luxury telehealth wellness, guided by licensed providers.</h1>
-            <span>Start with a private review of your goals, health history, and care options.</span>
-            <ul class="hero-benefit-list" aria-label="Care highlights">
-              <li>Provider-led consultations</li>
-              <li>Options only when appropriate</li>
-              <li>Online care planning and follow-up</li>
-            </ul>
-          </div>
-          <div class="hero-actions">
-            <a class="button primary" href="index.html#consult">Request consult</a>
-          </div>
-        </div>
-      </section>
+    <!--
+      Home Hero V1 fitment reference (preserved 2026-07-21):
+      left-aligned copy at 4.3% / 27%, previous dashboard artwork, and
+      assessment dropdown positioned at 4.3% / 81%.
+    -->
+    <section class="home-hero" aria-label="Prime Point homepage hero">
+      <div class="home-hero-content">
+        <div class="home-hero-centered-copy">
+          <h1 class="home-hero-main-title">
+            <span>Optimize</span>
+            <span>Your Biology</span>
+          </h1>
 
-      <section class="intro-section" aria-labelledby="intro-title">
-        <div class="section-copy">
-          <h2 id="intro-title">Explore your options</h2>
-        </div>
-        <div class="service-bubble-grid" aria-label="Prime Point services">
-          <a class="service-bubble" href="peptides.html#programs">
-            <span class="service-kicker">Provider-led review</span>
-            <span class="service-title">Peptide Consults</span>
-            <span class="service-copy">
-              Talk through goals, health history, medications, and questions
-              with a licensed provider.
-            </span>
-            <span class="service-action">Learn more</span>
-          </a>
-          <a class="service-bubble" href="glp-1s.html">
-            <span class="service-kicker">Weight management</span>
-            <span class="service-title">GLP-1s</span>
-            <span class="service-copy">
-              Review metabolic priorities and whether GLP-1 topics are worth
-              discussing after clinical review.
-            </span>
-            <span class="service-action">Learn more</span>
-          </a>
-          <a class="service-bubble" href="index.html#consult">
-            <span class="service-kicker">Health markers</span>
-            <span class="service-title">Blood Work</span>
-            <span class="service-copy">
-              Use available labs to help guide a clearer provider conversation
-              about next steps.
-            </span>
-            <span class="service-action">Learn more</span>
-          </a>
-          <a class="service-bubble" href="index.html#consult">
-            <span class="service-kicker">Daily support</span>
-            <span class="service-title">Supplement Planning</span>
-            <span class="service-copy">
-              Discuss practical supplement routines that fit your broader
-              health plan.
-            </span>
-            <span class="service-action">Learn more</span>
-          </a>
-        </div>
-      </section>
-
-      <section class="program-section" id="programs" aria-labelledby="program-title">
-        <div class="section-copy">
-          <div>
-            <h2 id="program-title">Choose the conversation that fits your priorities</h2>
-          </div>
-          <figure class="section-visual" aria-label="Patient speaking with a provider">
-            <img
-              src="assets/provider-consultation-young-male-doctor.png"
-              alt="A young smiling male doctor speaking with a patient during a consultation"
-            />
-          </figure>
-        </div>
-
-        <div class="program-grid">
-          <article class="program-card">
-            <div>
-              <h3>Cognitive &amp; Neurological</h3>
-            </div>
-            <p>
-              Talk through focus, mood, sleep, memory, and neurological
-              concerns in a structured visit built around your priorities.
-            </p>
-            <ul>
-              <li>Goal-setting support</li>
-              <li>Priority mapping</li>
-              <li>Clear discussion points</li>
-            </ul>
-          </article>
-
-          <article class="program-card">
-            <div>
-              <h3>Repair &amp; Recovery</h3>
-            </div>
-            <p>
-              Review recovery demands, training load, soreness patterns,
-              mobility, and routines that may shape your support plan.
-            </p>
-            <ul>
-              <li>Recovery priorities</li>
-              <li>Training context</li>
-              <li>Next-step planning</li>
-            </ul>
-          </article>
-
-          <article class="program-card muted">
-            <div>
-              <h3>Metabolic Support &amp; Weight Loss</h3>
-            </div>
-            <p>
-              Explore appetite patterns, metabolic health, lifestyle habits,
-              and weight-management priorities with provider guidance.
-            </p>
-            <ul>
-              <li>Weight-loss priorities</li>
-              <li>Metabolic context</li>
-              <li>Support planning</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section class="education-section member-section" aria-labelledby="education-title">
-        <div class="member-copy">
-          <h2 id="education-title">Build your path</h2>
-          <p>
-            Membership starts with a private intake and provider-guided review
-            of your goals, health history, medications, available labs, and
-            questions.
+          <p class="home-hero-main-lede">
+            Prime Point Health is your precision health platform for physician-guided
+            peptide therapy, GLP-1 programs, comprehensive blood work, and personalized
+            supplement planning&mdash;all designed around your biology.
           </p>
-          <div class="member-actions">
-            <a class="button primary" href="index.html#consult">Become a member</a>
-          </div>
-        </div>
 
-        <div class="member-panel" aria-label="Prime Point membership path">
-          <span>Step 1</span>
-          <h3>Join the membership</h3>
-          <p>
-            Start with a private intake so your provider has the goals, health
-            history, medications, available labs, and questions needed for a
-            clearer review.
-          </p>
-        </div>
-
-        <div class="member-path-grid">
-          <article>
-            <strong>Step 2</strong>
-            <span>Choose your path</span>
-            <p>
-              Based on your priorities, your conversation can focus on
-              peptides, GLP-1 topics, blood work, supplement planning, or a
-              broader care discussion.
-            </p>
-          </article>
-          <article>
-            <strong>Step 3</strong>
-            <span>Clinician access and continued care</span>
-            <p>
-              Continue with provider guidance, education, follow-up priorities,
-              and next steps when they are clinically appropriate.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="consult-section" id="consult" aria-labelledby="consult-title">
-        <div class="consult-copy">
-          <h2 id="consult-title">Find your Prime Point</h2>
-          <div class="faq-section compact-faq" id="faq" aria-labelledby="faq-title">
-            <div>
-              <p class="eyebrow">FAQ</p>
-              <h3 id="faq-title">Common questions</h3>
+          <div class="home-hero-centered-actions">
+            <div class="home-hero-services-dropdown">
+              <button class="button button-primary" type="button" aria-haspopup="true">
+                Explore Our Services
+              </button>
+              <div class="home-hero-services-menu" aria-label="Prime Point services">
+                <a href="peptides.html">Peptides</a>
+                <a href="glp-1s.html">GLP-1's</a>
+                <a href="blood-work.html">Blood Work</a>
+              </div>
             </div>
-            <details open>
-              <summary>What are peptides and how do they work?</summary>
-              <p>
-                Peptides are short chains of amino acids. In a consult, your
-                provider can explain how different peptide topics may relate to
-                your goals, health history, and care preferences.
-              </p>
-            </details>
-            <details open>
-              <summary>What peptide topics can I discuss?</summary>
-              <p>
-                You can ask about goals, routines, medications, available labs,
-                metabolic priorities, recovery needs, and whether any options
-                are worth reviewing further.
-              </p>
-            </details>
-            <details open>
-              <summary>Are peptides right for everyone?</summary>
-              <p>
-                No. Peptide-related care requires clinical review and may not
-                be appropriate for every person, history, medication list, or
-                set of goals.
-              </p>
-            </details>
-            <details open>
-              <summary>How long does the review take?</summary>
-              <p>
-                Timing can vary. After you share your intake, the next step is
-                a provider-led review of your goals, background, questions, and
-                available health information.
-              </p>
-            </details>
-            <details open>
-              <summary>Are prescriptions guaranteed?</summary>
-              <p>
-                No. Prescriptions are considered only when clinically
-                appropriate after review, and eligibility, options, and next
-                steps can vary.
-              </p>
-            </details>
+            <a class="button button-secondary" href="#how-it-works">How It Works</a>
           </div>
         </div>
-        <form class="lead-form" aria-label="Consult request form">
-          <label>
-            Name
-            <input type="text" name="name" autocomplete="name" placeholder="Alex Morgan" />
-          </label>
-          <label>
-            Email
-            <input type="email" name="email" autocomplete="email" placeholder="alex@example.com" />
-          </label>
-          <label>
-            Primary goal
-            <select name="goal">
-              <option>Provider-led peptide care review</option>
-              <option>GLP-1 and weight-loss discussion</option>
-              <option>Blood work and health-marker review</option>
-              <option>Supplement planning and general fitness</option>
-            </select>
-          </label>
-          <button class="button primary" type="submit">Request consult</button>
-          <p class="form-note" role="status" aria-live="polite"></p>
-        </form>
-      </section>
-
-    </main>
-
-    <footer class="site-footer">
-      <p class="footer-disclaimer">
-        Information on this site is educational and is not a diagnosis, treatment
-        claim, or guarantee of results. Peptide therapies require clinical
-        review, may not be appropriate for everyone, and are not guaranteed after
-        a consult. Prescriptions are considered only when clinically appropriate.
-      </p>
-      <div class="footer-meta">
-        <nav class="footer-policy-links" aria-label="Legal links">
-          <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="terms-of-service.html">Terms of Service</a>
-        </nav>
-        <p>&copy; 2026 Prime Point Health</p>
       </div>
-    </footer>
+    </section>
 
-    <script src="script.js?v=home-options-r4"></script>
+    <section class="home-journey" aria-hidden="true"></section>
+
+    <section class="home-services" id="services" aria-labelledby="home-services-title">
+      <p class="home-services-eyebrow">WHAT WE OFFER</p>
+      <h2 class="home-services-title" id="home-services-title">
+        Three Pillars of <span>Precision Health</span>
+      </h2>
+
+      <div class="home-services-grid">
+        <article
+          class="home-service-card home-service-card--peptides"
+          tabindex="0"
+          role="link"
+          aria-label="Peptides"
+          onclick="window.location.href='peptides.html'"
+          onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); window.location.href='peptides.html'; }"
+        >
+          <div class="home-service-image" aria-hidden="true"></div>
+          <div class="home-service-collapsed-title" aria-hidden="true">PEPTIDES</div>
+          <div class="home-service-expanded-content">
+            <h3>Peptides</h3>
+            <p>
+              Enhance performance, speed recovery, and restore vitality with
+              targeted peptide therapies designed just for you.
+            </p>
+            <a href="peptides.html">Learn More <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </article>
+
+        <article class="home-service-card home-service-card--glp" tabindex="0">
+          <div class="home-service-image" aria-hidden="true"></div>
+          <div class="home-service-collapsed-title" aria-hidden="true">GLP-1's</div>
+          <div class="home-service-expanded-content">
+            <h3>GLP-1's</h3>
+            <p>
+              Effortless weight management. Get prescribed Semaglutide or
+              Tirzepatide. Transform your body with GLP-1's. Personalized plans
+              with discreet shipping.
+            </p>
+            <a href="glp-1s.html">Learn More <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </article>
+
+        <article class="home-service-card home-service-card--bloodwork" tabindex="0">
+          <div class="home-service-image" aria-hidden="true"></div>
+          <div class="home-service-collapsed-title" aria-hidden="true">BLOODWORK</div>
+          <div class="home-service-expanded-content">
+            <h3>Bloodwork</h3>
+            <p>
+              Go beyond basic lab tests with in-depth blood analysis that
+              uncovers root causes and guides your personalized wellness plan.
+            </p>
+            <a href="blood-work.html">Learn More <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="home-video-intro">
+      <p class="home-video-intro-eyebrow">WHO WE ARE</p>
+      <img
+        src="assets/home/Intro Video Section.png"
+        alt="Prime Point video introduction"
+        class="home-video-intro-image"
+      />
+      <div class="home-video-intro-content">
+        <div class="home-video-intro-copy">
+          <h2>WE BELIEVE THE FUTURE OF HEALTHCARE IS PROACTIVE, <span>NOT REACTIVE.</span></h2>
+          <p>
+            Our mission is to help people optimize their health before problems
+            arise through personalized, physician-guided care rooted in
+            prevention, longevity, and measurable progress.
+          </p>
+          <p>
+            By combining advanced therapies, comprehensive diagnostics, and
+            long-term health planning, we empower every patient to understand
+            their body, make informed decisions, and take control of their
+            health with confidence. We envision a future where healthcare isn't
+            defined by treating illness, but by helping people live healthier,
+            longer, and more fulfilling lives.
+          </p>
+        </div>
+        <div class="home-video-placeholder" aria-label="Video placeholder">
+          <span aria-hidden="true"></span>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="home-video-intro home-how-it-works"
+      id="how-it-works"
+      aria-labelledby="home-how-it-works-title"
+    >
+      <p class="home-how-it-works-eyebrow" id="home-how-it-works-title">
+        FINDING YOUR PRIME POINT
+      </p>
+      <p class="home-how-intro">
+        <strong>With Prime Point, you're in control - there are endless ways to
+          feel your best.</strong>
+        Start by deciding which path fits your needs. Then begin your
+        assessment. Review your biomarkers from anywhere on your Prime Point
+        Log In screen, schedule meetings with our providers, and receive custom
+        supplements, peptides, GLP-1's, and bloodwork packages. Your plan is
+        entirely yours to design, and every step backed by our clinical
+        expertise.
+      </p>
+      <div class="home-how-process">
+        <article class="home-how-step home-how-step--assessment">
+          <div class="home-how-step-marker" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M15 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+              <circle cx="8.5" cy="7" r="4"></circle>
+              <path d="M19 8v6"></path>
+              <path d="M22 11h-6"></path>
+            </svg>
+          </div>
+          <div class="home-how-step-content">
+            <h2>CREATE YOUR PRIME POINT ACCOUNT</h2>
+            <p>
+              Log in to create your Prime Point Account and explore our products
+              and services.
+            </p>
+          </div>
+        </article>
+
+        <article class="home-how-step">
+          <div class="home-how-step-marker" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 3v3"></path>
+              <path d="M6 6h10l2 2-2 2H6z"></path>
+              <path d="M12 10v4"></path>
+              <path d="M18 14H8l-2 2 2 2h10z"></path>
+              <path d="M12 18v3"></path>
+            </svg>
+          </div>
+          <div class="home-how-step-content">
+            <h2>CHOOSE YOUR PATH</h2>
+            <p>
+              Based on your biomarkers and goals, we'll work with you to create
+              a customized plan from Peptide therapy, GLP-1 Treatment, to blood
+              work.
+            </p>
+          </div>
+        </article>
+
+        <article class="home-how-step">
+          <div class="home-how-step-marker" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M11 2v2"></path>
+              <path d="M5 2v2"></path>
+              <path d="M5 3H4a2 2 0 0 0-2 2v3a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"></path>
+              <path d="M8 14a6 6 0 0 0 12 0v-2"></path>
+              <circle cx="20" cy="10" r="2"></circle>
+            </svg>
+          </div>
+          <div class="home-how-step-content">
+            <h2>PROVIDER GUIDANCE AND CONTINUED CARE</h2>
+            <p>
+              Continue with education, care planning, and follow-up when
+              clinically appropriate for your individual needs.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="home-final-panel">
+      <div class="home-social-follow" aria-label="Follow Prime Point Health on social media">
+        <span class="home-social-label">Follow us on:</span>
+        <div class="home-social-links">
+          <a href="#" aria-label="Follow Prime Point Health on Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="4" y="4" width="16" height="16" rx="5"></rect>
+              <circle cx="12" cy="12" r="3.5"></circle>
+              <circle cx="17" cy="7" r="0.8"></circle>
+            </svg>
+          </a>
+          <a href="#" aria-label="Follow Prime Point Health on Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M14.5 8.2h2.2V4.6c-.4-.1-1.7-.2-3.2-.2-3.2 0-5.3 1.9-5.3 5.4v3H4.8v4h3.4v7h4.1v-7h3.3l.5-4h-3.8v-2.6c0-1.1.3-2 2.2-2Z"></path>
+            </svg>
+          </a>
+          <a href="#" aria-label="Follow Prime Point Health on X">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.451-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="home-legal-container">
+        <p>
+          The information provided on the Prime Point Health website and social
+          media channels is for educational and informational purposes only and
+          is not intended to be a substitute for professional medical advice,
+          diagnosis, or treatment. We do not offer medical advice on this
+          website, and any clinical decisions should be made by a licensed
+          healthcare provider who can assess your individual medical needs and
+          provide appropriate treatment. Always seek the advice of a qualified
+          healthcare provider with any questions you may have regarding a medical
+          condition. If you think you may have a medical emergency, call your
+          healthcare provider or emergency services immediately. We are not
+          responsible for any reliance on information provided on this website.
+        </p>
+
+        <p>
+          Please note that some of the treatments or therapies offered by Prime
+          Point Health may not be approved by the US Food and Drug
+          Administration (FDA) and are offered at the discretion of licensed
+          medical professionals. These treatments may be considered experimental
+          or alternative, and their safety and efficacy may not be fully
+          established. While we strive to provide accurate information about
+          these treatments, we make no claims or guarantees regarding their
+          effectiveness or suitability for your individual needs.
+        </p>
+
+        <p>
+          It's important to understand that the results of any treatment may vary
+          from person to person, and there are no guarantees of success or
+          positive outcomes. Before undergoing any treatment or therapy, it's
+          important to consult with a licensed healthcare provider who can assess
+          your individual medical needs and provide appropriate guidance and
+          care.
+        </p>
+
+        <p>
+          By engaging in any treatments or therapies offered herein, you
+          acknowledge and agree that you assume all risks associated with such
+          treatment, and you release and hold harmless Prime Point Health and its
+          staff, agents, and affiliates from any and all claims or damages
+          arising from or related to your use of this website or any treatments
+          or therapies offered herein.
+        </p>
+
+        <p class="home-legal-copyright">
+          &copy; 2026 Prime Point Health all rights reserved.
+        </p>
+      </div>
+      <img
+        src="assets/brand/Logo V1.png"
+        alt="Prime Point Health"
+        class="home-final-logo"
+      />
+    </section>
+    <script src="script.js"></script>
   </body>
 </html>
+
