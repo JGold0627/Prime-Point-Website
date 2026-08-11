@@ -2,7 +2,7 @@
   position: relative;
   min-height: calc(100vh - var(--pp-header-height));
   width: 100%;
-  background-image: url("../assets/peptides/Front Page without Wording V2.png");
+  background-image: url("../assets/Peptides/Front Page without Wording V2.png");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
