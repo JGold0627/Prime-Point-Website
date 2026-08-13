@@ -1,0 +1,500 @@
+.glp-eligibility-page {
+  min-height: 100svh;
+  overflow-x: hidden;
+  background:
+    linear-gradient(118deg, rgba(215, 180, 106, 0.045), transparent 34%),
+    linear-gradient(180deg, #050907 0%, #091710 34%, #10261f 100%);
+  color: var(--pp-cream);
+}
+
+.glp-eligibility-header {
+  width: 100%;
+  min-height: 0;
+  height: 72px;
+  display: grid;
+  place-items: center;
+  padding: 0 var(--pp-page-gutter);
+  background: transparent;
+  border-bottom: 1px solid rgba(215, 180, 106, 0.34);
+  box-shadow: none;
+}
+
+.glp-eligibility-brand {
+  position: relative;
+  width: clamp(220px, 20vw, 310px);
+  height: 100%;
+  display: block;
+  overflow: hidden;
+}
+
+.glp-eligibility-brand img {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  transform: translateY(-50%);
+}
+
+.glp-eligibility-main {
+  min-height: calc(100svh - 72px);
+  display: grid;
+  align-items: start;
+  padding: clamp(44px, 7vh, 86px) var(--pp-page-gutter) clamp(52px, 8vh, 96px);
+}
+
+.glp-eligibility-shell {
+  width: min(100%, 1060px);
+  margin: 0 auto;
+}
+
+.glp-eligibility-status {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+  color: var(--pp-cream);
+  font-size: clamp(0.92rem, 1.2vw, 1.08rem);
+}
+
+.glp-eligibility-status p {
+  margin: 0;
+}
+
+.glp-eligibility-back {
+  width: max-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--pp-cream);
+  text-decoration: none;
+  transition: color 160ms ease, transform 160ms ease;
+}
+
+.glp-eligibility-back span:first-child {
+  color: var(--pp-gold);
+  font-size: 1.35em;
+}
+
+.glp-eligibility-back:hover,
+.glp-eligibility-back:focus-visible {
+  color: var(--pp-gold);
+  transform: translateX(-3px);
+}
+
+.glp-eligibility-stage {
+  justify-self: center;
+  font-weight: 600;
+}
+
+.glp-eligibility-count {
+  justify-self: end;
+  color: var(--pp-cream-muted);
+}
+
+.glp-eligibility-progress {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.glp-eligibility-progress span {
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(245, 239, 226, 0.14);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.28);
+}
+
+.glp-eligibility-progress .is-active {
+  background: linear-gradient(90deg, var(--pp-gold), #f0d79c);
+  box-shadow: 0 0 16px rgba(215, 180, 106, 0.2);
+}
+
+.glp-eligibility-progress .is-active + .is-active {
+  background: linear-gradient(90deg, #efd48f, var(--pp-gold));
+}
+
+.glp-eligibility-intro {
+  width: min(100%, 900px);
+  margin: clamp(50px, 8vh, 88px) auto 0;
+  text-align: center;
+}
+
+.glp-eligibility-kicker {
+  margin: 0 0 16px;
+  color: var(--pp-gold);
+  font-size: clamp(0.72rem, 0.9vw, 0.88rem);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.glp-eligibility-intro h1 {
+  margin: 0;
+  color: var(--pp-cream);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.25rem, 5vw, 4.6rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+
+.glp-eligibility-intro > p:last-child {
+  width: min(100%, 700px);
+  margin: clamp(20px, 3vh, 30px) auto 0;
+  color: var(--pp-cream-muted);
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  line-height: 1.55;
+}
+
+.glp-eligibility-form {
+  width: min(100%, 900px);
+  margin: clamp(36px, 5vh, 54px) auto 0;
+  display: grid;
+  gap: 18px;
+}
+
+.glp-eligibility-field {
+  display: grid;
+}
+
+.glp-eligibility-field label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.glp-eligibility-field input {
+  width: 100%;
+  min-height: clamp(76px, 8vw, 96px);
+  padding: 0 clamp(22px, 3vw, 34px);
+  border: 1px solid rgba(215, 180, 106, 0.34);
+  border-radius: 8px;
+  outline: 0;
+  background: rgba(245, 239, 226, 0.1);
+  box-shadow:
+    inset 0 1px 0 rgba(245, 239, 226, 0.08),
+    0 16px 36px rgba(0, 0, 0, 0.12);
+  color: var(--pp-cream);
+  font: inherit;
+  font-size: clamp(1.12rem, 1.8vw, 1.42rem);
+  transition: border-color 150ms ease, background-color 150ms ease, box-shadow 150ms ease;
+}
+
+.glp-eligibility-field input::placeholder {
+  color: rgba(245, 239, 226, 0.58);
+}
+
+.glp-eligibility-field input:hover {
+  border-color: rgba(215, 180, 106, 0.58);
+  background: rgba(245, 239, 226, 0.125);
+}
+
+.glp-eligibility-field input:focus {
+  border-color: var(--pp-gold);
+  background: rgba(245, 239, 226, 0.14);
+  box-shadow:
+    0 0 0 3px rgba(215, 180, 106, 0.14),
+    0 18px 42px rgba(0, 0, 0, 0.16);
+}
+
+.glp-field-error {
+  display: none;
+  margin: 8px 4px 0;
+  color: #f0c995;
+  font-size: 0.88rem;
+}
+
+.glp-eligibility-field.has-error input {
+  border-color: #d99c67;
+}
+
+.glp-eligibility-field.has-error .glp-field-error {
+  display: block;
+}
+
+.glp-eligibility-continue {
+  width: 100%;
+  min-height: clamp(64px, 7vw, 78px);
+  margin-top: clamp(16px, 2.5vh, 26px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  border: 1px solid rgba(247, 218, 154, 0.66);
+  border-radius: 999px;
+  background: linear-gradient(105deg, #b98d3e 0%, #efd48f 48%, #cda754 100%);
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.34);
+  color: #07100d;
+  cursor: pointer;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  font-size: clamp(1.08rem, 1.45vw, 1.3rem);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: transform 150ms ease, box-shadow 150ms ease, filter 150ms ease;
+}
+
+.glp-eligibility-continue:hover,
+.glp-eligibility-continue:focus-visible {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+  box-shadow:
+    0 22px 48px rgba(0, 0, 0, 0.28),
+    0 0 22px rgba(215, 180, 106, 0.18);
+}
+
+.glp-eligibility-continue:active {
+  transform: translateY(0);
+}
+
+.glp-eligibility-continue:disabled {
+  border-color: rgba(215, 180, 106, 0.18);
+  background: rgba(245, 239, 226, 0.13);
+  box-shadow: inset 0 1px 0 rgba(245, 239, 226, 0.04);
+  color: rgba(245, 239, 226, 0.34);
+  cursor: not-allowed;
+  filter: saturate(0.35);
+}
+
+.glp-eligibility-continue:disabled:hover,
+.glp-eligibility-continue:disabled:focus-visible {
+  transform: none;
+  filter: saturate(0.35);
+  box-shadow: inset 0 1px 0 rgba(245, 239, 226, 0.04);
+}
+
+.glp-eligibility-continue-icon {
+  width: 27px;
+  height: 27px;
+  display: grid;
+  place-items: center;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  transition: transform 150ms ease;
+}
+
+.glp-eligibility-continue:hover .glp-eligibility-continue-icon,
+.glp-eligibility-continue:focus-visible .glp-eligibility-continue-icon {
+  transform: translateX(3px);
+}
+
+.glp-eligibility-continue:disabled .glp-eligibility-continue-icon {
+  transform: none;
+}
+
+.glp-contact-main {
+  padding-top: clamp(32px, 5vh, 58px);
+}
+
+.glp-contact-shell {
+  width: min(100%, 900px);
+}
+
+.glp-contact-intro {
+  margin-top: clamp(38px, 5vh, 58px);
+}
+
+.glp-contact-intro h1 {
+  font-size: clamp(2.15rem, 4vw, 3.75rem);
+  line-height: 1.08;
+}
+
+.glp-contact-form {
+  margin-top: clamp(30px, 4vh, 42px);
+  gap: 16px;
+}
+
+.glp-contact-form .glp-eligibility-field input {
+  min-height: clamp(68px, 6vw, 82px);
+  padding-right: clamp(58px, 7vw, 76px);
+}
+
+.glp-password-field {
+  position: relative;
+}
+
+.glp-password-toggle {
+  position: absolute;
+  top: clamp(22px, 2.1vw, 28px);
+  right: clamp(22px, 3vw, 32px);
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--pp-cream-muted);
+  cursor: pointer;
+}
+
+.glp-password-eye {
+  position: absolute;
+  inset: 3px;
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.glp-password-eye-closed {
+  display: none;
+}
+
+.glp-password-toggle[aria-pressed="true"] .glp-password-eye-open {
+  display: none;
+}
+
+.glp-password-toggle[aria-pressed="true"] .glp-password-eye-closed {
+  display: block;
+}
+
+.glp-password-toggle:hover,
+.glp-password-toggle:focus-visible {
+  color: var(--pp-gold);
+}
+
+.glp-password-guidance {
+  margin: -2px 4px 8px;
+  color: var(--pp-cream-muted);
+  font-size: 0.88rem;
+}
+
+.glp-contact-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 4px 0 2px;
+  color: var(--pp-cream);
+  font-size: clamp(0.92rem, 1.2vw, 1.04rem);
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.glp-contact-consent input {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  margin: 3px 0 0;
+  accent-color: var(--pp-gold);
+}
+
+.glp-contact-form .glp-eligibility-continue {
+  margin-top: 10px;
+}
+
+.glp-contact-disclosure {
+  margin: 8px 0 0;
+  color: rgba(245, 239, 226, 0.66);
+  font-size: clamp(0.74rem, 0.92vw, 0.82rem);
+  line-height: 1.65;
+}
+
+.glp-contact-disclosure a,
+.glp-contact-signin a {
+  color: var(--pp-gold);
+  text-underline-offset: 3px;
+}
+
+.glp-contact-signin {
+  margin: clamp(18px, 3vh, 30px) 0 0;
+  text-align: center;
+  color: var(--pp-cream-muted);
+  font-size: 0.96rem;
+}
+
+@media (max-width: 720px) {
+  .glp-eligibility-header {
+    height: 64px;
+  }
+
+  .glp-eligibility-brand {
+    width: min(72vw, 245px);
+  }
+
+  .glp-eligibility-main {
+    min-height: calc(100svh - 64px);
+    padding-top: 30px;
+  }
+
+  .glp-eligibility-status {
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+  }
+
+  .glp-eligibility-stage {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-self: start;
+    color: var(--pp-gold);
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .glp-eligibility-count {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .glp-eligibility-progress {
+    margin-top: 16px;
+    gap: 8px;
+  }
+
+  .glp-eligibility-intro {
+    margin-top: 44px;
+    text-align: left;
+  }
+
+  .glp-eligibility-intro > p:last-child {
+    margin-left: 0;
+  }
+
+  .glp-eligibility-form {
+    margin-top: 30px;
+  }
+
+  .glp-eligibility-field input {
+    min-height: 70px;
+    border-radius: 7px;
+  }
+
+  .glp-contact-intro {
+    margin-top: 38px;
+  }
+
+  .glp-contact-intro h1 {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .glp-contact-form .glp-eligibility-field input {
+    min-height: 66px;
+  }
+
+  .glp-password-toggle {
+    top: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glp-eligibility-back,
+  .glp-eligibility-field input,
+  .glp-eligibility-continue,
+  .glp-eligibility-continue-icon {
+    transition: none;
+  }
+}

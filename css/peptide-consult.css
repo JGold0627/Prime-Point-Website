@@ -191,6 +191,10 @@
   margin-top: 5px;
 }
 
+.consult-summary-copy p:last-child {
+  margin-top: 12px;
+}
+
 .consult-summary-copy em {
   color: rgba(245, 239, 226, 0.82);
   font-weight: 600;
@@ -260,6 +264,23 @@
   color: rgba(245, 239, 226, 0.58);
   font-size: 12px;
   text-align: left;
+}
+
+@media (min-width: 981px) {
+  .consult-provider {
+    margin-top: 155px;
+  }
+
+  .consult-summary-copy {
+    position: relative;
+    top: 16px;
+    gap: 12px;
+    line-height: 1.48;
+  }
+
+  .consult-actions {
+    margin-top: 18px;
+  }
 }
 
 .consult-included {
@@ -651,6 +672,74 @@
   padding: clamp(72px, 8vw, 120px) 0;
   overflow: hidden;
   background: transparent;
+}
+
+@media (min-width: 1200px) {
+  .consult-shell {
+    width: min(calc(100% - clamp(80px, 8vw, 160px)), 1520px);
+  }
+
+  .consult-heading {
+    max-width: 980px;
+  }
+
+  .consult-heading h1 {
+    font-size: clamp(84px, 5.35vw, 104px);
+  }
+
+  .consult-heading-copy {
+    max-width: 900px;
+    font-size: 21px;
+  }
+
+  .consult-overview {
+    grid-template-columns: minmax(0, 360px) minmax(0, 760px);
+    gap: clamp(64px, 5vw, 84px);
+  }
+
+  .consult-provider {
+    max-width: 360px;
+  }
+
+  .consult-summary {
+    display: flex;
+    min-height: 605px;
+    flex-direction: column;
+    max-width: 760px;
+  }
+
+  .consult-summary h2 {
+    width: 920px;
+    margin-left: calc(-280px - clamp(32px, 2.5vw, 42px));
+    font-size: clamp(46px, 3vw, 58px);
+  }
+
+  .consult-summary > p:not(.consult-summary-label):not(.consult-account-note),
+  .consult-summary-copy {
+    max-width: 720px;
+  }
+
+  .consult-actions {
+    width: 100%;
+    margin-top: auto;
+  }
+
+  .consult-included-layout,
+  .bw-state-shell {
+    width: min(100%, 1380px);
+  }
+
+  .consult-included-list {
+    max-width: 1220px;
+  }
+
+  .bw-state-intro {
+    max-width: 920px;
+  }
+
+  .bw-state-form {
+    width: min(100%, 1240px);
+  }
 }
 
 .glp-legal-divider {

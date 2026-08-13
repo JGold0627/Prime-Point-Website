@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Information | Prime Point Health</title>
+    <meta
+      name="description"
+      content="Continue the Prime Point Health GLP-1 eligibility process."
+    />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/glp-eligibility.css" />
+  </head>
+  <body class="glp-eligibility-page">
+    <header class="glp-eligibility-header">
+      <a class="glp-eligibility-brand" href="glp-1s.html" aria-label="Return to the Prime Point Health GLP-1 page">
+        <img src="assets/brand/Logo V1.png" alt="Prime Point Health" />
+      </a>
+    </header>
+
+    <main class="glp-eligibility-main glp-contact-main">
+      <section class="glp-eligibility-shell glp-contact-shell" aria-labelledby="glp-contact-title">
+        <div class="glp-eligibility-status">
+          <a class="glp-eligibility-back" id="glp-contact-back" href="glp-eligibility.html">
+            <span aria-hidden="true">&larr;</span>
+            <span>Back</span>
+          </a>
+          <p class="glp-eligibility-stage">Personal Information</p>
+          <p class="glp-eligibility-count">2 of 3</p>
+        </div>
+
+        <div class="glp-eligibility-progress" role="progressbar" aria-label="Eligibility form progress" aria-valuemin="1" aria-valuemax="3" aria-valuenow="2">
+          <span class="is-active"></span>
+          <span class="is-active"></span>
+          <span></span>
+        </div>
+
+        <div class="glp-eligibility-intro glp-contact-intro">
+          <h1 id="glp-contact-title">Nice to meet you, <span id="glp-contact-first-name">there</span>! Let&rsquo;s keep in touch.</h1>
+          <p>Create your secure account and let us know how Prime Point should contact you about your experience.</p>
+        </div>
+
+        <form class="glp-eligibility-form glp-contact-form" id="glp-contact-form" novalidate>
+          <div class="glp-eligibility-field">
+            <label for="glp-email">Email</label>
+            <input
+              id="glp-email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              placeholder="Email"
+              required
+            />
+            <p class="glp-field-error" id="glp-email-error">Please enter a valid email address.</p>
+          </div>
+
+          <div class="glp-eligibility-field">
+            <label for="glp-phone">Phone</label>
+            <input
+              id="glp-phone"
+              name="phone"
+              type="tel"
+              autocomplete="tel"
+              inputmode="tel"
+              placeholder="Phone"
+              maxlength="14"
+              pattern="\([2-9][0-9]{2}\) [2-9][0-9]{2}-[0-9]{4}"
+              required
+            />
+            <p class="glp-field-error" id="glp-phone-error">Please enter a valid 10-digit U.S. phone number.</p>
+          </div>
+
+          <div class="glp-eligibility-field glp-password-field">
+            <label for="glp-password">Password</label>
+            <input
+              id="glp-password"
+              name="password"
+              type="password"
+              autocomplete="new-password"
+              minlength="8"
+              placeholder="Password"
+              required
+            />
+            <button class="glp-password-toggle" type="button" aria-label="Show password" aria-pressed="false">
+              <svg class="glp-password-eye glp-password-eye-open" aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M2.06 12.35a1 1 0 0 1 0-.7C3.74 7.6 7.67 5 12 5c4.33 0 8.26 2.6 9.94 6.65a1 1 0 0 1 0 .7C20.26 16.4 16.33 19 12 19c-4.33 0-8.26-2.6-9.94-6.65Z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+              <svg class="glp-password-eye glp-password-eye-closed" aria-hidden="true" viewBox="0 0 24 24">
+                <path d="m2 2 20 20"></path>
+                <path d="M6.71 6.71C4.88 7.9 3.39 9.6 2.56 11.65a1 1 0 0 0 0 .7C4.24 16.4 8.17 19 12.5 19c1.5 0 2.94-.31 4.24-.88"></path>
+                <path d="M10.73 5.08A10.7 10.7 0 0 1 12.5 5c4.33 0 8.26 2.6 9.94 6.65a1 1 0 0 1 0 .7 11.2 11.2 0 0 1-2.13 3.25"></path>
+                <path d="M14.62 14.62A3 3 0 0 1 9.38 9.38"></path>
+              </svg>
+            </button>
+            <p class="glp-field-error" id="glp-password-error">Password must be at least 8 characters.</p>
+          </div>
+
+          <div class="glp-eligibility-field glp-password-field">
+            <label for="glp-confirm-password">Confirm password</label>
+            <input
+              id="glp-confirm-password"
+              name="confirmPassword"
+              type="password"
+              autocomplete="new-password"
+              minlength="8"
+              placeholder="Confirm password"
+              required
+            />
+            <button class="glp-password-toggle" type="button" aria-label="Show confirmed password" aria-pressed="false">
+              <svg class="glp-password-eye glp-password-eye-open" aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M2.06 12.35a1 1 0 0 1 0-.7C3.74 7.6 7.67 5 12 5c4.33 0 8.26 2.6 9.94 6.65a1 1 0 0 1 0 .7C20.26 16.4 16.33 19 12 19c-4.33 0-8.26-2.6-9.94-6.65Z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+              <svg class="glp-password-eye glp-password-eye-closed" aria-hidden="true" viewBox="0 0 24 24">
+                <path d="m2 2 20 20"></path>
+                <path d="M6.71 6.71C4.88 7.9 3.39 9.6 2.56 11.65a1 1 0 0 0 0 .7C4.24 16.4 8.17 19 12.5 19c1.5 0 2.94-.31 4.24-.88"></path>
+                <path d="M10.73 5.08A10.7 10.7 0 0 1 12.5 5c4.33 0 8.26 2.6 9.94 6.65a1 1 0 0 1 0 .7 11.2 11.2 0 0 1-2.13 3.25"></path>
+                <path d="M14.62 14.62A3 3 0 0 1 9.38 9.38"></path>
+              </svg>
+            </button>
+            <p class="glp-field-error" id="glp-confirm-password-error">Passwords must match.</p>
+          </div>
+
+          <p class="glp-password-guidance">Password must be at least 8 characters.</p>
+
+          <label class="glp-contact-consent">
+            <input id="glp-sms-consent" name="smsConsent" type="checkbox" />
+            <span>Yes, I&rsquo;d like to occasionally receive Prime Point promotions via text.</span>
+          </label>
+
+          <button class="glp-eligibility-continue" type="submit" disabled>
+            <span>Continue</span>
+            <span class="glp-eligibility-continue-icon" aria-hidden="true">&rarr;</span>
+          </button>
+
+          <p class="glp-contact-disclosure">
+            By checking the box above, you agree to receive automated promotional messages. This agreement is not a condition of purchase. Message frequency varies. Reply STOP to opt out or HELP for help. Message and data rates may apply. For questions, please contact us. <a href="privacy-policy.html">Privacy Policy</a>
+          </p>
+
+          <p class="glp-contact-signin">Already have an account? <a href="login.html">Sign in</a></p>
+        </form>
+      </section>
+    </main>
+
+    <script>
+      (() => {
+        const form = document.getElementById("glp-contact-form");
+        const email = document.getElementById("glp-email");
+        const phone = document.getElementById("glp-phone");
+        const password = document.getElementById("glp-password");
+        const confirmPassword = document.getElementById("glp-confirm-password");
+        const continueButton = form.querySelector(".glp-eligibility-continue");
+        const firstNameTarget = document.getElementById("glp-contact-first-name");
+        const backLink = document.getElementById("glp-contact-back");
+        const params = new URLSearchParams(window.location.search);
+        let saved = {};
+
+        try {
+          saved = JSON.parse(sessionStorage.getItem("primePointGlpEligibility") || "{}");
+        } catch (error) {
+          sessionStorage.removeItem("primePointGlpEligibility");
+        }
+
+        firstNameTarget.textContent = saved.firstName || "there";
+
+        const treatment = params.get("treatment") || saved.treatment || "";
+        if (treatment) {
+          backLink.href = `glp-eligibility.html?treatment=${encodeURIComponent(treatment)}`;
+        }
+
+        const emailIsValid = () => email.validity.valid && email.value.trim().length > 0;
+        const getPhoneDigits = () => {
+          const digits = phone.value.replace(/\D/g, "");
+          return digits.length === 11 && digits.startsWith("1") ? digits.slice(1) : digits;
+        };
+        const phoneIsValid = () => /^[2-9][0-9]{2}[2-9][0-9]{6}$/.test(getPhoneDigits());
+        const passwordIsValid = () => password.value.length >= 8;
+        const confirmationIsValid = () => confirmPassword.value.length >= 8 && confirmPassword.value === password.value;
+
+        const updateContinueState = () => {
+          continueButton.disabled = !(emailIsValid() && phoneIsValid() && passwordIsValid() && confirmationIsValid());
+        };
+
+        const formatPhoneNumber = () => {
+          const digits = getPhoneDigits().slice(0, 10);
+          if (digits.length <= 3) {
+            phone.value = digits;
+          } else if (digits.length <= 6) {
+            phone.value = `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+          } else {
+            phone.value = `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+          }
+        };
+
+        const validateField = (field) => {
+          let isValid = true;
+          if (field === email) isValid = emailIsValid();
+          if (field === phone) isValid = phoneIsValid();
+          if (field === password) isValid = passwordIsValid();
+          if (field === confirmPassword) isValid = confirmationIsValid();
+
+          const wrapper = field.closest(".glp-eligibility-field");
+          wrapper.classList.toggle("has-error", !isValid);
+          field.setAttribute("aria-invalid", String(!isValid));
+          field.setAttribute("aria-describedby", `${field.id}-error`);
+          return isValid;
+        };
+
+        [email, phone, password, confirmPassword].forEach((field) => {
+          field.addEventListener("input", () => {
+            if (field === phone) {
+              formatPhoneNumber();
+            }
+            updateContinueState();
+            if (field.closest(".glp-eligibility-field").classList.contains("has-error")) {
+              validateField(field);
+            }
+            if (field === password && confirmPassword.value) {
+              validateField(confirmPassword);
+            }
+          });
+          field.addEventListener("change", updateContinueState);
+        });
+
+        phone.addEventListener("blur", () => {
+          if (phone.value.trim()) {
+            validateField(phone);
+          }
+        });
+
+        document.querySelectorAll(".glp-password-toggle").forEach((toggle) => {
+          toggle.addEventListener("click", () => {
+            const input = toggle.closest(".glp-password-field").querySelector("input");
+            const showPassword = input.type === "password";
+            input.type = showPassword ? "text" : "password";
+            toggle.setAttribute("aria-pressed", String(showPassword));
+            toggle.setAttribute("aria-label", showPassword ? "Hide password" : "Show password");
+          });
+        });
+
+        updateContinueState();
+        window.addEventListener("pageshow", updateContinueState);
+
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+          const fields = [email, phone, password, confirmPassword];
+          const invalidField = fields.find((field) => !validateField(field));
+          if (invalidField) {
+            invalidField.focus();
+            return;
+          }
+
+          form.dispatchEvent(new CustomEvent("glp:eligibility-contact-complete", {
+            bubbles: true,
+            detail: { treatment }
+          }));
+        });
+      })();
+    </script>
+  </body>
+</html>

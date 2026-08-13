@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GLP-1 Eligibility | Prime Point Health</title>
+    <meta
+      name="description"
+      content="Begin the Prime Point Health GLP-1 eligibility process."
+    />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/glp-eligibility.css" />
+  </head>
+  <body class="glp-eligibility-page">
+    <header class="glp-eligibility-header">
+      <a class="glp-eligibility-brand" href="glp-1s.html" aria-label="Return to the Prime Point Health GLP-1 page">
+        <img src="assets/brand/Logo V1.png" alt="Prime Point Health" />
+      </a>
+    </header>
+
+    <main class="glp-eligibility-main">
+      <section class="glp-eligibility-shell" aria-labelledby="glp-eligibility-title">
+        <div class="glp-eligibility-status">
+          <a class="glp-eligibility-back" href="glp-1s.html">
+            <span aria-hidden="true">&larr;</span>
+            <span>Back</span>
+          </a>
+          <p class="glp-eligibility-stage">Personal Information</p>
+          <p class="glp-eligibility-count">2 of 3</p>
+        </div>
+
+        <div class="glp-eligibility-progress" role="progressbar" aria-label="Eligibility form progress" aria-valuemin="1" aria-valuemax="3" aria-valuenow="2">
+          <span class="is-active"></span>
+          <span class="is-active"></span>
+          <span></span>
+        </div>
+
+        <div class="glp-eligibility-intro">
+          <p class="glp-eligibility-kicker">Let&rsquo;s begin with you</p>
+          <h1 id="glp-eligibility-title">Let&rsquo;s start with your name</h1>
+          <p>We&rsquo;ll use this information to personalize your Prime Point experience.</p>
+        </div>
+
+        <form class="glp-eligibility-form" id="glp-name-form" novalidate>
+          <input id="glp-treatment" name="treatment" type="hidden" />
+
+          <div class="glp-eligibility-field">
+            <label for="glp-first-name">First name</label>
+            <input
+              id="glp-first-name"
+              name="firstName"
+              type="text"
+              autocomplete="given-name"
+              placeholder="First name"
+              required
+            />
+            <p class="glp-field-error" id="glp-first-name-error">Please enter your first name.</p>
+          </div>
+
+          <div class="glp-eligibility-field">
+            <label for="glp-last-name">Last name</label>
+            <input
+              id="glp-last-name"
+              name="lastName"
+              type="text"
+              autocomplete="family-name"
+              placeholder="Last name"
+              required
+            />
+            <p class="glp-field-error" id="glp-last-name-error">Please enter your last name.</p>
+          </div>
+
+          <button class="glp-eligibility-continue" type="submit" disabled>
+            <span>Continue</span>
+            <span class="glp-eligibility-continue-icon" aria-hidden="true">&rarr;</span>
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <script>
+      (() => {
+        const form = document.getElementById("glp-name-form");
+        const firstName = document.getElementById("glp-first-name");
+        const lastName = document.getElementById("glp-last-name");
+        const treatment = document.getElementById("glp-treatment");
+        const continueButton = form.querySelector(".glp-eligibility-continue");
+        const params = new URLSearchParams(window.location.search);
+
+        treatment.value = params.get("treatment") || "";
+
+        try {
+          const saved = JSON.parse(sessionStorage.getItem("primePointGlpEligibility") || "{}");
+          firstName.value = saved.firstName || "";
+          lastName.value = saved.lastName || "";
+          treatment.value = treatment.value || saved.treatment || "";
+        } catch (error) {
+          sessionStorage.removeItem("primePointGlpEligibility");
+        }
+
+        const updateContinueState = () => {
+          continueButton.disabled = !firstName.value.trim() || !lastName.value.trim();
+        };
+
+        const validateField = (field) => {
+          const fieldWrapper = field.closest(".glp-eligibility-field");
+          const isValid = field.value.trim().length > 0;
+          fieldWrapper.classList.toggle("has-error", !isValid);
+          field.setAttribute("aria-invalid", String(!isValid));
+          field.setAttribute("aria-describedby", `${field.id}-error`);
+          return isValid;
+        };
+
+        [firstName, lastName].forEach((field) => {
+          field.addEventListener("input", () => {
+            updateContinueState();
+            if (field.closest(".glp-eligibility-field").classList.contains("has-error")) {
+              validateField(field);
+            }
+          });
+        });
+
+        updateContinueState();
+
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+          const firstIsValid = validateField(firstName);
+          const lastIsValid = validateField(lastName);
+
+          if (!firstIsValid || !lastIsValid) {
+            (firstIsValid ? lastName : firstName).focus();
+            return;
+          }
+
+          sessionStorage.setItem("primePointGlpEligibility", JSON.stringify({
+            firstName: firstName.value.trim(),
+            lastName: lastName.value.trim(),
+            treatment: treatment.value
+          }));
+
+          const nextPage = new URL("glp-eligibility-contact.html", window.location.href);
+          if (treatment.value) {
+            nextPage.searchParams.set("treatment", treatment.value);
+          }
+          window.location.href = nextPage.href;
+        });
+      })();
+    </script>
+  </body>
+</html>
