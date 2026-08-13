@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medical Information | Prime Point Health</title>
+    <meta
+      name="description"
+      content="Continue the Prime Point Health GLP-1 eligibility process."
+    />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/glp-eligibility.css" />
+  </head>
+  <body class="glp-eligibility-page">
+    <header class="glp-eligibility-header">
+      <a class="glp-eligibility-brand" href="glp-1s.html" aria-label="Return to the Prime Point Health GLP-1 page">
+        <img src="assets/brand/Logo V1.png" alt="Prime Point Health" />
+      </a>
+    </header>
+
+    <main class="glp-eligibility-main glp-medical-main glp-medical-measurements-main">
+      <section class="glp-eligibility-shell glp-medical-shell" aria-labelledby="glp-medical-measurements-title">
+        <div class="glp-eligibility-status">
+          <a class="glp-eligibility-back" id="glp-medical-measurements-back" href="glp-eligibility-medical-conditions.html">
+            <span aria-hidden="true">&larr;</span>
+            <span>Back</span>
+          </a>
+          <p class="glp-eligibility-stage">Medical Information</p>
+          <p class="glp-eligibility-count">8 of 15</p>
+        </div>
+
+        <div class="glp-eligibility-progress glp-medical-progress" role="progressbar" aria-label="Medical information progress" aria-valuemin="1" aria-valuemax="15" aria-valuenow="8">
+          <span class="is-active"></span>
+          <span class="is-active"></span>
+          <span class="is-active"></span>
+          <span class="is-active"></span>
+          <span class="is-active"></span>
+          <span class="is-active"></span>
+          <span class="is-active"></span>
+          <span class="is-active"></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <div class="glp-eligibility-intro glp-medical-intro glp-medical-measurements-intro">
+          <h1 id="glp-medical-measurements-title">What is your height and weight?</h1>
+          <p>Your body composition helps a licensed provider evaluate whether treatment may be appropriate for you.</p>
+        </div>
+
+        <form class="glp-eligibility-form glp-medical-measurements-form" id="glp-measurements-form" novalidate>
+          <fieldset class="glp-medical-measurement-group">
+            <legend>Height</legend>
+
+            <div class="glp-eligibility-field glp-medical-unit-field">
+              <label for="glp-height-feet">Feet</label>
+              <input
+                id="glp-height-feet"
+                name="heightFeet"
+                type="number"
+                inputmode="numeric"
+                min="1"
+                max="9"
+                step="1"
+                placeholder="Feet"
+                aria-describedby="glp-height-feet-error"
+                required
+              />
+              <span class="glp-medical-unit" aria-hidden="true">Ft</span>
+              <p class="glp-field-error" id="glp-height-feet-error">Enter a whole number from 1 to 9.</p>
+            </div>
+
+            <div class="glp-eligibility-field glp-medical-unit-field">
+              <label for="glp-height-inches">Inches</label>
+              <input
+                id="glp-height-inches"
+                name="heightInches"
+                type="number"
+                inputmode="numeric"
+                min="0"
+                max="11"
+                step="1"
+                placeholder="Inches"
+                aria-describedby="glp-height-inches-error"
+                required
+              />
+              <span class="glp-medical-unit" aria-hidden="true">In</span>
+              <p class="glp-field-error" id="glp-height-inches-error">Enter a whole number from 0 to 11.</p>
+            </div>
+          </fieldset>
+
+          <fieldset class="glp-medical-measurement-group glp-medical-weight-group">
+            <legend>Weight</legend>
+
+            <div class="glp-eligibility-field glp-medical-unit-field">
+              <label for="glp-weight-pounds">Pounds</label>
+              <input
+                id="glp-weight-pounds"
+                name="weightPounds"
+                type="number"
+                inputmode="decimal"
+                min="1"
+                max="1500"
+                step="0.1"
+                placeholder="Pounds"
+                aria-describedby="glp-weight-pounds-error"
+                required
+              />
+              <span class="glp-medical-unit" aria-hidden="true">Lbs</span>
+              <p class="glp-field-error" id="glp-weight-pounds-error">Enter a weight from 1 to 1500 pounds.</p>
+            </div>
+          </fieldset>
+
+          <button class="glp-eligibility-continue" type="submit" disabled>
+            <span>Continue</span>
+            <span class="glp-eligibility-continue-icon" aria-hidden="true">&rarr;</span>
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <script>
+      (() => {
+        const form = document.getElementById("glp-measurements-form");
+        const heightFeet = document.getElementById("glp-height-feet");
+        const heightInches = document.getElementById("glp-height-inches");
+        const weightPounds = document.getElementById("glp-weight-pounds");
+        const fields = [heightFeet, heightInches, weightPounds];
+        const continueButton = form.querySelector(".glp-eligibility-continue");
+        const backLink = document.getElementById("glp-medical-measurements-back");
+        const params = new URLSearchParams(window.location.search);
+        const treatment = params.get("treatment") || "";
+
+        if (treatment) {
+          backLink.href = `glp-eligibility-medical-conditions.html?treatment=${encodeURIComponent(treatment)}`;
+        }
+
+        const fieldIsValid = (field) => {
+          const value = Number(field.value);
+          const min = Number(field.min);
+          const max = Number(field.max);
+          const requiresWholeNumber = field.step === "1";
+
+          return field.value.trim() !== ""
+            && Number.isFinite(value)
+            && value >= min
+            && value <= max
+            && (!requiresWholeNumber || Number.isInteger(value));
+        };
+
+        const validateField = (field) => {
+          const isValid = fieldIsValid(field);
+          field.closest(".glp-eligibility-field").classList.toggle("has-error", !isValid);
+          field.setAttribute("aria-invalid", String(!isValid));
+          return isValid;
+        };
+
+        const updateContinueState = () => {
+          continueButton.disabled = !fields.every(fieldIsValid);
+        };
+
+        fields.forEach((field) => {
+          field.addEventListener("input", () => {
+            updateContinueState();
+            if (field.closest(".glp-eligibility-field").classList.contains("has-error")) {
+              validateField(field);
+            }
+          });
+
+          field.addEventListener("blur", () => {
+            if (field.value.trim()) validateField(field);
+          });
+        });
+
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+          const firstInvalidField = fields.find((field) => !validateField(field));
+          if (firstInvalidField) {
+            firstInvalidField.focus();
+            return;
+          }
+
+          form.dispatchEvent(new CustomEvent("glp:medical-measurements-complete", {
+            bubbles: true,
+            detail: {
+              treatment,
+              heightFeet: Number(heightFeet.value),
+              heightInches: Number(heightInches.value),
+              weightPounds: Number(weightPounds.value)
+            }
+          }));
+
+          const nextPage = new URL("glp-eligibility-medical-goal-weight.html", window.location.href);
+          if (treatment) {
+            nextPage.searchParams.set("treatment", treatment);
+          }
+          window.location.href = nextPage.href;
+        });
+
+        window.addEventListener("pageshow", updateContinueState);
+        updateContinueState();
+      })();
+    </script>
+  </body>
+</html>

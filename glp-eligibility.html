@@ -26,12 +26,12 @@
             <span>Back</span>
           </a>
           <p class="glp-eligibility-stage">Personal Information</p>
-          <p class="glp-eligibility-count">2 of 3</p>
+          <p class="glp-eligibility-count">1 of 3</p>
         </div>
 
-        <div class="glp-eligibility-progress" role="progressbar" aria-label="Eligibility form progress" aria-valuemin="1" aria-valuemax="3" aria-valuenow="2">
+        <div class="glp-eligibility-progress" role="progressbar" aria-label="Eligibility form progress" aria-valuemin="1" aria-valuemax="3" aria-valuenow="1">
           <span class="is-active"></span>
-          <span class="is-active"></span>
+          <span></span>
           <span></span>
         </div>
 
@@ -89,15 +89,6 @@
 
         treatment.value = params.get("treatment") || "";
 
-        try {
-          const saved = JSON.parse(sessionStorage.getItem("primePointGlpEligibility") || "{}");
-          firstName.value = saved.firstName || "";
-          lastName.value = saved.lastName || "";
-          treatment.value = treatment.value || saved.treatment || "";
-        } catch (error) {
-          sessionStorage.removeItem("primePointGlpEligibility");
-        }
-
         const updateContinueState = () => {
           continueButton.disabled = !firstName.value.trim() || !lastName.value.trim();
         };
@@ -132,16 +123,11 @@
             return;
           }
 
-          sessionStorage.setItem("primePointGlpEligibility", JSON.stringify({
-            firstName: firstName.value.trim(),
-            lastName: lastName.value.trim(),
-            treatment: treatment.value
-          }));
-
           const nextPage = new URL("glp-eligibility-contact.html", window.location.href);
           if (treatment.value) {
             nextPage.searchParams.set("treatment", treatment.value);
           }
+          nextPage.hash = encodeURIComponent(firstName.value.trim());
           window.location.href = nextPage.href;
         });
       })();

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medical Information | Prime Point Health</title>
+    <meta
+      name="description"
+      content="Continue the Prime Point Health GLP-1 eligibility process."
+    />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/glp-eligibility.css" />
+  </head>
+  <body class="glp-eligibility-page">
+    <header class="glp-eligibility-header">
+      <a class="glp-eligibility-brand" href="glp-1s.html" aria-label="Return to the Prime Point Health GLP-1 page">
+        <img src="assets/brand/Logo V1.png" alt="Prime Point Health" />
+      </a>
+    </header>
+
+    <main class="glp-eligibility-main glp-medical-main">
+      <section class="glp-eligibility-shell glp-medical-shell" aria-labelledby="glp-medical-eligible-title">
+        <div class="glp-eligibility-status">
+          <a class="glp-eligibility-back" id="glp-medical-eligible-back" href="glp-eligibility-medical-diabetes.html">
+            <span aria-hidden="true">&larr;</span>
+            <span>Back</span>
+          </a>
+          <p class="glp-eligibility-stage">Medical Information</p>
+          <p class="glp-eligibility-count">5 of 15</p>
+        </div>
+
+        <div class="glp-eligibility-progress glp-medical-progress" role="progressbar" aria-label="Medical information progress" aria-valuemin="1" aria-valuemax="15" aria-valuenow="5">
+          <span class="is-active"></span>
+          <span class="is-active"></span>
+          <span class="is-active"></span>
+          <span class="is-active"></span>
+          <span class="is-active"></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <div class="glp-eligibility-intro glp-medical-intro glp-medical-checkpoint-intro">
+          <h1 id="glp-medical-eligible-title">Great! You may be eligible for treatment.</h1>
+          <p>
+            Let&rsquo;s get started with your provider visit. The information you provide helps support
+            safe and appropriate medical care and should be handled securely.
+          </p>
+        </div>
+
+        <div class="glp-medical-checkpoint-action">
+          <button class="glp-eligibility-continue" id="glp-medical-eligible-continue" type="button">
+            <span>Continue</span>
+            <span class="glp-eligibility-continue-icon" aria-hidden="true">&rarr;</span>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      (() => {
+        const backLink = document.getElementById("glp-medical-eligible-back");
+        const continueButton = document.getElementById("glp-medical-eligible-continue");
+        const params = new URLSearchParams(window.location.search);
+        const treatment = params.get("treatment") || "";
+
+        if (treatment) {
+          backLink.href = `glp-eligibility-medical-diabetes.html?treatment=${encodeURIComponent(treatment)}`;
+        }
+
+        continueButton.addEventListener("click", () => {
+          continueButton.dispatchEvent(new CustomEvent("glp:medical-eligibility-checkpoint-complete", {
+            bubbles: true,
+            detail: { treatment }
+          }));
+
+          const nextPage = new URL("glp-eligibility-medical-doctor-visit.html", window.location.href);
+          if (treatment) {
+            nextPage.searchParams.set("treatment", treatment);
+          }
+          window.location.href = nextPage.href;
+        });
+      })();
+    </script>
+  </body>
+</html>

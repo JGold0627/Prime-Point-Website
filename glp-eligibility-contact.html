@@ -154,17 +154,26 @@
         const firstNameTarget = document.getElementById("glp-contact-first-name");
         const backLink = document.getElementById("glp-contact-back");
         const params = new URLSearchParams(window.location.search);
-        let saved = {};
 
+        let firstName = "";
         try {
-          saved = JSON.parse(sessionStorage.getItem("primePointGlpEligibility") || "{}");
+          firstName = decodeURIComponent(window.location.hash.slice(1)).trim();
         } catch (error) {
-          sessionStorage.removeItem("primePointGlpEligibility");
+          firstName = "";
+        }
+        firstNameTarget.textContent = firstName || "there";
+
+        if (window.location.hash) {
+          const cleanUrl = new URL(window.location.href);
+          cleanUrl.hash = "";
+          try {
+            history.replaceState(null, "", cleanUrl.href);
+          } catch (error) {
+            // Local file previews may restrict History API URL cleanup.
+          }
         }
 
-        firstNameTarget.textContent = saved.firstName || "there";
-
-        const treatment = params.get("treatment") || saved.treatment || "";
+        const treatment = params.get("treatment") || "";
         if (treatment) {
           backLink.href = `glp-eligibility.html?treatment=${encodeURIComponent(treatment)}`;
         }
@@ -251,10 +260,11 @@
             return;
           }
 
-          form.dispatchEvent(new CustomEvent("glp:eligibility-contact-complete", {
-            bubbles: true,
-            detail: { treatment }
-          }));
+          const nextPage = new URL("glp-eligibility-medical.html", window.location.href);
+          if (treatment) {
+            nextPage.searchParams.set("treatment", treatment);
+          }
+          window.location.href = nextPage.href;
         });
       })();
     </script>

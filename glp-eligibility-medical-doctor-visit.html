@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medical Information | Prime Point Health</title>
+    <meta
+      name="description"
+      content="Continue the Prime Point Health GLP-1 eligibility process."
+    />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/glp-eligibility.css" />
+  </head>
+  <body class="glp-eligibility-page">
+    <header class="glp-eligibility-header">
+      <a class="glp-eligibility-brand" href="glp-1s.html" aria-label="Return to the Prime Point Health GLP-1 page">
+        <img src="assets/brand/Logo V1.png" alt="Prime Point Health" />
+      </a>
+    </header>
+
+    <main class="glp-eligibility-main glp-medical-main">
+      <section class="glp-eligibility-shell glp-medical-shell" aria-labelledby="glp-medical-doctor-visit-title">
+        <div class="glp-eligibility-status">
+          <a class="glp-eligibility-back" id="glp-medical-doctor-visit-back" href="glp-eligibility-medical-eligible.html">
+            <span aria-hidden="true">&larr;</span>
+            <span>Back</span>
+          </a>
+          <p class="glp-eligibility-stage">Medical Information</p>
+          <p class="glp-eligibility-count">6 of 15</p>
+        </div>
+
+        <div class="glp-eligibility-progress glp-medical-progress" role="progressbar" aria-label="Medical information progress" aria-valuemin="1" aria-valuemax="15" aria-valuenow="6">
+          <span class="is-active"></span>
+          <span class="is-active"></span>
+          <span class="is-active"></span>
+          <span class="is-active"></span>
+          <span class="is-active"></span>
+          <span class="is-active"></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <div class="glp-eligibility-intro glp-medical-intro glp-medical-choice-intro">
+          <h1 id="glp-medical-doctor-visit-title">Have you seen a doctor in the last two years?</h1>
+          <p>Your medical history helps us determine whether the Prime Point program may be appropriate for you.</p>
+        </div>
+
+        <form class="glp-medical-choice-form" id="glp-doctor-visit-form">
+          <fieldset>
+            <legend>Doctor visit in the last two years</legend>
+
+            <label class="glp-medical-choice">
+              <input type="radio" name="recentDoctorVisit" value="yes" />
+              <span class="glp-medical-choice-indicator" aria-hidden="true"></span>
+              <span>Yes</span>
+            </label>
+
+            <label class="glp-medical-choice">
+              <input type="radio" name="recentDoctorVisit" value="no" />
+              <span class="glp-medical-choice-indicator" aria-hidden="true"></span>
+              <span>No</span>
+            </label>
+          </fieldset>
+        </form>
+      </section>
+    </main>
+
+    <script>
+      (() => {
+        const form = document.getElementById("glp-doctor-visit-form");
+        const backLink = document.getElementById("glp-medical-doctor-visit-back");
+        const params = new URLSearchParams(window.location.search);
+        const treatment = params.get("treatment") || "";
+
+        if (treatment) {
+          backLink.href = `glp-eligibility-medical-eligible.html?treatment=${encodeURIComponent(treatment)}`;
+        }
+
+        form.addEventListener("change", (event) => {
+          if (!event.target.matches('input[name="recentDoctorVisit"]')) return;
+
+          form.dispatchEvent(new CustomEvent("glp:medical-doctor-visit-complete", {
+            bubbles: true,
+            detail: { treatment, recentDoctorVisit: event.target.value }
+          }));
+
+          const nextPage = new URL("glp-eligibility-medical-conditions.html", window.location.href);
+          if (treatment) {
+            nextPage.searchParams.set("treatment", treatment);
+          }
+          window.location.href = nextPage.href;
+        });
+      })();
+    </script>
+  </body>
+</html>

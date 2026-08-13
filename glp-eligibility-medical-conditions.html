@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medical Information | Prime Point Health</title>
+    <meta
+      name="description"
+      content="Continue the Prime Point Health GLP-1 eligibility process."
+    />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/glp-eligibility.css" />
+  </head>
+  <body class="glp-eligibility-page">
+    <header class="glp-eligibility-header">
+      <a class="glp-eligibility-brand" href="glp-1s.html" aria-label="Return to the Prime Point Health GLP-1 page">
+        <img src="assets/brand/Logo V1.png" alt="Prime Point Health" />
+      </a>
+    </header>
+
+    <main class="glp-eligibility-main glp-medical-main glp-medical-conditions-main">
+      <section class="glp-eligibility-shell glp-medical-shell" aria-labelledby="glp-medical-conditions-title">
+        <div class="glp-eligibility-status">
+          <a class="glp-eligibility-back" id="glp-medical-conditions-back" href="glp-eligibility-medical-doctor-visit.html">
+            <span aria-hidden="true">&larr;</span>
+            <span>Back</span>
+          </a>
+          <p class="glp-eligibility-stage">Medical Information</p>
+          <p class="glp-eligibility-count">7 of 15</p>
+        </div>
+
+        <div class="glp-eligibility-progress glp-medical-progress" role="progressbar" aria-label="Medical information progress" aria-valuemin="1" aria-valuemax="15" aria-valuenow="7">
+          <span class="is-active"></span>
+          <span class="is-active"></span>
+          <span class="is-active"></span>
+          <span class="is-active"></span>
+          <span class="is-active"></span>
+          <span class="is-active"></span>
+          <span class="is-active"></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <div class="glp-eligibility-intro glp-medical-intro glp-medical-choice-intro glp-medical-conditions-intro">
+          <h1 id="glp-medical-conditions-title">Do you have any of the following medical conditions?</h1>
+          <p>
+            Please select every condition that applies, even if it is currently managed with treatment.
+            Your medical history helps a licensed provider evaluate whether treatment may be appropriate for you.
+          </p>
+        </div>
+
+        <form class="glp-medical-choice-form glp-medical-conditions-form" id="glp-conditions-form">
+          <fieldset>
+            <legend>Select all medical conditions that apply</legend>
+
+            <label class="glp-medical-choice glp-medical-checkbox-choice">
+              <input type="checkbox" name="medicalConditions" value="high-blood-pressure" />
+              <span class="glp-medical-choice-indicator" aria-hidden="true"></span>
+              <span>High Blood Pressure</span>
+            </label>
+
+            <label class="glp-medical-choice glp-medical-checkbox-choice">
+              <input type="checkbox" name="medicalConditions" value="high-lipids" />
+              <span class="glp-medical-choice-indicator" aria-hidden="true"></span>
+              <span>High Lipids</span>
+            </label>
+
+            <label class="glp-medical-choice glp-medical-checkbox-choice">
+              <input type="checkbox" name="medicalConditions" value="high-cholesterol" />
+              <span class="glp-medical-choice-indicator" aria-hidden="true"></span>
+              <span>High Cholesterol</span>
+            </label>
+
+            <label class="glp-medical-choice glp-medical-checkbox-choice">
+              <input type="checkbox" name="medicalConditions" value="obstructive-sleep-apnea" />
+              <span class="glp-medical-choice-indicator" aria-hidden="true"></span>
+              <span>Obstructive Sleep Apnea</span>
+            </label>
+
+            <label class="glp-medical-choice glp-medical-checkbox-choice">
+              <input type="checkbox" name="medicalConditions" value="cardiovascular-disease" />
+              <span class="glp-medical-choice-indicator" aria-hidden="true"></span>
+              <span>Cardiovascular Disease</span>
+            </label>
+
+            <label class="glp-medical-choice glp-medical-checkbox-choice">
+              <input type="checkbox" name="medicalConditions" value="anorexia-nervosa" />
+              <span class="glp-medical-choice-indicator" aria-hidden="true"></span>
+              <span>Anorexia Nervosa</span>
+            </label>
+
+            <label class="glp-medical-choice glp-medical-checkbox-choice">
+              <input type="checkbox" name="medicalConditions" value="bulimia-nervosa" />
+              <span class="glp-medical-choice-indicator" aria-hidden="true"></span>
+              <span>Bulimia Nervosa</span>
+            </label>
+
+            <label class="glp-medical-choice glp-medical-checkbox-choice glp-medical-none-choice">
+              <input type="checkbox" name="medicalConditions" value="none" />
+              <span class="glp-medical-choice-indicator" aria-hidden="true"></span>
+              <span>None</span>
+            </label>
+          </fieldset>
+
+          <button class="glp-eligibility-continue glp-medical-choice-continue" type="submit" disabled>
+            <span>Continue</span>
+            <span class="glp-eligibility-continue-icon" aria-hidden="true">&rarr;</span>
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <script>
+      (() => {
+        const form = document.getElementById("glp-conditions-form");
+        const choices = [...form.querySelectorAll('input[name="medicalConditions"]')];
+        const noneChoice = choices.find((choice) => choice.value === "none");
+        const continueButton = form.querySelector(".glp-eligibility-continue");
+        const backLink = document.getElementById("glp-medical-conditions-back");
+        const params = new URLSearchParams(window.location.search);
+        const treatment = params.get("treatment") || "";
+
+        if (treatment) {
+          backLink.href = `glp-eligibility-medical-doctor-visit.html?treatment=${encodeURIComponent(treatment)}`;
+        }
+
+        const updateContinueState = () => {
+          continueButton.disabled = !choices.some((choice) => choice.checked);
+        };
+
+        form.addEventListener("change", (event) => {
+          if (!event.target.matches('input[name="medicalConditions"]')) return;
+
+          if (event.target === noneChoice && noneChoice.checked) {
+            choices.forEach((choice) => {
+              if (choice !== noneChoice) choice.checked = false;
+            });
+          } else if (event.target.checked) {
+            noneChoice.checked = false;
+          }
+
+          updateContinueState();
+        });
+
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+          const selectedConditions = choices
+            .filter((choice) => choice.checked)
+            .map((choice) => choice.value);
+
+          if (!selectedConditions.length) return;
+
+          form.dispatchEvent(new CustomEvent("glp:medical-conditions-complete", {
+            bubbles: true,
+            detail: { treatment, medicalConditions: selectedConditions }
+          }));
+
+          const nextPage = new URL("glp-eligibility-medical-height-weight.html", window.location.href);
+          if (treatment) {
+            nextPage.searchParams.set("treatment", treatment);
+          }
+          window.location.href = nextPage.href;
+        });
+
+        updateContinueState();
+      })();
+    </script>
+  </body>
+</html>
