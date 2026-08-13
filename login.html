@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log In | Prime Point Health</title>
+    <meta
+      name="description"
+      content="Access your Prime Point Health member account."
+    />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/login.css" />
+  </head>
+  <body class="login-page">
+    <header class="site-header" aria-label="Primary navigation">
+      <div class="nav-shell">
+        <a class="brand" href="index.html" aria-label="Prime Point Health home">
+          <img
+            class="brand-logo-reference"
+            src="assets/brand/Logo V1.png"
+            alt="Prime Point Health"
+          />
+        </a>
+
+        <nav class="nav-links" aria-label="Main navigation">
+          <a class="nav-link" href="peptides.html">Peptides</a>
+          <div class="glp-nav-dropdown">
+            <a class="nav-link glp-nav-link" href="glp-1s.html">GLP-1's</a>
+            <button
+              class="glp-nav-trigger"
+              type="button"
+              aria-label="Show GLP-1 medications"
+              aria-haspopup="true"
+              aria-expanded="false"
+              aria-controls="glp-nav-menu"
+            >
+              <span class="glp-nav-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="glp-nav-menu" id="glp-nav-menu" aria-hidden="true">
+              <div class="glp-nav-menu-group">
+                <span class="glp-nav-menu-label">Injectable</span>
+                <a href="semaglutide.html">Semaglutide</a>
+                <a href="tirzepatide.html">Tirzepatide</a>
+              </div>
+              <div class="glp-nav-menu-group">
+                <span class="glp-nav-menu-label">Oral</span>
+                <a href="semaglutide-tablets.html">Semaglutide Tablets</a>
+              </div>
+            </div>
+          </div>
+          <a class="nav-link" href="blood-work.html">Blood Work</a>
+          <div class="glp-nav-dropdown about-nav-dropdown">
+            <a class="nav-link glp-nav-link" href="about.html">About Us</a>
+            <button
+              class="glp-nav-trigger"
+              type="button"
+              aria-label="Show About Us links"
+              aria-haspopup="true"
+              aria-expanded="false"
+              aria-controls="about-nav-menu"
+            >
+              <span class="glp-nav-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="glp-nav-menu" id="about-nav-menu" aria-hidden="true">
+              <div class="glp-nav-menu-group">
+                <a href="contact.html">Contact Us</a>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <div class="nav-actions" aria-label="Account actions">
+          <a
+            class="header-action header-login"
+            href="login.html"
+            aria-current="page"
+          >
+            Log In
+          </a>
+          <a class="header-action header-start" href="index.html#services">Get Started</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="login-stage">
+      <section class="login-panel" aria-labelledby="login-title">
+        <p class="login-kicker">Member access</p>
+        <h1 id="login-title">Log in</h1>
+        <p class="login-account-prompt">
+          Need a Prime Point account?
+          <a href="contact.html#contact-form">Create an account</a>
+        </p>
+
+        <form class="login-form" action="#" method="post">
+          <div class="login-field">
+            <label for="login-username">Username or email</label>
+            <input
+              id="login-username"
+              name="username"
+              type="text"
+              autocomplete="username"
+              required
+            />
+          </div>
+
+          <div class="login-field">
+            <div class="login-password-label">
+              <label for="login-password">Password</label>
+              <button
+                class="login-password-toggle"
+                type="button"
+                aria-controls="login-password"
+                aria-pressed="false"
+                data-password-toggle
+              >
+                Show
+              </button>
+            </div>
+            <input
+              id="login-password"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              required
+            />
+          </div>
+
+          <label class="login-remember">
+            <input name="remember" type="checkbox" />
+            <span>Keep me logged in</span>
+          </label>
+
+          <button class="button button-primary login-submit" type="submit">Log in</button>
+          <p class="login-form-note" aria-live="polite"></p>
+        </form>
+
+        <nav class="login-help" aria-label="Login help">
+          <a href="contact.html#contact-form">Forgot username?</a>
+          <a href="contact.html#contact-form">Forgot password?</a>
+          <a href="contact.html#contact-form">Can't log in?</a>
+        </nav>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

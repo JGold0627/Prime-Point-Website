@@ -117,6 +117,86 @@ document.querySelectorAll(".lead-form").forEach((form) => {
   });
 });
 
+document.querySelectorAll("[data-password-toggle]").forEach((toggle) => {
+  const inputId = toggle.getAttribute("aria-controls");
+  const passwordInput = inputId ? document.getElementById(inputId) : null;
+
+  if (!passwordInput) {
+    return;
+  }
+
+  toggle.addEventListener("click", () => {
+    const shouldShow = passwordInput.type === "password";
+
+    passwordInput.type = shouldShow ? "text" : "password";
+    toggle.textContent = shouldShow ? "Hide" : "Show";
+    toggle.setAttribute("aria-pressed", String(shouldShow));
+  });
+});
+
+document.querySelectorAll(".login-form").forEach((form) => {
+  const note = form.querySelector(".login-form-note");
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    if (note) {
+      note.textContent = "Secure member portal access is being connected.";
+    }
+  });
+});
+
+document.querySelectorAll(".contact-email-capture").forEach((form) => {
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const sourceEmail = form.querySelector('input[type="email"]');
+    const contactSection = document.getElementById("contact-form");
+    const destinationEmail = contactSection?.querySelector('input[name="email"]');
+
+    if (!sourceEmail || !destinationEmail) {
+      return;
+    }
+
+    destinationEmail.value = sourceEmail.value;
+    contactSection.scrollIntoView({
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "auto"
+        : "smooth",
+      block: "start",
+    });
+    window.setTimeout(() => destinationEmail.focus(), 450);
+  });
+});
+
+document.querySelectorAll(".contact-question-capture").forEach((form) => {
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const sourceQuestion = form.querySelector('input[name="question"]');
+    const contactSection = document.getElementById("contact-form");
+    const destinationMessage = contactSection?.querySelector('textarea[name="message"]');
+
+    if (!sourceQuestion || !destinationMessage) {
+      return;
+    }
+
+    destinationMessage.value = sourceQuestion.value;
+    contactSection.scrollIntoView({
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "auto"
+        : "smooth",
+      block: "start",
+    });
+    window.setTimeout(() => destinationMessage.focus(), 450);
+  });
+});
+
 document.querySelectorAll(".compact-faq details").forEach((item) => {
   item.open = true;
 

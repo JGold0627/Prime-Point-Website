@@ -50,7 +50,7 @@
           </div>
         </nav>
         <div class="nav-actions" aria-label="Account actions">
-          <a class="header-action header-login" href="faq.html">FAQ</a>
+          <a class="header-action header-login" href="login.html">Log In</a>
           <a class="header-action header-start" href="index.html#consult">Get Started</a>
         </div>
       </div>
@@ -67,10 +67,14 @@
 
       <section class="contact-content" aria-label="Contact options">
         <div class="contact-shell">
-          <a class="contact-prompt" href="#contact-form">
+          <form class="contact-prompt contact-email-capture">
             <strong>Interested in getting started, but want to learn more?</strong>
-            <span>Email address</span>
-          </a>
+            <div class="contact-prompt-field">
+              <label for="contact-prompt-email">Email address</label>
+              <input id="contact-prompt-email" type="email" name="email" autocomplete="email" placeholder="Email address" required />
+              <button type="submit" aria-label="Continue to the contact form">→</button>
+            </div>
+          </form>
 
           <div class="contact-card-grid">
             <article class="contact-card contact-card-green">
@@ -79,7 +83,11 @@
               <p>Share your question and our team will follow up with next steps.</p>
               <div class="contact-email-details">
                 <a class="contact-card-link" href="#contact-form">Write to our team</a>
-                <span class="contact-email-placeholder">Email address</span>
+                <form class="contact-prompt-field contact-question-capture">
+                  <label for="contact-card-question">Share your question</label>
+                  <input id="contact-card-question" type="text" name="question" placeholder="Share your question" required />
+                  <button type="submit" aria-label="Continue to the contact form">→</button>
+                </form>
               </div>
             </article>
             <article class="contact-card contact-card-gold">
@@ -148,6 +156,6 @@
         <p>&copy; 2026 Prime Point Health</p>
       </div>
     </footer>
-    <script src="script.js?v=contact-r1"></script>
+    <script src="script.js?v=contact-r3"></script>
   </body>
 </html>

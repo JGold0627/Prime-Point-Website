@@ -458,21 +458,28 @@
         min-height: 50px;
         margin-top: 22px;
         padding: 0 24px;
-        border: 1px solid rgba(215, 180, 106, 0.88);
+        border: 1px solid #e7c979;
         border-radius: 3px;
-        color: var(--pp-gold);
+        background: var(--pp-gold);
+        color: #080b09;
         font-size: 0.88rem;
         font-weight: 700;
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3px;
         text-transform: uppercase;
         transition:
           background-color 200ms ease,
-          color 200ms ease;
+          border-color 200ms ease,
+          box-shadow 200ms ease;
       }
 
       .bw-consult-button:hover,
       .bw-consult-button:focus-visible {
-        background: var(--pp-gold);
+        border-color: #f1dc9b;
+        background: #e7c979;
         color: #080b09;
+        box-shadow: 0 8px 22px rgba(215, 180, 106, 0.2);
       }
 
       .bw-guidance-note {
@@ -1539,7 +1546,7 @@
         </nav>
 
         <div class="nav-actions" aria-label="Account actions">
-          <a class="header-action header-login" href="#login">Log In</a>
+          <a class="header-action header-login" href="login.html">Log In</a>
           <a class="header-action header-start" href="#get-started">Get Started</a>
         </div>
       </div>

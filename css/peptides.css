@@ -1325,7 +1325,7 @@
   border-radius: 999px;
   background: var(--pp-gold);
   box-shadow: 0 0 8px rgba(215, 180, 106, 0.28);
-  transition: transform 80ms linear;
+  transition: transform 55ms linear;
 }
 
 .peptides-faq-icon::after {
@@ -1353,8 +1353,8 @@
   grid-template-rows: 0fr;
   opacity: 0;
   transition:
-    grid-template-rows 130ms cubic-bezier(0.2, 0.75, 0.3, 1),
-    opacity 90ms linear;
+    grid-template-rows 75ms cubic-bezier(0.2, 0.75, 0.3, 1),
+    opacity 50ms linear;
 }
 
 .peptides-faq-item.is-open .peptides-faq-panel {
@@ -2009,4 +2009,8 @@
     stroke-dashoffset: 0;
     transform: scale(1);
   }
+}
+body > main,
+body > main > section:not(.peptides-hero) {
+  background: transparent !important;
 }
