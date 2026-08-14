@@ -1,6 +1,7 @@
 /* Homepage Hero V2 Composition */
 
 .home-page {
+  --pp-header-height: 96px;
   --home-prime-navy: #0f1f2d;
   --home-slate-blue: #567a9b;
   --home-pale-blue: #ddeaf5;
@@ -17,8 +18,32 @@
   color: var(--home-prime-navy);
 }
 
+.home-page .site-header .brand {
+  overflow: hidden;
+  transform: none;
+}
+
 .home-page .site-header .brand-logo-reference {
-  filter: brightness(0) saturate(100%) invert(10%) sepia(18%) saturate(1272%) hue-rotate(164deg) brightness(92%) contrast(94%);
+  width: auto;
+  max-width: min(240px, 22vw);
+  height: calc(var(--pp-header-height) - 8px);
+  max-height: calc(var(--pp-header-height) - 8px);
+  object-fit: contain;
+  transform: none;
+  filter: none;
+}
+
+@media (min-width: 1441px) {
+  .home-page .site-header .brand {
+    position: absolute;
+    top: 50%;
+    left: var(--pp-page-gutter);
+    transform: translateY(-50%);
+  }
+
+  .home-page .site-header .nav-links {
+    grid-column: 2;
+  }
 }
 
 .home-page .site-header .nav-link,
@@ -58,7 +83,7 @@
 
 .home-page .site-header .header-login {
   border-color: var(--home-prime-navy);
-  background: transparent;
+  background: var(--home-prime-gold);
   color: var(--home-prime-navy);
 }
 
@@ -71,7 +96,7 @@
 
 .home-page .site-header .header-start {
   border-color: var(--home-prime-navy);
-  background: var(--home-prime-gold);
+  background: var(--home-warm-ivory);
   color: var(--home-prime-navy);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.34);
 }
@@ -1444,6 +1469,10 @@
 }
 
 @media (max-width: 560px) {
+  .home-page {
+    --pp-header-height: 78px;
+  }
+
   .home-hero-content {
     padding-top: 56px;
     padding-bottom: 88px;
