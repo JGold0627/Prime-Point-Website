@@ -90,6 +90,23 @@
             bubbles: true,
             detail: { treatment, hasAllergies: event.target.value }
           }));
+
+          if (event.target.value === "yes") {
+            const nextPage = new URL("glp-eligibility-medical-allergy-details.html", window.location.href);
+            if (treatment) {
+              nextPage.searchParams.set("treatment", treatment);
+            }
+            window.location.href = nextPage.href;
+            return;
+          }
+
+          if (event.target.value === "no") {
+            const nextPage = new URL("glp-eligibility-medical-medications.html", window.location.href);
+            if (treatment) {
+              nextPage.searchParams.set("treatment", treatment);
+            }
+            window.location.href = nextPage.href;
+          }
         });
       })();
     </script>
