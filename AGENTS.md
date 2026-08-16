@@ -25,9 +25,11 @@ These instructions apply to all future Codex chats working in this repository. P
 
 ## Visual Design Direction
 
-- Use deep green and black backgrounds as the foundation.
+- Use warm ivory as the primary page background.
+- Use dark navy for primary text, strong section partitions, and high-contrast panels.
+- Use pale and slate blue for secondary surfaces, supporting details, and restrained depth.
 - Use gold accents for premium emphasis, borders, highlights, icons, and calls to action.
-- Use cream or white typography for readability and warmth.
+- Use ivory typography on navy surfaces and navy typography on light surfaces.
 - Use rounded cards and refined panel treatments.
 - Keep layouts spacious with generous section rhythm and breathing room.
 - Use subtle animations and transitions only where they make the experience feel smoother.
@@ -38,7 +40,7 @@ These instructions apply to all future Codex chats working in this repository. P
 - Preserve existing navigation and page relationships.
 - Keep all visible pages accessible unless the user asks to remove or hide something.
 - Maintain responsive behavior across desktop and mobile.
-- Keep visual changes consistent with the established dark luxury wellness system.
+- Keep visual changes consistent with the established ivory, navy, blue, and gold luxury wellness system.
 - Do not add unreviewed medical, legal, pricing, prescription, eligibility, diagnosis, treatment, cure, or guaranteed-results claims.
 - Favor clear calls to action and trust-building language without overstating outcomes.
 - Verify links, assets, and interactive behavior when editing website files.

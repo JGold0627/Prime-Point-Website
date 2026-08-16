@@ -1,36 +1,112 @@
-document.querySelectorAll(".site-header").forEach((header) => {
-  const navShell = header.querySelector(".nav-shell");
-  let actions = header.querySelector(".nav-actions");
-
-  if (!navShell) {
-    return;
+// Canonical public header: new pages inherit it by loading global.css and this script.
+const currentPage = window.location.pathname.split("/").pop()?.toLowerCase() || "index.html";
+const activeHeaderSection = (() => {
+  if (["peptides.html", "peptide-consult.html", "peptide-checkout.html"].includes(currentPage)) {
+    return "peptides";
   }
 
-  if (!actions) {
-    actions = document.createElement("div");
-    actions.className = "nav-actions";
-    actions.setAttribute("aria-label", "Account actions");
-    navShell.append(actions);
+  if (currentPage === "glp-1s.html" || currentPage.startsWith("glp-eligibility") || [
+    "semaglutide.html",
+    "tirzepatide.html",
+    "semaglutide-tablets.html",
+  ].includes(currentPage)) {
+    return "glp";
   }
 
-  if (actions.querySelector(".header-cart")) {
-    return;
+  if (currentPage === "blood-work.html") {
+    return "blood-work";
   }
 
-  const cartButton = document.createElement("button");
-  cartButton.className = "header-cart";
-  cartButton.type = "button";
-  cartButton.setAttribute("aria-label", "Shopping cart");
-  cartButton.title = "Shopping cart";
-  cartButton.innerHTML = `
-    <svg class="header-cart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <circle cx="8" cy="21" r="1"></circle>
-      <circle cx="19" cy="21" r="1"></circle>
-      <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57L22 7H5.12"></path>
-    </svg>
-  `;
-  actions.append(cartButton);
-});
+  if (["about.html", "contact.html"].includes(currentPage)) {
+    return "about";
+  }
+
+  return "";
+})();
+
+const headerLinkClass = (section) => activeHeaderSection === section ? " nav-link-active" : "";
+const headerCurrentState = (section) => activeHeaderSection === section ? ' aria-current="true"' : "";
+
+const globalHeaderMarkup = `
+  <header class="site-header" data-site-header="global" aria-label="Primary navigation">
+    <div class="nav-shell">
+      <a class="brand" href="index.html" aria-label="Prime Point Health home">
+        <img
+          class="brand-logo-reference"
+          src="assets/brand/Logo V2.png"
+          alt="Prime Point Health"
+        />
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a class="nav-link${headerLinkClass("peptides")}"${headerCurrentState("peptides")} href="peptides.html">Peptides</a>
+        <div class="glp-nav-dropdown">
+          <a class="nav-link glp-nav-link${headerLinkClass("glp")}"${headerCurrentState("glp")} href="glp-1s.html">GLP-1's</a>
+          <button
+            class="glp-nav-trigger"
+            type="button"
+            aria-label="Show GLP-1 medications"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="glp-nav-menu"
+          >
+            <span class="glp-nav-chevron" aria-hidden="true"></span>
+          </button>
+          <div class="glp-nav-menu" id="glp-nav-menu" aria-hidden="true">
+            <div class="glp-nav-menu-group">
+              <span class="glp-nav-menu-label">Injectable</span>
+              <a href="semaglutide.html">Semaglutide</a>
+              <a href="tirzepatide.html">Tirzepatide</a>
+            </div>
+            <div class="glp-nav-menu-group">
+              <span class="glp-nav-menu-label">Oral</span>
+              <a href="semaglutide-tablets.html">Semaglutide Tablets</a>
+            </div>
+          </div>
+        </div>
+        <a class="nav-link${headerLinkClass("blood-work")}"${headerCurrentState("blood-work")} href="blood-work.html">Blood Work</a>
+        <div class="glp-nav-dropdown about-nav-dropdown">
+          <a class="nav-link glp-nav-link${headerLinkClass("about")}"${headerCurrentState("about")} href="about.html">About Us</a>
+          <button
+            class="glp-nav-trigger"
+            type="button"
+            aria-label="Show About Us links"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="about-nav-menu"
+          >
+            <span class="glp-nav-chevron" aria-hidden="true"></span>
+          </button>
+          <div class="glp-nav-menu" id="about-nav-menu" aria-hidden="true">
+            <div class="glp-nav-menu-group">
+              <a href="contact.html">Contact Us</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div class="nav-actions" aria-label="Account actions">
+        <a class="header-action header-login" href="login.html">Log In</a>
+        <a class="header-action header-start" href="index.html#services">Get Started</a>
+        <button class="header-cart" type="button" aria-label="Shopping cart" title="Shopping cart">
+          <svg class="header-cart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="8" cy="21" r="1"></circle>
+            <circle cx="19" cy="21" r="1"></circle>
+            <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57L22 7H5.12"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+`;
+
+const pageHeader = document.querySelector("[data-site-header-mount], .site-header, .glp-eligibility-header");
+
+if (pageHeader) {
+  pageHeader.outerHTML = globalHeaderMarkup;
+} else {
+  document.body.insertAdjacentHTML("afterbegin", globalHeaderMarkup);
+}
 
 document.querySelectorAll(".glp-nav-dropdown").forEach((dropdown) => {
   const trigger = dropdown.querySelector(".glp-nav-trigger");
@@ -39,6 +115,7 @@ document.querySelectorAll(".glp-nav-dropdown").forEach((dropdown) => {
   const menu = menuId ? document.getElementById(menuId) : null;
   const supportsHover = window.matchMedia("(hover: hover) and (pointer: fine)");
   let closeTimer;
+  let isPinnedOpen = false;
 
   if (!trigger || !menu) {
     return;
@@ -61,17 +138,18 @@ document.querySelectorAll(".glp-nav-dropdown").forEach((dropdown) => {
   };
 
   trigger.addEventListener("click", () => {
-    setOpen(trigger.getAttribute("aria-expanded") !== "true");
+    isPinnedOpen = !isPinnedOpen;
+    setOpen(isPinnedOpen);
   });
 
   dropdown.addEventListener("pointerenter", () => {
-    if (supportsHover.matches) {
+    if (supportsHover.matches && !isPinnedOpen) {
       setOpen(true);
     }
   });
 
   dropdown.addEventListener("pointerleave", () => {
-    if (supportsHover.matches) {
+    if (supportsHover.matches && !isPinnedOpen) {
       scheduleClose();
     }
   });
@@ -79,25 +157,34 @@ document.querySelectorAll(".glp-nav-dropdown").forEach((dropdown) => {
   dropdown.addEventListener("focusout", () => {
     window.setTimeout(() => {
       if (!dropdown.contains(document.activeElement)) {
+        isPinnedOpen = false;
         setOpen(false);
       }
     });
   });
 
-  pageLink?.addEventListener("click", () => setOpen(false));
+  pageLink?.addEventListener("click", () => {
+    isPinnedOpen = false;
+    setOpen(false);
+  });
 
   menu.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => setOpen(false));
+    link.addEventListener("click", () => {
+      isPinnedOpen = false;
+      setOpen(false);
+    });
   });
 
   document.addEventListener("click", (event) => {
     if (!dropdown.contains(event.target)) {
+      isPinnedOpen = false;
       setOpen(false);
     }
   });
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && trigger.getAttribute("aria-expanded") === "true") {
+      isPinnedOpen = false;
       setOpen(false, { restoreFocus: true });
     }
   });
@@ -367,6 +454,28 @@ document.querySelectorAll(".cellular-motion-canvas").forEach((canvas) => {
 });
 
 (() => {
+  const hero = document.querySelector(".home-hero");
+  const scrollCue = document.querySelector(".home-hero-scroll-cue");
+
+  if (!hero || !scrollCue) {
+    return;
+  }
+
+  const updateScrollCue = () => {
+    const heroBounds = hero.getBoundingClientRect();
+    const actionBounds = hero.querySelector(".home-hero-centered-actions")?.getBoundingClientRect();
+    const heroIsActive = heroBounds.top < window.innerHeight && heroBounds.bottom > 80;
+    const hasClearSpace = !actionBounds || actionBounds.bottom < window.innerHeight - 56;
+
+    scrollCue.classList.toggle("is-visible", heroIsActive && hasClearSpace);
+  };
+
+  updateScrollCue();
+  window.addEventListener("scroll", updateScrollCue, { passive: true });
+  window.addEventListener("resize", updateScrollCue);
+})();
+
+(() => {
   if (
     !("IntersectionObserver" in window) ||
     window.matchMedia("(prefers-reduced-motion: reduce)").matches
@@ -379,7 +488,7 @@ document.querySelectorAll(".cellular-motion-canvas").forEach((canvas) => {
     ...document.querySelectorAll("main > section, body > section, main > article"),
   ];
   const ignoredElements =
-    "script, style, link, template, noscript, canvas, video, source, [hidden], [aria-hidden='true']";
+    "script, style, link, template, noscript, canvas, video, source, .home-hero-scroll-cue, [hidden], [aria-hidden='true']";
 
   sectionBlocks.forEach((block) => {
     if (block.matches("[aria-hidden='true']") || block.querySelector(revealSelector)) {

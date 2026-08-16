@@ -1,7 +1,7 @@
 .peptide-consult-page {
   margin: 0;
-  color: var(--pp-cream);
-  background: var(--pp-black);
+  color: var(--pp-prime-navy);
+  background: var(--pp-warm-ivory);
   overflow-x: hidden;
 }
 
@@ -20,7 +20,8 @@
   align-items: center;
   padding: 72px 0 84px;
   background:
-    linear-gradient(115deg, rgba(5, 7, 6, 0.98) 0%, rgba(7, 18, 15, 0.97) 48%, rgba(16, 38, 31, 0.93) 100%);
+    radial-gradient(circle at 20% 18%, rgba(221, 234, 245, 0.88), transparent 34%),
+    linear-gradient(115deg, var(--pp-warm-ivory) 0%, var(--pp-soft-neutral) 48%, var(--pp-pale-blue) 100%);
 }
 
 .consult-heading {
@@ -40,7 +41,7 @@
   font-weight: 800;
   letter-spacing: 0.2em;
   line-height: 1.4;
-  text-shadow: 0 0 14px rgba(215, 180, 106, 0.24);
+  text-shadow: 0 0 14px rgba(203, 167, 102, 0.24);
   text-transform: uppercase;
 }
 
@@ -49,16 +50,16 @@
   width: clamp(46px, 6vw, 78px);
   height: 1px;
   flex: 0 0 auto;
-  box-shadow: 0 0 10px rgba(215, 180, 106, 0.42);
+  box-shadow: 0 0 10px rgba(203, 167, 102, 0.42);
 }
 
 .consult-kicker > span {
-  background: linear-gradient(90deg, transparent, rgba(215, 180, 106, 0.62) 34%, var(--pp-gold));
+  background: linear-gradient(90deg, transparent, rgba(203, 167, 102, 0.62) 34%, var(--pp-gold));
 }
 
 .consult-kicker::after {
   content: "";
-  background: linear-gradient(90deg, var(--pp-gold), rgba(215, 180, 106, 0.62) 66%, transparent);
+  background: linear-gradient(90deg, var(--pp-gold), rgba(203, 167, 102, 0.62) 66%, transparent);
 }
 
 .consult-heading h1,
@@ -70,7 +71,7 @@
 
 .consult-heading h1 {
   margin: 0;
-  color: var(--pp-cream);
+  color: var(--pp-prime-navy);
   font-size: 84px;
   font-weight: 500;
   line-height: 0.96;
@@ -79,7 +80,7 @@
 .consult-heading-copy {
   max-width: 720px;
   margin: 28px auto 0;
-  color: var(--pp-cream-muted);
+  color: var(--pp-navy-muted);
   font-size: 20px;
   line-height: 1.65;
 }
@@ -106,7 +107,7 @@
   aspect-ratio: 4 / 5;
   object-fit: cover;
   object-position: center;
-  border: 1px solid rgba(215, 180, 106, 0.38);
+  border: 1px solid rgba(203, 167, 102, 0.38);
   border-radius: 8px;
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.38);
 }
@@ -119,7 +120,7 @@
   gap: 4px;
   margin-top: 15px;
   text-align: center;
-  color: var(--pp-cream-muted);
+  color: var(--pp-navy-muted);
   font-size: 13px;
   line-height: 1.5;
 }
@@ -130,7 +131,7 @@
 }
 
 .consult-provider figcaption strong {
-  color: var(--pp-cream);
+  color: var(--pp-prime-navy);
   font-weight: 700;
 }
 
@@ -153,7 +154,7 @@
   width: 720px;
   max-width: calc(100vw - 40px);
   margin: 0 0 26px calc(-200px - clamp(21px, 3vw, 34px));
-  color: var(--pp-cream);
+  color: var(--pp-prime-navy);
   font-size: 46px;
   font-weight: 500;
   line-height: 1.08;
@@ -163,7 +164,7 @@
 .consult-summary > p:not(.consult-summary-label):not(.consult-account-note) {
   max-width: 600px;
   margin: 0 0 18px;
-  color: var(--pp-cream-muted);
+  color: var(--pp-navy-muted);
   font-size: 17px;
   line-height: 1.72;
 }
@@ -172,7 +173,7 @@
   display: grid;
   max-width: 600px;
   gap: 18px;
-  color: var(--pp-cream-muted);
+  color: var(--pp-navy-muted);
   font-size: 17px;
   line-height: 1.55;
 }
@@ -182,7 +183,7 @@
 }
 
 .consult-summary-copy strong {
-  color: var(--pp-cream);
+  color: var(--pp-prime-navy);
   font-weight: 800;
 }
 
@@ -196,7 +197,7 @@
 }
 
 .consult-summary-copy em {
-  color: rgba(245, 239, 226, 0.82);
+  color: rgba(15, 31, 45, 0.82);
   font-weight: 600;
 }
 
@@ -227,8 +228,8 @@
   display: inline-grid;
   grid-template-columns: 1fr 58px;
   align-items: center;
-  color: #07130f;
-  background: linear-gradient(90deg, #f0d99e 0%, #d7b46a 74%, #ba8835 100%);
+  color: #0f1f2d;
+  background: linear-gradient(90deg, #f0d99e 0%, #cba766 74%, #ba8835 100%);
   border: 1px solid rgba(255, 239, 192, 0.62);
   border-radius: 6px;
   box-shadow: 0 14px 32px rgba(0, 0, 0, 0.26);
@@ -249,19 +250,19 @@
   height: 100%;
   display: grid;
   place-items: center;
-  border-left: 1px solid rgba(29, 33, 25, 0.18);
+  border-left: 1px solid rgba(15, 31, 45, 0.18);
   font-size: 20px;
 }
 
 .consult-primary:hover,
 .consult-primary:focus-visible {
   transform: translateY(-3px);
-  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.32), 0 0 20px rgba(215, 180, 106, 0.16);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.32), 0 0 20px rgba(203, 167, 102, 0.16);
 }
 
 .consult-account-note {
   margin: 16px 0 0;
-  color: rgba(245, 239, 226, 0.58);
+  color: rgba(15, 31, 45, 0.58);
   font-size: 12px;
   text-align: left;
 }
@@ -285,7 +286,7 @@
 
 .consult-included {
   padding: clamp(35px, 4vw, 56px) var(--pp-page-gutter);
-  color: #13231e;
+  color: #0f1f2d;
   background: transparent;
 }
 
@@ -297,9 +298,9 @@
   border: 1px solid rgba(156, 117, 46, 0.18);
   border-radius: clamp(24px, 3vw, 38px);
   background:
-    radial-gradient(circle at 82% 18%, rgba(215, 180, 106, 0.12), transparent 34%),
-    linear-gradient(135deg, #fffaf0 0%, #f5efe2 54%, #e9dfce 100%);
-  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.24), 0 0 38px rgba(215, 180, 106, 0.08);
+    radial-gradient(circle at 82% 18%, rgba(203, 167, 102, 0.12), transparent 34%),
+    linear-gradient(135deg, var(--pp-warm-ivory) 0%, var(--pp-warm-ivory) 54%, var(--pp-pale-blue) 100%);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.24), 0 0 38px rgba(203, 167, 102, 0.08);
 }
 
 .consult-section-heading {
@@ -307,11 +308,11 @@
 }
 
 .consult-kicker-dark {
-  color: #9b742d;
+  color: #8f6927;
 }
 
 .consult-kicker-dark > span {
-  background: #9b742d;
+  background: #8f6927;
 }
 
 .consult-section-heading h2 {
@@ -323,7 +324,7 @@
 
 .consult-section-heading > p:last-child {
   margin: 24px 0 0;
-  color: #56645e;
+  color: #567a9b;
   font-size: 17px;
   line-height: 1.7;
 }
@@ -370,8 +371,8 @@
   border: 1.5px solid var(--pp-gold);
   border-radius: 50%;
   box-shadow:
-    inset 0 0 8px rgba(215, 180, 106, 0.1),
-    0 0 14px rgba(215, 180, 106, 0.2);
+    inset 0 0 8px rgba(203, 167, 102, 0.1),
+    0 0 14px rgba(203, 167, 102, 0.2);
 }
 
 .consult-list-check::after {
@@ -380,7 +381,7 @@
   height: 7px;
   border-radius: 50%;
   background: var(--pp-gold);
-  box-shadow: 0 0 9px rgba(215, 180, 106, 0.58);
+  box-shadow: 0 0 9px rgba(203, 167, 102, 0.58);
 }
 
 .consult-included-list h3,
@@ -392,12 +393,12 @@
 }
 
 .consult-included-list h3 {
-  color: #13231e;
+  color: #0f1f2d;
 }
 
 .consult-included-list p {
   margin: 0;
-  color: #56645e;
+  color: #567a9b;
   font-size: 15px;
   line-height: 1.5;
 }
@@ -408,7 +409,7 @@
 }
 
 .consult-included .consult-section-heading h2 {
-  color: #050706;
+  color: #0f1f2d;
   font-family: Inter, "Segoe UI", Arial, sans-serif;
   font-size: clamp(2rem, 3.4vw, 3rem);
   font-weight: 850;
@@ -420,8 +421,8 @@
 .consult-process {
   padding: 112px 0;
   color: var(--pp-cream);
-  background: linear-gradient(135deg, #050706 0%, #0a1713 52%, #10261f 100%);
-  border-bottom: 1px solid rgba(215, 180, 106, 0.46);
+  background: linear-gradient(135deg, #0f1f2d 0%, #152c3e 52%, #0f1f2d 100%);
+  border-bottom: 1px solid rgba(203, 167, 102, 0.46);
 }
 
 .consult-process-heading {
@@ -484,7 +485,7 @@
   position: absolute;
   inset: 0 0 20px;
   background: url("../assets/Peptides/gold-peptide-molecule-v1.png") center / contain no-repeat;
-  filter: drop-shadow(0 0 16px rgba(215, 180, 106, 0.22));
+  filter: drop-shadow(0 0 16px rgba(203, 167, 102, 0.22));
 }
 
 .consult-process-list li:not(:last-child)::after {
@@ -498,7 +499,7 @@
   line-height: 1;
   text-align: center;
   opacity: 0.82;
-  text-shadow: 0 0 14px rgba(215, 180, 106, 0.3);
+  text-shadow: 0 0 14px rgba(203, 167, 102, 0.3);
 }
 
 .consult-process-list h3 {
@@ -536,15 +537,15 @@
   border: 1px solid rgba(156, 117, 46, 0.18);
   border-radius: clamp(24px, 3vw, 38px);
   background:
-    radial-gradient(circle at 82% 18%, rgba(215, 180, 106, 0.12), transparent 34%),
-    linear-gradient(135deg, #fffaf0 0%, #f5efe2 54%, #e9dfce 100%);
-  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.24), 0 0 38px rgba(215, 180, 106, 0.08);
+    radial-gradient(circle at 82% 18%, rgba(203, 167, 102, 0.12), transparent 34%),
+    linear-gradient(135deg, var(--pp-warm-ivory) 0%, var(--pp-warm-ivory) 54%, var(--pp-pale-blue) 100%);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.24), 0 0 38px rgba(203, 167, 102, 0.08);
   text-align: center;
 }
 
 .bw-state-title {
   margin: 0;
-  color: #050706;
+  color: #0f1f2d;
   font-family: Inter, "Segoe UI", Arial, sans-serif;
   font-size: clamp(2.35rem, 4.4vw, 4rem);
   font-weight: 850;
@@ -556,7 +557,7 @@
 .bw-state-intro {
   max-width: 760px;
   margin: 22px auto 0;
-  color: #56645e;
+  color: #567a9b;
   font-size: clamp(0.94rem, 1.25vw, 1.06rem);
   line-height: 1.7;
 }
@@ -590,18 +591,18 @@
   border-radius: 6px;
   outline: none;
   background: rgba(255, 253, 247, 0.78);
-  color: #13231e;
+  color: #0f1f2d;
   font: inherit;
   font-size: 1rem;
   transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
 }
 
-.bw-state-field input::placeholder { color: rgba(19, 35, 30, 0.48); }
+.bw-state-field input::placeholder { color: rgba(15, 31, 45, 0.48); }
 .bw-state-field input:focus,
 .bw-state-field select:focus {
-  border-color: rgba(215, 180, 106, 0.78);
-  background: #fffdf7;
-  box-shadow: 0 0 0 3px rgba(215, 180, 106, 0.1);
+  border-color: rgba(203, 167, 102, 0.78);
+  background: #f6f4f0;
+  box-shadow: 0 0 0 3px rgba(203, 167, 102, 0.1);
 }
 
 .bw-state-select::after {
@@ -611,14 +612,14 @@
   right: 20px;
   width: 8px;
   height: 8px;
-  border-right: 1px solid rgba(19, 35, 30, 0.72);
-  border-bottom: 1px solid rgba(19, 35, 30, 0.72);
+  border-right: 1px solid rgba(15, 31, 45, 0.72);
+  border-bottom: 1px solid rgba(15, 31, 45, 0.72);
   pointer-events: none;
   transform: rotate(45deg);
 }
 
 .bw-state-field select { appearance: none; padding-right: 48px; }
-.bw-state-field option { background: #fffaf0; color: #13231e; }
+.bw-state-field option { background: #f6f4f0; color: #0f1f2d; }
 
 .bw-state-submit {
   min-width: 178px;
@@ -628,15 +629,15 @@
   align-items: center;
   justify-content: center;
   gap: 13px;
-  border: 1px solid rgba(245, 239, 226, 0.18);
+  border: 1px solid rgba(246, 244, 240, 0.18);
   border-radius: 6px;
-  background: linear-gradient(135deg, #f0d99f, #d7b46a 52%, #aa7d32);
-  color: #0b0e0a;
+  background: linear-gradient(135deg, #f0d99f, #cba766 52%, #aa7d32);
+  color: #0f1f2d;
   font-size: 0.8rem;
   font-weight: 850;
   text-transform: uppercase;
   cursor: pointer;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.36), 0 12px 30px rgba(215, 180, 106, 0.14);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.36), 0 12px 30px rgba(203, 167, 102, 0.14);
   transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
 }
 
@@ -644,7 +645,7 @@
 .bw-state-submit:focus-visible {
   filter: brightness(1.06);
   transform: translateY(-2px);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.42), 0 15px 34px rgba(215, 180, 106, 0.22);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.42), 0 15px 34px rgba(203, 167, 102, 0.22);
 }
 
 .bw-state-submit-arrow {
@@ -761,8 +762,8 @@
   right: 0;
   left: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(215, 180, 106, 0.28) 12%, rgba(215, 180, 106, 0.82) 50%, rgba(215, 180, 106, 0.28) 88%, transparent 100%);
-  box-shadow: 0 0 14px rgba(215, 180, 106, 0.24);
+  background: linear-gradient(90deg, transparent 0%, rgba(203, 167, 102, 0.28) 12%, rgba(203, 167, 102, 0.82) 50%, rgba(203, 167, 102, 0.28) 88%, transparent 100%);
+  box-shadow: 0 0 14px rgba(203, 167, 102, 0.24);
 }
 
 .glp-legal-divider span {
@@ -772,7 +773,7 @@
   height: 20px;
   display: grid;
   place-items: start center;
-  background: var(--pp-canvas-dark, #0a1812);
+  background: var(--pp-canvas-dark, #152c3e);
 }
 
 .glp-legal-divider span::before {
@@ -782,7 +783,7 @@
   margin-top: -3px;
   border-right: 1.5px solid var(--pp-gold);
   border-bottom: 1.5px solid var(--pp-gold);
-  filter: drop-shadow(0 0 5px rgba(215, 180, 106, 0.34));
+  filter: drop-shadow(0 0 5px rgba(203, 167, 102, 0.34));
   transform: rotate(45deg);
 }
 
@@ -791,10 +792,10 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 18% 34%, rgba(215, 180, 106, 0.07) 0 1px, transparent 2px),
-    radial-gradient(circle at 74% 26%, rgba(245, 239, 226, 0.045) 0 1px, transparent 2px),
-    radial-gradient(circle at 83% 72%, rgba(215, 180, 106, 0.06) 0 1px, transparent 2px),
-    linear-gradient(90deg, rgba(5, 7, 6, 0.14), transparent 22%, transparent 78%, rgba(5, 7, 6, 0.14));
+    radial-gradient(circle at 18% 34%, rgba(203, 167, 102, 0.07) 0 1px, transparent 2px),
+    radial-gradient(circle at 74% 26%, rgba(246, 244, 240, 0.045) 0 1px, transparent 2px),
+    radial-gradient(circle at 83% 72%, rgba(203, 167, 102, 0.06) 0 1px, transparent 2px),
+    linear-gradient(90deg, rgba(15, 31, 45, 0.14), transparent 22%, transparent 78%, rgba(15, 31, 45, 0.14));
   opacity: 0.5;
   pointer-events: none;
 }
@@ -822,8 +823,8 @@
   top: 50%;
   width: 1px;
   height: 56px;
-  background: linear-gradient(180deg, transparent 0%, rgba(208, 164, 91, 0.32) 18%, rgba(208, 164, 91, 0.9) 50%, rgba(208, 164, 91, 0.32) 82%, transparent 100%);
-  box-shadow: 0 0 14px rgba(208, 164, 91, 0.3);
+  background: linear-gradient(180deg, transparent 0%, rgba(203, 167, 102, 0.32) 18%, rgba(203, 167, 102, 0.9) 50%, rgba(203, 167, 102, 0.32) 82%, transparent 100%);
+  box-shadow: 0 0 14px rgba(203, 167, 102, 0.3);
   transform: translateY(-50%);
 }
 
@@ -837,18 +838,18 @@
   height: 38px;
   display: grid;
   place-items: center;
-  border: 1px solid rgba(208, 164, 91, 0.42);
+  border: 1px solid rgba(203, 167, 102, 0.42);
   border-radius: 50%;
-  background: rgba(5, 7, 6, 0.36);
-  color: #d0a45b;
+  background: rgba(15, 31, 45, 0.36);
+  color: #cba766;
   text-decoration: none;
   transition: border-color 240ms ease, color 240ms ease, transform 240ms ease, background-color 240ms ease;
 }
 
 .home-social-links a:hover,
 .home-social-links a:focus-visible {
-  border-color: rgba(208, 164, 91, 0.82);
-  background: rgba(208, 164, 91, 0.1);
+  border-color: rgba(203, 167, 102, 0.82);
+  background: rgba(203, 167, 102, 0.1);
   color: var(--pp-cream);
   transform: translateY(-2px);
 }
@@ -1092,9 +1093,8 @@
     transition: none;
   }
 }
-/* GLP-1 dark canvas: keep future consult-page backgrounds within this near-black palette. */
-body.peptide-consult-page > main,
-body.peptide-consult-page main > section {
+/* Keep the shared ivory canvas continuous around intentional section surfaces. */
+body.peptide-consult-page > main {
   background: transparent !important;
   border-top: 0 !important;
   border-bottom: 0 !important;

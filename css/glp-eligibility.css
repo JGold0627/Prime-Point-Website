@@ -2,44 +2,13 @@
   min-height: 100svh;
   overflow-x: hidden;
   background:
-    linear-gradient(118deg, rgba(215, 180, 106, 0.045), transparent 34%),
-    linear-gradient(180deg, #050907 0%, #091710 34%, #10261f 100%);
-  color: var(--pp-cream);
-}
-
-.glp-eligibility-header {
-  width: 100%;
-  min-height: 0;
-  height: 72px;
-  display: grid;
-  place-items: center;
-  padding: 0 var(--pp-page-gutter);
-  background: transparent;
-  border-bottom: 1px solid rgba(215, 180, 106, 0.34);
-  box-shadow: none;
-}
-
-.glp-eligibility-brand {
-  position: relative;
-  width: clamp(220px, 20vw, 310px);
-  height: 100%;
-  display: block;
-  overflow: hidden;
-}
-
-.glp-eligibility-brand img {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  transform: translateY(-50%);
+    linear-gradient(118deg, rgba(203, 167, 102, 0.08), transparent 34%),
+    linear-gradient(180deg, var(--pp-warm-ivory) 0%, var(--pp-soft-neutral) 48%, var(--pp-pale-blue) 100%);
+  color: var(--pp-prime-navy);
 }
 
 .glp-eligibility-main {
-  min-height: calc(100svh - 72px);
+  min-height: calc(100svh - var(--pp-header-height));
   display: grid;
   align-items: start;
   padding: clamp(44px, 7vh, 86px) var(--pp-page-gutter) clamp(52px, 8vh, 96px);
@@ -55,7 +24,7 @@
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   gap: 24px;
-  color: var(--pp-cream);
+  color: var(--pp-prime-navy);
   font-size: clamp(0.92rem, 1.2vw, 1.08rem);
 }
 
@@ -68,7 +37,7 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  color: var(--pp-cream);
+  color: var(--pp-prime-navy);
   text-decoration: none;
   transition: color 160ms ease, transform 160ms ease;
 }
@@ -91,7 +60,7 @@
 
 .glp-eligibility-count {
   justify-self: end;
-  color: var(--pp-cream-muted);
+  color: var(--pp-navy-muted);
 }
 
 .glp-eligibility-progress {
@@ -104,13 +73,13 @@
 .glp-eligibility-progress span {
   height: 7px;
   border-radius: 999px;
-  background: rgba(245, 239, 226, 0.14);
+  background: rgba(15, 31, 45, 0.14);
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.28);
 }
 
 .glp-eligibility-progress .is-active {
   background: linear-gradient(90deg, var(--pp-gold), #f0d79c);
-  box-shadow: 0 0 16px rgba(215, 180, 106, 0.2);
+  box-shadow: 0 0 16px rgba(203, 167, 102, 0.2);
 }
 
 .glp-eligibility-progress .is-active + .is-active {
@@ -134,7 +103,7 @@
 
 .glp-eligibility-intro h1 {
   margin: 0;
-  color: var(--pp-cream);
+  color: var(--pp-prime-navy);
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(2.25rem, 5vw, 4.6rem);
   font-weight: 500;
@@ -145,7 +114,7 @@
 .glp-eligibility-intro > p:last-child {
   width: min(100%, 700px);
   margin: clamp(20px, 3vh, 30px) auto 0;
-  color: var(--pp-cream-muted);
+  color: var(--pp-navy-muted);
   font-size: clamp(1rem, 1.5vw, 1.25rem);
   line-height: 1.55;
 }
@@ -177,33 +146,33 @@
   width: 100%;
   min-height: clamp(76px, 8vw, 96px);
   padding: 0 clamp(22px, 3vw, 34px);
-  border: 1px solid rgba(215, 180, 106, 0.34);
+  border: 1px solid rgba(203, 167, 102, 0.34);
   border-radius: 8px;
   outline: 0;
-  background: rgba(245, 239, 226, 0.1);
+  background: rgba(221, 234, 245, 0.58);
   box-shadow:
-    inset 0 1px 0 rgba(245, 239, 226, 0.08),
+    inset 0 1px 0 rgba(246, 244, 240, 0.08),
     0 16px 36px rgba(0, 0, 0, 0.12);
-  color: var(--pp-cream);
+  color: var(--pp-prime-navy);
   font: inherit;
   font-size: clamp(1.12rem, 1.8vw, 1.42rem);
   transition: border-color 150ms ease, background-color 150ms ease, box-shadow 150ms ease;
 }
 
 .glp-eligibility-field input::placeholder {
-  color: rgba(245, 239, 226, 0.58);
+  color: rgba(15, 31, 45, 0.52);
 }
 
 .glp-eligibility-field input:hover {
-  border-color: rgba(215, 180, 106, 0.58);
-  background: rgba(245, 239, 226, 0.125);
+  border-color: rgba(203, 167, 102, 0.58);
+  background: rgba(221, 234, 245, 0.78);
 }
 
 .glp-eligibility-field input:focus {
   border-color: var(--pp-gold);
-  background: rgba(245, 239, 226, 0.14);
+  background: var(--pp-warm-ivory);
   box-shadow:
-    0 0 0 3px rgba(215, 180, 106, 0.14),
+    0 0 0 3px rgba(203, 167, 102, 0.14),
     0 18px 42px rgba(0, 0, 0, 0.16);
 }
 
@@ -236,7 +205,7 @@
   box-shadow:
     0 18px 42px rgba(0, 0, 0, 0.24),
     inset 0 1px 0 rgba(255, 255, 255, 0.34);
-  color: #07100d;
+  color: #0f1f2d;
   cursor: pointer;
   font-family: Inter, "Segoe UI", Arial, sans-serif;
   font-size: clamp(1.08rem, 1.45vw, 1.3rem);
@@ -252,7 +221,7 @@
   filter: brightness(1.05);
   box-shadow:
     0 22px 48px rgba(0, 0, 0, 0.28),
-    0 0 22px rgba(215, 180, 106, 0.18);
+    0 0 22px rgba(203, 167, 102, 0.18);
 }
 
 .glp-eligibility-continue:active {
@@ -260,10 +229,10 @@
 }
 
 .glp-eligibility-continue:disabled {
-  border-color: rgba(215, 180, 106, 0.18);
-  background: rgba(245, 239, 226, 0.13);
-  box-shadow: inset 0 1px 0 rgba(245, 239, 226, 0.04);
-  color: rgba(245, 239, 226, 0.34);
+  border-color: rgba(203, 167, 102, 0.18);
+  background: rgba(246, 244, 240, 0.13);
+  box-shadow: inset 0 1px 0 rgba(246, 244, 240, 0.04);
+  color: rgba(246, 244, 240, 0.34);
   cursor: not-allowed;
   filter: saturate(0.35);
 }
@@ -272,7 +241,7 @@
 .glp-eligibility-continue:disabled:focus-visible {
   transform: none;
   filter: saturate(0.35);
-  box-shadow: inset 0 1px 0 rgba(245, 239, 226, 0.04);
+  box-shadow: inset 0 1px 0 rgba(246, 244, 240, 0.04);
 }
 
 .glp-eligibility-continue-icon {
@@ -428,7 +397,7 @@
 
 .glp-contact-disclosure {
   margin: 8px 0 0;
-  color: rgba(245, 239, 226, 0.66);
+  color: rgba(246, 244, 240, 0.66);
   font-size: clamp(0.74rem, 0.92vw, 0.82rem);
   line-height: 1.65;
 }
@@ -563,9 +532,9 @@
   display: flex;
   align-items: center;
   gap: 20px;
-  border: 1px solid rgba(215, 180, 106, 0.26);
+  border: 1px solid rgba(203, 167, 102, 0.26);
   border-radius: 8px;
-  background: rgba(245, 239, 226, 0.1);
+  background: rgba(246, 244, 240, 0.1);
   color: var(--pp-cream);
   text-decoration: none;
   transition: transform 150ms ease, border-color 150ms ease, background-color 150ms ease;
@@ -573,8 +542,8 @@
 
 .glp-medical-resource:hover,
 .glp-medical-resource:focus-visible {
-  border-color: rgba(215, 180, 106, 0.62);
-  background: rgba(245, 239, 226, 0.14);
+  border-color: rgba(203, 167, 102, 0.62);
+  background: rgba(246, 244, 240, 0.14);
   transform: translateY(-1px);
 }
 
@@ -594,7 +563,7 @@
   right: -2px;
   border-style: solid;
   border-width: 0 13px 13px 0;
-  border-color: transparent #0c211a transparent transparent;
+  border-color: transparent #152c3e transparent transparent;
 }
 
 .glp-medical-resource-icon span {
@@ -656,9 +625,9 @@
 .glp-medical-allergy-add {
   min-width: clamp(92px, 10vw, 116px);
   padding: 0 24px;
-  border: 1px solid rgba(215, 180, 106, 0.58);
+  border: 1px solid rgba(203, 167, 102, 0.58);
   border-radius: 8px;
-  background: rgba(245, 239, 226, 0.08);
+  background: rgba(246, 244, 240, 0.08);
   color: var(--pp-cream);
   font: inherit;
   font-size: clamp(1rem, 1.4vw, 1.15rem);
@@ -669,13 +638,13 @@
 .glp-medical-allergy-add:hover,
 .glp-medical-allergy-add:focus-visible {
   border-color: var(--pp-gold);
-  background: rgba(215, 180, 106, 0.12);
+  background: rgba(203, 167, 102, 0.12);
   transform: translateY(-1px);
 }
 
 .glp-medical-allergy-hint {
   margin: 8px 2px 0;
-  color: rgba(245, 239, 226, 0.64);
+  color: rgba(246, 244, 240, 0.64);
   font-size: 0.84rem;
 }
 
@@ -684,7 +653,7 @@
   padding: 0 0 clamp(20px, 3vh, 30px);
   display: grid;
   gap: 10px;
-  border-bottom: 1px solid rgba(215, 180, 106, 0.3);
+  border-bottom: 1px solid rgba(203, 167, 102, 0.3);
   list-style: none;
 }
 
@@ -699,9 +668,9 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  border: 1px solid rgba(215, 180, 106, 0.28);
+  border: 1px solid rgba(203, 167, 102, 0.28);
   border-radius: 7px;
-  background: rgba(245, 239, 226, 0.075);
+  background: rgba(246, 244, 240, 0.075);
   color: var(--pp-cream);
 }
 
@@ -716,7 +685,7 @@
   flex: 0 0 32px;
   display: inline-grid;
   place-items: center;
-  border: 1px solid rgba(215, 180, 106, 0.4);
+  border: 1px solid rgba(203, 167, 102, 0.4);
   border-radius: 50%;
   background: transparent;
   color: var(--pp-gold);
@@ -754,10 +723,10 @@
   min-height: clamp(220px, 24vw, 280px);
   padding: clamp(22px, 3vw, 30px);
   resize: vertical;
-  border: 1px solid rgba(215, 180, 106, 0.34);
+  border: 1px solid rgba(203, 167, 102, 0.34);
   border-radius: 8px;
   outline: 0;
-  background: rgba(245, 239, 226, 0.1);
+  background: rgba(246, 244, 240, 0.1);
   color: var(--pp-cream);
   font: inherit;
   font-size: clamp(1rem, 1.35vw, 1.12rem);
@@ -766,19 +735,19 @@
 }
 
 .glp-medical-notes-field textarea::placeholder {
-  color: rgba(245, 239, 226, 0.58);
+  color: rgba(246, 244, 240, 0.58);
 }
 
 .glp-medical-notes-field textarea:hover {
-  border-color: rgba(215, 180, 106, 0.58);
-  background: rgba(245, 239, 226, 0.125);
+  border-color: rgba(203, 167, 102, 0.58);
+  background: rgba(246, 244, 240, 0.125);
 }
 
 .glp-medical-notes-field textarea:focus {
   border-color: var(--pp-gold);
-  background: rgba(245, 239, 226, 0.14);
+  background: rgba(246, 244, 240, 0.14);
   box-shadow:
-    0 0 0 3px rgba(215, 180, 106, 0.14),
+    0 0 0 3px rgba(203, 167, 102, 0.14),
     0 18px 42px rgba(0, 0, 0, 0.16);
 }
 
@@ -822,11 +791,11 @@
   display: flex;
   align-items: center;
   gap: 14px;
-  border: 1px solid rgba(215, 180, 106, 0.26);
+  border: 1px solid rgba(203, 167, 102, 0.26);
   border-radius: 8px;
-  background: rgba(245, 239, 226, 0.1);
+  background: rgba(246, 244, 240, 0.1);
   box-shadow:
-    inset 0 1px 0 rgba(245, 239, 226, 0.06),
+    inset 0 1px 0 rgba(246, 244, 240, 0.06),
     0 16px 36px rgba(0, 0, 0, 0.1);
   color: var(--pp-cream);
   cursor: pointer;
@@ -844,35 +813,35 @@
   width: 20px;
   height: 20px;
   flex: 0 0 20px;
-  border: 1.5px solid rgba(245, 239, 226, 0.82);
+  border: 1.5px solid rgba(246, 244, 240, 0.82);
   border-radius: 50%;
   box-shadow: inset 0 0 0 4px transparent;
   transition: border-color 150ms ease, background-color 150ms ease, box-shadow 150ms ease;
 }
 
 .glp-medical-choice:hover {
-  border-color: rgba(215, 180, 106, 0.58);
-  background: rgba(245, 239, 226, 0.135);
+  border-color: rgba(203, 167, 102, 0.58);
+  background: rgba(246, 244, 240, 0.135);
   transform: translateY(-1px);
 }
 
 .glp-medical-choice:has(input:focus-visible) {
   border-color: var(--pp-gold);
-  box-shadow: 0 0 0 3px rgba(215, 180, 106, 0.14);
+  box-shadow: 0 0 0 3px rgba(203, 167, 102, 0.14);
 }
 
 .glp-medical-choice:has(input:checked) {
   border-color: var(--pp-gold);
-  background: rgba(215, 180, 106, 0.16);
+  background: rgba(203, 167, 102, 0.16);
   box-shadow:
-    inset 0 1px 0 rgba(245, 239, 226, 0.1),
-    0 0 24px rgba(215, 180, 106, 0.12);
+    inset 0 1px 0 rgba(246, 244, 240, 0.1),
+    0 0 24px rgba(203, 167, 102, 0.12);
 }
 
 .glp-medical-choice input:checked + .glp-medical-choice-indicator {
   border-color: var(--pp-gold);
   background: var(--pp-gold);
-  box-shadow: inset 0 0 0 4px #10261f;
+  box-shadow: inset 0 0 0 4px #0f1f2d;
 }
 
 .glp-medical-conditions-main {
@@ -898,8 +867,8 @@
 
 .glp-medical-checkbox-choice {
   min-height: clamp(62px, 6vw, 72px);
-  border-color: rgba(215, 180, 106, 0.32);
-  background: rgba(245, 239, 226, 0.075);
+  border-color: rgba(203, 167, 102, 0.32);
+  background: rgba(246, 244, 240, 0.075);
   font-size: clamp(1rem, 1.35vw, 1.16rem);
 }
 
@@ -922,8 +891,8 @@
   top: 2px;
   width: 5px;
   height: 9px;
-  border-right: 2px solid #10261f;
-  border-bottom: 2px solid #10261f;
+  border-right: 2px solid #0f1f2d;
+  border-bottom: 2px solid #0f1f2d;
   transform: rotate(45deg);
 }
 
@@ -981,7 +950,7 @@
   position: absolute;
   top: calc(clamp(76px, 8vw, 96px) / 2);
   right: clamp(22px, 3vw, 34px);
-  color: rgba(245, 239, 226, 0.72);
+  color: rgba(246, 244, 240, 0.72);
   font-size: clamp(1rem, 1.45vw, 1.22rem);
   line-height: 1;
   pointer-events: none;
@@ -1013,16 +982,8 @@
     min-height: 58px;
   }
 
-  .glp-eligibility-header {
-    height: 64px;
-  }
-
-  .glp-eligibility-brand {
-    width: min(72vw, 245px);
-  }
-
   .glp-eligibility-main {
-    min-height: calc(100svh - 64px);
+    min-height: calc(100svh - var(--pp-header-height));
     padding-top: 30px;
   }
 
@@ -1127,4 +1088,66 @@
   .glp-eligibility-continue-icon {
     transition: none;
   }
+}
+
+/* V2 light intake theme. */
+.glp-password-toggle,
+.glp-password-guidance,
+.glp-contact-signin,
+.glp-medical-resource small,
+.glp-medical-allergy-hint,
+.glp-medical-unit {
+  color: var(--pp-navy-muted);
+}
+
+.glp-contact-consent,
+.glp-medical-resource,
+.glp-medical-allergy-add,
+.glp-medical-allergy-item,
+.glp-medical-choice,
+.glp-medical-measurement-group legend {
+  color: var(--pp-prime-navy);
+}
+
+.glp-contact-disclosure {
+  color: rgba(15, 31, 45, 0.66);
+}
+
+.glp-medical-resource,
+.glp-medical-allergy-add,
+.glp-medical-allergy-item,
+.glp-medical-choice,
+.glp-medical-checkbox-choice,
+.glp-medical-notes-field textarea {
+  background: rgba(221, 234, 245, 0.58);
+}
+
+.glp-medical-resource:hover,
+.glp-medical-resource:focus-visible,
+.glp-medical-allergy-add:hover,
+.glp-medical-allergy-add:focus-visible,
+.glp-medical-choice:hover,
+.glp-medical-notes-field textarea:hover {
+  background: rgba(221, 234, 245, 0.78);
+}
+
+.glp-medical-notes-field textarea {
+  color: var(--pp-prime-navy);
+}
+
+.glp-medical-notes-field textarea::placeholder {
+  color: rgba(15, 31, 45, 0.52);
+}
+
+.glp-medical-notes-field textarea:focus {
+  background: var(--pp-warm-ivory);
+}
+
+.glp-medical-choice-indicator {
+  border-color: rgba(15, 31, 45, 0.62);
+}
+
+.glp-eligibility-continue:disabled {
+  background: rgba(15, 31, 45, 0.1);
+  color: rgba(15, 31, 45, 0.38);
 }

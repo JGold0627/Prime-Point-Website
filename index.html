@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -12,69 +12,7 @@
     <link rel="stylesheet" href="css/home.css" />
   </head>
   <body class="home-page">
-    <header class="site-header" aria-label="Primary navigation">
-      <div class="nav-shell">
-        <a class="brand" href="index.html" aria-label="Prime Point Health home">
-          <img
-            class="brand-logo-reference"
-            src="assets/brand/Logo V2.png"
-            alt="Prime Point Health"
-          />
-        </a>
-
-        <nav class="nav-links" aria-label="Main navigation">
-          <a class="nav-link" href="peptides.html">Peptides</a>
-          <div class="glp-nav-dropdown">
-            <a class="nav-link glp-nav-link" href="glp-1s.html">GLP-1's</a>
-            <button
-              class="glp-nav-trigger"
-              type="button"
-              aria-label="Show GLP-1 medications"
-              aria-haspopup="true"
-              aria-expanded="false"
-              aria-controls="glp-nav-menu"
-            >
-              <span class="glp-nav-chevron" aria-hidden="true"></span>
-            </button>
-            <div class="glp-nav-menu" id="glp-nav-menu" aria-hidden="true">
-              <div class="glp-nav-menu-group">
-                <span class="glp-nav-menu-label">Injectable</span>
-                <a href="semaglutide.html">Semaglutide</a>
-                <a href="tirzepatide.html">Tirzepatide</a>
-              </div>
-              <div class="glp-nav-menu-group">
-                <span class="glp-nav-menu-label">Oral</span>
-                <a href="semaglutide-tablets.html">Semaglutide Tablets</a>
-              </div>
-            </div>
-          </div>
-          <a class="nav-link" href="blood-work.html">Blood Work</a>
-          <div class="glp-nav-dropdown about-nav-dropdown">
-            <a class="nav-link glp-nav-link" href="about.html">About Us</a>
-            <button
-              class="glp-nav-trigger"
-              type="button"
-              aria-label="Show About Us links"
-              aria-haspopup="true"
-              aria-expanded="false"
-              aria-controls="about-nav-menu"
-            >
-              <span class="glp-nav-chevron" aria-hidden="true"></span>
-            </button>
-            <div class="glp-nav-menu" id="about-nav-menu" aria-hidden="true">
-              <div class="glp-nav-menu-group">
-                <a href="contact.html">Contact Us</a>
-              </div>
-            </div>
-          </div>
-        </nav>
-
-        <div class="nav-actions" aria-label="Account actions">
-          <a class="header-action header-login" href="login.html">Log In</a>
-          <a class="header-action header-start" href="#services">Get Started</a>
-        </div>
-      </div>
-    </header>
+    <header class="site-header" data-site-header-mount aria-label="Primary navigation"></header>
 
     <!--
       Home Hero V1 fitment reference (preserved 2026-07-21):
@@ -84,15 +22,16 @@
     <section class="home-hero" aria-label="Prime Point homepage hero">
       <div class="home-hero-content">
         <div class="home-hero-centered-copy">
+          <p class="home-hero-eyebrow">PRECISION HEALTH &bull; PERSONALIZED CARE</p>
           <h1 class="home-hero-main-title">
-            <span>Optimize</span>
-            <span>Your Biology</span>
+            <span>Better health,</span>
+            <span>built around you.</span>
           </h1>
 
           <p class="home-hero-main-lede">
-            Prime Point Health is your precision health platform for physician-guided
-            peptide therapy, GLP-1 programs, comprehensive blood work, and personalized
-            supplement planning&mdash;all designed around your biology.
+            Prime Point Health brings physician-guided therapies, advanced diagnostics,
+            and personalized health planning together in one place&mdash;giving you a clearer
+            path to better health, performance, and longevity.
           </p>
 
           <div class="home-hero-centered-actions">
@@ -110,15 +49,25 @@
           </div>
         </div>
       </div>
+      <a class="home-hero-scroll-cue" href="#services" aria-label="Scroll to our core services">
+        <span aria-hidden="true"></span>
+      </a>
     </section>
 
     <section class="home-journey" aria-hidden="true"></section>
 
     <section class="home-services" id="services" aria-labelledby="home-services-title">
-      <p class="home-services-eyebrow">WHAT WE OFFER</p>
+      <p class="home-services-eyebrow">02 &mdash; OUR CORE SERVICES</p>
       <h2 class="home-services-title" id="home-services-title">
-        Three Pillars of <span>Precision Health</span>
+        One platform.<span>Built around you.</span>
       </h2>
+      <p class="home-services-supporting">
+        <span>
+          Physician-guided therapies, advanced diagnostics, and personalized health
+          strategies&mdash;brought together to help you understand, improve, and optimize
+          your health.
+        </span>
+      </p>
 
       <div class="home-services-grid">
         <article
@@ -172,7 +121,10 @@
     </section>
 
     <section class="home-video-intro">
-      <p class="home-video-intro-eyebrow">WHO WE ARE</p>
+      <p class="home-video-intro-eyebrow">03 &mdash; WHO WE ARE</p>
+      <h2 class="home-video-intro-title">
+        Healthcare built<span>for what comes next.</span>
+      </h2>
       <img
         src="assets/home/Intro Video Section.png"
         alt="Prime Point video introduction"
@@ -180,7 +132,7 @@
       />
       <div class="home-video-intro-content">
         <div class="home-video-intro-copy">
-          <h2>WE BELIEVE THE FUTURE OF HEALTHCARE IS PROACTIVE, <span>NOT REACTIVE.</span></h2>
+          <h3>The <span>Prime Point</span> Mission</h3>
           <p>
             Our mission is to help people optimize their health before problems
             arise through personalized, physician-guided care rooted in
@@ -207,17 +159,17 @@
       aria-labelledby="home-how-it-works-title"
     >
       <p class="home-how-it-works-eyebrow" id="home-how-it-works-title">
-        FINDING YOUR PRIME POINT
+        04 &mdash; HOW WE WORK
       </p>
+      <h2 class="home-how-title">
+        Your health journey.<span>Built around you.</span>
+      </h2>
       <p class="home-how-intro">
-        <strong>With Prime Point, you're in control - there are endless ways to
-          feel your best.</strong>
-        Start by deciding which path fits your needs. Then begin your
-        assessment. Review your biomarkers from anywhere on your Prime Point
-        Log In screen, schedule meetings with our providers, and receive custom
-        supplements, peptides, GLP-1's, and bloodwork packages. Your plan is
-        entirely yours to design, and every step backed by our clinical
-        expertise.
+        <span>
+          From your first assessment to ongoing optimization, Prime Point Health
+          brings every step of your care into one connected experience&mdash;personalized
+          to your goals, guided by your biology, and supported by our medical team.
+        </span>
       </p>
       <div class="home-how-process">
         <article class="home-how-step home-how-step--assessment">
@@ -351,12 +303,12 @@
         </p>
       </div>
       <img
-        src="assets/brand/Logo V1.png"
+        src="assets/brand/Logo V2.png"
         alt="Prime Point Health"
         class="home-final-logo"
       />
     </section>
-    <script src="script.js"></script>
+    <script src="script.js?v=4"></script>
   </body>
 </html>
 

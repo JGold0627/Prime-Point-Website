@@ -12,30 +12,35 @@ Prime Point V2 is a component-based luxury telehealth website. This document def
 
 ## Visual Foundation
 
-- Deep green and black backgrounds form the base environment.
+- Warm ivory is the primary page canvas and gives the site its calm, premium foundation.
+- Dark navy is the primary text color and the approved color for strong section partitions and high-contrast panels.
+- Pale blue and slate blue create secondary surfaces and restrained visual depth.
 - Gold is the primary accent for premium emphasis, borders, highlights, icons, and calls to action.
-- Cream and white typography provide warmth, clarity, and contrast.
+- Ivory typography provides clarity and contrast on navy surfaces.
 - Cards and panels should feel rounded, elevated, and intentional.
 - Motion should be subtle and smooth, used only to improve polish or comprehension.
 
 ## Color Direction
 
 Primary surfaces:
-- Deep green for branded section backgrounds and rich page depth.
-- Near-black for global page backgrounds, headers, footers, and high-contrast areas.
+- Warm ivory (`#f6f4f0`) for global page backgrounds and primary light sections.
+- Pale blue (`#ddeaf5`) and soft neutral (`#eef2f3`) for alternate light sections.
+- Prime navy (`#0f1f2d`) for page partitions, footers, and high-contrast areas.
 
 Typography:
-- Cream for warm primary text on dark surfaces.
-- White for high-contrast emphasis.
-- Muted light neutrals for secondary text.
+- Prime navy for primary text on ivory and pale-blue surfaces.
+- Ivory for primary text on navy surfaces.
+- Slate blue (`#567a9b`) for secondary text where contrast permits.
 
 Accent:
-- Gold for CTAs, thin borders, premium dividers, small icons, glows, and important highlights.
+- Prime gold (`#cba766`) for CTAs, thin borders, premium dividers, small icons, glows, and important highlights on navy.
+- Dark gold (`#8f6927`) for small accent text on ivory when gold distinction is required.
 - Gold should be used sparingly so it remains premium.
 
 Avoid:
-- Bright clinical blues as dominant colors.
-- Large flat beige sections.
+- Green and near-black as branded page foundations.
+- Bright clinical or electric blues.
+- Flat beige, tan, or brown sections.
 - Heavy purple, blue-purple, brown, or orange themes.
 - One-note pages built from only one hue family.
 
@@ -124,7 +129,8 @@ Page-specific CSS must only contain page-specific composition and refinements:
 
 ## Accessibility and Responsiveness
 
-- Maintain strong text contrast on dark backgrounds.
+- Maintain strong navy-on-ivory and ivory-on-navy text contrast.
+- Do not use prime gold for small body text on ivory; use navy or dark gold instead.
 - Ensure touch targets are comfortable on mobile.
 - Prevent text overlap, clipping, or unreadable line breaks.
 - Preserve navigation behavior on desktop and mobile.
