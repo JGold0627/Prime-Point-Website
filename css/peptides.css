@@ -2,11 +2,12 @@
   position: relative;
   min-height: calc(100vh - var(--pp-header-height));
   width: 100%;
-  background-image: url("../assets/Peptides/Front Page without Wording V2.png");
+  background-color: #f6f4f0;
+  background-image: url("../assets/home/home-hero-glass-molecules.png");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  color: var(--pp-cream);
+  color: #0f1f2d;
   overflow: hidden;
 }
 
@@ -15,7 +16,10 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: linear-gradient(90deg, rgba(15, 31, 45, 0.62), rgba(15, 31, 45, 0.34) 58%, rgba(15, 31, 45, 0.16));
+  background:
+    radial-gradient(ellipse at 76% 48%, rgba(246, 244, 240, 0.12) 12%, rgba(246, 244, 240, 0.38) 54%, rgba(246, 244, 240, 0.82) 100%),
+    linear-gradient(180deg, rgba(246, 244, 240, 0.9) 0%, rgba(246, 244, 240, 0.28) 22%, rgba(246, 244, 240, 0.26) 64%, #f6f4f0 100%),
+    linear-gradient(90deg, #f6f4f0 0%, rgba(246, 244, 240, 0.96) 30%, rgba(246, 244, 240, 0.58) 56%, rgba(246, 244, 240, 0.24) 82%, rgba(246, 244, 240, 0.7) 100%);
   pointer-events: none;
 }
 
@@ -50,13 +54,13 @@
 
 .peptides-hero-title {
   margin: clamp(18px, 2.1vw, 28px) 0 0;
-  color: var(--pp-cream);
+  color: #0f1f2d;
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(2.55rem, 3.9vw, 4.75rem);
   font-weight: 800;
   line-height: 0.88;
   letter-spacing: 0.015em;
-  text-shadow: 0 3px 22px rgba(0, 0, 0, 0.36);
+  text-shadow: none;
 }
 
 .peptides-hero-title span {
@@ -80,7 +84,7 @@
 .peptides-hero-lede {
   max-width: 520px;
   margin: clamp(18px, 2.3vw, 30px) 0 0;
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba(15, 31, 45, 0.82);
   font-size: clamp(1.05rem, 1.58vw, 1.28rem);
   font-weight: 400;
   line-height: 1.55;
@@ -1618,7 +1622,8 @@
 
 @media (max-width: 900px) {
   .peptides-hero {
-    background-position: center center;
+    background-size: cover;
+    background-position: 62% center;
   }
 
   .peptides-hero-content {
@@ -1734,6 +1739,11 @@
   .peptides-hero-content {
     width: calc(100% - 32px);
     left: 16px;
+  }
+
+  .peptides-hero-title {
+    font-size: clamp(1.68rem, 7.6vw, 2rem);
+    letter-spacing: 0;
   }
 
   .peptides-hero-kicker {
@@ -2022,4 +2032,100 @@
 body > main,
 body > main > section:not(.peptides-hero) {
   background: transparent !important;
+}
+
+/* Continuous ivory peptides canvas */
+body.pp-dark-spotlight-canvas,
+body.pp-dark-spotlight-canvas > main {
+  background-color: #f6f4f0 !important;
+}
+
+.peptides-how,
+.peptides-measure,
+.peptides-faq,
+.home-final-panel {
+  background: transparent !important;
+  color: #0f1f2d;
+}
+
+.peptides-how::before,
+.peptides-how::after,
+.peptides-measure::before,
+.peptides-faq::before,
+.peptides-faq::after,
+.home-final-panel::before,
+.home-final-panel::after {
+  content: none !important;
+}
+
+.peptides-how-inner,
+.peptides-measure-inner {
+  width: min(90vw, 1500px);
+  padding-right: 0;
+  padding-left: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.peptides-faq-heading {
+  text-align: left;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.peptides-faq-heading h2,
+.peptides-faq-question {
+  color: #0f1f2d;
+  text-shadow: none;
+}
+
+.peptides-faq-item {
+  border-color: rgba(154, 120, 58, 0.24);
+  background:
+    linear-gradient(145deg, rgba(255, 252, 245, 0.9), rgba(231, 222, 207, 0.72)),
+    #f6f4f0;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.78),
+    0 18px 48px rgba(28, 22, 12, 0.1);
+}
+
+.peptides-faq-item:hover,
+.peptides-faq-item:focus-within,
+.peptides-faq-item.is-open {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.82),
+    0 22px 58px rgba(28, 22, 12, 0.14);
+}
+
+.peptides-faq-answer p {
+  color: rgba(15, 31, 45, 0.76);
+}
+
+.home-social-follow,
+.home-social-label,
+.home-legal-container,
+.home-legal-copyright {
+  color: #0f1f2d;
+}
+
+.home-social-links a {
+  background: rgba(246, 244, 240, 0.78);
+}
+
+@media (max-width: 560px) {
+  .peptides-hero {
+    background-position: 66% center;
+  }
+
+  .peptides-hero::before {
+    background:
+      linear-gradient(180deg, rgba(246, 244, 240, 0.66) 0%, rgba(246, 244, 240, 0.28) 28%, #f6f4f0 68%),
+      linear-gradient(90deg, rgba(246, 244, 240, 0.84) 0%, rgba(246, 244, 240, 0.42) 68%, rgba(246, 244, 240, 0.72) 100%);
+  }
+
+  .peptides-how-inner,
+  .peptides-measure-inner {
+    width: min(92vw, 1500px);
+  }
 }
