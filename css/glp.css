@@ -467,6 +467,56 @@ main {
   }
 }
 
+/* Simplified GLP-1 hero */
+.glp-hero {
+  min-height: calc(100vh - var(--pp-header-height));
+  min-height: calc(100svh - var(--pp-header-height));
+  align-items: center;
+  justify-content: center;
+  padding: clamp(72px, 9vw, 138px) var(--pp-page-gutter);
+  background:
+    radial-gradient(circle at 78% 30%, rgba(221, 234, 245, 0.54), transparent 42%),
+    radial-gradient(circle at 28% 72%, rgba(203, 167, 102, 0.08), transparent 38%),
+    var(--pp-warm-ivory);
+}
+
+.glp-hero::before {
+  content: none;
+}
+
+.glp-hero-copy {
+  position: relative;
+  inset: auto;
+  width: min(100%, 1280px);
+  color: var(--pp-prime-navy);
+  text-shadow: none;
+}
+
+.glp-hero-title .glp-hero-title-cream {
+  color: var(--pp-prime-navy);
+}
+
+.glp-hero-benefits,
+.glp-metrics-panel {
+  display: none;
+}
+
+@media (max-width: 820px) {
+  .glp-hero {
+    min-height: calc(100svh - var(--pp-header-height));
+    padding: clamp(64px, 12vw, 96px) var(--pp-page-gutter);
+    background:
+      radial-gradient(circle at 82% 22%, rgba(221, 234, 245, 0.52), transparent 44%),
+      var(--pp-warm-ivory);
+  }
+
+  .glp-hero-copy {
+    position: relative;
+    inset: auto;
+    width: 100%;
+  }
+}
+
 .glp-products-section {
   --glp-products-lift: clamp(70px, 8vw, 112px);
   --glp-products-pad: clamp(24px, 2.8vw, 48px);
@@ -561,7 +611,7 @@ main {
   border-radius: clamp(14px, 1.5vw, 24px);
   background:
     radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.5), transparent 38%),
-    linear-gradient(145deg, rgba(246, 244, 240, 0.96), rgba(221, 234, 245, 0.92));
+    linear-gradient(145deg, #fffdf8, #f3ebdb);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.46),
     inset 0 -1px 0 rgba(142, 111, 58, 0.08),
@@ -591,6 +641,7 @@ main {
   z-index: 1;
   width: 100%;
   max-width: none;
+  min-height: clamp(180px, 13vw, 210px);
   margin: 0 auto;
   text-align: left;
 }
@@ -643,7 +694,7 @@ main {
   height: clamp(200px, 12vw, 245px);
   min-height: clamp(200px, 12vw, 245px);
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   flex: 0 0 clamp(200px, 12vw, 245px);
 }
@@ -659,11 +710,6 @@ main {
 
 .glp-product-image-pills {
   max-width: 90%;
-  transform: translateY(clamp(2px, 0.25vw, 5px));
-}
-
-.glp-product-card:nth-child(3) .glp-product-image {
-  transform: translateY(clamp(-10px, -0.55vw, -5px));
 }
 
 .glp-product-start {
@@ -762,6 +808,163 @@ main {
     border-color: rgba(203, 167, 102, 0.9);
     color: var(--pp-gold);
     transform: translateX(4px);
+  }
+}
+
+/* GLP-1 hero motion wall */
+.glp-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(340px, 35vw, 540px);
+  gap: clamp(36px, 5vw, 92px);
+  align-items: center;
+  overflow: hidden;
+}
+
+.glp-hero-copy {
+  min-width: 0;
+  margin-left: max(0px, calc((100vw - 1220px) / 2));
+}
+
+.glp-hero-wall {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: clamp(18px, 3vw, 58px);
+  bottom: 0;
+  width: clamp(340px, 35vw, 540px);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(10px, 1vw, 16px);
+  overflow: hidden;
+  padding: 0 2px;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 86%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 86%, transparent 100%);
+  pointer-events: none;
+}
+
+.glp-hero-wall::before {
+  position: absolute;
+  z-index: 3;
+  inset: 0 auto 0 -42%;
+  width: 58%;
+  background: linear-gradient(90deg, var(--pp-warm-ivory), rgba(246, 244, 240, 0));
+  content: "";
+}
+
+.glp-hero-wall-column {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.glp-hero-wall-track {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(10px, 1vw, 16px);
+  will-change: transform;
+}
+
+.glp-hero-wall-column--up .glp-hero-wall-track {
+  animation: glp-wall-up 23s linear infinite alternate;
+}
+
+.glp-hero-wall-column--down .glp-hero-wall-track {
+  animation: glp-wall-down 25s linear infinite alternate;
+}
+
+.glp-hero-wall-card {
+  position: relative;
+  flex: 0 0 clamp(190px, 20vw, 300px);
+  min-height: 0;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(203, 167, 102, 0.22);
+  border-radius: clamp(18px, 1.8vw, 28px);
+  background: linear-gradient(145deg, #fffdf8, #eee5d7);
+  box-shadow: 0 12px 30px rgba(62, 45, 23, 0.11);
+}
+
+.glp-hero-wall-card img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.glp-hero-wall-card--product img {
+  padding: 12%;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 18px rgba(55, 39, 18, 0.2));
+}
+
+.glp-hero-wall-card--assessment img {
+  object-position: 67% center;
+}
+
+.glp-hero-wall-card--athlete img {
+  object-position: 72% center;
+}
+
+@keyframes glp-wall-up {
+  from { transform: translateY(0); }
+  to { transform: translateY(calc(-100% + 100vh)); }
+}
+
+@keyframes glp-wall-down {
+  from { transform: translateY(calc(-100% + 100vh)); }
+  to { transform: translateY(0); }
+}
+
+@media (max-width: 1180px) {
+  .glp-hero {
+    grid-template-columns: minmax(0, 1fr) clamp(300px, 32vw, 390px);
+    gap: 30px;
+  }
+
+  .glp-hero-title {
+    font-size: clamp(4.1rem, 7.2vw, 5.4rem);
+  }
+
+  .glp-hero-wall {
+    right: 18px;
+    width: clamp(300px, 32vw, 390px);
+  }
+}
+
+@media (max-width: 820px) {
+  .glp-hero {
+    display: block;
+    padding-right: var(--pp-page-gutter);
+  }
+
+  .glp-hero-copy {
+    position: relative;
+    z-index: 2;
+    width: min(100%, 640px);
+    margin-left: 0;
+  }
+
+  .glp-hero-wall {
+    right: -88px;
+    width: min(62vw, 430px);
+    opacity: 0.2;
+  }
+
+  .glp-hero-wall::before {
+    left: -12%;
+    width: 82%;
+  }
+}
+
+@media (max-width: 560px) {
+  .glp-hero-wall {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glp-hero-wall-column--up .glp-hero-wall-track,
+  .glp-hero-wall-column--down .glp-hero-wall-track {
+    animation: none;
   }
 }
 
@@ -909,14 +1112,42 @@ main {
   min-height: clamp(320px, 25vw, 460px);
   display: block;
   overflow: hidden;
-  border: 0;
+  border: 1px solid rgba(203, 167, 102, 0.3);
   border-radius: clamp(12px, 1.2vw, 20px);
   background:
-    radial-gradient(circle at 74% 18%, rgba(203, 167, 102, 0.045), transparent 38%),
-    linear-gradient(135deg, rgba(15, 31, 45, 0.72), rgba(15, 31, 45, 0.62));
+    radial-gradient(circle at 74% 18%, rgba(203, 167, 102, 0.12), transparent 38%),
+    linear-gradient(145deg, #f2ece2, #ebe2d4);
   box-shadow:
-    0 18px 36px rgba(0, 0, 0, 0.18);
+    0 18px 36px rgba(11, 30, 45, 0.1);
   backdrop-filter: blur(10px);
+}
+
+/* Continuous ivory GLP-1 canvas */
+html body.pp-dark-spotlight-canvas,
+html body.pp-dark-spotlight-canvas > main {
+  background: var(--pp-warm-ivory) !important;
+  background-image: none !important;
+  animation: none !important;
+}
+
+body.pp-dark-spotlight-canvas > main > section {
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+body.pp-dark-spotlight-canvas > main > section::before,
+body.pp-dark-spotlight-canvas > main > section::after {
+  content: none !important;
+  display: none !important;
+}
+
+.glp-products-shell {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .glp-step-card::before {
@@ -930,10 +1161,10 @@ main {
   top: clamp(86px, 6vw, 122px);
   left: clamp(24px, 2vw, 36px);
   width: 40%;
-  color: #f6f4f0;
+  color: var(--pp-prime-navy);
   font-family: Inter, "Segoe UI", Arial, sans-serif;
   text-align: left;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.28);
+  text-shadow: none;
 }
 
 .glp-step-card:nth-child(2) .glp-step-copy {
@@ -948,7 +1179,7 @@ main {
 .glp-step-number {
   display: block;
   margin-bottom: clamp(7px, 0.55vw, 10px);
-  color: #eef2f3;
+  color: var(--pp-prime-navy);
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(2.35rem, 2.8vw, 3.3rem);
   font-weight: 400;
@@ -957,7 +1188,7 @@ main {
 
 .glp-step-copy h3 {
   margin: 0 0 clamp(8px, 0.65vw, 11px);
-  color: #f6f4f0;
+  color: var(--pp-prime-navy);
   font-size: clamp(1.12rem, 1.3vw, 1.42rem);
   font-weight: 600;
   line-height: 1.16;
@@ -966,7 +1197,7 @@ main {
 
 .glp-step-copy p {
   margin: 0;
-  color: rgba(246, 244, 240, 0.9);
+  color: rgba(11, 30, 45, 0.82);
   font-size: clamp(0.86rem, 0.95vw, 1.06rem);
   font-weight: 400;
   line-height: 1.45;
@@ -1013,13 +1244,13 @@ main {
 }
 
 .glp-step-card:nth-child(2) {
-  border: 0;
+  border: 1px solid rgba(203, 167, 102, 0.3);
   min-height: clamp(250px, 19.5vw, 360px);
   background:
-    radial-gradient(circle at 50% 20%, rgba(246, 244, 240, 0.035), transparent 40%),
-    linear-gradient(135deg, rgba(15, 31, 45, 0.64), rgba(15, 31, 45, 0.54));
+    radial-gradient(circle at 50% 20%, rgba(203, 167, 102, 0.12), transparent 40%),
+    linear-gradient(145deg, #f2ece2, #ebe2d4);
   box-shadow:
-    0 16px 32px rgba(0, 0, 0, 0.13);
+    0 16px 32px rgba(11, 30, 45, 0.09);
 }
 
 .glp-step-card:last-child {
@@ -1046,6 +1277,13 @@ main {
   display: flex;
   align-items: center;
   overflow: hidden;
+  border: 1px solid rgba(203, 167, 102, 0.3);
+  border-radius: clamp(18px, 2vw, 30px);
+  background: linear-gradient(145deg, #f2ece2, #ebe2d4);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.72),
+    0 16px 38px rgba(62, 45, 23, 0.12),
+    0 0 36px rgba(203, 167, 102, 0.08);
 }
 
 .glp-options-layout {
@@ -1229,9 +1467,7 @@ main {
   overflow: hidden;
   border: 1px solid var(--pp-gold-faint);
   border-radius: 18px;
-  background:
-    linear-gradient(180deg, rgba(246, 244, 240, 0.058), rgba(246, 244, 240, 0.012)),
-    linear-gradient(145deg, rgba(15, 31, 45, 0.62), rgba(15, 31, 45, 0.76));
+  background: linear-gradient(145deg, #152c3e, #0b1823);
   box-shadow:
     inset 0 1px 0 rgba(246, 244, 240, 0.08),
     0 20px 58px rgba(0, 0, 0, 0.34),
@@ -1415,8 +1651,7 @@ main {
   overflow: hidden;
   border: 1px solid rgba(203, 167, 102, 0.2);
   border-radius: clamp(18px, 2vw, 30px);
-  background:
-    linear-gradient(135deg, rgba(246, 244, 240, 0.98), rgba(221, 234, 245, 0.96));
+  background: var(--pp-warm-ivory);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.68),
     0 14px 36px rgba(0, 0, 0, 0.14),
@@ -1431,6 +1666,7 @@ main {
   align-items: flex-start;
   justify-content: center;
   padding: clamp(40px, 4.2vw, 70px);
+  background: var(--pp-warm-ivory);
 }
 
 .glp-confidence-copy h2 {
@@ -2160,5 +2396,160 @@ main {
   .home-social-links a:hover,
   .home-social-links a:focus-visible {
     transform: none;
+  }
+}
+
+/* Match the established homepage and peptide hero typography. */
+.glp-hero {
+  min-height: calc(100vh - var(--pp-header-height));
+  min-height: calc(100svh - var(--pp-header-height));
+  padding: 72px var(--pp-page-gutter) 104px;
+}
+
+.glp-hero-copy {
+  width: min(100%, 1220px);
+  margin: 0 auto;
+}
+
+.glp-hero-kicker {
+  margin: 0 0 clamp(34px, 4vw, 52px);
+  font-size: clamp(0.72rem, 0.95vw, 0.92rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.28em;
+}
+
+.glp-hero-kicker::after {
+  content: "";
+  display: block;
+  width: 58px;
+  height: 1px;
+  margin: 28px 0 0;
+  background: linear-gradient(90deg, transparent, var(--pp-gold), transparent);
+}
+
+.glp-hero-title {
+  font-size: 6.2rem;
+  font-weight: 400;
+  line-height: 0.94;
+  letter-spacing: -0.045em;
+  text-transform: none;
+}
+
+.glp-hero-title span + span {
+  margin-top: 0.14em;
+}
+
+@media (max-width: 900px) {
+  .glp-hero-title {
+    font-size: 5.25rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .glp-hero {
+    padding: 64px var(--pp-page-gutter) 88px;
+  }
+
+  .glp-hero-title {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .glp-hero-title {
+    font-size: 2.9rem;
+  }
+}
+
+/* Keep the GLP-1 page on the same continuous warm-ivory canvas as the
+   homepage and peptide page. These selectors intentionally do not depend on
+   an optional body class. */
+html,
+body,
+body > main {
+  background-color: var(--pp-warm-ivory);
+  background-image: none;
+}
+
+body > main > section {
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+}
+
+.glp-hero {
+  background:
+    radial-gradient(circle at 28% 72%, rgba(203, 167, 102, 0.08), transparent 38%),
+    var(--pp-warm-ivory);
+}
+
+@media (max-width: 820px) {
+  .glp-hero {
+    background:
+      radial-gradient(circle at 28% 72%, rgba(203, 167, 102, 0.08), transparent 38%),
+      var(--pp-warm-ivory);
+  }
+}
+
+.glp-products-section,
+.glp-steps-section,
+.glp-blank-cream-section,
+.glp-faq,
+.glp-confidence-section,
+.home-final-panel {
+  background-color: transparent;
+  background-image: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .glp-product-card:hover {
+    background:
+      radial-gradient(circle at 50% 16%, rgba(255, 255, 255, 0.58), transparent 40%),
+      linear-gradient(145deg, #fffdf8, #f3ebdb);
+  }
+}
+
+/* Final hero-wall placement after the legacy hero overrides above. */
+.glp-hero {
+  grid-template-columns: minmax(0, 1fr) clamp(340px, 35vw, 540px);
+  align-items: center;
+}
+
+.glp-hero-copy {
+  z-index: 2;
+  width: 100%;
+  max-width: 1220px;
+  margin: 0;
+}
+
+@media (max-width: 1180px) {
+  .glp-hero {
+    grid-template-columns: minmax(0, 1fr) clamp(300px, 32vw, 390px);
+  }
+
+  .glp-hero-title {
+    font-size: clamp(4.1rem, 7.2vw, 5.4rem);
+  }
+}
+
+@media (max-width: 820px) {
+  .glp-hero {
+    display: block;
+  }
+
+  .glp-hero-copy {
+    width: min(100%, 640px);
+  }
+}
+
+@media (max-width: 767px) {
+  .glp-hero-title {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .glp-hero-title {
+    font-size: 2.9rem;
   }
 }

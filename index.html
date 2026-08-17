@@ -164,70 +164,75 @@
       <div class="home-orbit-copy">
         <p class="home-orbit-eyebrow">04 &mdash; THE OPTIMIZATION DASHBOARD</p>
         <h2 class="home-orbit-title" id="home-orbit-title">
-          Your Metrics<br />Orbit, in view.
+          See the full<br /><span>picture.</span>
         </h2>
         <p class="home-orbit-intro">
-          Track the health markers that matter most in one connected view. See how your
-          metabolic health, body composition, cardiovascular health, and key clinical
-          markers change over time&mdash;giving you and your care team a clearer picture
-          of your progress.
+          Your important health markers in one place. Track trends over time and see
+          what&rsquo;s improving, what needs attention, and where to focus next&mdash;together
+          with your care team.
         </p>
+        <p class="home-orbit-topics">Trends <i>&bull;</i> Biomarkers <i>&bull;</i> Body Composition <i>&bull;</i> Treatment Response</p>
 
         <article class="home-orbit-focus-card">
           <div class="home-orbit-focus-heading">
-            <h3>Composition <span>&middot; 54</span></h3>
-            <span class="home-orbit-status">Needs focus</span>
+            <div>
+              <h3>Body Composition</h3>
+              <span class="home-orbit-status">Needs attention</span>
+            </div>
+            <strong>54</strong>
           </div>
-          <p>Discussion points</p>
-          <ul>
-            <li>Fasting glucose</li>
-            <li>A1C</li>
-            <li>Triglycerides</li>
-          </ul>
+          <dl class="home-orbit-metrics">
+            <div><dt>Fasting Glucose</dt><dd>104 <small>mg/dL</small> <span class="is-up">&nearr;</span></dd></div>
+            <div><dt>A1C</dt><dd>5.7% <span>&rarr;</span></dd></div>
+            <div><dt>Triglycerides</dt><dd>146 <small>mg/dL</small> <span class="is-down">&searr;</span></dd></div>
+          </dl>
+          <a class="home-orbit-detail-link" href="#services">View detailed results <span aria-hidden="true">&rarr;</span></a>
         </article>
       </div>
 
       <div class="home-orbit-visual">
-        <svg class="home-orbit-chart" viewBox="0 0 620 620" role="img" aria-labelledby="home-orbit-chart-title home-orbit-chart-desc">
+        <div class="home-orbit-dashboard">
+          <div class="home-orbit-scorebar">
+            <div class="home-orbit-score">
+              <span class="home-orbit-pulse" aria-hidden="true">⌁</span>
+              <div><small>Your health score</small><strong>78 <em>of 100</em></strong><span>Updated August 2026</span></div>
+            </div>
+            <div class="home-orbit-change"><strong>&nearr; &nbsp; Up 6 points</strong><span>vs. last 90 days</span></div>
+          </div>
+          <svg class="home-orbit-chart" viewBox="0 0 660 560" role="img" aria-labelledby="home-orbit-chart-title home-orbit-chart-desc">
           <title id="home-orbit-chart-title">Health orbit overview</title>
-          <desc id="home-orbit-chart-desc">An illustrative radar chart showing seven health metrics.</desc>
+          <desc id="home-orbit-chart-desc">An illustrative radar chart showing metabolic health, body composition, cardiovascular, liver, kidney, recovery, and thyroid health scores.</desc>
           <g class="home-orbit-grid">
-            <circle cx="310" cy="310" r="58"></circle>
-            <circle cx="310" cy="310" r="116"></circle>
-            <circle cx="310" cy="310" r="174"></circle>
-            <line x1="310" y1="310" x2="310" y2="136"></line>
-            <line x1="310" y1="310" x2="446" y2="202"></line>
-            <line x1="310" y1="310" x2="480" y2="349"></line>
-            <line x1="310" y1="310" x2="385" y2="467"></line>
-            <line x1="310" y1="310" x2="235" y2="467"></line>
-            <line x1="310" y1="310" x2="140" y2="349"></line>
-            <line x1="310" y1="310" x2="174" y2="202"></line>
+            <polygon points="330,88 492,166 532,342 420,480 240,480 128,342 168,166"></polygon>
+            <polygon points="330,142 438,194 465,312 390,404 270,404 195,312 222,194"></polygon>
+            <polygon points="330,196 384,222 397,282 360,328 300,328 263,282 276,222"></polygon>
+            <line x1="330" y1="250" x2="330" y2="88"></line><line x1="330" y1="250" x2="492" y2="166"></line>
+            <line x1="330" y1="250" x2="532" y2="342"></line><line x1="330" y1="250" x2="420" y2="480"></line>
+            <line x1="330" y1="250" x2="240" y2="480"></line><line x1="330" y1="250" x2="128" y2="342"></line>
+            <line x1="330" y1="250" x2="168" y2="166"></line>
           </g>
-          <polygon class="home-orbit-shape" points="310,186 427,216 407,332 373,441 251,432 174,341 220,238"></polygon>
+          <polygon class="home-orbit-shape" points="330,124 438,198 486,328 402,414 258,424 174,326 214,204"></polygon>
           <g class="home-orbit-points">
-            <circle class="is-focus" cx="310" cy="186" r="10"></circle>
-            <circle class="is-optimal" cx="427" cy="216" r="10"></circle>
-            <circle class="is-focus-ring" cx="407" cy="332" r="20"></circle>
-            <circle class="is-focus" cx="407" cy="332" r="13"></circle>
-            <circle class="is-focus" cx="373" cy="441" r="10"></circle>
-            <circle class="is-optimal" cx="251" cy="432" r="10"></circle>
-            <circle class="is-focus" cx="174" cy="341" r="10"></circle>
-            <circle class="is-optimal" cx="220" cy="238" r="10"></circle>
-            <circle class="is-center" cx="310" cy="310" r="8"></circle>
+            <circle class="is-optimal" cx="330" cy="124" r="10"></circle><circle class="is-focus" cx="438" cy="198" r="10"></circle>
+            <circle class="is-focus" cx="486" cy="328" r="10"></circle><circle class="is-monitor" cx="402" cy="414" r="10"></circle>
+            <circle class="is-optimal" cx="258" cy="424" r="10"></circle><circle class="is-monitor" cx="174" cy="326" r="10"></circle>
+            <circle class="is-monitor" cx="214" cy="204" r="10"></circle>
           </g>
           <g class="home-orbit-labels">
-            <text x="310" y="96" text-anchor="middle">METABOLIC HEALTH</text>
-            <text x="470" y="176">BODY COMPOSITION</text>
-            <text x="500" y="360">CARDIOVASCULAR</text>
-            <text x="400" y="510" text-anchor="middle">LIVER</text>
-            <text x="220" y="510" text-anchor="middle">KIDNEY</text>
-            <text x="112" y="360" text-anchor="end">RECOVERY</text>
-            <text x="65" y="176">THYROID</text>
+            <text x="330" y="40" text-anchor="middle">Metabolic Health</text><text class="is-optimal" x="330" y="66" text-anchor="middle">82</text>
+            <text x="500" y="132">Body Composition</text><text class="is-focus" x="500" y="158">54</text>
+            <text x="552" y="334">Cardiovascular</text><text class="is-focus" x="552" y="360">64</text>
+            <text x="448" y="492">Liver Health</text><text class="is-monitor" x="448" y="518">76</text>
+            <text x="212" y="492" text-anchor="end">Kidney Health</text><text class="is-optimal" x="212" y="518" text-anchor="end">88</text>
+            <text x="108" y="326" text-anchor="end">Recovery</text><text class="is-monitor" x="108" y="352" text-anchor="end">72</text>
+            <text x="154" y="132" text-anchor="end">Thyroid Health</text><text class="is-monitor" x="154" y="158" text-anchor="end">70</text>
           </g>
-        </svg>
-        <div class="home-orbit-legend" aria-hidden="true">
-          <span class="is-optimal-label"><i class="is-optimal"></i>Optimal</span>
-          <span class="is-focus-label"><i class="is-focus"></i>Needs focus</span>
+          </svg>
+          <div class="home-orbit-legend" aria-hidden="true">
+            <span><i class="is-optimal"></i><b>Optimal</b><small>80 &ndash; 100</small></span>
+            <span><i class="is-monitor"></i><b>Monitor</b><small>60 &ndash; 79</small></span>
+            <span><i class="is-focus"></i><b>Needs Focus</b><small>0 &ndash; 59</small></span>
+          </div>
         </div>
       </div>
     </section>
