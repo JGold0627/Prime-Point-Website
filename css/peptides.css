@@ -24,70 +24,73 @@
 }
 
 .peptides-hero-content {
-  position: absolute;
-  left: 5%;
-  bottom: 12.5%;
+  position: relative;
   z-index: 1;
-  width: min(54vw, 720px);
-  margin: 0;
-  padding: 0;
+  width: min(calc(100% - (2 * var(--pp-page-gutter))), 1220px);
+  min-height: inherit;
+  margin: 0 auto;
+  padding: 72px 0 104px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: flex-start;
 }
 
 .peptides-hero-copy {
   width: 100%;
-  min-width: 420px;
+  min-width: 0;
 }
 
 .peptides-hero-kicker {
-  margin: 0 0 clamp(8px, 1vw, 14px);
+  margin: 0 0 clamp(34px, 4vw, 52px);
   color: #cba766;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(0.9rem, 1.65vw, 1.55rem);
+  font-size: clamp(0.72rem, 0.95vw, 0.92rem);
   font-weight: 700;
   line-height: 1;
-  letter-spacing: 0.32em;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
 }
 
+.peptides-hero-kicker::after {
+  content: "";
+  display: block;
+  width: 58px;
+  height: 1px;
+  margin: 28px 0 0;
+  background: linear-gradient(90deg, transparent, #cba766, transparent);
+}
+
 .peptides-hero-title {
-  margin: clamp(18px, 2.1vw, 28px) 0 0;
+  margin: 0;
   color: #0f1f2d;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(2.55rem, 3.9vw, 4.75rem);
-  font-weight: 800;
-  line-height: 0.88;
-  letter-spacing: 0.015em;
+  font-size: 6.2rem;
+  font-weight: 400;
+  line-height: 0.94;
+  letter-spacing: -0.045em;
   text-shadow: none;
 }
 
 .peptides-hero-title span {
   display: block;
-  white-space: nowrap;
 }
 
 .peptides-hero-title span + span {
-  margin-top: 0.24em;
+  margin-top: 0.14em;
+  color: #cba766;
 }
 
 .peptides-hero-title::after {
-  content: "";
-  display: block;
-  width: 7%;
-  height: 1px;
-  margin-top: clamp(14px, 1.5vw, 22px);
-  background: linear-gradient(90deg, #f1dfb4 0%, #cba766 100%);
+  content: none;
 }
 
 .peptides-hero-lede {
-  max-width: 520px;
-  margin: clamp(18px, 2.3vw, 30px) 0 0;
-  color: rgba(15, 31, 45, 0.82);
-  font-size: clamp(1.05rem, 1.58vw, 1.28rem);
+  max-width: 820px;
+  margin: 38px 0 0;
+  color: #0f1f2d;
+  font-size: 1.16rem;
   font-weight: 400;
-  line-height: 1.55;
+  line-height: 1.65;
   letter-spacing: 0;
 }
 
@@ -100,13 +103,11 @@
   width: clamp(268px, 24vw, 318px);
   min-height: clamp(44px, 4.5vw, 54px);
   margin-top: clamp(38px, 5vh, 58px);
-  padding: 0 0 0 clamp(18px, 2vw, 26px);
+  padding: 0 clamp(18px, 2vw, 24px);
   overflow: hidden;
-  border: 1px solid rgba(61, 42, 18, 0.86);
-  border-radius: 10px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.36), rgba(255, 255, 255, 0) 44%),
-    linear-gradient(90deg, #f1dfb4 0%, #cba766 62%, #af7d32 100%);
+  border: 1px solid rgba(203, 167, 102, 0.62);
+  border-radius: 999px;
+  background: rgba(255, 253, 248, 0.92);
   color: #0f1f2d;
   font-size: clamp(0.68rem, 0.72vw, 0.78rem);
   font-weight: 850;
@@ -114,17 +115,13 @@
   letter-spacing: 0;
   text-transform: uppercase;
   text-decoration: none;
-  text-shadow: 0 1px 0 rgba(255, 246, 220, 0.34);
   white-space: nowrap;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 249, 226, 0.5),
-    inset 0 -1px 0 rgba(54, 35, 11, 0.42),
-    0 16px 34px rgba(0, 0, 0, 0.38),
-    0 0 0 1px rgba(238, 202, 125, 0.14),
-    0 0 24px rgba(203, 167, 102, 0.08);
+  box-shadow: 0 10px 24px rgba(15, 31, 45, 0.1);
   transition:
-    background 220ms ease,
-    box-shadow 220ms ease;
+    background-color 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease;
 }
 
 .peptides-assessment-bubble span:first-child {
@@ -135,18 +132,7 @@
 }
 
 .peptides-assessment-bubble::after {
-  content: "";
-  position: absolute;
-  inset: 1px;
-  border-radius: 8px;
-  background:
-    linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.32) 42%, transparent 58%);
-  opacity: 0;
-  transform: translateX(-55%);
-  transition:
-    opacity 220ms ease,
-    transform 420ms ease;
-  pointer-events: none;
+  content: none;
 }
 
 .peptides-assessment-bubble span:last-child {
@@ -155,46 +141,27 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  align-self: stretch;
-  width: clamp(48px, 4.4vw, 58px);
+  width: auto;
   margin-left: auto;
-  border-left: 1px solid rgba(71, 47, 16, 0.3);
-  background:
-    linear-gradient(90deg, rgba(70, 43, 13, 0.18), rgba(255, 248, 226, 0.1) 26%),
-    linear-gradient(180deg, rgba(217, 177, 88, 0.42), rgba(121, 78, 27, 0.28));
+  color: #cba766;
   font-size: 1.18rem;
   font-weight: 500;
   line-height: 1;
   transition:
-    background 220ms ease,
     transform 220ms ease;
 }
 
 .peptides-assessment-bubble:hover,
 .peptides-assessment-bubble:focus-visible {
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0) 44%),
-    linear-gradient(90deg, #f7e8c3 0%, #cba766 62%, #bd8b3a 100%);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 249, 226, 0.56),
-    inset 0 -1px 0 rgba(54, 35, 11, 0.34),
-    0 18px 38px rgba(0, 0, 0, 0.42),
-    0 0 0 1px rgba(238, 202, 125, 0.2),
-    0 0 32px rgba(203, 167, 102, 0.16);
-}
-
-.peptides-assessment-bubble:hover::after,
-.peptides-assessment-bubble:focus-visible::after {
-  opacity: 1;
-  transform: translateX(55%);
+  border-color: #cba766;
+  background: #fffdf8;
+  box-shadow: 0 14px 28px rgba(15, 31, 45, 0.14);
+  transform: translateY(-2px);
 }
 
 .peptides-assessment-bubble:hover span:last-child,
 .peptides-assessment-bubble:focus-visible span:last-child {
-  background:
-    linear-gradient(90deg, rgba(70, 43, 13, 0.2), rgba(255, 248, 226, 0.16) 26%),
-    linear-gradient(180deg, rgba(229, 190, 99, 0.52), rgba(130, 84, 29, 0.32));
-  transform: translateX(2px);
+  transform: translateX(5px);
 }
 
 .peptides-how {
@@ -371,7 +338,7 @@
   stroke: var(--pp-gold);
   stroke-width: 4.5;
   filter: drop-shadow(0 0 9px rgba(203, 167, 102, 0.24));
-  transition: stroke-dashoffset 1400ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: stroke-dashoffset 1100ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .peptides-roadmap-pulse {
@@ -379,9 +346,9 @@
   opacity: 0.8;
   filter: drop-shadow(0 0 10px rgba(203, 167, 102, 0.42));
   transition:
-    cx 1400ms cubic-bezier(0.22, 1, 0.36, 1),
-    cy 1400ms cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 420ms ease;
+    cx 1100ms cubic-bezier(0.22, 1, 0.36, 1),
+    cy 1100ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 320ms ease;
 }
 
 .peptides-roadmap-steps {
@@ -417,20 +384,20 @@
   width: clamp(28px, 2.7vw, 38px);
   height: clamp(28px, 2.7vw, 38px);
   place-items: center;
-  border: 1.5px solid rgba(15, 31, 45, 0.92);
+  border: 1.5px solid rgba(203, 167, 102, 0.78);
   border-radius: 3px;
   background:
-    radial-gradient(circle at 38% 28%, rgba(203, 167, 102, 0.16), transparent 42%),
-    linear-gradient(145deg, #152c3e, #0f1f2d 72%);
+    radial-gradient(circle at 38% 28%, rgba(255, 253, 248, 0.72), transparent 44%),
+    linear-gradient(145deg, #ead6a7, #cba766 72%);
   box-shadow:
-    inset 0 0 0 1px rgba(246, 244, 240, 0.08),
-    0 8px 18px rgba(15, 31, 45, 0.2);
+    inset 0 0 0 1px rgba(255, 253, 248, 0.34),
+    0 8px 18px rgba(70, 43, 13, 0.16);
   transform: translate(-50%, -50%) rotate(45deg);
   transition:
-    border-color 420ms ease,
-    box-shadow 420ms ease,
-    filter 420ms ease,
-    transform 420ms ease;
+    border-color 320ms ease,
+    box-shadow 320ms ease,
+    filter 320ms ease,
+    transform 320ms ease;
 }
 
 .peptides-roadmap-marker::before {
@@ -450,10 +417,10 @@
   width: clamp(6px, 0.62vw, 8px);
   height: clamp(6px, 0.62vw, 8px);
   border-radius: 50%;
-  background: var(--pp-cream);
+  background: var(--pp-prime-navy);
   box-shadow:
-    0 0 0 2px rgba(203, 167, 102, 0.14),
-    0 0 8px rgba(246, 244, 240, 0.28);
+    0 0 0 2px rgba(255, 253, 248, 0.28),
+    0 0 8px rgba(203, 167, 102, 0.34);
 }
 
 .peptides-roadmap-step.is-active .peptides-roadmap-marker,
@@ -475,8 +442,8 @@
 .peptides-roadmap-step:focus-visible .peptides-roadmap-marker {
   border-color: var(--pp-gold);
   background:
-    radial-gradient(circle at 38% 28%, rgba(203, 167, 102, 0.3), transparent 44%),
-    linear-gradient(145deg, #1d3a50, #0f1f2d 72%);
+    radial-gradient(circle at 38% 28%, rgba(255, 253, 248, 0.82), transparent 44%),
+    linear-gradient(145deg, #f0dfb9, #b9873d 72%);
   box-shadow:
     inset 0 0 0 1px rgba(246, 244, 240, 0.12),
     0 0 18px rgba(203, 167, 102, 0.2),
@@ -494,9 +461,9 @@
   text-align: center;
   transform: translate(-50%, 0);
   transition:
-    color 420ms ease,
-    opacity 420ms ease,
-    transform 420ms ease;
+    color 320ms ease,
+    opacity 320ms ease,
+    transform 320ms ease;
 }
 
 .peptides-roadmap-label span {
@@ -547,9 +514,9 @@
   visibility: hidden;
   pointer-events: none;
   transition:
-    opacity 520ms ease,
-    transform 520ms ease,
-    visibility 0s linear 520ms;
+    opacity 400ms ease,
+    transform 400ms ease,
+    visibility 0s linear 400ms;
 }
 
 .peptides-roadmap-panel[hidden] {
@@ -1207,7 +1174,10 @@
 }
 
 .peptides-faq-kicker {
-  margin: clamp(26px, 2.6vw, 34px) auto 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 clamp(20px, 2vw, 28px);
   color: var(--pp-gold);
   font-family: Inter, Arial, sans-serif;
   font-size: clamp(0.76rem, 0.85vw, 0.92rem);
@@ -1217,8 +1187,16 @@
   text-transform: uppercase;
 }
 
+.peptides-faq-kicker span {
+  display: block;
+  width: 44px;
+  height: 1px;
+  flex: 0 0 44px;
+  background: var(--pp-gold);
+}
+
 .peptides-faq-heading h2 {
-  margin: 0;
+  margin: 0 0 clamp(18px, 2vw, 26px);
   color: var(--pp-cream);
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(2.35rem, 4.25vw, 4.72rem);
@@ -1226,6 +1204,15 @@
   line-height: 0.96;
   letter-spacing: 0;
   text-shadow: 0 20px 56px rgba(0, 0, 0, 0.42);
+}
+
+.peptides-faq-support {
+  max-width: 760px;
+  margin: 0;
+  color: var(--pp-cream-muted);
+  font-family: Inter, Arial, sans-serif;
+  font-size: clamp(0.98rem, 1.15vw, 1.12rem);
+  line-height: 1.65;
 }
 
 .peptides-faq-list {
@@ -1565,9 +1552,10 @@
 .home-final-logo {
   position: absolute;
   top: calc(clamp(38px, 4.8vw, 70px) + 31px);
-  left: calc(15% + 300px + 10vw);
+  right: 22%;
+  left: auto;
   z-index: 1;
-  width: clamp(230px, 22vw, 330px);
+  width: clamp(180px, 16vw, 240px);
   height: auto;
   transform: translateY(-50%);
 }
@@ -1627,7 +1615,7 @@
   }
 
   .peptides-hero-content {
-    width: min(78vw, 620px);
+    width: min(calc(100% - (2 * var(--pp-page-gutter))), 1220px);
   }
 
   .peptides-hero-copy {
@@ -1636,7 +1624,7 @@
   }
 
   .peptides-hero-title {
-    font-size: clamp(2.05rem, 9.3vw, 3.05rem);
+    font-size: 5.25rem;
   }
 
   .peptides-how-experience {
@@ -1676,6 +1664,16 @@
 
   .peptides-faq-heading {
     max-width: 720px;
+  }
+}
+
+@media (max-width: 767px) {
+  .peptides-hero-title {
+    font-size: 4rem;
+  }
+
+  .peptides-hero-lede {
+    font-size: 1rem;
   }
 }
 
@@ -1736,24 +1734,6 @@
 }
 
 @media (max-width: 560px) {
-  .peptides-hero-content {
-    width: calc(100% - 32px);
-    left: 16px;
-  }
-
-  .peptides-hero-title {
-    font-size: clamp(1.68rem, 7.6vw, 2rem);
-    letter-spacing: 0;
-  }
-
-  .peptides-hero-kicker {
-    font-size: 1.12rem;
-  }
-
-  .peptides-hero-lede {
-    font-size: 0.9rem;
-  }
-
   .peptides-assessment-bubble {
     min-width: min(100%, 330px);
     padding-left: 26px;
@@ -1950,6 +1930,23 @@
   }
 }
 
+@media (max-width: 480px) {
+  .peptides-hero-content {
+    padding-top: 56px;
+    padding-bottom: 88px;
+  }
+
+  .peptides-hero-title {
+    font-size: 2.9rem;
+  }
+
+  .peptides-hero-lede {
+    margin-top: 24px;
+    font-size: 0.96rem;
+    line-height: 1.58;
+  }
+}
+
 @keyframes peptidesTimelinePulseMobile {
   0% {
     transform: translateY(0);
@@ -2068,6 +2065,46 @@ body.pp-dark-spotlight-canvas > main {
   box-shadow: none;
 }
 
+@media (min-width: 901px) {
+  .peptides-measure {
+    padding-right: clamp(22px, 5vw, 76px);
+    padding-left: clamp(22px, 5vw, 76px);
+  }
+
+  .peptides-measure-inner {
+    width: min(100%, 1500px);
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .peptides-measure-heading {
+    width: min(100%, 1220px);
+    max-width: 1220px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .peptides-measure-dashboard {
+    width: min(100%, 1220px);
+    margin-right: auto;
+    margin-left: auto;
+    grid-template-columns: minmax(0, 1.75fr) minmax(280px, 0.85fr);
+  }
+
+  .peptides-measure-metrics {
+    width: min(100%, 1220px);
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .peptides-measure-note {
+    width: min(100%, 1220px);
+    max-width: 1220px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
 .peptides-faq-heading {
   text-align: left;
   margin-right: 0;
@@ -2078,6 +2115,10 @@ body.pp-dark-spotlight-canvas > main {
 .peptides-faq-question {
   color: #0f1f2d;
   text-shadow: none;
+}
+
+.peptides-faq-support {
+  color: rgba(15, 31, 45, 0.76);
 }
 
 .peptides-faq-item {
@@ -2096,6 +2137,39 @@ body.pp-dark-spotlight-canvas > main {
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.82),
     0 22px 58px rgba(28, 22, 12, 0.14);
+}
+
+.peptides-faq-icon {
+  border-color: rgba(203, 167, 102, 0.68);
+  background: rgba(255, 253, 248, 0.94);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 7px 16px rgba(15, 31, 45, 0.1);
+}
+
+.peptides-faq-icon::before,
+.peptides-faq-icon::after {
+  background: #0f1f2d;
+  box-shadow: none;
+}
+
+.peptides-faq-item:hover .peptides-faq-icon,
+.peptides-faq-question:focus-visible .peptides-faq-icon,
+.peptides-faq-item.is-open .peptides-faq-icon {
+  border-color: #cba766;
+  background: #cba766;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 253, 248, 0.42),
+    0 9px 20px rgba(70, 43, 13, 0.16);
+}
+
+.peptides-faq-item:hover .peptides-faq-icon::before,
+.peptides-faq-item:hover .peptides-faq-icon::after,
+.peptides-faq-question:focus-visible .peptides-faq-icon::before,
+.peptides-faq-question:focus-visible .peptides-faq-icon::after,
+.peptides-faq-item.is-open .peptides-faq-icon::before,
+.peptides-faq-item.is-open .peptides-faq-icon::after {
+  background: #0f1f2d;
 }
 
 .peptides-faq-answer p {

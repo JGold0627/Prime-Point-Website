@@ -123,7 +123,7 @@
 }
 
 .home-hero-centered-copy {
-  width: min(100%, 980px);
+  width: min(100%, 1280px);
   text-align: left;
 }
 
@@ -1778,22 +1778,30 @@
 }
 
 .home-orbit-shape {
-  fill: rgba(203, 167, 102, 0.16);
-  stroke: var(--home-prime-gold);
+  fill: rgba(246, 244, 240, 0.1);
+  stroke: rgba(255, 255, 255, 0.92);
   stroke-width: 2;
 }
 
 .home-orbit-points circle {
-  fill: #76dec1;
+  fill: var(--home-prime-gold);
 }
 
-.home-orbit-points .is-gold {
+.home-orbit-points .is-optimal {
   fill: #d7ad43;
+}
+
+.home-orbit-points .is-focus {
+  fill: #d96862;
+}
+
+.home-orbit-points .is-center {
+  fill: rgba(255, 255, 255, 0.92);
 }
 
 .home-orbit-points .is-focus-ring {
   fill: rgba(15, 31, 45, 0.85);
-  stroke: #e5b63f;
+  stroke: #d96862;
   stroke-width: 3;
 }
 
@@ -1829,16 +1837,19 @@
 }
 
 .home-orbit-legend .is-optimal {
-  background: #76dec1;
+  background: #d7ad43;
 }
 
 .home-orbit-legend .is-focus {
-  background: #e5b63f;
+  background: #d96862;
 }
 
-.home-orbit-legend b {
-  font-size: 1.1rem;
-  font-weight: 400;
+.home-orbit-legend .is-optimal-label {
+  color: #d7ad43;
+}
+
+.home-orbit-legend .is-focus-label {
+  color: #d96862;
 }
 
 @media (max-width: 980px) {
@@ -1911,5 +1922,279 @@
   .home-orbit-legend {
     gap: 14px;
     font-size: 0.72rem;
+  }
+}
+
+/* V3 core service cards */
+.home-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(18px, 2vw, 28px);
+  width: min(100%, 1280px);
+  max-width: 1280px;
+  align-items: stretch;
+}
+
+.home-service-card,
+.home-services-grid:hover .home-service-card,
+.home-services-grid:focus-within .home-service-card,
+.home-services-grid .home-service-card:is(:hover, :focus-within, :focus-visible, :focus) {
+  display: flex;
+  min-height: 560px;
+  flex: initial;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(15, 31, 45, 0.08);
+  border-radius: 24px;
+  background: rgba(255, 253, 248, 0.96);
+  box-shadow:
+    0 22px 52px rgba(15, 31, 45, 0.1),
+    0 2px 8px rgba(15, 31, 45, 0.06);
+  color: var(--home-prime-navy);
+  transform: none;
+  transition:
+    border-color 260ms ease,
+    box-shadow 260ms ease,
+    transform 260ms ease;
+}
+
+.home-services-grid .home-service-card:hover,
+.home-services-grid .home-service-card:focus-within {
+  border-color: rgba(203, 167, 102, 0.42);
+  box-shadow:
+    0 28px 64px rgba(15, 31, 45, 0.14),
+    0 4px 12px rgba(15, 31, 45, 0.07);
+  transform: translateY(-5px);
+}
+
+.home-service-card::after,
+.home-service-image,
+.home-service-collapsed-title,
+.home-service-expanded-content {
+  display: none;
+}
+
+.home-service-card-media {
+  display: block;
+  width: 100%;
+  height: clamp(190px, 16vw, 240px);
+  flex: 0 0 auto;
+  object-fit: cover;
+}
+
+.home-service-card--peptides .home-service-card-media {
+  object-position: 58% 50%;
+}
+
+.home-service-card--glp .home-service-card-media {
+  object-position: 48% 42%;
+}
+
+.home-service-card--bloodwork .home-service-card-media {
+  object-position: 62% 52%;
+}
+
+.home-service-card-body {
+  position: relative;
+  display: flex;
+  min-height: 330px;
+  flex: 1 1 auto;
+  flex-direction: column;
+  padding: clamp(38px, 3vw, 48px) clamp(24px, 2.6vw, 38px) clamp(20px, 2vw, 26px);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(250, 247, 240, 0.96));
+}
+
+.home-service-card-icon {
+  position: absolute;
+  top: 0;
+  left: clamp(24px, 2.6vw, 38px);
+  display: grid;
+  width: clamp(58px, 5vw, 72px);
+  height: clamp(58px, 5vw, 72px);
+  place-items: center;
+  border: 5px solid rgba(255, 253, 248, 0.96);
+  border-radius: 50%;
+  background: #fffdfa;
+  box-shadow:
+    0 7px 22px rgba(15, 31, 45, 0.11),
+    inset 0 0 0 1px rgba(203, 167, 102, 0.42);
+  color: var(--home-prime-gold);
+  transform: translateY(-50%);
+}
+
+.home-service-card-icon svg {
+  width: 58%;
+  height: 58%;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.home-service-card-body h3 {
+  margin: 0;
+  color: var(--home-prime-navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.55rem, 2vw, 2.15rem);
+  font-variant-numeric: lining-nums proportional-nums;
+  font-feature-settings: "lnum" 1, "pnum" 1;
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.home-service-card-subtitle {
+  margin: 4px 0 0 !important;
+  color: var(--home-prime-gold) !important;
+  font-size: clamp(0.72rem, 0.9vw, 0.9rem) !important;
+  font-weight: 750 !important;
+  letter-spacing: 0.18em;
+  line-height: 1.2 !important;
+  text-transform: uppercase;
+}
+
+.home-service-card-rule {
+  width: 34px;
+  height: 1px;
+  margin: 16px 0;
+  background: var(--home-prime-gold);
+}
+
+.home-service-card-body > p:not(.home-service-card-subtitle) {
+  min-height: 5.25em;
+  margin: 0;
+  color: rgba(15, 31, 45, 0.78);
+  font-size: clamp(0.9rem, 1vw, 1.03rem);
+  line-height: 1.58;
+}
+
+.home-service-card-benefits {
+  display: grid;
+  gap: 10px;
+  margin: 18px 0 22px;
+  padding: 18px 0 0;
+  border-top: 1px solid rgba(15, 31, 45, 0.09);
+  color: rgba(15, 31, 45, 0.78);
+  font-size: clamp(0.84rem, 0.92vw, 0.96rem);
+  line-height: 1.35;
+  list-style: none;
+}
+
+.home-service-card-benefits li {
+  position: relative;
+  padding-left: 28px;
+}
+
+.home-service-card-benefits li::before {
+  content: "✓";
+  position: absolute;
+  top: 0.02em;
+  left: 0;
+  display: grid;
+  width: 16px;
+  height: 16px;
+  place-items: center;
+  border: 1px solid rgba(203, 167, 102, 0.76);
+  border-radius: 50%;
+  color: var(--home-prime-gold);
+  font-size: 0.65rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.home-service-card-link {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 16px;
+  margin-top: auto;
+  padding: 11px 16px 11px 18px;
+  border: 1px solid rgba(203, 167, 102, 0.58);
+  border-radius: 999px;
+  background: rgba(255, 253, 248, 0.9);
+  box-shadow: 0 8px 18px rgba(15, 31, 45, 0.08);
+  color: var(--home-prime-navy);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition:
+    background-color 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease;
+}
+
+.home-service-card-link span {
+  color: var(--home-prime-gold);
+  font-size: 1.55rem;
+  font-weight: 400;
+  line-height: 0.8;
+  transition: transform 220ms ease;
+}
+
+.home-service-card-link:hover span,
+.home-service-card-link:focus-visible span {
+  transform: translateX(5px);
+}
+
+.home-service-card-link:hover,
+.home-service-card-link:focus-visible {
+  border-color: var(--home-prime-gold);
+  background: #fffdf8;
+  box-shadow: 0 12px 24px rgba(15, 31, 45, 0.12);
+  transform: translateY(-2px);
+}
+
+.home-service-card-link:focus-visible {
+  outline: 2px solid rgba(203, 167, 102, 0.6);
+  outline-offset: 3px;
+}
+
+@media (max-width: 980px) {
+  .home-services-grid {
+    grid-template-columns: 1fr;
+    width: min(100%, 680px);
+  }
+
+  .home-service-card,
+  .home-services-grid:hover .home-service-card,
+  .home-services-grid:focus-within .home-service-card,
+  .home-services-grid .home-service-card:is(:hover, :focus-within, :focus-visible, :focus) {
+    min-height: 0;
+  }
+
+  .home-service-card-media {
+    height: clamp(210px, 44vw, 300px);
+  }
+
+  .home-service-card-body {
+    min-height: 390px;
+  }
+}
+
+@media (max-width: 560px) {
+  .home-service-card {
+    border-radius: 20px;
+  }
+
+  .home-service-card-media {
+    height: 205px;
+  }
+
+  .home-service-card-body {
+    min-height: 0;
+    padding: 42px 24px 28px;
+  }
+
+  .home-service-card-body > p:not(.home-service-card-subtitle) {
+    min-height: 0;
+  }
+
+  .home-service-card-link {
+    margin-top: 26px;
   }
 }

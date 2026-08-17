@@ -1,10 +1,7 @@
 main {
   min-height: calc(100vh - var(--pp-header-height));
   min-height: calc(100svh - var(--pp-header-height));
-  background:
-    radial-gradient(ellipse at 78% 18%, rgba(203, 167, 102, 0.08) 0%, transparent 46%),
-    radial-gradient(ellipse at 48% 34%, rgba(221, 234, 245, 0.72) 0%, rgba(86, 122, 155, 0.12) 42%, transparent 76%),
-    linear-gradient(180deg, var(--pp-warm-ivory) 0%, var(--pp-soft-neutral) 52%, var(--pp-warm-ivory) 100%);
+  background: var(--pp-warm-ivory);
 }
 
 .semaglutide-hero {
@@ -254,9 +251,7 @@ main {
   overflow: hidden;
   border-top: 1px solid rgba(203, 167, 102, 0.34);
   border-bottom: 0;
-  background:
-    linear-gradient(90deg, rgba(203, 167, 102, 0.08), transparent 18%, transparent 82%, rgba(203, 167, 102, 0.08)),
-    linear-gradient(135deg, #1d3a50, #152c3e);
+  background: var(--pp-warm-ivory);
   box-shadow:
     inset 0 1px 0 rgba(246, 244, 240, 0.05),
     inset 0 -28px 34px -30px rgba(15, 31, 45, 0.44);
@@ -275,12 +270,12 @@ main {
 
 .semaglutide-marquee::before {
   left: 0;
-  background: linear-gradient(90deg, #152c3e, transparent);
+  background: linear-gradient(90deg, var(--pp-warm-ivory), transparent);
 }
 
 .semaglutide-marquee::after {
   right: 0;
-  background: linear-gradient(270deg, #152c3e, transparent);
+  background: linear-gradient(270deg, var(--pp-warm-ivory), transparent);
 }
 
 .semaglutide-marquee-track {
@@ -303,7 +298,7 @@ main {
   display: inline-flex;
   align-items: center;
   gap: 13px;
-  color: rgba(246, 244, 240, 0.9);
+  color: var(--pp-prime-navy);
   font-size: clamp(0.86rem, 1vw, 1.04rem);
   font-weight: 650;
   line-height: 1;
@@ -391,7 +386,7 @@ main {
 
 .semaglutide-science-section {
   padding: 0 var(--pp-page-gutter) clamp(80px, 7vw, 112px);
-  background: var(--pp-prime-navy);
+  background: var(--pp-warm-ivory);
 }
 
 .semaglutide-science-shell {
@@ -405,7 +400,7 @@ main {
   border: 0;
   border-radius: 0;
   background: transparent;
-  color: var(--pp-cream);
+  color: var(--pp-prime-navy);
   box-shadow: none;
 }
 
@@ -416,7 +411,7 @@ main {
   font-weight: 430;
   line-height: 0.98;
   letter-spacing: -0.04em;
-  color: var(--pp-cream);
+  color: var(--pp-prime-navy);
 }
 
 .semaglutide-science-copy h2 span,
@@ -427,7 +422,7 @@ main {
 .semaglutide-science-copy p {
   max-width: 680px;
   margin: 0;
-  color: rgba(255, 250, 240, 0.76);
+  color: rgba(15, 31, 45, 0.78);
   font-size: clamp(1rem, 1.18vw, 1.23rem);
   line-height: 1.5;
 }
@@ -436,7 +431,7 @@ main {
 
 .semaglutide-experience h3 {
   margin: 0 0 clamp(30px, 3vw, 48px);
-  color: var(--pp-cream);
+  color: var(--pp-prime-navy);
   font-family: Inter, "Segoe UI", Arial, sans-serif;
   font-size: clamp(1.8rem, 2.6vw, 3rem);
   font-weight: 760;
@@ -457,7 +452,7 @@ main {
   grid-template-columns: clamp(68px, 6vw, 92px) minmax(0, 1fr);
   align-items: center;
   gap: clamp(20px, 2.2vw, 34px);
-  color: rgba(255, 250, 240, 0.84);
+  color: rgba(15, 31, 45, 0.86);
   font-size: clamp(1.08rem, 1.55vw, 1.55rem);
   line-height: 1.3;
 }
@@ -469,9 +464,9 @@ main {
   place-items: center;
   border: 1px solid rgba(203, 167, 102, 0.58);
   border-radius: 50%;
-  background: rgba(255, 250, 240, 0.055);
+  background: rgba(203, 167, 102, 0.08);
   color: var(--pp-gold);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.54);
 }
 
 .semaglutide-experience-icon svg {
@@ -485,7 +480,7 @@ main {
 
 .semaglutide-experience-note {
   margin: clamp(26px, 3vw, 42px) 0 0;
-  color: rgba(255, 250, 240, 0.5);
+  color: rgba(15, 31, 45, 0.58);
   font-size: 0.9rem;
   line-height: 1.45;
 }
@@ -595,8 +590,8 @@ main {
 .semaglutide-members-section {
   padding: 0 0 clamp(88px, 10vw, 150px);
   overflow: hidden;
-  background: var(--pp-prime-navy);
-  color: var(--pp-cream);
+  background: var(--pp-warm-ivory);
+  color: var(--pp-prime-navy);
 }
 
 .semaglutide-members-shell {
@@ -622,7 +617,7 @@ main {
   font-weight: 430;
   line-height: 1;
   letter-spacing: -0.05em;
-  color: var(--pp-cream);
+  color: var(--pp-prime-navy);
 }
 
 .semaglutide-members-heading h2 strong {
@@ -636,7 +631,7 @@ main {
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 18px;
-  color: var(--pp-cream);
+  color: var(--pp-prime-navy);
   font-size: clamp(1rem, 1.25vw, 1.22rem);
   line-height: 1.35;
 }
@@ -655,7 +650,7 @@ main {
 
 .semaglutide-members-heading p {
   margin: 18px 0 0;
-  color: rgba(255, 250, 240, 0.62);
+  color: rgba(15, 31, 45, 0.68);
   font-size: clamp(0.96rem, 1.1vw, 1.14rem);
 }
 
@@ -713,9 +708,7 @@ main {
   border: 1px solid rgba(203, 167, 102, 0.24);
   border-radius: clamp(20px, 2vw, 30px);
   background: rgba(255, 253, 247, 0.96);
-  box-shadow:
-    0 26px 58px rgba(0, 0, 0, 0.28),
-    0 0 28px rgba(203, 167, 102, 0.08);
+  box-shadow: none;
 }
 
 .semaglutide-member-label,

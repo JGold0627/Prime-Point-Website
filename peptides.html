@@ -15,13 +15,13 @@
     <header class="site-header" data-site-header-mount aria-label="Primary navigation"></header>
 
     <main>
-      <section class="peptides-hero" aria-label="Peptides hero">
+      <section class="peptides-hero" id="top" aria-label="Peptides hero">
         <div class="peptides-hero-content">
           <div class="peptides-hero-copy">
             <p class="peptides-hero-kicker">Peptide Therapy</p>
             <h1 class="peptides-hero-title">
-              <span>PEPTIDE THERAPY</span>
-              <span>TAILORED FOR YOU</span>
+              <span>Peptide therapy</span>
+              <span>tailored for you.</span>
             </h1>
             <p class="peptides-hero-lede">
               Physician-guided peptide therapy designed to support recovery, performance, metabolism, and healthy aging&mdash;personalized around your goals and your biology.
@@ -254,8 +254,9 @@
       <section class="peptides-faq" aria-labelledby="peptides-faq-title">
         <div class="peptides-faq-inner">
           <div class="peptides-faq-heading">
+            <p class="peptides-faq-kicker"><span aria-hidden="true"></span>Common Questions</p>
             <h2 id="peptides-faq-title">Peptide Therapy FAQ</h2>
-            <p class="peptides-faq-kicker">Common Questions</p>
+            <p class="peptides-faq-support">Explore clear answers about peptide-focused care, provider review, eligibility, and what to expect throughout the process.</p>
           </div>
 
           <div class="peptides-faq-list">
@@ -558,7 +559,7 @@
           </p>
         </div>
         <img
-          src="assets/brand/Logo V1.png"
+          src="assets/brand/Logo V2.png"
           alt="Prime Point Health"
           class="home-final-logo"
         />
@@ -689,7 +690,7 @@
           stopCycle();
           cycleTimer = window.setInterval(() => {
             activateStep((activeIndex + 1) % steps.length);
-          }, 7000);
+          }, 6000);
         };
 
         const pauseCycle = () => {

@@ -3,11 +3,7 @@
 }
 
 main {
-  background-color: var(--pp-warm-ivory);
-  background:
-    radial-gradient(ellipse at 72% 28%, rgba(203, 167, 102, 0.08) 0%, transparent 58%),
-    radial-gradient(ellipse at 28% 18%, rgba(221, 234, 245, 0.62) 0%, transparent 62%),
-    linear-gradient(180deg, var(--pp-warm-ivory) 0%, var(--pp-soft-neutral) 48%, var(--pp-warm-ivory) 100%);
+  background: var(--pp-warm-ivory);
 }
 
 .glp-hero {
@@ -1546,7 +1542,7 @@ main {
   min-height: clamp(650px, 58vw, 860px);
   padding: clamp(72px, 8vw, 120px) 0;
   overflow: hidden;
-  background: transparent;
+  background: var(--pp-warm-ivory);
 }
 
 .home-final-panel::before {
@@ -1607,16 +1603,8 @@ main {
 }
 
 .home-final-panel::after {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 18% 34%, rgba(203, 167, 102, 0.07) 0 1px, transparent 2px),
-    radial-gradient(circle at 74% 26%, rgba(246, 244, 240, 0.045) 0 1px, transparent 2px),
-    radial-gradient(circle at 83% 72%, rgba(203, 167, 102, 0.06) 0 1px, transparent 2px),
-    linear-gradient(90deg, rgba(15, 31, 45, 0.14), transparent 22%, transparent 78%, rgba(15, 31, 45, 0.14));
-  content: "";
-  opacity: 0.5;
-  pointer-events: none;
+  content: none;
+  display: none;
 }
 
 .home-social-follow {
@@ -1628,7 +1616,7 @@ main {
   align-items: center;
   gap: clamp(16px, 1.8vw, 24px);
   padding: 12px clamp(18px, 2vw, 26px);
-  color: var(--pp-cream);
+  color: var(--pp-prime-navy);
   font-family: var(--pp-font-body);
   font-size: clamp(0.78rem, 0.85vw, 0.9rem);
   font-weight: 700;
@@ -1646,9 +1634,9 @@ main {
     linear-gradient(
       180deg,
       transparent 0%,
-      rgba(203, 167, 102, 0.32) 18%,
-      rgba(203, 167, 102, 0.9) 50%,
-      rgba(203, 167, 102, 0.32) 82%,
+      rgba(86, 122, 155, 0.34) 18%,
+      rgba(203, 167, 102, 0.94) 50%,
+      rgba(86, 122, 155, 0.34) 82%,
       transparent 100%
     );
   box-shadow: 0 0 14px rgba(203, 167, 102, 0.3);
@@ -1665,7 +1653,7 @@ main {
 }
 
 .home-social-label {
-  color: rgba(248, 244, 233, 0.88);
+  color: var(--pp-prime-navy);
   white-space: nowrap;
 }
 
@@ -1680,10 +1668,10 @@ main {
   height: 38px;
   display: grid;
   place-items: center;
-  border: 1px solid rgba(203, 167, 102, 0.42);
+  border: 1px solid rgba(203, 167, 102, 0.78);
   border-radius: 50%;
-  background: rgba(15, 31, 45, 0.36);
-  color: #cba766;
+  background: var(--pp-warm-ivory);
+  color: var(--pp-gold);
   text-decoration: none;
   transition:
     border-color 240ms ease,
@@ -1694,9 +1682,9 @@ main {
 
 .home-social-links a:hover,
 .home-social-links a:focus-visible {
-  border-color: rgba(203, 167, 102, 0.82);
-  background: rgba(203, 167, 102, 0.1);
-  color: var(--pp-cream);
+  border-color: var(--pp-gold);
+  background: var(--pp-gold);
+  color: var(--pp-prime-navy);
   transform: translateY(-2px);
 }
 
@@ -1718,13 +1706,13 @@ main {
   position: relative;
   z-index: 1;
   width: min(90%, 1200px);
-  margin: 0 auto;
-  color: rgba(248, 244, 233, 0.82);
+  margin: clamp(85px, 8vw, 115px) auto 0;
+  color: var(--pp-prime-navy);
   font-family: var(--pp-font-body);
   font-size: clamp(0.95rem, 1.05vw, 1.08rem);
   line-height: 1.8;
   text-align: left;
-  transform: translateY(clamp(42px, 6vh, 58px));
+  transform: none;
 }
 
 .home-legal-container p {
@@ -1736,16 +1724,17 @@ main {
 }
 
 .home-legal-copyright {
-  color: var(--pp-cream);
+  color: var(--pp-prime-navy);
   font-weight: 600;
 }
 
 .home-final-logo {
   position: absolute;
   top: calc(clamp(38px, 4.8vw, 70px) + 31px);
-  left: calc(15% + 300px + 10vw);
+  right: 22%;
+  left: auto;
   z-index: 1;
-  width: clamp(230px, 22vw, 330px);
+  width: clamp(180px, 16vw, 240px);
   height: auto;
   transform: translateY(-50%);
 }
