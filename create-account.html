@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Your Account | Prime Point Health</title>
+    <meta
+      name="description"
+      content="Create your Prime Point Health member account and organize your wellness services in one place."
+    />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/create-account.css" />
+  </head>
+  <body class="account-page">
+    <header class="site-header" data-site-header-mount aria-label="Primary navigation"></header>
+
+    <main class="account-stage">
+      <div class="account-shell">
+        <section class="account-intro" aria-labelledby="account-title">
+          <p class="account-eyebrow">Prime Point membership</p>
+          <h1 id="account-title">
+            <span>Your health journey.</span>
+            <span>One secure profile.</span>
+          </h1>
+          <p class="account-lede">
+            Create one account for easier access to Prime Point services, future appointments,
+            and member resources as the portal continues to grow.
+          </p>
+
+          <ul class="account-benefits" aria-label="Account benefits">
+            <li>
+              <strong>One place to begin</strong>
+              <span>Keep your essential account and contact details together.</span>
+            </li>
+            <li>
+              <strong>Designed around your interests</strong>
+              <span>Tell us which Prime Point services you may want to explore.</span>
+            </li>
+            <li>
+              <strong>Ready for what comes next</strong>
+              <span>Structured for future secure portal and database integration.</span>
+            </li>
+          </ul>
+
+          <p class="account-existing">
+            Already have an account? <a href="login.html">Log in</a>
+          </p>
+        </section>
+
+        <section class="account-panel" aria-labelledby="account-form-title">
+          <div class="account-panel-heading">
+            <p>Member profile</p>
+            <h2 id="account-form-title">Create your account</h2>
+            <span>All fields are blank and ready for your information.</span>
+          </div>
+
+          <form class="account-form" action="#" method="post" data-account-form>
+            <fieldset class="account-form-section">
+              <legend>Personal details</legend>
+              <div class="account-field-grid">
+                <label class="account-field">
+                  <span>First name</span>
+                  <input name="first_name" type="text" autocomplete="given-name" required />
+                </label>
+                <label class="account-field">
+                  <span>Last name</span>
+                  <input name="last_name" type="text" autocomplete="family-name" required />
+                </label>
+                <label class="account-field">
+                  <span>Date of birth</span>
+                  <input name="date_of_birth" type="date" autocomplete="bday" required />
+                </label>
+                <label class="account-field">
+                  <span>Phone number</span>
+                  <input name="phone" type="tel" autocomplete="tel" required />
+                </label>
+                <label class="account-field account-field-wide">
+                  <span>Email address</span>
+                  <input name="email" type="email" autocomplete="email" required />
+                </label>
+                <label class="account-field">
+                  <span>State</span>
+                  <input name="state" type="text" autocomplete="address-level1" required />
+                </label>
+                <label class="account-field">
+                  <span>ZIP code</span>
+                  <input name="postal_code" type="text" inputmode="numeric" autocomplete="postal-code" required />
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset class="account-form-section">
+              <legend>Account security</legend>
+              <div class="account-field-grid">
+                <label class="account-field">
+                  <span>Password</span>
+                  <span class="account-password-wrap">
+                    <input id="account-password" name="password" type="password" autocomplete="new-password" minlength="8" required />
+                    <button type="button" aria-controls="account-password" aria-pressed="false" data-password-toggle>Show</button>
+                  </span>
+                </label>
+                <label class="account-field">
+                  <span>Confirm password</span>
+                  <span class="account-password-wrap">
+                    <input id="account-password-confirm" name="password_confirm" type="password" autocomplete="new-password" minlength="8" required />
+                    <button type="button" aria-controls="account-password-confirm" aria-pressed="false" data-password-toggle>Show</button>
+                  </span>
+                </label>
+              </div>
+              <p class="account-field-note">Use at least 8 characters. Your password fields must match.</p>
+            </fieldset>
+
+            <div class="account-consents">
+              <label>
+                <input name="terms" type="checkbox" required />
+                <span>I agree to the <a href="terms-of-service.html">Terms of Service</a> and acknowledge the <a href="privacy-policy.html">Privacy Policy</a>.</span>
+              </label>
+              <label>
+                <input name="updates" type="checkbox" />
+                <span>I would like to receive Prime Point news and service updates.</span>
+              </label>
+            </div>
+
+            <button class="account-submit" type="submit">
+              <span>Create my account</span>
+              <span aria-hidden="true">&rarr;</span>
+            </button>
+            <p class="account-form-note" aria-live="polite"></p>
+          </form>
+        </section>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

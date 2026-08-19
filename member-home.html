@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Prime Point Health member home for organizing bloodwork, peptide care, GLP-1 progress, feedback, and company updates.">
+  <title>Member Home | Prime Point Health</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/member-home.css">
+</head>
+<body class="member-home-page">
+  <header class="site-header" data-global-header></header>
+
+  <main class="member-dashboard" data-member-dashboard>
+    <section class="member-intro" aria-labelledby="member-home-title">
+      <div>
+        <p class="member-eyebrow">Your Prime Point</p>
+        <h1 id="member-home-title">Your health, in one clear view.</h1>
+        <p>Organize your care, follow what is changing, and keep your questions and next steps together.</p>
+      </div>
+      <div class="member-identity" aria-label="Member account status"><span class="member-avatar" aria-hidden="true">PP</span><span><strong>Welcome</strong><small>Member profile</small></span></div>
+    </section>
+
+    <div class="member-app-shell">
+      <aside class="member-sidebar" aria-label="Member home navigation">
+        <p class="member-sidebar-label">My health</p>
+        <nav class="member-tabs" role="tablist" aria-orientation="vertical">
+          <button class="member-tab is-active" id="member-tab-overview" type="button" role="tab" aria-selected="true" aria-controls="member-panel-overview" data-member-tab="overview"><span class="member-tab-icon" aria-hidden="true">◇</span><span>Overview</span></button>
+          <button class="member-tab" id="member-tab-bloodwork" type="button" role="tab" aria-selected="false" aria-controls="member-panel-bloodwork" tabindex="-1" data-member-tab="bloodwork"><span class="member-tab-icon" aria-hidden="true">○</span><span>Bloodwork</span></button>
+          <button class="member-tab" id="member-tab-peptides" type="button" role="tab" aria-selected="false" aria-controls="member-panel-peptides" tabindex="-1" data-member-tab="peptides"><span class="member-tab-icon" aria-hidden="true">⌬</span><span>Peptides</span></button>
+          <button class="member-tab" id="member-tab-glp" type="button" role="tab" aria-selected="false" aria-controls="member-panel-glp" tabindex="-1" data-member-tab="glp"><span class="member-tab-icon" aria-hidden="true">↗</span><span>GLP-1s</span></button>
+          <p class="member-sidebar-label member-sidebar-label-secondary">Stay connected</p>
+          <button class="member-tab" id="member-tab-feedback" type="button" role="tab" aria-selected="false" aria-controls="member-panel-feedback" tabindex="-1" data-member-tab="feedback"><span class="member-tab-icon" aria-hidden="true">“</span><span>Feedback</span></button>
+          <button class="member-tab" id="member-tab-updates" type="button" role="tab" aria-selected="false" aria-controls="member-panel-updates" tabindex="-1" data-member-tab="updates"><span class="member-tab-icon" aria-hidden="true">✦</span><span>What’s new</span></button>
+        </nav>
+        <div class="member-connection-status"><span aria-hidden="true"></span><div><strong>Secure profile</strong><small>Data connection pending</small></div></div>
+      </aside>
+
+      <div class="member-workspace">
+        <section class="member-panel" id="member-panel-overview" role="tabpanel" aria-labelledby="member-tab-overview" data-member-panel="overview">
+          <header class="member-panel-heading"><div><p class="member-kicker">Personal overview</p><h2>One place for the full picture.</h2></div><span class="member-date" data-member-date>Today</span></header>
+          <div class="member-summary-grid">
+            <article class="member-card member-synopsis-card">
+              <p class="member-card-label">Your synopsis</p><h3>A clearer view begins with connected care.</h3><p>Your future results, care notes, check-ins, and provider guidance will come together here to make patterns easier to understand.</p>
+              <div class="member-synopsis-status"><span><i aria-hidden="true"></i><strong>Profile created</strong><small>Your account is ready.</small></span><span><i aria-hidden="true"></i><strong>Health data</strong><small>Ready for secure connection.</small></span><span><i aria-hidden="true"></i><strong>Personal summary</strong><small>Available as records are added.</small></span></div>
+            </article>
+            <article class="member-card member-next-card"><p class="member-card-label">Next best step</p><span class="member-orbit" aria-hidden="true"><i></i></span><h3>Build your health timeline</h3><p>Choose a care area to see what can be tracked and where future updates will appear.</p></article>
+          </div>
+          <div class="member-tracker-grid" aria-label="Health tracking areas">
+            <article class="member-tracker-card member-tracker-bloodwork"><div class="member-tracker-top"><span class="member-tracker-symbol" aria-hidden="true">○</span><span class="member-state-pill">Ready to connect</span></div><p class="member-card-label">Bloodwork</p><h3>See results in context.</h3><p>Organize panels, biomarker changes, and clinician-reviewed insights over time.</p><button type="button" data-member-open="bloodwork">Open bloodwork <span aria-hidden="true">→</span></button></article>
+            <article class="member-tracker-card member-tracker-peptides"><div class="member-tracker-top"><span class="member-tracker-symbol" aria-hidden="true">⌬</span><span class="member-state-pill">No protocol added</span></div><p class="member-card-label">Peptides</p><h3>Keep the plan organized.</h3><p>Bring protocol details, questions, provider notes, and follow-up timing into one view.</p><button type="button" data-member-open="peptides">Open peptides <span aria-hidden="true">→</span></button></article>
+            <article class="member-tracker-card member-tracker-glp"><div class="member-tracker-top"><span class="member-tracker-symbol" aria-hidden="true">↗</span><span class="member-state-pill">No program added</span></div><p class="member-card-label">GLP-1s</p><h3>Follow the whole journey.</h3><p>Collect check-ins, questions, progress markers, and care-plan updates in one timeline.</p><button type="button" data-member-open="glp">Open GLP-1s <span aria-hidden="true">→</span></button></article>
+          </div>
+          <div class="member-lower-grid">
+            <article class="member-card"><p class="member-card-label">Care feedback</p><h3>Capture what you notice.</h3><p>Keep a thoughtful record of questions, changes, and topics to revisit with your care team.</p><button class="member-text-action" type="button" data-member-open="feedback">Add feedback →</button></article>
+            <article class="member-card member-update-preview"><div><p class="member-card-label">From Prime Point</p><span class="member-new-pill">New</span></div><h3>Your member experience is growing.</h3><p>See newly added tools, services, and guidance in one concise update feed.</p><button class="member-text-action" type="button" data-member-open="updates">See what’s new →</button></article>
+          </div>
+        </section>
+
+        <section class="member-panel" id="member-panel-bloodwork" role="tabpanel" aria-labelledby="member-tab-bloodwork" data-member-panel="bloodwork" hidden>
+          <header class="member-panel-heading"><div><p class="member-kicker">Bloodwork</p><h2>Your biomarkers, organized over time.</h2><p>Future lab results and clinician-reviewed summaries will live here without turning your health into a wall of numbers.</p></div><span class="member-state-pill">Awaiting secure data</span></header>
+          <div class="member-metric-grid"><article class="member-card member-empty-chart"><p class="member-card-label">Biomarker overview</p><div class="member-chart-placeholder" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><span></span></div><h3>No results connected yet</h3><p>Once a panel is available, trends and reference context can be displayed here.</p></article><article class="member-card"><p class="member-card-label">Panel status</p><h3>Ready for your first result set.</h3><ul class="member-clean-list"><li><span>Latest panel</span><strong>Not connected</strong></li><li><span>Clinician review</span><strong>Not available</strong></li><li><span>Trend comparison</span><strong>Waiting for data</strong></li></ul></article></div>
+          <div class="member-category-grid"><article><span>01</span><h3>Metabolic</h3><p>Glucose, lipid, and related trends.</p></article><article><span>02</span><h3>Hormonal</h3><p>Relevant hormone markers and context.</p></article><article><span>03</span><h3>Foundational</h3><p>Core health and blood-count markers.</p></article></div>
+        </section>
+
+        <section class="member-panel" id="member-panel-peptides" role="tabpanel" aria-labelledby="member-tab-peptides" data-member-panel="peptides" hidden>
+          <header class="member-panel-heading"><div><p class="member-kicker">Peptides</p><h2>Your protocol, questions, and follow-up.</h2><p>A focused place to understand what is current, what comes next, and what to discuss with your licensed provider.</p></div><span class="member-state-pill">No protocol added</span></header>
+          <div class="member-metric-grid"><article class="member-card"><p class="member-card-label">Current protocol</p><span class="member-large-icon" aria-hidden="true">⌬</span><h3>No active protocol is connected.</h3><p>Prescribed protocol details can appear here after secure member data is enabled.</p></article><article class="member-card"><p class="member-card-label">Care timeline</p><ol class="member-timeline"><li class="is-ready"><span></span><div><strong>Consultation</strong><small>Member scheduling and records will appear here.</small></div></li><li><span></span><div><strong>Provider direction</strong><small>Awaiting a connected care plan.</small></div></li><li><span></span><div><strong>Follow-up</strong><small>Timing will be based on provider guidance.</small></div></li></ol></article></div>
+          <article class="member-note-strip"><div><p class="member-card-label">Questions for your provider</p><h3>Keep the conversation focused.</h3></div><p>Save questions about goals, timing, current routines, and anything you have noticed between visits.</p></article>
+        </section>
+
+        <section class="member-panel" id="member-panel-glp" role="tabpanel" aria-labelledby="member-tab-glp" data-member-panel="glp" hidden>
+          <header class="member-panel-heading"><div><p class="member-kicker">GLP-1s</p><h2>Progress is more than one number.</h2><p>Bring check-ins, questions, care-plan updates, and meaningful trends together for a more complete view.</p></div><span class="member-state-pill">No program added</span></header>
+          <div class="member-metric-grid"><article class="member-card"><p class="member-card-label">Program overview</p><div class="member-progress-ring" aria-hidden="true"><span>—</span></div><h3>Ready when your program begins.</h3><p>Your program status and future check-in cadence can appear here.</p></article><article class="member-card"><p class="member-card-label">Check-in areas</p><ul class="member-checkin-list"><li><span>How you feel</span><i></i></li><li><span>Questions or concerns</span><i></i></li><li><span>Provider-guided updates</span><i></i></li><li><span>Personal progress markers</span><i></i></li></ul><p class="member-small-note">No check-ins have been recorded.</p></article></div>
+          <div class="member-insight-banner"><span>Personal synopsis</span><p>As your secure history grows, Prime Point can organize the information into a clearer view for your care conversations.</p></div>
+        </section>
+
+        <section class="member-panel" id="member-panel-feedback" role="tabpanel" aria-labelledby="member-tab-feedback" data-member-panel="feedback" hidden>
+          <header class="member-panel-heading"><div><p class="member-kicker">Feedback</p><h2>Make room for what you notice.</h2><p>Record a question, an experience, or an idea you want to return to during a future care conversation.</p></div></header>
+          <form class="member-feedback-form" data-member-feedback><label for="member-feedback-topic">What is this about?</label><select id="member-feedback-topic" name="topic"><option value="">Choose a topic</option><option>Bloodwork</option><option>Peptides</option><option>GLP-1 care</option><option>Member experience</option><option>Something else</option></select><label for="member-feedback-message">Your note</label><textarea id="member-feedback-message" name="message" rows="7" placeholder="Write your question or observation here..."></textarea><div><p class="member-form-note" data-member-feedback-note>Your note will remain on this page until secure member storage is connected.</p><button type="submit">Save note <span aria-hidden="true">→</span></button></div></form>
+        </section>
+
+        <section class="member-panel" id="member-panel-updates" role="tabpanel" aria-labelledby="member-tab-updates" data-member-panel="updates" hidden>
+          <header class="member-panel-heading"><div><p class="member-kicker">What’s new</p><h2>Discover what Prime Point is building.</h2><p>A concise view of new member tools, care experiences, and resources—without the noise of a sales feed.</p></div></header>
+          <div class="member-news-grid"><article class="member-news-feature"><p class="member-card-label">Member experience</p><h3>A more connected home for your health information.</h3><p>This dashboard establishes one place for future results, protocols, check-ins, provider feedback, and personal summaries.</p><span>Member platform</span></article><article><p class="member-card-label">Now available</p><h3>Bloodwork pathways</h3><p>Explore options for clinician-reviewed biomarker insights and routine tracking.</p><a href="blood-work.html">Explore bloodwork →</a></article><article><p class="member-card-label">Care navigation</p><h3>Peptide consultation</h3><p>Learn how a provider-led conversation can help clarify appropriate next steps.</p><a href="peptide-consult.html">View consultation →</a></article></div>
+        </section>
+      </div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

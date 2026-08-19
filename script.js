@@ -26,6 +26,7 @@ const activeHeaderSection = (() => {
 
 const headerLinkClass = (section) => activeHeaderSection === section ? " nav-link-active" : "";
 const headerCurrentState = (section) => activeHeaderSection === section ? ' aria-current="true"' : "";
+const isMemberHome = currentPage === "member-home.html";
 
 const globalHeaderMarkup = `
   <header class="site-header" data-site-header="global" aria-label="Primary navigation">
@@ -86,7 +87,7 @@ const globalHeaderMarkup = `
       </nav>
 
       <div class="nav-actions" aria-label="Account actions">
-        <a class="header-action header-login" href="login.html">Log In</a>
+        <a class="header-action header-login" href="${isMemberHome ? "member-home.html" : "login.html"}">${isMemberHome ? "Member Home" : "Log In"}</a>
         <a class="header-action header-start" href="index.html#services">Get Started</a>
         <button class="header-cart" type="button" aria-label="Shopping cart" title="Shopping cart">
           <svg class="header-cart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -270,7 +271,133 @@ document.querySelectorAll(".login-form").forEach((form) => {
     }
 
     if (note) {
-      note.textContent = "Secure member portal access is being connected.";
+      note.textContent = "Opening your secure member home...";
+    }
+
+    window.location.href = "member-home.html";
+  });
+});
+
+document.querySelectorAll("[data-member-dashboard]").forEach((dashboard) => {
+  const tabs = Array.from(dashboard.querySelectorAll("[data-member-tab]"));
+  const panels = Array.from(dashboard.querySelectorAll("[data-member-panel]"));
+  const date = dashboard.querySelector("[data-member-date]");
+
+  if (date) {
+    date.textContent = new Intl.DateTimeFormat("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric"
+    }).format(new Date());
+  }
+
+  const activateMemberPanel = (name, moveFocus = false) => {
+    const nextTab = tabs.find((tab) => tab.dataset.memberTab === name);
+    if (!nextTab) return;
+
+    tabs.forEach((tab) => {
+      const active = tab === nextTab;
+      tab.classList.toggle("is-active", active);
+      tab.setAttribute("aria-selected", String(active));
+      tab.tabIndex = active ? 0 : -1;
+    });
+
+    panels.forEach((panel) => {
+      panel.hidden = panel.dataset.memberPanel !== name;
+    });
+
+    if (moveFocus) nextTab.focus();
+  };
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => activateMemberPanel(tab.dataset.memberTab));
+    tab.addEventListener("keydown", (event) => {
+      if (!["ArrowDown", "ArrowUp", "ArrowRight", "ArrowLeft", "Home", "End"].includes(event.key)) return;
+      event.preventDefault();
+      let nextIndex = index;
+      if (["ArrowDown", "ArrowRight"].includes(event.key)) nextIndex = (index + 1) % tabs.length;
+      if (["ArrowUp", "ArrowLeft"].includes(event.key)) nextIndex = (index - 1 + tabs.length) % tabs.length;
+      if (event.key === "Home") nextIndex = 0;
+      if (event.key === "End") nextIndex = tabs.length - 1;
+      activateMemberPanel(tabs[nextIndex].dataset.memberTab, true);
+    });
+  });
+
+  dashboard.querySelectorAll("[data-member-open]").forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      activateMemberPanel(trigger.dataset.memberOpen);
+      dashboard.querySelector(".member-app-shell")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+});
+
+document.querySelectorAll("[data-member-feedback]").forEach((form) => {
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const note = form.querySelector("[data-member-feedback-note]");
+    if (note) note.textContent = "Secure note saving will be enabled when member data storage is connected.";
+  });
+});
+
+document.querySelectorAll("[data-account-form]").forEach((form) => {
+  const password = form.querySelector('input[name="password"]');
+  const passwordConfirm = form.querySelector('input[name="password_confirm"]');
+  const note = form.querySelector(".account-form-note");
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    if (password && passwordConfirm && password.value !== passwordConfirm.value) {
+      passwordConfirm.setCustomValidity("Passwords must match.");
+      passwordConfirm.reportValidity();
+      return;
+    }
+
+    passwordConfirm?.setCustomValidity("");
+
+    if (note) {
+      note.textContent = "Account saving will be enabled when the secure member database is connected.";
+    }
+  });
+
+  passwordConfirm?.addEventListener("input", () => passwordConfirm.setCustomValidity(""));
+});
+
+document.querySelectorAll("[data-username-recovery]").forEach((form) => {
+  const note = form.querySelector(".recovery-form-note");
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    if (note) {
+      note.textContent = "Username recovery will be enabled when secure member lookup is connected.";
+    }
+  });
+});
+
+document.querySelectorAll("[data-password-recovery]").forEach((form) => {
+  const note = form.querySelector(".recovery-form-note");
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    if (note) {
+      note.textContent = "Password recovery will be enabled when secure member lookup is connected.";
     }
   });
 });

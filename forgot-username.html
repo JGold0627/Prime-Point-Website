@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forgot Username | Prime Point Health</title>
+    <meta
+      name="description"
+      content="Request help recovering the username associated with your Prime Point Health account."
+    />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/create-account.css" />
+    <link rel="stylesheet" href="css/forgot-username.css" />
+  </head>
+  <body class="account-page recovery-page">
+    <header class="site-header" data-site-header-mount aria-label="Primary navigation"></header>
+
+    <main class="account-stage recovery-stage">
+      <div class="account-shell recovery-shell">
+        <section class="account-intro recovery-intro" aria-labelledby="recovery-title">
+          <p class="account-eyebrow">Member support</p>
+          <h1 id="recovery-title">
+            <span>Find your username.</span>
+            <span>Return with confidence.</span>
+          </h1>
+          <p class="account-lede">
+            Enter the information connected with your Prime Point account. Once secure member
+            lookup is enabled, matching instructions can be sent to the email address on file.
+          </p>
+
+          <ul class="account-benefits" aria-label="Username recovery process">
+            <li>
+              <strong>Confirm your details</strong>
+              <span>Provide the same basic information used when your account was created.</span>
+            </li>
+            <li>
+              <strong>Protect your privacy</strong>
+              <span>Account information will only be sent through the verified contact method on file.</span>
+            </li>
+            <li>
+              <strong>Return to member access</strong>
+              <span>Use the recovered username to continue through the standard login page.</span>
+            </li>
+          </ul>
+
+          <p class="account-existing">
+            Remembered your username? <a href="login.html">Return to login</a>
+          </p>
+        </section>
+
+        <section class="account-panel recovery-panel" aria-labelledby="recovery-form-title">
+          <div class="account-panel-heading">
+            <p>Username recovery</p>
+            <h2 id="recovery-form-title">Verify your account</h2>
+            <span>Enter the information associated with your member profile.</span>
+          </div>
+
+          <form class="account-form recovery-form" action="#" method="post" data-username-recovery>
+            <fieldset class="account-form-section">
+              <legend>Account details</legend>
+              <div class="account-field-grid">
+                <label class="account-field">
+                  <span>First name</span>
+                  <input name="first_name" type="text" autocomplete="given-name" required />
+                </label>
+                <label class="account-field">
+                  <span>Last name</span>
+                  <input name="last_name" type="text" autocomplete="family-name" required />
+                </label>
+                <label class="account-field account-field-wide">
+                  <span>Email address</span>
+                  <input name="email" type="email" autocomplete="email" required />
+                </label>
+                <label class="account-field account-field-wide">
+                  <span>Date of birth</span>
+                  <input name="date_of_birth" type="date" autocomplete="bday" required />
+                </label>
+              </div>
+            </fieldset>
+
+            <div class="recovery-privacy-note">
+              <span aria-hidden="true"></span>
+              <p>
+                For privacy, this page will not display whether an account exists. Recovery
+                instructions will only be sent through the verified email address on file.
+              </p>
+            </div>
+
+            <button class="account-submit" type="submit">
+              <span>Recover my username</span>
+              <span aria-hidden="true">&rarr;</span>
+            </button>
+            <p class="account-form-note recovery-form-note" aria-live="polite"></p>
+          </form>
+
+          <nav class="recovery-links" aria-label="Additional account help">
+            <a href="login.html">Back to login</a>
+            <a href="contact.html#contact-form">Contact support</a>
+          </nav>
+        </section>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
