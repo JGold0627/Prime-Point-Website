@@ -108,6 +108,43 @@ if (pageHeader) {
   document.body.insertAdjacentHTML("afterbegin", globalHeaderMarkup);
 }
 
+const scrollToHomeServices = ({ behavior = "smooth" } = {}) => {
+  const servicesSection = document.getElementById("services");
+  const servicesGrid = servicesSection?.querySelector(".home-services-grid");
+
+  if (!servicesSection) {
+    return;
+  }
+
+  const gridBottom = servicesGrid
+    ? servicesGrid.getBoundingClientRect().bottom + window.scrollY
+    : servicesSection.offsetTop;
+  const targetTop = Math.max(
+    servicesSection.offsetTop,
+    gridBottom - window.innerHeight + 32,
+  );
+
+  window.scrollTo({ top: targetTop, behavior });
+};
+
+document.querySelector(".header-start")?.addEventListener("click", (event) => {
+  if (currentPage !== "index.html") {
+    return;
+  }
+
+  event.preventDefault();
+  window.history.replaceState(null, "", "#services");
+  scrollToHomeServices({
+    behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+  });
+});
+
+if (currentPage === "index.html" && window.location.hash === "#services") {
+  window.addEventListener("load", () => {
+    window.setTimeout(() => scrollToHomeServices({ behavior: "auto" }), 0);
+  });
+}
+
 document.querySelectorAll(".glp-nav-dropdown").forEach((dropdown) => {
   const trigger = dropdown.querySelector(".glp-nav-trigger");
   const pageLink = dropdown.querySelector(".glp-nav-link");
@@ -452,6 +489,26 @@ document.querySelectorAll(".cellular-motion-canvas").forEach((canvas) => {
   });
   requestAnimationFrame(draw);
 });
+
+(() => {
+  document.querySelectorAll(".glp-hero-wall-track").forEach((track) => {
+    if (track.querySelector(".glp-hero-wall-set")) {
+      return;
+    }
+
+    const originalSet = document.createElement("div");
+    originalSet.className = "glp-hero-wall-set";
+    originalSet.append(...track.children);
+
+    const repeatedSet = originalSet.cloneNode(true);
+    repeatedSet.setAttribute("aria-hidden", "true");
+    repeatedSet.querySelectorAll("img").forEach((image) => {
+      image.alt = "";
+    });
+
+    track.append(originalSet, repeatedSet);
+  });
+})();
 
 (() => {
   const hero = document.querySelector(".home-hero");

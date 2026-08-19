@@ -117,16 +117,28 @@
         line-height: 1.35;
         text-align: center;
         text-transform: uppercase;
+        text-decoration: none;
       }
 
       .bw-cell-prompt::after {
         content: "";
-        width: 8px;
-        height: 8px;
-        border-right: 1px solid currentColor;
-        border-bottom: 1px solid currentColor;
-        opacity: 0.72;
-        transform: rotate(45deg);
+        width: 20px;
+        height: 20px;
+        color: #cda85f;
+        border-right: 2px solid currentColor;
+        border-bottom: 2px solid currentColor;
+        animation: bw-scroll-cue 1.8s ease-in-out infinite;
+      }
+
+      @keyframes bw-scroll-cue {
+        0%,
+        100% {
+          transform: translateY(-3px) rotate(45deg);
+        }
+
+        50% {
+          transform: translateY(5px) rotate(45deg);
+        }
       }
 
       .bw-memberships {
@@ -1470,6 +1482,11 @@
       }
 
       @media (prefers-reduced-motion: reduce) {
+        .bw-cell-prompt::after {
+          animation: none;
+          transform: rotate(45deg);
+        }
+
         .bw-membership-plan {
           animation: none;
         }
@@ -1485,9 +1502,351 @@
           transition: none;
         }
       }
-    </style>
-  </head>
-  <body>
+    /* Blood Work V3: continuous ivory treatment matching the finished site pages. */
+    body.blood-work-page,
+    body.blood-work-page main {
+      background: #f7f4ed;
+      color: #0d2235;
+    }
+
+    body.blood-work-page .bw-cell-hero {
+      background:
+        radial-gradient(circle at 50% 46%, rgba(207, 169, 96, 0.13), transparent 36%),
+        linear-gradient(180deg, #faf8f3 0%, #f7f4ed 72%, #f7f4ed 100%);
+      color: #0d2235;
+    }
+
+    body.blood-work-page .bw-cell-hero::after {
+      background: linear-gradient(180deg, rgba(247, 244, 237, 0) 62%, #f7f4ed 100%);
+    }
+
+    body.blood-work-page .bw-cell-canvas {
+      opacity: 0.72;
+      mix-blend-mode: multiply;
+    }
+
+    body.blood-work-page .bw-cell-kicker,
+    body.blood-work-page .bw-cell-title,
+    body.blood-work-page .bw-cell-subtitle,
+    body.blood-work-page .bw-cell-prompt {
+      color: #0d2235;
+      text-shadow: none;
+    }
+
+    body.blood-work-page .bw-cell-shell {
+      width: min(100%, 1240px);
+      text-align: center;
+    }
+
+    body.blood-work-page .bw-cell-title {
+      max-width: 1040px;
+      margin-inline: auto;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(4.25rem, 8vw, 6.6rem);
+      font-weight: 400;
+      line-height: 0.94;
+      letter-spacing: -0.045em;
+      text-align: center;
+    }
+
+    body.blood-work-page .bw-cell-subtitle {
+      max-width: 860px;
+      font-size: clamp(1.05rem, 1.55vw, 1.35rem);
+      line-height: 1.65;
+      text-align: center;
+    }
+
+    body.blood-work-page .bw-cell-kicker,
+    body.blood-work-page .bw-cell-title em,
+    body.blood-work-page .bw-cell-prompt span {
+      color: #cda85f;
+    }
+
+    body.blood-work-page .bw-cell-subtitle {
+      color: #536273;
+    }
+
+    body.blood-work-page .bw-plan-charge strong {
+      color: #b88f45 !important;
+    }
+
+    @media (max-width: 767px) {
+      body.blood-work-page .bw-cell-title {
+        font-size: clamp(3.2rem, 15vw, 4.5rem);
+      }
+
+      body.blood-work-page .bw-cell-subtitle {
+        font-size: 1rem;
+      }
+    }
+
+    body.blood-work-page :is(
+      .bw-memberships,
+      .bw-guidance,
+      .bw-pathways,
+      .bw-biomarkers,
+      .bw-state-access,
+      .home-final-panel
+    ) {
+      background: #f7f4ed;
+      color: #0d2235;
+    }
+
+    body.blood-work-page .bw-memberships {
+      margin-top: 0;
+      padding-top: clamp(72px, 8vw, 118px);
+    }
+
+    body.blood-work-page :is(
+      .bw-membership-plan,
+      .bw-guidance-shell,
+      .bw-consult-options li,
+      .bw-pathways-shell,
+      .bw-path-toggle-inner,
+      .bw-path-summary,
+      .bw-path-step,
+      .bw-biomarker-card,
+      .bw-state-shell
+    ) {
+      background: linear-gradient(145deg, #fbf9f4 0%, #efe8dc 100%);
+      border-color: rgba(205, 168, 95, 0.38);
+      color: #0d2235;
+      box-shadow: 0 20px 48px rgba(13, 34, 53, 0.09);
+    }
+
+    body.blood-work-page .bw-state-shell {
+      box-sizing: border-box;
+      padding: clamp(38px, 5vw, 64px);
+      border: 1px solid rgba(205, 168, 95, 0.38);
+      border-radius: 8px;
+    }
+
+    body.blood-work-page .bw-state-title {
+      max-width: 900px;
+      margin-inline: auto;
+      font-size: clamp(2.25rem, 4vw, 3.5rem);
+    }
+
+    body.blood-work-page .bw-state-form {
+      width: min(100%, 940px);
+    }
+
+    @media (max-width: 767px) {
+      body.blood-work-page .bw-state-shell {
+        padding: 32px 20px;
+      }
+    }
+
+    body.blood-work-page :is(
+      .bw-membership-plan::before,
+      .bw-membership-plan::after,
+      .bw-guidance::before,
+      .bw-guidance::after,
+      .bw-pathways::before,
+      .bw-pathways::after,
+      .bw-biomarkers::before,
+      .bw-biomarkers::after,
+      .bw-state-access::before,
+      .bw-state-access::after
+    ) {
+      opacity: 0.18;
+    }
+
+    body.blood-work-page main :is(h1, h2, h3, h4, p, li, label, strong) {
+      color: #0d2235;
+    }
+
+    body.blood-work-page :is(
+      .bw-plan-description,
+      .bw-plan-price-period,
+      .bw-plan-charge,
+      .bw-memberships-note,
+      .bw-guidance-intro,
+      .bw-guidance-copy,
+      .bw-guidance-note,
+      .bw-pathways-lede,
+      .bw-path-description,
+      .bw-path-step-copy,
+      .bw-biomarkers-intro,
+      .bw-biomarker-list,
+      .bw-biomarkers-note,
+      .bw-state-intro
+    ) {
+      color: #566574;
+    }
+
+    body.blood-work-page :is(
+      .bw-plan-price-amount,
+      .bw-guidance-subtitle,
+      .bw-consult-options strong,
+      .bw-path-eyebrow,
+      .bw-path-step-number,
+      .bw-biomarker-count
+    ) {
+      color: #b88f45;
+    }
+
+    body.blood-work-page .bw-plan-feature-list li::before,
+    body.blood-work-page .bw-biomarker-list li::before {
+      color: #cda85f;
+      border-color: #cda85f;
+    }
+
+    body.blood-work-page :is(.bw-plan-button, .bw-consult-button, .bw-state-submit) {
+      background: #0d2235;
+      border-color: #0d2235;
+      color: #fffaf0;
+    }
+
+    body.blood-work-page :is(.bw-plan-button, .bw-consult-button, .bw-state-submit) {
+      background: linear-gradient(135deg, #f0d99f, #cba766 56%, #b8893c);
+      border-color: #cba766;
+      color: #0d2235;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.46), 0 12px 28px rgba(184, 137, 60, 0.2);
+    }
+
+    body.blood-work-page :is(.bw-plan-button, .bw-consult-button, .bw-state-submit):is(:hover, :focus-visible) {
+      background: linear-gradient(135deg, #f6e4b4, #d5b16d 56%, #c09243);
+      border-color: #d5b16d;
+      color: #071522;
+    }
+
+    body.blood-work-page .bw-path-toggle-button {
+      color: #0d2235;
+    }
+
+    body.blood-work-page .bw-path-toggle-button[aria-pressed="true"] {
+      background: linear-gradient(135deg, #f0d99f, #cba766 56%, #b8893c);
+      color: #071522;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.46), 0 10px 24px rgba(184, 137, 60, 0.2);
+    }
+
+    body.blood-work-page .bw-path-toggle-button[aria-pressed="true"]:is(:hover, :focus-visible) {
+      background: linear-gradient(135deg, #f6e4b4, #d5b16d 56%, #c09243);
+      color: #071522;
+    }
+
+    body.blood-work-page .bw-path-number,
+    body.blood-work-page .bw-path-step:hover .bw-path-number {
+      border-color: #cba766;
+      background: transparent;
+      color: #071522;
+      box-shadow: 0 6px 16px rgba(184, 137, 60, 0.12);
+    }
+
+    body.blood-work-page .bw-path-step-title,
+    body.blood-work-page .bw-path-step:hover .bw-path-step-title {
+      color: #0d2235;
+    }
+
+    body.blood-work-page .bw-state-field :is(input, select) {
+      background: #fffdf8;
+      border-color: rgba(205, 168, 95, 0.42);
+      color: #0d2235;
+    }
+
+    body.blood-work-page .bw-state-field option {
+      background: #fffdf8;
+      color: #0d2235;
+    }
+
+    body.blood-work-page .home-final-panel::before {
+      background: linear-gradient(90deg, transparent, rgba(205, 168, 95, 0.72), transparent);
+    }
+
+    body.blood-work-page .home-final-panel::after {
+      background: none;
+    }
+
+    body.blood-work-page .home-final-panel {
+      min-height: clamp(650px, 58vw, 860px);
+      padding: clamp(72px, 8vw, 120px) 0;
+      background: #f7f4ed;
+      color: #0d2235;
+    }
+
+    body.blood-work-page .home-social-follow,
+    body.blood-work-page .home-social-label {
+      color: #0d2235;
+    }
+
+    body.blood-work-page .home-social-follow {
+      letter-spacing: 0.08em;
+    }
+
+    body.blood-work-page .home-social-links a {
+      background: transparent;
+      border-color: rgba(203, 167, 102, 0.58);
+      color: #cba766;
+    }
+
+    body.blood-work-page .home-social-links a:hover,
+    body.blood-work-page .home-social-links a:focus-visible {
+      background: rgba(203, 167, 102, 0.1);
+      color: #0d2235;
+    }
+
+    body.blood-work-page .home-legal-container {
+      margin: clamp(85px, 8vw, 115px) auto 0;
+      color: #0d2235;
+      font-size: clamp(0.95rem, 1.05vw, 1.08rem);
+      transform: none;
+    }
+
+    body.blood-work-page .home-legal-copyright {
+      color: #0d2235;
+    }
+
+    body.blood-work-page .home-final-logo {
+      top: calc(clamp(38px, 4.8vw, 70px) + 31px);
+      right: 22%;
+      left: auto;
+      width: clamp(180px, 16vw, 240px);
+    }
+
+    @media (max-width: 760px) {
+      body.blood-work-page .bw-memberships {
+        padding-top: 64px;
+      }
+
+      body.blood-work-page .bw-cell-canvas {
+        opacity: 0.62;
+      }
+
+      body.blood-work-page .home-final-panel {
+        min-height: 0;
+        padding: 72px 0 84px;
+      }
+
+      body.blood-work-page .home-social-follow {
+        position: relative;
+        top: auto;
+        left: auto;
+        display: flex;
+        justify-content: center;
+        width: min(88%, 420px);
+        margin: 0 auto 36px;
+      }
+
+      body.blood-work-page .home-legal-container {
+        width: min(88%, 620px);
+        margin-top: 0;
+        font-size: 0.82rem;
+        line-height: 1.68;
+      }
+
+      body.blood-work-page .home-final-logo {
+        position: static;
+        display: block;
+        width: min(78%, 300px);
+        margin: 64px auto 0;
+        transform: none;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="blood-work-buttons.css">
+</head>
+  <body class="blood-work-page">
     <header class="site-header" data-site-header-mount aria-label="Primary navigation"></header>
 
     <main>
@@ -1502,9 +1861,9 @@
             Bloodwork is not an add-on. It is the foundation. We track 100+ biomarkers across
             hormones, inflammation, and metabolism &mdash; so every protocol is measured, not guessed.
           </p>
-          <p class="bw-cell-prompt">
+          <a class="bw-cell-prompt" href="#get-started" aria-label="Explore bloodwork options below">
             <span>Explore our options below</span>
-          </p>
+          </a>
         </div>
       </section>
 
@@ -1587,10 +1946,10 @@
 
             <div class="bw-plan-features">
               <ul class="bw-plan-feature-list">
-                <li class="bw-plan-feature-x">Blood work cost is not included</li>
-                <li><strong>1</strong> physician analysis each month</li>
+                <li>Includes the cost of blood work</li>
+                <li><strong>4</strong> Comprehensive Blood Panels per year</li>
                 <li><strong>100+</strong> biomarker review</li>
-                <li>Clinician-reviewed reports</li>
+                            <li>2 Clinician reviewed reports</li>
                 <li>Interactive digital review</li>
               </ul>
             </div>
@@ -1950,7 +2309,6 @@
     <section class="home-final-panel" aria-label="Prime Point Health legal information">
       <div
         class="home-social-follow"
-        data-pp-reveal="fade"
         aria-label="Follow Prime Point Health on social media"
       >
         <span class="home-social-label">Follow us on:</span>
@@ -1975,7 +2333,7 @@
         </div>
       </div>
 
-      <div class="home-legal-container" data-pp-reveal="fade">
+      <div class="home-legal-container">
         <p>
           The information provided on the Prime Point Health website and social media channels is
           for educational and informational purposes only and is not intended to be a substitute
@@ -2018,10 +2376,9 @@
       </div>
 
       <img
-        src="assets/brand/Logo V1.png"
+        src="assets/brand/Logo V2.png"
         alt="Prime Point Health"
         class="home-final-logo"
-        data-pp-reveal="fade"
       />
     </section>
 

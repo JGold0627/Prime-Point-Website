@@ -17,15 +17,15 @@
     <main>
       <section class="consult-hero" aria-labelledby="consult-title">
         <div class="consult-shell">
-          <div class="consult-heading">
+          <div class="consult-heading" data-pp-reveal>
             <p class="consult-kicker"><span aria-hidden="true"></span>Private Telehealth Consultation</p>
             <h1 id="consult-title">Peptide Consult</h1>
             <p class="consult-heading-copy">
-              A measured, physician-guided starting point for understanding whether peptide therapy may fit your goals.
+              A measured, physician-guided conversation grounded in your health, goals, and questions to clarify whether peptide-focused care may be appropriate for you.
             </p>
           </div>
 
-          <div class="consult-overview">
+          <div class="consult-overview" data-pp-reveal>
             <figure class="consult-provider">
               <img
                 src="assets/Peptides/borobia-manuel.jpg"
@@ -38,10 +38,8 @@
             </figure>
 
             <div class="consult-summary">
-              <p class="consult-summary-label">Clarity before treatment</p>
-              <h2>A personalized conversation, grounded in your health.</h2>
               <div class="consult-summary-copy">
-                <p><strong>A Personalized Roadmap to Peak Health</strong></p>
+                <p><strong>The Roadmap to Peak Health</strong></p>
                 <p>
                   Peptides are powerful tools for performance, recovery, and longevity&mdash;but only when used the right way. That&rsquo;s where we come in. In your Telehealth 20-minute consult, a licensed provider will learn your goals and build a custom peptide protocol designed just for you. Following the consult, you will have access to our full selection of peptides.
                 </p>
@@ -53,13 +51,13 @@
                   <strong>Please note:</strong> The $69 consultation fee covers your provider&rsquo;s time and personalized care plan. Any prescribed medications are billed separately and are not included in the consultation cost.
                 </p>
               </div>
-          <div class="consult-actions">
-            <a class="consult-primary" href="peptide-checkout.html">
-              <span>Start My Consultation</span>
-              <span aria-hidden="true">&rarr;</span>
-            </a>
-            <span class="consult-price" aria-label="69 dollars">$69</span>
-          </div>
+              <div class="consult-actions">
+                <a class="consult-primary" href="peptide-checkout.html">
+                  <span>Start My Consultation</span>
+                  <span aria-hidden="true">&rarr;</span>
+                </a>
+                <span class="consult-price" aria-label="69 dollars">$69</span>
+              </div>
             </div>
           </div>
         </div>
@@ -67,37 +65,87 @@
 
       <section class="consult-included" aria-labelledby="consult-included-title">
         <div class="consult-shell consult-included-layout">
-          <div class="consult-section-heading">
-            <h2 id="consult-included-title">What&rsquo;s Included</h2>
+          <div class="consult-section-heading" data-pp-reveal>
+            <p class="consult-section-eyebrow">Your consultation</p>
+            <h2 id="consult-included-title">
+              <span>Focused provider time.</span>
+              <span class="consult-section-title-accent">Clear next steps.</span>
+            </h2>
+            <p>A private telehealth visit creates space to review your health history, current routines, medications, priorities, and questions. Your provider can explain relevant considerations, discuss which options may or may not be appropriate, and identify anything that could require further evaluation.</p>
           </div>
 
-          <ol class="consult-included-list">
-            <li>
-              <span class="consult-list-check" aria-hidden="true"></span>
-              <div>
-                <h3>Private Telehealth Visit</h3>
-                <p>Meet one-on-one with a licensed clinician from a private setting.</p>
+          <ol class="consult-included-list" data-pp-reveal>
+            <li class="consult-flip-card" tabindex="0" aria-label="Private Telehealth Visit: hover or focus to learn more">
+              <div class="consult-flip-card-inner">
+                <div class="consult-flip-face consult-flip-front">
+                  <svg class="consult-card-icon" viewBox="0 0 96 96" aria-hidden="true">
+                    <path d="M24 13h40v67H24z" />
+                    <path d="M34 25h20v8H34zm0 20h20M34 55h14M34 65h10" />
+                    <circle cx="68" cy="47" r="14" />
+                    <path d="m68 35 3.4 5.8 6.7 1.4-4.5 5 1 6.8-6.6-2.9-6.6 2.9 1-6.8-4.5-5 6.7-1.4zM62 59v19l6-4 6 4V59" />
+                  </svg>
+                  <h3>Private Telehealth Visit</h3>
+                  <span aria-hidden="true">View details</span>
+                </div>
+                <div class="consult-flip-face consult-flip-back">
+                  <h3>Private Telehealth Visit</h3>
+                  <p>Meet one-on-one with a licensed clinician from a private setting.</p>
+                </div>
               </div>
             </li>
-            <li>
-              <span class="consult-list-check" aria-hidden="true"></span>
-              <div>
-                <h3>Provider Review</h3>
-                <p>Discuss your history, priorities, current routines, and relevant health context.</p>
+            <li class="consult-flip-card" tabindex="0" aria-label="Provider Review: hover or focus to learn more">
+              <div class="consult-flip-card-inner">
+                <div class="consult-flip-face consult-flip-front">
+                  <svg class="consult-card-icon" viewBox="0 0 96 96" aria-hidden="true">
+                    <path d="M42 9h12l2.2 9.2 8 3.3 8.1-5 8.5 8.5-5 8.1 3.3 8L87 42v12l-9.2 2.2-3.3 8 5 8.1-8.5 8.5-8.1-5-8 3.3L54 87H42l-2.2-9.2-8-3.3-8.1 5-8.5-8.5 5-8.1-3.3-8L9 54V42l9.2-2.2 3.3-8-5-8.1 8.5-8.5 8.1 5 8-3.3z" />
+                    <circle cx="48" cy="48" r="22" />
+                    <path d="M34 49h8l4-8 6 17 4-9h8" />
+                  </svg>
+                  <h3>Provider Review</h3>
+                  <span aria-hidden="true">View details</span>
+                </div>
+                <div class="consult-flip-face consult-flip-back">
+                  <h3>Provider Review</h3>
+                  <p>Discuss your history, priorities, current routines, and relevant health context.</p>
+                </div>
               </div>
             </li>
-            <li>
-              <span class="consult-list-check" aria-hidden="true"></span>
-              <div>
-                <h3>Personalized Care Direction</h3>
-                <p>Understand which options may be appropriate and what further evaluation may be needed.</p>
+            <li class="consult-flip-card" tabindex="0" aria-label="Personalized Care Direction: hover or focus to learn more">
+              <div class="consult-flip-card-inner">
+                <div class="consult-flip-face consult-flip-front">
+                  <svg class="consult-card-icon" viewBox="0 0 96 96" aria-hidden="true">
+                    <ellipse cx="48" cy="48" rx="34" ry="14" />
+                    <ellipse cx="48" cy="48" rx="34" ry="14" transform="rotate(60 48 48)" />
+                    <ellipse cx="48" cy="48" rx="34" ry="14" transform="rotate(-60 48 48)" />
+                    <path class="consult-icon-heart" transform="translate(48 48) scale(.68) translate(-48 -44.5)" d="M48 64 32 49C21 38 29 25 40 25c4 0 7 2 8 6 1-4 4-6 8-6 11 0 19 13 8 24z" />
+                    <circle class="consult-icon-proton" cx="82" cy="48" r="3" />
+                    <circle class="consult-icon-proton" cx="30" cy="19" r="3" />
+                    <circle class="consult-icon-proton" cx="30" cy="77" r="3" />
+                  </svg>
+                  <h3>Personalized Care Direction</h3>
+                  <span aria-hidden="true">View details</span>
+                </div>
+                <div class="consult-flip-face consult-flip-back">
+                  <h3>Personalized Care Direction</h3>
+                  <p>Understand which options may be appropriate and what further evaluation may be needed.</p>
+                </div>
               </div>
             </li>
-            <li>
-              <span class="consult-list-check" aria-hidden="true"></span>
-              <div>
-                <h3>Clear Next Steps</h3>
-                <p>Leave with a practical next-step plan based on clinical judgment and your goals.</p>
+            <li class="consult-flip-card" tabindex="0" aria-label="Clear Next Steps: hover or focus to learn more">
+              <div class="consult-flip-card-inner">
+                <div class="consult-flip-face consult-flip-front">
+                  <svg class="consult-card-icon" viewBox="0 0 96 96" aria-hidden="true">
+                    <path d="M42 9h12l2.2 9.2 8 3.3 8.1-5 8.5 8.5-5 8.1 3.3 8L87 42v12l-9.2 2.2-3.3 8 5 8.1-8.5 8.5-8.1-5-8 3.3L54 87H42l-2.2-9.2-8-3.3-8.1 5-8.5-8.5 5-8.1-3.3-8L9 54V42l9.2-2.2 3.3-8-5-8.1 8.5-8.5 8.1 5 8-3.3z" />
+                    <circle cx="48" cy="48" r="22" />
+                    <path d="m39 49 6 6 13-15" />
+                  </svg>
+                  <h3>Clear Next Steps</h3>
+                  <span aria-hidden="true">View details</span>
+                </div>
+                <div class="consult-flip-face consult-flip-back">
+                  <h3>Clear Next Steps</h3>
+                  <p>Leave with a practical next-step plan based on clinical judgment and your goals.</p>
+                </div>
               </div>
             </li>
           </ol>
@@ -107,35 +155,68 @@
 
       <section class="consult-process" aria-labelledby="consult-process-title">
         <div class="consult-shell">
-          <div class="consult-section-heading consult-process-heading">
-            <h2 id="consult-process-title">How it works</h2>
-            <p>Follow our step-by-step guide from your initial consultation to a personalized plan with clear, clinician-guided next steps.</p>
+          <div class="consult-section-heading consult-process-heading" data-pp-reveal>
+            <p class="consult-section-eyebrow">The care process</p>
+            <h2 id="consult-process-title">
+              <span>A clear process.</span>
+              <span class="consult-section-title-accent">Built around you.</span>
+            </h2>
+            <p>From your initial intake through licensed-provider review, each step brings your goals, history, and questions into a focused clinical conversation. You receive practical guidance, a clearer understanding of relevant limitations, and next steps based on your provider&rsquo;s judgment.</p>
           </div>
 
-          <ol class="consult-process-list">
+          <ol class="consult-process-list" data-pp-reveal>
             <li>
-              <span>01</span>
+              <span>
+                <svg class="consult-process-icon" viewBox="0 0 96 96" aria-hidden="true">
+                  <rect x="14" y="18" width="68" height="48" rx="5" />
+                  <path d="M37 78h22M48 66v12" />
+                  <circle cx="42" cy="37" r="8" />
+                  <path d="M28 58c2-9 8-14 14-14s12 5 14 14M66 29v18M57 38h18" />
+                </svg>
+                01
+              </span>
               <h3>1:1 Telehealth Consult</h3>
               <p>Direct access to a licensed longevity provider.</p>
             </li>
             <li>
-              <span>02</span>
+              <span>
+                <svg class="consult-process-icon" viewBox="0 0 96 96" aria-hidden="true">
+                  <path d="M42 8h12l2 9 8 3 8-5 9 9-5 8 3 8 9 2v12l-9 2-3 8 5 8-9 9-8-5-8 3-2 9H42l-2-9-8-3-8 5-9-9 5-8-3-8-9-2V42l9-2 3-8-5-8 9-9 8 5 8-3z" />
+                  <circle cx="48" cy="48" r="21" />
+                  <path d="M32 49h9l4-8 6 17 5-9h8" />
+                </svg>
+                02
+              </span>
               <h3>Personalized Protocol</h3>
               <p>A clear plan tailored to your health and performance goals.</p>
             </li>
             <li>
-              <span>03</span>
+              <span>
+                <svg class="consult-process-icon" viewBox="0 0 96 96" aria-hidden="true">
+                  <path d="M48 10 76 21v23c0 20-12 33-28 42C32 77 20 64 20 44V21z" />
+                  <path d="m35 48 9 9 18-21M65 65h14M72 58v14" />
+                </svg>
+                03
+              </span>
               <h3>Safe, Clinically Guided Oversight</h3>
               <p>Dosing, timing, and best practices included.</p>
             </li>
             <li>
-              <span>04</span>
+              <span>
+                <svg class="consult-process-icon" viewBox="0 0 96 96" aria-hidden="true">
+                  <circle cx="48" cy="48" r="35" />
+                  <circle cx="48" cy="48" r="27" />
+                  <path d="m58 36-7 17-17 7 7-17zM48 7v8M48 81v8M7 48h8M81 48h8" />
+                  <circle cx="48" cy="48" r="3" />
+                </svg>
+                04
+              </span>
               <h3>Roadmap to Peak Health</h3>
               <p>Walk away with clarity, not guesswork.</p>
             </li>
           </ol>
 
-          <div class="consult-process-cta">
+          <div class="consult-process-cta" data-pp-reveal>
             <a class="consult-primary" href="peptide-checkout.html">
               <span>Start My Consultation</span>
               <span aria-hidden="true">&rarr;</span>
@@ -202,10 +283,6 @@
       </section>
 
       <section class="home-final-panel" aria-label="Prime Point Health privacy and medical information">
-        <div class="glp-legal-divider" aria-hidden="true">
-          <span></span>
-        </div>
-
         <div class="home-social-follow" aria-label="Follow Prime Point Health on social media">
           <span class="home-social-label">Follow us on:</span>
           <div class="home-social-links">
@@ -279,7 +356,7 @@
         </div>
 
         <img
-          src="assets/brand/Logo V1.png"
+          src="assets/brand/Logo V2.png"
           alt="Prime Point Health"
           class="home-final-logo"
         />

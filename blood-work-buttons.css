@@ -1,0 +1,16 @@
+/* Blood-work consultation CTAs: outlined in Prime Point gold. */
+.blood-work-page .bw-consult-button {
+  border: 1px solid #cda85b;
+  box-shadow:
+    0 0 0 1px rgba(205, 168, 91, 0.22),
+    0 12px 26px rgba(205, 168, 91, 0.14);
+}
+
+.blood-work-page .bw-consult-button:hover,
+.blood-work-page .bw-consult-button:focus-visible {
+  border-color: #ddb96a;
+  box-shadow:
+    0 0 0 3px rgba(205, 168, 91, 0.25),
+    0 14px 30px rgba(205, 168, 91, 0.2);
+  outline: none;
+}

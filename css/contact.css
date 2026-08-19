@@ -217,6 +217,7 @@
 
 .contact-card h2 {
   margin: 36px 0 0;
+  color: #fffdf8;
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(1.65rem, 2.2vw, 2.15rem);
   font-weight: 500;
@@ -225,7 +226,7 @@
 .contact-card p {
   max-width: 330px;
   margin: 16px 0 28px;
-  color: var(--pp-cream-muted);
+  color: rgba(255, 253, 248, 0.88);
   font-size: 1rem;
   line-height: 1.65;
 }
