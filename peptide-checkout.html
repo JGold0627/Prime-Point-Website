@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/global.css" />
     <link rel="stylesheet" href="css/peptide-checkout.css" />
   </head>
-  <body class="peptide-checkout-page pp-dark-spotlight-canvas">
+  <body class="peptide-checkout-page">
     <header class="site-header" data-site-header-mount aria-label="Primary navigation"></header>
 
     <main class="checkout-main">
@@ -88,13 +88,25 @@
         const summary = document.getElementById("checkout-summary");
         const reviewButton = document.getElementById("checkout-review-button");
         const completedSteps = new Set();
+        let highestUnlocked = 0;
+        let activeStep = 0;
 
-        const unlock = (area) => {
-          area.removeAttribute("inert");
-          area.removeAttribute("aria-disabled");
-          area.classList.remove("checkout-card-locked");
+        const activateStep = (index, shouldScroll = true) => {
+          activeStep = index;
+          steps.forEach((area, areaIndex) => {
+            const isAvailable = areaIndex <= highestUnlocked;
+            const isActive = areaIndex === activeStep;
+            area.classList.toggle("checkout-card-active", isActive);
+            area.classList.toggle("checkout-card-complete", completedSteps.has(areaIndex));
+            area.classList.toggle("checkout-card-locked", !isAvailable);
+            area.setAttribute("aria-disabled", String(!isAvailable));
+            if (isAvailable) area.removeAttribute("inert");
+            else area.setAttribute("inert", "");
+          });
+
+          const area = steps[index];
           area.classList.add("checkout-area-unlocked");
-          area.scrollIntoView({ behavior: "smooth", block: "center" });
+          if (shouldScroll) area.scrollIntoView({ behavior: "smooth", block: "center" });
         };
 
         const continueFrom = (step, index) => {
@@ -111,8 +123,14 @@
 
           error.textContent = "";
           completedSteps.add(index);
-          if (steps[index + 1]) unlock(steps[index + 1]);
+          if (steps[index + 1]) {
+            highestUnlocked = Math.max(highestUnlocked, index + 1);
+            activateStep(index + 1);
+          }
           else if (completedSteps.size === steps.length) {
+            steps[index].classList.add("checkout-card-complete");
+            steps[index].classList.remove("checkout-card-active");
+            activeStep = -1;
             reviewButton.disabled = false;
             reviewButton.classList.add("checkout-review-button-ready");
             summary.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -122,6 +140,12 @@
         steps.forEach((step, index) => {
           const button = step.querySelector(".checkout-step-continue");
           button.addEventListener("click", () => continueFrom(step, index));
+          step.addEventListener("click", (event) => {
+            if (completedSteps.has(index) && activeStep !== index && event.target === step) {
+              activateStep(index, false);
+              step.querySelector("input, select, textarea")?.focus();
+            }
+          });
           step.addEventListener("keydown", (event) => {
             if (event.key === "Enter" && event.target.tagName !== "BUTTON") {
               event.preventDefault();
@@ -129,6 +153,8 @@
             }
           });
         });
+
+        activateStep(0, false);
       })();
     </script>
   </body>

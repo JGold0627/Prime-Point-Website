@@ -107,7 +107,7 @@
   overflow: hidden;
   border: 1px solid rgba(203, 167, 102, 0.62);
   border-radius: 999px;
-  background: rgba(255, 253, 248, 0.92);
+  background: linear-gradient(135deg, #f0d99f 0%, #cba766 58%, #b8893c 100%);
   color: #0f1f2d;
   font-size: clamp(0.68rem, 0.72vw, 0.78rem);
   font-weight: 850;
@@ -143,7 +143,7 @@
   justify-content: center;
   width: auto;
   margin-left: auto;
-  color: #cba766;
+  color: #0f1f2d;
   font-size: 1.18rem;
   font-weight: 500;
   line-height: 1;
@@ -154,8 +154,8 @@
 .peptides-assessment-bubble:hover,
 .peptides-assessment-bubble:focus-visible {
   border-color: #cba766;
-  background: #fffdf8;
-  box-shadow: 0 14px 28px rgba(15, 31, 45, 0.14);
+  background: linear-gradient(135deg, #f6e4b4 0%, #d5b16d 58%, #c09243 100%);
+  box-shadow: 0 14px 30px rgba(184, 137, 60, 0.25);
   transform: translateY(-2px);
 }
 
