@@ -79,6 +79,12 @@
               additionalNotes: textarea.value.trim()
             }
           }));
+
+          const nextPage = new URL("glp-treatment-selection.html", window.location.href);
+          if (treatment) {
+            nextPage.searchParams.set("treatment", treatment);
+          }
+          window.location.href = nextPage.href;
         });
 
         updateActionLabel();

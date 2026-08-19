@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout | Prime Point Health</title>
+    <meta name="description" content="Review checkout details for your selected Prime Point Health blood work plan." />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/blood-work-checkout.css" />
+  </head>
+  <body class="blood-work-checkout-page">
+    <header class="site-header" data-site-header-mount aria-label="Primary navigation"></header>
+
+    <main class="checkout-main" data-blood-work-checkout>
+      <section class="checkout-empty" data-checkout-empty hidden>
+        <h1>Your shopping cart is empty</h1>
+        <p>Select a blood work plan before continuing to checkout.</p>
+        <a href="blood-work.html#get-started">Browse blood work options</a>
+      </section>
+
+      <div class="checkout-layout" data-checkout-content>
+        <section class="checkout-entry" aria-labelledby="checkout-title">
+          <p class="checkout-brand-label">Prime Point Health</p>
+          <a class="checkout-back-link" href="blood-work-cart.html" data-checkout-back>Back to cart</a>
+          <h1 id="checkout-title">Secure checkout</h1>
+
+          <div class="checkout-express" aria-labelledby="express-title">
+            <h2 id="express-title">Express checkout</h2>
+          </div>
+
+          <form class="checkout-form" data-checkout-form>
+            <section class="checkout-form-section" aria-labelledby="contact-title">
+              <div class="checkout-section-heading">
+                <h2 id="contact-title">Contact</h2>
+                <a href="login.html">Sign in</a>
+              </div>
+              <label class="checkout-field checkout-field-wide">
+                <span>Email or mobile phone number</span>
+                <input type="text" name="contact" autocomplete="email" required />
+              </label>
+              <label class="checkout-check">
+                <input type="checkbox" name="updates" />
+                <span>Email me with Prime Point news and updates</span>
+              </label>
+            </section>
+
+            <section class="checkout-form-section" aria-labelledby="delivery-title">
+              <h2 id="delivery-title">Delivery</h2>
+              <div class="checkout-field-grid">
+                <label class="checkout-field checkout-field-wide">
+                  <span>Country/Region</span>
+                  <select name="country" required><option value="US">United States</option></select>
+                </label>
+                <label class="checkout-field"><span>First name</span><input type="text" name="first_name" autocomplete="given-name" required /></label>
+                <label class="checkout-field"><span>Last name</span><input type="text" name="last_name" autocomplete="family-name" required /></label>
+                <label class="checkout-field checkout-field-wide"><span>Address</span><input type="text" name="address" autocomplete="street-address" required /></label>
+                <label class="checkout-field checkout-field-wide"><span>Apartment, suite, etc. (optional)</span><input type="text" name="address_2" autocomplete="address-line2" /></label>
+                <label class="checkout-field"><span>City</span><input type="text" name="city" autocomplete="address-level2" required /></label>
+                <label class="checkout-field"><span>State</span><input type="text" name="state" autocomplete="address-level1" required /></label>
+                <label class="checkout-field"><span>ZIP code</span><input type="text" name="zip" autocomplete="postal-code" inputmode="numeric" required /></label>
+              </div>
+            </section>
+
+            <section class="checkout-form-section" aria-labelledby="shipping-title">
+              <h2 id="shipping-title">Shipping method</h2>
+              <div class="checkout-shipping-placeholder">Enter your delivery address to view available options.</div>
+            </section>
+
+            <section class="checkout-form-section" aria-labelledby="payment-title">
+              <h2 id="payment-title">Payment</h2>
+              <p class="checkout-section-copy">Secure payment fields will be supplied by the connected payment processor.</p>
+              <div class="checkout-payment-panel">
+                <div><span class="checkout-radio is-selected"></span><strong>Credit or debit card</strong><small>Secure provider</small></div>
+                <div class="checkout-payment-placeholder">Card details will appear here during live checkout.</div>
+                <button type="button" data-payment-placeholder><span class="checkout-radio"></span><strong>PayPal</strong><img class="checkout-payment-logo" src="https://cdn.simpleicons.org/paypal/003087" alt="" /></button>
+              </div>
+            </section>
+
+            <button class="checkout-pay-button" type="submit">Continue to secure payment</button>
+            <p class="checkout-note" data-checkout-note aria-live="polite"></p>
+          </form>
+
+          <nav class="checkout-policy-links" aria-label="Checkout policies">
+            <a href="privacy-policy.html">Privacy policy</a>
+            <a href="terms-of-service.html">Terms of service</a>
+          </nav>
+        </section>
+
+        <aside class="checkout-summary" aria-labelledby="order-summary-title">
+          <h2 id="order-summary-title">Order summary</h2>
+          <div class="checkout-products" data-checkout-products></div>
+          <form class="checkout-discount" data-discount-form>
+            <label><span class="visually-hidden">Discount code</span><input type="text" placeholder="Discount code" /></label>
+            <button type="submit">Apply</button>
+          </form>
+          <dl class="checkout-totals">
+            <div><dt>Subtotal</dt><dd data-checkout-price>$0.00</dd></div>
+            <div><dt>Shipping</dt><dd>Calculated after address</dd></div>
+            <div class="checkout-total"><dt>Total</dt><dd><small>USD</small> <span data-checkout-price>$0.00</span></dd></div>
+          </dl>
+        </aside>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

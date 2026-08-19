@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Treatment Selection | Prime Point Health</title>
+    <meta name="description" content="Review provider-guided Prime Point Health GLP-1 treatment formats." />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/glp-eligibility.css" />
+    <link rel="stylesheet" href="css/glp-treatment-selection.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body class="glp-eligibility-page glp-treatment-selection-page">
+    <header class="site-header" data-site-header-mount aria-label="Primary navigation"></header>
+
+    <main class="glp-eligibility-main glp-treatment-main">
+      <section class="glp-eligibility-shell glp-treatment-shell" aria-labelledby="glp-treatment-title">
+        <div class="glp-eligibility-status">
+          <a class="glp-eligibility-back" data-treatment-back href="glp-eligibility-medical-additional-notes.html">
+            <span aria-hidden="true">&larr;</span>
+            <span>Back</span>
+          </a>
+          <p class="glp-eligibility-stage">Treatment Selection</p>
+          <p class="glp-eligibility-count">1 of 2</p>
+        </div>
+
+        <div class="glp-eligibility-progress glp-treatment-progress" role="progressbar" aria-label="Treatment selection progress" aria-valuemin="1" aria-valuemax="2" aria-valuenow="1">
+          <span class="is-active"></span><span></span>
+        </div>
+
+        <div class="glp-eligibility-intro glp-treatment-intro">
+          <p class="glp-eligibility-kicker">Provider-guided options</p>
+          <h1 id="glp-treatment-title">Your treatment options, clearly presented.</h1>
+          <p>Your licensed provider will review your medical history and discuss which format may be appropriate. Dosage and treatment recommendations are confirmed after clinical review.</p>
+        </div>
+
+        <form class="glp-treatment-form" data-treatment-form>
+          <fieldset class="glp-treatment-fieldset">
+            <legend>Choose the format you would like to discuss with your provider:</legend>
+
+            <label class="glp-treatment-option">
+              <input type="radio" name="treatmentFormat" value="tablets" />
+              <span class="glp-treatment-radio" aria-hidden="true"></span>
+              <span class="glp-treatment-image-wrap">
+                <img src="assets/glp-page-pieces/Semaglutide Pills V2.png" alt="Prime Point Semaglutide tablets" />
+              </span>
+              <span class="glp-treatment-copy">
+                <span class="glp-treatment-title">Tablets</span>
+                <span class="glp-treatment-description">A daily dissolvable tablet option that may be considered after provider review.</span>
+                <button class="glp-treatment-learn" type="button" data-treatment-learn="tablets">Learn more</button>
+              </span>
+              <span class="glp-treatment-price"><small>Starting at</small><strong>$299</strong><small>/mo</small></span>
+            </label>
+
+            <label class="glp-treatment-option">
+              <input type="radio" name="treatmentFormat" value="injectable" />
+              <span class="glp-treatment-radio" aria-hidden="true"></span>
+              <span class="glp-treatment-image-wrap">
+                <img src="assets/glp-page-pieces/Semaglutide Bottle V2.png" alt="Prime Point Semaglutide injectable bottle" />
+              </span>
+              <span class="glp-treatment-copy">
+                <span class="glp-treatment-badge">Signature option</span>
+                <span class="glp-treatment-title">Injectable</span>
+                <span class="glp-treatment-description">A once-weekly injectable format that may be prescribed when clinically appropriate.</span>
+                <button class="glp-treatment-learn" type="button" data-treatment-learn="injectable">Learn more</button>
+              </span>
+              <span class="glp-treatment-price"><small>Starting at</small><strong>$299</strong><small>/mo</small></span>
+            </label>
+          </fieldset>
+
+          <button class="glp-eligibility-continue" type="submit" disabled data-treatment-continue>
+            <span>Continue</span>
+            <span class="glp-eligibility-continue-icon" aria-hidden="true">&rarr;</span>
+          </button>
+          <p class="glp-treatment-note" data-treatment-note aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <div class="glp-treatment-info-modal" data-treatment-info-modal hidden>
+      <section class="glp-treatment-info-card" role="dialog" aria-modal="true" aria-labelledby="glp-treatment-info-title">
+        <button class="glp-treatment-info-close" type="button" aria-label="Close treatment information" data-treatment-info-close>&times;</button>
+        <p class="glp-eligibility-kicker">Treatment format</p>
+        <h2 id="glp-treatment-info-title" data-treatment-info-title>Tablets</h2>
+        <p data-treatment-info-copy></p>
+        <button class="glp-treatment-info-read-less" type="button" data-treatment-info-close>Read less</button>
+      </section>
+    </div>
+
+    <script>
+      (() => {
+        const params = new URLSearchParams(window.location.search);
+        const requestedTreatment = params.get("treatment") || "";
+        const backLink = document.querySelector("[data-treatment-back]");
+        const form = document.querySelector("[data-treatment-form]");
+        const continueButton = document.querySelector("[data-treatment-continue]");
+        const note = document.querySelector("[data-treatment-note]");
+        const radios = Array.from(form.querySelectorAll('input[name="treatmentFormat"]'));
+        const infoModal = document.querySelector("[data-treatment-info-modal]");
+        const infoTitle = document.querySelector("[data-treatment-info-title]");
+        const infoCopy = document.querySelector("[data-treatment-info-copy]");
+        const treatmentInfo = {
+          tablets: {
+            title: "Dissolvable Tablets",
+            copy: "Prime Point dissolvable tablets are an oral GLP-1 treatment format designed to dissolve under the tongue. If prescribed after licensed-provider review, the medication, dose, and instructions are individualized. Tablets may offer a convenient format for storage and travel without requiring an injection."
+          },
+          injectable: {
+            title: "Injectable Treatment",
+            copy: "Prime Point injectable GLP-1 care uses a once-weekly format that may support weight-management goals when prescribed after licensed-provider review. The medication follows a consistent dosing schedule and may generally be self-administered at home after appropriate instruction. Your provider confirms whether this format is appropriate, along with the medication, dose, technique, risks, and follow-up plan for your individual needs."
+          }
+        };
+
+        if (requestedTreatment) {
+          backLink.href = `glp-eligibility-medical-additional-notes.html?treatment=${encodeURIComponent(requestedTreatment)}`;
+          const preferredFormat = requestedTreatment.includes("tablets") ? "tablets" : "injectable";
+          const matchingOption = radios.find((radio) => radio.value === preferredFormat);
+          if (matchingOption) matchingOption.checked = true;
+        }
+
+        const updateSelection = () => {
+          continueButton.disabled = !radios.some((radio) => radio.checked);
+        };
+
+        radios.forEach((radio) => radio.addEventListener("change", updateSelection));
+
+        const closeTreatmentInfo = () => {
+          infoModal.hidden = true;
+          document.body.classList.remove("glp-treatment-info-open");
+        };
+
+        document.querySelectorAll("[data-treatment-learn]").forEach((button) => {
+          button.addEventListener("click", (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            const info = treatmentInfo[button.dataset.treatmentLearn];
+            if (!info) return;
+            infoTitle.textContent = info.title;
+            infoCopy.textContent = info.copy;
+            infoModal.hidden = false;
+            document.body.classList.add("glp-treatment-info-open");
+            document.querySelector("[data-treatment-info-close]").focus();
+          });
+        });
+
+        document.querySelectorAll("[data-treatment-info-close]").forEach((button) => {
+          button.addEventListener("click", closeTreatmentInfo);
+        });
+        infoModal.addEventListener("click", (event) => {
+          if (event.target === infoModal) closeTreatmentInfo();
+        });
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && !infoModal.hidden) closeTreatmentInfo();
+        });
+
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+          const selected = radios.find((radio) => radio.checked);
+          if (!selected) return;
+          form.dispatchEvent(new CustomEvent("glp:treatment-format-selected", {
+            bubbles: true,
+            detail: { treatment: requestedTreatment, format: selected.value }
+          }));
+          if (selected.value === "tablets") {
+            const nextPage = new URL("glp-treatment-tablets.html", window.location.href);
+            if (requestedTreatment) nextPage.searchParams.set("treatment", requestedTreatment);
+            window.location.href = nextPage.href;
+            return;
+          }
+          const nextPage = new URL("glp-treatment-injectables.html", window.location.href);
+          if (requestedTreatment) nextPage.searchParams.set("treatment", requestedTreatment);
+          window.location.href = nextPage.href;
+        });
+
+        updateSelection();
+      })();
+    </script>
+  </body>
+</html>

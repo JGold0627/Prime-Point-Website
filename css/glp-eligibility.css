@@ -1151,3 +1151,61 @@
   background: rgba(15, 31, 45, 0.1);
   color: rgba(15, 31, 45, 0.38);
 }
+
+.glp-design-navigator {
+  position: fixed;
+  z-index: 50;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  min-height: 46px;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 8px 7px 15px;
+  border: 1px solid rgba(199, 159, 82, 0.7);
+  border-radius: 999px;
+  box-shadow: 0 12px 28px rgba(15, 31, 45, 0.16);
+  background: var(--pp-prime-navy);
+  color: var(--pp-warm-ivory);
+  font: inherit;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+}
+
+.glp-design-navigator > span {
+  margin-right: 2px;
+  white-space: nowrap;
+}
+
+.glp-design-navigator button {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border: 1px solid rgba(255, 250, 240, 0.35);
+  border-radius: 50%;
+  background: rgba(255, 250, 240, 0.08);
+  color: var(--pp-warm-ivory);
+  cursor: pointer;
+  font: inherit;
+  font-size: 1rem;
+}
+
+.glp-design-navigator button:hover,
+.glp-design-navigator button:focus-visible {
+  background: rgba(255, 250, 240, 0.18);
+  outline: 2px solid var(--pp-gold);
+  outline-offset: 2px;
+}
+
+.glp-design-navigator button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+@media (max-width: 560px) {
+  .glp-design-navigator {
+    right: 12px;
+    bottom: 12px;
+  }
+}

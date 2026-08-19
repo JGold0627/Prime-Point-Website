@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Identity Verification | Prime Point Health</title>
+    <meta name="description" content="Securely prepare a government-issued ID for Prime Point Health identity verification." />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/glp-eligibility.css" />
+    <link rel="stylesheet" href="css/glp-identity-verification.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body class="glp-eligibility-page glp-identity-page">
+    <header class="site-header" data-site-header-mount aria-label="Primary navigation"></header>
+
+    <main class="glp-eligibility-main glp-identity-main">
+      <section class="glp-eligibility-shell glp-identity-shell" aria-labelledby="glp-identity-title">
+        <div class="glp-eligibility-status">
+          <a class="glp-eligibility-back" data-identity-back href="glp-treatment-selection.html">
+            <span aria-hidden="true">&larr;</span>
+            <span>Back</span>
+          </a>
+          <p class="glp-eligibility-stage">Identity Verification</p>
+          <p class="glp-eligibility-count">2 of 3</p>
+        </div>
+
+        <div class="glp-eligibility-progress glp-identity-progress" role="progressbar" aria-label="Identity verification progress" aria-valuemin="1" aria-valuemax="3" aria-valuenow="2">
+          <span class="is-active"></span><span class="is-active"></span><span></span>
+        </div>
+
+        <div class="glp-eligibility-intro glp-identity-intro">
+          <p class="glp-eligibility-kicker">Secure identity check</p>
+          <h1 id="glp-identity-title">Upload a photo of your ID.</h1>
+          <p>Before a prescription can be considered, your care team needs a valid government-issued photo ID that matches your legal name and date of birth.</p>
+          <button type="button" class="glp-identity-why" data-identity-why aria-expanded="false">Why do you need this?</button>
+          <p class="glp-identity-explanation" data-identity-explanation hidden>Identity verification helps your licensed provider confirm who they are evaluating and supports secure, accurate care. Your information should be handled through the connected secure verification service.</p>
+        </div>
+
+        <div class="glp-identity-card-stage" aria-hidden="true">
+          <div class="glp-identity-card">
+            <div class="glp-identity-card-header"><strong>Government-Issued ID</strong><small>Valid</small></div>
+            <div class="glp-identity-card-body">
+              <span class="glp-identity-avatar"><i></i></span>
+              <span class="glp-identity-card-lines"><i></i><i></i><i></i><i></i></span>
+            </div>
+          </div>
+        </div>
+
+        <form class="glp-identity-form" data-identity-form>
+          <input class="glp-identity-file" id="glp-id-camera" type="file" accept="image/*" capture="environment" data-id-camera />
+          <input class="glp-identity-file" id="glp-id-library" type="file" accept="image/*" data-id-library />
+
+          <button class="glp-identity-action glp-identity-action-secondary" type="button" data-open-id-camera>Take Photo</button>
+          <button class="glp-identity-action glp-identity-action-primary" type="button" data-select-id-photo>Select Photo</button>
+
+          <div class="glp-identity-selection" data-id-selection hidden>
+            <span class="glp-identity-selection-icon" aria-hidden="true">&#10003;</span>
+            <span><strong>Photo ready</strong><small data-id-filename></small></span>
+          </div>
+
+          <button class="glp-eligibility-continue glp-identity-continue" type="submit" disabled data-identity-continue>
+            <span>Continue</span>
+            <span class="glp-eligibility-continue-icon" aria-hidden="true">&rarr;</span>
+          </button>
+          <p class="glp-treatment-note" data-identity-note aria-live="polite"></p>
+        </form>
+
+        <button type="button" class="glp-identity-help" data-identity-help>Having trouble?</button>
+      </section>
+    </main>
+
+    <div class="glp-camera-modal" data-id-camera-modal hidden>
+      <div class="glp-camera-dialog" role="dialog" aria-modal="true" aria-labelledby="glp-id-camera-title">
+        <div class="glp-camera-heading">
+          <div>
+            <p class="glp-eligibility-kicker">Secure ID capture</p>
+            <h2 id="glp-id-camera-title">Place your ID inside the frame.</h2>
+          </div>
+          <button class="glp-camera-close" type="button" aria-label="Close camera" data-close-id-camera>&times;</button>
+        </div>
+
+        <div class="glp-camera-preview glp-id-camera-preview">
+          <video data-id-video autoplay playsinline muted></video>
+          <canvas data-id-canvas hidden></canvas>
+          <div class="glp-camera-guide glp-id-camera-guide" aria-hidden="true"></div>
+        </div>
+
+        <p class="glp-camera-status" data-id-camera-status aria-live="polite">Allow camera access when prompted.</p>
+
+        <div class="glp-camera-actions">
+          <button class="glp-identity-action glp-camera-cancel" type="button" data-close-id-camera>Cancel</button>
+          <button class="glp-identity-action glp-identity-action-primary" type="button" data-capture-id disabled>Capture Photo</button>
+          <button class="glp-identity-action glp-camera-retake" type="button" data-retake-id hidden>Retake</button>
+          <button class="glp-identity-action glp-identity-action-primary" type="button" data-use-id hidden>Use Photo</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (() => {
+        const params = new URLSearchParams(window.location.search);
+        const format = params.get("format") || "";
+        const treatment = params.get("treatment") || "";
+        const backLink = document.querySelector("[data-identity-back]");
+        const form = document.querySelector("[data-identity-form]");
+        const cameraInput = document.querySelector("[data-id-camera]");
+        const libraryInput = document.querySelector("[data-id-library]");
+        const selection = document.querySelector("[data-id-selection]");
+        const filename = document.querySelector("[data-id-filename]");
+        const continueButton = document.querySelector("[data-identity-continue]");
+        const note = document.querySelector("[data-identity-note]");
+        const whyButton = document.querySelector("[data-identity-why]");
+        const explanation = document.querySelector("[data-identity-explanation]");
+        const cameraModal = document.querySelector("[data-id-camera-modal]");
+        const video = document.querySelector("[data-id-video]");
+        const canvas = document.querySelector("[data-id-canvas]");
+        const cameraStatus = document.querySelector("[data-id-camera-status]");
+        const captureButton = document.querySelector("[data-capture-id]");
+        const retakeButton = document.querySelector("[data-retake-id]");
+        const useButton = document.querySelector("[data-use-id]");
+        let cameraStream = null;
+        let capturedPhoto = null;
+
+        const returnPage = format === "tablets" ? "glp-treatment-tablets.html" : "glp-treatment-injectables.html";
+        const returnUrl = new URL(returnPage, window.location.href);
+        if (treatment) returnUrl.searchParams.set("treatment", treatment);
+        backLink.href = returnUrl.href;
+
+        const handleFile = (input) => {
+          const file = input.files?.[0];
+          if (!file) return;
+          filename.textContent = file.name;
+          selection.hidden = false;
+          continueButton.disabled = false;
+          note.textContent = "";
+        };
+
+        cameraInput.addEventListener("change", () => handleFile(cameraInput));
+        libraryInput.addEventListener("change", () => handleFile(libraryInput));
+
+        document.querySelector("[data-select-id-photo]").addEventListener("click", () => {
+          libraryInput.value = "";
+          libraryInput.click();
+        });
+
+        const stopCamera = () => {
+          cameraStream?.getTracks().forEach((track) => track.stop());
+          cameraStream = null;
+          video.srcObject = null;
+        };
+
+        const showLiveCamera = () => {
+          video.hidden = false;
+          canvas.hidden = true;
+          captureButton.hidden = false;
+          captureButton.disabled = !cameraStream;
+          retakeButton.hidden = true;
+          useButton.hidden = true;
+        };
+
+        const closeCamera = () => {
+          stopCamera();
+          cameraModal.hidden = true;
+          document.body.classList.remove("glp-camera-open");
+        };
+
+        document.querySelector("[data-open-id-camera]").addEventListener("click", async () => {
+          if (!navigator.mediaDevices?.getUserMedia) {
+            cameraInput.click();
+            return;
+          }
+
+          cameraModal.hidden = false;
+          document.body.classList.add("glp-camera-open");
+          cameraStatus.textContent = "Allow camera access when prompted.";
+          captureButton.disabled = true;
+          capturedPhoto = null;
+
+          try {
+            cameraStream = await navigator.mediaDevices.getUserMedia({
+              video: { facingMode: { ideal: "environment" }, width: { ideal: 1920 }, height: { ideal: 1080 } },
+              audio: false
+            });
+            video.srcObject = cameraStream;
+            await video.play();
+            showLiveCamera();
+            cameraStatus.textContent = "Keep the entire ID visible and make sure the details are readable.";
+          } catch (error) {
+            closeCamera();
+            note.textContent = "Camera access was unavailable. You can select a photo instead.";
+          }
+        });
+
+        document.querySelectorAll("[data-close-id-camera]").forEach((button) => {
+          button.addEventListener("click", closeCamera);
+        });
+
+        captureButton.addEventListener("click", () => {
+          if (!cameraStream || !video.videoWidth) return;
+          canvas.width = video.videoWidth;
+          canvas.height = video.videoHeight;
+          canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height);
+          canvas.hidden = false;
+          video.hidden = true;
+          captureButton.hidden = true;
+          retakeButton.hidden = false;
+          useButton.hidden = false;
+          useButton.disabled = true;
+          cameraStatus.textContent = "Review the ID photo before using it.";
+          canvas.toBlob((blob) => {
+            capturedPhoto = blob;
+            useButton.disabled = !blob;
+          }, "image/jpeg", 0.92);
+        });
+
+        retakeButton.addEventListener("click", () => {
+          capturedPhoto = null;
+          showLiveCamera();
+          cameraStatus.textContent = "Keep the entire ID visible and make sure the details are readable.";
+        });
+
+        useButton.addEventListener("click", () => {
+          if (!capturedPhoto) return;
+          filename.textContent = "ID photo captured";
+          selection.hidden = false;
+          continueButton.disabled = false;
+          note.textContent = "";
+          closeCamera();
+        });
+
+        cameraModal.addEventListener("click", (event) => {
+          if (event.target === cameraModal) closeCamera();
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && !cameraModal.hidden) closeCamera();
+        });
+
+        window.addEventListener("pagehide", stopCamera);
+
+        whyButton.addEventListener("click", () => {
+          const expanded = whyButton.getAttribute("aria-expanded") === "true";
+          whyButton.setAttribute("aria-expanded", String(!expanded));
+          explanation.hidden = expanded;
+        });
+
+        document.querySelector("[data-identity-help]").addEventListener("click", () => {
+          note.textContent = "Identity-verification support will be available when the secure verification provider is connected.";
+        });
+
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+          if (continueButton.disabled) return;
+          form.dispatchEvent(new CustomEvent("glp:identity-photo-ready", {
+            bubbles: true,
+            detail: { format, treatment }
+          }));
+          const nextPage = new URL("glp-identity-face.html", window.location.href);
+          if (format) nextPage.searchParams.set("format", format);
+          if (treatment) nextPage.searchParams.set("treatment", treatment);
+          window.location.href = nextPage.href;
+        });
+      })();
+    </script>
+  </body>
+</html>

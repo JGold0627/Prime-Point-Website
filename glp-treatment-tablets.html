@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tablet Treatment Selection | Prime Point Health</title>
+    <meta name="description" content="Review provider-guided Prime Point Health tablet treatment options." />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/glp-eligibility.css" />
+    <link rel="stylesheet" href="css/glp-treatment-selection.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body class="glp-eligibility-page glp-treatment-selection-page">
+    <header class="site-header" data-site-header-mount aria-label="Primary navigation"></header>
+
+    <main class="glp-eligibility-main glp-treatment-main">
+      <section class="glp-eligibility-shell glp-treatment-shell" aria-labelledby="glp-tablet-selection-title">
+        <div class="glp-eligibility-status">
+          <a class="glp-eligibility-back" data-tablet-back href="glp-treatment-selection.html">
+            <span aria-hidden="true">&larr;</span>
+            <span>Back</span>
+          </a>
+          <p class="glp-eligibility-stage">Treatment Selection</p>
+          <p class="glp-eligibility-count">2 of 2</p>
+        </div>
+
+        <div class="glp-eligibility-progress glp-treatment-progress" role="progressbar" aria-label="Treatment selection progress" aria-valuemin="1" aria-valuemax="2" aria-valuenow="2">
+          <span class="is-active"></span><span class="is-active"></span>
+        </div>
+
+        <div class="glp-eligibility-intro glp-treatment-intro">
+          <p class="glp-eligibility-kicker">Tablet options</p>
+          <h1 id="glp-tablet-selection-title">Choose the tablet option you would like to discuss.</h1>
+          <p>You can adjust your preference later. Your licensed provider will review your history and confirm whether a treatment is clinically appropriate.</p>
+        </div>
+
+        <aside class="glp-treatment-assurance" aria-label="Prime Point treatment support">
+          <h2>Personalized, provider-guided care</h2>
+          <ul>
+            <li><span aria-hidden="true">&#10003;</span> Clear monthly pricing</li>
+            <li><span aria-hidden="true">&#10003;</span> Licensed-provider review</li>
+            <li><span aria-hidden="true">&#10003;</span> Ongoing care guidance when prescribed</li>
+          </ul>
+        </aside>
+
+        <form class="glp-treatment-form glp-tablet-form" data-tablet-form>
+          <fieldset class="glp-treatment-fieldset">
+            <legend>Select the option you would like your provider to review:</legend>
+
+            <label class="glp-treatment-option glp-tablet-option">
+              <input type="radio" name="tabletTreatment" value="semaglutide-tablets" />
+              <span class="glp-treatment-radio" aria-hidden="true"></span>
+              <span class="glp-treatment-image-wrap">
+                <img src="assets/glp-page-pieces/Semaglutide Pills V2.png" alt="Prime Point Semaglutide Tablets bottle" />
+              </span>
+              <span class="glp-treatment-copy">
+                <span class="glp-treatment-badge">Signature tablet</span>
+                <span class="glp-treatment-title">Semaglutide Tablets</span>
+                <span class="glp-treatment-description">A daily dissolvable tablet format that may be considered after provider review.</span>
+                <a href="semaglutide-tablets.html">Learn more about Semaglutide Tablets</a>
+                <span class="glp-treatment-availability"><i aria-hidden="true"></i> Available</span>
+              </span>
+              <span class="glp-treatment-price"><strong>$299</strong><small>/mo</small></span>
+            </label>
+
+            <label class="glp-treatment-option glp-tablet-option">
+              <input type="radio" name="tabletTreatment" value="tirzepatide-tablets" />
+              <span class="glp-treatment-radio" aria-hidden="true"></span>
+              <span class="glp-treatment-image-wrap">
+                <img src="assets/glp-page-pieces/Tirzepatide Pills Transparent.png" alt="Prime Point Tirzepatide Tablets bottle" />
+              </span>
+              <span class="glp-treatment-copy">
+                <span class="glp-treatment-title">Tirzepatide Tablets</span>
+                <span class="glp-treatment-description">A daily dissolvable tablet format that may be considered after provider review.</span>
+                <a href="tirzepatide-tablets.html">Learn more about Tirzepatide Tablets</a>
+                <span class="glp-treatment-availability"><i aria-hidden="true"></i> Available</span>
+              </span>
+              <span class="glp-treatment-price"><strong>$399</strong><small>/mo</small></span>
+            </label>
+          </fieldset>
+
+          <div class="glp-treatment-unsure">
+            <h2>Still unsure what you need?</h2>
+            <p>Your Prime Point provider can explain the options, answer your questions, and help determine whether either treatment may be appropriate.</p>
+            <label>
+              <input type="checkbox" data-tablet-unsure />
+              <span>I&rsquo;m unsure and would like to discuss my options with my provider.</span>
+            </label>
+          </div>
+
+          <button class="glp-eligibility-continue" type="submit" disabled data-tablet-continue>
+            <span>Continue</span>
+            <span class="glp-eligibility-continue-icon" aria-hidden="true">&rarr;</span>
+          </button>
+          <p class="glp-treatment-note" data-tablet-note aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <script>
+      (() => {
+        const params = new URLSearchParams(window.location.search);
+        const requestedTreatment = params.get("treatment") || "";
+        const backLink = document.querySelector("[data-tablet-back]");
+        const form = document.querySelector("[data-tablet-form]");
+        const continueButton = document.querySelector("[data-tablet-continue]");
+        const unsure = document.querySelector("[data-tablet-unsure]");
+        const note = document.querySelector("[data-tablet-note]");
+        const radios = Array.from(form.querySelectorAll('input[name="tabletTreatment"]'));
+
+        if (requestedTreatment) {
+          backLink.href = `glp-treatment-selection.html?treatment=${encodeURIComponent(requestedTreatment)}`;
+          const matchingOption = radios.find((radio) => radio.value === requestedTreatment);
+          if (matchingOption) matchingOption.checked = true;
+        }
+
+        const updateSelection = () => {
+          const hasTreatment = radios.some((radio) => radio.checked);
+          if (hasTreatment) unsure.checked = false;
+          continueButton.disabled = !hasTreatment && !unsure.checked;
+        };
+
+        radios.forEach((radio) => radio.addEventListener("change", updateSelection));
+        unsure.addEventListener("change", () => {
+          if (unsure.checked) radios.forEach((radio) => { radio.checked = false; });
+          updateSelection();
+        });
+
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+          const selected = radios.find((radio) => radio.checked)?.value || "provider-guidance";
+          form.dispatchEvent(new CustomEvent("glp:tablet-treatment-selected", {
+            bubbles: true,
+            detail: { treatment: selected }
+          }));
+          const nextPage = new URL("glp-identity-verification.html", window.location.href);
+          nextPage.searchParams.set("format", "tablets");
+          nextPage.searchParams.set("treatment", selected);
+          window.location.href = nextPage.href;
+        });
+
+        updateSelection();
+      })();
+    </script>
+  </body>
+</html>

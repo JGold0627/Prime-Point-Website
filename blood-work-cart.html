@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Cart | Prime Point Health</title>
+    <meta name="description" content="Review your selected Prime Point Health blood work plan." />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/blood-work-cart.css" />
+  </head>
+  <body class="blood-work-cart-page">
+    <header class="site-header" data-site-header-mount aria-label="Primary navigation"></header>
+
+    <main class="cart-main" data-blood-work-cart>
+      <div class="cart-shell">
+        <h1>Your cart</h1>
+
+        <section class="cart-empty" data-cart-empty hidden aria-labelledby="empty-cart-title">
+          <h2 id="empty-cart-title">Your shopping cart is empty</h2>
+          <p>Choose the blood work plan that best fits the review cadence you want.</p>
+          <a class="cart-primary-button" href="blood-work.html#get-started">Explore blood work plans</a>
+        </section>
+
+        <div data-cart-filled>
+          <div class="cart-items" data-cart-items></div>
+
+          <section class="cart-summary" aria-labelledby="cart-summary-title">
+            <div class="cart-summary-total">
+              <h2 id="cart-summary-title">Subtotal</h2>
+              <strong data-cart-price>$0.00</strong>
+            </div>
+            <p class="cart-summary-caption">Final taxes and any applicable fees are calculated at checkout.</p>
+
+            <div class="cart-consent-panel">
+              <p>
+                You will be charged <strong data-cart-total>$0.00</strong> at checkout. Final
+                services and eligibility are confirmed before enrollment.
+              </p>
+              <label class="cart-consent">
+                <input type="checkbox" data-cart-consent />
+                <span>I am 18 or older and agree to the <a href="terms-of-service.html">Terms of Service</a> and <a href="privacy-policy.html">Privacy Policy</a>.</span>
+              </label>
+              <p class="cart-statement">Your card statement descriptor will be confirmed before payment.</p>
+            </div>
+
+            <button class="cart-primary-button cart-checkout" type="button" data-cart-checkout disabled>
+              <span>Check out</span><span aria-hidden="true">&rarr;</span>
+            </button>
+            <p class="cart-note" data-cart-note aria-live="polite"></p>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

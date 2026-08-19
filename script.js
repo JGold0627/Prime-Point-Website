@@ -5,15 +5,16 @@ const activeHeaderSection = (() => {
     return "peptides";
   }
 
-  if (currentPage === "glp-1s.html" || currentPage.startsWith("glp-eligibility") || [
+  if (currentPage === "glp-1s.html" || currentPage.startsWith("glp-eligibility") || currentPage.startsWith("glp-treatment-") || currentPage.startsWith("glp-identity-") || currentPage.startsWith("glp-checkout-") || [
     "semaglutide.html",
     "tirzepatide.html",
     "semaglutide-tablets.html",
+    "tirzepatide-tablets.html",
   ].includes(currentPage)) {
     return "glp";
   }
 
-  if (currentPage === "blood-work.html") {
+  if (["blood-work.html", "blood-work-cart.html", "blood-work-checkout.html"].includes(currentPage)) {
     return "blood-work";
   }
 
@@ -27,6 +28,13 @@ const activeHeaderSection = (() => {
 const headerLinkClass = (section) => activeHeaderSection === section ? " nav-link-active" : "";
 const headerCurrentState = (section) => activeHeaderSection === section ? ' aria-current="true"' : "";
 const isMemberHome = currentPage === "member-home.html";
+let isMemberSession = isMemberHome;
+try {
+  if (isMemberHome) window.localStorage.setItem("primePointMemberLoggedIn", "true");
+  isMemberSession = isMemberHome || window.localStorage.getItem("primePointMemberLoggedIn") === "true";
+} catch (error) {
+  isMemberSession = isMemberHome;
+}
 
 const globalHeaderMarkup = `
   <header class="site-header" data-site-header="global" aria-label="Primary navigation">
@@ -62,6 +70,7 @@ const globalHeaderMarkup = `
             <div class="glp-nav-menu-group">
               <span class="glp-nav-menu-label">Oral</span>
               <a href="semaglutide-tablets.html">Semaglutide Tablets</a>
+              <a href="tirzepatide-tablets.html">Tirzepatide Tablets</a>
             </div>
           </div>
         </div>
@@ -87,15 +96,34 @@ const globalHeaderMarkup = `
       </nav>
 
       <div class="nav-actions" aria-label="Account actions">
-        <a class="header-action header-login" href="${isMemberHome ? "member-home.html" : "login.html"}">${isMemberHome ? "Member Home" : "Log In"}</a>
+        ${isMemberSession ? `
+        <div class="header-member-account">
+          <span class="header-member-avatar" aria-hidden="true" data-member-initials>PPH</span>
+          <span class="header-member-greeting"><strong>Welcome back, <b data-member-display-name>Member</b></strong><small data-member-number>Member # pending</small></span>
+          <button class="header-member-settings" type="button" aria-label="Open member options" aria-haspopup="true" aria-expanded="false" aria-controls="header-member-menu" data-member-menu-trigger>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6 1.7 1.7 0 0 0-.4 1.1V21h-4v-.09A1.7 1.7 0 0 0 8.6 19.4a1.7 1.7 0 0 0-1.88.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-.6-1 1.7 1.7 0 0 0-1.1-.4H3v-4h.09A1.7 1.7 0 0 0 4.6 8.6a1.7 1.7 0 0 0-.34-1.88l-.06-.06 2.83-2.83.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-.6 1.7 1.7 0 0 0 .4-1.1V3h4v.09A1.7 1.7 0 0 0 15.4 4.6a1.7 1.7 0 0 0 1.88-.34l.06-.06 2.83 2.83-.06.06A1.7 1.7 0 0 0 19.4 9c.13.4.35.75.66 1 .3.25.68.4 1.08.4H21v4h-.09A1.7 1.7 0 0 0 19.4 15Z"></path>
+            </svg>
+          </button>
+          <div class="header-member-menu" id="header-member-menu" role="menu" hidden>
+            <p><strong data-member-display-name>Member</strong><small data-member-number>Member # pending</small></p>
+            <a href="member-home.html#member-home-title" role="menuitem">Member profile</a>
+            <a href="login.html" role="menuitem" data-member-sign-out>Sign out</a>
+          </div>
+        </div>
+        ` : `
+        <a class="header-action header-login" href="login.html">Log In</a>
         <a class="header-action header-start" href="index.html#services">Get Started</a>
-        <button class="header-cart" type="button" aria-label="Shopping cart" title="Shopping cart">
+        `}
+        <a class="header-cart" href="${isMemberSession ? "blood-work-checkout.html?return=member-home.html" : "login.html?return=blood-work-checkout.html"}" aria-label="Shopping cart" title="Shopping cart">
           <svg class="header-cart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="8" cy="21" r="1"></circle>
             <circle cx="19" cy="21" r="1"></circle>
             <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57L22 7H5.12"></path>
           </svg>
-        </button>
+          <span class="header-cart-count" data-cart-count hidden>0</span>
+        </a>
       </div>
     </div>
   </header>
@@ -108,6 +136,386 @@ if (pageHeader) {
 } else {
   document.body.insertAdjacentHTML("afterbegin", globalHeaderMarkup);
 }
+
+const isLocalDesignPreview = window.location.protocol === "file:"
+  || ["localhost", "127.0.0.1"].includes(window.location.hostname);
+
+if (isLocalDesignPreview) {
+  const designParams = new URLSearchParams(window.location.search);
+  const designTreatment = designParams.get("treatment") || "semaglutide";
+  const designFormat = designParams.get("format") || (designTreatment.includes("tablets") ? "tablets" : "injectable");
+  const treatmentStep = designFormat === "tablets" ? "glp-treatment-tablets.html" : "glp-treatment-injectables.html";
+  const glpDesignFlow = [
+    "glp-eligibility.html",
+    "glp-eligibility-contact.html",
+    "glp-eligibility-medical.html",
+    "glp-eligibility-medical-sex.html",
+    "glp-eligibility-medical-height-weight.html",
+    "glp-eligibility-medical-goal-weight.html",
+    "glp-eligibility-medical-doctor-visit.html",
+    "glp-eligibility-medical-current-glp1.html",
+    "glp-eligibility-medical-diabetes.html",
+    "glp-eligibility-medical-diabetes-review.html",
+    "glp-eligibility-medical-conditions.html",
+    "glp-eligibility-medical-current-conditions.html",
+    "glp-eligibility-medical-medications.html",
+    "glp-eligibility-medical-allergies.html",
+    "glp-eligibility-medical-allergy-details.html",
+    "glp-eligibility-medical-preferences.html",
+    "glp-eligibility-medical-additional-notes.html",
+    "glp-treatment-selection.html",
+    treatmentStep,
+    "glp-identity-verification.html",
+    "glp-identity-face.html",
+    "glp-checkout-disclaimer.html",
+    "glp-checkout-summary.html",
+    "glp-checkout-shipping.html",
+    "glp-checkout-payment.html"
+  ];
+  const currentDesignIndex = glpDesignFlow.indexOf(currentPage);
+
+  if (currentDesignIndex !== -1) {
+    const goToDesignStep = (index) => {
+      if (index < 0 || index >= glpDesignFlow.length) return;
+      const destination = new URL(glpDesignFlow[index], window.location.href);
+      destination.searchParams.set("treatment", designTreatment);
+      if (index >= glpDesignFlow.indexOf(treatmentStep)) {
+        destination.searchParams.set("format", designFormat);
+      }
+      window.location.href = destination.href;
+    };
+
+    const designNavigator = document.createElement("nav");
+    designNavigator.className = "glp-design-navigator";
+    designNavigator.setAttribute("aria-label", "Local design navigation");
+    designNavigator.innerHTML = `
+      <span>Design ${currentDesignIndex + 1}/${glpDesignFlow.length}</span>
+      <button type="button" data-design-previous aria-label="Previous design screen" ${currentDesignIndex === 0 ? "disabled" : ""}>&larr;</button>
+      <button type="button" data-design-next aria-label="Next design screen" ${currentDesignIndex === glpDesignFlow.length - 1 ? "disabled" : ""}>&rarr;</button>
+    `;
+    designNavigator.querySelector("[data-design-previous]")?.addEventListener("click", () => goToDesignStep(currentDesignIndex - 1));
+    designNavigator.querySelector("[data-design-next]")?.addEventListener("click", () => goToDesignStep(currentDesignIndex + 1));
+    document.body.appendChild(designNavigator);
+
+    document.addEventListener("keydown", (event) => {
+      if (!event.altKey || !event.shiftKey) return;
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        goToDesignStep(currentDesignIndex - 1);
+      }
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        goToDesignStep(currentDesignIndex + 1);
+      }
+    });
+  }
+}
+
+const primePointCartKey = "primePointBloodWorkCart";
+const bloodWorkProducts = {
+  baseline: {
+    id: "baseline",
+    name: "Single Baseline",
+    detail: "One-time comprehensive blood work analysis",
+    price: 249,
+    cadence: "one-time purchase"
+  },
+  biannual: {
+    id: "biannual",
+    name: "Bi-Annual Analysis",
+    detail: "Two comprehensive blood panels per year",
+    price: 599,
+    cadence: "charged annually"
+  },
+  precision: {
+    id: "precision",
+    name: "Monthly Precision",
+    detail: "Four comprehensive blood panels per year",
+    price: 1188,
+    cadence: "charged annually"
+  },
+  "consult-20": {
+    id: "consult-20",
+    name: "20-Minute Consultation",
+    detail: "Additional one-on-one clinician consultation",
+    price: 49,
+    cadence: "one-time purchase"
+  },
+  "consult-40": {
+    id: "consult-40",
+    name: "40-Minute Consultation",
+    detail: "Extended one-on-one clinician consultation",
+    price: 99,
+    cadence: "one-time purchase"
+  }
+};
+
+const getPrimePointCart = () => {
+  try {
+    const saved = JSON.parse(window.localStorage.getItem(primePointCartKey) || "[]");
+    const entries = Array.isArray(saved) ? saved : saved?.id ? [saved] : [];
+    return entries
+      .filter((entry) => bloodWorkProducts[entry.id])
+      .map((entry) => ({ id: entry.id, quantity: Math.max(1, Number(entry.quantity) || 1) }));
+  } catch (error) {
+    return [];
+  }
+};
+
+const savePrimePointCart = (cart) => {
+  window.localStorage.setItem(primePointCartKey, JSON.stringify(cart));
+};
+
+const updatePrimePointCartBadge = () => {
+  const quantity = getPrimePointCart().reduce((sum, item) => sum + item.quantity, 0);
+  document.querySelectorAll("[data-cart-count]").forEach((badge) => {
+    badge.textContent = String(quantity);
+    badge.hidden = quantity === 0;
+  });
+};
+
+updatePrimePointCartBadge();
+
+document.querySelectorAll("[data-add-blood-work-plan]").forEach((button) => {
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+    addBloodWorkProduct(button.dataset.addBloodWorkPlan);
+  });
+});
+
+const addBloodWorkProduct = (productId) => {
+  if (!bloodWorkProducts[productId]) return;
+  const cart = getPrimePointCart();
+  const existing = cart.find((item) => item.id === productId);
+  if (existing) existing.quantity += 1;
+  else cart.push({ id: productId, quantity: 1 });
+
+  try {
+    savePrimePointCart(cart);
+  } catch (error) {
+    return;
+  }
+
+  updatePrimePointCartBadge();
+  window.location.href = "blood-work-cart.html";
+};
+
+document.querySelectorAll("[data-add-blood-work-product]").forEach((button) => {
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+    addBloodWorkProduct(button.dataset.addBloodWorkProduct);
+  });
+});
+
+document.querySelectorAll("[data-blood-work-cart]").forEach((cart) => {
+  let items = getPrimePointCart();
+  const filledState = cart.querySelector("[data-cart-filled]");
+  const emptyState = cart.querySelector("[data-cart-empty]");
+  const itemsContainer = cart.querySelector("[data-cart-items]");
+  const currency = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
+
+  const renderCart = () => {
+    const hasItems = items.length > 0;
+    if (filledState) filledState.hidden = !hasItems;
+    if (emptyState) emptyState.hidden = hasItems;
+    if (!hasItems || !itemsContainer) {
+      updatePrimePointCartBadge();
+      return;
+    }
+
+    itemsContainer.replaceChildren();
+    items.forEach((item) => {
+      const product = bloodWorkProducts[item.id];
+      const itemTotal = product.price * item.quantity;
+      const itemElement = document.createElement("section");
+      itemElement.className = "cart-item";
+      itemElement.setAttribute("aria-label", product.name);
+      itemElement.innerHTML = `
+        <div class="cart-product-mark" aria-hidden="true"><span>PPH</span><small>Blood Work</small></div>
+        <div class="cart-item-details">
+          <p class="cart-item-brand">Prime Point Health Blood Work</p>
+          <h2>${product.name}</h2>
+          <p>${product.detail}</p>
+          <div class="cart-quantity" aria-label="${product.name} quantity">
+            <button type="button" aria-label="Decrease ${product.name} quantity" data-item-decrease="${item.id}">&minus;</button>
+            <span aria-live="polite">${item.quantity}</span>
+            <button type="button" aria-label="Increase ${product.name} quantity" data-item-increase="${item.id}">+</button>
+          </div>
+        </div>
+        <strong class="cart-item-price">${currency.format(itemTotal)}</strong>`;
+      itemsContainer.appendChild(itemElement);
+    });
+
+    const total = items.reduce((sum, item) => sum + bloodWorkProducts[item.id].price * item.quantity, 0);
+    cart.querySelectorAll("[data-cart-price], [data-cart-total]").forEach((node) => { node.textContent = currency.format(total); });
+    savePrimePointCart(items);
+    updatePrimePointCartBadge();
+  };
+
+  renderCart();
+
+  itemsContainer?.addEventListener("click", (event) => {
+    const increase = event.target.closest("[data-item-increase]");
+    const decrease = event.target.closest("[data-item-decrease]");
+    const productId = increase?.dataset.itemIncrease || decrease?.dataset.itemDecrease;
+    if (!productId) return;
+    const item = items.find((entry) => entry.id === productId);
+    if (!item) return;
+    if (increase) item.quantity += 1;
+    if (decrease && item.quantity > 1) item.quantity -= 1;
+    else if (decrease) items = items.filter((entry) => entry.id !== productId);
+    renderCart();
+  });
+
+  const consent = cart.querySelector("[data-cart-consent]");
+  const checkout = cart.querySelector("[data-cart-checkout]");
+  const note = cart.querySelector("[data-cart-note]");
+  if (consent && checkout) {
+    consent.addEventListener("change", () => { checkout.disabled = !consent.checked; });
+    checkout.addEventListener("click", () => {
+      window.location.href = isMemberSession
+        ? "blood-work-checkout.html"
+        : "login.html?return=blood-work-checkout.html";
+    });
+  }
+});
+
+document.querySelectorAll("[data-blood-work-checkout]").forEach((checkoutPage) => {
+  let items = getPrimePointCart();
+  const emptyState = checkoutPage.querySelector("[data-checkout-empty]");
+  const checkoutContent = checkoutPage.querySelector("[data-checkout-content]");
+  const productsContainer = checkoutPage.querySelector("[data-checkout-products]");
+  const currency = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
+  const returnTarget = new URLSearchParams(window.location.search).get("return");
+  const backLink = checkoutPage.querySelector("[data-checkout-back]");
+  if (backLink && returnTarget === "member-home.html") {
+    backLink.hidden = false;
+    backLink.href = "member-home.html";
+    backLink.textContent = "Back to member home";
+  }
+
+  const renderCheckout = () => {
+    const hasItems = items.length > 0;
+    if (emptyState) emptyState.hidden = hasItems;
+    if (checkoutContent) checkoutContent.hidden = !hasItems;
+    if (!hasItems) {
+      savePrimePointCart(items);
+      updatePrimePointCartBadge();
+      return;
+    }
+
+    const total = items.reduce((sum, item) => sum + bloodWorkProducts[item.id].price * item.quantity, 0);
+    checkoutPage.querySelectorAll("[data-checkout-price]").forEach((node) => { node.textContent = currency.format(total); });
+    if (!productsContainer) return;
+    productsContainer.replaceChildren();
+    items.forEach((item) => {
+      const product = bloodWorkProducts[item.id];
+      const row = document.createElement("div");
+      row.className = "checkout-product";
+      row.innerHTML = `
+        <div class="checkout-product-mark" aria-hidden="true"><span>PPH</span><small>Blood Work</small><b>${item.quantity}</b></div>
+        <div class="checkout-product-details">
+          <strong>${product.name}</strong><small>${product.detail}</small>
+          <div class="checkout-quantity" aria-label="${product.name} quantity">
+            <button type="button" aria-label="Decrease ${product.name} quantity" data-checkout-decrease="${item.id}">&minus;</button>
+            <span aria-live="polite">${item.quantity}</span>
+            <button type="button" aria-label="Increase ${product.name} quantity" data-checkout-increase="${item.id}">+</button>
+          </div>
+        </div>
+        <span>${currency.format(product.price * item.quantity)}</span>`;
+      productsContainer.appendChild(row);
+    });
+    savePrimePointCart(items);
+    updatePrimePointCartBadge();
+  };
+
+  renderCheckout();
+
+  productsContainer?.addEventListener("click", (event) => {
+    const increase = event.target.closest("[data-checkout-increase]");
+    const decrease = event.target.closest("[data-checkout-decrease]");
+    const productId = increase?.dataset.checkoutIncrease || decrease?.dataset.checkoutDecrease;
+    if (!productId) return;
+    const item = items.find((entry) => entry.id === productId);
+    if (!item) return;
+    if (increase) item.quantity += 1;
+    if (decrease && item.quantity > 1) item.quantity -= 1;
+    else if (decrease) items = items.filter((entry) => entry.id !== productId);
+    renderCheckout();
+  });
+
+  const note = checkoutPage.querySelector("[data-checkout-note]");
+  checkoutPage.querySelectorAll("[data-payment-placeholder]").forEach((button) => {
+    button.addEventListener("click", () => {
+      if (note) note.textContent = "This payment option will become available when secure payment processing is connected.";
+    });
+  });
+
+  checkoutPage.querySelector("[data-discount-form]")?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (note) note.textContent = "Discount-code validation will become available when checkout is connected.";
+  });
+
+  checkoutPage.querySelector("[data-checkout-form]")?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!event.currentTarget.checkValidity()) {
+      event.currentTarget.reportValidity();
+      return;
+    }
+    if (note) note.textContent = "Your information is ready. Secure payment entry will be provided by the connected payment processor.";
+  });
+});
+
+const memberMenuTrigger = document.querySelector("[data-member-menu-trigger]");
+const memberMenu = document.querySelector("#header-member-menu");
+
+if (memberMenuTrigger && memberMenu) {
+  const setMemberMenu = (open) => {
+    memberMenu.hidden = !open;
+    memberMenuTrigger.setAttribute("aria-expanded", String(open));
+  };
+
+  memberMenuTrigger.addEventListener("click", (event) => {
+    event.stopPropagation();
+    setMemberMenu(memberMenu.hidden);
+  });
+
+  memberMenu.addEventListener("click", (event) => event.stopPropagation());
+  document.addEventListener("click", () => setMemberMenu(false));
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      setMemberMenu(false);
+      memberMenuTrigger.focus();
+    }
+  });
+}
+
+let savedMemberFirstName = "Josh";
+let savedMemberLastName = "Gold";
+let savedMemberNumber = "1";
+try {
+  savedMemberFirstName = window.localStorage.getItem("primePointMemberFirstName") || "Josh";
+  savedMemberLastName = window.localStorage.getItem("primePointMemberLastName") || "Gold";
+  savedMemberNumber = window.localStorage.getItem("primePointMemberNumber") || "1";
+} catch (error) {
+  savedMemberFirstName = "Josh";
+  savedMemberLastName = "Gold";
+  savedMemberNumber = "1";
+}
+
+document.querySelectorAll("[data-member-display-name]").forEach((name) => {
+  name.textContent = savedMemberFirstName || "Josh";
+});
+
+document.querySelectorAll("[data-member-initials]").forEach((initials) => {
+  const firstInitial = savedMemberFirstName.charAt(0);
+  const lastInitial = savedMemberLastName.charAt(0);
+  initials.textContent = (firstInitial + lastInitial).toUpperCase() || "PPH";
+});
+
+document.querySelectorAll("[data-member-number]").forEach((number) => {
+  number.textContent = savedMemberNumber ? `Member #${savedMemberNumber}` : "Member # pending";
+});
 
 const scrollToHomeServices = ({ behavior = "smooth" } = {}) => {
   const servicesSection = document.getElementById("services");
@@ -261,6 +669,12 @@ document.querySelectorAll("[data-password-toggle]").forEach((toggle) => {
 
 document.querySelectorAll(".login-form").forEach((form) => {
   const note = form.querySelector(".login-form-note");
+  const returnPage = new URLSearchParams(window.location.search).get("return");
+  const safeReturnPage = returnPage === "blood-work-checkout.html" ? returnPage : "member-home.html";
+  const createAccountLink = document.querySelector('.login-account-prompt a[href="create-account.html"]');
+  if (createAccountLink && safeReturnPage === "blood-work-checkout.html") {
+    createAccountLink.href = `create-account.html?return=${encodeURIComponent(safeReturnPage)}`;
+  }
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -274,7 +688,23 @@ document.querySelectorAll(".login-form").forEach((form) => {
       note.textContent = "Opening your secure member home...";
     }
 
-    window.location.href = "member-home.html";
+    try {
+      window.localStorage.setItem("primePointMemberLoggedIn", "true");
+    } catch (error) {
+      // Continue to the local member experience when storage is unavailable.
+    }
+
+    window.location.href = safeReturnPage;
+  });
+});
+
+document.querySelectorAll("[data-member-sign-out]").forEach((link) => {
+  link.addEventListener("click", () => {
+    try {
+      window.localStorage.removeItem("primePointMemberLoggedIn");
+    } catch (error) {
+      // The destination still provides a signed-out screen.
+    }
   });
 });
 
@@ -287,7 +717,8 @@ document.querySelectorAll("[data-member-dashboard]").forEach((dashboard) => {
     date.textContent = new Intl.DateTimeFormat("en-US", {
       month: "short",
       day: "numeric",
-      year: "numeric"
+      year: "numeric",
+      timeZone: "America/New_York"
     }).format(new Date());
   }
 
@@ -352,6 +783,17 @@ document.querySelectorAll("[data-account-form]").forEach((form) => {
       return;
     }
 
+    const firstName = form.querySelector('input[name="first_name"]')?.value.trim();
+    const lastName = form.querySelector('input[name="last_name"]')?.value.trim();
+    if (firstName) {
+      try {
+        window.localStorage.setItem("primePointMemberFirstName", firstName);
+        if (lastName) window.localStorage.setItem("primePointMemberLastName", lastName);
+      } catch (error) {
+        // The account flow still works when browser storage is unavailable.
+      }
+    }
+
     if (password && passwordConfirm && password.value !== passwordConfirm.value) {
       passwordConfirm.setCustomValidity("Passwords must match.");
       passwordConfirm.reportValidity();
@@ -360,9 +802,16 @@ document.querySelectorAll("[data-account-form]").forEach((form) => {
 
     passwordConfirm?.setCustomValidity("");
 
-    if (note) {
-      note.textContent = "Account saving will be enabled when the secure member database is connected.";
+    try {
+      window.localStorage.setItem("primePointMemberLoggedIn", "true");
+    } catch (error) {
+      // Continue to the requested destination when storage is unavailable.
     }
+
+    const returnPage = new URLSearchParams(window.location.search).get("return");
+    const safeReturnPage = returnPage === "blood-work-checkout.html" ? returnPage : "member-home.html";
+    if (note) note.textContent = "Account created. Opening your next step...";
+    window.location.href = safeReturnPage;
   });
 
   passwordConfirm?.addEventListener("input", () => passwordConfirm.setCustomValidity(""));

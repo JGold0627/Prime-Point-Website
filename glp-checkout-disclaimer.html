@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout Information | Prime Point Health</title>
+    <meta name="description" content="Review important Prime Point Health checkout and provider-review information." />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/glp-eligibility.css" />
+    <link rel="stylesheet" href="css/glp-checkout-disclaimer.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body class="glp-eligibility-page glp-checkout-page">
+    <header class="site-header" data-site-header-mount aria-label="Primary navigation"></header>
+
+    <main class="glp-eligibility-main glp-checkout-main">
+      <section class="glp-eligibility-shell glp-checkout-shell" aria-labelledby="glp-checkout-title">
+        <div class="glp-eligibility-status">
+          <a class="glp-eligibility-back" data-checkout-back href="glp-identity-face.html">
+            <span aria-hidden="true">&larr;</span>
+            <span>Back</span>
+          </a>
+          <p class="glp-eligibility-stage">Checkout</p>
+          <p class="glp-eligibility-count">1 of 4</p>
+        </div>
+
+        <div class="glp-eligibility-progress glp-checkout-progress" role="progressbar" aria-label="Checkout progress" aria-valuemin="1" aria-valuemax="4" aria-valuenow="1">
+          <span class="is-active"></span><span></span><span></span><span></span>
+        </div>
+
+        <div class="glp-checkout-disclaimer pp-reveal">
+          <p class="glp-eligibility-kicker">Before checkout</p>
+          <h1 id="glp-checkout-title">What happens next.</h1>
+
+          <div class="glp-checkout-copy">
+            <p>Your health questionnaire and identity information will be reviewed by a licensed Prime Point provider.</p>
+
+            <p>Your provider may contact you with questions before determining whether treatment is safe and appropriate for you. Prescriptions are never guaranteed and are issued only when clinically appropriate.</p>
+
+            <p>If you have not chosen a treatment option, your provider can discuss available options based on your health information and individual needs. After onboarding, you will be able to communicate with your care team through the patient portal.</p>
+
+            <div class="glp-checkout-payment-note">
+              <strong>Your card will not be charged at this time.</strong>
+              <p>Adding a payment method authorizes Prime Point to process the applicable treatment charge only if a licensed provider prescribes treatment. Pricing and any recurring payment terms will be shown for your review before you submit payment information.</p>
+            </div>
+          </div>
+
+          <button class="glp-eligibility-continue glp-checkout-continue" type="button" data-checkout-continue>
+            <span>Continue</span>
+            <span class="glp-eligibility-continue-icon" aria-hidden="true">&rarr;</span>
+          </button>
+          <p class="glp-checkout-next-note" data-checkout-note aria-live="polite"></p>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      (() => {
+        const params = new URLSearchParams(window.location.search);
+        const format = params.get("format") || "";
+        const treatment = params.get("treatment") || "";
+        const backLink = document.querySelector("[data-checkout-back]");
+        const backUrl = new URL("glp-identity-face.html", window.location.href);
+
+        if (format) backUrl.searchParams.set("format", format);
+        if (treatment) backUrl.searchParams.set("treatment", treatment);
+        backLink.href = backUrl.href;
+
+        document.querySelector("[data-checkout-continue]").addEventListener("click", () => {
+          const nextUrl = new URL("glp-checkout-summary.html", window.location.href);
+          if (format) nextUrl.searchParams.set("format", format);
+          if (treatment) nextUrl.searchParams.set("treatment", treatment);
+          window.location.href = nextUrl.href;
+        });
+      })();
+    </script>
+  </body>
+</html>

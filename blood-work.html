@@ -337,6 +337,135 @@
         text-align: center;
       }
 
+      .bw-physical-comparison {
+        position: relative;
+        z-index: 1;
+        padding: clamp(86px, 9vw, 132px) var(--pp-page-gutter);
+        background: #f8f5ee;
+        color: #0f1f2d;
+      }
+
+      .bw-physical-comparison-shell {
+        width: min(100%, 1320px);
+        margin: 0 auto;
+      }
+
+      .bw-physical-comparison-eyebrow {
+        margin: 0 0 22px;
+        color: var(--pp-gold);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.2em;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .bw-physical-comparison-title {
+        max-width: 1040px;
+        margin: 0 auto;
+        color: #0f1f2d;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(3rem, 5.6vw, 5.5rem);
+        font-weight: 400;
+        line-height: 0.98;
+        letter-spacing: -0.035em;
+        text-align: center;
+      }
+
+      .bw-physical-comparison-title em {
+        color: #9a742f;
+        font-style: normal;
+      }
+
+      .bw-physical-comparison-intro {
+        max-width: 980px;
+        margin: clamp(28px, 3vw, 40px) auto 0;
+        color: #53677a;
+        font-size: clamp(1.05rem, 1.55vw, 1.3rem);
+        line-height: 1.65;
+        text-align: center;
+      }
+
+      .bw-comparison-table {
+        display: grid;
+        grid-template-columns: minmax(220px, 1.15fr) minmax(280px, 1fr) minmax(300px, 1fr);
+        margin-top: clamp(54px, 6vw, 78px);
+        border-bottom: 1px solid rgba(15, 31, 45, 0.1);
+      }
+
+      .bw-comparison-heading,
+      .bw-comparison-label,
+      .bw-comparison-value {
+        display: flex;
+        min-width: 0;
+        align-items: center;
+        padding: 24px 26px;
+        border-bottom: 1px solid rgba(15, 31, 45, 0.1);
+      }
+
+      .bw-comparison-heading {
+        justify-content: center;
+        color: #8b8b82;
+        font-size: 0.95rem;
+        font-weight: 400;
+        text-align: center;
+      }
+
+      .bw-comparison-heading:first-child {
+        justify-content: flex-start;
+      }
+
+      .bw-comparison-heading-highlight {
+        border: 1px solid rgba(154, 116, 47, 0.28);
+        border-bottom-color: #9a742f;
+        border-radius: 18px 18px 0 0;
+        background: linear-gradient(135deg, rgba(234, 216, 173, 0.28), rgba(255, 253, 248, 0.88));
+        color: #7f6026;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1.35rem;
+      }
+
+      .bw-comparison-label {
+        color: #0f1f2d;
+        font-weight: 400;
+      }
+
+      .bw-comparison-value {
+        gap: 14px;
+        color: #8b8b82;
+      }
+
+      .bw-comparison-value::before {
+        content: "\00d7";
+        flex: 0 0 auto;
+        color: #c3baaa;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1.5rem;
+        line-height: 1;
+      }
+
+      .bw-comparison-value-highlight {
+        border-right: 1px solid rgba(154, 116, 47, 0.22);
+        border-left: 1px solid rgba(154, 116, 47, 0.22);
+        background: linear-gradient(135deg, rgba(234, 216, 173, 0.22), rgba(255, 253, 248, 0.78));
+        color: #0f1f2d;
+        font-weight: 400;
+      }
+
+      .bw-comparison-value-highlight::before {
+        content: "\2713";
+        color: #8a6827;
+        font-family: inherit;
+        font-size: 1.15rem;
+        font-weight: 900;
+      }
+
+      .bw-comparison-value-highlight:last-child {
+        border-bottom: 1px solid rgba(154, 116, 47, 0.22);
+        border-radius: 0 0 18px 18px;
+        box-shadow: 0 24px 50px rgba(15, 31, 45, 0.08);
+      }
+
       .bw-guidance {
         position: relative;
         z-index: 1;
@@ -1391,6 +1520,40 @@
           font-size: 0.86rem;
         }
 
+        .bw-physical-comparison {
+          padding-block: 76px;
+        }
+
+        .bw-physical-comparison-eyebrow {
+          line-height: 1.6;
+        }
+
+        .bw-comparison-table {
+          grid-template-columns: minmax(118px, 0.75fr) repeat(2, minmax(0, 1fr));
+          margin-top: 42px;
+        }
+
+        .bw-comparison-heading,
+        .bw-comparison-label,
+        .bw-comparison-value {
+          padding: 18px 10px;
+          font-size: 0.72rem;
+          line-height: 1.45;
+        }
+
+        .bw-comparison-heading-highlight {
+          font-size: 1rem;
+        }
+
+        .bw-comparison-value {
+          align-items: flex-start;
+          gap: 7px;
+        }
+
+        .bw-comparison-value::before {
+          font-size: 1.05rem;
+        }
+
         .bw-guidance {
           padding-bottom: 48px;
         }
@@ -1676,6 +1839,7 @@
     }
 
     body.blood-work-page :is(
+      .bw-physical-comparison-eyebrow,
       .bw-plan-price-amount,
       .bw-guidance-subtitle,
       .bw-consult-options strong,
@@ -1892,8 +2056,8 @@
             </div>
 
             <div class="bw-plan-footer">
-              <a class="button button-primary bw-plan-button" href="#get-started">
-                <span>Join now</span>
+              <a class="button button-primary bw-plan-button" href="blood-work-cart.html" data-add-blood-work-plan="baseline">
+                <span>Start now</span>
                 <span class="bw-plan-arrow" aria-hidden="true"></span>
               </a>
             </div>
@@ -1924,8 +2088,8 @@
             </div>
 
             <div class="bw-plan-footer">
-              <a class="button button-primary bw-plan-button" href="#get-started">
-                <span>Join now</span>
+              <a class="button button-primary bw-plan-button" href="blood-work-cart.html" data-add-blood-work-plan="biannual">
+                <span>Start now</span>
                 <span class="bw-plan-arrow" aria-hidden="true"></span>
               </a>
             </div>
@@ -1955,8 +2119,8 @@
             </div>
 
             <div class="bw-plan-footer">
-              <a class="button button-primary bw-plan-button" href="#get-started">
-                <span>Join now</span>
+              <a class="button button-primary bw-plan-button" href="blood-work-cart.html" data-add-blood-work-plan="precision">
+                <span>Start now</span>
                 <span class="bw-plan-arrow" aria-hidden="true"></span>
               </a>
             </div>
@@ -1966,6 +2130,53 @@
             Bloodwork availability depends on your location and access to a participating lab.
             Final pricing and included services are confirmed before enrollment.
           </p>
+        </div>
+      </section>
+
+      <section class="bw-physical-comparison" aria-labelledby="bw-physical-comparison-title">
+        <div class="bw-physical-comparison-shell" data-pp-reveal>
+          <p class="bw-physical-comparison-eyebrow">Why "Everything Feels Normal" Misses Everything</p>
+          <h2 class="bw-physical-comparison-title" id="bw-physical-comparison-title">
+            A standard physical misses most of it. <em>We don&rsquo;t.</em>
+          </h2>
+          <p class="bw-physical-comparison-intro">
+            A standard physical screens for disease. Prime Point measures what's actually driving
+            your energy, sleep, drive, and recovery, then an expert explains exactly what to do.
+          </p>
+
+          <div class="bw-comparison-table" role="table" aria-label="Standard annual physical and Prime Point comparison">
+            <div class="bw-comparison-heading" role="columnheader"><span class="visually-hidden">Category</span></div>
+            <div class="bw-comparison-heading" role="columnheader">Standard Annual Physical</div>
+            <div class="bw-comparison-heading bw-comparison-heading-highlight" role="columnheader">Prime Point</div>
+
+            <div class="bw-comparison-label" role="rowheader">What gets tested</div>
+            <div class="bw-comparison-value" role="cell">A basic handful</div>
+            <div class="bw-comparison-value bw-comparison-value-highlight" role="cell">The markers that actually matter</div>
+
+            <div class="bw-comparison-label" role="rowheader">Hormones &amp; thyroid</div>
+            <div class="bw-comparison-value" role="cell">Rarely screened</div>
+            <div class="bw-comparison-value bw-comparison-value-highlight" role="cell">Full panel</div>
+
+            <div class="bw-comparison-label" role="rowheader">Inflammation &amp; metabolic</div>
+            <div class="bw-comparison-value" role="cell">Surface-level</div>
+            <div class="bw-comparison-value bw-comparison-value-highlight" role="cell">Deep markers (ApoB, hs-CRP)</div>
+
+            <div class="bw-comparison-label" role="rowheader">Micronutrients</div>
+            <div class="bw-comparison-value" role="cell">Usually skipped</div>
+            <div class="bw-comparison-value bw-comparison-value-highlight" role="cell">Included</div>
+
+            <div class="bw-comparison-label" role="rowheader">Who explains your results</div>
+            <div class="bw-comparison-value" role="cell">A portal and a shrug</div>
+            <div class="bw-comparison-value bw-comparison-value-highlight" role="cell">1:1 expert consult</div>
+
+            <div class="bw-comparison-label" role="rowheader">Turnaround</div>
+            <div class="bw-comparison-value" role="cell">Weeks of phone tag</div>
+            <div class="bw-comparison-value bw-comparison-value-highlight" role="cell">Less than a week</div>
+
+            <div class="bw-comparison-label" role="rowheader">You walk away with</div>
+            <div class="bw-comparison-value" role="cell">"Everything feels normal"</div>
+            <div class="bw-comparison-value bw-comparison-value-highlight" role="cell">A plan made just for you</div>
+          </div>
         </div>
       </section>
 
@@ -1986,12 +2197,12 @@
             <li>
               <strong>$49</strong>
               <span>20-minute consultation</span>
-              <a class="bw-consult-button" href="#get-started">Book now</a>
+              <a class="bw-consult-button" href="blood-work-cart.html" data-add-blood-work-product="consult-20">Add to cart</a>
             </li>
             <li>
               <strong>$99</strong>
               <span>40-minute consultation</span>
-              <a class="bw-consult-button" href="#get-started">Book now</a>
+              <a class="bw-consult-button" href="blood-work-cart.html" data-add-blood-work-product="consult-40">Add to cart</a>
             </li>
           </ul>
         </div>
