@@ -2608,20 +2608,21 @@
 
         if (!canvas || !stage || !context) return;
 
-        const cellCount = 55;
+        const getCellCount = () => window.innerWidth <= 900 ? 38 : 55;
         const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
         let width = 0;
         let height = 0;
         let cells = [];
         let animationFrame = 0;
         let isVisible = true;
+        let lastFrameTime = 0;
 
         const createCell = () => ({
           x: Math.random() * width,
           y: Math.random() * height,
           radius: 6 + Math.random() * 10,
-          velocityY: 0.15 + Math.random() * 0.25,
-          velocityX: (Math.random() - 0.5) * 0.15,
+          velocityY: 9 + Math.random() * 15,
+          velocityX: (Math.random() - 0.5) * 9,
           opacity: 0.16 + Math.random() * 0.2
         });
 
@@ -2639,7 +2640,7 @@
           context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
 
           if (!cells.length) {
-            cells = Array.from({ length: cellCount }, createCell);
+            cells = Array.from({ length: getCellCount() }, createCell);
           } else {
             cells.forEach((cell) => {
               cell.x *= scaleX;
@@ -2677,12 +2678,13 @@
           context.restore();
         };
 
-        const draw = (advance = false) => {
+        const draw = (elapsedSeconds = 0) => {
           context.clearRect(0, 0, width, height);
           cells.forEach((cell) => {
-            if (advance) {
-              cell.y -= cell.velocityY;
-              cell.x += cell.velocityX;
+            if (elapsedSeconds > 0) {
+              const motionScale = reducedMotion.matches ? 0.35 : 1;
+              cell.y -= cell.velocityY * elapsedSeconds * motionScale;
+              cell.x += cell.velocityX * elapsedSeconds * motionScale;
 
               if (cell.y < -20) cell.y = height + 20;
               if (cell.x < -20) cell.x = width + 20;
@@ -2696,40 +2698,65 @@
         const stopAnimation = () => {
           window.cancelAnimationFrame(animationFrame);
           animationFrame = 0;
+          lastFrameTime = 0;
         };
 
-        const animate = () => {
-          if (!isVisible || document.hidden || reducedMotion.matches) {
+        const animate = (time) => {
+          if (!isVisible || document.hidden) {
             stopAnimation();
             draw();
             return;
           }
 
-          draw(true);
+          const elapsedSeconds = lastFrameTime
+            ? Math.min((time - lastFrameTime) / 1000, 0.05)
+            : 0;
+          lastFrameTime = time;
+          draw(elapsedSeconds);
           animationFrame = window.requestAnimationFrame(animate);
         };
 
         const syncAnimation = () => {
           stopAnimation();
           draw();
-          if (isVisible && !document.hidden && !reducedMotion.matches) animate();
+          if (isVisible && !document.hidden) {
+            animationFrame = window.requestAnimationFrame(animate);
+          }
         };
-
-        const observer = new IntersectionObserver(
-          ([entry]) => {
-            isVisible = entry.isIntersecting;
-            syncAnimation();
-          },
-          { threshold: 0.01 }
-        );
 
         resize();
         draw();
-        observer.observe(stage);
-        new ResizeObserver(() => {
-          resize();
-          draw();
-        }).observe(stage);
+
+        if ("IntersectionObserver" in window) {
+          const observer = new IntersectionObserver(
+            ([entry]) => {
+              isVisible = entry.isIntersecting;
+              syncAnimation();
+            },
+            { threshold: 0, rootMargin: "80px 0px" }
+          );
+          observer.observe(stage);
+        } else {
+          syncAnimation();
+        }
+
+        if ("ResizeObserver" in window) {
+          new ResizeObserver(() => {
+            resize();
+            draw();
+          }).observe(stage);
+        } else {
+          let resizeTimer = 0;
+          window.addEventListener("resize", () => {
+            window.clearTimeout(resizeTimer);
+            resizeTimer = window.setTimeout(() => {
+              resize();
+              draw();
+              syncAnimation();
+            }, 120);
+          });
+        }
+
         document.addEventListener("visibilitychange", syncAnimation);
         reducedMotion.addEventListener?.("change", syncAnimation);
       })();

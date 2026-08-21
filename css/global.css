@@ -500,6 +500,84 @@ img {
   }
 }
 
+/* Compact laptop tier: preserve the full header without allowing the
+   navigation and account actions to compete for the same space. */
+@media (min-width: 901px) and (max-width: 1440px) {
+  .nav-shell {
+    grid-template-columns: minmax(138px, 0.72fr) minmax(344px, 1.65fr) minmax(230px, 1fr);
+    gap: clamp(10px, 1.45vw, 21px);
+    padding-inline: clamp(14px, 2.2vw, 32px);
+  }
+
+  .site-header .brand-logo,
+  .site-header .brand-logo-reference {
+    max-width: clamp(158px, 15.3vw, 220px);
+    height: calc(var(--pp-header-height) - 24px);
+  }
+
+  .nav-links {
+    width: 100%;
+    gap: clamp(13px, 1.8vw, 26px);
+  }
+
+  .nav-link {
+    min-height: 44px;
+    font-size: clamp(0.7rem, 0.95vw, 0.84rem);
+  }
+
+  .glp-nav-dropdown {
+    gap: 4px;
+  }
+
+  .glp-nav-trigger {
+    min-height: 44px;
+    padding-inline: 0;
+  }
+
+  .site-header .nav-actions {
+    gap: clamp(6px, 0.8vw, 9px);
+    transform: none;
+  }
+
+  .header-action {
+    min-height: 44px;
+    padding-inline: clamp(10px, 1.2vw, 17px);
+    font-size: clamp(0.68rem, 0.9vw, 0.8rem);
+  }
+
+  .header-cart {
+    width: 44px;
+    height: 44px;
+    flex-basis: 44px;
+    margin-left: 2px;
+  }
+
+  .header-member-account {
+    gap: 8px;
+  }
+
+  .header-member-avatar {
+    width: 38px;
+    height: 38px;
+    flex-basis: 38px;
+  }
+
+  .header-member-greeting {
+    min-width: 118px;
+    padding-right: 2px;
+  }
+
+  .header-member-greeting strong {
+    font-size: 0.78rem;
+  }
+
+  .header-member-settings {
+    width: 38px;
+    height: 38px;
+    padding: 8px;
+  }
+}
+
 @media (max-width: 900px) {
   .nav-shell {
     grid-template-columns: 1fr auto;
