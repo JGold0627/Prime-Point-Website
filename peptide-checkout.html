@@ -76,7 +76,7 @@
             <div class="checkout-total"><span>Order Total</span><strong>$69.00</strong></div>
             <p class="checkout-summary-note">Your consultation fee covers the provider&rsquo;s time and personalized care plan. Prescribed medications, if any, are billed separately.</p>
             <button class="checkout-review-button" id="checkout-review-button" type="button" disabled><span>Review Order</span><span aria-hidden="true">&rarr;</span></button>
-            <small>Payment and account integrations are not yet connected.</small>
+            <small>Your details will carry securely into the order review step.</small>
           </aside>
         </form>
       </div>
@@ -84,12 +84,64 @@
     <script src="script.js"></script>
     <script>
       (() => {
+        const form = document.getElementById("peptide-checkout-form");
         const steps = Array.from(document.querySelectorAll("[data-checkout-step]"));
         const summary = document.getElementById("checkout-summary");
         const reviewButton = document.getElementById("checkout-review-button");
         const completedSteps = new Set();
         let highestUnlocked = 0;
         let activeStep = 0;
+
+        const collectCheckoutDetails = () => {
+          const checkoutDetails = Object.fromEntries(new FormData(form).entries());
+          checkoutDetails.consultation = "Peptide Consultation";
+          checkoutDetails.total = 69;
+          return checkoutDetails;
+        };
+
+        const saveCheckoutDraft = () => {
+          try {
+            window.localStorage.setItem("primePointPeptideCheckoutDraft", JSON.stringify(collectCheckoutDetails()));
+          } catch (error) {
+            // The form remains usable when local browser storage is unavailable.
+          }
+        };
+
+        const restoreCheckoutDraft = () => {
+          let savedDetails = {};
+          try {
+            savedDetails = JSON.parse(window.localStorage.getItem("primePointPeptideCheckoutDraft") || "{}");
+          } catch (error) {
+            savedDetails = {};
+          }
+
+          Object.entries(savedDetails).forEach(([name, value]) => {
+            const field = form.elements.namedItem(name);
+            if (!field || typeof value !== "string") return;
+            field.value = value;
+          });
+
+          if (!savedDetails.email) return false;
+
+          let canRestoreNextStep = true;
+          steps.forEach((step, index) => {
+            if (!canRestoreNextStep) return;
+            const fields = Array.from(step.querySelectorAll("input, select, textarea"));
+            if (fields.every((field) => field.checkValidity())) {
+              completedSteps.add(index);
+              highestUnlocked = Math.max(highestUnlocked, Math.min(index + 1, steps.length - 1));
+            } else {
+              canRestoreNextStep = false;
+            }
+          });
+
+          if (completedSteps.size === steps.length) {
+            highestUnlocked = steps.length - 1;
+            reviewButton.disabled = false;
+            reviewButton.classList.add("checkout-review-button-ready");
+          }
+          return true;
+        };
 
         const activateStep = (index, shouldScroll = true) => {
           activeStep = index;
@@ -154,6 +206,21 @@
           });
         });
 
+        form.addEventListener("input", saveCheckoutDraft);
+        form.addEventListener("change", saveCheckoutDraft);
+
+        reviewButton.addEventListener("click", () => {
+          if (reviewButton.disabled) return;
+          if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+          }
+
+          saveCheckoutDraft();
+          window.location.href = "peptide-order-review.html";
+        });
+
+        restoreCheckoutDraft();
         activateStep(0, false);
       })();
     </script>

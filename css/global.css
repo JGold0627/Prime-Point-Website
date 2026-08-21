@@ -50,6 +50,64 @@ html body.pp-dark-spotlight-canvas {
   }
 }
 
+/* Local-only design navigator. It is injected by script.js only on file/localhost previews. */
+.pp-design-navigator {
+  position: fixed;
+  right: 24px;
+  bottom: 20px;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 10px 9px 16px;
+  border: 1px solid rgba(203, 167, 102, 0.55);
+  border-radius: 999px;
+  background: rgba(15, 31, 45, 0.96);
+  box-shadow: 0 16px 36px rgba(15, 31, 45, 0.22);
+  color: #fffdf8;
+  font-size: 0.78rem;
+  backdrop-filter: blur(14px);
+}
+
+.pp-design-navigator > span {
+  margin-right: 3px;
+  white-space: nowrap;
+}
+
+.pp-design-navigator button {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(255, 253, 248, 0.28);
+  border-radius: 50%;
+  background: rgba(255, 253, 248, 0.06);
+  color: #fffdf8;
+  cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.pp-design-navigator button:hover,
+.pp-design-navigator button:focus-visible {
+  border-color: var(--pp-gold);
+  background: var(--pp-gold);
+  color: var(--pp-prime-navy);
+}
+
+.pp-design-navigator button:disabled {
+  cursor: default;
+  opacity: 0.28;
+}
+
+@media (max-width: 600px) {
+  .pp-design-navigator {
+    right: 12px;
+    bottom: 12px;
+    max-width: calc(100vw - 24px);
+  }
+}
+
 html,
 body {
   margin: 0;

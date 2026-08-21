@@ -116,7 +116,7 @@ const globalHeaderMarkup = `
         <a class="header-action header-login" href="login.html">Log In</a>
         <a class="header-action header-start" href="index.html#services">Get Started</a>
         `}
-        <a class="header-cart" href="${isMemberSession ? "blood-work-checkout.html?return=member-home.html" : "login.html?return=blood-work-checkout.html"}" aria-label="Shopping cart" title="Shopping cart">
+        <a class="header-cart" href="${isMemberSession ? "blood-work-checkout.html?return=member-home.html" : "blood-work-cart.html"}" aria-label="Shopping cart" title="Shopping cart">
           <svg class="header-cart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="8" cy="21" r="1"></circle>
             <circle cx="19" cy="21" r="1"></circle>
@@ -150,18 +150,18 @@ if (isLocalDesignPreview) {
     "glp-eligibility-contact.html",
     "glp-eligibility-medical.html",
     "glp-eligibility-medical-sex.html",
-    "glp-eligibility-medical-height-weight.html",
-    "glp-eligibility-medical-goal-weight.html",
-    "glp-eligibility-medical-doctor-visit.html",
     "glp-eligibility-medical-current-glp1.html",
     "glp-eligibility-medical-diabetes.html",
-    "glp-eligibility-medical-diabetes-review.html",
+    "glp-eligibility-medical-eligible.html",
+    "glp-eligibility-medical-doctor-visit.html",
     "glp-eligibility-medical-conditions.html",
-    "glp-eligibility-medical-current-conditions.html",
-    "glp-eligibility-medical-medications.html",
+    "glp-eligibility-medical-height-weight.html",
+    "glp-eligibility-medical-goal-weight.html",
+    "glp-eligibility-medical-preferences.html",
     "glp-eligibility-medical-allergies.html",
     "glp-eligibility-medical-allergy-details.html",
-    "glp-eligibility-medical-preferences.html",
+    "glp-eligibility-medical-medications.html",
+    "glp-eligibility-medical-current-conditions.html",
     "glp-eligibility-medical-additional-notes.html",
     "glp-treatment-selection.html",
     treatmentStep,
@@ -209,6 +209,50 @@ if (isLocalDesignPreview) {
       }
     });
   }
+
+  const peptideDesignFlow = [
+    "peptides.html",
+    "peptide-consult.html",
+    "peptide-checkout.html",
+    "peptide-order-review.html",
+    "peptide-account-finalize.html",
+    "peptide-schedule.html",
+    "member-home.html"
+  ];
+  const currentPeptideDesignIndex = peptideDesignFlow.indexOf(currentPage);
+
+  if (currentPeptideDesignIndex !== -1) {
+    const goToPeptideDesignStep = (index) => {
+      if (index < 0 || index >= peptideDesignFlow.length) return;
+      const destination = new URL(peptideDesignFlow[index], window.location.href);
+      destination.searchParams.set("design", "peptide");
+      window.location.href = destination.href;
+    };
+
+    const peptideNavigator = document.createElement("nav");
+    peptideNavigator.className = "pp-design-navigator";
+    peptideNavigator.setAttribute("aria-label", "Local peptide design navigation");
+    peptideNavigator.innerHTML = `
+      <span>Peptide design ${currentPeptideDesignIndex + 1}/${peptideDesignFlow.length}</span>
+      <button type="button" data-design-previous aria-label="Previous peptide screen" ${currentPeptideDesignIndex === 0 ? "disabled" : ""}>&larr;</button>
+      <button type="button" data-design-next aria-label="Next peptide screen" ${currentPeptideDesignIndex === peptideDesignFlow.length - 1 ? "disabled" : ""}>&rarr;</button>
+    `;
+    peptideNavigator.querySelector("[data-design-previous]")?.addEventListener("click", () => goToPeptideDesignStep(currentPeptideDesignIndex - 1));
+    peptideNavigator.querySelector("[data-design-next]")?.addEventListener("click", () => goToPeptideDesignStep(currentPeptideDesignIndex + 1));
+    document.body.appendChild(peptideNavigator);
+
+    document.addEventListener("keydown", (event) => {
+      if (!event.altKey || !event.shiftKey) return;
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        goToPeptideDesignStep(currentPeptideDesignIndex - 1);
+      }
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        goToPeptideDesignStep(currentPeptideDesignIndex + 1);
+      }
+    });
+  }
 }
 
 const primePointCartKey = "primePointBloodWorkCart";
@@ -231,7 +275,7 @@ const bloodWorkProducts = {
     id: "precision",
     name: "Monthly Precision",
     detail: "Four comprehensive blood panels per year",
-    price: 1188,
+    price: 1199,
     cadence: "charged annually"
   },
   "consult-20": {
@@ -249,14 +293,23 @@ const bloodWorkProducts = {
     cadence: "one-time purchase"
   }
 };
+const bloodWorkMembershipIds = new Set(["baseline", "biannual", "precision"]);
 
 const getPrimePointCart = () => {
   try {
     const saved = JSON.parse(window.localStorage.getItem(primePointCartKey) || "[]");
     const entries = Array.isArray(saved) ? saved : saved?.id ? [saved] : [];
-    return entries
+    const validEntries = entries
       .filter((entry) => bloodWorkProducts[entry.id])
       .map((entry) => ({ id: entry.id, quantity: Math.max(1, Number(entry.quantity) || 1) }));
+    const activeMembershipIndex = validEntries.reduce(
+      (latestIndex, entry, index) => bloodWorkMembershipIds.has(entry.id) ? index : latestIndex,
+      -1
+    );
+
+    return validEntries.filter(
+      (entry, index) => !bloodWorkMembershipIds.has(entry.id) || index === activeMembershipIndex
+    );
   } catch (error) {
     return [];
   }
@@ -286,12 +339,20 @@ document.querySelectorAll("[data-add-blood-work-plan]").forEach((button) => {
 const addBloodWorkProduct = (productId) => {
   if (!bloodWorkProducts[productId]) return;
   const cart = getPrimePointCart();
-  const existing = cart.find((item) => item.id === productId);
-  if (existing) existing.quantity += 1;
-  else cart.push({ id: productId, quantity: 1 });
+  let updatedCart;
+
+  if (bloodWorkMembershipIds.has(productId)) {
+    updatedCart = cart.filter((item) => !bloodWorkMembershipIds.has(item.id));
+    updatedCart.push({ id: productId, quantity: 1 });
+  } else {
+    updatedCart = cart;
+    const existing = updatedCart.find((item) => item.id === productId);
+    if (existing) existing.quantity += 1;
+    else updatedCart.push({ id: productId, quantity: 1 });
+  }
 
   try {
-    savePrimePointCart(cart);
+    savePrimePointCart(updatedCart);
   } catch (error) {
     return;
   }

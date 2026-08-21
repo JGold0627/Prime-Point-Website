@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Schedule Your Consultation | Prime Point Health</title>
+    <meta name="description" content="Select a preferred time for your Prime Point Health peptide consultation." />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/peptide-enrollment.css" />
+  </head>
+  <body class="peptide-enrollment-page">
+    <header class="site-header" data-site-header-mount aria-label="Primary navigation"></header>
+    <main class="peptide-enrollment-main">
+      <div class="peptide-enrollment-shell">
+        <div class="peptide-enrollment-progress" aria-label="Enrollment progress">
+          <span class="is-complete"></span><span class="is-complete"></span><span class="is-complete"></span><span class="is-active"></span>
+          <small>Scheduling</small>
+        </div>
+        <header class="peptide-enrollment-heading">
+          <p class="peptide-enrollment-eyebrow">Your consultation</p>
+          <h1>Choose a time to meet your physician.</h1>
+          <p>Select your preferred consultation time. This area is prepared for a future Calendly or equivalent secure scheduling connection.</p>
+        </header>
+        <section class="peptide-enrollment-card" aria-labelledby="scheduler-title">
+          <h2 id="scheduler-title">Schedule consultation</h2>
+          <div class="peptide-scheduler-placeholder" data-scheduling-provider="calendly">
+            <p>When the scheduling service is connected, live physician availability and time-zone handling will appear here.</p>
+            <form class="peptide-enrollment-form" data-peptide-schedule-form>
+              <div class="peptide-enrollment-fields">
+                <label class="peptide-enrollment-field">Preferred date
+                  <input name="appointment_date" type="date" required />
+                </label>
+                <label class="peptide-enrollment-field">Preferred time
+                  <select name="appointment_time" required>
+                    <option value="" selected disabled>Select a time</option>
+                    <option>9:00 AM</option><option>10:30 AM</option><option>1:00 PM</option><option>2:30 PM</option><option>4:00 PM</option>
+                  </select>
+                </label>
+              </div>
+              <button class="peptide-enrollment-button" type="submit">Confirm and enter dashboard <span aria-hidden="true">&rarr;</span></button>
+              <p class="peptide-scheduler-status" data-schedule-status aria-live="polite"></p>
+            </form>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script src="script.js"></script>
+    <script>
+      (() => {
+        const isDesignPreview = window.location.protocol === "file:" || ["localhost", "127.0.0.1"].includes(window.location.hostname);
+        try {
+          if (!isDesignPreview && localStorage.getItem("primePointMemberLoggedIn") !== "true") {
+            window.location.replace("peptide-account-finalize.html");
+            return;
+          }
+        } catch (error) {}
+        const form = document.querySelector("[data-peptide-schedule-form]");
+        const date = form.elements.appointment_date;
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        date.min = tomorrow.toISOString().slice(0, 10);
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+          if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+          }
+          const appointment = { date: date.value, time: form.elements.appointment_time.value, status: "preferred-time-prototype" };
+          try {
+            localStorage.setItem("primePointPeptideAppointment", JSON.stringify(appointment));
+            localStorage.setItem("primePointPeptideEnrollmentComplete", "true");
+          } catch (error) {}
+          document.querySelector("[data-schedule-status]").textContent = "Preference saved. Opening your dashboard...";
+          window.location.href = "member-home.html";
+        });
+      })();
+    </script>
+  </body>
+</html>
