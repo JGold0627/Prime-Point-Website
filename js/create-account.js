@@ -12,6 +12,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const submitButton = form.querySelector(".account-submit");
   const submitButtonText = submitButton?.querySelector("span");
 
+  const successModal = document.querySelector(
+    "[data-account-success-modal]"
+  );
+
+  const successEmail = document.querySelector(
+    "[data-account-success-email]"
+  );
+
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
@@ -19,11 +27,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const firstName = String(formData.get("first_name") || "").trim();
     const lastName = String(formData.get("last_name") || "").trim();
+
     const email = String(formData.get("email") || "")
       .trim()
       .toLowerCase();
 
     const password = String(formData.get("password") || "");
+
     const passwordConfirm = String(
       formData.get("password_confirm") || ""
     );
@@ -76,15 +86,29 @@ document.addEventListener("DOMContentLoaded", () => {
         throw error;
       }
 
-      // Because email confirmation is enabled in Supabase,
-      // a new user normally exists without an active session
-      // until their email address is verified.
+      // Email confirmation is enabled in Supabase.
+      // Show the Prime Point verification modal.
       if (data.user && !data.session) {
-        form.reset();
+        if (successEmail) {
+          successEmail.textContent = email;
+        }
 
-        showMessage(
-          "Account created. Check your email to verify your Prime Point Health account."
-        );
+        form.reset();
+        showMessage("");
+
+        if (successModal) {
+          successModal.hidden = false;
+
+          document.body.style.overflow = "hidden";
+
+          const loginLink = successModal.querySelector(
+            ".account-success-action"
+          );
+
+          window.setTimeout(() => {
+            loginLink?.focus();
+          }, 100);
+        }
 
         return;
       }

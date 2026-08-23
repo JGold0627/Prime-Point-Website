@@ -130,6 +130,65 @@
         </section>
       </div>
     </main>
+        
+    <div class="account-success-modal" data-account-success-modal hidden>
+      <div class="account-success-backdrop"></div>
+
+      <section
+        class="account-success-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="account-success-title"
+      >
+        <div class="account-success-brand">
+          <span>Prime Point Health</span>
+          <i aria-hidden="true"></i>
+        </div>
+
+        <div class="account-success-icon" aria-hidden="true">
+          <span>✓</span>
+        </div>
+
+        <p class="account-success-kicker">Account created</p>
+
+        <h2 id="account-success-title">
+          Thank you for creating your account.
+        </h2>
+
+        <p class="account-success-lede">
+          Your Prime Point Health account has been created successfully.
+          The final step is verifying your email address.
+        </p>
+
+        <div class="account-success-email">
+          <span>Verification sent to</span>
+          <strong data-account-success-email></strong>
+        </div>
+
+        <p class="account-success-copy">
+          Please open the verification email we just sent and select
+          <strong>Verify email address</strong>. Once verified, you can securely
+          log in and access your Prime Point member profile.
+        </p>
+
+        <div class="account-success-note">
+          <span class="account-success-note-mark" aria-hidden="true">i</span>
+          <p>
+            Don't see the email? Give it a minute, then check your spam or junk
+            folder.
+          </p>
+        </div>
+
+        <a class="account-success-action" href="login.html">
+          <span>Go to login</span>
+          <span aria-hidden="true">→</span>
+        </a>
+
+        <p class="account-success-footer">
+          Your health. One secure profile.
+        </p>
+      </section>
+    </div>
 
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
