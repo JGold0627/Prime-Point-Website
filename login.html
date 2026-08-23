@@ -23,14 +23,14 @@
           <a href="create-account.html">Create an account</a>
         </p>
 
-        <form class="login-form" action="#" method="post">
+        <form class="login-form" action="#" method="post" data-login-form>
           <div class="login-field">
-            <label for="login-username">Username or email</label>
+            <label for="login-email">Email address</label>
             <input
-              id="login-username"
-              name="username"
-              type="text"
-              autocomplete="username"
+              id="login-email"
+              name="email"
+              type="email"
+              autocomplete="email"
               required
             />
           </div>
@@ -75,5 +75,8 @@
     </main>
 
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-client.js"></script>
+    <script src="js/login.js"></script>
   </body>
 </html>

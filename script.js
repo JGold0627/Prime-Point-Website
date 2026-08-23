@@ -28,13 +28,7 @@ const activeHeaderSection = (() => {
 const headerLinkClass = (section) => activeHeaderSection === section ? " nav-link-active" : "";
 const headerCurrentState = (section) => activeHeaderSection === section ? ' aria-current="true"' : "";
 const isMemberHome = currentPage === "member-home.html";
-let isMemberSession = isMemberHome;
-try {
-  if (isMemberHome) window.localStorage.setItem("primePointMemberLoggedIn", "true");
-  isMemberSession = isMemberHome || window.localStorage.getItem("primePointMemberLoggedIn") === "true";
-} catch (error) {
-  isMemberSession = isMemberHome;
-}
+const isMemberSession = isMemberHome;
 
 const globalHeaderMarkup = `
   <header class="site-header" data-site-header="global" aria-label="Primary navigation">
@@ -99,7 +93,7 @@ const globalHeaderMarkup = `
         ${isMemberSession ? `
         <div class="header-member-account">
           <span class="header-member-avatar" aria-hidden="true" data-member-initials>PPH</span>
-          <span class="header-member-greeting"><strong>Welcome back, <b data-member-display-name>Member</b></strong><small data-member-number>Member # pending</small></span>
+          <span class="header-member-greeting"><strong>Welcome back, <b data-member-first-name>Member</b></strong><small>Prime Point Member</small></span>
           <button class="header-member-settings" type="button" aria-label="Open member options" aria-haspopup="true" aria-expanded="false" aria-controls="header-member-menu" data-member-menu-trigger>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <circle cx="12" cy="12" r="3"></circle>
@@ -107,9 +101,11 @@ const globalHeaderMarkup = `
             </svg>
           </button>
           <div class="header-member-menu" id="header-member-menu" role="menu" hidden>
-            <p><strong data-member-display-name>Member</strong><small data-member-number>Member # pending</small></p>
+            <p><strong data-member-first-name>Member</strong><small>Prime Point Member</small></p>
             <a href="member-home.html#member-home-title" role="menuitem">Member profile</a>
-            <a href="login.html" role="menuitem" data-member-sign-out>Sign out</a>
+            <button type="button" role="menuitem" data-member-logout>
+            Sign out
+            </button>
           </div>
         </div>
         ` : `
@@ -551,33 +547,6 @@ if (memberMenuTrigger && memberMenu) {
   });
 }
 
-let savedMemberFirstName = "Josh";
-let savedMemberLastName = "Gold";
-let savedMemberNumber = "1";
-try {
-  savedMemberFirstName = window.localStorage.getItem("primePointMemberFirstName") || "Josh";
-  savedMemberLastName = window.localStorage.getItem("primePointMemberLastName") || "Gold";
-  savedMemberNumber = window.localStorage.getItem("primePointMemberNumber") || "1";
-} catch (error) {
-  savedMemberFirstName = "Josh";
-  savedMemberLastName = "Gold";
-  savedMemberNumber = "1";
-}
-
-document.querySelectorAll("[data-member-display-name]").forEach((name) => {
-  name.textContent = savedMemberFirstName || "Josh";
-});
-
-document.querySelectorAll("[data-member-initials]").forEach((initials) => {
-  const firstInitial = savedMemberFirstName.charAt(0);
-  const lastInitial = savedMemberLastName.charAt(0);
-  initials.textContent = (firstInitial + lastInitial).toUpperCase() || "PPH";
-});
-
-document.querySelectorAll("[data-member-number]").forEach((number) => {
-  number.textContent = savedMemberNumber ? `Member #${savedMemberNumber}` : "Member # pending";
-});
-
 const scrollToHomeServices = ({ behavior = "smooth" } = {}) => {
   const servicesSection = document.getElementById("services");
   const servicesGrid = servicesSection?.querySelector(".home-services-grid");
@@ -728,47 +697,6 @@ document.querySelectorAll("[data-password-toggle]").forEach((toggle) => {
   });
 });
 
-document.querySelectorAll(".login-form").forEach((form) => {
-  const note = form.querySelector(".login-form-note");
-  const returnPage = new URLSearchParams(window.location.search).get("return");
-  const safeReturnPage = returnPage === "blood-work-checkout.html" ? returnPage : "member-home.html";
-  const createAccountLink = document.querySelector('.login-account-prompt a[href="create-account.html"]');
-  if (createAccountLink && safeReturnPage === "blood-work-checkout.html") {
-    createAccountLink.href = `create-account.html?return=${encodeURIComponent(safeReturnPage)}`;
-  }
-
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
-
-    if (note) {
-      note.textContent = "Opening your secure member home...";
-    }
-
-    try {
-      window.localStorage.setItem("primePointMemberLoggedIn", "true");
-    } catch (error) {
-      // Continue to the local member experience when storage is unavailable.
-    }
-
-    window.location.href = safeReturnPage;
-  });
-});
-
-document.querySelectorAll("[data-member-sign-out]").forEach((link) => {
-  link.addEventListener("click", () => {
-    try {
-      window.localStorage.removeItem("primePointMemberLoggedIn");
-    } catch (error) {
-      // The destination still provides a signed-out screen.
-    }
-  });
-});
-
 document.querySelectorAll("[data-member-dashboard]").forEach((dashboard) => {
   const tabs = Array.from(dashboard.querySelectorAll("[data-member-tab]"));
   const panels = Array.from(dashboard.querySelectorAll("[data-member-panel]"));
@@ -829,53 +757,6 @@ document.querySelectorAll("[data-member-feedback]").forEach((form) => {
     const note = form.querySelector("[data-member-feedback-note]");
     if (note) note.textContent = "Secure note saving will be enabled when member data storage is connected.";
   });
-});
-
-document.querySelectorAll("[data-account-form]").forEach((form) => {
-  const password = form.querySelector('input[name="password"]');
-  const passwordConfirm = form.querySelector('input[name="password_confirm"]');
-  const note = form.querySelector(".account-form-note");
-
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
-
-    const firstName = form.querySelector('input[name="first_name"]')?.value.trim();
-    const lastName = form.querySelector('input[name="last_name"]')?.value.trim();
-    if (firstName) {
-      try {
-        window.localStorage.setItem("primePointMemberFirstName", firstName);
-        if (lastName) window.localStorage.setItem("primePointMemberLastName", lastName);
-      } catch (error) {
-        // The account flow still works when browser storage is unavailable.
-      }
-    }
-
-    if (password && passwordConfirm && password.value !== passwordConfirm.value) {
-      passwordConfirm.setCustomValidity("Passwords must match.");
-      passwordConfirm.reportValidity();
-      return;
-    }
-
-    passwordConfirm?.setCustomValidity("");
-
-    try {
-      window.localStorage.setItem("primePointMemberLoggedIn", "true");
-    } catch (error) {
-      // Continue to the requested destination when storage is unavailable.
-    }
-
-    const returnPage = new URLSearchParams(window.location.search).get("return");
-    const safeReturnPage = returnPage === "blood-work-checkout.html" ? returnPage : "member-home.html";
-    if (note) note.textContent = "Account created. Opening your next step...";
-    window.location.href = safeReturnPage;
-  });
-
-  passwordConfirm?.addEventListener("input", () => passwordConfirm.setCustomValidity(""));
 });
 
 document.querySelectorAll("[data-username-recovery]").forEach((form) => {
