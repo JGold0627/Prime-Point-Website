@@ -1,11 +1,11 @@
 // Canonical public header: new pages inherit it by loading global.css and this script.
 const currentPage = window.location.pathname.split("/").pop()?.toLowerCase() || "index.html";
 const activeHeaderSection = (() => {
-  if (["peptides.html", "peptide-consult.html", "peptide-checkout.html"].includes(currentPage)) {
+  if (currentPage === "peptides.html") {
     return "peptides";
   }
 
-  if (currentPage === "glp-1s.html" || currentPage.startsWith("glp-eligibility") || currentPage.startsWith("glp-treatment-") || currentPage.startsWith("glp-identity-") || currentPage.startsWith("glp-checkout-") || [
+  if (currentPage === "glp-1s.html" || [
     "semaglutide.html",
     "tirzepatide.html",
     "semaglutide-tablets.html",
@@ -14,7 +14,7 @@ const activeHeaderSection = (() => {
     return "glp";
   }
 
-  if (["blood-work.html", "blood-work-cart.html", "blood-work-checkout.html"].includes(currentPage)) {
+  if (["blood-work.html", "blood-work-checkout.html"].includes(currentPage)) {
     return "blood-work";
   }
 
@@ -112,14 +112,6 @@ const globalHeaderMarkup = `
         <a class="header-action header-login" href="login.html">Log In</a>
         <a class="header-action header-start" href="index.html#services">Get Started</a>
         `}
-        <a class="header-cart" href="${isMemberSession ? "blood-work-checkout.html?return=member-home.html" : "blood-work-cart.html"}" aria-label="Shopping cart" title="Shopping cart">
-          <svg class="header-cart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="8" cy="21" r="1"></circle>
-            <circle cx="19" cy="21" r="1"></circle>
-            <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57L22 7H5.12"></path>
-          </svg>
-          <span class="header-cart-count" data-cart-count hidden>0</span>
-        </a>
       </div>
     </div>
   </header>
@@ -137,82 +129,8 @@ const isLocalDesignPreview = window.location.protocol === "file:"
   || ["localhost", "127.0.0.1"].includes(window.location.hostname);
 
 if (isLocalDesignPreview) {
-  const designParams = new URLSearchParams(window.location.search);
-  const designTreatment = designParams.get("treatment") || "semaglutide";
-  const designFormat = designParams.get("format") || (designTreatment.includes("tablets") ? "tablets" : "injectable");
-  const treatmentStep = designFormat === "tablets" ? "glp-treatment-tablets.html" : "glp-treatment-injectables.html";
-  const glpDesignFlow = [
-    "glp-eligibility.html",
-    "glp-eligibility-contact.html",
-    "glp-eligibility-medical.html",
-    "glp-eligibility-medical-sex.html",
-    "glp-eligibility-medical-current-glp1.html",
-    "glp-eligibility-medical-diabetes.html",
-    "glp-eligibility-medical-eligible.html",
-    "glp-eligibility-medical-doctor-visit.html",
-    "glp-eligibility-medical-conditions.html",
-    "glp-eligibility-medical-height-weight.html",
-    "glp-eligibility-medical-goal-weight.html",
-    "glp-eligibility-medical-preferences.html",
-    "glp-eligibility-medical-allergies.html",
-    "glp-eligibility-medical-allergy-details.html",
-    "glp-eligibility-medical-medications.html",
-    "glp-eligibility-medical-current-conditions.html",
-    "glp-eligibility-medical-additional-notes.html",
-    "glp-treatment-selection.html",
-    treatmentStep,
-    "glp-identity-verification.html",
-    "glp-identity-face.html",
-    "glp-checkout-disclaimer.html",
-    "glp-checkout-summary.html",
-    "glp-checkout-shipping.html",
-    "glp-checkout-payment.html"
-  ];
-  const currentDesignIndex = glpDesignFlow.indexOf(currentPage);
-
-  if (currentDesignIndex !== -1) {
-    const goToDesignStep = (index) => {
-      if (index < 0 || index >= glpDesignFlow.length) return;
-      const destination = new URL(glpDesignFlow[index], window.location.href);
-      destination.searchParams.set("treatment", designTreatment);
-      if (index >= glpDesignFlow.indexOf(treatmentStep)) {
-        destination.searchParams.set("format", designFormat);
-      }
-      window.location.href = destination.href;
-    };
-
-    const designNavigator = document.createElement("nav");
-    designNavigator.className = "glp-design-navigator";
-    designNavigator.setAttribute("aria-label", "Local design navigation");
-    designNavigator.innerHTML = `
-      <span>Design ${currentDesignIndex + 1}/${glpDesignFlow.length}</span>
-      <button type="button" data-design-previous aria-label="Previous design screen" ${currentDesignIndex === 0 ? "disabled" : ""}>&larr;</button>
-      <button type="button" data-design-next aria-label="Next design screen" ${currentDesignIndex === glpDesignFlow.length - 1 ? "disabled" : ""}>&rarr;</button>
-    `;
-    designNavigator.querySelector("[data-design-previous]")?.addEventListener("click", () => goToDesignStep(currentDesignIndex - 1));
-    designNavigator.querySelector("[data-design-next]")?.addEventListener("click", () => goToDesignStep(currentDesignIndex + 1));
-    document.body.appendChild(designNavigator);
-
-    document.addEventListener("keydown", (event) => {
-      if (!event.altKey || !event.shiftKey) return;
-      if (event.key === "ArrowLeft") {
-        event.preventDefault();
-        goToDesignStep(currentDesignIndex - 1);
-      }
-      if (event.key === "ArrowRight") {
-        event.preventDefault();
-        goToDesignStep(currentDesignIndex + 1);
-      }
-    });
-  }
-
   const peptideDesignFlow = [
     "peptides.html",
-    "peptide-consult.html",
-    "peptide-checkout.html",
-    "peptide-order-review.html",
-    "peptide-account-finalize.html",
-    "peptide-schedule.html",
     "member-home.html"
   ];
   const currentPeptideDesignIndex = peptideDesignFlow.indexOf(currentPage);
@@ -315,128 +233,6 @@ const savePrimePointCart = (cart) => {
   window.localStorage.setItem(primePointCartKey, JSON.stringify(cart));
 };
 
-const updatePrimePointCartBadge = () => {
-  const quantity = getPrimePointCart().reduce((sum, item) => sum + item.quantity, 0);
-  document.querySelectorAll("[data-cart-count]").forEach((badge) => {
-    badge.textContent = String(quantity);
-    badge.hidden = quantity === 0;
-  });
-};
-
-updatePrimePointCartBadge();
-
-document.querySelectorAll("[data-add-blood-work-plan]").forEach((button) => {
-  button.addEventListener("click", (event) => {
-    event.preventDefault();
-    addBloodWorkProduct(button.dataset.addBloodWorkPlan);
-  });
-});
-
-const addBloodWorkProduct = (productId) => {
-  if (!bloodWorkProducts[productId]) return;
-  const cart = getPrimePointCart();
-  let updatedCart;
-
-  if (bloodWorkMembershipIds.has(productId)) {
-    updatedCart = cart.filter((item) => !bloodWorkMembershipIds.has(item.id));
-    updatedCart.push({ id: productId, quantity: 1 });
-  } else {
-    updatedCart = cart;
-    const existing = updatedCart.find((item) => item.id === productId);
-    if (existing) existing.quantity += 1;
-    else updatedCart.push({ id: productId, quantity: 1 });
-  }
-
-  try {
-    savePrimePointCart(updatedCart);
-  } catch (error) {
-    return;
-  }
-
-  updatePrimePointCartBadge();
-  window.location.href = "blood-work-cart.html";
-};
-
-document.querySelectorAll("[data-add-blood-work-product]").forEach((button) => {
-  button.addEventListener("click", (event) => {
-    event.preventDefault();
-    addBloodWorkProduct(button.dataset.addBloodWorkProduct);
-  });
-});
-
-document.querySelectorAll("[data-blood-work-cart]").forEach((cart) => {
-  let items = getPrimePointCart();
-  const filledState = cart.querySelector("[data-cart-filled]");
-  const emptyState = cart.querySelector("[data-cart-empty]");
-  const itemsContainer = cart.querySelector("[data-cart-items]");
-  const currency = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
-
-  const renderCart = () => {
-    const hasItems = items.length > 0;
-    if (filledState) filledState.hidden = !hasItems;
-    if (emptyState) emptyState.hidden = hasItems;
-    if (!hasItems || !itemsContainer) {
-      updatePrimePointCartBadge();
-      return;
-    }
-
-    itemsContainer.replaceChildren();
-    items.forEach((item) => {
-      const product = bloodWorkProducts[item.id];
-      const itemTotal = product.price * item.quantity;
-      const itemElement = document.createElement("section");
-      itemElement.className = "cart-item";
-      itemElement.setAttribute("aria-label", product.name);
-      itemElement.innerHTML = `
-        <div class="cart-product-mark" aria-hidden="true"><span>PPH</span><small>Blood Work</small></div>
-        <div class="cart-item-details">
-          <p class="cart-item-brand">Prime Point Health Blood Work</p>
-          <h2>${product.name}</h2>
-          <p>${product.detail}</p>
-          <div class="cart-quantity" aria-label="${product.name} quantity">
-            <button type="button" aria-label="Decrease ${product.name} quantity" data-item-decrease="${item.id}">&minus;</button>
-            <span aria-live="polite">${item.quantity}</span>
-            <button type="button" aria-label="Increase ${product.name} quantity" data-item-increase="${item.id}">+</button>
-          </div>
-        </div>
-        <strong class="cart-item-price">${currency.format(itemTotal)}</strong>`;
-      itemsContainer.appendChild(itemElement);
-    });
-
-    const total = items.reduce((sum, item) => sum + bloodWorkProducts[item.id].price * item.quantity, 0);
-    cart.querySelectorAll("[data-cart-price], [data-cart-total]").forEach((node) => { node.textContent = currency.format(total); });
-    savePrimePointCart(items);
-    updatePrimePointCartBadge();
-  };
-
-  renderCart();
-
-  itemsContainer?.addEventListener("click", (event) => {
-    const increase = event.target.closest("[data-item-increase]");
-    const decrease = event.target.closest("[data-item-decrease]");
-    const productId = increase?.dataset.itemIncrease || decrease?.dataset.itemDecrease;
-    if (!productId) return;
-    const item = items.find((entry) => entry.id === productId);
-    if (!item) return;
-    if (increase) item.quantity += 1;
-    if (decrease && item.quantity > 1) item.quantity -= 1;
-    else if (decrease) items = items.filter((entry) => entry.id !== productId);
-    renderCart();
-  });
-
-  const consent = cart.querySelector("[data-cart-consent]");
-  const checkout = cart.querySelector("[data-cart-checkout]");
-  const note = cart.querySelector("[data-cart-note]");
-  if (consent && checkout) {
-    consent.addEventListener("change", () => { checkout.disabled = !consent.checked; });
-    checkout.addEventListener("click", () => {
-      window.location.href = isMemberSession
-        ? "blood-work-checkout.html"
-        : "login.html?return=blood-work-checkout.html";
-    });
-  }
-});
-
 document.querySelectorAll("[data-blood-work-checkout]").forEach((checkoutPage) => {
   let items = getPrimePointCart();
   const emptyState = checkoutPage.querySelector("[data-checkout-empty]");
@@ -457,7 +253,6 @@ document.querySelectorAll("[data-blood-work-checkout]").forEach((checkoutPage) =
     if (checkoutContent) checkoutContent.hidden = !hasItems;
     if (!hasItems) {
       savePrimePointCart(items);
-      updatePrimePointCartBadge();
       return;
     }
 
@@ -483,7 +278,6 @@ document.querySelectorAll("[data-blood-work-checkout]").forEach((checkoutPage) =
       productsContainer.appendChild(row);
     });
     savePrimePointCart(items);
-    updatePrimePointCartBadge();
   };
 
   renderCheckout();

@@ -100,22 +100,24 @@
   align-items: center;
   justify-content: space-between;
   gap: clamp(10px, 1.3vw, 18px);
-  width: clamp(268px, 24vw, 318px);
-  min-height: clamp(44px, 4.5vw, 54px);
+  width: clamp(215px, 19vw, 238px);
+  min-height: clamp(54px, 5vw, 62px);
   margin-top: clamp(38px, 5vh, 58px);
-  padding: 0 clamp(18px, 2vw, 24px);
+  padding: 0 clamp(20px, 2vw, 26px);
   overflow: hidden;
-  border: 1px solid rgba(203, 167, 102, 0.62);
-  border-radius: 999px;
-  background: linear-gradient(135deg, #f0d99f 0%, #cba766 58%, #b8893c 100%);
+  border: 1px solid var(--pp-prime-navy);
+  border-radius: 6px;
+  background: linear-gradient(115deg, #c59a4e 0%, #e4c77f 38%, #cba766 62%, #b9893d 100%);
   color: #0f1f2d;
-  font-size: clamp(0.68rem, 0.72vw, 0.78rem);
-  font-weight: 850;
+  font-family: inherit;
+  font-size: clamp(0.86rem, 0.9vw, 0.96rem);
+  font-weight: 500;
   line-height: 1;
   letter-spacing: 0;
-  text-transform: uppercase;
+  text-transform: none;
   text-decoration: none;
   white-space: nowrap;
+  cursor: pointer;
   box-shadow: 0 10px 24px rgba(15, 31, 45, 0.1);
   transition:
     background-color 220ms ease,
@@ -132,7 +134,15 @@
 }
 
 .peptides-assessment-bubble::after {
-  content: none;
+  content: "";
+  position: absolute;
+  top: -70%;
+  bottom: -70%;
+  left: -28%;
+  width: 22%;
+  background: linear-gradient(90deg, transparent, rgba(255, 250, 222, 0.78), transparent);
+  transform: translateX(-190%) rotate(14deg);
+  pointer-events: none;
 }
 
 .peptides-assessment-bubble span:last-child {
@@ -153,15 +163,41 @@
 
 .peptides-assessment-bubble:hover,
 .peptides-assessment-bubble:focus-visible {
-  border-color: #cba766;
-  background: linear-gradient(135deg, #f6e4b4 0%, #d5b16d 58%, #c09243 100%);
-  box-shadow: 0 14px 30px rgba(184, 137, 60, 0.25);
+  border-color: var(--pp-prime-navy);
+  background: linear-gradient(115deg, #cda65c 0%, #f0d996 40%, #d3af68 64%, #be8f41 100%);
+  box-shadow: 0 0 0 3px rgba(15, 31, 45, 0.12), 0 12px 28px rgba(184, 137, 60, 0.28);
   transform: translateY(-2px);
+}
+
+.peptides-assessment-bubble:hover::after,
+.peptides-assessment-bubble:focus-visible::after {
+  animation: peptides-button-shimmer 720ms ease-out;
+}
+
+@keyframes peptides-button-shimmer {
+  from {
+    transform: translateX(-190%) rotate(14deg);
+  }
+
+  to {
+    transform: translateX(720%) rotate(14deg);
+  }
 }
 
 .peptides-assessment-bubble:hover span:last-child,
 .peptides-assessment-bubble:focus-visible span:last-child {
   transform: translateX(5px);
+}
+
+.peptides-bottom-cta {
+  display: flex;
+  justify-content: center;
+  padding: clamp(20px, 3vw, 42px) var(--pp-page-gutter) clamp(72px, 8vw, 112px);
+  background: var(--pp-warm-ivory);
+}
+
+.peptides-bottom-cta .peptides-assessment-bubble {
+  margin-top: 0;
 }
 
 .peptides-how {
@@ -1735,8 +1771,9 @@
 
 @media (max-width: 560px) {
   .peptides-assessment-bubble {
-    min-width: min(100%, 330px);
-    padding-left: 26px;
+    width: min(100%, 228px);
+    min-width: 0;
+    padding-left: 22px;
   }
 
   .peptides-how {
@@ -1930,6 +1967,308 @@
   }
 }
 
+/* Peptide education panel */
+.peptides-how {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.peptides-how .peptides-how-inner {
+  width: min(calc(100% - (2 * var(--pp-page-gutter))), 1220px);
+  margin-top: clamp(28px, 3vw, 44px);
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.peptides-therapy-intro {
+  width: min(100%, 1220px);
+  margin: 0 auto;
+  text-align: left;
+}
+
+.peptides-therapy-intro .peptides-how-kicker {
+  margin-bottom: clamp(20px, 2.2vw, 30px);
+}
+
+.peptides-therapy-intro h2 {
+  max-width: 900px;
+  margin: 0;
+  color: var(--pp-prime-navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.65rem, 6vw, 6.2rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+}
+
+.peptides-therapy-copy {
+  max-width: 980px;
+  margin: clamp(24px, 3vw, 38px) 0 0;
+  color: rgba(15, 31, 45, 0.78);
+  font-family: Inter, Arial, sans-serif;
+  font-size: clamp(1rem, 1.25vw, 1.18rem);
+  line-height: 1.7;
+}
+
+.peptides-therapy-pillars {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(16px, 2vw, 28px);
+  margin: clamp(54px, 6vw, 84px) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.peptides-therapy-pillars li {
+  min-width: 0;
+  min-height: 0;
+  padding: clamp(20px, 1.8vw, 28px) clamp(18px, 2vw, 28px);
+  border: 1px solid rgba(154, 120, 58, 0.26);
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(255, 252, 245, 0.82), rgba(231, 222, 207, 0.72)),
+    #eef2f3;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    0 24px 56px rgba(28, 22, 12, 0.13);
+  text-align: center;
+  transition:
+    border-color 240ms ease,
+    box-shadow 240ms ease,
+    transform 240ms ease;
+}
+
+.peptides-therapy-pillars li:hover {
+  border-color: rgba(154, 120, 58, 0.42);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.75),
+    0 30px 70px rgba(28, 22, 12, 0.18);
+  transform: translateY(-4px);
+}
+
+.peptides-therapy-icon {
+  display: grid;
+  place-items: center;
+  width: clamp(82px, 7vw, 108px);
+  height: clamp(82px, 7vw, 108px);
+  margin: 0 auto 22px;
+  color: var(--pp-gold);
+}
+
+.peptides-therapy-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.peptides-therapy-pillars h3 {
+  margin: 0;
+  color: var(--pp-prime-navy);
+  font-family: Inter, Arial, sans-serif;
+  font-size: clamp(1rem, 1.25vw, 1.2rem);
+  line-height: 1.3;
+}
+
+.peptides-therapy-pillars p {
+  max-width: 260px;
+  margin: 12px auto 0;
+  color: rgba(15, 31, 45, 0.7);
+  font-family: Inter, Arial, sans-serif;
+  font-size: 0.94rem;
+  line-height: 1.58;
+}
+
+.peptides-trust-heading {
+  max-width: 1060px;
+  margin-top: clamp(86px, 10vw, 140px);
+  text-align: left;
+}
+
+.peptides-trust-heading .peptides-how-kicker {
+  margin-bottom: clamp(20px, 2.2vw, 30px);
+}
+
+.peptides-trust-heading h2 {
+  margin: 0;
+  color: var(--pp-prime-navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.65rem, 5.5vw, 5.8rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.peptides-trust-heading h2 span {
+  display: block;
+}
+
+.peptides-trust-heading h2 span:last-child {
+  margin-top: 0.08em;
+  color: var(--pp-gold);
+  font-style: italic;
+}
+
+.peptides-trust-heading > p:last-child {
+  max-width: 980px;
+  margin: clamp(24px, 3vw, 38px) 0 0;
+  color: rgba(15, 31, 45, 0.78);
+  font-size: clamp(1rem, 1.25vw, 1.18rem);
+  line-height: 1.7;
+}
+
+.peptides-trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(18px, 2vw, 28px);
+  margin-top: clamp(40px, 5vw, 64px);
+}
+
+.peptides-trust-card {
+  position: relative;
+  min-height: clamp(430px, 39vw, 560px);
+  overflow: hidden;
+  border: 1px solid rgba(203, 167, 102, 0.52);
+  border-radius: 24px;
+  background: linear-gradient(155deg, #fffdf8 0%, #f3ecdf 100%);
+  box-shadow: 0 24px 56px rgba(86, 67, 35, 0.14);
+  color: var(--pp-prime-navy);
+}
+
+.peptides-trust-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 6%, rgba(247, 241, 230, 0.12) 30%, rgba(247, 241, 230, 0.98) 52%, #f3ecdf 100%);
+  pointer-events: none;
+}
+
+.peptides-trust-card img {
+  width: 100%;
+  height: 58%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.82) contrast(1.03);
+}
+
+.peptides-trust-card:last-child img {
+  object-position: center 30%;
+}
+
+.peptides-trust-card-copy {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: clamp(22px, 2.5vw, 34px);
+  text-align: left;
+}
+
+.peptides-trust-kicker {
+  margin: 0 0 14px;
+  color: var(--pp-gold);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.peptides-trust-card-copy h3 {
+  margin: 0;
+  color: var(--pp-prime-navy);
+  font-family: Inter, Arial, sans-serif;
+  font-size: clamp(1.45rem, 2.15vw, 2.1rem);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.peptides-trust-card-copy h3 span {
+  color: var(--pp-gold);
+}
+
+.peptides-trust-card-copy > p:last-child {
+  margin: 13px 0 0;
+  color: rgba(15, 31, 45, 0.78);
+  font-size: clamp(0.94rem, 1.15vw, 1.06rem);
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .peptides-therapy-pillars {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .peptides-trust-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .peptides-trust-card {
+    min-height: 500px;
+  }
+}
+
+@media (max-width: 560px) {
+  .peptides-how .peptides-how-inner {
+    width: min(calc(100% - (2 * var(--pp-page-gutter))), 1220px);
+    margin-top: 18px;
+    padding: 0;
+  }
+
+  .peptides-therapy-intro h2 {
+    font-size: clamp(2.35rem, 12vw, 3.35rem);
+  }
+
+  .peptides-therapy-copy {
+    font-size: 0.96rem;
+    line-height: 1.62;
+  }
+
+  .peptides-trust-heading {
+    margin-top: 72px;
+  }
+
+  .peptides-trust-heading h2 {
+    font-size: clamp(2.35rem, 12vw, 3.35rem);
+  }
+
+  .peptides-therapy-pillars {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-top: 44px;
+  }
+
+  .peptides-therapy-pillars li {
+    display: block;
+    min-height: 0;
+  }
+
+  .peptides-therapy-icon {
+    width: 76px;
+    height: 76px;
+    margin: 0 auto 18px;
+  }
+
+  .peptides-therapy-pillars p {
+    margin-top: 8px;
+  }
+
+  .peptides-trust-card {
+    min-height: 460px;
+    border-radius: 18px;
+  }
+
+  .peptides-trust-card-copy {
+    padding: 26px 22px;
+  }
+}
+
 @media (max-width: 480px) {
   .peptides-hero-content {
     padding-top: 56px;
@@ -1965,6 +2304,11 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .peptides-assessment-bubble:hover::after,
+  .peptides-assessment-bubble:focus-visible::after {
+    animation: none;
+  }
+
   .peptides-how-timeline::after,
   .peptides-how-node,
   .peptides-how-step {

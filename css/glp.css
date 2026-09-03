@@ -1371,11 +1371,13 @@ body.pp-dark-spotlight-canvas > main > section::after {
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
     0 16px 30px rgba(22, 28, 18, 0.16);
   color: #f6f4f0;
+  font-family: inherit;
   font-size: clamp(0.96rem, 1.05vw, 1.16rem);
   font-weight: 780;
   line-height: 1;
   letter-spacing: 0.02em;
   text-decoration: none;
+  cursor: pointer;
   transition:
     border-color 220ms ease,
     box-shadow 220ms ease,
@@ -1754,11 +1756,13 @@ body.pp-dark-spotlight-canvas > main > section::after {
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
     0 16px 30px rgba(22, 28, 18, 0.16);
   color: #f6f4f0;
+  font-family: inherit;
   font-size: clamp(0.94rem, 1.05vw, 1.16rem);
   font-weight: 780;
   line-height: 1;
   letter-spacing: 0.02em;
   text-decoration: none;
+  cursor: pointer;
   transition:
     border-color 220ms ease,
     box-shadow 220ms ease,
