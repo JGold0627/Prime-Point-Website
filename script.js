@@ -613,12 +613,28 @@ document.querySelectorAll(".contact-email-capture").forEach((form) => {
 const homeLaunchModal = document.querySelector("[data-home-launch-modal]");
 
 if (homeLaunchModal) {
+  const homeLaunchSessionKey = "primePointLaunchModalSeen";
   const closeButton = homeLaunchModal.querySelector("[data-home-launch-close]");
   const signupForm = homeLaunchModal.querySelector("[data-home-launch-form]");
   const status = homeLaunchModal.querySelector("[data-home-launch-status]");
   const emailInput = signupForm?.querySelector('input[type="email"]');
+  const hasSeenHomeLaunchModal = () => {
+    try {
+      return window.sessionStorage.getItem(homeLaunchSessionKey) === "true";
+    } catch (error) {
+      return false;
+    }
+  };
+  const rememberHomeLaunchModal = () => {
+    try {
+      window.sessionStorage.setItem(homeLaunchSessionKey, "true");
+    } catch (error) {
+      // Keep the close action working when browser storage is unavailable.
+    }
+  };
 
   const closeHomeLaunchModal = () => {
+    rememberHomeLaunchModal();
     homeLaunchModal.classList.remove("is-visible");
     document.body.classList.remove("home-launch-modal-open");
     window.setTimeout(() => {
@@ -626,12 +642,14 @@ if (homeLaunchModal) {
     }, window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 260);
   };
 
-  homeLaunchModal.hidden = false;
-  window.requestAnimationFrame(() => {
-    homeLaunchModal.classList.add("is-visible");
-    document.body.classList.add("home-launch-modal-open");
-    closeButton?.focus();
-  });
+  if (!hasSeenHomeLaunchModal()) {
+    homeLaunchModal.hidden = false;
+    window.requestAnimationFrame(() => {
+      homeLaunchModal.classList.add("is-visible");
+      document.body.classList.add("home-launch-modal-open");
+      closeButton?.focus();
+    });
+  }
 
   closeButton?.addEventListener("click", closeHomeLaunchModal);
   homeLaunchModal.addEventListener("click", (event) => {
@@ -651,6 +669,8 @@ if (homeLaunchModal) {
     }
     if (status) status.textContent = "Thank you — we'll keep you posted.";
     if (emailInput) emailInput.value = "";
+    rememberHomeLaunchModal();
+    window.setTimeout(closeHomeLaunchModal, 900);
   });
 }
 
