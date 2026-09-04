@@ -610,6 +610,50 @@ document.querySelectorAll(".contact-email-capture").forEach((form) => {
   });
 });
 
+const homeLaunchModal = document.querySelector("[data-home-launch-modal]");
+
+if (homeLaunchModal) {
+  const closeButton = homeLaunchModal.querySelector("[data-home-launch-close]");
+  const signupForm = homeLaunchModal.querySelector("[data-home-launch-form]");
+  const status = homeLaunchModal.querySelector("[data-home-launch-status]");
+  const emailInput = signupForm?.querySelector('input[type="email"]');
+
+  const closeHomeLaunchModal = () => {
+    homeLaunchModal.classList.remove("is-visible");
+    document.body.classList.remove("home-launch-modal-open");
+    window.setTimeout(() => {
+      homeLaunchModal.hidden = true;
+    }, window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 260);
+  };
+
+  homeLaunchModal.hidden = false;
+  window.requestAnimationFrame(() => {
+    homeLaunchModal.classList.add("is-visible");
+    document.body.classList.add("home-launch-modal-open");
+    closeButton?.focus();
+  });
+
+  closeButton?.addEventListener("click", closeHomeLaunchModal);
+  homeLaunchModal.addEventListener("click", (event) => {
+    if (event.target === homeLaunchModal) closeHomeLaunchModal();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && homeLaunchModal.classList.contains("is-visible")) {
+      closeHomeLaunchModal();
+    }
+  });
+
+  signupForm?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!signupForm.checkValidity()) {
+      signupForm.reportValidity();
+      return;
+    }
+    if (status) status.textContent = "Thank you — we'll keep you posted.";
+    if (emailInput) emailInput.value = "";
+  });
+}
+
 document.querySelectorAll(".contact-question-capture").forEach((form) => {
   form.addEventListener("submit", (event) => {
     event.preventDefault();
