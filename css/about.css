@@ -203,6 +203,10 @@
   box-shadow: 0 24px 60px rgba(13, 34, 53, 0.08);
 }
 
+.about-founder-card--reverse {
+  grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.78fr);
+}
+
 .about-founder-card--reverse .about-founder-identity { order: 2; }
 
 .about-founder-identity {
@@ -316,6 +320,10 @@
   }
 
   .about-founder-card {
+    grid-template-columns: 1fr;
+  }
+
+  .about-founder-card--reverse {
     grid-template-columns: 1fr;
   }
 
