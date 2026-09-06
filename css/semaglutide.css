@@ -35,7 +35,19 @@ main {
   display: grid;
   place-items: center;
   background:
-    linear-gradient(180deg, rgba(15, 31, 45, 0.28), rgba(15, 31, 45, 0.42)),
+    radial-gradient(
+      ellipse at 50% 27%,
+      rgba(255, 255, 255, 0.92) 0%,
+      rgba(255, 253, 248, 0.5) 34%,
+      rgba(255, 253, 248, 0) 62%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(246, 244, 240, 0.99) 0%,
+      rgba(246, 244, 240, 0.99) 73%,
+      rgba(246, 244, 240, 0.86) 76%,
+      rgba(246, 244, 240, 0) 79%
+    ),
     url("../assets/glp-page-pieces/semaglutide-marble-countertop.png") center / cover no-repeat;
 }
 
@@ -45,6 +57,17 @@ main {
   inset: 0;
   pointer-events: none;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.055), transparent 38%);
+}
+
+.semaglutide-product-lifestyle {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .semaglutide-badge {
@@ -64,6 +87,7 @@ main {
 }
 
 .semaglutide-bottle {
+  --semaglutide-bottle-baseline: 11%;
   position: relative;
   z-index: 2;
   display: block;
@@ -71,8 +95,17 @@ main {
   height: min(68%, 510px);
   max-width: 78%;
   object-fit: contain;
-  transform: translateY(11%);
+  transform: translateY(var(--semaglutide-bottle-baseline));
   filter: drop-shadow(0 34px 34px rgba(0, 0, 0, 0.34));
+}
+
+/* Normalize the visible bottle bases to the Tirzepatide Tablets artwork. */
+.semaglutide-bottle--injectable-baseline {
+  --semaglutide-bottle-baseline: 9%;
+}
+
+.semaglutide-bottle--tablet-baseline {
+  --semaglutide-bottle-baseline: 10.7%;
 }
 
 .semaglutide-details-panel {

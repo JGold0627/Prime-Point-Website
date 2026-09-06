@@ -18,6 +18,10 @@ const activeHeaderSection = (() => {
     return "blood-work";
   }
 
+  if (["anti-aging.html", "glutathione.html", "nad-plus.html"].includes(currentPage)) {
+    return "glp";
+  }
+
   if (["about.html", "contact.html"].includes(currentPage)) {
     return "about";
   }
@@ -43,28 +47,50 @@ const globalHeaderMarkup = `
 
       <nav class="nav-links" aria-label="Main navigation">
         <a class="nav-link${headerLinkClass("peptides")}"${headerCurrentState("peptides")} href="peptides.html">Peptides</a>
-        <div class="glp-nav-dropdown">
-          <a class="nav-link glp-nav-link${headerLinkClass("glp")}"${headerCurrentState("glp")} href="glp-1s.html">GLP-1's</a>
+        <div class="glp-nav-dropdown metabolic-nav-dropdown">
+          <a class="nav-link glp-nav-link${headerLinkClass("glp")}"${headerCurrentState("glp")} href="glp-1s.html">Metabolic Health</a>
           <button
             class="glp-nav-trigger"
             type="button"
-            aria-label="Show GLP-1 medications"
+            aria-label="Show Metabolic Health offerings"
             aria-haspopup="true"
             aria-expanded="false"
             aria-controls="glp-nav-menu"
           >
             <span class="glp-nav-chevron" aria-hidden="true"></span>
           </button>
-          <div class="glp-nav-menu" id="glp-nav-menu" aria-hidden="true">
-            <div class="glp-nav-menu-group">
-              <span class="glp-nav-menu-label">Injectable</span>
-              <a href="semaglutide.html">Semaglutide</a>
-              <a href="tirzepatide.html">Tirzepatide</a>
-            </div>
-            <div class="glp-nav-menu-group">
-              <span class="glp-nav-menu-label">Oral</span>
-              <a href="semaglutide-tablets.html">Semaglutide Tablets</a>
-              <a href="tirzepatide-tablets.html">Tirzepatide Tablets</a>
+          <div class="glp-nav-menu metabolic-nav-menu" id="glp-nav-menu" aria-hidden="true">
+            <div class="metabolic-menu-shell">
+              <div class="metabolic-menu-heading">
+                <span>Explore Metabolic Health</span>
+                <small>Choose an offering to learn more</small>
+              </div>
+              <div class="metabolic-product-grid">
+                <a class="metabolic-product-card" href="semaglutide.html">
+                  <span class="metabolic-product-art"><img src="assets/glp-page-pieces/Semaglutide Bottle V2.png" alt="" /></span>
+                  <span class="metabolic-product-name">Semaglutide</span>
+                </a>
+                <a class="metabolic-product-card" href="tirzepatide.html">
+                  <span class="metabolic-product-art"><img src="assets/glp-page-pieces/Tirzepatide Bottle V2.png" alt="" /></span>
+                  <span class="metabolic-product-name">Tirzepatide</span>
+                </a>
+                <a class="metabolic-product-card" href="semaglutide-tablets.html">
+                  <span class="metabolic-product-art"><img src="assets/glp-page-pieces/Semaglutide Pills V2.png" alt="" /></span>
+                  <span class="metabolic-product-name">Semaglutide Tablets</span>
+                </a>
+                <a class="metabolic-product-card" href="tirzepatide-tablets.html">
+                  <span class="metabolic-product-art"><img src="assets/glp-page-pieces/Tirzepatide Pills Transparent.png" alt="" /></span>
+                  <span class="metabolic-product-name">Tirzepatide Tablets</span>
+                </a>
+                <a class="metabolic-product-card" href="anti-aging.html">
+                  <span class="metabolic-product-art"><img class="metabolic-product-image-pretilted" src="assets/glp-page-pieces/Glutathione Bottle V1.png" alt="" /></span>
+                  <span class="metabolic-product-name">Glutathione</span>
+                </a>
+                <a class="metabolic-product-card" href="anti-aging.html">
+                  <span class="metabolic-product-art"><img class="metabolic-product-image-pretilted metabolic-product-image-nasal" src="assets/glp-page-pieces/Glutathione Nasal V1.png" alt="" /></span>
+                  <span class="metabolic-product-name">Glutathione Nasal</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
