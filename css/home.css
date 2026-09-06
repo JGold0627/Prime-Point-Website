@@ -1449,7 +1449,8 @@ a.home-product-card:focus-visible {
   position: relative;
   height: clamp(330px, 32vw, 450px);
   display: grid;
-  place-items: center;
+  place-items: end center;
+  padding-bottom: clamp(18px, 2vw, 28px);
   overflow: hidden;
   border: 1px solid rgba(203, 167, 102, 0.26);
   border-radius: clamp(16px, 1.6vw, 24px);
@@ -1460,35 +1461,75 @@ a.home-product-card:focus-visible {
 }
 
 .home-product-image-wrap img {
-  width: 78%;
-  height: 86%;
+  width: 74%;
+  height: 82%;
   object-fit: contain;
-  transform: rotate(-13deg) scale(0.98);
+  transform: scale(0.94);
   filter: drop-shadow(0 22px 24px rgba(43, 31, 18, 0.22));
   transition: transform 260ms ease;
 }
 
+.home-product-price {
+  position: absolute;
+  z-index: 2;
+  top: clamp(14px, 1.4vw, 20px);
+  left: clamp(14px, 1.4vw, 20px);
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 12px;
+  border: 1px solid rgba(203, 167, 102, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 253, 248, 0.94);
+  box-shadow: 0 7px 18px rgba(45, 35, 22, 0.08);
+  color: rgba(15, 31, 45, 0.72);
+  font-size: clamp(0.8rem, 0.95vw, 0.96rem);
+  font-style: normal;
+  font-weight: 550;
+  line-height: 1;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+}
+
+.home-product-price i {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 8px;
+  border-radius: 50%;
+  background: var(--home-prime-gold);
+  box-shadow: 0 0 0 3px rgba(203, 167, 102, 0.14);
+}
+
 .home-product-image-wrap .home-product-image-pretilted {
-  transform: scale(1.06);
+  transform: rotate(13deg) scale(0.9);
 }
 
 .home-product-image-wrap .home-product-image-nasal {
-  transform: scale(0.99);
+  transform: scale(0.9);
+}
+
+.home-product-image-wrap .home-product-image-pretilted.home-product-image-nasal {
+  transform: rotate(13deg) scale(0.9);
 }
 
 .home-product-card:hover .home-product-image-wrap img,
 .home-product-card:focus-visible .home-product-image-wrap img {
-  transform: rotate(-13deg) scale(1.02);
+  transform: scale(0.98);
 }
 
 .home-product-card:hover .home-product-image-wrap .home-product-image-pretilted,
 .home-product-card:focus-visible .home-product-image-wrap .home-product-image-pretilted {
-  transform: scale(1.1);
+  transform: rotate(13deg) scale(0.94);
 }
 
 .home-product-card:hover .home-product-image-wrap .home-product-image-nasal,
 .home-product-card:focus-visible .home-product-image-wrap .home-product-image-nasal {
-  transform: scale(1.03);
+  transform: scale(0.94);
+}
+
+.home-product-card:hover .home-product-image-wrap .home-product-image-pretilted.home-product-image-nasal,
+.home-product-card:focus-visible .home-product-image-wrap .home-product-image-pretilted.home-product-image-nasal {
+  transform: rotate(13deg) scale(0.94);
 }
 
 .home-product-card h3 {
