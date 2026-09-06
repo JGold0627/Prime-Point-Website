@@ -537,6 +537,37 @@ main {
   margin: 0 auto;
 }
 
+/* Keep the imported confidence panel on the product-page content grid. */
+.semaglutide-members-section + .glp-confidence-section .glp-confidence-shell {
+  width: min(100%, 1440px);
+}
+
+.semaglutide-members-section + .glp-confidence-section {
+  padding-top: 0;
+}
+
+/* Align the imported three-step panel with the product-page content rhythm. */
+.semaglutide-science-section + .glp-steps-section {
+  padding-top: clamp(76px, 7vw, 112px);
+  padding-bottom: clamp(76px, 7vw, 112px);
+}
+
+.semaglutide-science-section + .glp-steps-section .glp-steps-shell {
+  width: min(100%, 1440px);
+}
+
+.semaglutide-science-section + .glp-steps-section + .glp-blank-cream-section {
+  padding-bottom: clamp(76px, 7vw, 112px);
+}
+
+.semaglutide-science-section + .glp-steps-section + .glp-blank-cream-section .glp-products-shell {
+  width: min(100%, 1440px);
+}
+
+.semaglutide-science-section + .glp-steps-section + .glp-blank-cream-section + .semaglutide-faq-section {
+  padding-top: 0;
+}
+
 .semaglutide-faq-shell > h2 {
   margin: 0 0 clamp(36px, 4.5vw, 64px);
   color: var(--pp-prime-navy);
@@ -940,7 +971,7 @@ main {
   .semaglutide-hero { padding: 18px 14px 44px; }
   .semaglutide-product-panel { min-height: 470px; }
   .semaglutide-details-panel { min-height: 0; padding: 34px 24px 38px; }
-  .semaglutide-details-panel h1 { font-size: clamp(3rem, 16vw, 4.25rem); }
+  .semaglutide-details-panel h1 { font-size: clamp(2.25rem, 12vw, 4.25rem); }
   .semaglutide-badge { top: 20px; right: 20px; padding: 8px 13px; font-size: 0.66rem; }
   .semaglutide-bottle { height: 62%; max-width: 82%; }
   .semaglutide-review-line { grid-template-columns: 1fr; align-items: start; }

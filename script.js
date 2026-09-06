@@ -29,6 +29,44 @@ const activeHeaderSection = (() => {
   return "";
 })();
 
+document.querySelectorAll("[data-home-product-track]").forEach((track) => {
+  const rail = track.closest(".home-product-rail");
+  const prevButton = rail?.querySelector("[data-home-product-prev]");
+  const nextButton = rail?.querySelector("[data-home-product-next]");
+
+  if (!prevButton || !nextButton) {
+    return;
+  }
+
+  const updateProductButtons = () => {
+    const trackStyles = window.getComputedStyle(track);
+    const leadingInset = Number.parseFloat(trackStyles.paddingLeft) || 0;
+    const remainingScroll = track.scrollWidth - track.clientWidth - track.scrollLeft;
+    prevButton.disabled = track.scrollLeft <= leadingInset + 4;
+    nextButton.disabled = remainingScroll <= 4;
+  };
+
+  const getScrollDistance = () => {
+    const firstCard = track.querySelector(".home-product-card");
+    const trackStyles = window.getComputedStyle(track);
+    const gap = Number.parseFloat(trackStyles.columnGap || trackStyles.gap) || 0;
+
+    return (firstCard?.getBoundingClientRect().width || track.clientWidth * 0.8) + gap;
+  };
+
+  prevButton.addEventListener("click", () => {
+    track.scrollBy({ left: -getScrollDistance(), behavior: "smooth" });
+  });
+
+  nextButton.addEventListener("click", () => {
+    track.scrollBy({ left: getScrollDistance(), behavior: "smooth" });
+  });
+
+  track.addEventListener("scroll", updateProductButtons, { passive: true });
+  window.addEventListener("resize", updateProductButtons);
+  updateProductButtons();
+});
+
 const headerLinkClass = (section) => activeHeaderSection === section ? " nav-link-active" : "";
 const headerCurrentState = (section) => activeHeaderSection === section ? ' aria-current="true"' : "";
 const isMemberHome = currentPage === "member-home.html";
@@ -115,6 +153,12 @@ const globalHeaderMarkup = `
         </div>
       </nav>
 
+      <button class="mobile-nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav-menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+
       <div class="nav-actions" aria-label="Account actions">
         ${isMemberSession ? `
         <div class="header-member-account">
@@ -139,6 +183,14 @@ const globalHeaderMarkup = `
         <a class="header-action header-start" href="index.html#services">Get Started</a>
         `}
       </div>
+
+      <nav class="mobile-nav-menu" id="mobile-nav-menu" aria-label="Mobile navigation" hidden>
+        <a href="peptides.html">Peptides</a>
+        <a href="glp-1s.html">Metabolic Health</a>
+        <a href="blood-work.html">Blood Work</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+      </nav>
     </div>
   </header>
 `;
@@ -150,6 +202,36 @@ if (pageHeader) {
 } else {
   document.body.insertAdjacentHTML("afterbegin", globalHeaderMarkup);
 }
+
+const mobileNavToggle = document.querySelector(".mobile-nav-toggle");
+const mobileNavMenu = document.querySelector("#mobile-nav-menu");
+
+if (mobileNavToggle && mobileNavMenu) {
+  const setMobileNav = (open) => {
+    mobileNavMenu.hidden = !open;
+    mobileNavToggle.setAttribute("aria-expanded", String(open));
+    mobileNavToggle.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
+    document.body.classList.toggle("mobile-nav-open", open);
+  };
+
+  mobileNavToggle.addEventListener("click", () => {
+    setMobileNav(mobileNavToggle.getAttribute("aria-expanded") !== "true");
+  });
+
+  mobileNavMenu.addEventListener("click", (event) => {
+    if (event.target.closest("a")) setMobileNav(false);
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 900) setMobileNav(false);
+  });
+}
+
+document.querySelectorAll(".semaglutide-cta, .glp-options-start, .glp-confidence-start").forEach((button) => {
+  button.addEventListener("click", () => {
+    window.location.href = "create-account.html";
+  });
+});
 
 const isLocalDesignPreview = window.location.protocol === "file:"
   || ["localhost", "127.0.0.1"].includes(window.location.hostname);
