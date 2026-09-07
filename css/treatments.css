@@ -228,15 +228,14 @@ a.treatment-card:focus-visible {
   width: min(100%, var(--treatments-shell));
   margin: clamp(96px, 10vw, 168px) auto 0;
   grid-template-columns: minmax(0, 0.94fr) minmax(0, 1.06fr);
-  align-items: stretch;
+  align-items: start;
   gap: clamp(42px, 6vw, 96px);
 }
 
 .treatments-quality-media {
   min-height: 0;
   overflow: hidden;
-  align-self: center;
-  aspect-ratio: 4 / 3;
+  height: var(--treatments-quality-media-height, auto);
   border: 1px solid rgba(198, 157, 82, 0.25);
   border-radius: clamp(22px, 2vw, 32px);
   background: #ece7dd;
@@ -276,6 +275,10 @@ a.treatment-card:focus-visible {
   font-weight: 400;
   line-height: 0.98;
   letter-spacing: -0.045em;
+}
+
+.treatments-quality-content > h2 span {
+  color: var(--pp-prime-gold);
 }
 
 .treatments-quality-intro {
@@ -365,6 +368,36 @@ a.treatment-card:focus-visible {
   line-height: 1.6;
 }
 
+@supports selector(details::details-content) {
+  .treatments-quality-list details::details-content {
+    block-size: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition:
+      block-size 360ms cubic-bezier(0.22, 1, 0.36, 1),
+      content-visibility 360ms allow-discrete,
+      opacity 240ms ease;
+  }
+
+  .treatments-quality-list details[open]::details-content {
+    block-size: auto;
+    opacity: 1;
+  }
+}
+
+@media (min-width: 1051px) {
+  .treatments-quality-media {
+    height: calc(var(--treatments-quality-media-height) - clamp(14px, 2vw, 32px));
+    margin-top: clamp(14px, 2vw, 32px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .treatments-quality-list details::details-content {
+    transition: none;
+  }
+}
+
 @media (max-width: 700px) {
   .treatments-page main {
     padding-top: 14px;
@@ -404,6 +437,11 @@ a.treatment-card:focus-visible {
   .treatments-quality-content {
     padding-block: 0;
   }
+
+  .treatments-quality-media {
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
 }
 
 @media (min-width: 701px) and (max-width: 1050px) {
@@ -414,6 +452,11 @@ a.treatment-card:focus-visible {
   .treatments-quality {
     grid-template-columns: 1fr;
     gap: 46px;
+  }
+
+  .treatments-quality-media {
+    height: auto;
+    aspect-ratio: 4 / 3;
   }
 
 }
