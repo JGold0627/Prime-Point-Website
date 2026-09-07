@@ -11,7 +11,7 @@ const activeHeaderSection = (() => {
     "semaglutide-tablets.html",
     "tirzepatide-tablets.html",
   ].includes(currentPage)) {
-    return "glp";
+    return "weight-loss";
   }
 
   if (["blood-work.html", "blood-work-checkout.html"].includes(currentPage)) {
@@ -19,7 +19,7 @@ const activeHeaderSection = (() => {
   }
 
   if (["anti-aging.html", "glutathione.html", "nad-plus.html"].includes(currentPage)) {
-    return "glp";
+    return "metabolic";
   }
 
   if (["about.html", "contact.html"].includes(currentPage)) {
@@ -86,24 +86,24 @@ const globalHeaderMarkup = `
       <nav class="nav-links" aria-label="Main navigation">
         <a class="nav-link${headerLinkClass("peptides")}"${headerCurrentState("peptides")} href="peptides.html">Peptides</a>
         <div class="glp-nav-dropdown metabolic-nav-dropdown">
-          <a class="nav-link glp-nav-link${headerLinkClass("glp")}"${headerCurrentState("glp")} href="glp-1s.html">Metabolic Health</a>
+          <a class="nav-link glp-nav-link${headerLinkClass("weight-loss")}"${headerCurrentState("weight-loss")} href="glp-1s.html">Weight Loss</a>
           <button
             class="glp-nav-trigger"
             type="button"
-            aria-label="Show Metabolic Health offerings"
+            aria-label="Show Weight Loss offerings"
             aria-haspopup="true"
             aria-expanded="false"
-            aria-controls="glp-nav-menu"
+            aria-controls="weight-loss-nav-menu"
           >
             <span class="glp-nav-chevron" aria-hidden="true"></span>
           </button>
-          <div class="glp-nav-menu metabolic-nav-menu" id="glp-nav-menu" aria-hidden="true">
+          <div class="glp-nav-menu metabolic-nav-menu" id="weight-loss-nav-menu" aria-hidden="true">
             <div class="metabolic-menu-shell">
               <div class="metabolic-menu-heading">
-                <span>Explore Metabolic Health</span>
+                <span>Explore Weight Loss</span>
                 <small>Choose an offering to learn more</small>
               </div>
-              <div class="metabolic-product-grid">
+              <div class="metabolic-product-grid metabolic-product-grid--weight-loss">
                 <a class="metabolic-product-card" href="semaglutide.html">
                   <span class="metabolic-product-art"><img src="assets/glp-page-pieces/Semaglutide Bottle V2.png" alt="" /></span>
                   <span class="metabolic-product-name">Semaglutide</span>
@@ -120,6 +120,29 @@ const globalHeaderMarkup = `
                   <span class="metabolic-product-art"><img src="assets/glp-page-pieces/Tirzepatide Pills Transparent.png" alt="" /></span>
                   <span class="metabolic-product-name">Tirzepatide Tablets</span>
                 </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="glp-nav-dropdown metabolic-nav-dropdown">
+          <a class="nav-link glp-nav-link${headerLinkClass("metabolic")}"${headerCurrentState("metabolic")} href="anti-aging.html">Metabolic Health</a>
+          <button
+            class="glp-nav-trigger"
+            type="button"
+            aria-label="Show Metabolic Health offerings"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="metabolic-nav-menu"
+          >
+            <span class="glp-nav-chevron" aria-hidden="true"></span>
+          </button>
+          <div class="glp-nav-menu metabolic-nav-menu" id="metabolic-nav-menu" aria-hidden="true">
+            <div class="metabolic-menu-shell">
+              <div class="metabolic-menu-heading">
+                <span>Explore Metabolic Health</span>
+                <small>Choose an offering to learn more</small>
+              </div>
+              <div class="metabolic-product-grid">
                 <a class="metabolic-product-card" href="anti-aging.html">
                   <span class="metabolic-product-art"><img class="metabolic-product-image-pretilted" src="assets/glp-page-pieces/Glutathione Bottle V1.png" alt="" /></span>
                   <span class="metabolic-product-name">Glutathione</span>
@@ -128,29 +151,23 @@ const globalHeaderMarkup = `
                   <span class="metabolic-product-art"><img class="metabolic-product-image-pretilted metabolic-product-image-nasal" src="assets/glp-page-pieces/Glutathione Nasal V1.png" alt="" /></span>
                   <span class="metabolic-product-name">Glutathione Nasal</span>
                 </a>
+                <a class="metabolic-product-card" href="anti-aging.html">
+                  <span class="metabolic-product-art"><img class="metabolic-product-image-pretilted" src="assets/glp-page-pieces/NAD Plus Bottle V1.png" alt="" /></span>
+                  <span class="metabolic-product-name">NAD+</span>
+                </a>
+                <a class="metabolic-product-card" href="anti-aging.html">
+                  <span class="metabolic-product-art"><img class="metabolic-product-image-nasal" src="assets/glp-page-pieces/NAD Plus Nasal V2.png" alt="" /></span>
+                  <span class="metabolic-product-name">NAD+ Nasal</span>
+                </a>
+                <a class="metabolic-product-card" href="anti-aging.html">
+                  <span class="metabolic-product-art"><img src="assets/glp-page-pieces/MIC Plus B12 Bottle V1.png" alt="" /></span>
+                  <span class="metabolic-product-name">MIC + B12</span>
+                </a>
               </div>
             </div>
           </div>
         </div>
         <a class="nav-link${headerLinkClass("blood-work")}"${headerCurrentState("blood-work")} href="blood-work.html">Blood Work</a>
-        <div class="glp-nav-dropdown about-nav-dropdown">
-          <a class="nav-link glp-nav-link${headerLinkClass("about")}"${headerCurrentState("about")} href="about.html">About Us</a>
-          <button
-            class="glp-nav-trigger"
-            type="button"
-            aria-label="Show About Us links"
-            aria-haspopup="true"
-            aria-expanded="false"
-            aria-controls="about-nav-menu"
-          >
-            <span class="glp-nav-chevron" aria-hidden="true"></span>
-          </button>
-          <div class="glp-nav-menu" id="about-nav-menu" aria-hidden="true">
-            <div class="glp-nav-menu-group">
-              <a href="contact.html">Contact Us</a>
-            </div>
-          </div>
-        </div>
       </nav>
 
       <button class="mobile-nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav-menu">
@@ -186,10 +203,9 @@ const globalHeaderMarkup = `
 
       <nav class="mobile-nav-menu" id="mobile-nav-menu" aria-label="Mobile navigation" hidden>
         <a href="peptides.html">Peptides</a>
-        <a href="glp-1s.html">Metabolic Health</a>
+        <a href="glp-1s.html">Weight Loss</a>
+        <a href="anti-aging.html">Metabolic Health</a>
         <a href="blood-work.html">Blood Work</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact Us</a>
       </nav>
     </div>
   </header>

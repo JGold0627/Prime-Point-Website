@@ -410,8 +410,12 @@ img {
 
 .metabolic-product-grid {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: clamp(10px, 1.25vw, 18px);
+}
+
+.metabolic-product-grid--weight-loss {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .glp-nav-menu .metabolic-product-card {
@@ -460,16 +464,20 @@ img {
   height: 210px;
   object-fit: contain;
   filter: saturate(0.72) contrast(0.96);
-  transform: rotate(-13deg) scale(0.98);
+  transform: scale(0.98);
   transform-origin: center;
 }
 
 .metabolic-product-art .metabolic-product-image-pretilted {
-  transform: scale(1.06);
+  transform: rotate(13deg) scale(1);
 }
 
 .metabolic-product-art .metabolic-product-image-nasal {
   transform: scale(0.99);
+}
+
+.metabolic-product-art .metabolic-product-image-pretilted.metabolic-product-image-nasal {
+  transform: rotate(13deg) scale(0.95);
 }
 
 .metabolic-product-name {
