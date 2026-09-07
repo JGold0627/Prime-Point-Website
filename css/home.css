@@ -188,11 +188,6 @@ body.home-page.home-launch-modal-open {
   }
 }
 
-.home-page .site-header .nav-shell {
-  position: static;
-  z-index: 1;
-}
-
 /*
   Home Hero V1 restore map (preserved 2026-07-21):
   previous dashboard artwork rendered at 100% 100%;

@@ -1440,7 +1440,7 @@ body.pp-dark-spotlight-canvas > main > section::after {
   z-index: 3;
   left: 4%;
   bottom: 5%;
-  height: clamp(240px, 23vw, 390px);
+  height: clamp(250px, 24vw, 405px);
   transform: rotate(-5deg);
 }
 
@@ -2198,7 +2198,7 @@ body.pp-dark-spotlight-canvas > main > section::after {
 
   .glp-options-image-semaglutide {
     left: 7%;
-    height: 250px;
+    height: 265px;
   }
 
   .glp-options-image-pills {
@@ -2323,7 +2323,7 @@ body.pp-dark-spotlight-canvas > main > section::after {
 
   .glp-options-image-semaglutide {
     left: 0;
-    height: 210px;
+    height: 220px;
   }
 
   .glp-options-image-pills {

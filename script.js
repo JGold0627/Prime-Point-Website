@@ -5,7 +5,7 @@ const activeHeaderSection = (() => {
     return "peptides";
   }
 
-  if (currentPage === "glp-1s.html" || [
+  if ([
     "semaglutide.html",
     "tirzepatide.html",
     "semaglutide-tablets.html",
@@ -18,8 +18,8 @@ const activeHeaderSection = (() => {
     return "blood-work";
   }
 
-  if (["anti-aging.html", "glutathione.html", "nad-plus.html"].includes(currentPage)) {
-    return "metabolic";
+  if (["glutathione.html", "nad-plus.html"].includes(currentPage)) {
+    return "anti-aging";
   }
 
   if (["about.html", "contact.html"].includes(currentPage)) {
@@ -86,7 +86,7 @@ const globalHeaderMarkup = `
       <nav class="nav-links" aria-label="Main navigation">
         <a class="nav-link${headerLinkClass("peptides")}"${headerCurrentState("peptides")} href="peptides.html">Peptides</a>
         <div class="glp-nav-dropdown metabolic-nav-dropdown">
-          <a class="nav-link glp-nav-link${headerLinkClass("weight-loss")}"${headerCurrentState("weight-loss")} href="glp-1s.html">Weight Loss</a>
+          <span class="nav-link glp-nav-link${headerLinkClass("weight-loss")}"${headerCurrentState("weight-loss")}>Weight Loss</span>
           <button
             class="glp-nav-trigger"
             type="button"
@@ -105,7 +105,7 @@ const globalHeaderMarkup = `
               </div>
               <div class="metabolic-product-grid metabolic-product-grid--weight-loss">
                 <a class="metabolic-product-card" href="semaglutide.html">
-                  <span class="metabolic-product-art"><img src="assets/glp-page-pieces/Semaglutide Bottle V2.png" alt="" /></span>
+                  <span class="metabolic-product-art"><img src="assets/glp-page-pieces/Semaglutide Bottle V3.png" alt="" /></span>
                   <span class="metabolic-product-name">Semaglutide</span>
                 </a>
                 <a class="metabolic-product-card" href="tirzepatide.html">
@@ -125,49 +125,98 @@ const globalHeaderMarkup = `
           </div>
         </div>
         <div class="glp-nav-dropdown metabolic-nav-dropdown">
-          <a class="nav-link glp-nav-link${headerLinkClass("metabolic")}"${headerCurrentState("metabolic")} href="anti-aging.html">Metabolic Health</a>
+          <span class="nav-link glp-nav-link${headerLinkClass("metabolic")}"${headerCurrentState("metabolic")}>Metabolic Health</span>
           <button
             class="glp-nav-trigger"
             type="button"
             aria-label="Show Metabolic Health offerings"
             aria-haspopup="true"
             aria-expanded="false"
-            aria-controls="metabolic-nav-menu"
+            aria-controls="metabolic-health-nav-menu"
           >
             <span class="glp-nav-chevron" aria-hidden="true"></span>
           </button>
-          <div class="glp-nav-menu metabolic-nav-menu" id="metabolic-nav-menu" aria-hidden="true">
+          <div class="glp-nav-menu metabolic-nav-menu" id="metabolic-health-nav-menu" aria-hidden="true">
             <div class="metabolic-menu-shell">
               <div class="metabolic-menu-heading">
                 <span>Explore Metabolic Health</span>
                 <small>Choose an offering to learn more</small>
               </div>
               <div class="metabolic-product-grid">
-                <a class="metabolic-product-card" href="anti-aging.html">
-                  <span class="metabolic-product-art"><img class="metabolic-product-image-pretilted" src="assets/glp-page-pieces/Glutathione Bottle V1.png" alt="" /></span>
+                <article class="metabolic-product-card">
+                  <span class="metabolic-product-art"><img src="assets/glp-page-pieces/Sermorelin Bottle Red V2.png" alt="" /></span>
+                  <span class="metabolic-product-name">Sermorelin</span>
+                </article>
+                <article class="metabolic-product-card">
+                  <span class="metabolic-product-art"><img src="assets/glp-page-pieces/Tesamorelin Bottle Red V2.png" alt="" /></span>
+                  <span class="metabolic-product-name">Tesamorelin</span>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="glp-nav-dropdown metabolic-nav-dropdown">
+          <span class="nav-link glp-nav-link${headerLinkClass("anti-aging")}"${headerCurrentState("anti-aging")}>Longevity</span>
+          <button
+            class="glp-nav-trigger"
+            type="button"
+            aria-label="Show Longevity offerings"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="longevity-nav-menu"
+          >
+            <span class="glp-nav-chevron" aria-hidden="true"></span>
+          </button>
+          <div class="glp-nav-menu metabolic-nav-menu" id="longevity-nav-menu" aria-hidden="true">
+            <div class="metabolic-menu-shell">
+              <div class="metabolic-menu-heading">
+                <span>Explore Longevity</span>
+                <small>Choose an offering to learn more</small>
+              </div>
+              <div class="metabolic-product-grid">
+                <article class="metabolic-product-card">
+                  <span class="metabolic-product-art"><img src="assets/glp-page-pieces/Glutathione Bottle Upright V3.png" alt="" /></span>
                   <span class="metabolic-product-name">Glutathione</span>
-                </a>
-                <a class="metabolic-product-card" href="anti-aging.html">
-                  <span class="metabolic-product-art"><img class="metabolic-product-image-pretilted metabolic-product-image-nasal" src="assets/glp-page-pieces/Glutathione Nasal V1.png" alt="" /></span>
+                </article>
+                <article class="metabolic-product-card">
+                  <span class="metabolic-product-art"><img class="metabolic-product-image-nasal" src="assets/glp-page-pieces/Glutathione Nasal Upright V2.png" alt="" /></span>
                   <span class="metabolic-product-name">Glutathione Nasal</span>
-                </a>
-                <a class="metabolic-product-card" href="anti-aging.html">
-                  <span class="metabolic-product-art"><img class="metabolic-product-image-pretilted" src="assets/glp-page-pieces/NAD Plus Bottle V1.png" alt="" /></span>
+                </article>
+                <article class="metabolic-product-card">
+                  <span class="metabolic-product-art"><img src="assets/glp-page-pieces/NAD Plus Bottle Upright V3.png" alt="" /></span>
                   <span class="metabolic-product-name">NAD+</span>
-                </a>
-                <a class="metabolic-product-card" href="anti-aging.html">
+                </article>
+                <article class="metabolic-product-card">
                   <span class="metabolic-product-art"><img class="metabolic-product-image-nasal" src="assets/glp-page-pieces/NAD Plus Nasal V2.png" alt="" /></span>
                   <span class="metabolic-product-name">NAD+ Nasal</span>
-                </a>
-                <a class="metabolic-product-card" href="anti-aging.html">
-                  <span class="metabolic-product-art"><img src="assets/glp-page-pieces/MIC Plus B12 Bottle V1.png" alt="" /></span>
+                </article>
+                <article class="metabolic-product-card">
+                  <span class="metabolic-product-art"><img src="assets/glp-page-pieces/MIC Plus B12 Bottle V2.png" alt="" /></span>
                   <span class="metabolic-product-name">MIC + B12</span>
-                </a>
+                </article>
               </div>
             </div>
           </div>
         </div>
         <a class="nav-link${headerLinkClass("blood-work")}"${headerCurrentState("blood-work")} href="blood-work.html">Blood Work</a>
+        <div class="glp-nav-dropdown about-nav-dropdown">
+          <a class="nav-link glp-nav-link${headerLinkClass("about")}"${headerCurrentState("about")} href="about.html">About Us</a>
+          <button
+            class="glp-nav-trigger"
+            type="button"
+            aria-label="Show About Us links"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="about-nav-menu"
+          >
+            <span class="glp-nav-chevron" aria-hidden="true"></span>
+          </button>
+          <div class="glp-nav-menu" id="about-nav-menu" aria-hidden="true">
+            <div class="glp-nav-menu-group">
+              <a href="contact.html">Contact Us</a>
+            </div>
+          </div>
+        </div>
       </nav>
 
       <button class="mobile-nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav-menu">
@@ -197,15 +246,21 @@ const globalHeaderMarkup = `
         </div>
         ` : `
         <a class="header-action header-login" href="login.html">Log In</a>
-        <a class="header-action header-start" href="index.html#services">Get Started</a>
         `}
       </div>
 
       <nav class="mobile-nav-menu" id="mobile-nav-menu" aria-label="Mobile navigation" hidden>
         <a href="peptides.html">Peptides</a>
-        <a href="glp-1s.html">Weight Loss</a>
-        <a href="anti-aging.html">Metabolic Health</a>
+        <span class="mobile-nav-label">Weight Loss</span>
+        <a class="mobile-nav-sublink" href="semaglutide.html">Semaglutide</a>
+        <a class="mobile-nav-sublink" href="tirzepatide.html">Tirzepatide</a>
+        <a class="mobile-nav-sublink" href="semaglutide-tablets.html">Semaglutide Tablets</a>
+        <a class="mobile-nav-sublink" href="tirzepatide-tablets.html">Tirzepatide Tablets</a>
+        <span class="mobile-nav-label">Metabolic Health</span>
+        <span class="mobile-nav-label">Longevity</span>
         <a href="blood-work.html">Blood Work</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
       </nav>
     </div>
   </header>
@@ -239,7 +294,7 @@ if (mobileNavToggle && mobileNavMenu) {
   });
 
   window.addEventListener("resize", () => {
-    if (window.innerWidth > 900) setMobileNav(false);
+    if (window.innerWidth > 1100) setMobileNav(false);
   });
 }
 
@@ -483,18 +538,6 @@ const scrollToHomeServices = ({ behavior = "smooth" } = {}) => {
 
   window.scrollTo({ top: targetTop, behavior });
 };
-
-document.querySelector(".header-start")?.addEventListener("click", (event) => {
-  if (currentPage !== "index.html") {
-    return;
-  }
-
-  event.preventDefault();
-  window.history.replaceState(null, "", "#services");
-  scrollToHomeServices({
-    behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
-  });
-});
 
 if (currentPage === "index.html" && window.location.hash === "#services") {
   window.addEventListener("load", () => {
@@ -1074,7 +1117,12 @@ document.querySelectorAll(".cellular-motion-canvas").forEach((canvas) => {
   const revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        entry.target.classList.toggle("pp-reveal-visible", entry.isIntersecting);
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        entry.target.classList.add("pp-reveal-visible");
+        revealObserver.unobserve(entry.target);
       });
     },
     {
