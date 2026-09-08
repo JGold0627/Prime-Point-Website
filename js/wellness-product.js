@@ -62,8 +62,8 @@ document.querySelectorAll('[data-product-gallery]').forEach((gallery) => {
   });
 });
 
-document.querySelectorAll('.wellness-product-layout, .sermorelin-quality, .sermorelin-benefits, .glutathione-quality, .nad-benefits, .nad-quality').forEach((layout) => {
-  const details = layout.querySelector('.wellness-product-details, .sermorelin-quality-content, .sermorelin-benefits-copy, .glutathione-quality-content, .nad-benefits-copy, .nad-quality-content');
+document.querySelectorAll('.wellness-product-layout, .sermorelin-quality, .sermorelin-benefits, .glutathione-quality, .nad-benefits, .nad-quality, .mic-b12-benefits, .mic-b12-quality').forEach((layout) => {
+  const details = layout.querySelector('.wellness-product-details, .sermorelin-quality-content, .sermorelin-benefits-copy, .glutathione-quality-content, .nad-benefits-copy, .nad-quality-content, .mic-b12-benefits-copy, .mic-b12-quality-content');
   const desktop = window.matchMedia('(min-width: 761px)');
   let measuredWidth = -1;
   const sizePhoto = () => {

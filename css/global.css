@@ -833,14 +833,15 @@ img {
   }
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1100px), (max-width: 1440px) and (hover: none) and (pointer: coarse) {
   .nav-shell {
     position: relative;
+    display: grid;
     grid-template-columns: minmax(0, 1fr) auto auto;
     gap: 10px;
   }
 
-  .nav-links {
+  .site-header .nav-links {
     display: none;
   }
 
@@ -922,6 +923,54 @@ img {
   .mobile-nav-menu a:focus-visible {
     background: rgba(198, 157, 82, 0.11);
     color: var(--pp-prime-gold);
+  }
+}
+
+/* Touch tablets use readable menu text instead of the compact laptop header. */
+@media (min-width: 601px) and (max-width: 1440px) and (hover: none) and (pointer: coarse) {
+  .site-header .nav-shell {
+    padding-inline: var(--pp-page-gutter);
+  }
+
+  .site-header .brand,
+  .site-header .nav-actions {
+    position: static;
+    transform: none;
+  }
+
+  .site-header .header-action {
+    min-height: 48px;
+    padding-inline: 22px;
+    font-size: 1.0625rem;
+  }
+
+  .mobile-nav-toggle {
+    width: 48px;
+    height: 48px;
+  }
+
+  .mobile-nav-menu:not([hidden]) {
+    left: auto;
+    width: min(560px, calc(100% - 2 * var(--pp-page-gutter)));
+    max-height: calc(100vh - var(--pp-header-height) - 24px);
+    max-height: calc(100dvh - var(--pp-header-height) - 24px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .mobile-nav-menu a,
+  .mobile-nav-menu .mobile-nav-sublink {
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    font-size: 1.125rem;
+    line-height: 1.4;
+  }
+
+  .mobile-nav-menu .mobile-nav-label {
+    padding-top: 18px;
+    font-size: 1.125rem;
+    line-height: 1.4;
   }
 }
 

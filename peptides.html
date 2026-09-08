@@ -9,7 +9,7 @@
       content="Prime Point Health peptide programs."
     />
     <link rel="stylesheet" href="css/global.css?v=38" />
-    <link rel="stylesheet" href="css/peptides.css?v=1" />
+    <link rel="stylesheet" href="css/peptides.css?v=4" />
     <link rel="stylesheet" href="css/section-headings.css?v=1" />
   </head>
   <body class="pp-dark-spotlight-canvas">
@@ -38,14 +38,14 @@
 
       <section class="peptides-how" aria-labelledby="peptides-how-title">
         <div class="peptides-how-inner">
-          <div class="peptides-therapy-intro" data-pp-reveal>
-            <p class="peptides-how-kicker"><span aria-hidden="true"></span>WHAT IT IS</p>
-            <h2 class="pp-section-heading" id="peptides-how-title">What is Peptide Therapy?</h2>
-            <p class="peptides-therapy-copy">
+          <div class="peptides-therapy-intro">
+            <p class="peptides-how-kicker" data-pp-reveal><span aria-hidden="true"></span>WHAT IT IS</p>
+            <h2 class="pp-section-heading" id="peptides-how-title" data-pp-reveal style="--pp-reveal-delay: 70ms">What is Peptide Therapy?</h2>
+            <p class="peptides-therapy-copy" data-pp-reveal style="--pp-reveal-delay: 140ms">
               Peptide therapy uses targeted amino acid sequences to influence specific biological processes related to metabolism, recovery, and hormone signaling. By working at the cellular level, peptides can help support how the body functions over time, not just how it feels in the moment. At Prime Point Health, peptide therapy is used as part of a physician-guided plan designed to support recovery, performance, and long-term health.
             </p>
 
-            <ul class="peptides-therapy-pillars" aria-label="Key aspects of peptide-focused care">
+            <ul class="peptides-therapy-pillars" aria-label="Key aspects of peptide-focused care" tabindex="0" data-pp-reveal>
               <li>
                 <span class="peptides-therapy-icon" aria-hidden="true">
                   <svg viewBox="0 0 96 96" focusable="false"><circle cx="48" cy="48" r="34"></circle><circle cx="48" cy="48" r="22"></circle><circle cx="48" cy="48" r="9"></circle></svg>
@@ -85,7 +85,7 @@
               <p>Every peptide offered through Prime Point Health undergoes our Prime Point Health Expert Consensus review process. Physician leaders evaluate available evidence, clinical applicability, pharmacy standards, and patient safety before therapies are considered for clinical use.</p>
             </div>
 
-            <div class="peptides-trust-grid" aria-label="Prime Point Health clinical standards" data-pp-reveal>
+            <div class="peptides-trust-grid" role="region" aria-label="Prime Point Health clinical standards" tabindex="0" data-pp-reveal>
               <article class="peptides-trust-card">
                 <img
                   src="https://images.pexels.com/photos/7579823/pexels-photo-7579823.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200"
@@ -108,7 +108,7 @@
                 <div class="peptides-trust-card-copy">
                   <p class="peptides-trust-kicker">Quality</p>
                   <h3>Pharmacy <span>Standards</span></h3>
-                  <p>Prime Point Health works with pharmacy partners that meet its quality and compounding standards, with supply-chain review built into the process.</p>
+                  <p>Prime Point Health works with pharmacy partners that meet its quality and compounding standards including 3rd party certificate of analysis on all medication.</p>
                 </div>
               </article>
 
@@ -131,7 +131,7 @@
 
       <section class="peptides-measure" aria-labelledby="peptides-measure-title">
         <div class="peptides-measure-inner">
-          <div class="peptides-measure-heading">
+          <div class="peptides-measure-heading" data-pp-reveal>
             <p class="peptides-measure-kicker"><span aria-hidden="true"></span>BIO-FEEDBACK DASHBOARD</p>
             <h2 class="pp-section-heading" id="peptides-measure-title">
               <span>We don&rsquo;t guess.</span>
@@ -143,7 +143,7 @@
             </p>
           </div>
 
-          <div class="peptides-measure-dashboard">
+          <div class="peptides-measure-dashboard" data-pp-reveal>
             <article class="peptides-measure-card peptides-measure-trend">
               <div class="peptides-measure-trend-header">
                 <div>
@@ -196,7 +196,7 @@
             </article>
           </div>
 
-          <div class="peptides-measure-metrics">
+          <div class="peptides-measure-metrics" data-pp-reveal>
             <article class="peptides-measure-metric">
               <div class="peptides-measure-metric-icon" aria-hidden="true">
                 <svg viewBox="0 0 48 48" focusable="false">
@@ -248,7 +248,7 @@
             </article>
           </div>
 
-          <p class="peptides-measure-note">
+          <p class="peptides-measure-note" data-pp-reveal="fade">
             Illustrative data shown. Your report is generated from your own monthly labs and reviewed by your physician
             before any protocol adjustment.
           </p>
@@ -257,13 +257,13 @@
 
       <section class="peptides-faq" aria-labelledby="peptides-faq-title">
         <div class="peptides-faq-inner">
-          <div class="peptides-faq-heading">
+          <div class="peptides-faq-heading" data-pp-reveal>
             <p class="peptides-faq-kicker"><span aria-hidden="true"></span>Common Questions</p>
             <h2 class="pp-section-heading" id="peptides-faq-title">Peptide Therapy FAQ</h2>
             <p class="peptides-faq-support">Explore clear answers about peptide-focused care, provider review, eligibility, and what to expect throughout the process.</p>
           </div>
 
-          <div class="peptides-faq-list">
+          <div class="peptides-faq-list" data-pp-reveal>
             <article class="peptides-faq-item">
               <h3>
                 <button
@@ -491,7 +491,7 @@
         </div>
       </section>
 
-      <div class="peptides-bottom-cta" aria-label="Get started with peptide care">
+      <div class="peptides-bottom-cta" aria-label="Get started with peptide care" data-pp-reveal>
         <button class="peptides-assessment-bubble" type="button">
           <span>Get Started Now</span>
           <span aria-hidden="true">&rarr;</span>

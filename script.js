@@ -265,7 +265,20 @@ if (mobileNavToggle && mobileNavMenu) {
   });
 
   window.addEventListener("resize", () => {
-    if (window.innerWidth > 1100) setMobileNav(false);
+    if (getComputedStyle(mobileNavToggle).display === "none") setMobileNav(false);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !mobileNavMenu.hidden) {
+      setMobileNav(false);
+      mobileNavToggle.focus();
+    }
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!mobileNavMenu.hidden && !mobileNavMenu.contains(event.target) && !mobileNavToggle.contains(event.target)) {
+      setMobileNav(false);
+    }
   });
 }
 

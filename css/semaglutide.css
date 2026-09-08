@@ -220,13 +220,9 @@ main {
   height: 38px;
   display: grid;
   place-items: center;
-  border: 1px solid rgba(203, 167, 102, 0.62);
-  border-radius: 50%;
-  background: linear-gradient(145deg, #e5c984, #b68839);
-  color: #0f1f2d;
+  color: var(--pp-prime-gold);
   font-size: 1.1rem;
   font-weight: 900;
-  box-shadow: 0 8px 20px rgba(155, 106, 36, 0.16);
 }
 
 .semaglutide-cta {
