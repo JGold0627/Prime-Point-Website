@@ -1372,7 +1372,8 @@ body.home-page.home-launch-modal-open {
   overflow-x: auto;
   overscroll-behavior-inline: contain;
   scroll-padding-inline: max(var(--pp-page-gutter), calc((100vw - 1440px) / 2));
-  scroll-snap-type: inline mandatory;
+  scroll-snap-type: none;
+  scroll-behavior: auto;
   scrollbar-width: none;
 }
 
@@ -2997,4 +2998,460 @@ a.home-product-card:focus-visible {
   .home-service-card-link {
     margin-top: 26px;
   }
+}
+
+/* One continuous row, with the same card proportions as the original trio. */
+.home-services-rail {
+  width: calc(100% + var(--pp-page-gutter) * 2);
+  margin-inline: calc(var(--pp-page-gutter) * -1);
+}
+
+.home-services-rail .home-services-grid {
+  --service-gap: clamp(18px, 2vw, 28px);
+  display: flex;
+  gap: var(--service-gap);
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 12px max(var(--pp-page-gutter), calc((100% - 1280px) / 2)) 48px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  scroll-behavior: auto;
+}
+
+.home-services-rail .home-services-grid::-webkit-scrollbar { display: none; }
+
+.home-services-rail .home-services-grid .home-service-card {
+  flex: 0 0 calc((100% - var(--service-gap) * 2) / 3);
+  min-width: 0;
+  transform: none;
+  scroll-snap-align: start;
+}
+
+.home-services-rail .home-services-grid:focus-visible,
+.home-product-track:focus-visible {
+  outline: 2px solid var(--home-prime-gold);
+  outline-offset: -5px;
+  border-radius: 12px;
+}
+
+.home-service-card--weight-loss .home-service-card-media { object-position: 50% 44%; }
+.home-service-card--longevity .home-service-card-media { object-position: 50% 40%; }
+
+.home-services-navigation {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  max-width: 1280px;
+  margin: -16px auto 0;
+}
+
+.home-services-navigation-label {
+  margin: 0;
+  color: rgba(15, 31, 45, 0.68);
+  font-size: 0.85rem;
+}
+
+.home-services-progress {
+  width: 120px;
+  height: 2px;
+  overflow: hidden;
+  background: rgba(203, 167, 102, 0.2);
+}
+
+.home-services-progress span {
+  display: block;
+  width: 60%;
+  height: 100%;
+  background: var(--home-prime-gold);
+}
+
+.home-services-arrows { display: flex; gap: 10px; margin-left: auto; }
+
+.home-services-arrows button {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  place-items: center;
+  border: 1px solid rgba(203, 167, 102, 0.65);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--home-prime-navy);
+  cursor: pointer;
+  transition: background-color 180ms ease, color 180ms ease, opacity 180ms ease;
+}
+
+.home-services-arrows button:hover:not(:disabled) { background: var(--home-prime-navy); color: var(--home-warm-ivory); }
+.home-services-arrows button:focus-visible { outline: 2px solid var(--home-prime-gold); outline-offset: 4px; }
+.home-services-arrows button:disabled { opacity: 0.28; cursor: default; }
+.home-services-arrows svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+
+.home-services-help {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (max-width: 980px) {
+  .home-services-rail .home-services-grid .home-service-card { flex-basis: calc((100% - var(--service-gap)) / 2); }
+  .home-services-rail .home-service-card-media { height: 220px; }
+  .home-services-rail .home-service-card-body { min-height: 350px; }
+}
+
+@media (max-width: 640px) {
+  .home-services-rail .home-services-grid .home-service-card { flex-basis: 88%; }
+  .home-services-rail .home-service-card-media { height: 205px; }
+  .home-services-rail .home-service-card-body { min-height: 330px; }
+  .home-services-navigation { gap: 12px; }
+  .home-services-progress { width: 54px; }
+  .home-services-navigation-label { font-size: 0.78rem; }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .home-services-rail .home-services-grid,
+  .home-product-track { scroll-snap-type: x proximity; scroll-padding-inline: var(--pp-page-gutter); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-services-rail .home-service-card,
+  .home-services-arrows button { transition: none; }
+}
+
+/* Match the treatment heading's left edge without resizing content. */
+.home-hero-centered-copy {
+  justify-self: start;
+  margin-inline-start: max(0px, calc((100% - 1440px) / 2));
+}
+
+.home-services-eyebrow,
+.home-services-title,
+.home-services-supporting,
+.home-services-navigation {
+  margin-inline-start: max(0px, calc((100% - 1440px) / 2));
+  margin-inline-end: 0;
+}
+
+.home-how-it-works-eyebrow,
+.home-how-title,
+.home-how-intro,
+.home-how-process {
+  margin-inline-start: max(var(--pp-page-gutter), calc((100% - 1440px) / 2));
+  margin-inline-end: 0;
+}
+
+.home-services-rail .home-services-grid {
+  --service-original-inset: max(var(--pp-page-gutter), calc((100% - 1280px) / 2));
+  --service-aligned-inset: max(var(--pp-page-gutter), calc((100% - 1440px) / 2));
+  padding-inline-start: var(--service-aligned-inset);
+  padding-inline-end: calc(var(--service-original-inset) * 2 - var(--service-aligned-inset));
+}
+
+.home-product-carousel .home-product-navigation {
+  width: min(calc(100% - var(--pp-page-gutter) * 2), 1440px);
+  max-width: 1440px;
+  margin: 24px auto 0;
+}
+
+/* Accessible care, supported by a connected community. */
+.home-care {
+  padding: clamp(40px, 5vw, 80px) var(--pp-page-gutter);
+  background: var(--home-warm-ivory);
+  color: var(--home-prime-navy);
+}
+
+.home-care-inner {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: clamp(36px, 5vw, 84px);
+  max-width: 1440px;
+  margin-inline: auto;
+}
+
+.home-care-copy { min-width: 0; }
+
+.home-care-copy h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.5rem, 4vw, 4.6rem);
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.home-care-copy h2 span { display: block; color: var(--home-prime-gold); }
+
+.home-care-intro {
+  max-width: 49ch;
+  margin: 24px 0 0;
+  color: #57697a;
+  font-family: var(--pp-font-body);
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  line-height: 1.6;
+}
+
+.home-care-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  min-height: 60px;
+  margin-top: 26px;
+  padding: 16px 28px;
+  border: 1px solid var(--home-prime-navy);
+  border-radius: 999px;
+  background: var(--home-prime-navy);
+  color: var(--home-warm-ivory);
+  font-family: var(--pp-font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+  text-decoration: none;
+  transition: background-color 180ms ease, border-color 180ms ease;
+}
+
+.home-care-cta span { color: var(--home-prime-gold); font-size: 1.3rem; }
+.home-care-cta:hover { background: #233c50; border-color: #233c50; }
+.home-care-cta:focus-visible { outline: 2px solid var(--home-prime-gold); outline-offset: 5px; }
+
+.home-care-features {
+  display: grid;
+  gap: 18px;
+  margin-top: clamp(38px, 4vw, 62px);
+}
+
+.home-care-card {
+  min-width: 0;
+  padding: clamp(24px, 2.5vw, 36px);
+  border: 1px solid rgba(203, 167, 102, 0.35);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.home-care-icon {
+  display: block;
+  width: 36px;
+  height: 36px;
+  margin-bottom: 28px;
+  fill: none;
+  stroke: #ad8541;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.home-care-card h3 {
+  margin: 0 0 10px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.3rem, 1.7vw, 1.65rem);
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.home-care-card p {
+  margin: 0;
+  color: #57697a;
+  font-family: var(--pp-font-body);
+  font-size: clamp(0.95rem, 1.15vw, 1.05rem);
+  line-height: 1.55;
+}
+
+.home-care-photo {
+  position: relative;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 28px;
+  background: #e7e1d7;
+}
+
+.home-care-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 45%;
+}
+
+@media (max-width: 800px) {
+  .home-care-inner { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .home-care-copy h2 { max-width: 20ch; font-size: clamp(2.35rem, 6.2vw, 3.7rem); }
+  .home-care-intro { max-width: 52ch; }
+  .home-care-features { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .home-care-photo { aspect-ratio: 4 / 3; }
+  .home-care-photo img { object-position: 50% 38%; }
+}
+
+@media (max-width: 560px) {
+  .home-care-features { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .home-care-card { border-radius: 20px; }
+  .home-care-icon { margin-bottom: 22px; }
+  .home-care-photo { aspect-ratio: 4 / 5; border-radius: 22px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-care-cta { transition: none; }
+}
+
+/* A compact, three-step introduction to care. */
+.home-roadmap {
+  padding: clamp(70px, 8vw, 112px) var(--pp-page-gutter) clamp(80px, 8vw, 120px);
+  background: var(--home-warm-ivory);
+  color: var(--home-prime-navy);
+}
+
+.home-roadmap-inner {
+  max-width: 1440px;
+  margin-inline: auto;
+}
+
+.home-roadmap-title {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -0.045em;
+}
+
+.home-roadmap-title span { display: block; color: var(--home-prime-gold); }
+
+.home-roadmap-intro {
+  max-width: 630px;
+  margin: 24px 0 0;
+  color: #57697a;
+  font-family: var(--pp-font-body);
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  line-height: 1.6;
+}
+
+.home-roadmap-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(28px, 4vw, 60px);
+  margin: clamp(38px, 4vw, 60px) 0 36px;
+  padding: 0;
+  list-style: none;
+}
+
+.home-roadmap-step {
+  position: relative;
+  min-width: 0;
+  padding-top: 26px;
+  border-top: 1px solid rgba(203, 167, 102, 0.4);
+}
+
+.home-roadmap-step::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--home-prime-gold);
+}
+
+.home-roadmap-icon {
+  display: block;
+  width: 28px;
+  height: 28px;
+  margin-bottom: 22px;
+  fill: none;
+  stroke: #ad8541;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.home-roadmap-step h3 {
+  margin: 0 0 12px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.4rem, 2vw, 1.85rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.home-roadmap-step p {
+  max-width: 38ch;
+  margin: 0;
+  color: #57697a;
+  font-family: var(--pp-font-body);
+  font-size: clamp(0.95rem, 1.15vw, 1.05rem);
+  line-height: 1.6;
+}
+
+.home-roadmap-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  min-height: 60px;
+  padding: 16px 28px;
+  border: 1px solid var(--home-prime-navy);
+  border-radius: 999px;
+  background: var(--home-prime-navy);
+  color: var(--home-warm-ivory);
+  font-family: var(--pp-font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+  list-style: none;
+  cursor: pointer;
+  transition: background-color 180ms ease;
+}
+
+.home-roadmap-cta::-webkit-details-marker { display: none; }
+.home-roadmap-cta span { color: var(--home-prime-gold); font-size: 1.3rem; transition: transform 180ms ease; }
+.home-roadmap-start[open] .home-roadmap-cta span { transform: rotate(90deg); }
+.home-roadmap-cta:hover { background: #233c50; }
+.home-roadmap-cta:focus-visible,
+.home-roadmap-links a:focus-visible { outline: 2px solid var(--home-prime-gold); outline-offset: 5px; }
+
+.home-roadmap-options {
+  margin-top: 26px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(203, 167, 102, 0.4);
+}
+
+.home-roadmap-options p { margin: 0 0 16px; color: #57697a; font-size: 1rem; }
+.home-roadmap-links { display: flex; flex-wrap: wrap; gap: 12px; }
+
+.home-roadmap-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 46px;
+  padding: 10px 20px;
+  border: 1px solid rgba(203, 167, 102, 0.55);
+  border-radius: 999px;
+  background: #faf8f4;
+  color: var(--home-prime-navy);
+  font-family: var(--pp-font-body);
+  font-size: 0.95rem;
+  line-height: 1.35;
+  text-decoration: none;
+  transition: background-color 180ms ease, border-color 180ms ease;
+}
+
+.home-roadmap-links a:hover { background: #eee7d9; border-color: var(--home-prime-gold); }
+
+@media (max-width: 640px) {
+  .home-roadmap-steps { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .home-roadmap-step { display: grid; grid-template-columns: 28px minmax(0, 1fr); column-gap: 16px; }
+  .home-roadmap-icon { grid-row: 1 / 3; margin: 0; }
+  .home-roadmap-step h3 { margin: 0 0 10px; }
+  .home-roadmap-step p { grid-column: 2; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-roadmap-cta,
+  .home-roadmap-cta span,
+  .home-roadmap-links a { transition: none; }
 }

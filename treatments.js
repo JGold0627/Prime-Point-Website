@@ -18,6 +18,21 @@ treatmentFilters.forEach((filter) => {
   });
 });
 
+const syncTreatmentCategoryLink = () => {
+  const category = window.location.hash.slice(1);
+  const filter = Array.from(treatmentFilters).find((item) => item.id === category && category);
+  if (filter) filter.click();
+};
+
+window.addEventListener("hashchange", syncTreatmentCategoryLink);
+document.querySelectorAll('.pp-footer-medications a[href*="treatments.html#"]').forEach((link) => {
+  link.addEventListener("click", () => {
+    const filter = document.getElementById(link.hash.slice(1));
+    if (filter) filter.click();
+  });
+});
+syncTreatmentCategoryLink();
+
 const treatmentsQuality = document.querySelector(".treatments-quality");
 const treatmentsQualityMedia = document.querySelector(".treatments-quality-media");
 const treatmentsQualityContent = document.querySelector(".treatments-quality-content");

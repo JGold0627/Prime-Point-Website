@@ -2547,3 +2547,38 @@ body.pp-dark-spotlight-canvas > main {
     width: min(92vw, 1500px);
   }
 }
+
+/* Use the homepage treatment heading's left edge; retain existing widths. */
+.peptides-hero-content,
+.peptides-how .peptides-how-inner {
+  margin-inline-start: max(var(--pp-page-gutter), calc((100% - 1440px) / 2));
+  margin-inline-end: 0;
+}
+
+.peptides-measure { --peptides-measure-side: clamp(20px, 4vw, 56px); }
+.peptides-faq { --peptides-faq-side: clamp(20px, 4vw, 56px); }
+
+.peptides-faq-inner {
+  margin-inline-start: calc(max(var(--pp-page-gutter), (100% + var(--peptides-faq-side) * 2 - 1440px) / 2) - var(--peptides-faq-side));
+  margin-inline-end: 0;
+}
+
+@media (min-width: 901px) {
+  .peptides-measure { --peptides-measure-side: clamp(22px, 5vw, 76px); }
+
+  .peptides-measure-inner {
+    left: calc(max(var(--pp-page-gutter), (100% + var(--peptides-measure-side) * 2 - 1440px) / 2) - max(var(--peptides-measure-side), (100% + var(--peptides-measure-side) * 2 - 1220px) / 2));
+  }
+}
+
+@media (max-width: 900px) {
+  .peptides-measure-inner {
+    margin-inline-start: calc(var(--pp-page-gutter) - var(--peptides-measure-side));
+    margin-inline-end: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .peptides-measure { --peptides-measure-side: 18px; }
+  .peptides-faq { --peptides-faq-side: 18px; }
+}

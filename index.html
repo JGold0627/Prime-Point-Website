@@ -8,8 +8,9 @@
       name="description"
       content="Prime Point Health is a luxury telehealth platform for physician-guided peptides, GLP-1 programs, blood work, and supplement planning."
     />
-    <link rel="stylesheet" href="css/global.css?v=37" />
-    <link rel="stylesheet" href="css/home.css?v=3" />
+    <link rel="stylesheet" href="css/global.css?v=38" />
+    <link rel="stylesheet" href="css/home.css?v=9" />
+    <link rel="stylesheet" href="css/section-headings.css?v=1" />
   </head>
   <body class="home-page">
     <header class="site-header" data-site-header-mount aria-label="Primary navigation"></header>
@@ -47,8 +48,8 @@
     <section class="home-journey" aria-hidden="true"></section>
 
     <section class="home-services" id="services" aria-labelledby="home-services-title">
-      <p class="home-services-eyebrow">02 &mdash; OUR CORE SERVICES</p>
-      <h2 class="home-services-title" id="home-services-title">
+      <p class="home-services-eyebrow">&mdash; OUR CORE SERVICES</p>
+      <h2 class="home-services-title pp-section-heading" id="home-services-title">
         One platform.<span>Built around you.</span>
       </h2>
       <p class="home-services-supporting">
@@ -60,7 +61,9 @@
         </span>
       </p>
 
-      <div class="home-services-grid">
+      <div class="home-services-carousel" data-home-carousel>
+      <div class="home-services-rail" data-carousel-rail>
+      <div class="home-services-grid" id="home-services-track" data-carousel-track role="region" aria-label="Core services" aria-describedby="home-services-help" tabindex="0">
         <article class="home-service-card home-service-card--peptides">
           <img class="home-service-card-media" src="assets/home/Peptides V2.png" alt="Cellular peptide visualization" />
           <div class="home-service-card-body">
@@ -78,6 +81,23 @@
           </div>
         </article>
 
+        <article class="home-service-card home-service-card--weight-loss">
+          <img class="home-service-card-media" src="assets/home/weight-loss-service-v1.png" alt="Woman in blue activewear walking up sunlit stone steps" loading="lazy" />
+          <div class="home-service-card-body">
+            <div class="home-service-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48"><rect x="10" y="9" width="28" height="31" rx="7"></rect><path d="M16 21a8 8 0 0 1 16 0H16Z"></path><path d="m24 21 4-6M19 33h10"></path></svg>
+            </div>
+            <h3>Weight Loss</h3>
+            <span class="home-service-card-rule" aria-hidden="true"></span>
+            <p>Physician-guided treatment options and personalized support for your weight-loss journey.</p>
+            <ul class="home-service-card-benefits">
+              <li>Personalized weight-loss plans</li>
+              <li>Prescription options, if appropriate</li>
+              <li>Ongoing progress reviews</li>
+            </ul>
+          </div>
+        </article>
+
         <article class="home-service-card home-service-card--glp">
           <img class="home-service-card-media" src="assets/home/GLP-1's V2.png" alt="Woman overlooking a mountain landscape" />
           <div class="home-service-card-body">
@@ -86,11 +106,28 @@
             </div>
             <h3>Metabolic Health</h3>
             <span class="home-service-card-rule" aria-hidden="true"></span>
-            <p>Medically supervised GLP-1 programs, anti-aging, and metabolic health options to help you feel better, lose weight, and live a fuller life.</p>
+            <p>Medically supervised treatments to help support metabolic health, energy levels, and long-term wellness.</p>
             <ul class="home-service-card-benefits">
-              <li>Personalized dosing</li>
-              <li>Ongoing monitoring</li>
-              <li>Sustainable weight management</li>
+              <li>Personalized treatment plans</li>
+              <li>Ongoing physician monitoring</li>
+              <li>Metabolic &amp; body composition support</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="home-service-card home-service-card--longevity">
+          <img class="home-service-card-media" src="assets/home/longevity-service-v1.png" alt="Mature couple enjoying a walk beside the coast" loading="lazy" />
+          <div class="home-service-card-body">
+            <div class="home-service-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48"><path d="M24 24c-5-8-7-10-11-10a10 10 0 0 0 0 20c4 0 6-2 11-10s7-10 11-10a10 10 0 0 1 0 20c-4 0-6-2-11-10Z"></path></svg>
+            </div>
+            <h3>Longevity</h3>
+            <span class="home-service-card-rule" aria-hidden="true"></span>
+            <p>Proactive, physician-guided care focused on healthy aging, everyday vitality, and your long-term wellness goals.</p>
+            <ul class="home-service-card-benefits">
+              <li>Personalized healthy-aging plans</li>
+              <li>Lab-informed health insights</li>
+              <li>Ongoing wellness guidance</li>
             </ul>
           </div>
         </article>
@@ -111,20 +148,31 @@
             </ul>
           </div>
         </article>
-
       </div>
+      </div>
+      <div class="home-services-navigation" data-carousel-navigation>
+        <p class="home-services-navigation-label">Explore all services</p>
+        <div class="home-services-progress" aria-hidden="true"><span data-carousel-progress></span></div>
+        <div class="home-services-arrows">
+          <button type="button" data-carousel-prev aria-label="Previous services" aria-controls="home-services-track" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6"></path></svg></button>
+          <button type="button" data-carousel-next aria-label="Next services" aria-controls="home-services-track"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></button>
+        </div>
+      </div>
+      </div>
+      <p class="home-services-help" id="home-services-help">Move your pointer toward either edge to explore, swipe, or use the arrow buttons. When the cards are focused, use the left and right arrow keys, Home, or End. Press Escape to stop motion.</p>
     </section>
 
     <section class="home-product-showcase" aria-labelledby="home-products-title">
       <div class="home-product-showcase-heading">
         <div>
-          <p class="home-product-showcase-eyebrow">03 &mdash; WHAT WE OFFER</p>
-          <h2 id="home-products-title">Clear plans,<span>visible progress</span></h2>
+          <p class="home-product-showcase-eyebrow">&mdash; WHAT WE OFFER</p>
+          <h2 class="pp-section-heading" id="home-products-title">Clear plans,<span>visible progress</span></h2>
         </div>
       </div>
 
-      <div class="home-product-rail">
-        <div class="home-product-track" data-home-product-track aria-label="Prime Point treatment options">
+      <div class="home-product-carousel" data-home-carousel>
+      <div class="home-product-rail" data-carousel-rail>
+        <div class="home-product-track" id="home-treatments-track" data-carousel-track role="region" aria-label="Prime Point treatment options" aria-describedby="home-services-help" tabindex="0">
         <a class="home-product-card" href="semaglutide.html">
           <div class="home-product-image-wrap"><span class="home-product-price"><i aria-hidden="true"></i>Starting from $239</span><img src="assets/glp-page-pieces/Semaglutide Bottle V3.png" alt="Semaglutide injection bottle" /></div>
           <h3>Semaglutide</h3>
@@ -146,7 +194,7 @@
           <p>Science-backed weight support</p>
         </a>
         <article class="home-product-card">
-          <div class="home-product-image-wrap"><span class="home-product-price"><i aria-hidden="true"></i>Starting from $229</span><img src="assets/glp-page-pieces/Sermorelin Bottle Red V2.png" alt="Sermorelin injection bottle" /></div>
+          <div class="home-product-image-wrap"><span class="home-product-price"><i aria-hidden="true"></i>Starting from $224</span><img src="assets/glp-page-pieces/Sermorelin Bottle Red V2.png" alt="Sermorelin injection bottle" /></div>
           <h3>Sermorelin</h3>
           <p>Support natural growth hormone and unlock better sleep, recovery, and lean muscle</p>
         </article>
@@ -181,244 +229,149 @@
           <p>Supports fat metabolism, boosts energy, and enhances your body's natural detox process</p>
         </article>
         </div>
-        <button class="home-product-prev" type="button" data-home-product-prev aria-label="Show previous treatment options" disabled>&larr;</button>
-        <button class="home-product-next" type="button" data-home-product-next aria-label="Show more treatment options">&rarr;</button>
       </div>
-    </section>
-
-    <section class="home-orbit" aria-labelledby="home-orbit-title">
-      <div class="home-orbit-copy">
-        <p class="home-orbit-eyebrow">04 &mdash; THE OPTIMIZATION DASHBOARD</p>
-        <h2 class="home-orbit-title" id="home-orbit-title">
-          See the full<br /><span>picture.</span>
-        </h2>
-        <p class="home-orbit-intro">
-          Your important health markers in one place. Track trends over time and see
-          what&rsquo;s improving, what needs attention, and where to focus next&mdash;together
-          with your care team.
-        </p>
-        <p class="home-orbit-topics">Trends <i>&bull;</i> Biomarkers <i>&bull;</i> Body Composition <i>&bull;</i> Treatment Response</p>
-
-        <article class="home-orbit-focus-card">
-          <div class="home-orbit-focus-heading">
-            <div>
-              <h3>Body Composition</h3>
-              <span class="home-orbit-status">Needs attention</span>
-            </div>
-            <strong>54</strong>
-          </div>
-          <dl class="home-orbit-metrics">
-            <div><dt>Fasting Glucose</dt><dd>104 <small>mg/dL</small> <span class="is-up">&nearr;</span></dd></div>
-            <div><dt>A1C</dt><dd>5.7% <span>&rarr;</span></dd></div>
-            <div><dt>Triglycerides</dt><dd>146 <small>mg/dL</small> <span class="is-down">&searr;</span></dd></div>
-          </dl>
-          <a class="home-orbit-detail-link" href="#services">View detailed results <span aria-hidden="true">&rarr;</span></a>
-        </article>
-      </div>
-
-      <div class="home-orbit-visual">
-        <div class="home-orbit-dashboard">
-          <div class="home-orbit-scorebar">
-            <div class="home-orbit-score">
-              <span class="home-orbit-pulse" aria-hidden="true">⌁</span>
-              <div><small>Your health score</small><strong>78 <em>of 100</em></strong><span>Updated August 2026</span></div>
-            </div>
-            <div class="home-orbit-change"><strong>&nearr; &nbsp; Up 6 points</strong><span>vs. last 90 days</span></div>
-          </div>
-          <svg class="home-orbit-chart" viewBox="0 0 660 560" role="img" aria-labelledby="home-orbit-chart-title home-orbit-chart-desc">
-          <title id="home-orbit-chart-title">Health orbit overview</title>
-          <desc id="home-orbit-chart-desc">An illustrative radar chart showing metabolic health, body composition, cardiovascular, liver, kidney, recovery, and thyroid health scores.</desc>
-          <g class="home-orbit-grid">
-            <polygon points="330,88 492,166 532,342 420,480 240,480 128,342 168,166"></polygon>
-            <polygon points="330,142 438,194 465,312 390,404 270,404 195,312 222,194"></polygon>
-            <polygon points="330,196 384,222 397,282 360,328 300,328 263,282 276,222"></polygon>
-            <line x1="330" y1="250" x2="330" y2="88"></line><line x1="330" y1="250" x2="492" y2="166"></line>
-            <line x1="330" y1="250" x2="532" y2="342"></line><line x1="330" y1="250" x2="420" y2="480"></line>
-            <line x1="330" y1="250" x2="240" y2="480"></line><line x1="330" y1="250" x2="128" y2="342"></line>
-            <line x1="330" y1="250" x2="168" y2="166"></line>
-          </g>
-          <polygon class="home-orbit-shape" points="330,124 438,198 486,328 402,414 258,424 174,326 214,204"></polygon>
-          <g class="home-orbit-points">
-            <circle class="is-optimal" cx="330" cy="124" r="10"></circle><circle class="is-focus" cx="438" cy="198" r="10"></circle>
-            <circle class="is-focus" cx="486" cy="328" r="10"></circle><circle class="is-monitor" cx="402" cy="414" r="10"></circle>
-            <circle class="is-optimal" cx="258" cy="424" r="10"></circle><circle class="is-monitor" cx="174" cy="326" r="10"></circle>
-            <circle class="is-monitor" cx="214" cy="204" r="10"></circle>
-          </g>
-          <g class="home-orbit-labels">
-            <text x="330" y="40" text-anchor="middle">Metabolic Health</text><text class="is-optimal" x="330" y="66" text-anchor="middle">82</text>
-            <text x="500" y="132">Body Composition</text><text class="is-focus" x="500" y="158">54</text>
-            <text x="552" y="334">Cardiovascular</text><text class="is-focus" x="552" y="360">64</text>
-            <text x="448" y="492">Liver Health</text><text class="is-monitor" x="448" y="518">76</text>
-            <text x="212" y="492" text-anchor="end">Kidney Health</text><text class="is-optimal" x="212" y="518" text-anchor="end">88</text>
-            <text x="108" y="326" text-anchor="end">Recovery</text><text class="is-monitor" x="108" y="352" text-anchor="end">72</text>
-            <text x="154" y="132" text-anchor="end">Thyroid Health</text><text class="is-monitor" x="154" y="158" text-anchor="end">70</text>
-          </g>
-          </svg>
-          <div class="home-orbit-legend" aria-hidden="true">
-            <span><i class="is-optimal"></i><b>Optimal</b><small>80 &ndash; 100</small></span>
-            <span><i class="is-monitor"></i><b>Monitor</b><small>60 &ndash; 79</small></span>
-            <span><i class="is-focus"></i><b>Needs Focus</b><small>0 &ndash; 59</small></span>
-          </div>
+      <div class="home-services-navigation home-product-navigation" data-carousel-navigation>
+        <p class="home-services-navigation-label">Explore all treatments</p>
+        <div class="home-services-progress" aria-hidden="true"><span data-carousel-progress></span></div>
+        <div class="home-services-arrows">
+          <button type="button" data-carousel-prev aria-label="Previous treatments" aria-controls="home-treatments-track" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6"></path></svg></button>
+          <button type="button" data-carousel-next aria-label="Next treatments" aria-controls="home-treatments-track"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></button>
         </div>
       </div>
+      </div>
     </section>
 
-    <section
-      class="home-video-intro home-how-it-works"
-      id="how-it-works"
-      aria-labelledby="home-how-it-works-title"
-    >
-      <p class="home-how-it-works-eyebrow" id="home-how-it-works-title">
-        05 &mdash; HOW WE WORK
-      </p>
-      <h2 class="home-how-title">
-        Regenerative Health,<span>Built to Last</span>
-      </h2>
-      <p class="home-how-intro">
-        <span>
-          From your first assessment to ongoing optimization, Prime Point Health
-          brings every step of your care into one connected experience&mdash;personalized
-          to your goals, guided by your biology, and supported by our medical team.
-        </span>
-      </p>
-      <div class="home-how-process">
-        <article class="home-how-step">
-          <div class="home-how-step-marker" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <path d="M12 3v3"></path>
-              <path d="M6 6h10l2 2-2 2H6z"></path>
-              <path d="M12 10v4"></path>
-              <path d="M18 14H8l-2 2 2 2h10z"></path>
-              <path d="M12 18v3"></path>
-            </svg>
-          </div>
-          <div class="home-how-step-content">
-            <h2>CHOOSE YOUR PATH</h2>
-            <p>
-              Based on your biomarkers and goals, we'll work with you to create
-              a customized plan from Peptide therapy, GLP-1 Treatment, Blood
-              Work, HRT, and more ways to keep your body looking and feeling
-              young.
-            </p>
-          </div>
-        </article>
+    <section class="home-care" id="care-made-simple" aria-labelledby="home-care-title">
+      <div class="home-care-inner">
+        <div class="home-care-copy">
+          <p class="home-product-showcase-eyebrow">&mdash; THE TRUTH</p>
+          <h2 class="pp-section-heading" id="home-care-title">Traditional healthcare <span>can be frustrating</span></h2>
+          <p class="home-care-intro">
+            So we built a platform that isn&rsquo;t. Just accessible, expert-led care
+            from the comfort of your home, straight to your front door.
+          </p>
+          <a class="home-care-cta" href="treatments.html">
+            Explore treatments <span aria-hidden="true">&rarr;</span>
+          </a>
 
-        <article class="home-how-step home-how-step--assessment">
-          <div class="home-how-step-marker" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <path d="M15 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-              <circle cx="8.5" cy="7" r="4"></circle>
-              <path d="M19 8v6"></path>
-              <path d="M22 11h-6"></path>
-            </svg>
+          <div class="home-care-features">
+            <article class="home-care-card">
+              <svg class="home-care-icon" viewBox="0 0 40 40" aria-hidden="true">
+                <path d="M11 30H7a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3h26a3 3 0 0 1 3 3v18a3 3 0 0 1-3 3H22l-7 7"></path>
+                <path d="M20 12v12m-6-6h12"></path>
+              </svg>
+              <h3>Prescribed, Doctor-led plans</h3>
+              <p>Programs led by industry specialists, designed for you</p>
+            </article>
+            <article class="home-care-card">
+              <svg class="home-care-icon" viewBox="0 0 40 40" aria-hidden="true">
+                <path d="M31 12a14 14 0 0 0-23 1M8 6v7h7M9 28a14 14 0 0 0 23-1m0 7v-7h-7"></path>
+                <circle cx="20" cy="17" r="4"></circle>
+                <path d="M14 27v-2a6 6 0 0 1 12 0v2"></path>
+              </svg>
+              <h3>On-going, peer support</h3>
+              <p>Support &amp; structure through expert-led peer groups</p>
+            </article>
           </div>
-          <div class="home-how-step-content">
-            <h2>CREATE YOUR PRIME POINT ACCOUNT</h2>
-            <p>
-              Log in to create your Prime Point Account and explore our products
-              and services.
-            </p>
-          </div>
-        </article>
+        </div>
+        <figure class="home-care-photo">
+          <img src="assets/home/connected-care-v1.png" alt="Three friends enjoying a relaxed walk together on a sunlit coastal path" width="1024" height="1536" loading="lazy" decoding="async" />
+        </figure>
+      </div>
+    </section>
 
-        <article class="home-how-step">
-          <div class="home-how-step-marker" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <path d="M11 2v2"></path>
-              <path d="M5 2v2"></path>
-              <path d="M5 3H4a2 2 0 0 0-2 2v3a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"></path>
-              <path d="M8 14a6 6 0 0 0 12 0v-2"></path>
+    <section class="home-roadmap" id="how-it-works" aria-labelledby="home-how-it-works-title">
+      <div class="home-roadmap-inner">
+        <p class="home-product-showcase-eyebrow">&mdash; HOW WE WORK</p>
+        <h2 class="home-roadmap-title pp-section-heading" id="home-how-it-works-title">
+          Your next step,<span>made simple.</span>
+        </h2>
+        <p class="home-roadmap-intro">From exploring your options to a plan built around you, here&rsquo;s how to get started.</p>
+
+        <ol class="home-roadmap-steps" aria-label="Getting started with Prime Point">
+          <li class="home-roadmap-step">
+            <svg class="home-roadmap-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"></circle>
+              <path d="m16 8-2.5 5.5L8 16l2.5-5.5L16 8Z"></path>
+            </svg>
+            <h3>Find your path</h3>
+            <p>Explore care options that fit what you want to focus on.</p>
+          </li>
+          <li class="home-roadmap-step">
+            <svg class="home-roadmap-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M8 5H6a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"></path>
+              <rect x="8" y="2" width="8" height="5" rx="1.5"></rect>
+              <path d="M10 12h6m-6 5h6M7 12h.01M7 17h.01"></path>
+            </svg>
+            <h3>Share your story</h3>
+            <p>Tell us about your goals and health history.</p>
+          </li>
+          <li class="home-roadmap-step">
+            <svg class="home-roadmap-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 2v3m6-3v3M5 3H4a2 2 0 0 0-2 2v3a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1M8 14a6 6 0 0 0 12 0v-2"></path>
               <circle cx="20" cy="10" r="2"></circle>
             </svg>
-          </div>
-          <div class="home-how-step-content">
-            <h2>PROVIDER GUIDANCE AND CONTINUED CARE</h2>
-            <p>
-              Continue with education, care planning, and follow-up when
-              clinically appropriate for your individual needs.
-            </p>
-          </div>
-        </article>
+            <h3>Plan with a provider</h3>
+            <p>A licensed clinician reviews your information and discusses appropriate next steps.</p>
+          </li>
+        </ol>
+
+        <details class="home-roadmap-start">
+          <summary class="home-roadmap-cta">Find my starting point <span aria-hidden="true">&rarr;</span></summary>
+          <nav class="home-roadmap-options" aria-label="Choose your starting point">
+            <p>What would you like to explore?</p>
+            <div class="home-roadmap-links">
+              <a href="peptides.html">Peptides</a>
+              <a href="treatments.html#weight-loss">Weight loss</a>
+              <a href="treatments.html#metabolic-health">Metabolic health</a>
+              <a href="treatments.html#longevity">Longevity</a>
+              <a href="blood-work.html">Bloodwork</a>
+            </div>
+          </nav>
+        </details>
       </div>
     </section>
 
-    <section class="home-final-panel">
-      <div class="home-social-follow" aria-label="Follow Prime Point Health on social media">
-        <span class="home-social-label">Follow us on:</span>
-        <div class="home-social-links">
-          <a href="https://www.instagram.com/primepoint_health/" target="_blank" rel="noopener noreferrer" aria-label="Follow Prime Point Health on Instagram">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <rect x="4" y="4" width="16" height="16" rx="5"></rect>
-              <circle cx="12" cy="12" r="3.5"></circle>
-              <circle cx="17" cy="7" r="0.8"></circle>
-            </svg>
-          </a>
-          <a href="#" aria-label="Follow Prime Point Health on Facebook">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M14.5 8.2h2.2V4.6c-.4-.1-1.7-.2-3.2-.2-3.2 0-5.3 1.9-5.3 5.4v3H4.8v4h3.4v7h4.1v-7h3.3l.5-4h-3.8v-2.6c0-1.1.3-2 2.2-2Z"></path>
-            </svg>
-          </a>
-          <a href="#" aria-label="Follow Prime Point Health on X">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.451-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"></path>
-            </svg>
-          </a>
+    <footer class="pp-footer" id="site-footer">
+      <div class="pp-footer-wordmark">
+        <span class="pp-footer-wordmark-intro">FIND YOUR</span>
+        <span class="pp-footer-wordmark-name">PRIME POINT</span>
+      </div>
+      <div class="pp-footer-grid">
+        <div class="pp-footer-intro">
+          <p>Optimize from within.</p>
+          <a href="treatments.html">Explore all treatments <span aria-hidden="true">&rarr;</span></a>
+        </div>
+        <nav class="pp-footer-medications" aria-label="Treatment categories">
+          <h2>Explore treatments</h2>
+          <a href="peptides.html">Peptides</a>
+          <a href="treatments.html#weight-loss">Weight Loss</a>
+          <a href="treatments.html#metabolic-health">Metabolic Health</a>
+          <a href="treatments.html#longevity">Longevity</a>
+          <a href="blood-work.html">Blood Work</a>
+        </nav>
+        <div class="pp-footer-follow">
+          <h2>Follow us</h2>
+          <p>Prime Point Health</p>
+          <div class="pp-footer-social">
+            <a href="https://www.instagram.com/primepoint_health/" target="_blank" rel="noopener noreferrer" aria-label="Prime Point Health on Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="17" cy="7" r=".8" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <span class="pp-footer-social-pending" role="img" aria-label="Facebook — link coming soon" title="Facebook link coming soon">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 21v-8h2.7l.4-3H14V8.1c0-.9.3-1.5 1.6-1.5h1.7V3.9c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3V10H8v3h2.6v8Z"/></svg>
+            </span>
+          </div>
+        </div>
+        <div class="pp-footer-legal">
+          <p class="pp-footer-copyright">Copyright &copy; 2026 Prime Point Health</p>
+          <nav aria-label="Legal links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-of-service.html">Terms of Service</a>
+          </nav>
+          <p class="pp-footer-disclosure">This website is provided for educational and informational purposes only and does not constitute providing medical advice or professional services. The information provided should not be used for diagnosing or treating a health problem or disease, and those seeking personal medical advice should consult with a licensed physician.</p>
         </div>
       </div>
-      <div class="home-legal-container">
-        <p>
-          The information provided on the Prime Point Health website and social
-          media channels is for educational and informational purposes only and
-          is not intended to be a substitute for professional medical advice,
-          diagnosis, or treatment. We do not offer medical advice on this
-          website, and any clinical decisions should be made by a licensed
-          healthcare provider who can assess your individual medical needs and
-          provide appropriate treatment. Always seek the advice of a qualified
-          healthcare provider with any questions you may have regarding a medical
-          condition. If you think you may have a medical emergency, call your
-          healthcare provider or emergency services immediately. We are not
-          responsible for any reliance on information provided on this website.
-        </p>
-
-        <p>
-          Please note that some of the treatments or therapies offered by Prime
-          Point Health may not be approved by the US Food and Drug
-          Administration (FDA) and are offered at the discretion of licensed
-          medical professionals. These treatments may be considered experimental
-          or alternative, and their safety and efficacy may not be fully
-          established. While we strive to provide accurate information about
-          these treatments, we make no claims or guarantees regarding their
-          effectiveness or suitability for your individual needs.
-        </p>
-
-        <p>
-          It's important to understand that the results of any treatment may vary
-          from person to person, and there are no guarantees of success or
-          positive outcomes. Before undergoing any treatment or therapy, it's
-          important to consult with a licensed healthcare provider who can assess
-          your individual medical needs and provide appropriate guidance and
-          care.
-        </p>
-
-        <p>
-          By engaging in any treatments or therapies offered herein, you
-          acknowledge and agree that you assume all risks associated with such
-          treatment, and you release and hold harmless Prime Point Health and its
-          staff, agents, and affiliates from any and all claims or damages
-          arising from or related to your use of this website or any treatments
-          or therapies offered herein.
-        </p>
-
-        <p class="home-legal-copyright">
-          &copy; 2026 Prime Point Health all rights reserved.
-        </p>
-      </div>
-      <img
-        src="assets/brand/Logo V2.png"
-        alt="Prime Point Health"
-        class="home-final-logo"
-      />
-    </section>
+    </footer>
 
     <div class="home-launch-modal" data-home-launch-modal role="dialog" aria-modal="true" aria-labelledby="home-launch-title" hidden>
       <div class="home-launch-modal-card">
@@ -437,7 +390,8 @@
       </div>
     </div>
 
-    <script src="script.js?v=20"></script>
+    <script src="script.js?v=23"></script>
+    <script src="js/home-services.js?v=2"></script>
   </body>
 </html>
 

@@ -18,7 +18,7 @@ const activeHeaderSection = (() => {
     return "blood-work";
   }
 
-  if (["glutathione.html", "nad-plus.html"].includes(currentPage)) {
+  if (["glutathione.html", "nad-plus.html", "mic-b12.html", "glutathione-nasal.html", "nad-plus-nasal.html"].includes(currentPage)) {
     return "anti-aging";
   }
 
@@ -26,46 +26,10 @@ const activeHeaderSection = (() => {
     return "about";
   }
 
+  if (["sermorelin.html", "tesamorelin.html"].includes(currentPage)) return "metabolic";
+
   return "";
 })();
-
-document.querySelectorAll("[data-home-product-track]").forEach((track) => {
-  const rail = track.closest(".home-product-rail");
-  const prevButton = rail?.querySelector("[data-home-product-prev]");
-  const nextButton = rail?.querySelector("[data-home-product-next]");
-
-  if (!prevButton || !nextButton) {
-    return;
-  }
-
-  const updateProductButtons = () => {
-    const trackStyles = window.getComputedStyle(track);
-    const leadingInset = Number.parseFloat(trackStyles.paddingLeft) || 0;
-    const remainingScroll = track.scrollWidth - track.clientWidth - track.scrollLeft;
-    prevButton.disabled = track.scrollLeft <= leadingInset + 4;
-    nextButton.disabled = remainingScroll <= 4;
-  };
-
-  const getScrollDistance = () => {
-    const firstCard = track.querySelector(".home-product-card");
-    const trackStyles = window.getComputedStyle(track);
-    const gap = Number.parseFloat(trackStyles.columnGap || trackStyles.gap) || 0;
-
-    return (firstCard?.getBoundingClientRect().width || track.clientWidth * 0.8) + gap;
-  };
-
-  prevButton.addEventListener("click", () => {
-    track.scrollBy({ left: -getScrollDistance(), behavior: "smooth" });
-  });
-
-  nextButton.addEventListener("click", () => {
-    track.scrollBy({ left: getScrollDistance(), behavior: "smooth" });
-  });
-
-  track.addEventListener("scroll", updateProductButtons, { passive: true });
-  window.addEventListener("resize", updateProductButtons);
-  updateProductButtons();
-});
 
 const headerLinkClass = (section) => activeHeaderSection === section ? " nav-link-active" : "";
 const headerCurrentState = (section) => activeHeaderSection === section ? ' aria-current="true"' : "";
@@ -143,14 +107,14 @@ const globalHeaderMarkup = `
                 <small>Choose an offering to learn more</small>
               </div>
               <div class="metabolic-product-grid">
-                <article class="metabolic-product-card">
+                <a href="sermorelin.html" class="metabolic-product-card">
                   <span class="metabolic-product-art"><img src="assets/glp-page-pieces/Sermorelin Bottle Red V2.png" alt="" /></span>
                   <span class="metabolic-product-name">Sermorelin</span>
-                </article>
-                <article class="metabolic-product-card">
+                </a>
+                <a href="tesamorelin.html" class="metabolic-product-card">
                   <span class="metabolic-product-art"><img src="assets/glp-page-pieces/Tesamorelin Bottle Red V2.png" alt="" /></span>
                   <span class="metabolic-product-name">Tesamorelin</span>
-                </article>
+                </a>
               </div>
             </div>
           </div>
@@ -174,26 +138,26 @@ const globalHeaderMarkup = `
                 <small>Choose an offering to learn more</small>
               </div>
               <div class="metabolic-product-grid">
-                <article class="metabolic-product-card">
+                <a href="glutathione.html" class="metabolic-product-card">
                   <span class="metabolic-product-art"><img src="assets/glp-page-pieces/Glutathione Bottle Upright V3.png" alt="" /></span>
                   <span class="metabolic-product-name">Glutathione</span>
-                </article>
-                <article class="metabolic-product-card">
+                </a>
+                <a href="glutathione-nasal.html" class="metabolic-product-card">
                   <span class="metabolic-product-art"><img class="metabolic-product-image-nasal" src="assets/glp-page-pieces/Glutathione Nasal Upright V2.png" alt="" /></span>
                   <span class="metabolic-product-name">Glutathione Nasal</span>
-                </article>
-                <article class="metabolic-product-card">
+                </a>
+                <a href="nad-plus.html" class="metabolic-product-card">
                   <span class="metabolic-product-art"><img src="assets/glp-page-pieces/NAD Plus Bottle Upright V3.png" alt="" /></span>
                   <span class="metabolic-product-name">NAD+</span>
-                </article>
-                <article class="metabolic-product-card">
+                </a>
+                <a href="nad-plus-nasal.html" class="metabolic-product-card">
                   <span class="metabolic-product-art"><img class="metabolic-product-image-nasal" src="assets/glp-page-pieces/NAD Plus Nasal V2.png" alt="" /></span>
                   <span class="metabolic-product-name">NAD+ Nasal</span>
-                </article>
-                <article class="metabolic-product-card">
+                </a>
+                <a href="mic-b12.html" class="metabolic-product-card">
                   <span class="metabolic-product-art"><img src="assets/glp-page-pieces/MIC Plus B12 Bottle V2.png" alt="" /></span>
                   <span class="metabolic-product-name">MIC + B12</span>
-                </article>
+                </a>
               </div>
             </div>
           </div>
@@ -257,7 +221,14 @@ const globalHeaderMarkup = `
         <a class="mobile-nav-sublink" href="semaglutide-tablets.html">Semaglutide Tablets</a>
         <a class="mobile-nav-sublink" href="tirzepatide-tablets.html">Tirzepatide Tablets</a>
         <span class="mobile-nav-label">Metabolic Health</span>
+        <a class="mobile-nav-sublink" href="sermorelin.html">Sermorelin</a>
+        <a class="mobile-nav-sublink" href="tesamorelin.html">Tesamorelin</a>
         <span class="mobile-nav-label">Longevity</span>
+        <a class="mobile-nav-sublink" href="glutathione.html">Glutathione</a>
+        <a class="mobile-nav-sublink" href="glutathione-nasal.html">Glutathione Nasal</a>
+        <a class="mobile-nav-sublink" href="nad-plus.html">NAD+</a>
+        <a class="mobile-nav-sublink" href="nad-plus-nasal.html">NAD+ Nasal</a>
+        <a class="mobile-nav-sublink" href="mic-b12.html">MIC + B12</a>
         <a href="blood-work.html">Blood Work</a>
         <a href="about.html">About Us</a>
         <a href="contact.html">Contact Us</a>

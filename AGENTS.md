@@ -11,6 +11,7 @@ These instructions apply to all future Codex chats working in this repository. P
 - Do not delete pages unless the user specifically requests it.
 - Do not break navigation between pages, anchors, buttons, scripts, or assets.
 - Keep all pages mobile responsive.
+- Keep product photos and gallery thumbnails fixed in size and position when adjacent FAQ accordions open or close. Match desktop photo height to the collapsed text column and only recalculate for responsive layout or font changes.
 - Preserve Prime Point Wellness branding across pages and components.
 - After edits, list all modified files.
 - After edits, summarize the changes made.
@@ -31,6 +32,8 @@ These instructions apply to all future Codex chats working in this repository. P
 - Use gold accents for premium emphasis, borders, highlights, icons, and calls to action.
 - Use ivory typography on navy surfaces and navy typography on light surfaces.
 - Use rounded cards and refined panel treatments.
+- Do not use decorative numbered badges such as 01, 02, or 03 on cards or sections; the user explicitly rejected this treatment.
+- For short, centered explainer statements, use natural word spacing and intentional line breaks that taper from the longest top line to shorter lines below. Do not justify or stretch word spacing to make rows equal in width. Keep font size consistent within the statement and verify desktop and mobile layouts.
 - Keep layouts spacious with generous section rhythm and breathing room.
 - Use subtle animations and transitions only where they make the experience feel smoother.
 - Draw inspiration from Apple, Whoop, and Levels: minimal, premium, data-aware, health-forward, and highly polished.

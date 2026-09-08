@@ -1323,3 +1323,79 @@ html.pp-reveal-ready [data-pp-reveal="fade"].pp-reveal-visible {
     transition: none;
   }
 }
+
+/* Shared public footer. */
+.pp-footer {
+  padding: clamp(48px, 6vw, 96px) var(--pp-page-gutter) clamp(56px, 7vw, 110px);
+  border-top: 1px solid var(--pp-prime-gold);
+  background: var(--pp-warm-ivory);
+  color: var(--pp-prime-navy);
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+.pp-footer-wordmark {
+  user-select: none;
+  cursor: default;
+  display: block;
+  width: 100%;
+  padding-bottom: clamp(32px, 4vw, 64px);
+  color: var(--pp-prime-gold);
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  text-align: center;
+}
+.pp-footer-wordmark-intro {
+  display: block;
+  margin-bottom: clamp(16px, 2.2vw, 34px);
+  font-size: clamp(12px, 1.4vw, 22px);
+  font-weight: 500;
+  letter-spacing: .42em;
+  padding-left: .42em;
+}
+.pp-footer-wordmark-name {
+  display: block;
+  font-family: "Bodoni MT", Didot, "Times New Roman", serif;
+  font-size: clamp(36px, 12vw, 200px);
+  font-weight: 400;
+  letter-spacing: -.045em;
+  line-height: .95;
+}
+.pp-footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr .8fr 1.45fr;
+  gap: clamp(24px, 3.5vw, 64px);
+  padding-top: clamp(36px, 4.5vw, 72px);
+}
+.pp-footer-grid > * { min-width: 0; }
+.pp-footer h2,
+.pp-footer-intro > p {
+  margin: 0 0 20px;
+  font: 600 .82rem/1.4 Inter, "Segoe UI", Arial, sans-serif;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+.pp-footer p { margin: 0; }
+.pp-footer a { color: inherit; text-underline-offset: 4px; }
+.pp-footer .pp-footer-wordmark { color: var(--pp-prime-gold); }
+.pp-footer a:hover { color: var(--pp-dark-gold); }
+.pp-footer a:focus-visible { outline: 2px solid var(--pp-prime-gold); outline-offset: 5px; border-radius: 3px; }
+.pp-footer-intro > p { margin-bottom: 20px; }
+.pp-footer-intro > a { font-size: .87rem; }
+.pp-footer-medications a { display: block; width: fit-content; margin-top: 14px; font-size: .9rem; line-height: 1.5; }
+.pp-footer-follow > p { font-size: .9rem; line-height: 1.5; }
+.pp-footer-social { display: flex; gap: 12px; margin-top: 18px; }
+.pp-footer-social > * { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid var(--pp-prime-gold); border-radius: 50%; }
+.pp-footer-social svg { width: 23px; height: 23px; }
+.pp-footer-legal { font-size: .78rem; line-height: 1.6; }
+.pp-footer-legal nav { display: flex; flex-wrap: wrap; gap: 6px 14px; margin: 16px 0; }
+.pp-footer-disclosure { color: var(--pp-navy-muted); }
+
+@media (max-width: 1050px) {
+  .pp-footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 38px; }
+}
+@media (max-width: 560px) {
+  .pp-footer-wordmark-name { font-size: 11.5vw; }
+  .pp-footer-grid { grid-template-columns: 1fr; gap: 34px; }
+  .pp-footer h2,
+  .pp-footer-intro > p { margin-bottom: 14px; }
+}

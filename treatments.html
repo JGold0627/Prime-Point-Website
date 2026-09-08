@@ -8,8 +8,8 @@
       name="description"
       content="Explore physician-guided wellness options available through Prime Point Health."
     />
-    <link rel="stylesheet" href="css/global.css?v=37" />
-    <link rel="stylesheet" href="css/treatments.css?v=15" />
+    <link rel="stylesheet" href="css/global.css?v=38" />
+    <link rel="stylesheet" href="css/treatments.css?v=24" />
   </head>
   <body class="treatments-page">
     <header class="site-header" data-site-header-mount aria-label="Primary navigation"></header>
@@ -31,9 +31,9 @@
 
         <nav class="treatments-filters" aria-label="Treatment categories">
           <button class="treatments-filter is-active" type="button" aria-pressed="true">All</button>
-          <button class="treatments-filter" type="button" aria-pressed="false">Weight Loss</button>
-          <button class="treatments-filter" type="button" aria-pressed="false">Metabolic Health</button>
-          <button class="treatments-filter" type="button" aria-pressed="false">Longevity</button>
+          <button class="treatments-filter" id="weight-loss" type="button" aria-pressed="false">Weight Loss</button>
+          <button class="treatments-filter" id="metabolic-health" type="button" aria-pressed="false">Metabolic Health</button>
+          <button class="treatments-filter" id="longevity" type="button" aria-pressed="false">Longevity</button>
         </nav>
       </section>
 
@@ -74,68 +74,68 @@
           <p>Science-backed weight support</p>
         </a>
 
-        <article class="treatment-card" data-treatment-category="metabolic-health">
+        <a href="sermorelin.html" class="treatment-card" data-treatment-category="metabolic-health">
           <div class="treatment-card-visual">
-            <span class="treatment-card-price"><i aria-hidden="true"></i>Starting from $229</span>
+            <span class="treatment-card-price"><i aria-hidden="true"></i>Starting from $224</span>
             <img class="treatment-card-product" src="assets/glp-page-pieces/Sermorelin Bottle Red V2.png" alt="Sermorelin injection bottle" />
           </div>
           <h2>Sermorelin</h2>
           <p>Support natural growth hormone and unlock better sleep, recovery, and lean muscle</p>
-        </article>
+        </a>
 
-        <article class="treatment-card" data-treatment-category="metabolic-health">
+        <a href="tesamorelin.html" class="treatment-card" data-treatment-category="metabolic-health">
           <div class="treatment-card-visual">
             <span class="treatment-card-price"><i aria-hidden="true"></i>Starting from $249</span>
             <img class="treatment-card-product" src="assets/glp-page-pieces/Tesamorelin Bottle Red V2.png" alt="Tesamorelin injection bottle" />
           </div>
           <h2>Tesamorelin</h2>
           <p>Support natural growth hormone and unlock better sleep, recovery, and lean muscle</p>
-        </article>
+        </a>
 
-        <article class="treatment-card" data-treatment-category="longevity">
+        <a href="glutathione.html" class="treatment-card" data-treatment-category="longevity">
           <div class="treatment-card-visual">
             <span class="treatment-card-price"><i aria-hidden="true"></i>Starting from $169</span>
             <img class="treatment-card-product" src="assets/glp-page-pieces/Glutathione Bottle Upright V3.png" alt="Glutathione injection bottle" />
           </div>
           <h2>Glutathione</h2>
           <p>Natural antioxidant support</p>
-        </article>
+        </a>
 
-        <article class="treatment-card" data-treatment-category="longevity">
+        <a href="nad-plus.html" class="treatment-card" data-treatment-category="longevity">
           <div class="treatment-card-visual">
             <span class="treatment-card-price"><i aria-hidden="true"></i>Starting from $189</span>
             <img class="treatment-card-product" src="assets/glp-page-pieces/NAD Plus Bottle Upright V3.png" alt="NAD+ injection bottle" />
           </div>
           <h2>NAD+</h2>
           <p>Supports energy and metabolism</p>
-        </article>
+        </a>
 
-        <article class="treatment-card" data-treatment-category="longevity">
+        <a href="mic-b12.html" class="treatment-card" data-treatment-category="longevity">
           <div class="treatment-card-visual">
             <span class="treatment-card-price"><i aria-hidden="true"></i>Starting from $125</span>
             <img class="treatment-card-product" src="assets/glp-page-pieces/MIC Plus B12 Bottle V2.png" alt="MIC + B12 injection bottle" />
           </div>
           <h2>MIC + B12</h2>
-          <p>Supports fat metabolism, boosts energy, and enhances your body&rsquo;s natural detox process</p>
-        </article>
+          <p>Support for fatigue, brain fog, and metabolic processes.</p>
+        </a>
 
-        <article class="treatment-card" data-treatment-category="longevity">
+        <a href="glutathione-nasal.html" class="treatment-card" data-treatment-category="longevity">
           <div class="treatment-card-visual">
             <span class="treatment-card-price"><i aria-hidden="true"></i>Starting from $169</span>
             <img class="treatment-card-product treatment-card-product--nasal" src="assets/glp-page-pieces/Glutathione Nasal Upright V2.png" alt="Glutathione nasal spray bottle" />
           </div>
           <h2>Glutathione Nasal</h2>
           <p>Natural antioxidant support</p>
-        </article>
+        </a>
 
-        <article class="treatment-card" data-treatment-category="longevity">
+        <a href="nad-plus-nasal.html" class="treatment-card" data-treatment-category="longevity">
           <div class="treatment-card-visual">
             <span class="treatment-card-price"><i aria-hidden="true"></i>Starting from $189</span>
             <img class="treatment-card-product treatment-card-product--nasal" src="assets/glp-page-pieces/NAD Plus Nasal V2.png" alt="NAD+ nasal spray bottle" />
           </div>
           <h2>NAD+ Nasal</h2>
           <p>Supports energy and metabolism</p>
-        </article>
+        </a>
       </section>
 
       <section class="treatments-quality" aria-labelledby="treatments-quality-title">
@@ -148,7 +148,7 @@
 
         <div class="treatments-quality-content">
           <p class="treatments-quality-eyebrow">The Prime Point quality standard</p>
-          <h2 id="treatments-quality-title">Every medication starts with <span>rigorous standards.</span></h2>
+          <h2 id="treatments-quality-title">Every medication undergoes <span>rigorous standards.</span></h2>
           <p class="treatments-quality-intro">
             Before medication reaches a Prime Point patient, it is supported by a layered quality
             process designed to verify what is inside, protect its purity, and hold every pharmacy
@@ -177,7 +177,48 @@
       </section>
     </main>
 
-    <script src="script.js?v=20"></script>
-    <script src="treatments.js?v=3"></script>
+    <footer class="pp-footer" id="site-footer">
+      <div class="pp-footer-wordmark">
+        <span class="pp-footer-wordmark-intro">FIND YOUR</span>
+        <span class="pp-footer-wordmark-name">PRIME POINT</span>
+      </div>
+      <div class="pp-footer-grid">
+        <div class="pp-footer-intro">
+          <p>Optimize from within.</p>
+          <a href="treatments.html">Explore all treatments <span aria-hidden="true">&rarr;</span></a>
+        </div>
+        <nav class="pp-footer-medications" aria-label="Treatment categories">
+          <h2>Explore treatments</h2>
+          <a href="peptides.html">Peptides</a>
+          <a href="treatments.html#weight-loss">Weight Loss</a>
+          <a href="treatments.html#metabolic-health">Metabolic Health</a>
+          <a href="treatments.html#longevity">Longevity</a>
+          <a href="blood-work.html">Blood Work</a>
+        </nav>
+        <div class="pp-footer-follow">
+          <h2>Follow us</h2>
+          <p>Prime Point Health</p>
+          <div class="pp-footer-social">
+            <a href="https://www.instagram.com/primepoint_health/" target="_blank" rel="noopener noreferrer" aria-label="Prime Point Health on Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="17" cy="7" r=".8" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <span class="pp-footer-social-pending" role="img" aria-label="Facebook — link coming soon" title="Facebook link coming soon">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 21v-8h2.7l.4-3H14V8.1c0-.9.3-1.5 1.6-1.5h1.7V3.9c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3V10H8v3h2.6v8Z"/></svg>
+            </span>
+          </div>
+        </div>
+        <div class="pp-footer-legal">
+          <p class="pp-footer-copyright">Copyright &copy; 2026 Prime Point Health</p>
+          <nav aria-label="Legal links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-of-service.html">Terms of Service</a>
+          </nav>
+          <p class="pp-footer-disclosure">This website is provided for educational and informational purposes only and does not constitute providing medical advice or professional services. The information provided should not be used for diagnosing or treating a health problem or disease, and those seeking personal medical advice should consult with a licensed physician.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js?v=22"></script>
+    <script src="treatments.js?v=5"></script>
   </body>
 </html>

@@ -192,8 +192,8 @@ a.treatment-card:focus-visible {
 }
 
 .treatment-card-product {
-  width: 77.4%;
-  height: 73.8%;
+  width: 69.66%;
+  height: 66.42%;
   margin-top: 42px;
   object-fit: contain;
   object-position: center;
@@ -201,8 +201,8 @@ a.treatment-card:focus-visible {
 }
 
 .treatment-card-product--nasal {
-  width: 55.8%;
-  height: 73.8%;
+  width: 50.22%;
+  height: 66.42%;
   transform: scaleX(1.14);
 }
 
@@ -466,3 +466,5 @@ a.treatment-card:focus-visible {
     grid-template-columns: 1fr;
   }
 }
+
+.treatments-filter[id] { scroll-margin-top: calc(var(--pp-header-height) + 24px); }
