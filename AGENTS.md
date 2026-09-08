@@ -11,7 +11,7 @@ These instructions apply to all future Codex chats working in this repository. P
 - Do not delete pages unless the user specifically requests it.
 - Do not break navigation between pages, anchors, buttons, scripts, or assets.
 - Keep all pages mobile responsive.
-- Keep product photos and gallery thumbnails fixed in size and position when adjacent FAQ accordions open or close. Match desktop photo height to the collapsed text column and only recalculate for responsive layout or font changes.
+- Keep all photos and gallery thumbnails fixed in size and position when adjacent text, FAQ accordions, or other expandable panels open or close. For desktop image-and-text layouts, match photo height to the collapsed text column and only recalculate for responsive layout or font changes. Verify that expanding text never stretches the photo.
 - Preserve Prime Point Wellness branding across pages and components.
 - After edits, list all modified files.
 - After edits, summarize the changes made.
@@ -40,6 +40,7 @@ These instructions apply to all future Codex chats working in this repository. P
 
 ## Website Editing Rules
 
+- Do not reuse the same photo across the site unless the user explicitly specifies reuse or it is for GLP-1s. The existing GLP-1 photo treatment is already completed and is an allowed exception. Check existing photo usage before selecting or adding imagery for a new page or section.
 - Preserve existing navigation and page relationships.
 - Keep all visible pages accessible unless the user asks to remove or hide something.
 - Maintain responsive behavior across desktop and mobile.

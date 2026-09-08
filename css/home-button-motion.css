@@ -1,0 +1,156 @@
+/* Homepage preview: review this interaction before extending it to other pages. */
+body.home-page :is(
+  .home-hero-centered-actions .button-primary,
+  .home-care-cta,
+  .home-roadmap-cta,
+  .home-roadmap-links a,
+  .home-services-arrows button,
+  .header-login,
+  .mobile-nav-toggle,
+  .home-launch-modal-close,
+  .home-launch-modal-form button,
+  .pp-footer-social a
+) {
+  --home-button-lift: 0px;
+  --home-button-scale: 1;
+  --home-button-arrow-x: 0px;
+  cursor: pointer;
+  transform: translateY(var(--home-button-lift)) scale(var(--home-button-scale));
+  transition:
+    transform 240ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 240ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    opacity 180ms ease;
+}
+
+body.home-page :is(
+  .home-hero-centered-actions .button-primary,
+  .home-care-cta,
+  .home-roadmap-cta
+) > span,
+body.home-page .home-services-arrows button > svg {
+  display: inline-block;
+  translate: calc(var(--home-button-arrow-x, 0px) * var(--home-button-arrow-direction, 1)) 0;
+  transition:
+    translate 240ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 180ms ease;
+}
+
+body.home-page .home-services-arrows [data-carousel-prev] {
+  --home-button-arrow-direction: -1;
+}
+
+body.home-page :is(
+  .home-hero-centered-actions .button-primary,
+  .home-care-cta,
+  .home-roadmap-cta,
+  .home-roadmap-links a,
+  .home-services-arrows button,
+  .header-login,
+  .mobile-nav-toggle,
+  .home-launch-modal-close,
+  .home-launch-modal-form button,
+  .pp-footer-social a
+):focus-visible {
+  outline: 2px solid var(--home-prime-gold);
+  outline-offset: 5px;
+  box-shadow: 0 6px 18px rgba(15, 31, 45, 0.12);
+}
+
+body.home-page :is(
+  .home-hero-centered-actions .button-primary,
+  .home-care-cta,
+  .home-roadmap-cta
+):focus-visible {
+  background: #233c50;
+  border-color: var(--home-prime-gold);
+  color: var(--home-warm-ivory);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body.home-page :is(
+    .home-hero-centered-actions .button-primary,
+    .home-care-cta,
+    .home-roadmap-cta,
+    .home-roadmap-links a,
+    .home-services-arrows button,
+    .header-login,
+    .mobile-nav-toggle,
+    .home-launch-modal-close,
+    .home-launch-modal-form button,
+    .pp-footer-social a
+  ):not(:disabled):hover {
+    --home-button-lift: -3px;
+    --home-button-arrow-x: 4px;
+    box-shadow: 0 8px 22px rgba(15, 31, 45, 0.16);
+  }
+
+  body.home-page :is(
+    .home-hero-centered-actions .button-primary,
+    .home-care-cta,
+    .home-roadmap-cta
+  ):hover {
+    background: #233c50;
+    border-color: var(--home-prime-gold);
+    color: var(--home-warm-ivory);
+  }
+
+  body.home-page :is(.header-login, .pp-footer-social a):hover {
+    background: var(--home-prime-navy);
+    border-color: var(--home-prime-gold);
+    color: var(--home-warm-ivory);
+  }
+}
+
+body.home-page :is(
+  .home-hero-centered-actions .button-primary,
+  .home-care-cta,
+  .home-roadmap-cta,
+  .home-roadmap-links a,
+  .home-services-arrows button,
+  .header-login,
+  .mobile-nav-toggle,
+  .home-launch-modal-close,
+  .home-launch-modal-form button,
+  .pp-footer-social a
+):not(:disabled):active {
+  --home-button-lift: 0px;
+  --home-button-scale: 0.98;
+  box-shadow: 0 2px 6px rgba(15, 31, 45, 0.12);
+}
+
+body.home-page .home-services-arrows button:disabled {
+  cursor: default;
+  transform: none;
+  box-shadow: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.home-page :is(
+    .home-hero-centered-actions .button-primary,
+    .home-care-cta,
+    .home-roadmap-cta,
+    .home-roadmap-links a,
+    .home-services-arrows button,
+    .header-login,
+    .mobile-nav-toggle,
+    .home-launch-modal-close,
+    .home-launch-modal-form button,
+    .pp-footer-social a
+  ) {
+    transform: none;
+    transition: none;
+  }
+
+  body.home-page :is(
+    .home-hero-centered-actions .button-primary,
+    .home-care-cta,
+    .home-roadmap-cta
+  ) > span,
+  body.home-page .home-services-arrows button > svg {
+    translate: none;
+    transition: none;
+  }
+}

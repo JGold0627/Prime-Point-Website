@@ -7,6 +7,7 @@
     <meta name="description" content="Explore NAD+, how it works, and provider-guided care through Prime Point Health." />
     <link rel="stylesheet" href="css/global.css?v=38" />
     <link rel="stylesheet" href="css/wellness-product.css?v=8" />
+    <link rel="stylesheet" href="css/nad-plus.css?v=3" />
   </head>
   <body class="wellness-product-page">
     <header class="site-header" data-site-header-mount aria-label="Primary navigation"></header>
@@ -14,10 +15,29 @@
       <nav class="wellness-breadcrumb" aria-label="Breadcrumb"><a href="treatments.html">All treatments</a><span aria-hidden="true">/</span><span aria-current="page">NAD+</span></nav>
       <section class="wellness-product-layout" aria-labelledby="product-title">
         <div class="wellness-product-gallery" data-product-gallery>
-          <figure class="wellness-product-photo"><img src="assets/products/nad-plus-lifestyle-v1.png" alt="Prime Point Health NAD+ bottle in a sunlit setting" width="1122" height="1402" fetchpriority="high" data-product-photo /></figure>
+          <figure class="wellness-product-photo nad-gallery-frame">
+            <img src="assets/products/nad-plus-lifestyle-v1.png" alt="Prime Point Health NAD+ bottle in a sunlit setting" width="1122" height="1402" fetchpriority="high" data-product-photo />
+            <div class="nad-infographic" data-product-information hidden aria-labelledby="nad-infographic-title">
+              <p class="nad-infographic-label" id="nad-infographic-title">How NAD+ Works</p>
+              <p class="nad-infographic-intro">
+                <span class="nad-infographic-line">NAD+ helps your cells make energy</span>
+                <span class="nad-infographic-line">by carrying electrons</span>
+                <span class="nad-infographic-line">from nutrients.</span>
+              </p>
+              <div class="nad-infographic-flow">
+                <div class="nad-infographic-step"><h3>Collect</h3><p>Accepts electrons as your cells<br />break down nutrients</p></div>
+                <span class="nad-infographic-arrow" aria-hidden="true">&darr;</span>
+                <div class="nad-infographic-step"><h3>Carry</h3><p>Becomes NADH and transfers<br />electrons in mitochondria</p></div>
+                <span class="nad-infographic-arrow" aria-hidden="true">&darr;</span>
+                <div class="nad-infographic-step"><h3>Power</h3><p>Helps drive ATP production<br />to power cellular activity</p></div>
+              </div>
+            </div>
+          </figure>
           <div class="wellness-product-thumbnails" aria-label="Product views">
             <button type="button" aria-label="View NAD+ lifestyle image" aria-pressed="true" data-product-image="assets/products/nad-plus-lifestyle-v1.png" data-product-alt="Prime Point Health NAD+ bottle in a sunlit setting"><img src="assets/products/nad-plus-lifestyle-v1.png" alt="" /></button>
-            <button type="button" aria-label="View NAD+ packaging" aria-pressed="false" data-product-image="assets/glp-page-pieces/NAD Plus Bottle Upright V3.png" data-product-alt="Prime Point Health NAD+ bottle label" data-product-view="packaging"><img src="assets/glp-page-pieces/NAD Plus Bottle Upright V3.png" alt="" /></button>
+            <button class="nad-info-thumbnail" type="button" aria-label="View how NAD+ works" aria-pressed="false" data-product-view="information">
+              <span class="nad-thumbnail-preview" data-product-information-preview="nad" aria-hidden="true"></span>
+            </button>
           </div>
           <p class="wellness-product-caption">Product illustration. Actual packaging may vary.</p>
         </div>
@@ -31,7 +51,88 @@
           <ul class="wellness-product-features"><li>Licensed-provider review</li><li>Personalized Care, 100% Online</li><li>High-potency, 3rd Party lab tested</li></ul>
           <div class="wellness-product-faq">
             <details name="product-information"><summary>What is NAD+?</summary><p>NAD+ stands for nicotinamide adenine dinucleotide. It is a coenzyme found in cells that participates in energy metabolism and serves as a substrate for enzymes involved in cellular maintenance.</p></details>
-            <details name="product-information"><summary>How does NAD+ work?</summary><p>NAD+ helps transfer electrons during metabolic reactions, including reactions that support ATP production. Its role in normal cell biology does not establish that NAD+ injections improve focus, reverse aging, or extend lifespan.</p></details>
+            <details name="product-information"><summary>How does NAD+ work?</summary><p>The Electron Shuttle: NAD+ exists in two states. NAD+ is the active ("empty") form that accepts electrons from broken-down food. Once it captures those electrons, it turns into NADH (the "full" form). NADH delivers those electrons to the mitochondria (the cell's power plants). This triggers a chain reaction that produces ATP, the chemical energy your body uses to move, think, and live.</p></details>
+          </div>
+        </div>
+      </section>
+      <section class="nad-benefits" id="nad-plus-benefits" aria-labelledby="nad-benefits-title">
+        <div class="nad-benefits-media">
+          <img src="assets/products/nad-plus-vitality-v1.png" alt="Man enjoying a morning jog on a sunlit park trail" width="1086" height="1448" loading="lazy" decoding="async" />
+        </div>
+        <div class="nad-benefits-copy">
+          <h2 id="nad-benefits-title">Fuel what <span>keeps you going</span></h2>
+          <ul class="nad-benefits-list">
+            <li>
+              <span class="nad-benefits-arrow" aria-hidden="true">&rarr;</span>
+              <p><strong>Cellular Energy:</strong> Helps mitochondria produce ATP, the primary energy currency of cells.</p>
+            </li>
+            <li>
+              <span class="nad-benefits-arrow" aria-hidden="true">&rarr;</span>
+              <p><strong>DNA Repair &amp; Longevity:</strong> Fuels enzymes like PARPs to fix damaged DNA and sirtuins to regulate cellular stress.</p>
+            </li>
+            <li>
+              <span class="nad-benefits-arrow" aria-hidden="true">&rarr;</span>
+              <p><strong>Brain Health:</strong> Supports high-energy neurons, potentially improving focus, mental clarity, and memory protection.</p>
+            </li>
+            <li>
+              <span class="nad-benefits-arrow" aria-hidden="true">&rarr;</span>
+              <p><strong>Sleep &amp; Circadian Rhythms:</strong> Assists in regulating the body's internal clock to support sleep quality.</p>
+            </li>
+          </ul>
+          <button class="wellness-product-cta nad-benefits-cta" type="button" data-product-start="nad-plus"><span>Get started</span><span aria-hidden="true">&rarr;</span></button>
+        </div>
+      </section>
+      <section class="nad-science" id="nad-science" aria-labelledby="nad-science-title">
+        <div class="nad-science-heading">
+          <h2 id="nad-science-title">How NAD+ works <span>in the body</span></h2>
+        </div>
+        <div class="nad-science-grid">
+          <article class="nad-science-card">
+            <h3>Cellular<br />energy</h3>
+            <div class="nad-science-art"><img src="assets/products/nad-plus-energy-v1.png" alt="Woman enjoying a bicycle ride beside a lake in morning sunlight" width="1254" height="1254" loading="lazy" decoding="async" /></div>
+            <p>NAD+ helps cells turn nutrients into usable energy. By cycling between NAD+ and NADH, it carries electrons that help drive ATP production in mitochondria.</p>
+          </article>
+          <article class="nad-science-card">
+            <h3>DNA repair &amp;<br />maintenance</h3>
+            <div class="nad-science-art"><img src="assets/products/nad-plus-repair-v1.png" alt="Laboratory researcher examining a sample through a microscope" width="1254" height="1254" loading="lazy" decoding="async" /></div>
+            <p>NAD+ is used by enzymes called PARPs and sirtuins. These enzymes help cells respond to DNA damage and coordinate repair and cellular stress responses.</p>
+          </article>
+          <article class="nad-science-card">
+            <h3>Boosts brain<br />function</h3>
+            <div class="nad-science-art"><img src="assets/products/nad-plus-rhythms-v1.png" alt="Woman opening linen curtains to let morning light into her bedroom" width="1254" height="1254" loading="lazy" decoding="async" /></div>
+            <p>Supports high-energy neurons, potentially improving focus, mental clarity, and memory protection.</p>
+          </article>
+        </div>
+      </section>
+      <section class="nad-quality" id="nad-quality" aria-labelledby="nad-quality-title">
+        <div class="nad-quality-media">
+          <img src="assets/treatments/petri-dish-quality-v2.png" alt="Pristine glass petri dish and pipette on a warm ivory laboratory surface" loading="lazy" decoding="async" />
+        </div>
+        <div class="nad-quality-content">
+          <p class="nad-quality-eyebrow">The Prime Point quality standard</p>
+          <h2 id="nad-quality-title">Every medication undergoes <span>rigorous standards.</span></h2>
+          <p class="nad-quality-intro">
+            Before medication reaches a Prime Point patient, it is supported by a layered quality
+            process designed to verify what is inside, protect its purity, and hold every pharmacy
+            partner to a consistently high standard.
+          </p>
+          <div class="nad-quality-list">
+            <details name="nad-quality-checks">
+              <summary><span>Potency tested</span><span class="nad-quality-toggle" aria-hidden="true"></span></summary>
+              <p>We test for potency to ensure every medication contains the correct concentration of active ingredients.</p>
+            </details>
+            <details name="nad-quality-checks">
+              <summary><span>Sterility tested</span><span class="nad-quality-toggle" aria-hidden="true"></span></summary>
+              <p>We ensure our pharmacy partners test for sterility so medications are free of foreign organisms, pathogens, and bacteria.</p>
+            </details>
+            <details name="nad-quality-checks">
+              <summary><span>Endotoxin tested</span><span class="nad-quality-toggle" aria-hidden="true"></span></summary>
+              <p>We test for endotoxicity to confirm medications adhere to established endotoxin safety recommendations.</p>
+            </details>
+            <details name="nad-quality-checks">
+              <summary><span>Independently verified</span><span class="nad-quality-toggle" aria-hidden="true"></span></summary>
+              <p>Every medication is independently third-party tested, and every pharmacy is rigorously vetted before any partnership begins.</p>
+            </details>
           </div>
         </div>
       </section>
@@ -77,6 +178,6 @@
       </div>
     </footer>
     <script src="script.js?v=22"></script>
-    <script src="js/wellness-product.js?v=5"></script>
+    <script src="js/wellness-product.js?v=11"></script>
   </body>
 </html>

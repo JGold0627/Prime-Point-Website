@@ -7,20 +7,21 @@ document.querySelectorAll('[data-product-gallery]').forEach((gallery) => {
   const views = gallery.querySelectorAll('[data-product-image], [data-product-view="information"]');
   const preview = gallery.querySelector('[data-product-information-preview]');
   if (information && preview) {
+    const previewPrefix = preview.dataset.productInformationPreview || 'sermorelin';
     // Reuse the actual panel content, keeping the thumbnail decorative and free of duplicate IDs.
     const copyForThumbnail = (node) => {
       if (node.nodeType === Node.TEXT_NODE) return node.cloneNode();
       const copy = document.createElement(node.tagName === 'BR' ? 'br' : 'span');
       copy.className = node.className;
-      if (node.tagName === 'H3') copy.classList.add('sermorelin-thumbnail-step-title');
-      if (node.tagName === 'P' && node.parentElement.classList.contains('sermorelin-infographic-step')) {
-        copy.classList.add('sermorelin-thumbnail-step-copy');
+      if (node.tagName === 'H3') copy.classList.add(`${previewPrefix}-thumbnail-step-title`);
+      if (node.tagName === 'P' && node.parentElement.classList.contains(`${previewPrefix}-infographic-step`)) {
+        copy.classList.add(`${previewPrefix}-thumbnail-step-copy`);
       }
       node.childNodes.forEach((child) => copy.append(copyForThumbnail(child)));
       return copy;
     };
     const canvas = document.createElement('span');
-    canvas.className = 'sermorelin-thumbnail-canvas';
+    canvas.className = `${previewPrefix}-thumbnail-canvas`;
     canvas.append(copyForThumbnail(information));
     preview.append(canvas);
     const sizePreview = () => {
@@ -50,7 +51,10 @@ document.querySelectorAll('[data-product-gallery]').forEach((gallery) => {
       }
       frame.classList.toggle('is-information', showInformation);
       frame.classList.toggle('is-packaging', button.dataset.productView === 'packaging');
-      if (caption) caption.textContent = showInformation ? 'How Sermorelin Works' : originalCaption;
+      if (caption) {
+        const informationTitle = information && document.getElementById(information.getAttribute('aria-labelledby'))?.textContent;
+        caption.textContent = showInformation ? informationTitle || 'How it works' : originalCaption;
+      }
       views.forEach((item) => {
         item.setAttribute('aria-pressed', String(item === button));
       });
@@ -58,8 +62,8 @@ document.querySelectorAll('[data-product-gallery]').forEach((gallery) => {
   });
 });
 
-document.querySelectorAll('.wellness-product-layout').forEach((layout) => {
-  const details = layout.querySelector('.wellness-product-details');
+document.querySelectorAll('.wellness-product-layout, .sermorelin-quality, .sermorelin-benefits, .glutathione-quality, .nad-benefits, .nad-quality').forEach((layout) => {
+  const details = layout.querySelector('.wellness-product-details, .sermorelin-quality-content, .sermorelin-benefits-copy, .glutathione-quality-content, .nad-benefits-copy, .nad-quality-content');
   const desktop = window.matchMedia('(min-width: 761px)');
   let measuredWidth = -1;
   const sizePhoto = () => {
