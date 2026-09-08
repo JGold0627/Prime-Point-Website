@@ -1,3 +1,124 @@
+.mic-b12-gallery-frame {
+  position: relative;
+  container-type: inline-size;
+}
+
+.mic-b12-gallery-frame [hidden] {
+  display: none !important;
+}
+
+.mic-b12-infographic {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(8px, 2.8cqw, 20px);
+  padding: clamp(12px, 4cqw, 28px);
+  background: var(--pp-prime-navy);
+  color: var(--pp-warm-ivory);
+  text-align: center;
+  overflow: auto;
+}
+
+.mic-b12-infographic-label {
+  margin: 0;
+  padding: 5px 10px;
+  border: 1px solid rgba(198,157,82,.6);
+  border-radius: 999px;
+  color: var(--pp-prime-gold);
+  font-size: clamp(10px, 2.7cqw, 15px);
+  line-height: 1.2;
+}
+
+.mic-b12-infographic-intro {
+  margin: 0;
+  width: 100%;
+  max-width: 490px;
+  font: 400 clamp(14px, 5.6cqw, 32px)/1.12 Georgia, "Times New Roman", serif;
+  letter-spacing: -.02em;
+  word-spacing: normal;
+  text-align: center;
+}
+
+.mic-b12-infographic-line {
+  display: block;
+  width: max-content;
+  margin-inline: auto;
+  white-space: nowrap;
+}
+
+.mic-b12-infographic-flow {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: min-content;
+}
+
+.mic-b12-infographic-step {
+  width: 76%;
+  max-width: 300px;
+  padding: clamp(5px, 2cqw, 16px);
+  border: 1px solid rgba(198,157,82,.4);
+  border-radius: 16px;
+  background: #243c4d;
+}
+
+.mic-b12-infographic-step :is(h3, .mic-b12-thumbnail-step-title) {
+  display: block;
+  margin: 0 0 5px;
+  color: var(--pp-prime-gold);
+  font: 400 clamp(17px, 4.6cqw, 29px)/1.05 Georgia, "Times New Roman", serif;
+}
+
+.mic-b12-infographic-step :is(p, .mic-b12-thumbnail-step-copy) {
+  display: block;
+  margin: 0;
+  font-size: clamp(10px, 2.8cqw, 16px);
+  line-height: 1.35;
+  color: #f4f2ec;
+}
+
+.mic-b12-infographic-arrow {
+  display: block;
+  margin-block: clamp(2px, .8cqw, 4px);
+  color: var(--pp-prime-gold);
+  font-size: clamp(17px, 4cqw, 25px);
+  line-height: 1.1;
+}
+
+.wellness-product-thumbnails .mic-b12-info-thumbnail {
+  background: var(--pp-prime-navy);
+  font: inherit;
+}
+
+.mic-b12-thumbnail-preview {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 6px;
+  pointer-events: none;
+}
+
+.mic-b12-thumbnail-canvas {
+  position: absolute;
+  display: block;
+  left: 50%;
+  top: 50%;
+  container-type: inline-size;
+  transform-origin: center;
+}
+
+.mic-b12-thumbnail-canvas > .mic-b12-infographic {
+  min-height: 0;
+  overflow: hidden;
+}
+
 .mic-b12-benefits {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);

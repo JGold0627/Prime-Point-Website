@@ -7,7 +7,7 @@
     <meta name="description" content="Explore MIC + B12, how it works, and provider-guided care through Prime Point Health." />
     <link rel="stylesheet" href="css/global.css?v=38" />
     <link rel="stylesheet" href="css/wellness-product.css?v=8" />
-    <link rel="stylesheet" href="css/mic-b12.css?v=2" />
+    <link rel="stylesheet" href="css/mic-b12.css?v=3" />
   </head>
   <body class="wellness-product-page">
     <header class="site-header" data-site-header-mount aria-label="Primary navigation"></header>
@@ -15,10 +15,29 @@
       <nav class="wellness-breadcrumb" aria-label="Breadcrumb"><a href="treatments.html">All treatments</a><span aria-hidden="true">/</span><span aria-current="page">MIC + B12</span></nav>
       <section class="wellness-product-layout" aria-labelledby="product-title">
         <div class="wellness-product-gallery" data-product-gallery>
-          <figure class="wellness-product-photo"><img src="assets/products/mic-b12-lifestyle-v1.png" alt="Prime Point Health MIC + B12 bottle in a sunlit setting" width="1122" height="1402" fetchpriority="high" data-product-photo /></figure>
+          <figure class="wellness-product-photo mic-b12-gallery-frame">
+            <img src="assets/products/mic-b12-lifestyle-v1.png" alt="Prime Point Health MIC + B12 bottle in a sunlit setting" width="1122" height="1402" fetchpriority="high" data-product-photo />
+            <div class="mic-b12-infographic" data-product-information hidden aria-labelledby="mic-b12-infographic-title">
+              <p class="mic-b12-infographic-label" id="mic-b12-infographic-title">How MIC + B12 Works</p>
+              <p class="mic-b12-infographic-intro">
+                <span class="mic-b12-infographic-line">MIC + B12 combines nutrients</span>
+                <span class="mic-b12-infographic-line">that support everyday</span>
+                <span class="mic-b12-infographic-line">cell function.</span>
+              </p>
+              <div class="mic-b12-infographic-flow">
+                <div class="mic-b12-infographic-step"><h3>Metabolize</h3><p>Choline helps transport fats;<br />methionine supports metabolism</p></div>
+                <span class="mic-b12-infographic-arrow" aria-hidden="true">&darr;</span>
+                <div class="mic-b12-infographic-step"><h3>Signal</h3><p>Inositol supports cell membranes<br />and normal cellular signaling</p></div>
+                <span class="mic-b12-infographic-arrow" aria-hidden="true">&darr;</span>
+                <div class="mic-b12-infographic-step"><h3>Support</h3><p>B12 helps form red blood cells<br />and supports nerve function</p></div>
+              </div>
+            </div>
+          </figure>
           <div class="wellness-product-thumbnails" aria-label="Product views">
             <button type="button" aria-label="View MIC + B12 lifestyle image" aria-pressed="true" data-product-image="assets/products/mic-b12-lifestyle-v1.png" data-product-alt="Prime Point Health MIC + B12 bottle in a sunlit setting"><img src="assets/products/mic-b12-lifestyle-v1.png" alt="" /></button>
-            <button type="button" aria-label="View MIC + B12 packaging" aria-pressed="false" data-product-image="assets/glp-page-pieces/MIC Plus B12 Bottle V2.png" data-product-alt="Prime Point Health MIC + B12 bottle label" data-product-view="packaging"><img src="assets/glp-page-pieces/MIC Plus B12 Bottle V2.png" alt="" /></button>
+            <button class="mic-b12-info-thumbnail" type="button" aria-label="View how MIC + B12 works" aria-pressed="false" data-product-view="information">
+              <span class="mic-b12-thumbnail-preview" data-product-information-preview="mic-b12" aria-hidden="true"></span>
+            </button>
           </div>
           <p class="wellness-product-caption">Product illustration. Actual packaging may vary.</p>
         </div>

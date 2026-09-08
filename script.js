@@ -214,24 +214,48 @@ const globalHeaderMarkup = `
       </div>
 
       <nav class="mobile-nav-menu" id="mobile-nav-menu" aria-label="Mobile navigation" hidden>
-        <a href="peptides.html">Peptides</a>
-        <span class="mobile-nav-label">Weight Loss</span>
-        <a class="mobile-nav-sublink" href="semaglutide.html">Semaglutide</a>
-        <a class="mobile-nav-sublink" href="tirzepatide.html">Tirzepatide</a>
-        <a class="mobile-nav-sublink" href="semaglutide-tablets.html">Semaglutide Tablets</a>
-        <a class="mobile-nav-sublink" href="tirzepatide-tablets.html">Tirzepatide Tablets</a>
-        <span class="mobile-nav-label">Metabolic Health</span>
-        <a class="mobile-nav-sublink" href="sermorelin.html">Sermorelin</a>
-        <a class="mobile-nav-sublink" href="tesamorelin.html">Tesamorelin</a>
-        <span class="mobile-nav-label">Longevity</span>
-        <a class="mobile-nav-sublink" href="glutathione.html">Glutathione</a>
-        <a class="mobile-nav-sublink" href="glutathione-nasal.html">Glutathione Nasal</a>
-        <a class="mobile-nav-sublink" href="nad-plus.html">NAD+</a>
-        <a class="mobile-nav-sublink" href="nad-plus-nasal.html">NAD+ Nasal</a>
-        <a class="mobile-nav-sublink" href="mic-b12.html">MIC + B12</a>
-        <a href="blood-work.html">Blood Work</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact Us</a>
+        <p class="mobile-nav-eyebrow">Explore Prime Point</p>
+        <div class="mobile-nav-group">
+          <a class="mobile-nav-topic" href="peptides.html"><span>Peptides</span><span class="mobile-nav-link-arrow" aria-hidden="true">&rarr;</span></a>
+        </div>
+        <div class="mobile-nav-group">
+          <button class="mobile-nav-topic" type="button" data-mobile-nav-trigger aria-expanded="false" aria-controls="mobile-weight-loss-links"><span>Weight Loss</span><span class="mobile-nav-chevron" aria-hidden="true"></span></button>
+          <div class="mobile-nav-submenu" id="mobile-weight-loss-links" hidden>
+            <a class="mobile-nav-sublink" href="semaglutide.html">Semaglutide</a>
+            <a class="mobile-nav-sublink" href="tirzepatide.html">Tirzepatide</a>
+            <a class="mobile-nav-sublink" href="semaglutide-tablets.html">Semaglutide Tablets</a>
+            <a class="mobile-nav-sublink" href="tirzepatide-tablets.html">Tirzepatide Tablets</a>
+          </div>
+        </div>
+        <div class="mobile-nav-group">
+          <button class="mobile-nav-topic" type="button" data-mobile-nav-trigger aria-expanded="false" aria-controls="mobile-metabolic-links"><span>Metabolic Health</span><span class="mobile-nav-chevron" aria-hidden="true"></span></button>
+          <div class="mobile-nav-submenu" id="mobile-metabolic-links" hidden>
+            <a class="mobile-nav-sublink" href="sermorelin.html">Sermorelin</a>
+            <a class="mobile-nav-sublink" href="tesamorelin.html">Tesamorelin</a>
+          </div>
+        </div>
+        <div class="mobile-nav-group">
+          <button class="mobile-nav-topic" type="button" data-mobile-nav-trigger aria-expanded="false" aria-controls="mobile-longevity-links"><span>Longevity</span><span class="mobile-nav-chevron" aria-hidden="true"></span></button>
+          <div class="mobile-nav-submenu" id="mobile-longevity-links" hidden>
+            <a class="mobile-nav-sublink" href="glutathione.html">Glutathione</a>
+            <a class="mobile-nav-sublink" href="glutathione-nasal.html">Glutathione Nasal</a>
+            <a class="mobile-nav-sublink" href="nad-plus.html">NAD+</a>
+            <a class="mobile-nav-sublink" href="nad-plus-nasal.html">NAD+ Nasal</a>
+            <a class="mobile-nav-sublink" href="mic-b12.html">MIC + B12</a>
+          </div>
+        </div>
+        <div class="mobile-nav-group">
+          <a class="mobile-nav-topic" href="blood-work.html"><span>Blood Work</span><span class="mobile-nav-link-arrow" aria-hidden="true">&rarr;</span></a>
+        </div>
+        <div class="mobile-nav-group">
+          <div class="mobile-nav-topic-row">
+            <a class="mobile-nav-topic" href="about.html">About Us</a>
+            <button class="mobile-nav-submenu-toggle" type="button" data-mobile-nav-trigger aria-label="Show About Us links" aria-expanded="false" aria-controls="mobile-about-links"><span class="mobile-nav-chevron" aria-hidden="true"></span></button>
+          </div>
+          <div class="mobile-nav-submenu" id="mobile-about-links" hidden>
+            <a class="mobile-nav-sublink" href="contact.html">Contact Us</a>
+          </div>
+        </div>
       </nav>
     </div>
   </header>
@@ -249,6 +273,30 @@ const mobileNavToggle = document.querySelector(".mobile-nav-toggle");
 const mobileNavMenu = document.querySelector("#mobile-nav-menu");
 
 if (mobileNavToggle && mobileNavMenu) {
+  const categoryTriggers = mobileNavMenu.querySelectorAll("[data-mobile-nav-trigger]");
+  const setCategoryOpen = (trigger, open) => {
+    const submenu = document.getElementById(trigger.getAttribute("aria-controls"));
+    trigger.setAttribute("aria-expanded", String(open));
+    submenu.hidden = !open;
+    trigger.closest(".mobile-nav-group").classList.toggle("is-open", open);
+  };
+
+  categoryTriggers.forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      const open = trigger.getAttribute("aria-expanded") !== "true";
+      categoryTriggers.forEach((item) => setCategoryOpen(item, item === trigger && open));
+    });
+  });
+
+  mobileNavMenu.querySelectorAll("a").forEach((link) => {
+    if (link.getAttribute("href") !== currentPage) return;
+    link.setAttribute("aria-current", "page");
+    const group = link.closest(".mobile-nav-group");
+    group.classList.add("is-current");
+    const trigger = group.querySelector("[data-mobile-nav-trigger]");
+    if (trigger) setCategoryOpen(trigger, true);
+  });
+
   const setMobileNav = (open) => {
     mobileNavMenu.hidden = !open;
     mobileNavToggle.setAttribute("aria-expanded", String(open));
