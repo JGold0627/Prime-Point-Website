@@ -219,6 +219,9 @@ const globalHeaderMarkup = `
           <a class="mobile-nav-topic" href="peptides.html"><span>Peptides</span><span class="mobile-nav-link-arrow" aria-hidden="true">&rarr;</span></a>
         </div>
         <div class="mobile-nav-group">
+          <a class="mobile-nav-topic" href="blood-work.html"><span>Blood Work</span><span class="mobile-nav-link-arrow" aria-hidden="true">&rarr;</span></a>
+        </div>
+        <div class="mobile-nav-group">
           <button class="mobile-nav-topic" type="button" data-mobile-nav-trigger aria-expanded="false" aria-controls="mobile-weight-loss-links"><span>Weight Loss</span><span class="mobile-nav-chevron" aria-hidden="true"></span></button>
           <div class="mobile-nav-submenu" id="mobile-weight-loss-links" hidden>
             <a class="mobile-nav-sublink" href="semaglutide.html">Semaglutide</a>
@@ -243,9 +246,6 @@ const globalHeaderMarkup = `
             <a class="mobile-nav-sublink" href="nad-plus-nasal.html">NAD+ Nasal</a>
             <a class="mobile-nav-sublink" href="mic-b12.html">MIC + B12</a>
           </div>
-        </div>
-        <div class="mobile-nav-group">
-          <a class="mobile-nav-topic" href="blood-work.html"><span>Blood Work</span><span class="mobile-nav-link-arrow" aria-hidden="true">&rarr;</span></a>
         </div>
         <div class="mobile-nav-group">
           <div class="mobile-nav-topic-row">
