@@ -77,12 +77,12 @@ const globalHeaderMarkup = `
                   <span class="metabolic-product-name">Tirzepatide</span>
                 </a>
                 <a class="metabolic-product-card" href="semaglutide-tablets.html">
-                  <span class="metabolic-product-art"><img src="assets/glp-page-pieces/Semaglutide Pills V2.png" alt="" /></span>
-                  <span class="metabolic-product-name">Semaglutide Tablets</span>
+                  <span class="metabolic-product-art"><img src="assets/glp-sublingual/semaglutide-sublingual-bottle-v1.webp" alt="" /></span>
+                  <span class="metabolic-product-name">Semaglutide Sublingual Drops</span>
                 </a>
                 <a class="metabolic-product-card" href="tirzepatide-tablets.html">
-                  <span class="metabolic-product-art"><img src="assets/glp-page-pieces/Tirzepatide Pills Transparent.png" alt="" /></span>
-                  <span class="metabolic-product-name">Tirzepatide Tablets</span>
+                  <span class="metabolic-product-art"><img src="assets/glp-sublingual/tirzepatide-sublingual-bottle-v1.webp" alt="" /></span>
+                  <span class="metabolic-product-name">Tirzepatide Sublingual Drops</span>
                 </a>
               </div>
             </div>
@@ -226,8 +226,8 @@ const globalHeaderMarkup = `
           <div class="mobile-nav-submenu" id="mobile-weight-loss-links" hidden>
             <a class="mobile-nav-sublink" href="semaglutide.html">Semaglutide</a>
             <a class="mobile-nav-sublink" href="tirzepatide.html">Tirzepatide</a>
-            <a class="mobile-nav-sublink" href="semaglutide-tablets.html">Semaglutide Tablets</a>
-            <a class="mobile-nav-sublink" href="tirzepatide-tablets.html">Tirzepatide Tablets</a>
+            <a class="mobile-nav-sublink" href="semaglutide-tablets.html">Semaglutide Sublingual Drops</a>
+            <a class="mobile-nav-sublink" href="tirzepatide-tablets.html">Tirzepatide Sublingual Drops</a>
           </div>
         </div>
         <div class="mobile-nav-group">

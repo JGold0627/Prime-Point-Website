@@ -1863,23 +1863,30 @@
       border-color: #cda85f;
     }
 
-    body.blood-work-page :is(.bw-plan-button, .bw-consult-button, .bw-state-submit) {
-      background: #0d2235;
-      border-color: #0d2235;
-      color: #fffaf0;
+    body.blood-work-page .bw-plan-button {
+      background: var(--pp-prime-navy);
+      border-color: var(--pp-prime-navy);
+      color: var(--pp-warm-ivory);
+      box-shadow: 0 12px 28px rgba(15, 31, 45, 0.16);
     }
 
-    body.blood-work-page :is(.bw-plan-button, .bw-consult-button, .bw-state-submit) {
+    body.blood-work-page :is(.bw-consult-button, .bw-state-submit) {
       background: linear-gradient(135deg, #f0d99f, #cba766 56%, #b8893c);
       border-color: #cba766;
       color: #0d2235;
       box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.46), 0 12px 28px rgba(184, 137, 60, 0.2);
     }
 
-    body.blood-work-page :is(.bw-plan-button, .bw-consult-button, .bw-state-submit):is(:hover, :focus-visible) {
+    body.blood-work-page :is(.bw-consult-button, .bw-state-submit):is(:hover, :focus-visible) {
       background: linear-gradient(135deg, #f6e4b4, #d5b16d 56%, #c09243);
       border-color: #d5b16d;
       color: #071522;
+    }
+
+    body.blood-work-page .bw-plan-button:is(:hover, :focus-visible) {
+      background: #203d52;
+      border-color: var(--pp-prime-gold);
+      color: var(--pp-warm-ivory);
     }
 
     body.blood-work-page .bw-path-toggle-button {
