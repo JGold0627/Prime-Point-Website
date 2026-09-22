@@ -1,0 +1,10 @@
+Mode: Built-in image_gen tool
+
+Use case: photorealistic-natural.
+Asset type: full-width lifestyle photograph for a luxury telehealth website section about fatigue, low energy, and recovery. Generate the photograph only, with no text or UI.
+Subject: an adult woman in her thirties taking a calm recovery stretch over a large matte charcoal exercise ball, wearing a navy long-sleeved athletic top and warm ivory leggings. Natural, believable anatomy and a relaxed expression, not a dramatic athletic pose. A new original person and photograph.
+Scene: a minimal warm ivory studio with softly lit limestone-tone floor, soft daylight and almost invisible background detail.
+Composition: wide landscape 2:1 image. Person and exercise ball occupy the right half, fully composed with the woman's face, torso and supporting ball visible, while the left 45 percent is calm, empty warm ivory negative space for website text added later. Side view, eye-level editorial photograph. Keep the subject inside the frame, with some breathing room around head and arms. The ivory environment continues to all four edges without a frame or sharp horizon.
+Lighting: airy diffused daylight, realistic skin and fabric texture, restrained shadows, premium calm editorial wellness feel.
+Colors: warm ivory near #f6f4f0, navy clothing, charcoal exercise ball; no strong orange cast.
+Constraints: no writing, no letters, no logo, no watermark, no medical devices, no badges, no before-and-after imagery, no collage.

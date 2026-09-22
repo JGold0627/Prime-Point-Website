@@ -1,0 +1,20 @@
+Mode: Built-in image_gen tool
+
+hormone-metabolic-feature-v1.png
+Use case: photorealistic-natural. Asset: original panoramic lifestyle photo for a luxury physician-guided wellness website. Photograph only, no text, no UI, no logos, no watermark.
+Style: natural editorial photography, real skin and fabric texture, soft diffused daylight, warm ivory #f6f4f0 surroundings, navy and muted blue accents, quiet premium atmosphere.
+Composition: very wide panoramic 3:1 landscape. The scene and people occupy the right half; left 45 percent is almost empty warm ivory negative space for web text. Keep faces in the upper-middle of the right half, with breathing room above their heads, and compose a waist-up scene that still works in a shallow horizontal band. No frame or strong horizon; warm ivory extends to the image edges. No medical outcome graphics or before-and-after comparisons. Scene: a woman in her early forties sitting at a pale limestone kitchen island in a sunlit, minimal home, wearing a muted navy knit top, holding an unbranded cream mug with both hands. Relaxed morning routine and thoughtful, comfortable expression. Very subtle warm oak detail at the far right. No other people and no supplement or medicine products. Compose as a refined wellness portrait, not a staged advertisement.
+
+---
+
+performance-longevity-feature-v1.png
+Use case: photorealistic-natural. Asset: original panoramic lifestyle photo for a luxury physician-guided wellness website. Photograph only, no text, no UI, no logos, no watermark.
+Style: natural editorial photography, real skin and fabric texture, soft diffused daylight, warm ivory #f6f4f0 surroundings, navy and muted blue accents, quiet premium atmosphere.
+Composition: very wide panoramic 3:1 landscape. The scene and people occupy the right half; left 45 percent is almost empty warm ivory negative space for web text. Keep faces in the upper-middle of the right half, with breathing room above their heads, and compose a waist-up scene that still works in a shallow horizontal band. No frame or strong horizon; warm ivory extends to the image edges. No medical outcome graphics or before-and-after comparisons. Scene: a fit, healthy-looking man in his early fifties with short salt-and-pepper hair, standing in a bright minimal exercise studio after a workout. Muted blue athletic shirt, small ivory towel draped casually over one shoulder, relaxed confident posture. Softly blurred ivory studio equipment only at the far right, no bulky dark equipment wall, no exaggerated muscles. Frame waist-up with face and shoulders clearly visible in the right half.
+
+---
+
+physician-guided-feature-v1.png
+Use case: photorealistic-natural. Asset: original panoramic lifestyle photo for a luxury physician-guided wellness website. Photograph only, no text, no UI, no logos, no watermark.
+Style: natural editorial photography, real skin and fabric texture, soft diffused daylight, warm ivory #f6f4f0 surroundings, navy and muted blue accents, quiet premium atmosphere.
+Composition: very wide panoramic 3:1 landscape. The scene and people occupy the right half; left 45 percent is almost empty warm ivory negative space for web text. Keep faces in the upper-middle of the right half, with breathing room above their heads, and compose a waist-up scene that still works in a shallow horizontal band. No frame or strong horizon; warm ivory extends to the image edges. No medical outcome graphics or before-and-after comparisons. Scene: a woman physician in her forties wearing a white medical coat over a slate-blue blouse, with a subtle stethoscope, and an adult male patient in a navy casual shirt at a pale oak consultation desk. Both are on the right half and look at a tablet together in a calm collaborative conversation. Tablet has no readable text. Bright minimal ivory clinic, credible natural interaction. Keep both faces comfortably inside the frame, close enough to read their expressions in a shallow horizontal crop.

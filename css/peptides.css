@@ -1125,6 +1125,179 @@
   }
 }
 
+.peptides-fit {
+  padding: clamp(72px, 8vw, 120px) 0;
+  color: var(--pp-prime-navy);
+}
+
+.peptides-fit-inner {
+  width: min(calc(100% - var(--pp-page-gutter) * 2), var(--pp-shell-max));
+  margin: 0 auto;
+}
+
+.peptides-fit-heading h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+
+.peptides-fit-heading h2 span {
+  display: block;
+  color: var(--pp-gold);
+  font-style: italic;
+}
+
+.peptides-fit-copy {
+  max-width: 1000px;
+  margin: clamp(24px, 3vw, 36px) 0 0;
+  color: rgba(15, 31, 45, 0.78);
+  font-size: clamp(1rem, 1.15vw, 1.125rem);
+  font-weight: 400;
+  line-height: 1.75;
+}
+
+.peptides-fit-feature {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  min-height: 0;
+  align-items: center;
+  margin-top: clamp(36px, 5vw, 72px);
+  overflow: hidden;
+  background: var(--pp-warm-ivory);
+}
+
+.peptides-fit-feature-image {
+  position: absolute;
+  z-index: -2;
+  inset: 0 0 0 auto;
+  width: 64%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right top;
+}
+
+.peptides-fit-feature--detail .peptides-fit-feature-image {
+  object-position: right center;
+}
+
+.peptides-fit-feature::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background:
+    linear-gradient(180deg, #f6f4f0, rgba(246, 244, 240, 0) 10%, rgba(246, 244, 240, 0) 90%, #f6f4f0),
+    linear-gradient(90deg, #f6f4f0 0%, rgba(246, 244, 240, 0.96) 18%, rgba(246, 244, 240, 0.8) 32%, rgba(246, 244, 240, 0) 57%, rgba(246, 244, 240, 0) 94%, rgba(246, 244, 240, 0.35));
+  pointer-events: none;
+}
+
+.peptides-fit-feature-copy {
+  width: 42%;
+  max-width: 560px;
+  padding: clamp(24px, 2.5vw, 36px) 0;
+}
+
+.peptides-fit-feature-copy h3 {
+  margin: 0;
+  color: var(--pp-prime-navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.7rem, 2.65vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+
+.peptides-fit-feature-copy p {
+  max-width: 560px;
+  margin: 26px 0 0;
+  color: rgba(15, 31, 45, 0.82);
+  font-size: clamp(1.05rem, 1.4vw, 1.3rem);
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+@media (min-width: 901px) {
+  .peptides-fit-feature--detail .peptides-fit-feature-image {
+    mask-image: linear-gradient(90deg, transparent, #000 25%);
+  }
+
+  .peptides-fit-feature--reverse .peptides-fit-feature-image {
+    right: auto;
+    left: 0;
+    transform: scaleX(-1);
+  }
+
+  .peptides-fit-feature--reverse::after {
+    transform: scaleX(-1);
+  }
+
+  .peptides-fit-feature--reverse .peptides-fit-feature-copy {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .peptides-fit-feature {
+    min-height: 0;
+    align-items: start;
+    margin-top: 28px;
+    padding-bottom: 360px;
+  }
+
+  .peptides-fit-feature-image {
+    inset: auto 0 0;
+    width: 100%;
+    height: 360px;
+    object-position: 72% center;
+  }
+
+  .peptides-fit-feature--physician .peptides-fit-feature-image {
+    object-position: 80% center;
+  }
+
+  .peptides-fit-feature--detail {
+    padding-bottom: 280px;
+  }
+
+  .peptides-fit-feature--detail .peptides-fit-feature-image {
+    height: 280px;
+    object-position: 76% center;
+  }
+
+  .peptides-fit-feature--performance .peptides-fit-feature-image {
+    object-position: 90% center;
+  }
+
+  .peptides-fit-feature::after {
+    inset: auto 0 0;
+    height: 360px;
+    background: linear-gradient(180deg, #f6f4f0, rgba(246, 244, 240, 0) 18%, rgba(246, 244, 240, 0) 83%, #f6f4f0);
+  }
+
+  .peptides-fit-feature--detail::after {
+    height: 280px;
+  }
+
+  .peptides-fit-feature-copy {
+    width: 100%;
+    max-width: 680px;
+    padding: 28px 0 0;
+  }
+
+  .peptides-fit-feature-copy h3 {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+  }
+
+  .peptides-fit-feature-copy p {
+    max-width: none;
+    margin-top: 20px;
+  }
+
+}
+
 .peptides-faq {
   position: relative;
   overflow: hidden;
@@ -1215,7 +1388,7 @@
   color: var(--pp-cream);
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(2.35rem, 4.25vw, 4.72rem);
-  font-weight: 700;
+  font-weight: 400;
   line-height: 0.96;
   letter-spacing: 0;
   text-shadow: 0 20px 56px rgba(0, 0, 0, 0.42);
@@ -1289,7 +1462,7 @@
   cursor: pointer;
   font-family: Inter, Arial, sans-serif;
   font-size: clamp(1rem, 1.25vw, 1.2rem);
-  font-weight: 800;
+  font-weight: 400;
   line-height: 1.18;
   letter-spacing: 0;
   text-align: left;

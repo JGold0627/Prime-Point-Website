@@ -403,16 +403,23 @@ const bloodWorkProducts = {
     price: 1199,
     cadence: "charged annually"
   },
-  "consult-20": {
-    id: "consult-20",
+  "consult-20-minute": {
+    id: "consult-20-minute",
     name: "20-Minute Consultation",
     detail: "Additional one-on-one clinician consultation",
     price: 49,
     cadence: "one-time purchase"
   },
+  "consult-20": {
+    id: "consult-20",
+    name: "40-Minute Consultation",
+    detail: "Additional one-on-one clinician consultation",
+    price: 69,
+    cadence: "one-time purchase"
+  },
   "consult-40": {
     id: "consult-40",
-    name: "40-Minute Consultation",
+    name: "60-Minute Consultation",
     detail: "Extended one-on-one clinician consultation",
     price: 99,
     cadence: "one-time purchase"
@@ -443,6 +450,19 @@ const getPrimePointCart = () => {
 const savePrimePointCart = (cart) => {
   window.localStorage.setItem(primePointCartKey, JSON.stringify(cart));
 };
+
+document.querySelectorAll("[data-consult-product]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const productId = button.dataset.consultProduct;
+    if (!bloodWorkProducts[productId]) return;
+    const cart = getPrimePointCart();
+    const existing = cart.find((item) => item.id === productId);
+    if (existing) existing.quantity += 1;
+    else cart.push({ id: productId, quantity: 1 });
+    savePrimePointCart(cart);
+    window.location.href = "blood-work-checkout.html";
+  });
+});
 
 document.querySelectorAll("[data-blood-work-checkout]").forEach((checkoutPage) => {
   let items = getPrimePointCart();

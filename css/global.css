@@ -841,6 +841,11 @@ img {
     gap: 10px;
   }
 
+  .site-header .brand-logo,
+  .site-header .brand-logo-reference {
+    object-position: left center;
+  }
+
   .site-header .nav-links {
     display: none;
   }
