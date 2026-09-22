@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/global.css?v=38" />
     <link rel="stylesheet" href="css/wellness-product.css?v=10" />
     <link rel="stylesheet" href="css/nad-plus.css?v=3" />
+    <link rel="stylesheet" href="css/product-options.css?v=1" />
   </head>
   <body class="wellness-product-page">
     <header class="site-header" data-site-header-mount aria-label="Primary navigation"></header>
@@ -44,9 +45,33 @@
         <div class="wellness-product-details">
           <p class="wellness-product-eyebrow">Longevity</p>
           <h1 id="product-title">NAD+ Nasal<sup>Rx</sup></h1>
-          <p class="wellness-product-price wellness-product-price-offer">Starting from <span class="wellness-product-price-amounts"><strong>$219</strong> <s aria-label="Original price $243">$243</s></span> <span class="wellness-product-price-discount">10% off</span></p>
+          <p class="wellness-product-price wellness-product-price-offer" data-option-price aria-live="polite" aria-atomic="true"><span class="wellness-product-price-amounts"><strong data-option-final>$119</strong> <s data-option-original aria-label="Original price $133">$133</s></span> <span class="wellness-product-price-discount">10% off</span><span class="product-option-price-label" data-option-label>100 mg/mL · 15 mL</span></p>
           <p class="wellness-product-intro">A coenzyme involved in cellular energy metabolism and the processes that help cells function.</p>
-          <button class="wellness-product-cta" type="button" data-product-start="nad-plus-nasal"><span>Get started</span><span aria-hidden="true">→</span></button>
+          <form class="product-options" id="nad-nasal-options" action="create-account.html" method="get" data-product-options="nad-plus-nasal">
+            <input type="hidden" name="product" value="nad-plus-nasal" />
+            <fieldset>
+              <legend>Choose your option</legend>
+              <div class="product-option-grid">
+                <label class="product-option-card">
+                  <input type="radio" name="variant" value="100mg-15ml" checked required />
+                  <span class="product-option-card-content"><span class="product-option-strength">100 mg/mL</span><span class="product-option-volume">15 mL bottle</span><span class="product-option-card-price"><strong>$119</strong><s aria-label="Original price $133">$133</s></span><span class="product-option-check" aria-hidden="true">✓</span></span>
+                </label>
+                <label class="product-option-card">
+                  <input type="radio" name="variant" value="100mg-30ml" required />
+                  <span class="product-option-card-content"><span class="product-option-strength">100 mg/mL</span><span class="product-option-volume">30 mL bottle</span><span class="product-option-card-price"><strong>$159</strong><s aria-label="Original price $177">$177</s></span><span class="product-option-check" aria-hidden="true">✓</span></span>
+                </label>
+                <label class="product-option-card">
+                  <input type="radio" name="variant" value="300mg-15ml" required />
+                  <span class="product-option-card-content"><span class="product-option-strength">300 mg/mL</span><span class="product-option-volume">15 mL bottle</span><span class="product-option-card-price"><strong>$149</strong><s aria-label="Original price $166">$166</s></span><span class="product-option-check" aria-hidden="true">✓</span></span>
+                </label>
+                <label class="product-option-card">
+                  <input type="radio" name="variant" value="300mg-30ml" required />
+                  <span class="product-option-card-content"><span class="product-option-strength">300 mg/mL</span><span class="product-option-volume">30 mL bottle</span><span class="product-option-card-price"><strong>$199</strong><s aria-label="Original price $222">$222</s></span><span class="product-option-check" aria-hidden="true">✓</span></span>
+                </label>
+              </div>
+            </fieldset>
+            <button class="wellness-product-cta product-option-continue" type="submit"><span>Continue with this option</span><span aria-hidden="true">→</span></button>
+          </form>
           <p class="wellness-product-review-note">Prescription only when clinically appropriate. Eligibility and results vary.</p>
           <ul class="wellness-product-features"><li>Licensed-provider review</li><li>Personalized Care, 100% Online</li><li>High-potency, 3rd Party lab tested</li></ul>
           <div class="wellness-product-faq">
@@ -181,6 +206,7 @@
       </div>
     </footer>
     <script src="script.js?v=22"></script>
+    <script src="js/product-options.js?v=4"></script>
     <script src="js/wellness-product.js?v=11"></script>
   </body>
 </html>

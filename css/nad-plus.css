@@ -1,3 +1,16 @@
+.wellness-product-details .nad-product-title {
+  margin-bottom: 8px;
+}
+
+.nad-product-spec {
+  margin: 0 0 22px;
+  color: #687581;
+  font-size: .875rem;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: .02em;
+}
+
 .nad-gallery-frame {
   position: relative;
   container-type: inline-size;
