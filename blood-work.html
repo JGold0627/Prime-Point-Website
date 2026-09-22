@@ -8,7 +8,7 @@
       name="description"
       content="Prime Point Health blood work page."
     />
-    <link rel="stylesheet" href="css/global.css?v=38" />
+    <link rel="stylesheet" href="css/global.css?v=40" />
     <style>
       .bw-cell-hero {
         position: relative;
@@ -1802,6 +1802,120 @@
       font-size: clamp(2.25rem, 4vw, 3.5rem);
     }
 
+    .bw-state-coverage {
+      display: grid;
+      grid-template-columns: minmax(210px, 0.75fr) minmax(0, 2fr);
+      align-items: center;
+      gap: clamp(28px, 4vw, 48px);
+      margin-top: clamp(48px, 6vw, 80px);
+      padding: clamp(32px, 4vw, 48px) 0;
+      border-block: 1px solid rgba(205, 168, 95, 0.42);
+      text-align: left;
+    }
+
+    body.blood-work-page .bw-state-coverage-title {
+      margin: 0;
+      color: #0d2235;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2rem;
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .bw-state-coverage-lead {
+      display: block;
+      margin-bottom: 10px;
+      color: #566574;
+      font-size: 1.15rem;
+      line-height: 1.4;
+    }
+
+    .bw-state-coverage-total {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .bw-state-coverage-number {
+      color: #b88f45;
+      font-size: clamp(5rem, 8vw, 7rem);
+      letter-spacing: -0.06em;
+      line-height: 0.95;
+    }
+
+    .bw-state-list {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 16px 0;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    body.blood-work-page .bw-state-list li {
+      display: grid;
+      min-height: 30px;
+      place-items: center;
+      border-left: 1px solid rgba(205, 168, 95, 0.32);
+      color: #0d2235;
+      font-size: 0.82rem;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: 0.06em;
+    }
+
+    body.blood-work-page .bw-state-list li:nth-child(12n + 1) {
+      border-left-color: transparent;
+    }
+
+    .bw-state-list abbr {
+      text-decoration: none;
+    }
+
+    @media (max-width: 900px) {
+      .bw-state-coverage {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .bw-state-heading {
+        justify-self: center;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .bw-state-list {
+        grid-template-columns: repeat(8, minmax(0, 1fr));
+      }
+
+      body.blood-work-page .bw-state-list li:nth-child(12n + 1) {
+        border-left-color: rgba(205, 168, 95, 0.32);
+      }
+
+      body.blood-work-page .bw-state-list li:nth-child(8n + 1) {
+        border-left-color: transparent;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .bw-state-coverage {
+        padding-block: 28px;
+      }
+
+      .bw-state-list {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 12px 0;
+      }
+
+      body.blood-work-page .bw-state-list li:nth-child(8n + 1) {
+        border-left-color: rgba(205, 168, 95, 0.32);
+      }
+
+      body.blood-work-page .bw-state-list li:nth-child(6n + 1) {
+        border-left-color: transparent;
+      }
+    }
+
     body.blood-work-page .bw-state-form {
       width: min(100%, 940px);
     }
@@ -2449,6 +2563,65 @@
             availability, and frequency vary by membership, location, health history, and
             clinician guidance.
           </p>
+
+          <div class="bw-state-coverage" role="region" aria-labelledby="bw-state-coverage-title">
+            <div class="bw-state-heading">
+              <h3 class="bw-state-coverage-title" id="bw-state-coverage-title">
+                <span class="bw-state-coverage-lead">Available in</span>
+                <span class="bw-state-coverage-total"><span class="bw-state-coverage-number">48</span> states</span>
+              </h3>
+            </div>
+            <ul class="bw-state-list" aria-label="Available states">
+              <li><abbr title="Alabama">AL</abbr></li>
+              <li><abbr title="Arizona">AZ</abbr></li>
+              <li><abbr title="Arkansas">AR</abbr></li>
+              <li><abbr title="California">CA</abbr></li>
+              <li><abbr title="Colorado">CO</abbr></li>
+              <li><abbr title="Connecticut">CT</abbr></li>
+              <li><abbr title="Delaware">DE</abbr></li>
+              <li><abbr title="Florida">FL</abbr></li>
+              <li><abbr title="Georgia">GA</abbr></li>
+              <li><abbr title="Idaho">ID</abbr></li>
+              <li><abbr title="Illinois">IL</abbr></li>
+              <li><abbr title="Indiana">IN</abbr></li>
+              <li><abbr title="Iowa">IA</abbr></li>
+              <li><abbr title="Kansas">KS</abbr></li>
+              <li><abbr title="Kentucky">KY</abbr></li>
+              <li><abbr title="Louisiana">LA</abbr></li>
+              <li><abbr title="Maine">ME</abbr></li>
+              <li><abbr title="Maryland">MD</abbr></li>
+              <li><abbr title="Massachusetts">MA</abbr></li>
+              <li><abbr title="Michigan">MI</abbr></li>
+              <li><abbr title="Minnesota">MN</abbr></li>
+              <li><abbr title="Mississippi">MS</abbr></li>
+              <li><abbr title="Missouri">MO</abbr></li>
+              <li><abbr title="Montana">MT</abbr></li>
+              <li><abbr title="Nebraska">NE</abbr></li>
+              <li><abbr title="Nevada">NV</abbr></li>
+              <li><abbr title="New Hampshire">NH</abbr></li>
+              <li><abbr title="New Jersey">NJ</abbr></li>
+              <li><abbr title="New Mexico">NM</abbr></li>
+              <li><abbr title="New York">NY</abbr></li>
+              <li><abbr title="North Carolina">NC</abbr></li>
+              <li><abbr title="North Dakota">ND</abbr></li>
+              <li><abbr title="Ohio">OH</abbr></li>
+              <li><abbr title="Oklahoma">OK</abbr></li>
+              <li><abbr title="Oregon">OR</abbr></li>
+              <li><abbr title="Pennsylvania">PA</abbr></li>
+              <li><abbr title="Rhode Island">RI</abbr></li>
+              <li><abbr title="South Carolina">SC</abbr></li>
+              <li><abbr title="South Dakota">SD</abbr></li>
+              <li><abbr title="Tennessee">TN</abbr></li>
+              <li><abbr title="Texas">TX</abbr></li>
+              <li><abbr title="Utah">UT</abbr></li>
+              <li><abbr title="Vermont">VT</abbr></li>
+              <li><abbr title="Virginia">VA</abbr></li>
+              <li><abbr title="Washington">WA</abbr></li>
+              <li><abbr title="West Virginia">WV</abbr></li>
+              <li><abbr title="Wisconsin">WI</abbr></li>
+              <li><abbr title="Wyoming">WY</abbr></li>
+            </ul>
+          </div>
         </div>
       </section>
     </main>

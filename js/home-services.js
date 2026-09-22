@@ -68,6 +68,39 @@ document.querySelectorAll('[data-home-carousel]').forEach((carousel) => {
   finePointer.addEventListener('change', stop);
   reducedMotion.addEventListener('change', stop);
 
+  // Show a press immediately on touch screens without delaying native links
+  // or intercepting the browser's horizontal/vertical swipe gestures.
+  if (track.querySelector('a.home-product-card')) {
+    let press = null;
+    let releaseTimer = 0;
+    const clearPress = () => {
+      window.clearTimeout(releaseTimer);
+      press?.card.classList.remove('is-pressed');
+      press = null;
+    };
+
+    track.addEventListener('pointerdown', (event) => {
+      if (!event.isPrimary || event.button !== 0) return;
+      const card = event.target.closest('a.home-product-card');
+      if (!card) return;
+      clearPress();
+      press = { card, id: event.pointerId, x: event.clientX, y: event.clientY };
+      card.classList.add('is-pressed');
+    }, { passive: true });
+    track.addEventListener('pointermove', (event) => {
+      if (press?.id !== event.pointerId) return;
+      if (Math.hypot(event.clientX - press.x, event.clientY - press.y) > 10) clearPress();
+    }, { passive: true });
+    track.addEventListener('pointerup', (event) => {
+      if (press?.id === event.pointerId) releaseTimer = window.setTimeout(clearPress, 120);
+    }, { passive: true });
+    track.addEventListener('pointercancel', clearPress);
+    track.addEventListener('pointerleave', clearPress);
+    track.addEventListener('scroll', clearPress, { passive: true });
+    window.addEventListener('blur', clearPress);
+    window.addEventListener('pageshow', clearPress);
+  }
+
   const move = (direction) => {
     stop();
     const firstCard = track.firstElementChild;

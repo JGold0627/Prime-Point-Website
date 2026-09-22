@@ -420,12 +420,46 @@ a.treatment-card:focus-visible {
   }
 
   .treatments-catalog {
-    grid-template-columns: 1fr;
-    gap: 42px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px 12px;
   }
 
   .treatment-card-visual {
-    min-height: min(122vw, 520px);
+    height: clamp(190px, 57vw, 380px);
+    min-height: 0;
+    border-radius: 14px;
+  }
+
+  .treatment-card-price {
+    top: 10px;
+    left: 8px;
+    max-width: calc(100% - 16px);
+    gap: 6px;
+    padding: 6px 8px;
+    font-size: 0.75rem;
+    line-height: 1.25;
+  }
+
+  .treatment-card-price i {
+    width: 6px;
+    height: 6px;
+    flex-basis: 6px;
+    box-shadow: 0 0 0 2px rgba(198, 157, 82, 0.13);
+  }
+
+  .treatment-card-product {
+    margin-top: 32px;
+  }
+
+  .treatment-card h2 {
+    margin-top: 12px;
+    font-size: clamp(1.0625rem, 4.4vw, 1.35rem);
+    line-height: 1.2;
+  }
+
+  .treatment-card p {
+    max-width: 100%;
+    font-size: clamp(0.8125rem, 3.2vw, 0.9375rem);
   }
 
   .treatments-quality {
