@@ -1,5 +1,6 @@
 .wellness-product-details .nad-product-title {
-  margin-bottom: 8px;
+  margin: 0 0 8px;
+  white-space: nowrap;
 }
 
 .nad-product-spec {

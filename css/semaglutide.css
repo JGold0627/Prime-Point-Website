@@ -165,6 +165,23 @@ main {
 
 .semaglutide-review-copy strong { color: #0f1f2d; }
 
+.semaglutide-payment-logos {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.4fr);
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 320px;
+  min-height: 54px;
+}
+
+.semaglutide-payment-logos img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
 .semaglutide-review-separator {
   width: 5px;
   height: 5px;

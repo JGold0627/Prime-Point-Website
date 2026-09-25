@@ -7,14 +7,15 @@
     <meta name="description" content="Explore NAD+, how it works, and provider-guided care through Prime Point Health." />
     <link rel="stylesheet" href="css/global.css?v=38" />
     <link rel="stylesheet" href="css/wellness-product.css?v=10" />
-    <link rel="stylesheet" href="css/nad-plus.css?v=5" />
+    <link rel="stylesheet" href="css/nad-plus.css?v=13" />
+    <link rel="stylesheet" href="css/product-plans.css?v=1" />
   </head>
   <body class="wellness-product-page">
     <header class="site-header" data-site-header-mount aria-label="Primary navigation"></header>
     <main class="wellness-product-main" id="main-content">
       <nav class="wellness-breadcrumb" aria-label="Breadcrumb"><a href="treatments.html">All treatments</a><span aria-hidden="true">/</span><span aria-current="page">NAD+</span></nav>
       <section class="wellness-product-layout" aria-labelledby="product-title">
-        <div class="wellness-product-gallery" data-product-gallery>
+        <div class="wellness-product-gallery product-plan-gallery" data-product-gallery>
           <figure class="wellness-product-photo nad-gallery-frame">
             <img src="assets/products/nad-plus-lifestyle-v1.png" alt="Prime Point Health NAD+ bottle in a sunlit setting" width="1122" height="1402" fetchpriority="high" data-product-photo />
             <div class="nad-infographic" data-product-information hidden aria-labelledby="nad-infographic-title">
@@ -45,9 +46,30 @@
           <p class="wellness-product-eyebrow">Longevity</p>
           <h1 class="nad-product-title" id="product-title">NAD+<sup>Rx</sup></h1>
           <p class="nad-product-spec">1000 mg/mL &mdash; 1 mL</p>
-          <p class="wellness-product-price wellness-product-price-offer">Starting from <span class="wellness-product-price-amounts"><strong>$229</strong> <s aria-label="Original price $255">$255</s></span> <span class="wellness-product-price-discount">10% off</span></p>
+          <div class="product-plan-price" aria-live="polite" aria-atomic="true">
+            <p><strong data-plan-price>$199</strong><span>/ month</span><s data-plan-original aria-label="Original monthly price $222">$222</s><span class="wellness-product-price-discount">10% off</span></p>
+          </div>
           <p class="wellness-product-intro">A coenzyme involved in cellular energy metabolism and the processes that help cells function.</p>
-          <button class="wellness-product-cta" type="button" data-product-start="nad-plus"><span>Get started</span><span aria-hidden="true">→</span></button>
+          <form class="product-plan-options" id="nad-plan-options" action="create-account.html" method="get" data-product-plans="nad-plus">
+            <input type="hidden" name="product" value="nad-plus" />
+            <div class="product-plan-field">
+              <label for="nad-plan">Choose your plan</label>
+              <div class="product-plan-select-wrap">
+                <select id="nad-plan" name="plan" required>
+                  <option value="1" selected>1 month — $199 / month</option>
+                  <option value="3">3 months — $184 / month</option>
+                  <option value="6">6 months — $169 / month</option>
+                  <option value="12">12 months — $154 / month</option>
+                </select>
+              </div>
+            </div>
+            <div class="product-payment-logos" role="group" aria-label="Payment options">
+              <img src="assets/payment-providers/affirm.png" alt="Affirm" width="429" height="171" />
+              <img src="assets/payment-providers/klarna.svg" alt="Klarna" width="1448" height="609" />
+              <img src="assets/payment-providers/afterpay.svg" alt="Afterpay" width="395" height="136" />
+            </div>
+            <button class="wellness-product-cta product-plan-continue" type="submit"><span>Get Started</span><span aria-hidden="true">→</span></button>
+          </form>
           <p class="wellness-product-review-note">Prescription only when clinically appropriate. Eligibility and results vary.</p>
           <ul class="wellness-product-features"><li>Licensed-provider review</li><li>Personalized Care, 100% Online</li><li>High-potency, 3rd Party lab tested</li></ul>
           <div class="wellness-product-faq">
@@ -223,6 +245,7 @@
       </div>
     </footer>
     <script src="script.js?v=22"></script>
+    <script src="js/product-plans.js?v=3"></script>
     <script src="js/wellness-product.js?v=11"></script>
   </body>
 </html>

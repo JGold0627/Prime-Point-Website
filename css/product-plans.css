@@ -1,0 +1,35 @@
+.product-plan-price { margin: 0 0 24px; }
+.product-plan-price > p { display: flex; align-items: baseline; flex-wrap: wrap; gap: 7px; margin: 0; color: #536778; }
+.product-plan-price strong { color: var(--pp-prime-navy); font-size: clamp(2rem, 3vw, 2.6rem); font-weight: 500; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
+.product-plan-price s { margin-left: 3px; color: #8a939b; font-size: 1.45rem; text-decoration-thickness: 1.5px; }
+.product-plan-options { margin: 0; scroll-margin-top: calc(var(--pp-header-height) + 24px); }
+.product-plan-field { min-width: 0; margin: 0 0 24px; }
+.product-plan-field label { display: block; margin-bottom: 10px; font-size: .94rem; font-weight: 600; }
+.product-plan-select-wrap { position: relative; }
+.product-plan-select-wrap::after {
+  content: ""; position: absolute; top: 50%; right: 20px;
+  width: 8px; height: 8px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;
+  color: var(--pp-prime-navy); transform: translateY(-70%) rotate(45deg); pointer-events: none;
+}
+.product-plan-field select {
+  display: block; appearance: none; width: 100%; min-height: 56px;
+  padding: 15px 46px 15px 18px; border: 1px solid rgba(15, 31, 45, .24); border-radius: 14px;
+  background: #e8eff3; color: var(--pp-prime-navy); font: inherit; font-size: 1rem; line-height: 1.4;
+  cursor: pointer; transition: border-color 160ms ease, background 160ms ease;
+}
+.product-plan-field select:hover { border-color: var(--pp-prime-navy); background: #e2ebf1; }
+.product-plan-field select:focus-visible { outline: 2px solid var(--pp-dark-gold); outline-offset: 3px; }
+.product-plan-field option { background: var(--pp-warm-ivory); color: var(--pp-prime-navy); }
+.product-payment-logos { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.4fr); align-items: center; gap: 9px; width: min(100%, 220px); min-width: 0; margin: 0 0 24px; }
+.product-payment-logos img { display: block; width: 100%; height: auto; object-fit: contain; }
+.product-plan-options .product-plan-continue { width: 100%; min-height: 60px; }
+@media (prefers-reduced-motion: reduce) {
+  .product-plan-field select { transition: none; }
+}
+
+/* Match the full gallery to collapsed details; opening FAQs never stretches the photo. */
+@media (min-width: 761px) {
+  .product-plan-gallery { display: flex; flex-direction: column; height: var(--product-photo-height, auto); }
+  .product-plan-gallery .wellness-product-photo { flex: 1 1 auto; height: auto; aspect-ratio: 4 / 5; }
+  .product-plan-gallery :is(.wellness-product-thumbnails, .wellness-product-caption) { flex: none; }
+}

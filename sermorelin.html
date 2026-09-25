@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="css/global.css?v=38" />
     <link rel="stylesheet" href="css/wellness-product.css?v=10" />
     <link rel="stylesheet" href="css/sermorelin.css?v=15" />
+    <link rel="stylesheet" href="css/product-plans.css?v=1" />
   </head>
   <body class="wellness-product-page">
     <header class="site-header" data-site-header-mount aria-label="Primary navigation"></header>
     <main class="wellness-product-main" id="main-content">
       <nav class="wellness-breadcrumb" aria-label="Breadcrumb"><a href="treatments.html">All treatments</a><span aria-hidden="true">/</span><span aria-current="page">Sermorelin</span></nav>
       <section class="wellness-product-layout" aria-labelledby="product-title">
-        <div class="wellness-product-gallery" data-product-gallery>
+        <div class="wellness-product-gallery product-plan-gallery" data-product-gallery>
           <figure class="wellness-product-photo sermorelin-gallery-frame">
             <img src="assets/products/sermorelin-lifestyle-v1.png" alt="Prime Point Health Sermorelin bottle in a sunlit setting" width="1122" height="1402" fetchpriority="high" data-product-photo />
             <div class="sermorelin-infographic" data-product-information hidden aria-labelledby="sermorelin-infographic-title">
@@ -45,9 +46,29 @@
         <div class="wellness-product-details">
           <p class="wellness-product-eyebrow">Metabolic Health</p>
           <h1 id="product-title">Sermorelin<sup>Rx</sup></h1>
-          <p class="wellness-product-price wellness-product-price-offer">Starting from <span class="wellness-product-price-amounts"><strong>$219</strong> <s aria-label="Original price $244">$244</s></span> <span class="wellness-product-price-discount">10% off</span></p>
+          <div class="product-plan-price" aria-live="polite" aria-atomic="true">
+            <p><strong data-plan-price>$219</strong><span>/ month</span><s data-plan-original aria-label="Original monthly price $244">$244</s><span class="wellness-product-price-discount">10% off</span></p>
+          </div>
           <p class="wellness-product-intro">Supports natural growth hormone and unlocks better sleep, recovery, and lean muscle.</p>
-          <button class="wellness-product-cta" type="button" data-product-start="sermorelin"><span>Get started</span><span aria-hidden="true">→</span></button>
+          <form class="product-plan-options" id="product-plan-options" action="create-account.html" method="get" data-product-plans="sermorelin">
+            <input type="hidden" name="product" value="sermorelin" />
+            <div class="product-plan-field">
+              <label for="product-plan">Choose your plan</label>
+              <div class="product-plan-select-wrap">
+                <select id="product-plan" name="plan" required>
+                  <option value="1" selected>1 month — $219 / month</option>
+                  <option value="3">3 months — $209 / month</option>
+                  <option value="6">6 months — $199 / month</option>
+                </select>
+              </div>
+            </div>
+            <div class="product-payment-logos" role="group" aria-label="Payment options">
+              <img src="assets/payment-providers/affirm.png" alt="Affirm" width="429" height="171" />
+              <img src="assets/payment-providers/klarna.svg" alt="Klarna" width="1448" height="609" />
+              <img src="assets/payment-providers/afterpay.svg" alt="Afterpay" width="395" height="136" />
+            </div>
+            <button class="wellness-product-cta product-plan-continue" type="submit"><span>Get Started</span><span aria-hidden="true">→</span></button>
+          </form>
           <p class="wellness-product-review-note">Prescription only when clinically appropriate. Eligibility and results vary.</p>
           <ul class="wellness-product-features"><li>Licensed-provider review</li><li>Personalized Care, 100% Online</li><li>High-potency, 3rd Party lab tested</li></ul>
           <div class="wellness-product-faq">
@@ -223,6 +244,7 @@
       </div>
     </footer>
     <script src="script.js?v=22"></script>
+    <script src="js/product-plans.js?v=1"></script>
     <script src="js/wellness-product.js?v=7"></script>
   </body>
 </html>
