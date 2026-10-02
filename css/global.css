@@ -873,6 +873,11 @@ img {
     box-shadow: 0 5px 16px rgba(15, 31, 45, 0.16);
   }
 
+  .mobile-nav-toggle,
+  .mobile-nav-menu :is(a, button) {
+    -webkit-tap-highlight-color: rgba(86, 122, 155, 0.14);
+  }
+
   .mobile-nav-toggle:focus-visible {
     outline: 2px solid var(--pp-prime-navy);
     outline-offset: 4px;
@@ -1568,7 +1573,9 @@ html.pp-reveal-ready [data-pp-reveal="fade"].pp-reveal-visible {
 .pp-footer a:hover { color: var(--pp-dark-gold); }
 .pp-footer a:focus-visible { outline: 2px solid var(--pp-prime-gold); outline-offset: 5px; border-radius: 3px; }
 .pp-footer-intro > p { margin-bottom: 20px; }
-.pp-footer-intro > a { font-size: .87rem; }
+.pp-footer-intro > a { display: block; width: fit-content; font-size: .87rem; line-height: 1.5; }
+.pp-footer-intro > a + a { margin-top: 14px; }
+.pp-footer-compact { padding-block: clamp(28px, 4vw, 48px); }
 .pp-footer-medications a { display: block; width: fit-content; margin-top: 14px; font-size: .9rem; line-height: 1.5; }
 .pp-footer-follow > p { font-size: .9rem; line-height: 1.5; }
 .pp-footer-social { display: flex; gap: 12px; margin-top: 18px; }
@@ -1586,4 +1593,6 @@ html.pp-reveal-ready [data-pp-reveal="fade"].pp-reveal-visible {
   .pp-footer-grid { grid-template-columns: 1fr; gap: 34px; }
   .pp-footer h2,
   .pp-footer-intro > p { margin-bottom: 14px; }
+  .pp-footer-intro > a { min-height: 44px; padding-block: 11px; }
+  .pp-footer-intro > a + a { margin-top: 0; }
 }

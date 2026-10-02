@@ -43,19 +43,21 @@
           <p class="wellness-product-caption">Illustrative lifestyle image. Actual packaging may vary.</p>
         </div>
         <div class="wellness-product-details">
-          <p class="wellness-product-eyebrow">Longevity</p>
+          <p class="wellness-product-eyebrow">Metabolic Health</p>
           <h1 id="product-title">Glutathione Nasal Spray<sup>Rx</sup></h1>
-          <div class="product-plan-price" data-option-price aria-live="polite" aria-atomic="true">
-            <p><strong data-option-final>$169</strong><s data-option-original aria-label="Original price $188">$188</s><span class="wellness-product-price-discount">10% off</span></p>
+          <div class="product-plan-price" aria-live="polite" aria-atomic="true">
+            <p><strong data-plan-price>$169</strong><span>/ month</span><s data-plan-original aria-label="Original monthly price $188">$188</s><span class="wellness-product-price-discount">10% off</span></p>
           </div>
           <p class="wellness-product-intro">An antioxidant naturally present in the body, involved in cellular defense against oxidative stress. Glutathione helps protect your cells from the inside out - so you feel clearer, lighter, and more resilient.</p>
-          <form class="product-plan-options" id="product-options" action="create-account.html" method="get" data-product-options="glutathione-nasal">
+          <form class="product-plan-options" id="product-plan-options" action="create-account.html" method="get" data-product-plans="glutathione-nasal">
             <input type="hidden" name="product" value="glutathione-nasal" />
             <div class="product-plan-field">
-              <label for="product-variant">Choose your option</label>
+              <label for="product-plan">Choose your plan</label>
               <div class="product-plan-select-wrap">
-                <select id="product-variant" name="variant" required>
-                  <option value="standard" selected>Glutathione Nasal — $169</option>
+                <select id="product-plan" name="plan" required>
+                  <option value="1" selected>1 month — $169 / month</option>
+                  <option value="3">3 months — $161 / month</option>
+                  <option value="6">6 months — $153 / month</option>
                 </select>
               </div>
             </div>
@@ -231,7 +233,7 @@
       </div>
     </footer>
     <script src="script.js?v=22"></script>
-    <script src="js/product-options.js?v=6"></script>
+    <script src="js/product-plans.js?v=4"></script>
     <script src="js/wellness-product.js?v=9"></script>
   </body>
 </html>

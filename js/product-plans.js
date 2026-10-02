@@ -2,10 +2,11 @@
   // Keep prices in cents; URL parameters select a catalog plan, never set its price.
   const products = {
     'sermorelin': { name: 'Sermorelin', rates: { '1': 21900, '3': 20900, '6': 19900 } },
-    'tesamorelin': { name: 'Tesamorelin', rates: { '1': 24900, '3': 23900, '6': 22900 } },
-    'glutathione': { name: 'Glutathione', rates: { '1': 12900, '3': 12100, '6': 11300, '12': 10500 } },
+    'glutathione': { name: 'Glutathione', rates: { '1': 12900, '3': 12100, '6': 11300 } },
+    'glutathione-nasal': { name: 'Glutathione Nasal Spray', rates: { '1': 16900, '3': 16100, '6': 15300 } },
     'mic-b12': { name: 'MIC + B12', rates: { '1': 13900, '3': 13400, '6': 12900, '12': 12400 } },
-    'nad-plus': { name: 'NAD+', rates: { '1': 19900, '3': 18400, '6': 16900, '12': 15400 } }
+    'nad-plus': { name: 'NAD+', rates: { '1': 19900, '3': 18400, '6': 16900 } },
+    'nad-plus-nasal': { name: 'NAD+ Nasal', spec: '300 mg/mL · 15 mL', rates: { '1': 14900, '3': 14100, '6': 13300 } }
   };
   const money = cents => new Intl.NumberFormat('en-US', {
     style: 'currency', currency: 'USD', maximumFractionDigits: 0
@@ -17,7 +18,7 @@
     const months = Number(plan);
     const monthly = product.rates[plan];
     return {
-      productId, name: product.name, plan, months, monthly,
+      productId, name: product.name, spec: product.spec, plan, months, monthly,
       // Match the existing 10%-off comparison, rounded up to whole dollars.
       original: Math.ceil(monthly / 90) * 100
     };
@@ -69,6 +70,7 @@
     summary.replaceChildren(
       text('p', 'product-selection-eyebrow', 'Selected plan'),
       text('p', 'product-selection-name', selected.name),
+      ...(selected.spec ? [text('p', 'product-selection-label', selected.spec)] : []),
       text('p', 'product-selection-label', `${selected.months}-month plan`),
       price,
       change

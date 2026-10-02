@@ -45,21 +45,20 @@
         <div class="wellness-product-details">
           <p class="wellness-product-eyebrow">Longevity</p>
           <h1 class="nad-product-title" id="product-title">NAD+ Nasal<sup>Rx</sup></h1>
-          <p class="nad-product-spec" data-option-label>100 mg/mL · 15 mL</p>
-          <div class="product-plan-price" data-option-price aria-live="polite" aria-atomic="true">
-            <p><strong data-option-final>$119</strong><s data-option-original aria-label="Original price $133">$133</s><span class="wellness-product-price-discount">10% off</span></p>
+          <p class="nad-product-spec">300 mg/mL · 15 mL</p>
+          <div class="product-plan-price" aria-live="polite" aria-atomic="true">
+            <p><strong data-plan-price>$149</strong><span>/ month</span><s data-plan-original aria-label="Original monthly price $166">$166</s><span class="wellness-product-price-discount">10% off</span></p>
           </div>
           <p class="wellness-product-intro">A coenzyme involved in cellular energy metabolism and the processes that help cells function.</p>
-          <form class="product-plan-options" id="nad-nasal-options" action="create-account.html" method="get" data-product-options="nad-plus-nasal">
+          <form class="product-plan-options" id="product-plan-options" action="create-account.html" method="get" data-product-plans="nad-plus-nasal">
             <input type="hidden" name="product" value="nad-plus-nasal" />
             <div class="product-plan-field">
-              <label for="product-variant">Choose your option</label>
+              <label for="product-plan">Choose your plan</label>
               <div class="product-plan-select-wrap">
-                <select id="product-variant" name="variant" required>
-                  <option value="100mg-15ml" selected>100 mg/mL · 15 mL — $119</option>
-                  <option value="100mg-30ml">100 mg/mL · 30 mL — $159</option>
-                  <option value="300mg-15ml">300 mg/mL · 15 mL — $149</option>
-                  <option value="300mg-30ml">300 mg/mL · 30 mL — $199</option>
+                <select id="product-plan" name="plan" required>
+                  <option value="1" selected>1 month — $149 / month</option>
+                  <option value="3">3 months — $141 / month</option>
+                  <option value="6">6 months — $133 / month</option>
                 </select>
               </div>
             </div>
@@ -245,7 +244,7 @@
       </div>
     </footer>
     <script src="script.js?v=22"></script>
-    <script src="js/product-options.js?v=6"></script>
+    <script src="js/product-plans.js?v=7"></script>
     <script src="js/wellness-product.js?v=11"></script>
   </body>
 </html>

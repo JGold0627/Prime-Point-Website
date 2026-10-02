@@ -1,17 +1,6 @@
 (() => {
   // Prices are in cents. Each variant has its own stable identifier for intake/checkout.
   const products = {
-    'nad-plus-nasal': {
-      name: 'NAD+ Nasal',
-      page: 'nad-plus-nasal.html',
-      formId: 'nad-nasal-options',
-      variants: {
-        '100mg-15ml': { concentration: '100 mg/mL', volume: '15 mL', price: 11900 },
-        '100mg-30ml': { concentration: '100 mg/mL', volume: '30 mL', price: 15900 },
-        '300mg-15ml': { concentration: '300 mg/mL', volume: '15 mL', price: 14900 },
-        '300mg-30ml': { concentration: '300 mg/mL', volume: '30 mL', price: 19900 }
-      }
-    },
     // Keep the existing offers until subscription tiers are supplied.
     'glutathione-nasal': {
       name: 'Glutathione Nasal Spray',

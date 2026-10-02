@@ -18,15 +18,11 @@ const activeHeaderSection = (() => {
     return "blood-work";
   }
 
-  if (["glutathione.html", "nad-plus.html", "mic-b12.html", "glutathione-nasal.html", "nad-plus-nasal.html"].includes(currentPage)) {
+  if (["nad-plus.html", "mic-b12.html", "nad-plus-nasal.html"].includes(currentPage)) {
     return "anti-aging";
   }
 
-  if (["about.html", "contact.html"].includes(currentPage)) {
-    return "about";
-  }
-
-  if (["sermorelin.html", "tesamorelin.html"].includes(currentPage)) return "metabolic";
+  if (["sermorelin.html", "glutathione.html", "glutathione-nasal.html"].includes(currentPage)) return "metabolic";
 
   return "";
 })();
@@ -111,20 +107,24 @@ const globalHeaderMarkup = `
                   <span class="metabolic-product-art"><img src="assets/glp-page-pieces/Sermorelin Bottle Red V2.png" alt="" /></span>
                   <span class="metabolic-product-name">Sermorelin</span>
                 </a>
-                <a href="tesamorelin.html" class="metabolic-product-card">
-                  <span class="metabolic-product-art"><img src="assets/glp-page-pieces/Tesamorelin Bottle Red V2.png" alt="" /></span>
-                  <span class="metabolic-product-name">Tesamorelin</span>
+                <a href="glutathione.html" class="metabolic-product-card">
+                  <span class="metabolic-product-art"><img src="assets/glp-page-pieces/Glutathione Bottle Upright V3.png" alt="" /></span>
+                  <span class="metabolic-product-name">Glutathione</span>
+                </a>
+                <a href="glutathione-nasal.html" class="metabolic-product-card">
+                  <span class="metabolic-product-art"><img class="metabolic-product-image-nasal" src="assets/glp-page-pieces/Glutathione Nasal Upright V2.png" alt="" /></span>
+                  <span class="metabolic-product-name">Glutathione Nasal</span>
                 </a>
               </div>
             </div>
           </div>
         </div>
         <div class="glp-nav-dropdown metabolic-nav-dropdown">
-          <span class="nav-link glp-nav-link${headerLinkClass("anti-aging")}"${headerCurrentState("anti-aging")}>Longevity</span>
+          <span class="nav-link glp-nav-link${headerLinkClass("anti-aging")}"${headerCurrentState("anti-aging")}>Energy &amp; Recovery</span>
           <button
             class="glp-nav-trigger"
             type="button"
-            aria-label="Show Longevity offerings"
+            aria-label="Show Energy &amp; Recovery offerings"
             aria-haspopup="true"
             aria-expanded="false"
             aria-controls="longevity-nav-menu"
@@ -134,18 +134,10 @@ const globalHeaderMarkup = `
           <div class="glp-nav-menu metabolic-nav-menu" id="longevity-nav-menu" aria-hidden="true">
             <div class="metabolic-menu-shell">
               <div class="metabolic-menu-heading">
-                <span>Explore Longevity</span>
+                <span>Explore Energy &amp; Recovery</span>
                 <small>Choose an offering to learn more</small>
               </div>
               <div class="metabolic-product-grid">
-                <a href="glutathione.html" class="metabolic-product-card">
-                  <span class="metabolic-product-art"><img src="assets/glp-page-pieces/Glutathione Bottle Upright V3.png" alt="" /></span>
-                  <span class="metabolic-product-name">Glutathione</span>
-                </a>
-                <a href="glutathione-nasal.html" class="metabolic-product-card">
-                  <span class="metabolic-product-art"><img class="metabolic-product-image-nasal" src="assets/glp-page-pieces/Glutathione Nasal Upright V2.png" alt="" /></span>
-                  <span class="metabolic-product-name">Glutathione Nasal</span>
-                </a>
                 <a href="nad-plus.html" class="metabolic-product-card">
                   <span class="metabolic-product-art"><img src="assets/glp-page-pieces/NAD Plus Bottle Upright V3.png" alt="" /></span>
                   <span class="metabolic-product-name">NAD+</span>
@@ -163,24 +155,6 @@ const globalHeaderMarkup = `
           </div>
         </div>
         <a class="nav-link${headerLinkClass("blood-work")}"${headerCurrentState("blood-work")} href="blood-work.html">Blood Work</a>
-        <div class="glp-nav-dropdown about-nav-dropdown">
-          <a class="nav-link glp-nav-link${headerLinkClass("about")}"${headerCurrentState("about")} href="about.html">About Us</a>
-          <button
-            class="glp-nav-trigger"
-            type="button"
-            aria-label="Show About Us links"
-            aria-haspopup="true"
-            aria-expanded="false"
-            aria-controls="about-nav-menu"
-          >
-            <span class="glp-nav-chevron" aria-hidden="true"></span>
-          </button>
-          <div class="glp-nav-menu" id="about-nav-menu" aria-hidden="true">
-            <div class="glp-nav-menu-group">
-              <a href="contact.html">Contact Us</a>
-            </div>
-          </div>
-        </div>
       </nav>
 
       <button class="mobile-nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav-menu">
@@ -234,26 +208,16 @@ const globalHeaderMarkup = `
           <button class="mobile-nav-topic" type="button" data-mobile-nav-trigger aria-expanded="false" aria-controls="mobile-metabolic-links"><span>Metabolic Health</span><span class="mobile-nav-chevron" aria-hidden="true"></span></button>
           <div class="mobile-nav-submenu" id="mobile-metabolic-links" hidden>
             <a class="mobile-nav-sublink" href="sermorelin.html">Sermorelin</a>
-            <a class="mobile-nav-sublink" href="tesamorelin.html">Tesamorelin</a>
+            <a class="mobile-nav-sublink" href="glutathione.html">Glutathione</a>
+            <a class="mobile-nav-sublink" href="glutathione-nasal.html">Glutathione Nasal</a>
           </div>
         </div>
         <div class="mobile-nav-group">
-          <button class="mobile-nav-topic" type="button" data-mobile-nav-trigger aria-expanded="false" aria-controls="mobile-longevity-links"><span>Longevity</span><span class="mobile-nav-chevron" aria-hidden="true"></span></button>
+          <button class="mobile-nav-topic" type="button" data-mobile-nav-trigger aria-expanded="false" aria-controls="mobile-longevity-links"><span>Energy &amp; Recovery</span><span class="mobile-nav-chevron" aria-hidden="true"></span></button>
           <div class="mobile-nav-submenu" id="mobile-longevity-links" hidden>
-            <a class="mobile-nav-sublink" href="glutathione.html">Glutathione</a>
-            <a class="mobile-nav-sublink" href="glutathione-nasal.html">Glutathione Nasal</a>
             <a class="mobile-nav-sublink" href="nad-plus.html">NAD+</a>
             <a class="mobile-nav-sublink" href="nad-plus-nasal.html">NAD+ Nasal</a>
             <a class="mobile-nav-sublink" href="mic-b12.html">MIC + B12</a>
-          </div>
-        </div>
-        <div class="mobile-nav-group">
-          <div class="mobile-nav-topic-row">
-            <a class="mobile-nav-topic" href="about.html">About Us</a>
-            <button class="mobile-nav-submenu-toggle" type="button" data-mobile-nav-trigger aria-label="Show About Us links" aria-expanded="false" aria-controls="mobile-about-links"><span class="mobile-nav-chevron" aria-hidden="true"></span></button>
-          </div>
-          <div class="mobile-nav-submenu" id="mobile-about-links" hidden>
-            <a class="mobile-nav-sublink" href="contact.html">Contact Us</a>
           </div>
         </div>
       </nav>
@@ -268,6 +232,34 @@ if (pageHeader) {
 } else {
   document.body.insertAdjacentHTML("afterbegin", globalHeaderMarkup);
 }
+
+// Keep these destinations available on every page, including account pages.
+let footerIntro = document.querySelector(".pp-footer-intro");
+
+if (!footerIntro) {
+  document.body.insertAdjacentHTML("beforeend", `
+    <footer class="pp-footer pp-footer-compact" id="site-footer">
+      <nav class="pp-footer-intro" aria-label="Footer navigation">
+        <a href="treatments.html">Explore all treatments <span aria-hidden="true">&rarr;</span></a>
+      </nav>
+    </footer>
+  `);
+  footerIntro = document.querySelector(".pp-footer-intro");
+}
+
+[
+  { href: "contact.html", label: "Contact Us" },
+  { href: "about.html", label: "About Us" },
+].forEach(({ href, label }) => {
+  let link = footerIntro.querySelector(`a[href="${href}"]`);
+  if (!link) {
+    link = document.createElement("a");
+    link.href = href;
+    link.textContent = label;
+    footerIntro.append(link);
+  }
+  if (currentPage === href) link.setAttribute("aria-current", "page");
+});
 
 const mobileNavToggle = document.querySelector(".mobile-nav-toggle");
 const mobileNavMenu = document.querySelector("#mobile-nav-menu");
