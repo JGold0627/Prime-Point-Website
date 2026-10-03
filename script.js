@@ -323,6 +323,7 @@ if (mobileNavToggle && mobileNavMenu) {
 }
 
 document.querySelectorAll(".semaglutide-cta, .glp-options-start, .glp-confidence-start").forEach((button) => {
+  if (button.type === "submit" && button.form?.matches("[data-product-plans]")) return;
   button.addEventListener("click", () => {
     window.location.href = "create-account.html";
   });

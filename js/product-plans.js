@@ -1,6 +1,10 @@
 (() => {
   // Keep prices in cents; URL parameters select a catalog plan, never set its price.
   const products = {
+    'semaglutide': { name: 'Semaglutide', rates: { '1': 23900, '3': 19900 } },
+    'semaglutide-tablets': { name: 'Semaglutide Sublingual Drops', rates: { '1': 23900, '3': 19900 } },
+    'tirzepatide': { name: 'Tirzepatide', rates: { '1': 33900, '3': 29900 } },
+    'tirzepatide-tablets': { name: 'Tirzepatide Sublingual Drops', rates: { '1': 33900, '3': 29900 } },
     'sermorelin': { name: 'Sermorelin', rates: { '1': 21900, '3': 20900, '6': 19900 } },
     'glutathione': { name: 'Glutathione', rates: { '1': 12900, '3': 12100, '6': 11300 } },
     'glutathione-nasal': { name: 'Glutathione Nasal Spray', rates: { '1': 16900, '3': 16100, '6': 15300 } },
@@ -35,12 +39,14 @@
     const update = () => {
       const selected = selection(productId, planSelect.value);
       if (!selected) return;
-      const details = form.closest('.wellness-product-details');
+      const details = form.closest('.wellness-product-details, .semaglutide-details-panel');
       details.querySelector('[data-plan-price]').textContent = money(selected.monthly);
       const original = details.querySelector('[data-plan-original]');
-      original.textContent = money(selected.original);
+      original.textContent = money(selected.original) + (original.dataset.planSuffix || '');
       original.setAttribute('aria-label', `Original monthly price ${money(selected.original)}`);
-      form.querySelector('[type="submit"]').setAttribute('aria-label', `Get Started with ${selected.name}, ${selected.months}-month plan, ${money(selected.monthly)} per month`);
+      const submit = form.querySelector('[type="submit"]');
+      const actionLabel = submit.querySelector('span').textContent.trim();
+      submit.setAttribute('aria-label', `${actionLabel} with ${selected.name}, ${selected.months}-month plan, ${money(selected.monthly)} per month`);
     };
     form.addEventListener('change', update);
     window.addEventListener('pageshow', update);

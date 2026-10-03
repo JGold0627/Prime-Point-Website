@@ -210,7 +210,7 @@ main {
   white-space: nowrap;
 }
 
-.semaglutide-price span {
+.semaglutide-price span:not([data-plan-price]) {
   margin-left: 3px;
   font-size: 0.48em;
   font-weight: 480;
@@ -272,6 +272,67 @@ main {
   color: var(--pp-prime-gold);
   font-size: 1.1rem;
   font-weight: 900;
+}
+
+/* Make room for the plan selector only on pages that include it. */
+.semaglutide-review-line--compact {
+  margin-top: clamp(18px, calc(1.35vw + 6px), 25px);
+}
+
+.semaglutide-review-line--compact .semaglutide-payment-logos {
+  width: 90%;
+  max-width: 260px;
+  min-height: 40px;
+  gap: 8px;
+}
+
+.semaglutide-review-line--compact .semaglutide-price-offer {
+  gap: 6px;
+}
+
+.semaglutide-review-line--compact .semaglutide-price {
+  font-size: clamp(2rem, 3vw, 3.2rem);
+}
+
+.semaglutide-review-line--compact .semaglutide-price-savings s {
+  font-size: 0.94rem;
+}
+
+.semaglutide-review-line--compact .semaglutide-price-discount {
+  padding: 4px 8px;
+  font-size: 0.73rem;
+}
+
+.semaglutide-plan-field {
+  margin: 22px 0 0;
+}
+
+.semaglutide-plan-field label {
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.semaglutide-plan-field select {
+  min-height: 44px;
+  padding-block: 10px;
+}
+
+.semaglutide-plan-field + .semaglutide-feature-list {
+  gap: 10px;
+  margin: clamp(18px, calc(1.35vw + 6px), 25px) 0 14px;
+}
+
+.semaglutide-plan-field + .semaglutide-feature-list li {
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 10px;
+  font-size: 0.9375rem;
+  line-height: 1.4;
+}
+
+.semaglutide-plan-field + .semaglutide-feature-list .semaglutide-check {
+  width: 24px;
+  height: 24px;
 }
 
 .semaglutide-cta {

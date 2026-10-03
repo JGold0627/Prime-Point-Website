@@ -7,7 +7,8 @@
     <meta name="description" content="Prime Point Health Semaglutide care." />
     <link rel="stylesheet" href="css/global.css?v=38" />
     <link rel="stylesheet" href="css/glp.css" />
-    <link rel="stylesheet" href="css/semaglutide.css?v=9" />
+    <link rel="stylesheet" href="css/product-plans.css" />
+    <link rel="stylesheet" href="css/semaglutide.css?v=13" />
   </head>
   <body>
     <header class="site-header" data-site-header-mount aria-label="Primary navigation"></header>
@@ -24,22 +25,33 @@
             />
           </div>
 
-          <div class="semaglutide-details-panel">
+          <form class="semaglutide-details-panel" id="product-plan-options" action="create-account.html" method="get" data-product-plans="semaglutide">
+            <input type="hidden" name="product" value="semaglutide" />
             <p class="semaglutide-eyebrow">Provider-guided GLP-1 care</p>
             <h1 id="semaglutide-title">Semaglutide</h1>
             <p class="semaglutide-intro">
               A once-weekly GLP-1 option that may be considered after a licensed provider reviews your health history, current medications, goals, and individual needs.
             </p>
 
-            <div class="semaglutide-review-line" aria-label="Payment options and pricing">
+            <div class="semaglutide-review-line semaglutide-review-line--compact" aria-label="Payment options and pricing">
               <div class="semaglutide-payment-logos" role="group" aria-label="Payment options">
                 <img src="assets/payment-providers/affirm.png" alt="Affirm" width="429" height="171" />
                 <img src="assets/payment-providers/klarna.svg" alt="Klarna" width="1448" height="609" />
                 <img src="assets/payment-providers/afterpay.svg" alt="Afterpay" width="395" height="136" />
               </div>
-              <div class="semaglutide-price-offer">
-                <span class="semaglutide-price" aria-label="239 dollars per month">$239<span>/mo</span></span>
-                <span class="semaglutide-price-savings"><s aria-label="Original price 266 dollars per month">$266/mo</s><span class="semaglutide-price-discount">10% off</span></span>
+              <div class="semaglutide-price-offer" aria-live="polite" aria-atomic="true">
+                <span class="semaglutide-price"><span data-plan-price>$239</span><span>/mo</span></span>
+                <span class="semaglutide-price-savings"><s data-plan-original data-plan-suffix="/mo" aria-label="Original price 266 dollars per month">$266/mo</s><span class="semaglutide-price-discount">10% off</span></span>
+              </div>
+            </div>
+
+            <div class="product-plan-field semaglutide-plan-field">
+              <label for="semaglutide-plan">Choose your plan</label>
+              <div class="product-plan-select-wrap">
+                <select id="semaglutide-plan" name="plan">
+                  <option value="1">1 month &mdash; $239/mo</option>
+                  <option value="3">3 months &mdash; $199/mo</option>
+                </select>
               </div>
             </div>
 
@@ -49,13 +61,13 @@
               <li><span class="semaglutide-check" aria-hidden="true">✓</span><span>Follow-up support with <strong>individualized guidance</strong> when prescribed.</span></li>
             </ul>
 
-            <button class="semaglutide-cta" type="button">
+            <button class="semaglutide-cta" type="submit">
               <span>START NOW</span>
               <span class="semaglutide-cta-icon" aria-hidden="true">→</span>
             </button>
 
             <p class="semaglutide-note">Eligibility varies. Prescriptions are not guaranteed. Results vary.</p>
-          </div>
+          </form>
         </div>
       </section>
 
@@ -411,7 +423,8 @@
     </footer>
     </main>
 
-    <script src="script.js?v=22"></script>
+    <script src="script.js?v=23"></script>
+    <script src="js/product-plans.js?v=10"></script>
     <script>
       document.querySelectorAll(".semaglutide-accordion").forEach((accordion) => {
         const questions = [...accordion.querySelectorAll(".semaglutide-question")];
