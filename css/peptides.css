@@ -168,6 +168,24 @@
   box-shadow: 0 2px 6px rgba(15, 31, 45, 0.12);
 }
 
+.peptides-program-note {
+  max-width: 100%;
+  margin: 0;
+  color: var(--pp-prime-navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.1rem, 1.7vw, 1.35rem);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.peptides-hero-content > .peptides-program-note {
+  margin-top: clamp(38px, 5vh, 58px);
+}
+
+.peptides-bottom-cta > .peptides-program-note {
+  text-align: center;
+}
+
 .peptides-bottom-cta {
   display: flex;
   justify-content: center;

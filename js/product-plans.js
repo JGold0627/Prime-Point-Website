@@ -4,7 +4,7 @@
     'sermorelin': { name: 'Sermorelin', rates: { '1': 21900, '3': 20900, '6': 19900 } },
     'glutathione': { name: 'Glutathione', rates: { '1': 12900, '3': 12100, '6': 11300 } },
     'glutathione-nasal': { name: 'Glutathione Nasal Spray', rates: { '1': 16900, '3': 16100, '6': 15300 } },
-    'mic-b12': { name: 'MIC + B12', rates: { '1': 13900, '3': 13400, '6': 12900, '12': 12400 } },
+    'mic-b12': { name: 'MIC + B12', rates: { '1': 13900, '3': 13400, '6': 12900 } },
     'nad-plus': { name: 'NAD+', rates: { '1': 19900, '3': 18400, '6': 16900 } },
     'nad-plus-nasal': { name: 'NAD+ Nasal', spec: '300 mg/mL · 15 mL', rates: { '1': 14900, '3': 14100, '6': 13300 } }
   };
