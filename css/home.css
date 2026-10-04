@@ -1934,10 +1934,16 @@ a.home-product-card:is(:active, .is-pressed) .home-product-image-wrap {
     --pp-header-height: 78px;
   }
 
+  .home-hero {
+    min-height: calc(100svh - var(--pp-header-height));
+  }
+
   .home-hero-content {
-    align-items: start;
+    align-items: center;
     padding-top: 32px;
-    padding-bottom: 88px;
+    /* Balance the group near the screen center with room for the scroll cue. */
+    padding-bottom: calc(var(--pp-header-height) + 32px + 10vh);
+    padding-bottom: calc(var(--pp-header-height) + 32px + 10svh);
   }
 
   .home-hero-centered-copy {
