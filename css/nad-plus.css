@@ -570,4 +570,8 @@
     height: auto;
     aspect-ratio: 4 / 3;
   }
+
+  .nad-quality-media img {
+    object-position: center 20%;
+  }
 }

@@ -3,7 +3,7 @@ const treatmentCards = document.querySelectorAll("[data-treatment-category]");
 
 treatmentFilters.forEach((filter) => {
   filter.addEventListener("click", () => {
-    const selectedCategory = filter.textContent.trim().toLowerCase().replaceAll(" ", "-");
+    const selectedCategory = filter.id || "all";
 
     treatmentFilters.forEach((option) => {
       const isSelected = option === filter;
@@ -19,7 +19,9 @@ treatmentFilters.forEach((filter) => {
 });
 
 const syncTreatmentCategoryLink = () => {
-  const category = window.location.hash.slice(1);
+  const requestedCategory = window.location.hash.slice(1);
+  // Keep older shared category links working after the label change.
+  const category = requestedCategory === "longevity" ? "energy-recovery" : requestedCategory;
   const filter = Array.from(treatmentFilters).find((item) => item.id === category && category);
   if (filter) filter.click();
 };

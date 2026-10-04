@@ -10,7 +10,7 @@
     'glutathione-nasal': { name: 'Glutathione Nasal Spray', rates: { '1': 16900, '3': 16100, '6': 15300 } },
     'mic-b12': { name: 'MIC + B12', rates: { '1': 13900, '3': 13400, '6': 12900 } },
     'nad-plus': { name: 'NAD+', rates: { '1': 19900, '3': 18400, '6': 16900 } },
-    'nad-plus-nasal': { name: 'NAD+ Nasal', spec: '300 mg/mL · 15 mL', rates: { '1': 14900, '3': 14100, '6': 13300 } }
+    'nad-plus-nasal': { name: 'NAD+ Nasal', spec: '300 mg/mL · 15 mL', rates: { '1': 15900, '3': 15100, '6': 14300 } }
   };
   const money = cents => new Intl.NumberFormat('en-US', {
     style: 'currency', currency: 'USD', maximumFractionDigits: 0

@@ -456,6 +456,10 @@
     height: auto;
     aspect-ratio: 4 / 3;
   }
+
+  .mic-b12-quality-media img {
+    object-position: center 20%;
+  }
 }
 
 .mic-b12-faq-section {

@@ -499,6 +499,12 @@ a.treatment-card:focus-visible {
 
 }
 
+@media (max-width: 1050px) {
+  .treatments-quality-media img {
+    object-position: center 20%;
+  }
+}
+
 @media (max-width: 430px) {
   .treatments-filters {
     grid-template-columns: 1fr;

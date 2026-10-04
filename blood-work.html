@@ -320,6 +320,16 @@
         transform: rotate(45deg);
       }
 
+      .bw-final-cta {
+        max-width: 400px;
+        margin: clamp(32px, 4vw, 48px) auto 0;
+        padding-inline: 20px;
+      }
+
+      .bw-final-cta .bw-plan-arrow {
+        flex-shrink: 0;
+      }
+
       .bw-plan-footer {
         position: relative;
         z-index: 1;
@@ -2141,6 +2151,7 @@
     }
   </style>
   <link rel="stylesheet" href="blood-work-buttons.css">
+  <link rel="stylesheet" href="css/bloodwork-panels.css?v=3">
 </head>
   <body class="blood-work-page">
     <header class="site-header" data-site-header-mount aria-label="Primary navigation"></header>
@@ -2266,7 +2277,6 @@
 
       <section class="bw-physical-comparison" aria-labelledby="bw-physical-comparison-title">
         <div class="bw-physical-comparison-shell" data-pp-reveal>
-          <p class="bw-physical-comparison-eyebrow">Why "Everything Feels Normal" Misses Everything</p>
           <h2 class="bw-physical-comparison-title" id="bw-physical-comparison-title">
             A standard physical misses most of it. <em>We don&rsquo;t.</em>
           </h2>
@@ -2311,45 +2321,6 @@
         </div>
       </section>
 
-      <section class="bw-guidance" aria-labelledby="bw-guidance-title">
-        <div class="bw-guidance-shell" data-pp-reveal>
-          <h2 class="bw-guidance-title" id="bw-guidance-title">Never Feel Lost</h2>
-          <p class="bw-guidance-intro">
-            Your results should be useful, not overwhelming. A comprehensive Prime Point review
-            organizes your biomarkers into a clearer picture so you can ask better questions and
-            make informed decisions with your clinician.
-          </p>
-
-          <div class="bw-guidance-divider" aria-hidden="true"><span></span></div>
-
-          <h3 class="bw-guidance-subtitle">Want Routine Check-Ins?</h3>
-          <p class="bw-guidance-copy">Purchase an additional consultation anytime.</p>
-          <ul class="bw-consult-options" aria-label="Additional consultation options">
-            <li>
-              <strong>$49</strong>
-              <span>20-minute consultation</span>
-              <button class="bw-consult-button" type="button" data-consult-product="consult-20-minute">Add to cart</button>
-            </li>
-            <li>
-              <strong>$69</strong>
-              <span>40-minute consultation</span>
-              <button class="bw-consult-button" type="button" data-consult-product="consult-20">Add to cart</button>
-            </li>
-            <li>
-              <strong>$99</strong>
-              <span>60-minute consultation</span>
-              <button class="bw-consult-button" type="button" data-consult-product="consult-40">Add to cart</button>
-            </li>
-          </ul>
-        </div>
-
-        <p class="bw-guidance-note">
-          Visit requirements vary by state and service. A clinician will confirm whether a video
-          consultation is needed before prescription-related care. Additional services and fees
-          are confirmed before scheduling.
-        </p>
-      </section>
-
       <section class="bw-pathways" aria-labelledby="bw-pathways-title">
         <div class="bw-pathways-shell" data-pp-reveal>
           <h2 class="bw-pathways-title" id="bw-pathways-title">Two Paths, One Goal</h2>
@@ -2388,179 +2359,111 @@
         </div>
       </section>
 
-      <section class="bw-biomarkers" aria-labelledby="bw-biomarkers-title">
+      <section class="bw-biomarkers bw-panels" aria-labelledby="bw-biomarkers-title">
         <div class="bw-biomarkers-shell" data-pp-reveal>
-          <div class="bw-biomarkers-heading">
-            <h2 class="bw-biomarkers-title" id="bw-biomarkers-title">
-              We Test the Markers That Matter
-            </h2>
+          <header class="bw-panels-header">
+            <p class="bw-panels-eyebrow">Prime Point Bloodwork</p>
+            <h2 class="bw-panels-title bw-physical-comparison-title" id="bw-biomarkers-title">Explore our bloodwork <em>panels.</em></h2>
+            <p class="bw-panels-intro">Choose an area to explore the panels available.</p>
+          </header>
+          <div class="bw-panel-explorer" data-bloodwork-panels>
+            <div class="bw-panel-orbit" role="group" aria-label="Bloodwork panel categories">
+              <div class="bw-panel-orbit-ring" aria-hidden="true"></div>
+              <div class="bw-panel-orbit-ring bw-panel-orbit-ring--inner" aria-hidden="true"></div>
+              <div class="bw-panel-orbit-track" aria-hidden="true"></div>
+              <div class="bw-panel-orbit-core" aria-hidden="true">
+                <span class="bw-panel-orbit-core-name">PRIME<br>POINT</span>
+                <span class="bw-panel-orbit-core-label">Bloodwork</span>
+              </div>
+              <button class="bw-panel-category" type="button" data-panel-category aria-pressed="true" aria-controls="bw-panels-general" style="--orbit-x: 50%; --orbit-y: 9%;">General health</button>
+              <button class="bw-panel-category" type="button" data-panel-category aria-pressed="false" aria-controls="bw-panels-hormones" style="--orbit-x: 83%; --orbit-y: 30%;">Hormones &amp; fertility</button>
+              <button class="bw-panel-category" type="button" data-panel-category aria-pressed="false" aria-controls="bw-panels-heart" style="--orbit-x: 83%; --orbit-y: 70%;">Heart &amp; metabolism</button>
+              <button class="bw-panel-category" type="button" data-panel-category aria-pressed="false" aria-controls="bw-panels-energy" style="--orbit-x: 50%; --orbit-y: 91%;">Energy &amp; performance</button>
+              <button class="bw-panel-category" type="button" data-panel-category aria-pressed="false" aria-controls="bw-panels-vitamins" style="--orbit-x: 17%; --orbit-y: 70%;">Vitamins &amp; nutrients</button>
+              <button class="bw-panel-category" type="button" data-panel-category aria-pressed="false" aria-controls="bw-panels-thyroid" style="--orbit-x: 17%; --orbit-y: 30%;">Thyroid &amp; organ function</button>
+            </div>
+            <div class="bw-panel-results">
+              <section class="bw-panel-group" id="bw-panels-general" data-panel-group aria-labelledby="bw-panels-general-title">
+                <div class="bw-panel-group-heading">
+                  <h3 id="bw-panels-general-title">General health</h3>
+                  <span class="bw-panel-group-count">5 panels</span>
+                </div>
+                <ul class="bw-panel-list">
+                  <li><span class="bw-panel-name">Basic Health Panel</span><span class="bw-panel-price" data-panel-price="basic-health">$112</span></li>
+                  <li><span class="bw-panel-name">Advanced Men&rsquo;s Health Panel</span><span class="bw-panel-price" data-panel-price="advanced-men">$257</span></li>
+                  <li><span class="bw-panel-name">Advanced Women&rsquo;s Health Panel</span><span class="bw-panel-price" data-panel-price="advanced-women">$258</span></li>
+                  <li><span class="bw-panel-name">Comprehensive Men&rsquo;s Health Panel</span><span class="bw-panel-price" data-panel-price="comprehensive-men">$272</span></li>
+                  <li><span class="bw-panel-name">Comprehensive Women&rsquo;s Health Panel</span><span class="bw-panel-price" data-panel-price="comprehensive-women">$274</span></li>
+                </ul>
+              </section>
+              <section class="bw-panel-group" id="bw-panels-hormones" data-panel-group aria-labelledby="bw-panels-hormones-title" hidden>
+                <div class="bw-panel-group-heading">
+                  <h3 id="bw-panels-hormones-title">Hormones &amp; fertility</h3>
+                  <span class="bw-panel-group-count">7 panels</span>
+                </div>
+                <ul class="bw-panel-list">
+                  <li><span class="bw-panel-name">Basic Female Hormone Panel</span><span class="bw-panel-price" data-panel-price="basic-female-hormone">$109</span></li>
+                  <li><span class="bw-panel-name">Comprehensive Female Hormone Panel</span><span class="bw-panel-price" data-panel-price="comprehensive-female-hormone">$133</span></li>
+                  <li><span class="bw-panel-name">Basic Fertility Panel</span><span class="bw-panel-price" data-panel-price="basic-fertility">$125</span></li>
+                  <li><span class="bw-panel-name">Comprehensive Fertility Panel</span><span class="bw-panel-price" data-panel-price="comprehensive-fertility">$185</span></li>
+                  <li><span class="bw-panel-name">Menopause Panel</span><span class="bw-panel-price" data-panel-price="menopause">$144</span></li>
+                  <li><span class="bw-panel-name">Enclomiphene Panel</span><span class="bw-panel-price" data-panel-price="enclomiphene">$151</span></li>
+                  <li><span class="bw-panel-name">Enclomiphene Follow-Up Panel</span><span class="bw-panel-price" data-panel-price="enclomiphene-follow-up">$112</span></li>
+                </ul>
+              </section>
+              <section class="bw-panel-group" id="bw-panels-heart" data-panel-group aria-labelledby="bw-panels-heart-title" hidden>
+                <div class="bw-panel-group-heading">
+                  <h3 id="bw-panels-heart-title">Heart &amp; metabolism</h3>
+                  <span class="bw-panel-group-count">6 panels</span>
+                </div>
+                <ul class="bw-panel-list">
+                  <li><span class="bw-panel-name">Cardiometabolic Panel</span><span class="bw-panel-price" data-panel-price="cardiometabolic">$101</span></li>
+                  <li><span class="bw-panel-name">Heart and Metabolism Panel</span><span class="bw-panel-price" data-panel-price="heart-metabolism">$141</span></li>
+                  <li><span class="bw-panel-name">Heart Health Panel</span><span class="bw-panel-price" data-panel-price="heart-health">$87</span></li>
+                  <li><span class="bw-panel-name">Lipid and Hemoglobin Panel</span><span class="bw-panel-price" data-panel-price="lipid-hemoglobin">$84</span></li>
+                  <li><span class="bw-panel-name">Metabolic Panel</span><span class="bw-panel-price" data-panel-price="metabolic">$79</span></li>
+                  <li><span class="bw-panel-name">Metabolism 01</span><span class="bw-panel-price" data-panel-price="metabolism-01">$127</span></li>
+                </ul>
+              </section>
+              <section class="bw-panel-group" id="bw-panels-energy" data-panel-group aria-labelledby="bw-panels-energy-title" hidden>
+                <div class="bw-panel-group-heading">
+                  <h3 id="bw-panels-energy-title">Energy &amp; performance</h3>
+                  <span class="bw-panel-group-count">3 panels</span>
+                </div>
+                <ul class="bw-panel-list">
+                  <li><span class="bw-panel-name">Men&rsquo;s Athletic Performance Panel</span><span class="bw-panel-price" data-panel-price="athletic-performance">$150</span></li>
+                  <li><span class="bw-panel-name">Stress and Energy Panel</span><span class="bw-panel-price" data-panel-price="stress-energy">$128</span></li>
+                  <li><span class="bw-panel-name">Weight Biology Panel</span><span class="bw-panel-price" data-panel-price="weight-biology">$105</span></li>
+                </ul>
+              </section>
+              <section class="bw-panel-group" id="bw-panels-vitamins" data-panel-group aria-labelledby="bw-panels-vitamins-title" hidden>
+                <div class="bw-panel-group-heading">
+                  <h3 id="bw-panels-vitamins-title">Vitamins &amp; nutrients</h3>
+                  <span class="bw-panel-group-count">2 panels</span>
+                </div>
+                <ul class="bw-panel-list">
+                  <li><span class="bw-panel-name">Vitamin D, Vitamin B12 &amp; Folate Panel</span><span class="bw-panel-price" data-panel-price="vitamin-d-b12-folate">$101</span></li>
+                  <li><span class="bw-panel-name">Vitamin Panel</span><span class="bw-panel-price" data-panel-price="vitamin">$125</span></li>
+                </ul>
+              </section>
+              <section class="bw-panel-group" id="bw-panels-thyroid" data-panel-group aria-labelledby="bw-panels-thyroid-title" hidden>
+                <div class="bw-panel-group-heading">
+                  <h3 id="bw-panels-thyroid-title">Thyroid &amp; organ function</h3>
+                  <span class="bw-panel-group-count">2 panels</span>
+                </div>
+                <ul class="bw-panel-list">
+                  <li><span class="bw-panel-name">Thyroid Panel</span><span class="bw-panel-price" data-panel-price="thyroid">$97</span></li>
+                  <li><span class="bw-panel-name">Liver and Kidney Function Panel</span><span class="bw-panel-price" data-panel-price="liver-kidney">$90</span></li>
+                </ul>
+              </section>
+              <p class="bw-panel-price-note">All panel prices include the provider visit.</p>
+            </div>
+            <span class="bw-panel-status" data-panel-status role="status" aria-live="polite" aria-atomic="true"></span>
           </div>
-          <p class="bw-biomarkers-intro">
-            Organize complex lab data into clear health domains, making patterns easier to review
-            with your clinician and track over time.
-          </p>
-
-          <div class="bw-biomarker-grid">
-            <article class="bw-biomarker-card">
-              <header class="bw-biomarker-card-header">
-                <h3>Sex Hormones</h3>
-                <span class="bw-biomarker-count">8 markers</span>
-              </header>
-              <ul class="bw-biomarker-list">
-                <li>Total testosterone</li>
-                <li>Free testosterone</li>
-                <li>Bioavailable testosterone</li>
-                <li>Sex hormone-binding globulin</li>
-                <li>Estradiol</li>
-                <li>Progesterone, when applicable</li>
-                <li>Follicle-stimulating hormone</li>
-                <li>DHEA-S</li>
-              </ul>
-            </article>
-
-            <article class="bw-biomarker-card">
-              <header class="bw-biomarker-card-header">
-                <h3>Thyroid</h3>
-                <span class="bw-biomarker-count">7 markers</span>
-              </header>
-              <ul class="bw-biomarker-list">
-                <li>Thyroid-stimulating hormone</li>
-                <li>Total T4</li>
-                <li>Free T4</li>
-                <li>Free T3</li>
-                <li>Free T4 Index (T7)</li>
-                <li>Thyroid peroxidase antibodies</li>
-                <li>Free T3 to Free T4 ratio</li>
-              </ul>
-            </article>
-
-            <article class="bw-biomarker-card">
-              <header class="bw-biomarker-card-header">
-                <h3>Glucose Metabolism</h3>
-                <span class="bw-biomarker-count">4 markers</span>
-              </header>
-              <ul class="bw-biomarker-list">
-                <li>Glucose</li>
-                <li>Insulin</li>
-                <li>Hemoglobin A1c</li>
-                <li>Estimated average glucose</li>
-              </ul>
-            </article>
-
-            <article class="bw-biomarker-card">
-              <header class="bw-biomarker-card-header">
-                <h3>Heart Health</h3>
-                <span class="bw-biomarker-count">7 markers</span>
-              </header>
-              <ul class="bw-biomarker-list">
-                <li>Total cholesterol</li>
-                <li>HDL cholesterol</li>
-                <li>LDL cholesterol</li>
-                <li>Triglycerides</li>
-                <li>High-sensitivity CRP</li>
-                <li>VLDL cholesterol</li>
-                <li>Cholesterol to HDL ratio</li>
-              </ul>
-            </article>
-
-            <article class="bw-biomarker-card">
-              <header class="bw-biomarker-card-header">
-                <h3>Iron, Vitamins &amp; Minerals</h3>
-                <span class="bw-biomarker-count">10 markers</span>
-              </header>
-              <ul class="bw-biomarker-list">
-                <li>Serum iron</li>
-                <li>Ferritin</li>
-                <li>TIBC</li>
-                <li>UIBC</li>
-                <li>Transferrin saturation</li>
-                <li>Folate</li>
-                <li>Vitamin D, 25-hydroxy</li>
-                <li>Vitamin B12</li>
-                <li>Magnesium</li>
-                <li>Calcium</li>
-              </ul>
-            </article>
-
-            <article class="bw-biomarker-card">
-              <header class="bw-biomarker-card-header">
-                <h3>Blood Health</h3>
-                <span class="bw-biomarker-count">10 groups</span>
-              </header>
-              <ul class="bw-biomarker-list">
-                <li>Complete blood count</li>
-                <li>Hemoglobin</li>
-                <li>Hematocrit</li>
-                <li>Platelet count</li>
-                <li>Red blood cell count</li>
-                <li>MCV</li>
-                <li>MCH</li>
-                <li>MCHC</li>
-                <li>RDW</li>
-                <li>White blood cell differential</li>
-              </ul>
-            </article>
-
-            <article class="bw-biomarker-card">
-              <header class="bw-biomarker-card-header">
-                <h3>Metabolic &amp; Kidney</h3>
-                <span class="bw-biomarker-count">9 markers</span>
-              </header>
-              <ul class="bw-biomarker-list">
-                <li>Comprehensive metabolic panel</li>
-                <li>BUN</li>
-                <li>Creatinine</li>
-                <li>BUN to creatinine ratio</li>
-                <li>eGFR</li>
-                <li>Sodium</li>
-                <li>Potassium</li>
-                <li>Chloride</li>
-                <li>CO2</li>
-              </ul>
-            </article>
-
-            <article class="bw-biomarker-card">
-              <header class="bw-biomarker-card-header">
-                <h3>Liver &amp; Proteins</h3>
-                <span class="bw-biomarker-count">8 markers</span>
-              </header>
-              <ul class="bw-biomarker-list">
-                <li>ALT</li>
-                <li>AST</li>
-                <li>Alkaline phosphatase</li>
-                <li>Total bilirubin</li>
-                <li>Total protein</li>
-                <li>Albumin</li>
-                <li>Total globulin</li>
-                <li>Albumin to globulin ratio</li>
-              </ul>
-            </article>
-
-            <article class="bw-biomarker-card">
-              <header class="bw-biomarker-card-header">
-                <h3>Prostate</h3>
-                <span class="bw-biomarker-count">Screening</span>
-              </header>
-              <ul class="bw-biomarker-list">
-                <li>Prostate-specific antigen, when appropriate</li>
-              </ul>
-            </article>
-
-            <article class="bw-biomarker-card">
-              <header class="bw-biomarker-card-header">
-                <h3>Stress Response</h3>
-                <span class="bw-biomarker-count">Focused</span>
-              </header>
-              <ul class="bw-biomarker-list">
-                <li>Cortisol, when indicated</li>
-              </ul>
-            </article>
-          </div>
-
+          <noscript><style>.bw-panel-orbit { display: none; } .bw-panel-explorer { display: block; } .bw-panel-group[hidden] { display: block; }</style></noscript>
           <p class="bw-biomarkers-note">
-            Representative markers are shown for educational purposes. Final test selection,
-            availability, and frequency vary by membership, location, health history, and
-            clinician guidance.
+            Final test selection, availability, and frequency vary by location, health history,
+            and clinician guidance.
           </p>
 
           <div class="bw-state-coverage" role="region" aria-labelledby="bw-state-coverage-title">
@@ -2621,6 +2524,10 @@
               <li><abbr title="Wyoming">WY</abbr></li>
             </ul>
           </div>
+          <button class="button button-primary bw-plan-button bw-final-cta" type="button">
+            <span>Start your Bloodwork Today</span>
+            <span class="bw-plan-arrow" aria-hidden="true"></span>
+          </button>
         </div>
       </section>
     </main>
@@ -2640,7 +2547,7 @@
           <a href="peptides.html">Peptides</a>
           <a href="treatments.html#weight-loss">Weight Loss</a>
           <a href="treatments.html#metabolic-health">Metabolic Health</a>
-          <a href="treatments.html#longevity">Longevity</a>
+          <a href="treatments.html#energy-recovery">Energy &amp; Recovery</a>
           <a href="blood-work.html">Blood Work</a>
         </nav>
         <div class="pp-footer-follow">
@@ -2942,7 +2849,8 @@
         render();
       })();
     </script>
-    <script src="script.js?v=25"></script>
+    <script src="script.js?v=26"></script>
+    <script src="js/bloodwork-panels.js?v=1"></script>
   </body>
 </html>
 

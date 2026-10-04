@@ -54,6 +54,7 @@
 @media (max-width: 760px) {
   .sermorelin-quality { grid-template-columns: 1fr; gap: 36px; margin-top: 72px; }
   .sermorelin-quality-media { height: auto; aspect-ratio: 4 / 3; }
+  .sermorelin-quality-media img { object-position: center 20%; }
 }
 .sermorelin-science-heading { display: flex; align-items: center; justify-content: space-between; gap: 32px; margin-bottom: 36px; }
 .sermorelin-science-heading h2 { margin: 0; font: 400 clamp(36px, 3.8vw, 58px)/1.12 Georgia, "Times New Roman", serif; letter-spacing: -.035em; }

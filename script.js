@@ -220,6 +220,9 @@ const globalHeaderMarkup = `
         <div class="mobile-nav-group">
           <a class="mobile-nav-topic" href="peptides.html"><span>Peptides</span><span class="mobile-nav-link-arrow" aria-hidden="true">&rarr;</span></a>
         </div>
+        <div class="mobile-nav-group">
+          <a class="mobile-nav-topic" href="${isMemberSession ? 'member-home.html' : 'login.html'}"><span>${isMemberSession ? 'Member Home' : 'Log In'}</span><span class="mobile-nav-link-arrow" aria-hidden="true">&rarr;</span></a>
+        </div>
       </nav>
     </div>
   </header>

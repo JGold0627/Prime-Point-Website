@@ -1935,8 +1935,24 @@ a.home-product-card:is(:active, .is-pressed) .home-product-image-wrap {
   }
 
   .home-hero-content {
-    padding-top: 56px;
+    align-items: start;
+    padding-top: 32px;
     padding-bottom: 88px;
+  }
+
+  .home-hero-centered-copy {
+    text-align: center;
+  }
+
+  .home-hero-eyebrow {
+    margin-bottom: 28px;
+    line-height: 1.6;
+    letter-spacing: 0.2em;
+    text-wrap: balance;
+  }
+
+  .home-hero-eyebrow::after {
+    margin-inline: auto;
   }
 
   .home-hero-main-title {
@@ -1945,8 +1961,10 @@ a.home-product-card:is(:active, .is-pressed) .home-product-image-wrap {
 
   .home-hero-main-lede {
     margin-top: 24px;
+    margin-inline: auto;
     font-size: 0.96rem;
     line-height: 1.58;
+    text-wrap: balance;
   }
 
   .home-hero-centered-actions {
@@ -1954,8 +1972,8 @@ a.home-product-card:is(:active, .is-pressed) .home-product-image-wrap {
     align-items: stretch;
     gap: 12px;
     width: min(100%, 300px);
-    margin: 28px 0 0;
-    transform: translateY(28px);
+    margin: 28px auto 0;
+    transform: none;
   }
 
   .home-hero-centered-actions .button {
