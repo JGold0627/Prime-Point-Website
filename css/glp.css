@@ -1685,10 +1685,11 @@ body.pp-dark-spotlight-canvas > main > section::after {
 .glp-confidence-shell {
   position: relative;
   width: min(87vw, 1700px);
-  min-height: clamp(430px, 38vw, 620px);
+  min-height: clamp(500px, 45vw, 650px);
   display: grid;
-  grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
+  grid-template-columns: minmax(0, 1fr);
   align-items: stretch;
+  isolation: isolate;
   margin: 0 auto;
   overflow: hidden;
   border: 1px solid rgba(203, 167, 102, 0.2);
@@ -1696,29 +1697,46 @@ body.pp-dark-spotlight-canvas > main > section::after {
   background: var(--pp-warm-ivory);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.68),
-    0 14px 36px rgba(0, 0, 0, 0.14),
-    0 0 42px rgba(203, 167, 102, 0.1);
+    0 18px 50px rgba(15, 31, 45, 0.11);
+}
+
+.glp-confidence-eyebrow {
+  position: absolute;
+  z-index: 2;
+  top: clamp(32px, 4vw, 56px);
+  left: clamp(32px, 5vw, 72px);
+  margin: 0;
+  color: #98733b;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 }
 
 .glp-confidence-copy {
   position: relative;
   z-index: 2;
+  width: 62%;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: clamp(40px, 4.2vw, 70px);
-  background: var(--pp-warm-ivory);
+  padding: clamp(32px, 5vw, 72px);
+  background: transparent;
 }
 
 .glp-confidence-copy h2 {
   margin: 0;
   color: #152c3e;
-  font-family: Inter, "Segoe UI", Arial, sans-serif;
-  font-size: clamp(2.35rem, 3.7vw, 4.6rem);
-  font-weight: 430;
-  line-height: 0.98;
-  letter-spacing: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: clamp(1.6rem, 2.3vw, 2.25rem);
+  font-weight: 400;
+  line-height: 1.16;
+  letter-spacing: -0.015em;
+  word-spacing: -0.04em;
 }
 
 .glp-confidence-copy h2 span,
@@ -1726,41 +1744,47 @@ body.pp-dark-spotlight-canvas > main > section::after {
   display: block;
 }
 
-.glp-confidence-copy h2 em {
-  margin-top: clamp(6px, 0.65vw, 11px);
-  color: var(--pp-gold);
+.glp-confidence-copy .glp-confidence-word {
+  margin: 2px 0 0;
+  color: #ad8541;
   font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3.75rem, 7.5vw, 7rem);
   font-style: italic;
   font-weight: 400;
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+  word-spacing: normal;
 }
 
-@media (min-width: 900px) {
-  .glp-confidence-copy h2 span,
-  .glp-confidence-copy h2 em {
-    white-space: nowrap;
-  }
+.glp-confidence-copy .glp-confidence-ending {
+  margin-top: 14px;
+  font-size: clamp(1.25rem, 1.8vw, 1.65rem);
+  line-height: 1.35;
+  letter-spacing: -0.01em;
 }
 
 .glp-confidence-start {
-  width: min(100%, 380px);
-  min-height: clamp(52px, 4.2vw, 68px);
+  width: fit-content;
+  max-width: 100%;
+  min-height: 56px;
+  padding: 15px 24px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(12px, 1vw, 18px);
-  margin-top: clamp(30px, 3vw, 48px);
+  gap: 24px;
+  margin-top: clamp(28px, 3vw, 40px);
   border: 1px solid rgba(203, 167, 102, 0.26);
   border-radius: 999px;
   background: linear-gradient(135deg, #152c3e, #0b1823);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    0 16px 30px rgba(22, 28, 18, 0.16);
+    0 10px 24px rgba(15, 31, 45, 0.12);
   color: #f6f4f0;
   font-family: inherit;
-  font-size: clamp(0.94rem, 1.05vw, 1.16rem);
-  font-weight: 780;
-  line-height: 1;
-  letter-spacing: 0.02em;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0;
   text-decoration: none;
   cursor: pointer;
   transition:
@@ -1771,10 +1795,14 @@ body.pp-dark-spotlight-canvas > main > section::after {
 }
 
 @media (min-width: 821px) {
+  .glp-confidence-copy {
+    padding-bottom: clamp(116px, 12vw, 164px);
+  }
+
   .glp-confidence-start {
     position: absolute;
-    bottom: clamp(38px, 3.4vw, 56px);
-    left: clamp(40px, 4.2vw, 70px);
+    bottom: clamp(32px, 4vw, 64px);
+    left: clamp(32px, 5vw, 72px);
     margin-top: 0;
   }
 }
@@ -1785,14 +1813,16 @@ body.pp-dark-spotlight-canvas > main > section::after {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid currentColor;
-  border-radius: 50%;
+  color: #d0ad6a;
+  font-size: 1.4rem;
   line-height: 1;
   transition: transform 220ms ease;
 }
 
 .glp-confidence-visual {
-  position: relative;
+  position: absolute;
+  z-index: 0;
+  inset: 0;
   min-width: 0;
   min-height: 0;
   overflow: hidden;
@@ -1804,9 +1834,10 @@ body.pp-dark-spotlight-canvas > main > section::after {
   inset: 0;
   background: linear-gradient(
     90deg,
-    rgba(243, 235, 219, 0.96) 0%,
-    rgba(243, 235, 219, 0.46) 18%,
-    rgba(243, 235, 219, 0) 48%
+    rgba(246, 244, 240, 0.92) 0%,
+    rgba(246, 244, 240, 0.56) 40%,
+    rgba(246, 244, 240, 0.06) 60%,
+    rgba(246, 244, 240, 0) 74%
   );
   content: "";
   pointer-events: none;
@@ -1820,7 +1851,7 @@ body.pp-dark-spotlight-canvas > main > section::after {
   max-width: 100%;
   display: block;
   object-fit: cover;
-  object-position: 72% center;
+  object-position: center top;
   pointer-events: none;
   user-select: none;
 }
@@ -2139,36 +2170,51 @@ body.pp-dark-spotlight-canvas > main > section::after {
   }
 
   .glp-confidence-shell {
-    min-height: 780px;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto minmax(350px, 1fr);
+    min-height: clamp(650px, 92vw, 760px);
+    align-items: end;
+  }
+
+  .glp-confidence-eyebrow {
+    top: 28px;
+    left: clamp(24px, 6vw, 48px);
   }
 
   .glp-confidence-copy {
-    align-items: center;
-    padding: clamp(46px, 7vw, 68px) clamp(28px, 6vw, 54px) 10px;
-    text-align: center;
+    width: 100%;
+    align-items: flex-start;
+    padding: 40px clamp(24px, 6vw, 48px);
+    text-align: left;
   }
 
   .glp-confidence-copy h2 {
-    font-size: clamp(2.8rem, 8vw, 4rem);
+    font-size: clamp(1.25rem, 3.9vw, 1.75rem);
   }
 
-  .glp-confidence-visual {
-    min-height: 350px;
+  .glp-confidence-copy .glp-confidence-word {
+    font-size: clamp(3rem, 12vw, 5.25rem);
+  }
+
+  .glp-confidence-copy .glp-confidence-ending {
+    margin-top: 10px;
+    font-size: clamp(1.05rem, 3.4vw, 1.4rem);
+  }
+
+  .glp-confidence-start {
+    margin-top: 36px;
   }
 
   .glp-confidence-visual::before {
     background: linear-gradient(
       180deg,
-      rgba(243, 235, 219, 0.96) 0%,
-      rgba(243, 235, 219, 0.26) 24%,
-      rgba(243, 235, 219, 0) 55%
+      rgba(246, 244, 240, 0) 22%,
+      rgba(246, 244, 240, 0.25) 43%,
+      rgba(246, 244, 240, 0.9) 65%,
+      rgba(246, 244, 240, 0.98) 82%
     );
   }
 
   .glp-confidence-image {
-    object-position: 68% center;
+    object-position: 76% top;
   }
 
   .glp-options-layout {
@@ -2228,31 +2274,17 @@ body.pp-dark-spotlight-canvas > main > section::after {
     padding-left: 14px;
   }
 
-  .glp-confidence-shell {
-    min-height: 720px;
-    grid-template-rows: auto minmax(320px, 1fr);
-  }
-
   .glp-confidence-copy {
-    padding: 40px 24px 8px;
+    padding: 32px 24px;
   }
 
-  .glp-confidence-copy h2 {
-    font-size: clamp(2.15rem, 9.8vw, 3rem);
+  .glp-confidence-eyebrow {
+    top: 24px;
+    left: 24px;
   }
 
   .glp-confidence-start {
-    width: min(100%, 320px);
-    margin-top: 28px;
-    font-size: 0.9rem;
-  }
-
-  .glp-confidence-visual {
-    min-height: 320px;
-  }
-
-  .glp-confidence-image {
-    object-position: 69% center;
+    font-size: 0.95rem;
   }
 
   .glp-faq {

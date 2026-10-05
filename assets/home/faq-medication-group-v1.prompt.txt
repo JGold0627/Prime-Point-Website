@@ -1,0 +1,33 @@
+Tool: built-in image_gen
+Use: Homepage FAQ medication group photograph
+Generated source: C:/Users/Goldj/.codex/generated_images/01a10c30-b9be-7023-9040-4afda4a8d0ac/exec-7fc5bd0b-f8ed-4ffb-b88a-f9bff054a78f.png
+
+Reference packaging images:
+C:/Users/Goldj/Prime-Point-Website/assets/glp-page-pieces/Semaglutide Bottle V3.png
+C:/Users/Goldj/Prime-Point-Website/assets/glp-page-pieces/Tirzepatide Bottle V2.png
+C:/Users/Goldj/Prime-Point-Website/assets/glp-page-pieces/Sermorelin Bottle Red V2.png
+C:/Users/Goldj/Prime-Point-Website/assets/glp-sublingual/semaglutide-sublingual-bottle-v1.webp
+C:/Users/Goldj/Prime-Point-Website/assets/glp-page-pieces/NAD Plus Nasal V2.png
+
+Final prompt:
+Use case: compositing / product-mockup.
+Create one finished photorealistic product group photograph for the Prime Point Health homepage FAQ image. Replace the lifestyle concept with the entire current medication lineup posed like a refined school yearbook group photo on three architectural steps. No people, faces, cartoon features, or yearbook typography: only the products posed together facing the camera.
+
+Input roles: the five supplied images are representative packaging identity references: input 1 Semaglutide injectable; input 2 Tirzepatide injectable; input 3 Sermorelin injectable; input 4 Semaglutide Sublingual Drops; input 5 NAD+ Nasal. Use these precise label/container families for the ten-product roster below, changing only the medication name as necessary for the matching products. Preserve the clear glass containers, gold caps or white dropper/nasal tops, Prime Point Health logo, white labels, navy type, gold rules and colored bands from the references. Ignore their original black/checkerboard/transparent backgrounds.
+
+Exact ten-product roster (these numbers are the product inventory, not input-image numbers):
+1 Semaglutide injectable vial, pale blue band, gold cap.
+2 Tirzepatide injectable vial, champagne gold band, gold cap.
+3 Semaglutide Sublingual Drops, white dropper cap, pale blue band.
+4 Tirzepatide Sublingual Drops, white dropper cap, pale blue band.
+5 Sermorelin injectable vial, red band, gold cap.
+6 Glutathione injectable vial, pale blue band, gold cap.
+7 NAD+ injectable vial, pale blue band, gold cap.
+8 MIC + B12 injectable vial, pale blue band, gold cap.
+9 Glutathione Nasal spray, white nasal pump and clear cover, pale blue band.
+10 NAD+ Nasal spray, white nasal pump and clear cover, pale blue band.
+
+Composition: landscape 4:3, centered, front-facing camera with a very slight elevated viewpoint, premium medium-format studio product photography. Exactly three rows with elegant even spacing and staggered horizontal positions. Back/top row: the two nasal sprays and two droppers (4 products). Middle row: Sermorelin, Glutathione and NAD+ injection vials (3 products). Front/lowest row: Semaglutide, Tirzepatide and MIC + B12 injection vials (3 products). All 10 must be distinct and clearly visible from cap to base, and label faces unobstructed. Every bottle rests naturally on its own step surface. No labels hidden behind another row. Keep the complete group comfortably within the frame with 8 percent safe space on every edge; fill most of the picture, do not shrink to a small cluster. Steps wide and continuous like a tasteful presentation staircase, not separate round podiums.
+
+Backdrop: warm ivory limestone steps with restrained natural texture, matte ivory plaster studio wall, subtle pale slate-blue ambient shadow on one side. Calm, spacious, polished, medical and trustworthy. Large diffused daylight from upper left, fine realistic glass reflections, soft grounded shadows and restrained gold highlights. No plants, curtains, mountains, accessories, loose pills, needles, boxes or decorative props. No headline, overlay copy, prices, watermarks, added medical claims, invented dosages or invented products. Copy the actual brand and medication names from reference labels accurately. All products in crisp focus, with gentle background softness. The final output is the standalone photograph, not a webpage or UI mockup.
+

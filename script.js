@@ -220,8 +220,8 @@ const globalHeaderMarkup = `
         <div class="mobile-nav-group">
           <a class="mobile-nav-topic" href="peptides.html"><span>Peptides</span><span class="mobile-nav-link-arrow" aria-hidden="true">&rarr;</span></a>
         </div>
-        <div class="mobile-nav-group">
-          <a class="mobile-nav-topic" href="${isMemberSession ? 'member-home.html' : 'login.html'}"><span>${isMemberSession ? 'Member Home' : 'Log In'}</span><span class="mobile-nav-link-arrow" aria-hidden="true">&rarr;</span></a>
+        <div class="mobile-nav-group mobile-nav-account">
+          <a class="header-action mobile-nav-login" href="${isMemberSession ? 'member-home.html' : 'login.html'}">${isMemberSession ? 'Member Home' : 'Log In'}</a>
         </div>
       </nav>
     </div>
@@ -315,6 +315,12 @@ if (mobileNavToggle && mobileNavMenu) {
     if (event.key === "Escape" && !mobileNavMenu.hidden) {
       setMobileNav(false);
       mobileNavToggle.focus();
+    }
+  });
+
+  document.addEventListener("focusin", (event) => {
+    if (!mobileNavMenu.hidden && !mobileNavMenu.contains(event.target) && !mobileNavToggle.contains(event.target)) {
+      setMobileNav(false);
     }
   });
 
@@ -912,6 +918,52 @@ document.querySelectorAll(".contact-question-capture").forEach((form) => {
   });
 });
 
+document.querySelectorAll("[data-home-faq]").forEach((section) => {
+  const list = section.querySelector(".home-faq-list");
+  if (!list) return;
+
+  const desktop = window.matchMedia("(min-width: 801px)");
+  let lastWidth = -1;
+  let measurementFrame = 0;
+  const pixels = (value) => Number.parseFloat(value) || 0;
+
+  const sizePhoto = () => {
+    measurementFrame = 0;
+    if (!desktop.matches) {
+      section.style.removeProperty("--home-faq-photo-height");
+      return;
+    }
+
+    // Measure only question rows and borders, even when an answer is open.
+    const listStyle = getComputedStyle(list);
+    let collapsedHeight = pixels(listStyle.borderTopWidth) + pixels(listStyle.borderBottomWidth);
+    list.querySelectorAll("details").forEach((item) => {
+      const summary = item.querySelector("summary");
+      const style = getComputedStyle(item);
+      collapsedHeight += summary.getBoundingClientRect().height
+        + pixels(style.borderTopWidth) + pixels(style.borderBottomWidth);
+    });
+    section.style.setProperty("--home-faq-photo-height", `${Math.ceil(collapsedHeight)}px`);
+  };
+
+  const scheduleMeasurement = () => {
+    cancelAnimationFrame(measurementFrame);
+    measurementFrame = requestAnimationFrame(sizePhoto);
+  };
+
+  // Answer height changes must never trigger a new photograph size.
+  new ResizeObserver(([entry]) => {
+    const width = entry.contentRect.width;
+    if (Math.abs(width - lastWidth) < 0.5) return;
+    lastWidth = width;
+    scheduleMeasurement();
+  }).observe(list);
+  desktop.addEventListener("change", scheduleMeasurement);
+  document.fonts?.ready.then(scheduleMeasurement);
+  document.fonts?.addEventListener("loadingdone", scheduleMeasurement);
+  sizePhoto();
+});
+
 document.querySelectorAll(".compact-faq details").forEach((item) => {
   item.open = true;
 
@@ -1123,62 +1175,79 @@ document.querySelectorAll(".cellular-motion-canvas").forEach((canvas) => {
   window.addEventListener("resize", updateScrollCue);
 })();
 
+// Shared scroll reveal: replay on entry and recede on exit across every page.
 (() => {
-  if (
-    !("IntersectionObserver" in window) ||
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches
-  ) {
+  if (!("IntersectionObserver" in window)) {
     return;
   }
 
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const revealSelector = "[data-pp-reveal]";
-  const sectionBlocks = [
-    ...document.querySelectorAll("main > section, body > section, main > article"),
-  ];
   const ignoredElements =
-    "script, style, link, template, noscript, canvas, video, source, .home-hero-scroll-cue, [hidden], [aria-hidden='true']";
+    "script, style, link, template, noscript, canvas, video, source, nav, dialog, [role='dialog'], [role='tablist'], .site-header, .home-hero-scroll-cue, [aria-hidden='true'], [data-pp-reveal='off']";
 
-  sectionBlocks.forEach((block) => {
-    if (block.matches("[aria-hidden='true']") || block.querySelector(revealSelector)) {
+  const prepareContent = (element, index = 0) => {
+    if (element.closest(ignoredElements) || element.closest(revealSelector)) {
       return;
     }
 
-    const candidates = [...block.children].filter(
-      (element) => !element.matches(ignoredElements)
+    // Follow nested layouts to their content, preserving section backgrounds.
+    // Forms stay together; hidden tabs are observed so they can reveal on opening.
+    const isContainer = element.matches("section, article") || (
+      !element.matches("form") &&
+      element.querySelector(`section, article, ${revealSelector}`)
     );
 
-    candidates.forEach((element, index) => {
-      element.setAttribute("data-pp-reveal", "");
-      element.style.setProperty(
-        "--pp-reveal-delay",
-        `${Math.min(index * 70, 210)}ms`
-      );
-    });
+    if (isContainer) {
+      [...element.children].forEach(prepareContent);
+      return;
+    }
+
+    element.setAttribute("data-pp-reveal", "");
+    element.style.setProperty("--pp-reveal-delay", `${Math.min(index * 70, 210)}ms`);
+  };
+
+  document.querySelectorAll("main, body > section, .pp-footer").forEach((root) => {
+    [...root.children].forEach(prepareContent);
   });
 
-  const revealItems = [...document.querySelectorAll(revealSelector)];
+  const revealItems = [...document.querySelectorAll(revealSelector)].filter(
+    (element) => !element.closest(ignoredElements) &&
+      !element.parentElement?.closest(revealSelector)
+  );
 
   if (!revealItems.length) {
     return;
   }
 
+  revealItems.forEach((item) => item.classList.add("pp-reveal-item"));
+
   const revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) {
-          return;
+          const isAbove = entry.boundingClientRect.top < (entry.rootBounds?.top ?? 0);
+          entry.target.style.setProperty("--pp-reveal-shift", isAbove ? "-18px" : "18px");
         }
 
-        entry.target.classList.add("pp-reveal-visible");
-        revealObserver.unobserve(entry.target);
+        entry.target.classList.toggle("pp-reveal-visible", entry.isIntersecting);
       });
     },
     {
-      rootMargin: "-12% 0px -12% 0px",
+      rootMargin: "-32px 0px -32px 0px",
       threshold: 0,
     }
   );
 
-  document.documentElement.classList.add("pp-reveal-ready");
-  revealItems.forEach((item) => revealObserver.observe(item));
+  const syncMotionPreference = () => {
+    revealObserver.disconnect();
+    document.documentElement.classList.toggle("pp-reveal-ready", !reducedMotion.matches);
+
+    if (!reducedMotion.matches) {
+      revealItems.forEach((item) => revealObserver.observe(item));
+    }
+  };
+
+  reducedMotion.addEventListener("change", syncMotionPreference);
+  syncMotionPreference();
 })();

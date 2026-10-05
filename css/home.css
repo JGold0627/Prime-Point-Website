@@ -1940,10 +1940,10 @@ a.home-product-card:is(:active, .is-pressed) .home-product-image-wrap {
 
   .home-hero-content {
     align-items: center;
-    padding-top: 32px;
-    /* Balance the group near the screen center with room for the scroll cue. */
-    padding-bottom: calc(var(--pp-header-height) + 32px + 10vh);
-    padding-bottom: calc(var(--pp-header-height) + 32px + 10svh);
+    padding-top: 40px;
+    /* Center the group in the first screen with room for the scroll cue. */
+    padding-bottom: calc(var(--pp-header-height) + 32px + 2vh);
+    padding-bottom: calc(var(--pp-header-height) + 32px + 2svh);
   }
 
   .home-hero-centered-copy {
@@ -3350,6 +3350,130 @@ a.home-product-card:is(:active, .is-pressed) .home-product-image-wrap {
 
 @media (prefers-reduced-motion: reduce) {
   .home-care-cta { transition: none; }
+}
+
+/* The FAQ photograph keeps its collapsed-column height as answers expand. */
+.home-faq {
+  padding: clamp(72px, 8vw, 116px) var(--pp-page-gutter) clamp(88px, 9vw, 132px);
+  background: var(--home-warm-ivory);
+  color: var(--home-prime-navy);
+}
+
+.home-faq-inner { max-width: 1440px; margin-inline: auto; }
+
+/* Consistent gold typography for the homepage's small section labels. */
+.home-hero-eyebrow,
+.home-services-eyebrow,
+.home-product-showcase-eyebrow,
+.home-faq-eyebrow {
+  color: #ad8541;
+  font-family: var(--pp-font-body, Inter, "Segoe UI", Arial, sans-serif);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.2em;
+}
+
+.home-faq-eyebrow { margin: 0 0 30px; }
+
+.home-faq-title {
+  margin: 0;
+  color: var(--home-prime-navy);
+}
+
+/* Give every homepage section title the FAQ's typography and inset accent line. */
+body.home-page h2.pp-section-heading {
+  font-family: Arial, sans-serif;
+  font-weight: 400;
+  line-height: 1.04;
+  letter-spacing: -0.055em;
+}
+
+body.home-page h2.pp-section-heading > span {
+  display: block;
+  padding-left: clamp(24px, 4vw, 64px);
+  color: var(--home-prime-gold);
+}
+
+.home-faq-intro {
+  max-width: 30ch;
+  margin: 36px 0 28px;
+  color: #57697a;
+  font-family: var(--pp-font-body);
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  line-height: 1.6;
+}
+
+.home-faq-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1fr);
+  gap: clamp(36px, 5vw, 78px);
+  align-items: start;
+}
+
+.home-faq-photo {
+  position: relative;
+  height: var(--home-faq-photo-height, 425px);
+  margin: 0;
+  overflow: hidden;
+  border-radius: 26px;
+  background: #efe9df;
+}
+
+.home-faq-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.home-faq-list { min-width: 0; border-top: 1px solid rgba(15, 31, 45, 0.14); }
+.home-faq-list details { margin: 0; padding: 0; border-bottom: 1px solid rgba(15, 31, 45, 0.14); }
+.home-faq-list summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 84px;
+  padding: 25px 0;
+  color: var(--home-prime-navy);
+  font-family: var(--pp-font-body);
+  font-size: clamp(1rem, 1.35vw, 1.15rem);
+  font-weight: 400;
+  line-height: 1.5;
+  list-style: none;
+  cursor: pointer;
+}
+
+.home-faq-list summary::-webkit-details-marker { display: none; }
+.home-faq-toggle { position: relative; flex: 0 0 18px; height: 18px; color: #ad8541; }
+.home-faq-toggle::before,
+.home-faq-toggle::after { content: ""; position: absolute; top: 8px; left: 1px; width: 16px; height: 1px; background: currentColor; }
+.home-faq-toggle::after { transform: rotate(90deg); transition: transform 180ms ease; }
+.home-faq-list details[open] .home-faq-toggle::after { transform: rotate(0deg); }
+.home-faq-answer { padding: 0 42px 27px 0; }
+.home-faq-answer p { margin: 0; color: #57697a; font-family: var(--pp-font-body); font-size: 1rem; line-height: 1.7; }
+.home-faq-answer a { color: var(--home-prime-navy); text-underline-offset: 4px; }
+.home-faq-list summary:focus-visible,
+.home-faq-answer a:focus-visible { outline: 2px solid var(--home-prime-gold); outline-offset: 5px; }
+
+@media (max-width: 800px) {
+  .home-faq-layout { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .home-faq-photo { height: auto; aspect-ratio: 4 / 3; }
+  .home-faq-photo img { position: absolute; inset: 0; }
+}
+
+@media (max-width: 560px) {
+  body.home-page h2.pp-section-heading > span { padding-left: 0; }
+  .home-faq-intro { margin-top: 28px; }
+  .home-faq-photo { border-radius: 22px; }
+  .home-faq-list summary { min-height: 76px; gap: 18px; padding: 22px 0; }
+  .home-faq-answer { padding-right: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-faq-toggle::after { transition: none; }
 }
 
 /* A compact, three-step introduction to care. */
