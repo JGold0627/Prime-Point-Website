@@ -1,16 +1,16 @@
 (() => {
   // Keep prices in cents; URL parameters select a catalog plan, never set its price.
   const products = {
-    'semaglutide': { name: 'Semaglutide', rates: { '1': 23900, '3': 19900 } },
-    'semaglutide-tablets': { name: 'Semaglutide Sublingual Drops', rates: { '1': 23900, '3': 19900 } },
-    'tirzepatide': { name: 'Tirzepatide', rates: { '1': 33900, '3': 29900 } },
-    'tirzepatide-tablets': { name: 'Tirzepatide Sublingual Drops', rates: { '1': 33900, '3': 29900 } },
-    'sermorelin': { name: 'Sermorelin', rates: { '1': 21900, '3': 20900, '6': 19900 } },
-    'glutathione': { name: 'Glutathione', rates: { '1': 12900, '3': 12100, '6': 11300 } },
-    'glutathione-nasal': { name: 'Glutathione Nasal Spray', rates: { '1': 16900, '3': 16100, '6': 15300 } },
-    'mic-b12': { name: 'MIC + B12', rates: { '1': 13900, '3': 13400, '6': 12900 } },
+    'semaglutide': { name: 'Semaglutide', rates: { '1': 23900, '3': 19100, '6': 17800 } },
+    'semaglutide-tablets': { name: 'Semaglutide Sublingual Drops', rates: { '1': 23900, '3': 19100, '6': 17800 } },
+    'tirzepatide': { name: 'Tirzepatide', rates: { '1': 33900, '3': 29600, '6': 28600 } },
+    'tirzepatide-tablets': { name: 'Tirzepatide Sublingual Drops', rates: { '1': 33900, '3': 29600, '6': 28600 } },
+    'sermorelin': { name: 'Sermorelin', rates: { '1': 24500, '3': 21000, '6': 20200 } },
+    'glutathione': { name: 'Glutathione', rates: { '1': 12900, '3': 9400, '6': 8600 } },
+    'glutathione-nasal': { name: 'Glutathione Nasal Spray', rates: { '1': 16900, '3': 13800, '6': 13000 } },
+    'mic-b12': { name: 'MIC + B12', rates: { '1': 13900, '3': 10800, '6': 10100 } },
     'nad-plus': { name: 'NAD+', rates: { '1': 19900, '3': 18400, '6': 16900 } },
-    'nad-plus-nasal': { name: 'NAD+ Nasal', spec: '300 mg/mL · 15 mL', rates: { '1': 15900, '3': 15100, '6': 14300 } }
+    'nad-plus-nasal': { name: 'NAD+ Nasal', spec: '300 mg/mL · 15 mL', rates: { '1': 15900, '3': 12400, '6': 11600 } }
   };
   const money = cents => new Intl.NumberFormat('en-US', {
     style: 'currency', currency: 'USD', maximumFractionDigits: 0
