@@ -7,8 +7,6 @@ body.home-page :is(
   .home-services-arrows button,
   .header-login,
   .mobile-nav-toggle,
-  .home-launch-modal-close,
-  .home-launch-modal-form button,
   .pp-footer-social a
 ) {
   --home-button-lift: 0px;
@@ -50,8 +48,6 @@ body.home-page :is(
   .home-services-arrows button,
   .header-login,
   .mobile-nav-toggle,
-  .home-launch-modal-close,
-  .home-launch-modal-form button,
   .pp-footer-social a
 ):focus-visible {
   outline: 2px solid var(--home-prime-gold);
@@ -78,8 +74,6 @@ body.home-page :is(
     .home-services-arrows button,
     .header-login,
     .mobile-nav-toggle,
-    .home-launch-modal-close,
-    .home-launch-modal-form button,
     .pp-footer-social a
   ):not(:disabled):hover {
     --home-button-lift: -3px;
@@ -112,8 +106,6 @@ body.home-page :is(
   .home-services-arrows button,
   .header-login,
   .mobile-nav-toggle,
-  .home-launch-modal-close,
-  .home-launch-modal-form button,
   .pp-footer-social a
 ):not(:disabled):active {
   --home-button-lift: 0px;
@@ -136,8 +128,6 @@ body.home-page .home-services-arrows button:disabled {
     .home-services-arrows button,
     .header-login,
     .mobile-nav-toggle,
-    .home-launch-modal-close,
-    .home-launch-modal-form button,
     .pp-footer-social a
   ) {
     transform: none;
