@@ -1,0 +1,71 @@
+TEMPORARY PAGE REMOVAL — BLOOD WORK AND PEPTIDES
+Date: October 11, 2026 (America/New_York)
+Status: Removed from current website pages and shared navigation.
+
+RESTORATION REQUEST TO REUSE
+Restore the Blood Work and Peptides pages temporarily removed on October 11, 2026 from C:/Users/Goldj/Prime-Point-Website.
+
+Use the verified restoration package at:
+C:/Users/Goldj/.codex/visualizations/2026/10/05/01a10c30-b9be-7023-9040-4afda4a8d0ac/prime-point-bloodwork-peptides-2026-10-11
+
+Read README.txt, manifest.json, changes.json, and removal.patch first. Verify the archive SHA-256 before using it. Restore blood-work.html and peptides.html with their saved content, styling, images, and interactions. Reconnect the saved desktop/mobile header links, all footer links, homepage service cards and starting-point links, and member-page update links. Preserve the saved link order.
+
+Use pre-removal-site.zip as the BEFORE snapshot and post-removal-changed-files.zip as the AFTER snapshot for a selective three-way merge against the current site. Restore only changes listed in changes.json. Do not blindly overwrite shared files or roll back any unrelated work completed since removal. Preserve newer header, footer, policy, pricing, account, and design changes. Use saved page bodies as-is; integrate current shared header/footer assets if those changed. Do not resurrect previously removed signup or checkout pages.
+
+Assets and page-specific CSS/JS were retained in the site; restore any missing or altered required dependencies from the snapshot without overwriting unrelated shared dependencies. external-image-cache contains copies of the three remote photos for fallback if their original URLs stop working; original page source retains its original URLs.
+
+Update script/style cache versions as needed. Verify page content, images, local links and anchors, desktop and mobile navigation, homepage service cards, and footer links across all current pages. Check that the existing inactive product CTAs remain inactive. Report all changes and verification. Do not claim or imply certification status; this is a site restoration task.
+
+BACKUP VERIFICATION
+273 current site files were saved before removal, including all current local assets, CSS, JavaScript, and HTML.
+Archive SHA-256: ddc7c862e112f49e3682ad214efaeb52f9167169e2e204ee39c75e68bad689cb
+The backup is outside the website directory; do not copy the full archive into the public site.
+The exact removal is recorded in changes.json and removal.patch.
+The three external Peptides photos are cached separately with their URLs and SHA-256 checksums.
+
+SCOPE
+Deleted public files: blood-work.html and peptides.html.
+Removed links from desktop/mobile navigation, all current page footers, homepage starting-point choices, and member update cards.
+Removed the homepage Bloodwork and Peptides service cards and related homepage offering references.
+Removed the local peptide design-step navigator that otherwise led to the deleted page.
+All 24 remaining HTML pages use script.js?v=36.
+Kept images, page-specific styles/scripts, member health-record tabs, and other treatment pages in place.
+No signup or checkout page was restored. No live hosting deployment was performed by this task.
+
+FILES CHANGED BY THIS REMOVAL
+MODIFIED: about.html
+DELETED: blood-work.html
+MODIFIED: cancellation-policy.html
+MODIFIED: contact.html
+MODIFIED: faq.html
+MODIFIED: forgot-password.html
+MODIFIED: forgot-username.html
+MODIFIED: glutathione-nasal.html
+MODIFIED: glutathione.html
+MODIFIED: index.html
+MODIFIED: login.html
+MODIFIED: member-home.html
+MODIFIED: mic-b12.html
+MODIFIED: nad-plus-nasal.html
+MODIFIED: nad-plus.html
+DELETED: peptides.html
+MODIFIED: privacy-policy.html
+MODIFIED: script.js
+MODIFIED: semaglutide-tablets.html
+MODIFIED: semaglutide.html
+MODIFIED: sermorelin.html
+MODIFIED: shipping-policy.html
+MODIFIED: supplement-planning.html
+MODIFIED: terms-of-service.html
+MODIFIED: tirzepatide-tablets.html
+MODIFIED: tirzepatide.html
+MODIFIED: treatments.html
+ADDED: revisions/restore-blood-work-and-peptides.txt
+
+VERIFICATION
+273 backup files and 3 remote-photo copies verified.
+24 remaining pages, 558 local references, and 816 generated header links/assets checked.
+All 19 full footers retain the four policy links; 5 account pages retain shared compact footers.
+Shared script syntax and reverse restoration patch dry run passed.
+246 snapshot files outside the removal scope are byte-for-byte unchanged.
+No live browser rendering or deployment was performed.

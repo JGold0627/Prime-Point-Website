@@ -36,13 +36,14 @@
 
 .about-hero {
   position: relative;
-  min-height: min(780px, calc(100vh - var(--pp-header-height, 104px)));
-  display: grid;
-  align-items: center;
   overflow: hidden;
-  background: linear-gradient(115deg, #0b1e2f 0%, #0d2235 58%, #17344c 100%);
-  color: #fffaf0;
+  background:
+    radial-gradient(ellipse at 90% 65%, rgba(203, 167, 102, 0.1), transparent 58%),
+    var(--about-ivory);
+  color: var(--about-navy);
 }
+
+.about-hero .about-kicker { color: var(--pp-dark-gold); }
 
 .about-hero::after {
   content: "";
@@ -67,7 +68,7 @@
 .about-hero-inner {
   position: relative;
   z-index: 1;
-  padding-block: clamp(90px, 12vw, 150px);
+  padding-block: clamp(64px, 7vw, 96px);
 }
 
 .about-hero h1,
@@ -83,8 +84,8 @@
 
 .about-hero h1 {
   max-width: 940px;
-  font-size: clamp(3.7rem, 8vw, 7.8rem);
-  line-height: 0.92;
+  font-size: clamp(3.5rem, 6.5vw, 5.75rem);
+  line-height: 1;
 }
 
 .about-hero h1 em,
@@ -97,12 +98,52 @@
 }
 
 .about-hero-lead {
-  max-width: 680px;
-  margin: 38px 0 34px;
-  color: rgba(255, 250, 240, 0.78);
+  max-width: 840px;
+  margin: 30px 0 0;
+  color: var(--pp-navy-muted);
   font-family: var(--pp-font-body, Arial, sans-serif);
-  font-size: clamp(1.05rem, 1.8vw, 1.32rem);
-  line-height: 1.65;
+  font-size: clamp(1.05rem, 1.45vw, 1.2rem);
+  line-height: 1.75;
+}
+
+.about-hero-lead p { margin: 0 0 20px; }
+.about-hero-lead p:last-child { margin-bottom: 0; }
+.about-hero h1 em { color: var(--pp-dark-gold); }
+
+.about-partners {
+  padding-block: 38px;
+  border-bottom: 1px solid rgba(203, 167, 102, 0.24);
+  background: #f1ece3;
+}
+.about-partners-inner {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.7fr) minmax(0, 1.3fr);
+  align-items: center;
+  gap: clamp(32px, 5vw, 72px);
+}
+.about-partners h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.6rem, 2.2vw, 2rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+.about-partner {
+  min-width: 0;
+  padding-left: clamp(32px, 5vw, 64px);
+  border-left: 1px solid rgba(203, 167, 102, 0.4);
+}
+.about-partner-logo {
+  display: block;
+  width: min(100%, 240px);
+  height: auto;
+}
+.about-partner p {
+  margin: 12px 0 0;
+  color: var(--pp-navy-muted);
+  font-size: 0.88rem;
+  line-height: 1.5;
 }
 
 .about-scroll-link {
@@ -336,15 +377,22 @@
 @media (max-width: 600px) {
   .about-shell { width: min(100% - 34px, 1180px); }
 
-  .about-hero { min-height: 680px; }
-
   .about-hero-orbit {
     right: -68vw;
     bottom: -30vw;
     width: 130vw;
   }
 
-  .about-hero h1 { font-size: clamp(3.15rem, 15vw, 4.8rem); }
+  .about-hero h1 { font-size: clamp(3.15rem, 13vw, 4.5rem); }
+
+  .about-partners { padding-block: 30px; }
+  .about-partners-inner { grid-template-columns: 1fr; gap: 24px; }
+  .about-partner {
+    padding: 24px 0 0;
+    border-left: 0;
+    border-top: 1px solid rgba(203, 167, 102, 0.4);
+  }
+  .about-partner-logo { width: min(100%, 220px); }
 
   .about-story h2,
   .about-section-heading h2,
@@ -366,4 +414,234 @@
 
 @media (prefers-reduced-motion: reduce) {
   .about-scroll-link span { transition: none; }
+}
+
+/* Arora clinical team: portrait dimensions stay independent of biography length. */
+.about-hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 22px 36px;
+}
+.about-founders-link {
+  color: rgba(255, 250, 240, 0.78);
+  font-size: 0.9rem;
+  text-underline-offset: 5px;
+}
+.about-hero-links a:focus-visible {
+  outline: 2px solid var(--about-gold-light);
+  outline-offset: 7px;
+}
+.about-network {
+  background: var(--about-ivory);
+}
+.about-network-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  align-items: end;
+  gap: clamp(36px, 7vw, 96px);
+  margin-bottom: clamp(48px, 6vw, 80px);
+  scroll-margin-top: calc(var(--pp-header-height) + 32px);
+}
+.about-network-intro p {
+  margin: 0;
+  color: var(--pp-navy-muted);
+  font-size: clamp(1rem, 1.35vw, 1.15rem);
+  line-height: 1.75;
+}
+.about-provider-list {
+  display: grid;
+  gap: 32px;
+}
+.about-provider {
+  display: grid;
+  grid-template-columns: minmax(0, 350px) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(32px, 5vw, 68px);
+  padding: 28px;
+  border: 1px solid rgba(13, 34, 53, 0.12);
+  border-radius: 30px;
+  background: rgba(255, 253, 248, 0.94);
+  box-shadow: 0 18px 50px rgba(13, 34, 53, 0.055);
+}
+.about-provider-portrait {
+  width: 100%;
+  aspect-ratio: 433 / 526;
+  align-self: start;
+  overflow: hidden;
+  margin: 0;
+  border-radius: 20px;
+  background: var(--about-blue);
+}
+.about-provider-portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.about-provider-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: stretch;
+  min-width: 0;
+  padding: 16px clamp(0px, 2vw, 24px) 16px 0;
+}
+.about-provider-role {
+  margin: 0 0 14px;
+  color: var(--pp-dark-gold);
+  font-size: 0.73rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+.about-provider h3 {
+  margin: 0;
+  color: var(--about-navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.25rem, 3.6vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+.about-provider-focus {
+  margin: 16px 0 26px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(203, 167, 102, 0.4);
+  color: var(--about-navy-soft);
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+.about-provider-bio {
+  color: var(--pp-navy-muted);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+.about-provider-bio p { margin: 0 0 18px; }
+.about-provider-bio p:last-child { margin-bottom: 0; }
+.about-collaboration-note {
+  margin-top: 32px;
+  padding: 28px 32px;
+  border: 1px solid rgba(203, 167, 102, 0.35);
+  border-radius: 20px;
+  background: rgba(255, 253, 248, 0.68);
+}
+.about-collaboration-note h3 {
+  margin: 0 0 12px;
+  color: var(--about-navy);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+.about-collaboration-note p {
+  margin: 0;
+  color: var(--pp-navy-muted);
+  font-size: 0.9rem;
+  line-height: 1.75;
+}
+@media (max-width: 900px) {
+  .about-network-heading { grid-template-columns: 1fr; gap: 36px; }
+  .about-network-intro { max-width: 650px; }
+  .about-provider { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 28px; padding: 24px; }
+  .about-provider-copy { padding: 0; }
+}
+@media (max-width: 680px) {
+  .about-provider { grid-template-columns: 1fr; gap: 28px; padding: 22px; border-radius: 24px; }
+  .about-provider-portrait { max-width: 350px; justify-self: center; border-radius: 16px; }
+  .about-provider-copy { padding: 0 2px 6px; }
+  .about-provider h3 { font-size: clamp(2rem, 8.2vw, 3rem); }
+  .about-provider-focus { margin-bottom: 22px; padding-bottom: 20px; }
+  .about-collaboration-note { padding: 24px; }
+}
+
+/* Arora medical directors: fixed portrait frames with room for every specialty. */
+.about-medical-directors {
+  margin-top: clamp(72px, 8vw, 112px);
+  padding-top: clamp(56px, 6vw, 80px);
+  border-top: 1px solid rgba(203, 167, 102, 0.42);
+  scroll-margin-top: calc(var(--pp-header-height, 104px) + 32px);
+}
+.about-directors-heading {
+  max-width: 760px;
+  margin-bottom: 44px;
+}
+.about-directors-heading .about-kicker { margin-bottom: 18px; }
+.about-directors-heading h2 {
+  font-size: clamp(2.5rem, 4.5vw, 4.25rem);
+  line-height: 1.08;
+}
+.about-directors-intro {
+  margin: 24px 0 0;
+  color: var(--pp-navy-muted);
+  font-size: clamp(1rem, 1.35vw, 1.1rem);
+  line-height: 1.8;
+}
+.about-director-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 28px 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.about-director-card {
+  flex: 0 0 calc((100% - 72px) / 4);
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(13, 34, 53, 0.12);
+  border-radius: 22px;
+  background: rgba(255, 253, 248, 0.94);
+  box-shadow: 0 12px 32px rgba(13, 34, 53, 0.035);
+}
+.about-director-portrait {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 14 / 17;
+  overflow: hidden;
+  margin: 0;
+  background: var(--about-blue);
+}
+.about-director-portrait img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.about-director-details { padding: 24px 22px 28px; }
+.about-director-details h3 {
+  margin: 0;
+  color: var(--about-navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+.about-director-details p {
+  margin: 14px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid rgba(203, 167, 102, 0.36);
+  color: var(--pp-navy-muted);
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+@media (max-width: 1100px) {
+  .about-director-card { flex-basis: calc((100% - 48px) / 3); }
+}
+@media (max-width: 800px) {
+  .about-director-grid { gap: 24px 20px; }
+  .about-director-card { flex-basis: calc((100% - 20px) / 2); }
+}
+@media (max-width: 560px) {
+  .about-directors-heading { margin-bottom: 32px; }
+  .about-director-grid { gap: 28px; }
+  .about-director-card { flex-basis: 100%; max-width: 380px; }
+  .about-director-details { padding: 24px; }
+  .about-director-details h3 { font-size: 1.65rem; }
+  .about-director-details p { font-size: 0.95rem; }
 }

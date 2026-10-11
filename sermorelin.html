@@ -17,7 +17,7 @@
       <section class="wellness-product-layout" aria-labelledby="product-title">
         <div class="wellness-product-gallery product-plan-gallery" data-product-gallery>
           <figure class="wellness-product-photo sermorelin-gallery-frame">
-            <img src="assets/products/sermorelin-lifestyle-v1.png" alt="Prime Point Health Sermorelin bottle in a sunlit setting" width="1122" height="1402" fetchpriority="high" data-product-photo />
+            <img src="assets/temporary-unbranded/sermorelin-injection-lifestyle-v1.png" alt="Sermorelin bottle in a sunlit setting" width="1122" height="1402" fetchpriority="high" data-product-photo />
             <div class="sermorelin-infographic" data-product-information hidden aria-labelledby="sermorelin-infographic-title">
               <p class="sermorelin-infographic-label" id="sermorelin-infographic-title">How Sermorelin Works</p>
               <p class="sermorelin-infographic-intro">
@@ -36,7 +36,7 @@
             </div>
           </figure>
           <div class="wellness-product-thumbnails" aria-label="Product views">
-            <button type="button" aria-label="View Sermorelin lifestyle image" aria-pressed="true" data-product-image="assets/products/sermorelin-lifestyle-v1.png" data-product-alt="Prime Point Health Sermorelin bottle in a sunlit setting"><img src="assets/products/sermorelin-lifestyle-v1.png" alt="" /></button>
+            <button type="button" aria-label="View Sermorelin lifestyle image" aria-pressed="true" data-product-image="assets/temporary-unbranded/sermorelin-injection-lifestyle-v1.png" data-product-alt="Sermorelin bottle in a sunlit setting"><img src="assets/temporary-unbranded/sermorelin-injection-lifestyle-v1.png" alt="" /></button>
             <button class="sermorelin-info-thumbnail" type="button" aria-label="View how Sermorelin works" aria-pressed="false" data-product-view="information">
               <span class="sermorelin-thumbnail-preview" data-product-information-preview aria-hidden="true"></span>
             </button>
@@ -47,18 +47,17 @@
           <p class="wellness-product-eyebrow">Metabolic Health</p>
           <h1 id="product-title">Sermorelin<sup>Rx</sup></h1>
           <div class="product-plan-price" aria-live="polite" aria-atomic="true">
-            <p><strong data-plan-price>$245</strong><span>/ month</span><s data-plan-original aria-label="Original monthly price $273">$273</s><span class="wellness-product-price-discount">10% off</span></p>
+            <p><strong data-plan-price>$225</strong><span>/ month</span><s data-plan-original aria-label="Original monthly price $250">$250</s><span class="wellness-product-price-discount">10% off</span></p>
           </div>
           <p class="wellness-product-intro">Supports natural growth hormone and unlocks better sleep, recovery, and lean muscle.</p>
-          <form class="product-plan-options" id="product-plan-options" action="create-account.html" method="get" data-product-plans="sermorelin">
-            <input type="hidden" name="product" value="sermorelin" />
+          <div class="product-plan-options" id="product-plan-options" data-product-plans="sermorelin">
             <div class="product-plan-field">
               <label for="product-plan">Choose your plan</label>
               <div class="product-plan-select-wrap">
                 <select id="product-plan" name="plan" required>
-                  <option value="1" selected>1 month — $245 / month</option>
-                  <option value="3">3 months — $210 / month</option>
-                  <option value="6">6 months — $202 / month</option>
+                  <option value="1" selected>1 month — $225 / month</option>
+                  <option value="3">3 months — $193 / month</option>
+                  <option value="6">6 months — $185 / month</option>
                 </select>
               </div>
             </div>
@@ -67,8 +66,8 @@
               <img src="assets/payment-providers/klarna.svg" alt="Klarna" width="1448" height="609" />
               <img src="assets/payment-providers/afterpay.svg" alt="Afterpay" width="395" height="136" />
             </div>
-            <button class="wellness-product-cta product-plan-continue" type="submit"><span>Get Started</span><span aria-hidden="true">→</span></button>
-          </form>
+            <button class="wellness-product-cta product-plan-continue" type="button" data-plan-cta aria-disabled="true"><span>Get Started</span><span aria-hidden="true">→</span></button>
+          </div>
           <p class="wellness-product-review-note">Prescription only when clinically appropriate. Eligibility and results vary.</p>
           <ul class="wellness-product-features"><li>Licensed-provider review</li><li>Personalized Care, 100% Online</li><li>High-potency, 3rd Party lab tested</li></ul>
           <div class="wellness-product-faq">
@@ -217,11 +216,9 @@
         </div>
         <nav class="pp-footer-medications" aria-label="Treatment categories">
           <h2>Explore treatments</h2>
-          <a href="peptides.html">Peptides</a>
           <a href="treatments.html#weight-loss">Weight Loss</a>
           <a href="treatments.html#metabolic-health">Metabolic Health</a>
           <a href="treatments.html#energy-recovery">Energy &amp; Recovery</a>
-          <a href="blood-work.html">Blood Work</a>
         </nav>
         <div class="pp-footer-follow">
           <h2>Follow us</h2>
@@ -240,13 +237,15 @@
           <nav aria-label="Legal links">
             <a href="privacy-policy.html">Privacy Policy</a>
             <a href="terms-of-service.html">Terms of Service</a>
+            <a href="cancellation-policy.html">Cancellation Policy</a>
+            <a href="shipping-policy.html">Shipping Policy</a>
           </nav>
           <p class="pp-footer-disclosure">This website is provided for educational and informational purposes only and does not constitute providing medical advice or professional services. The information provided should not be used for diagnosing or treating a health problem or disease, and those seeking personal medical advice should consult with a licensed physician.</p>
         </div>
       </div>
     </footer>
-    <script src="script.js?v=30"></script>
-    <script src="js/product-plans.js?v=16"></script>
+    <script src="script.js?v=37"></script>
+    <script src="js/product-plans.js?v=23"></script>
     <script src="js/wellness-product.js?v=7"></script>
   </body>
 </html>

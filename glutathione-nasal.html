@@ -17,7 +17,7 @@
       <section class="wellness-product-layout" aria-labelledby="product-title">
         <div class="wellness-product-gallery product-plan-gallery" data-product-gallery>
           <figure class="wellness-product-photo glutathione-gallery-frame">
-            <img src="assets/products/glutathione-nasal-lifestyle-v1.png" alt="Smiling woman holding Prime Point Health Glutathione nasal spray near her nose" width="1122" height="1402" fetchpriority="high" data-product-photo />
+            <img src="assets/temporary-unbranded/glutathione-nasal-lifestyle-v1.png" alt="Smiling woman holding Glutathione nasal spray near her nose" width="1122" height="1402" fetchpriority="high" data-product-photo />
             <div class="glutathione-infographic" data-product-information hidden aria-labelledby="glutathione-infographic-title">
               <p class="glutathione-infographic-label" id="glutathione-infographic-title">How Glutathione Works</p>
               <p class="glutathione-infographic-intro">
@@ -35,7 +35,7 @@
             </div>
           </figure>
           <div class="wellness-product-thumbnails" aria-label="Product views">
-            <button type="button" aria-label="View Glutathione Nasal Spray lifestyle image" aria-pressed="true" data-product-image="assets/products/glutathione-nasal-lifestyle-v1.png" data-product-alt="Smiling woman holding Prime Point Health Glutathione nasal spray near her nose"><img src="assets/products/glutathione-nasal-lifestyle-v1.png" alt="" /></button>
+            <button type="button" aria-label="View Glutathione Nasal Spray lifestyle image" aria-pressed="true" data-product-image="assets/temporary-unbranded/glutathione-nasal-lifestyle-v1.png" data-product-alt="Smiling woman holding Glutathione nasal spray near her nose"><img src="assets/temporary-unbranded/glutathione-nasal-lifestyle-v1.png" alt="" /></button>
             <button class="glutathione-info-thumbnail" type="button" aria-label="View how Glutathione works" aria-pressed="false" data-product-view="information">
               <span class="glutathione-thumbnail-preview" data-product-information-preview="glutathione" aria-hidden="true"></span>
             </button>
@@ -49,8 +49,7 @@
             <p><strong data-plan-price>$169</strong><span>/ month</span><s data-plan-original aria-label="Original monthly price $188">$188</s><span class="wellness-product-price-discount">10% off</span></p>
           </div>
           <p class="wellness-product-intro">An antioxidant naturally present in the body, involved in cellular defense against oxidative stress. Glutathione helps protect your cells from the inside out - so you feel clearer, lighter, and more resilient.</p>
-          <form class="product-plan-options" id="product-plan-options" action="create-account.html" method="get" data-product-plans="glutathione-nasal">
-            <input type="hidden" name="product" value="glutathione-nasal" />
+          <div class="product-plan-options" id="product-plan-options" data-product-plans="glutathione-nasal">
             <div class="product-plan-field">
               <label for="product-plan">Choose your plan</label>
               <div class="product-plan-select-wrap">
@@ -66,8 +65,8 @@
               <img src="assets/payment-providers/klarna.svg" alt="Klarna" width="1448" height="609" />
               <img src="assets/payment-providers/afterpay.svg" alt="Afterpay" width="395" height="136" />
             </div>
-            <button class="wellness-product-cta product-plan-continue" type="submit"><span>Get Started</span><span aria-hidden="true">→</span></button>
-          </form>
+            <button class="wellness-product-cta product-plan-continue" type="button" data-plan-cta aria-disabled="true"><span>Get Started</span><span aria-hidden="true">→</span></button>
+          </div>
           <p class="wellness-product-review-note">Prescription only when clinically appropriate. Eligibility and results vary.</p>
           <ul class="wellness-product-features"><li>Licensed-provider review</li><li>Personalized Care, 100% Online</li><li>High-potency, 3rd Party lab tested</li></ul>
           <div class="wellness-product-faq">
@@ -204,11 +203,9 @@
         </div>
         <nav class="pp-footer-medications" aria-label="Treatment categories">
           <h2>Explore treatments</h2>
-          <a href="peptides.html">Peptides</a>
           <a href="treatments.html#weight-loss">Weight Loss</a>
           <a href="treatments.html#metabolic-health">Metabolic Health</a>
           <a href="treatments.html#energy-recovery">Energy &amp; Recovery</a>
-          <a href="blood-work.html">Blood Work</a>
         </nav>
         <div class="pp-footer-follow">
           <h2>Follow us</h2>
@@ -227,13 +224,15 @@
           <nav aria-label="Legal links">
             <a href="privacy-policy.html">Privacy Policy</a>
             <a href="terms-of-service.html">Terms of Service</a>
+            <a href="cancellation-policy.html">Cancellation Policy</a>
+            <a href="shipping-policy.html">Shipping Policy</a>
           </nav>
           <p class="pp-footer-disclosure">This website is provided for educational and informational purposes only and does not constitute providing medical advice or professional services. The information provided should not be used for diagnosing or treating a health problem or disease, and those seeking personal medical advice should consult with a licensed physician.</p>
         </div>
       </div>
     </footer>
-    <script src="script.js?v=30"></script>
-    <script src="js/product-plans.js?v=18"></script>
+    <script src="script.js?v=37"></script>
+    <script src="js/product-plans.js?v=23"></script>
     <script src="js/wellness-product.js?v=9"></script>
   </body>
 </html>

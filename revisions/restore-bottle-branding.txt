@@ -1,0 +1,75 @@
+TEMPORARY BOTTLE BRANDING CHANGE — 2026-10-11
+
+Verified backup: C:\Users\Goldj\.codex\visualizations\2026\10\05\01a10c30-b9be-7023-9040-4afda4a8d0ac\prime-point-bottle-branding-2026-10-11
+Archive: original-artwork-and-sources.zip
+Archive SHA256: 9d80209b7aa303faaecbabd38a741c1610259fa94316d67752a85b9158f4bc7e
+22 exact original images plus source snapshots saved before edits.
+
+Restore the original Prime Point Health branding on the website's medication bottle, sublingual drop, and nasal spray images.
+
+Read revisions/restore-bottle-branding.txt and the referenced backup manifest/asset-map first. Verify SHA256 checksums. Restore the exact original artwork, not an AI recreation. Replace only temporary-unbranded asset references using asset-map.json. Originals are preserved at their original asset paths and independently in original-artwork-and-sources.zip. If an original is missing or altered, recover that specific file after checking for newer intentional edits.
+
+Restore all relevant usage: homepage treatment carousel and FAQ group photo, treatment catalog, product photos/galleries/thumbnails/recommendations, and shared navigation. Update the shared script cache version globally if needed. Preserve all newer content, prices, policies, layout, styles, and functionality; do not replace entire source files from the archive. Use before/after/current comparison for conflicts.
+
+This is independent of the temporary Blood Work and Peptides page removal. Do not restore those pages or their links unless I separately request it. Never restore removed checkout/signup pages. Do not deploy or push unless requested. Check assets, references, scripts, product galleries, desktop/mobile layout, and report modified files.
+
+IMPLEMENTED FILES
+about.html
+cancellation-policy.html
+contact.html
+faq.html
+forgot-password.html
+forgot-username.html
+glutathione-nasal.html
+glutathione.html
+index.html
+login.html
+member-home.html
+mic-b12.html
+nad-plus-nasal.html
+nad-plus.html
+privacy-policy.html
+semaglutide-tablets.html
+semaglutide.html
+sermorelin.html
+shipping-policy.html
+supplement-planning.html
+terms-of-service.html
+tirzepatide-tablets.html
+tirzepatide.html
+treatments.html
+script.js
+assets/temporary-unbranded/semaglutide-injection-cutout-v1.png
+assets/temporary-unbranded/tirzepatide-injection-cutout-v1.png
+assets/temporary-unbranded/sermorelin-injection-cutout-v1.png
+assets/temporary-unbranded/glutathione-injection-cutout-v1.png
+assets/temporary-unbranded/mic-b12-injection-cutout-v1.png
+assets/temporary-unbranded/nad-plus-injection-cutout-v1.png
+assets/temporary-unbranded/glutathione-nasal-cutout-v1.png
+assets/temporary-unbranded/glutathione-nasal-tilted-v1.png
+assets/temporary-unbranded/nad-plus-nasal-cutout-v1.png
+assets/temporary-unbranded/semaglutide-drops-cutout-v1.png
+assets/temporary-unbranded/tirzepatide-drops-cutout-v1.png
+assets/temporary-unbranded/semaglutide-injection-lifestyle-v1.png
+assets/temporary-unbranded/tirzepatide-injection-lifestyle-v1.png
+assets/temporary-unbranded/semaglutide-drops-lifestyle-v1.png
+assets/temporary-unbranded/tirzepatide-drops-lifestyle-v1.png
+assets/temporary-unbranded/sermorelin-injection-lifestyle-v1.png
+assets/temporary-unbranded/glutathione-injection-lifestyle-v1.png
+assets/temporary-unbranded/mic-b12-injection-lifestyle-v1.png
+assets/temporary-unbranded/nad-plus-injection-lifestyle-v1.png
+assets/temporary-unbranded/glutathione-nasal-lifestyle-v1.png
+assets/temporary-unbranded/nad-plus-nasal-lifestyle-v1.png
+assets/temporary-unbranded/medication-group-v1.png
+revisions/restore-bottle-branding.txt
+
+Image editing mode: built-in image_gen. Exact per-asset prompts: C:\Users\Goldj\.codex\visualizations\2026\10\05\01a10c30-b9be-7023-9040-4afda4a8d0ac\prime-point-bottle-branding-2026-10-11\edit-prompts.json
+Source references and accessibility descriptions are recorded in source-changes.json, alt-changes.json and references.patch. The source patch includes only this task; merge selectively after subsequent edits.
+
+VERIFICATION
+22 edited images inspected; exact original dimensions retained; transparent cutouts checked on ivory.
+22 original assets and all 86 archived files verified with SHA256.
+24 HTML pages, 561 local links/assets/anchors, and 264 shared-header image references checked.
+Shared script syntax and reverse restoration patch dry-run passed.
+Page text, navigation links, layout classes, declared image sizes, styles, and CTA settings preserved.
+Verification was performed through source checks and image inspection; no browser render or deployment was performed.

@@ -1,10 +1,6 @@
 // Canonical public header: new pages inherit it by loading global.css and this script.
 const currentPage = window.location.pathname.split("/").pop()?.toLowerCase() || "index.html";
 const activeHeaderSection = (() => {
-  if (currentPage === "peptides.html") {
-    return "peptides";
-  }
-
   if ([
     "semaglutide.html",
     "tirzepatide.html",
@@ -12,10 +8,6 @@ const activeHeaderSection = (() => {
     "tirzepatide-tablets.html",
   ].includes(currentPage)) {
     return "weight-loss";
-  }
-
-  if (["blood-work.html", "blood-work-checkout.html"].includes(currentPage)) {
-    return "blood-work";
   }
 
   if (["nad-plus.html", "mic-b12.html", "nad-plus-nasal.html"].includes(currentPage)) {
@@ -64,19 +56,19 @@ const globalHeaderMarkup = `
               </div>
               <div class="metabolic-product-grid metabolic-product-grid--weight-loss">
                 <a class="metabolic-product-card" href="semaglutide.html">
-                  <span class="metabolic-product-art"><img src="assets/glp-page-pieces/Semaglutide Bottle V3.png" alt="" /></span>
+                  <span class="metabolic-product-art"><img src="assets/temporary-unbranded/semaglutide-injection-cutout-v1.png" alt="" /></span>
                   <span class="metabolic-product-name">Semaglutide</span>
                 </a>
                 <a class="metabolic-product-card" href="tirzepatide.html">
-                  <span class="metabolic-product-art"><img src="assets/glp-page-pieces/Tirzepatide Bottle V2.png" alt="" /></span>
+                  <span class="metabolic-product-art"><img src="assets/temporary-unbranded/tirzepatide-injection-cutout-v1.png" alt="" /></span>
                   <span class="metabolic-product-name">Tirzepatide</span>
                 </a>
                 <a class="metabolic-product-card" href="semaglutide-tablets.html">
-                  <span class="metabolic-product-art"><img src="assets/glp-sublingual/semaglutide-sublingual-bottle-v1.webp" alt="" /></span>
+                  <span class="metabolic-product-art"><img src="assets/temporary-unbranded/semaglutide-drops-cutout-v1.png" alt="" /></span>
                   <span class="metabolic-product-name">Semaglutide Sublingual Drops</span>
                 </a>
                 <a class="metabolic-product-card" href="tirzepatide-tablets.html">
-                  <span class="metabolic-product-art"><img src="assets/glp-sublingual/tirzepatide-sublingual-bottle-v1.webp" alt="" /></span>
+                  <span class="metabolic-product-art"><img src="assets/temporary-unbranded/tirzepatide-drops-cutout-v1.png" alt="" /></span>
                   <span class="metabolic-product-name">Tirzepatide Sublingual Drops</span>
                 </a>
               </div>
@@ -103,15 +95,15 @@ const globalHeaderMarkup = `
               </div>
               <div class="metabolic-product-grid">
                 <a href="sermorelin.html" class="metabolic-product-card">
-                  <span class="metabolic-product-art"><img src="assets/glp-page-pieces/Sermorelin Bottle Red V2.png" alt="" /></span>
+                  <span class="metabolic-product-art"><img src="assets/temporary-unbranded/sermorelin-injection-cutout-v1.png" alt="" /></span>
                   <span class="metabolic-product-name">Sermorelin</span>
                 </a>
                 <a href="glutathione.html" class="metabolic-product-card">
-                  <span class="metabolic-product-art"><img src="assets/glp-page-pieces/Glutathione Bottle Upright V3.png" alt="" /></span>
+                  <span class="metabolic-product-art"><img src="assets/temporary-unbranded/glutathione-injection-cutout-v1.png" alt="" /></span>
                   <span class="metabolic-product-name">Glutathione</span>
                 </a>
                 <a href="glutathione-nasal.html" class="metabolic-product-card">
-                  <span class="metabolic-product-art"><img class="metabolic-product-image-nasal" src="assets/glp-page-pieces/Glutathione Nasal Upright V2.png" alt="" /></span>
+                  <span class="metabolic-product-art"><img class="metabolic-product-image-nasal" src="assets/temporary-unbranded/glutathione-nasal-cutout-v1.png" alt="" /></span>
                   <span class="metabolic-product-name">Glutathione Nasal</span>
                 </a>
               </div>
@@ -138,23 +130,21 @@ const globalHeaderMarkup = `
               </div>
               <div class="metabolic-product-grid">
                 <a href="nad-plus.html" class="metabolic-product-card">
-                  <span class="metabolic-product-art"><img src="assets/glp-page-pieces/NAD Plus Bottle Upright V3.png" alt="" /></span>
+                  <span class="metabolic-product-art"><img src="assets/temporary-unbranded/nad-plus-injection-cutout-v1.png" alt="" /></span>
                   <span class="metabolic-product-name">NAD+</span>
                 </a>
                 <a href="nad-plus-nasal.html" class="metabolic-product-card">
-                  <span class="metabolic-product-art"><img class="metabolic-product-image-nasal" src="assets/glp-page-pieces/NAD Plus Nasal V2.png" alt="" /></span>
+                  <span class="metabolic-product-art"><img class="metabolic-product-image-nasal" src="assets/temporary-unbranded/nad-plus-nasal-cutout-v1.png" alt="" /></span>
                   <span class="metabolic-product-name">NAD+ Nasal</span>
                 </a>
                 <a href="mic-b12.html" class="metabolic-product-card">
-                  <span class="metabolic-product-art"><img src="assets/glp-page-pieces/MIC Plus B12 Bottle V2.png" alt="" /></span>
+                  <span class="metabolic-product-art"><img src="assets/temporary-unbranded/mic-b12-injection-cutout-v1.png" alt="" /></span>
                   <span class="metabolic-product-name">MIC + B12</span>
                 </a>
               </div>
             </div>
           </div>
         </div>
-        <a class="nav-link${headerLinkClass("blood-work")}"${headerCurrentState("blood-work")} href="blood-work.html">Blood Work</a>
-        <a class="nav-link${headerLinkClass("peptides")}"${headerCurrentState("peptides")} href="peptides.html">Peptides</a>
       </nav>
 
       <button class="mobile-nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav-menu">
@@ -214,12 +204,6 @@ const globalHeaderMarkup = `
             <a class="mobile-nav-sublink" href="mic-b12.html">MIC + B12</a>
           </div>
         </div>
-        <div class="mobile-nav-group">
-          <a class="mobile-nav-topic" href="blood-work.html"><span>Blood Work</span><span class="mobile-nav-link-arrow" aria-hidden="true">&rarr;</span></a>
-        </div>
-        <div class="mobile-nav-group">
-          <a class="mobile-nav-topic" href="peptides.html"><span>Peptides</span><span class="mobile-nav-link-arrow" aria-hidden="true">&rarr;</span></a>
-        </div>
         <div class="mobile-nav-group mobile-nav-account">
           <a class="header-action mobile-nav-login" href="${isMemberSession ? 'member-home.html' : 'login.html'}">${isMemberSession ? 'Member Home' : 'Log In'}</a>
         </div>
@@ -260,6 +244,25 @@ if (!footerIntro) {
     link.href = href;
     link.textContent = label;
     footerIntro.append(link);
+  }
+  if (currentPage === href) link.setAttribute("aria-current", "page");
+});
+
+// Every footer points to the same legal pages, including compact account footers.
+const siteFooter = footerIntro.closest("footer");
+const footerLegalLinks = siteFooter.querySelector(".pp-footer-legal nav") || footerIntro;
+[
+  { href: "privacy-policy.html", label: "Privacy Policy" },
+  { href: "terms-of-service.html", label: "Terms of Service" },
+  { href: "cancellation-policy.html", label: "Cancellation Policy" },
+  { href: "shipping-policy.html", label: "Shipping Policy" },
+].forEach(({ href, label }) => {
+  let link = siteFooter.querySelector(`a[href="${href}"]`);
+  if (!link) {
+    link = document.createElement("a");
+    link.href = href;
+    link.textContent = label;
+    footerLegalLinks.append(link);
   }
   if (currentPage === href) link.setAttribute("aria-current", "page");
 });
@@ -330,225 +333,6 @@ if (mobileNavToggle && mobileNavMenu) {
     }
   });
 }
-
-document.querySelectorAll(".semaglutide-cta, .glp-options-start, .glp-confidence-start").forEach((button) => {
-  if (button.type === "submit" && button.form?.matches("[data-product-plans]")) return;
-  button.addEventListener("click", () => {
-    window.location.href = "create-account.html";
-  });
-});
-
-const isLocalDesignPreview = window.location.protocol === "file:"
-  || ["localhost", "127.0.0.1"].includes(window.location.hostname);
-
-if (isLocalDesignPreview) {
-  const peptideDesignFlow = [
-    "peptides.html",
-    "member-home.html"
-  ];
-  const currentPeptideDesignIndex = peptideDesignFlow.indexOf(currentPage);
-
-  if (currentPeptideDesignIndex !== -1) {
-    const goToPeptideDesignStep = (index) => {
-      if (index < 0 || index >= peptideDesignFlow.length) return;
-      const destination = new URL(peptideDesignFlow[index], window.location.href);
-      destination.searchParams.set("design", "peptide");
-      window.location.href = destination.href;
-    };
-
-    const peptideNavigator = document.createElement("nav");
-    peptideNavigator.className = "pp-design-navigator";
-    peptideNavigator.setAttribute("aria-label", "Local peptide design navigation");
-    peptideNavigator.innerHTML = `
-      <span>Peptide design ${currentPeptideDesignIndex + 1}/${peptideDesignFlow.length}</span>
-      <button type="button" data-design-previous aria-label="Previous peptide screen" ${currentPeptideDesignIndex === 0 ? "disabled" : ""}>&larr;</button>
-      <button type="button" data-design-next aria-label="Next peptide screen" ${currentPeptideDesignIndex === peptideDesignFlow.length - 1 ? "disabled" : ""}>&rarr;</button>
-    `;
-    peptideNavigator.querySelector("[data-design-previous]")?.addEventListener("click", () => goToPeptideDesignStep(currentPeptideDesignIndex - 1));
-    peptideNavigator.querySelector("[data-design-next]")?.addEventListener("click", () => goToPeptideDesignStep(currentPeptideDesignIndex + 1));
-    document.body.appendChild(peptideNavigator);
-
-    document.addEventListener("keydown", (event) => {
-      if (!event.altKey || !event.shiftKey) return;
-      if (event.key === "ArrowLeft") {
-        event.preventDefault();
-        goToPeptideDesignStep(currentPeptideDesignIndex - 1);
-      }
-      if (event.key === "ArrowRight") {
-        event.preventDefault();
-        goToPeptideDesignStep(currentPeptideDesignIndex + 1);
-      }
-    });
-  }
-}
-
-const primePointCartKey = "primePointBloodWorkCart";
-const bloodWorkProducts = {
-  baseline: {
-    id: "baseline",
-    name: "Single Baseline",
-    detail: "One-time comprehensive blood work analysis",
-    price: 249,
-    cadence: "one-time purchase"
-  },
-  biannual: {
-    id: "biannual",
-    name: "Bi-Annual Analysis",
-    detail: "Two comprehensive blood panels per year",
-    price: 599,
-    cadence: "charged annually"
-  },
-  precision: {
-    id: "precision",
-    name: "Monthly Precision",
-    detail: "Four comprehensive blood panels per year",
-    price: 1199,
-    cadence: "charged annually"
-  },
-  "consult-20-minute": {
-    id: "consult-20-minute",
-    name: "20-Minute Consultation",
-    detail: "Additional one-on-one clinician consultation",
-    price: 49,
-    cadence: "one-time purchase"
-  },
-  "consult-20": {
-    id: "consult-20",
-    name: "40-Minute Consultation",
-    detail: "Additional one-on-one clinician consultation",
-    price: 69,
-    cadence: "one-time purchase"
-  },
-  "consult-40": {
-    id: "consult-40",
-    name: "60-Minute Consultation",
-    detail: "Extended one-on-one clinician consultation",
-    price: 99,
-    cadence: "one-time purchase"
-  }
-};
-const bloodWorkMembershipIds = new Set(["baseline", "biannual", "precision"]);
-
-const getPrimePointCart = () => {
-  try {
-    const saved = JSON.parse(window.localStorage.getItem(primePointCartKey) || "[]");
-    const entries = Array.isArray(saved) ? saved : saved?.id ? [saved] : [];
-    const validEntries = entries
-      .filter((entry) => bloodWorkProducts[entry.id])
-      .map((entry) => ({ id: entry.id, quantity: Math.max(1, Number(entry.quantity) || 1) }));
-    const activeMembershipIndex = validEntries.reduce(
-      (latestIndex, entry, index) => bloodWorkMembershipIds.has(entry.id) ? index : latestIndex,
-      -1
-    );
-
-    return validEntries.filter(
-      (entry, index) => !bloodWorkMembershipIds.has(entry.id) || index === activeMembershipIndex
-    );
-  } catch (error) {
-    return [];
-  }
-};
-
-const savePrimePointCart = (cart) => {
-  window.localStorage.setItem(primePointCartKey, JSON.stringify(cart));
-};
-
-document.querySelectorAll("[data-consult-product]").forEach((button) => {
-  button.addEventListener("click", () => {
-    const productId = button.dataset.consultProduct;
-    if (!bloodWorkProducts[productId]) return;
-    const cart = getPrimePointCart();
-    const existing = cart.find((item) => item.id === productId);
-    if (existing) existing.quantity += 1;
-    else cart.push({ id: productId, quantity: 1 });
-    savePrimePointCart(cart);
-    window.location.href = "blood-work-checkout.html";
-  });
-});
-
-document.querySelectorAll("[data-blood-work-checkout]").forEach((checkoutPage) => {
-  let items = getPrimePointCart();
-  const emptyState = checkoutPage.querySelector("[data-checkout-empty]");
-  const checkoutContent = checkoutPage.querySelector("[data-checkout-content]");
-  const productsContainer = checkoutPage.querySelector("[data-checkout-products]");
-  const currency = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
-  const returnTarget = new URLSearchParams(window.location.search).get("return");
-  const backLink = checkoutPage.querySelector("[data-checkout-back]");
-  if (backLink && returnTarget === "member-home.html") {
-    backLink.hidden = false;
-    backLink.href = "member-home.html";
-    backLink.textContent = "Back to member home";
-  }
-
-  const renderCheckout = () => {
-    const hasItems = items.length > 0;
-    if (emptyState) emptyState.hidden = hasItems;
-    if (checkoutContent) checkoutContent.hidden = !hasItems;
-    if (!hasItems) {
-      savePrimePointCart(items);
-      return;
-    }
-
-    const total = items.reduce((sum, item) => sum + bloodWorkProducts[item.id].price * item.quantity, 0);
-    checkoutPage.querySelectorAll("[data-checkout-price]").forEach((node) => { node.textContent = currency.format(total); });
-    if (!productsContainer) return;
-    productsContainer.replaceChildren();
-    items.forEach((item) => {
-      const product = bloodWorkProducts[item.id];
-      const row = document.createElement("div");
-      row.className = "checkout-product";
-      row.innerHTML = `
-        <div class="checkout-product-mark" aria-hidden="true"><span>PPH</span><small>Blood Work</small><b>${item.quantity}</b></div>
-        <div class="checkout-product-details">
-          <strong>${product.name}</strong><small>${product.detail}</small>
-          <div class="checkout-quantity" aria-label="${product.name} quantity">
-            <button type="button" aria-label="Decrease ${product.name} quantity" data-checkout-decrease="${item.id}">&minus;</button>
-            <span aria-live="polite">${item.quantity}</span>
-            <button type="button" aria-label="Increase ${product.name} quantity" data-checkout-increase="${item.id}">+</button>
-          </div>
-        </div>
-        <span>${currency.format(product.price * item.quantity)}</span>`;
-      productsContainer.appendChild(row);
-    });
-    savePrimePointCart(items);
-  };
-
-  renderCheckout();
-
-  productsContainer?.addEventListener("click", (event) => {
-    const increase = event.target.closest("[data-checkout-increase]");
-    const decrease = event.target.closest("[data-checkout-decrease]");
-    const productId = increase?.dataset.checkoutIncrease || decrease?.dataset.checkoutDecrease;
-    if (!productId) return;
-    const item = items.find((entry) => entry.id === productId);
-    if (!item) return;
-    if (increase) item.quantity += 1;
-    if (decrease && item.quantity > 1) item.quantity -= 1;
-    else if (decrease) items = items.filter((entry) => entry.id !== productId);
-    renderCheckout();
-  });
-
-  const note = checkoutPage.querySelector("[data-checkout-note]");
-  checkoutPage.querySelectorAll("[data-payment-placeholder]").forEach((button) => {
-    button.addEventListener("click", () => {
-      if (note) note.textContent = "This payment option will become available when secure payment processing is connected.";
-    });
-  });
-
-  checkoutPage.querySelector("[data-discount-form]")?.addEventListener("submit", (event) => {
-    event.preventDefault();
-    if (note) note.textContent = "Discount-code validation will become available when checkout is connected.";
-  });
-
-  checkoutPage.querySelector("[data-checkout-form]")?.addEventListener("submit", (event) => {
-    event.preventDefault();
-    if (!event.currentTarget.checkValidity()) {
-      event.currentTarget.reportValidity();
-      return;
-    }
-    if (note) note.textContent = "Your information is ready. Secure payment entry will be provided by the connected payment processor.";
-  });
-});
 
 const memberMenuTrigger = document.querySelector("[data-member-menu-trigger]");
 const memberMenu = document.querySelector("#header-member-menu");
