@@ -4,6 +4,7 @@
 .product-plan-price s { margin-left: 3px; color: #8a939b; font-size: 1.45rem; text-decoration-thickness: 1.5px; }
 .product-plan-options { margin: 0; scroll-margin-top: calc(var(--pp-header-height) + 24px); }
 .product-plan-field { min-width: 0; margin: 0 0 24px; }
+.wellness-product-page .product-plan-field { width: min(100%, 430px); }
 .product-plan-field label { display: block; margin-bottom: 10px; font-size: .94rem; font-weight: 600; }
 .product-plan-select-wrap { position: relative; }
 .product-plan-select-wrap::after {
@@ -22,7 +23,6 @@
 .product-plan-field option { background: var(--pp-warm-ivory); color: var(--pp-prime-navy); }
 .product-payment-logos { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.4fr); align-items: center; gap: 9px; width: min(100%, 220px); min-width: 0; margin: 0 0 24px; }
 .product-payment-logos img { display: block; width: 100%; height: auto; object-fit: contain; }
-.product-plan-options .product-plan-continue { width: 100%; min-height: 60px; }
 @media (prefers-reduced-motion: reduce) {
   .product-plan-field select { transition: none; }
 }
