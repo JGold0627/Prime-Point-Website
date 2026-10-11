@@ -26,7 +26,7 @@
 .wellness-product-price-amounts s { color: #8a939b; font-size: 1.45rem; text-decoration-thickness: 1.5px; }
 .wellness-product-price-discount { align-self: center; padding: 5px 10px; border-radius: 999px; background: var(--pp-gold-faint); color: var(--pp-dark-gold); font-size: .78rem; font-weight: 600; white-space: nowrap; }
 .wellness-product-intro { margin: 0 0 26px; max-width: 540px; font-size: clamp(18px, 1.65vw, 25px); line-height: 1.5; color: #536778; }
-.wellness-product-cta { display: flex; width: 50%; min-width: min(200px, 100%); min-height: 64px; justify-content: space-between; align-items: center; padding: 18px 26px; border: 1px solid var(--pp-prime-navy); border-radius: 999px; background: var(--pp-prime-navy); color: var(--pp-warm-ivory); font: 500 1.04rem/1.4 Inter, "Segoe UI", Arial, sans-serif; cursor: pointer; transition: background 180ms ease; }
+.wellness-product-cta { display: flex; width: 50%; min-width: min(200px, 100%); min-height: 64px; justify-content: space-between; align-items: center; padding: 18px 26px; border: 1px solid var(--pp-prime-navy); border-radius: 999px; background: var(--pp-prime-navy); color: var(--pp-warm-ivory); font: 500 1.04rem/1.4 Inter, "Segoe UI", Arial, sans-serif; text-decoration: none; cursor: pointer; transition: background 180ms ease; }
 .wellness-product-cta:hover { background: #203d52; }
 .wellness-product-cta span:last-child { color: var(--pp-prime-gold); font-size: 1.4rem; }
 .wellness-product-end-cta { display: flex; justify-content: center; margin-top: clamp(48px, 6vw, 88px); }
