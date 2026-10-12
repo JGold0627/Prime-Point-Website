@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
   if (!window.ppSupabase) {
     console.error("Prime Point Supabase client was not found.");
-    window.location.replace("login.html");
+    window.location.replace("https://my.joinprimepoint.com");
     return;
   }
 
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // No authenticated Supabase session = no member portal access.
     if (!session?.user) {
-      window.location.replace("login.html");
+      window.location.replace("https://my.joinprimepoint.com");
       return;
     }
 
@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", async () => {
               throw signOutError;
             }
 
-            window.location.replace("login.html");
+            window.location.replace("https://my.joinprimepoint.com");
           } catch (signOutError) {
             console.error(
               "Prime Point logout error:",
@@ -141,6 +141,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   } catch (error) {
     console.error("Prime Point authentication check failed:", error);
 
-    window.location.replace("login.html");
+    window.location.replace("https://my.joinprimepoint.com");
   }
 });

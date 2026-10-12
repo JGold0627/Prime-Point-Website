@@ -173,7 +173,7 @@ const globalHeaderMarkup = `
           </div>
         </div>
         ` : `
-        <a class="header-action header-login" href="login.html">Log In</a>
+        <a class="header-action header-login" href="https://my.joinprimepoint.com">Log In</a>
         `}
       </div>
 
@@ -205,7 +205,7 @@ const globalHeaderMarkup = `
           </div>
         </div>
         <div class="mobile-nav-group mobile-nav-account">
-          <a class="header-action mobile-nav-login" href="${isMemberSession ? 'member-home.html' : 'login.html'}">${isMemberSession ? 'Member Home' : 'Log In'}</a>
+          <a class="header-action mobile-nav-login" href="${isMemberSession ? 'member-home.html' : 'https://my.joinprimepoint.com'}">${isMemberSession ? 'Member Home' : 'Log In'}</a>
         </div>
       </nav>
     </div>
@@ -476,23 +476,6 @@ document.querySelectorAll(".lead-form").forEach((form) => {
     }
 
     form.reset();
-  });
-});
-
-document.querySelectorAll("[data-password-toggle]").forEach((toggle) => {
-  const inputId = toggle.getAttribute("aria-controls");
-  const passwordInput = inputId ? document.getElementById(inputId) : null;
-
-  if (!passwordInput) {
-    return;
-  }
-
-  toggle.addEventListener("click", () => {
-    const shouldShow = passwordInput.type === "password";
-
-    passwordInput.type = shouldShow ? "text" : "password";
-    toggle.textContent = shouldShow ? "Hide" : "Show";
-    toggle.setAttribute("aria-pressed", String(shouldShow));
   });
 });
 
