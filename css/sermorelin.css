@@ -26,7 +26,7 @@
 .sermorelin-benefits-copy { min-width: 0; }
 .sermorelin-benefits h2 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.5rem, 4vw, 4.6rem); font-weight: 400; line-height: 1.08; letter-spacing: -.035em; }
 .sermorelin-benefits h2 span { color: var(--pp-prime-gold); }
-.sermorelin-benefits-list { display: grid; gap: 26px; margin: 32px 0 0; padding: 0; list-style: none; color: #536778; font-size: clamp(17px, 1.3vw, 20px); line-height: 1.6; }
+.sermorelin-benefits-list { display: grid; align-content: center; min-height: 22em; gap: 26px; margin: 32px 0 0; padding: 0; list-style: none; color: #536778; font-size: clamp(17px, 1.3vw, 20px); line-height: 1.6; }
 .sermorelin-benefits-list li { display: grid; grid-template-columns: 18px minmax(0, 1fr); align-items: start; gap: 12px; }
 .sermorelin-benefits-arrow { color: var(--pp-dark-gold); }
 .sermorelin-benefits-list p { margin: 0; }
@@ -78,7 +78,7 @@
   .sermorelin-benefits { grid-template-columns: 1fr; gap: 30px; margin-top: 72px; }
   .sermorelin-benefits-media { height: auto; max-height: 530px; border-radius: 20px; }
   .sermorelin-benefits h2 { font-size: clamp(36px, 8.5vw, 52px); }
-  .sermorelin-benefits-list { margin-top: 28px; gap: 24px; }
+  .sermorelin-benefits-list { min-height: 0; align-content: start; margin-top: 28px; gap: 24px; }
 }
 
 .sermorelin-faq-section {

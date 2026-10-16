@@ -104,6 +104,7 @@
 }
 .privacy-content section:last-child { border-bottom: 0; padding-bottom: 0; }
 .privacy-content section:first-of-type { padding-top: 18px; }
+.privacy-content :is(h2, h3, p)[id] { scroll-margin-top: calc(var(--pp-header-height) + 32px); }
 
 .privacy-content h2 {
   margin: 0 0 22px;
