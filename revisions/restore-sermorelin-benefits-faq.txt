@@ -1,0 +1,16 @@
+Sermorelin benefits FAQ — temporary removal
+Saved: October 16, 2026
+
+Restoration prompt:
+Restore the saved "How can Sermorelin therapy benefit me?" question and answer on sermorelin.html using revisions/restore-sermorelin-benefits-faq.txt. Insert it after "Is Sermorelin right for me?" and before the billing and shipping question. Preserve all other later changes.
+
+Page: sermorelin.html
+Location: .sermorelin-faq-list
+Original HTML (question, answer, and accordion structure):
+
+          <details class="sermorelin-faq-item" name="sermorelin-faq">
+            <summary><span>How can Sermorelin therapy benefit me?</span><span class="sermorelin-faq-icon" aria-hidden="true"></span></summary>
+            <div class="sermorelin-faq-answer">
+              <p>Feel more energized, sleep better, build lean muscle, burn fat more efficiently, and recover faster. Sermorelin may help adults with low GH levels achieve these benefits, with results often building over 2–3 months of consistent use.</p>
+            </div>
+          </details>
