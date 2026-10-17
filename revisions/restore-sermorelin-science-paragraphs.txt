@@ -1,0 +1,18 @@
+Sermorelin science card paragraphs — temporary removal
+Saved: October 16, 2026
+
+Restoration prompt:
+Restore the three saved paragraphs beneath the pictures in the Sermorelin science cards using revisions/restore-sermorelin-science-paragraphs.txt. Keep the current headings, pictures, layout, links, and all other later edits.
+
+Page: sermorelin.html
+Section: #sermorelin-science
+Insert each original paragraph immediately after its card's .sermorelin-science-art div. No CSS changes were made for this temporary removal.
+
+Energy and Vitality (sermorelin-signal-v1.png):
+            <p>Sermorelin mimics GHRH, a signal that prompts the pituitary gland to release your body’s own growth hormone.</p>
+
+Exercise Recovery (sermorelin-recovery-v1.png):
+            <p>Growth hormone plays a role in muscle metabolism and tissue maintenance. Your clinician considers this pathway alongside your recovery goals.</p>
+
+Sleep Quality (sermorelin-rest-v1.png):
+            <p>Growth hormone release is closely linked to deep sleep, which helps support restoration, energy production, and recovery.</p>
