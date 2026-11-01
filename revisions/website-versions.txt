@@ -1,0 +1,45 @@
+PRIME POINT WEBSITE VERSIONS
+Established: October 27, 2026 (America/New_York)
+
+The user wants to keep the current certification-review version separate from an ongoing development version. Do not overwrite either version to switch between them. No deployment or Git push was performed during setup.
+
+CERTIFICATION WORKING VERSION
+C:/Users/Goldj/Prime-Point-Website
+Preview: index.html in that folder.
+Starting Git commit: a416082972ffc84478fb93278a64127d4c1eec59
+This is the original website directory used for the user's existing publishing workflow. Its website/source files were not changed during version setup.
+The phrase "certification version" identifies its purpose; it does not claim approval or confirm that the live website is identical.
+
+EXACT OCTOBER 27 SNAPSHOT
+C:/Users/Goldj/.codex/visualizations/2026/10/05/01a10c30-b9be-7023-9040-4afda4a8d0ac/prime-point-versions-2026-10-27/certification-snapshot-2026-10-27.zip
+Archive SHA-256: cb8b65a6bb03ff39035cc529299acffb57e1bea73a4673d9dd5ec02808458e1f
+certification-manifest.json beside the archive records all 341 saved files and their SHA-256 hashes. This includes tracked working files, root source documents, all local assets, CSS and JavaScript, including ignored assets. Git internals, browser profiles, caches and temporary renders are excluded.
+Never overwrite this snapshot. Later certification edits need their own dated snapshots.
+
+DEVELOPMENT WORKING VERSION
+C:/Users/Goldj/.codex/visualizations/2026/10/05/01a10c30-b9be-7023-9040-4afda4a8d0ac/prime-point-versions-2026-10-27/development
+Preview: index.html in that folder. It is an independent local copy outside the original publishing directory, with no connection that automatically publishes changes.
+Use this folder for future design/development work unless the user specifies certification work. Always state which version is being edited when switching.
+
+RESTORED IN DEVELOPMENT
+- Blood Work and Peptides pages, desktop/mobile navigation, footer links, homepage service cards/links, and saved member-page links.
+- The 22 exact original branded bottle/drop/nasal/group images, via 65 restored image references.
+- The three saved Sermorelin science-card paragraphs and complete benefits FAQ.
+Preserved newer backend/login links, product pricing and CTA styles, legal/contact edits, About-page updates, current Sermorelin wording/headings, and Jared Shapiro's removal. Did not restore the email popup or local login/signup/checkout pages.
+
+SWITCHING REQUESTS
+"Save development and switch to the certification version."
+Create a new dated ZIP and checksum manifest of the current development files outside both website folders, verify it, then work in the certification working directory. Leave the development folder untouched. Do not replace the latest certification work with the older October 27 snapshot unless the user specifically requests that exact rollback.
+
+"Save certification changes and resume development."
+Snapshot and verify the current certification working files first, then continue in the development directory. Do not overwrite development with certification files. Review any requested transfer of fixes selectively so unrelated work survives.
+
+"Restore the exact October 27 certification snapshot."
+First snapshot any current changes, verify the saved archive and per-file hashes, and identify additions/deletions as well as modifications. Restore only the intended website files. Never delete or replace development, Git history, personal browser profiles, or unrelated files.
+
+"Prepare development for launch."
+Compare it with the latest certification version, reconcile any required fixes, and review the final public content before the user chooses to publish. Approval of one version is not represented as approval of later changes.
+
+All snapshots are local files on this computer, not an off-device/cloud backup. The user has historically uploaded/pushed from VS Code. Do not push or deploy unless requested. Do not move the development copy into a publicly served subdirectory just to preview it.
+
+Verification and the full changed-file list are saved beside the snapshot in verification.json, script-verification.json, and restoration-result.json. Verification checks files, links, assets and script syntax; it is not a browser rendering or certification review.
