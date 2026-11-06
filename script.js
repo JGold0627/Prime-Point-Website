@@ -1,6 +1,10 @@
 // Canonical public header: new pages inherit it by loading global.css and this script.
 const currentPage = window.location.pathname.split("/").pop()?.toLowerCase() || "index.html";
 const activeHeaderSection = (() => {
+  if (currentPage === "peptides.html" || document.body.classList.contains("peptide-profile-page")) {
+    return "peptides";
+  }
+
   if ([
     "semaglutide.html",
     "tirzepatide.html",
@@ -10,8 +14,12 @@ const activeHeaderSection = (() => {
     return "weight-loss";
   }
 
+  if (currentPage === "blood-work.html") {
+    return "blood-work";
+  }
+
   if (["nad-plus.html", "mic-b12.html", "nad-plus-nasal.html"].includes(currentPage)) {
-    return "anti-aging";
+    return "longevity";
   }
 
   if (["sermorelin.html", "glutathione.html", "glutathione-nasal.html"].includes(currentPage)) return "metabolic";
@@ -23,6 +31,19 @@ const headerLinkClass = (section) => activeHeaderSection === section ? " nav-lin
 const headerCurrentState = (section) => activeHeaderSection === section ? ' aria-current="true"' : "";
 const isMemberHome = currentPage === "member-home.html";
 const isMemberSession = isMemberHome;
+
+const peptideNavigationPages = [
+  { href: "peptides.html", label: "Explore Peptide Therapy" },
+  { href: "bpc-157.html", label: "BPC-157" },
+  { href: "mots-c.html", label: "MOTS-C" },
+  { href: "kpv.html", label: "KPV" },
+  { href: "semax.html", label: "Semax" },
+  { href: "ghk-cu.html", label: "GHK-Cu" },
+  { href: "epitalon.html", label: "Epitalon" },
+];
+const peptideNavigationLinks = (className = "") => peptideNavigationPages.map(({ href, label }) =>
+  `<a${className ? ` class="${className}"` : ""} href="${href}"${currentPage === href ? ' aria-current="page"' : ""}>${label}</a>`
+).join("\n");
 
 const globalHeaderMarkup = `
   <header class="site-header" data-site-header="global" aria-label="Primary navigation">
@@ -56,19 +77,19 @@ const globalHeaderMarkup = `
               </div>
               <div class="metabolic-product-grid metabolic-product-grid--weight-loss">
                 <a class="metabolic-product-card" href="semaglutide.html">
-                  <span class="metabolic-product-art"><img src="assets/temporary-unbranded/semaglutide-injection-cutout-v1.png" alt="" /></span>
+                  <span class="metabolic-product-art"><img src="assets/glp-page-pieces/semaglutide-bottle-gold-v4.png" alt="" /></span>
                   <span class="metabolic-product-name">Semaglutide</span>
                 </a>
                 <a class="metabolic-product-card" href="tirzepatide.html">
-                  <span class="metabolic-product-art"><img src="assets/temporary-unbranded/tirzepatide-injection-cutout-v1.png" alt="" /></span>
+                  <span class="metabolic-product-art"><img src="assets/glp-page-pieces/tirzepatide-bottle-gold-v3.png" alt="" /></span>
                   <span class="metabolic-product-name">Tirzepatide</span>
                 </a>
                 <a class="metabolic-product-card" href="semaglutide-tablets.html">
-                  <span class="metabolic-product-art"><img src="assets/temporary-unbranded/semaglutide-drops-cutout-v1.png" alt="" /></span>
+                  <span class="metabolic-product-art"><img src="assets/glp-sublingual/semaglutide-sublingual-bottle-gold-v2.png" alt="" /></span>
                   <span class="metabolic-product-name">Semaglutide Sublingual Drops</span>
                 </a>
                 <a class="metabolic-product-card" href="tirzepatide-tablets.html">
-                  <span class="metabolic-product-art"><img src="assets/temporary-unbranded/tirzepatide-drops-cutout-v1.png" alt="" /></span>
+                  <span class="metabolic-product-art"><img src="assets/glp-sublingual/tirzepatide-sublingual-bottle-gold-v2.png" alt="" /></span>
                   <span class="metabolic-product-name">Tirzepatide Sublingual Drops</span>
                 </a>
               </div>
@@ -95,15 +116,15 @@ const globalHeaderMarkup = `
               </div>
               <div class="metabolic-product-grid">
                 <a href="sermorelin.html" class="metabolic-product-card">
-                  <span class="metabolic-product-art"><img src="assets/temporary-unbranded/sermorelin-injection-cutout-v1.png" alt="" /></span>
+                  <span class="metabolic-product-art"><img src="assets/glp-page-pieces/sermorelin-bottle-navy-v3.png" alt="" /></span>
                   <span class="metabolic-product-name">Sermorelin</span>
                 </a>
                 <a href="glutathione.html" class="metabolic-product-card">
-                  <span class="metabolic-product-art"><img src="assets/temporary-unbranded/glutathione-injection-cutout-v1.png" alt="" /></span>
+                  <span class="metabolic-product-art"><img src="assets/glp-page-pieces/glutathione-bottle-navy-v4.png" alt="" /></span>
                   <span class="metabolic-product-name">Glutathione</span>
                 </a>
                 <a href="glutathione-nasal.html" class="metabolic-product-card">
-                  <span class="metabolic-product-art"><img class="metabolic-product-image-nasal" src="assets/temporary-unbranded/glutathione-nasal-cutout-v1.png" alt="" /></span>
+                  <span class="metabolic-product-art"><img class="metabolic-product-image-nasal" src="assets/glp-page-pieces/glutathione-nasal-upright-navy-v3.png" alt="" /></span>
                   <span class="metabolic-product-name">Glutathione Nasal</span>
                 </a>
               </div>
@@ -111,11 +132,11 @@ const globalHeaderMarkup = `
           </div>
         </div>
         <div class="glp-nav-dropdown metabolic-nav-dropdown">
-          <span class="nav-link glp-nav-link${headerLinkClass("anti-aging")}"${headerCurrentState("anti-aging")}>Energy &amp; Recovery</span>
+          <span class="nav-link glp-nav-link${headerLinkClass("longevity")}"${headerCurrentState("longevity")}>Longevity</span>
           <button
             class="glp-nav-trigger"
             type="button"
-            aria-label="Show Energy &amp; Recovery offerings"
+            aria-label="Show Longevity offerings"
             aria-haspopup="true"
             aria-expanded="false"
             aria-controls="longevity-nav-menu"
@@ -125,23 +146,35 @@ const globalHeaderMarkup = `
           <div class="glp-nav-menu metabolic-nav-menu" id="longevity-nav-menu" aria-hidden="true">
             <div class="metabolic-menu-shell">
               <div class="metabolic-menu-heading">
-                <span>Explore Energy &amp; Recovery</span>
+                <span>Explore Longevity</span>
                 <small>Choose an offering to learn more</small>
               </div>
               <div class="metabolic-product-grid">
                 <a href="nad-plus.html" class="metabolic-product-card">
-                  <span class="metabolic-product-art"><img src="assets/temporary-unbranded/nad-plus-injection-cutout-v1.png" alt="" /></span>
+                  <span class="metabolic-product-art"><img src="assets/glp-page-pieces/NAD Plus Bottle Upright V3.png" alt="" /></span>
                   <span class="metabolic-product-name">NAD+</span>
                 </a>
                 <a href="nad-plus-nasal.html" class="metabolic-product-card">
-                  <span class="metabolic-product-art"><img class="metabolic-product-image-nasal" src="assets/temporary-unbranded/nad-plus-nasal-cutout-v1.png" alt="" /></span>
+                  <span class="metabolic-product-art"><img class="metabolic-product-image-nasal" src="assets/glp-page-pieces/NAD Plus Nasal V2.png" alt="" /></span>
                   <span class="metabolic-product-name">NAD+ Nasal</span>
                 </a>
                 <a href="mic-b12.html" class="metabolic-product-card">
-                  <span class="metabolic-product-art"><img src="assets/temporary-unbranded/mic-b12-injection-cutout-v1.png" alt="" /></span>
+                  <span class="metabolic-product-art"><img src="assets/glp-page-pieces/MIC Plus B12 Bottle V2.png" alt="" /></span>
                   <span class="metabolic-product-name">MIC + B12</span>
                 </a>
               </div>
+            </div>
+          </div>
+        </div>
+        <a class="nav-link${headerLinkClass("blood-work")}"${headerCurrentState("blood-work")} href="blood-work.html">Blood Work</a>
+        <div class="glp-nav-dropdown peptide-nav-dropdown">
+          <a class="nav-link glp-nav-link${headerLinkClass("peptides")}"${headerCurrentState("peptides")} href="peptides.html">Peptide Therapy</a>
+          <button class="glp-nav-trigger" type="button" aria-label="Show Peptide Therapy pages" aria-haspopup="true" aria-expanded="false" aria-controls="peptide-nav-menu">
+            <span class="glp-nav-chevron" aria-hidden="true"></span>
+          </button>
+          <div class="glp-nav-menu peptide-nav-menu" id="peptide-nav-menu" aria-hidden="true">
+            <div class="glp-nav-menu-group">
+              ${peptideNavigationLinks()}
             </div>
           </div>
         </div>
@@ -197,11 +230,20 @@ const globalHeaderMarkup = `
           </div>
         </div>
         <div class="mobile-nav-group">
-          <button class="mobile-nav-topic" type="button" data-mobile-nav-trigger aria-expanded="false" aria-controls="mobile-longevity-links"><span>Energy &amp; Recovery</span><span class="mobile-nav-chevron" aria-hidden="true"></span></button>
+          <button class="mobile-nav-topic" type="button" data-mobile-nav-trigger aria-expanded="false" aria-controls="mobile-longevity-links"><span>Longevity</span><span class="mobile-nav-chevron" aria-hidden="true"></span></button>
           <div class="mobile-nav-submenu" id="mobile-longevity-links" hidden>
             <a class="mobile-nav-sublink" href="nad-plus.html">NAD+</a>
             <a class="mobile-nav-sublink" href="nad-plus-nasal.html">NAD+ Nasal</a>
             <a class="mobile-nav-sublink" href="mic-b12.html">MIC + B12</a>
+          </div>
+        </div>
+        <div class="mobile-nav-group">
+          <a class="mobile-nav-topic" href="blood-work.html"><span>Blood Work</span><span class="mobile-nav-link-arrow" aria-hidden="true">&rarr;</span></a>
+        </div>
+        <div class="mobile-nav-group">
+          <button class="mobile-nav-topic" type="button" data-mobile-nav-trigger aria-expanded="false" aria-controls="mobile-peptide-links"><span>Peptide Therapy</span><span class="mobile-nav-chevron" aria-hidden="true"></span></button>
+          <div class="mobile-nav-submenu" id="mobile-peptide-links" hidden>
+            ${peptideNavigationLinks("mobile-nav-sublink")}
           </div>
         </div>
         <div class="mobile-nav-group mobile-nav-account">
@@ -332,6 +374,50 @@ if (mobileNavToggle && mobileNavMenu) {
       setMobileNav(false);
     }
   });
+}
+
+const isLocalDesignPreview = window.location.protocol === "file:"
+  || ["localhost", "127.0.0.1"].includes(window.location.hostname);
+
+if (isLocalDesignPreview && currentPage === "member-home.html") {
+  const peptideDesignFlow = [
+    "peptides.html",
+    "member-home.html"
+  ];
+  const currentPeptideDesignIndex = peptideDesignFlow.indexOf(currentPage);
+
+  if (currentPeptideDesignIndex !== -1) {
+    const goToPeptideDesignStep = (index) => {
+      if (index < 0 || index >= peptideDesignFlow.length) return;
+      const destination = new URL(peptideDesignFlow[index], window.location.href);
+      destination.searchParams.set("design", "peptide");
+      window.location.href = destination.href;
+    };
+
+    const peptideNavigator = document.createElement("nav");
+    peptideNavigator.className = "pp-design-navigator";
+    peptideNavigator.setAttribute("aria-label", "Local peptide design navigation");
+    peptideNavigator.innerHTML = `
+      <span>Peptide design ${currentPeptideDesignIndex + 1}/${peptideDesignFlow.length}</span>
+      <button type="button" data-design-previous aria-label="Previous peptide screen" ${currentPeptideDesignIndex === 0 ? "disabled" : ""}>&larr;</button>
+      <button type="button" data-design-next aria-label="Next peptide screen" ${currentPeptideDesignIndex === peptideDesignFlow.length - 1 ? "disabled" : ""}>&rarr;</button>
+    `;
+    peptideNavigator.querySelector("[data-design-previous]")?.addEventListener("click", () => goToPeptideDesignStep(currentPeptideDesignIndex - 1));
+    peptideNavigator.querySelector("[data-design-next]")?.addEventListener("click", () => goToPeptideDesignStep(currentPeptideDesignIndex + 1));
+    document.body.appendChild(peptideNavigator);
+
+    document.addEventListener("keydown", (event) => {
+      if (!event.altKey || !event.shiftKey) return;
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        goToPeptideDesignStep(currentPeptideDesignIndex - 1);
+      }
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        goToPeptideDesignStep(currentPeptideDesignIndex + 1);
+      }
+    });
+  }
 }
 
 const memberMenuTrigger = document.querySelector("[data-member-menu-trigger]");
@@ -877,6 +963,15 @@ document.querySelectorAll(".cellular-motion-canvas").forEach((canvas) => {
   window.addEventListener("scroll", updateScrollCue, { passive: true });
   window.addEventListener("resize", updateScrollCue);
 })();
+
+// Some navigations skip the browser's cross-document snapshot.
+window.addEventListener("pageshow", () => {
+  requestAnimationFrame(() => {
+    if (!document.activeViewTransition && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.body.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 220, easing: "ease-out" });
+    }
+  });
+});
 
 // Shared scroll reveal: replay on entry and recede on exit across every page.
 (() => {

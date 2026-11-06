@@ -365,3 +365,13 @@ Role note: These notes are research findings only. Do not copy competitor langua
 - Add personalization cards showing what gets reviewed: current products, health history, medications, available labs, diet pattern, training, sleep, travel, and follow-up triggers.
 - Add lifestyle cards that make the plan feel actionable: morning/evening cadence, meal timing, hydration, travel, training load, and review rhythm.
 - Improve CTA with a consult-first message, a compact "what to bring" checklist, and conservative disclaimers.
+
+### Bloodwork pricing design review • November 1, 2026
+
+Prime Point’s serif typography, warm ivory background and two-column structure are a good fit for bloodwork. In the Advanced view, the eye has to choose between two similarly styled headlines, filled and outlined selectors, two framed cards and saturated payment marks. The smaller details compete with the selected panel and its price.
+
+- Function Health pairs a large serif headline with a single warm accent on its pricing hero. Testing frequency and price appear in the same headline. Prime Point can use that discipline by giving the panel name and per-panel price the strongest emphasis. Function sells a membership, while Prime Point’s chooser prices individual panels. [Function Health pricing](https://www.functionhealth.com/pricing)
+- Superpower puts the scope of its membership and the annual price into a short line, followed by a primary membership action and a quieter route to the test list. Prime Point can give its selection button a clearer lead while keeping the full marker list available. [Superpower membership](https://superpower.com/)
+- Labcorp OnDemand shows the test name, a short description, price and purchase button together. Further down, readers can compare what each panel covers. Prime Point already has a strong equivalent with the included markers beside the collection selector. Showing both approved collection prices in the dropdown would help a visitor compare the options before selecting one. [Labcorp men's health test](https://www.ondemand.labcorp.com/lab-tests/mens-health)
+
+Suggested finish for the existing layout: use the Sea Glass wash on the marker card, warm white on the price card, navy for the price and champagne at the active tier and primary button. Soften the nested outlines and give the payment logos less visual weight. The reference worth adapting is the order in which the eye encounters the information. Function already uses the same comparison heading as Prime Point; “How Prime Point compares” is a straightforward alternative.

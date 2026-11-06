@@ -1,0 +1,2650 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blood Work | Prime Point Health</title>
+    <meta
+      name="description"
+      content="Prime Point Health blood work page."
+    />
+    <link rel="stylesheet" href="css/global.css?v=45" />
+    <style>
+      .blood-work-page {
+        --bw-navy: #102633;
+      }
+
+      .bw-memberships {
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        margin-top: -18vh;
+        padding: calc(18vh + clamp(36px, 4vw, 64px)) 16px clamp(96px, 10vw, 152px);
+        background: linear-gradient(
+          180deg,
+          rgba(15, 31, 45, 0) 0,
+          rgba(15, 31, 45, 0.78) 9vh,
+          #0f1f2d 18vh,
+          #152c3e calc(18vh + 180px),
+          #152c3e 100%
+        );
+      }
+
+      .bw-memberships-shell {
+        width: min(100%, 1520px);
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        align-items: stretch;
+        gap: clamp(16px, 2vw, 28px);
+      }
+
+      .bw-membership-plan {
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        min-width: 0;
+        flex-direction: column;
+        border: 1px solid rgba(var(--pp-gold-rgb), 0.24);
+        border-radius: 8px;
+        background:
+          radial-gradient(circle at 12% 4%, rgba(var(--pp-gold-rgb), 0.08), transparent 26%),
+          linear-gradient(145deg, #0f1f2d 0%, #0f1f2d 100%);
+        box-shadow:
+          0 24px 70px rgba(0, 0, 0, 0.28),
+          inset 0 1px 0 rgba(255, 255, 255, 0.03);
+        transition:
+          border-color 240ms ease,
+          box-shadow 240ms ease;
+      }
+
+      .bw-membership-plan::after {
+        content: "";
+        position: absolute;
+        z-index: 3;
+        inset: 0;
+        border: 1px solid rgba(244, 211, 132, 0.92);
+        border-radius: inherit;
+        box-shadow:
+          0 0 42px rgba(var(--pp-gold-rgb), 0.24),
+          inset 0 0 38px rgba(var(--pp-gold-rgb), 0.09);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 240ms ease;
+      }
+
+      .bw-membership-plan[data-plan="precision"] {
+        border-color: rgba(var(--pp-gold-rgb), 0.46);
+      }
+
+      @media (hover: hover) {
+        .bw-membership-plan:hover {
+          border-color: rgba(244, 211, 132, 0.92);
+          box-shadow:
+            0 24px 70px rgba(0, 0, 0, 0.3),
+            0 0 30px rgba(var(--pp-gold-rgb), 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .bw-membership-plan:hover::after {
+          opacity: 1;
+        }
+      }
+
+      .bw-membership-plan:focus-within {
+        border-color: rgba(244, 211, 132, 0.92);
+        box-shadow:
+          0 24px 70px rgba(0, 0, 0, 0.3),
+          0 0 30px rgba(var(--pp-gold-rgb), 0.2),
+          inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      }
+
+      .bw-membership-plan:focus-within::after {
+        opacity: 1;
+      }
+
+      .bw-plan-summary {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: clamp(30px, 3vw, 40px) clamp(24px, 2.8vw, 38px) 22px;
+      }
+
+      .bw-plan-title {
+        max-width: 100%;
+        margin: 0;
+        color: var(--pp-cream);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(1.55rem, 2vw, 2rem);
+        font-weight: 400;
+        line-height: 1.08;
+      }
+
+      .bw-plan-title::before {
+        content: "";
+        display: block;
+        width: 34px;
+        height: 2px;
+        margin-bottom: 18px;
+        background: linear-gradient(90deg, var(--pp-gold), rgba(var(--pp-gold-rgb), 0.18));
+      }
+
+      .bw-plan-description {
+        min-height: 66px;
+        margin: 14px 0 0;
+        color: rgba(246, 244, 240, 0.62);
+        font-size: clamp(0.84rem, 0.95vw, 0.95rem);
+        line-height: 1.55;
+      }
+
+      .bw-plan-price {
+        display: flex;
+        align-items: flex-end;
+        gap: 8px;
+        margin: 26px 0 0;
+        color: var(--pp-gold);
+        font-family: "Arial Narrow", "Roboto Condensed", "Segoe UI", Arial, sans-serif;
+        font-stretch: condensed;
+        line-height: 1;
+      }
+
+      .bw-plan-price-amount {
+        font-size: clamp(2.25rem, 2.8vw, 2.8rem);
+        font-weight: 600;
+      }
+
+      .bw-plan-price-period {
+        padding-bottom: 6px;
+        color: rgba(246, 244, 240, 0.78);
+        font-size: 0.92rem;
+        font-weight: 750;
+        text-transform: uppercase;
+      }
+
+      .bw-plan-charge {
+        margin: 12px 0 0;
+        color: var(--pp-cream);
+        font-size: 0.95rem;
+        font-weight: 700;
+        line-height: 1.4;
+      }
+
+      .bw-plan-charge strong {
+        color: var(--pp-gold);
+        font-size: 1.25em;
+      }
+
+      .bw-plan-button {
+        display: flex;
+        width: 100%;
+        min-height: 58px;
+        margin-top: 0;
+        gap: 14px;
+        border-radius: var(--pp-cta-radius);
+      }
+
+      .bw-plan-arrow {
+        width: 12px;
+        height: 12px;
+        border-top: 2px solid currentColor;
+        border-right: 2px solid currentColor;
+        transform: rotate(45deg);
+      }
+
+      .bw-final-cta {
+        max-width: 400px;
+        margin: clamp(32px, 4vw, 48px) auto 0;
+        padding-inline: 20px;
+      }
+
+      .bw-final-cta .bw-plan-arrow {
+        flex-shrink: 0;
+      }
+
+      .bw-plan-footer {
+        position: relative;
+        z-index: 1;
+        margin-top: auto;
+        padding: 20px clamp(24px, 2.8vw, 38px) clamp(30px, 3vw, 40px);
+      }
+
+      .bw-memberships-note {
+        grid-column: 1 / -1;
+        max-width: 820px;
+        margin: 2px auto 0;
+        color: rgba(246, 244, 240, 0.56);
+        font-size: 0.78rem;
+        line-height: 1.55;
+        text-align: center;
+      }
+
+      .bw-physical-comparison {
+        position: relative;
+        z-index: 1;
+        padding: clamp(86px, 9vw, 132px) var(--pp-page-gutter);
+        background: #f8f5ee;
+        color: #0f1f2d;
+      }
+
+      .bw-physical-comparison-shell {
+        width: min(100%, 1320px);
+        margin: 0 auto;
+      }
+
+      .bw-physical-comparison-eyebrow {
+        margin: 0 0 22px;
+        color: var(--pp-gold);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.2em;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .bw-physical-comparison-title {
+        max-width: 1040px;
+        margin: 0 auto;
+        color: #0f1f2d;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(3rem, 5.6vw, 5.5rem);
+        font-weight: 400;
+        line-height: 0.98;
+        letter-spacing: -0.035em;
+        text-align: center;
+      }
+
+      .bw-physical-comparison-title em {
+        color: #9a742f;
+        font-style: normal;
+      }
+
+      .bw-physical-comparison-intro {
+        max-width: 980px;
+        margin: clamp(28px, 3vw, 40px) auto 0;
+        color: var(--pp-prime-navy);
+        font-size: clamp(1.05rem, 1.55vw, 1.3rem);
+        line-height: 1.65;
+        text-align: center;
+      }
+
+      .bw-comparison-table {
+        display: grid;
+        grid-template-columns: minmax(220px, 1.15fr) minmax(280px, 1fr) minmax(300px, 1fr);
+        margin-top: clamp(54px, 6vw, 78px);
+        border-bottom: 1px solid rgba(15, 31, 45, 0.1);
+      }
+
+      .bw-comparison-heading,
+      .bw-comparison-label,
+      .bw-comparison-value {
+        display: flex;
+        min-width: 0;
+        align-items: center;
+        padding: 24px 26px;
+        border-bottom: 1px solid rgba(15, 31, 45, 0.1);
+      }
+
+      .bw-comparison-heading {
+        justify-content: center;
+        color: var(--pp-prime-navy);
+        font-size: 0.95rem;
+        font-weight: 400;
+        text-align: center;
+      }
+
+      .bw-comparison-heading:first-child {
+        justify-content: flex-start;
+      }
+
+      .bw-comparison-heading-highlight {
+        border: 1px solid rgba(154, 116, 47, 0.28);
+        border-bottom-color: #9a742f;
+        border-radius: 18px 18px 0 0;
+        background: linear-gradient(135deg, rgba(234, 216, 173, 0.28), rgba(255, 253, 248, 0.88));
+        color: #7f6026;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1.35rem;
+      }
+
+      .bw-comparison-label {
+        color: #0f1f2d;
+        font-weight: 400;
+      }
+
+      .bw-comparison-value {
+        gap: 14px;
+        color: var(--pp-prime-navy);
+      }
+
+      .bw-comparison-value::before {
+        content: "\00d7";
+        flex: 0 0 auto;
+        color: #c3baaa;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1.5rem;
+        line-height: 1;
+      }
+
+      .bw-comparison-value-highlight {
+        border-right: 1px solid rgba(154, 116, 47, 0.22);
+        border-left: 1px solid rgba(154, 116, 47, 0.22);
+        background: linear-gradient(135deg, rgba(234, 216, 173, 0.22), rgba(255, 253, 248, 0.78));
+        color: #0f1f2d;
+        font-weight: 400;
+      }
+
+      .bw-comparison-value-highlight::before {
+        content: "\2713";
+        color: #8a6827;
+        font-family: inherit;
+        font-size: 1.15rem;
+        font-weight: 900;
+      }
+
+      .bw-comparison-value-highlight:last-child {
+        border-bottom: 1px solid rgba(154, 116, 47, 0.22);
+        border-radius: 0 0 18px 18px;
+        box-shadow: 0 24px 50px rgba(15, 31, 45, 0.08);
+      }
+
+      .bw-guidance {
+        position: relative;
+        z-index: 1;
+        padding: 0 var(--pp-page-gutter) clamp(40px, 4vw, 56px);
+        background: #152c3e;
+      }
+
+      .bw-guidance-shell {
+        width: min(88%, 1040px);
+        margin: 0 auto;
+        padding: clamp(48px, 5.5vw, 68px) clamp(28px, 7vw, 96px) clamp(52px, 6vw, 76px);
+        border: 1px solid rgba(var(--pp-gold-rgb), 0.32);
+        border-radius: 8px;
+        background: #0f1f2d;
+        box-shadow:
+          0 26px 72px rgba(0, 0, 0, 0.24),
+          inset 0 1px 0 rgba(255, 255, 255, 0.02);
+        text-align: center;
+      }
+
+      .bw-guidance-title {
+        margin: 0;
+        color: var(--pp-gold);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2.5rem, 4.5vw, 4rem);
+        font-weight: 400;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      .bw-guidance-intro {
+        max-width: 800px;
+        margin: clamp(24px, 3vw, 36px) auto 0;
+        color: rgba(215, 194, 150, 0.9);
+        font-size: clamp(1rem, 1.45vw, 1.2rem);
+        line-height: 1.75;
+      }
+
+      .bw-guidance-divider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 22px;
+        width: min(100%, 600px);
+        margin: clamp(30px, 3.5vw, 42px) auto 0;
+      }
+
+      .bw-guidance-divider::before,
+      .bw-guidance-divider::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: rgba(var(--pp-gold-rgb), 0.35);
+      }
+
+      .bw-guidance-divider span {
+        width: 10px;
+        height: 10px;
+        background: var(--pp-gold);
+        transform: rotate(45deg);
+      }
+
+      .bw-guidance-subtitle {
+        margin: clamp(34px, 4vw, 48px) 0 0;
+        color: var(--pp-cream);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(1.65rem, 2.7vw, 2.3rem);
+        font-weight: 400;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      .bw-guidance-copy {
+        margin: 14px 0 0;
+        color: rgba(215, 194, 150, 0.86);
+        font-size: clamp(0.96rem, 1.25vw, 1.08rem);
+        line-height: 1.5;
+      }
+
+      .bw-consult-options {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 330px));
+        justify-content: center;
+        gap: clamp(16px, 2vw, 24px);
+        margin: clamp(24px, 3vw, 34px) 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .bw-consult-options li {
+        display: flex;
+        min-height: 210px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 26px 16px;
+        border: 1px solid rgba(var(--pp-gold-rgb), 0.3);
+        border-radius: 4px;
+        background: rgba(255, 255, 255, 0.01);
+        color: rgba(215, 194, 150, 0.9);
+        transition:
+          border-color 220ms ease,
+          background-color 220ms ease;
+      }
+
+      .bw-consult-options li:hover,
+      .bw-consult-options li:focus-within {
+        border-color: rgba(var(--pp-gold-rgb), 0.62);
+        background: rgba(var(--pp-gold-rgb), 0.035);
+      }
+
+      .bw-consult-options strong {
+        color: var(--pp-gold);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2.4rem, 4vw, 3.3rem);
+        font-weight: 400;
+        line-height: 1;
+      }
+
+      .bw-consult-options span {
+        margin-top: 12px;
+        font-size: clamp(0.94rem, 1.2vw, 1.05rem);
+        line-height: 1.4;
+      }
+
+      .bw-consult-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: min(184px, 100%);
+        min-width: 0;
+        min-height: 50px;
+        margin-top: 22px;
+        padding: 0 24px;
+        border: 1px solid #e7c979;
+        border-radius: 3px;
+        background: var(--pp-gold);
+        color: var(--pp-warm-ivory);
+        font-size: 0.88rem;
+        font-weight: 700;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition:
+          background-color 200ms ease,
+          border-color 200ms ease,
+          box-shadow 200ms ease;
+      }
+
+      .bw-consult-button:hover,
+      .bw-consult-button:focus-visible {
+        border-color: #f1dc9b;
+        background: #e7c979;
+        color: #0f1f2d;
+        box-shadow: 0 8px 22px rgba(var(--pp-gold-rgb), 0.2);
+      }
+
+      .bw-guidance-note {
+        max-width: 900px;
+        margin: 28px auto 0;
+        color: rgba(var(--pp-gold-rgb), 0.82);
+        font-size: clamp(0.82rem, 1.15vw, 0.98rem);
+        line-height: 1.65;
+        text-align: center;
+      }
+
+      .bw-pathways {
+        position: relative;
+        z-index: 1;
+        padding: clamp(44px, 5vw, 72px) var(--pp-page-gutter) clamp(72px, 8vw, 112px);
+        background: #152c3e;
+      }
+
+      .bw-pathways-shell {
+        width: min(88%, 920px);
+        margin: 0 auto;
+        padding: clamp(52px, 6vw, 74px) clamp(26px, 6vw, 68px) clamp(58px, 7vw, 82px);
+        border: 1px solid rgba(var(--pp-gold-rgb), 0.32);
+        border-radius: 8px;
+        background: #0f1f2d;
+        box-shadow:
+          0 26px 72px rgba(0, 0, 0, 0.24),
+          inset 0 1px 0 rgba(255, 255, 255, 0.02);
+      }
+
+      .bw-pathways-title {
+        margin: 0;
+        color: var(--pp-gold);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2.35rem, 4vw, 3.5rem);
+        font-weight: 400;
+        line-height: 1;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .bw-pathways-lede {
+        max-width: 680px;
+        margin: 22px auto 0;
+        color: rgba(246, 244, 240, 0.62);
+        font-size: clamp(0.94rem, 1.2vw, 1.05rem);
+        line-height: 1.7;
+        text-align: center;
+      }
+
+      .bw-path-toggle {
+        display: flex;
+        justify-content: center;
+        margin-top: 34px;
+      }
+
+      .bw-path-toggle-inner {
+        display: inline-flex;
+        gap: 4px;
+        padding: 4px;
+        border: 1px solid rgba(var(--pp-gold-rgb), 0.3);
+        border-radius: 999px;
+        background: rgba(15, 31, 45, 0.34);
+      }
+
+      .bw-path-toggle-button {
+        min-height: 44px;
+        padding: 0 22px;
+        border: 0;
+        border-radius: 999px;
+        background: transparent;
+        color: rgba(246, 244, 240, 0.62);
+        font: inherit;
+        font-size: 0.78rem;
+        font-weight: 750;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition:
+          background-color 220ms ease,
+          color 220ms ease;
+      }
+
+      .bw-path-toggle-button[aria-pressed="true"] {
+        background: var(--pp-gold);
+        color: var(--pp-warm-ivory);
+      }
+
+      .bw-path-toggle-button:focus-visible {
+        outline: 2px solid rgba(244, 211, 132, 0.9);
+        outline-offset: 3px;
+      }
+
+      .bw-path-summary {
+        margin-top: 44px;
+        text-align: center;
+      }
+
+      .bw-path-eyebrow {
+        margin: 0;
+        color: var(--pp-gold);
+        font-size: 0.72rem;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .bw-path-description {
+        max-width: 620px;
+        margin: 10px auto 0;
+        color: rgba(246, 244, 240, 0.62);
+        font-size: 0.94rem;
+        line-height: 1.7;
+      }
+
+      .bw-path-steps {
+        width: min(100%, 720px);
+        margin: 42px auto 0;
+        padding: clamp(22px, 3vw, 34px);
+        border: 1px solid rgba(var(--pp-gold-rgb), 0.38);
+        border-radius: 34px 10px 34px 10px;
+        background: linear-gradient(145deg, #fbf9f4 0%, #efe8dc 100%);
+        box-shadow: 0 20px 48px rgba(13, 34, 53, 0.09);
+        overflow: hidden;
+      }
+
+      .bw-path-step {
+        display: grid;
+        grid-template-columns: 52px minmax(0, 1fr);
+        width: 100%;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: inherit;
+        font: inherit;
+        text-align: left;
+        cursor: default;
+      }
+
+      .bw-path-step + .bw-path-step {
+        border-top: 1px solid rgba(13, 34, 53, 0.08);
+        padding-top: 18px;
+      }
+
+      .bw-path-marker {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .bw-path-number {
+        display: flex;
+        width: 44px;
+        height: 44px;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+        border: 1px solid rgba(var(--pp-gold-rgb), 0.28);
+        border-radius: 50%;
+        background: #0f1f2d;
+        color: rgba(246, 244, 240, 0.58);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1rem;
+        transition:
+          border-color 240ms ease,
+          background-color 240ms ease,
+          color 240ms ease,
+          box-shadow 240ms ease;
+      }
+
+      .bw-path-stem {
+        position: relative;
+        width: 1px;
+        min-height: 34px;
+        flex: 1;
+        margin: 10px 0;
+        overflow: hidden;
+        background: rgba(var(--pp-gold-rgb), 0.15);
+      }
+
+      .bw-path-stem-fill {
+        position: absolute;
+        inset: 0 0 auto;
+        height: 0;
+        background: var(--pp-gold);
+        transition: height 360ms ease;
+      }
+
+      .bw-path-step:last-child .bw-path-stem {
+        display: none;
+      }
+
+      .bw-path-step-body {
+        min-height: 98px;
+        padding: 5px 0 28px 22px;
+      }
+
+      .bw-path-step-title {
+        display: block;
+        margin: 0;
+        color: var(--pp-cream);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+        font-weight: 400;
+        line-height: 1.25;
+        transition: color 240ms ease;
+      }
+
+      .bw-path-step-copy {
+        display: block;
+        max-width: 600px;
+        margin: 7px 0 0;
+        color: rgba(246, 244, 240, 0.58);
+        font-size: 0.88rem;
+        line-height: 1.65;
+      }
+
+      .bw-path-step-tag {
+        display: inline-flex;
+        margin-top: 10px;
+        padding: 4px 10px;
+        border: 1px solid rgba(var(--pp-gold-rgb), 0.3);
+        border-radius: 999px;
+        color: var(--pp-gold);
+        font-size: 0.66rem;
+        font-weight: 750;
+        text-transform: uppercase;
+      }
+
+      @media (hover: hover) {
+        .bw-path-step:hover .bw-path-number {
+          border-color: var(--pp-gold);
+          background: rgba(var(--pp-gold-rgb), 0.11);
+          color: var(--pp-gold);
+          box-shadow: 0 0 16px rgba(var(--pp-gold-rgb), 0.18);
+        }
+
+        .bw-path-step:hover .bw-path-stem-fill {
+          height: 100%;
+        }
+
+        .bw-path-step:hover .bw-path-step-title {
+          color: var(--pp-gold);
+        }
+      }
+
+      .bw-biomarkers {
+        position: relative;
+        z-index: 1;
+        padding: 0 var(--pp-page-gutter) clamp(112px, 12vw, 176px);
+        background: #152c3e;
+      }
+
+      .bw-biomarkers-shell {
+        width: min(100%, 1240px);
+        margin: 0 auto;
+      }
+
+      .bw-biomarkers-eyebrow {
+        margin: 0;
+        color: var(--pp-gold);
+        font-size: 0.74rem;
+        font-weight: 800;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .bw-biomarkers-heading {
+        width: 100%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: minmax(28px, 1fr) minmax(0, 900px) minmax(28px, 1fr);
+        align-items: center;
+        gap: clamp(14px, 2.2vw, 30px);
+      }
+
+      .bw-biomarkers-heading::before,
+      .bw-biomarkers-heading::after {
+        content: "";
+        height: 1px;
+        box-shadow: 0 0 12px rgba(var(--pp-gold-rgb), 0.18);
+      }
+
+      .bw-biomarkers-heading::before {
+        background: linear-gradient(90deg, transparent, rgba(var(--pp-gold-rgb), 0.35), var(--pp-gold));
+      }
+
+      .bw-biomarkers-heading::after {
+        background: linear-gradient(90deg, var(--pp-gold), rgba(var(--pp-gold-rgb), 0.35), transparent);
+      }
+
+      .bw-biomarkers-title {
+        max-width: 900px;
+        margin: 0;
+        color: var(--pp-cream);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2.5rem, 4.8vw, 4.2rem);
+        font-weight: 400;
+        line-height: 1.02;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .bw-biomarkers-intro {
+        max-width: 720px;
+        margin: 24px auto 0;
+        color: rgba(246, 244, 240, 0.62);
+        font-size: clamp(0.94rem, 1.25vw, 1.06rem);
+        line-height: 1.7;
+        text-align: center;
+      }
+
+      .bw-biomarker-grid {
+        column-count: 4;
+        column-gap: 20px;
+        margin-top: clamp(44px, 5vw, 64px);
+      }
+
+      .bw-biomarker-card {
+        position: relative;
+        overflow: hidden;
+        break-inside: avoid;
+        margin: 0 0 20px;
+        padding: 24px 22px 26px;
+        border: 1px solid rgba(var(--pp-gold-rgb), 0.22);
+        border-radius: 8px;
+        background:
+          linear-gradient(135deg, rgba(var(--pp-gold-rgb), 0.035), transparent 44%),
+          #0f1f2d;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
+        transition:
+          border-color 220ms ease,
+          box-shadow 220ms ease;
+      }
+
+      .bw-biomarker-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--pp-gold), rgba(var(--pp-gold-rgb), 0.08));
+        opacity: 0.72;
+      }
+
+      @media (hover: hover) {
+        .bw-biomarker-card:hover {
+          border-color: rgba(var(--pp-gold-rgb), 0.52);
+          box-shadow:
+            0 16px 38px rgba(0, 0, 0, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.03);
+        }
+      }
+
+      .bw-biomarker-card-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 14px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid rgba(246, 244, 240, 0.08);
+      }
+
+      .bw-biomarker-card h3 {
+        margin: 0;
+        color: var(--pp-cream);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1.25rem;
+        font-weight: 400;
+        line-height: 1.2;
+      }
+
+      .bw-biomarker-count {
+        flex: 0 0 auto;
+        color: rgba(var(--pp-gold-rgb), 0.72);
+        font-size: 0.66rem;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .bw-biomarker-list {
+        display: grid;
+        gap: 8px;
+        margin: 17px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .bw-biomarker-list li {
+        position: relative;
+        padding-left: 15px;
+        color: rgba(246, 244, 240, 0.68);
+        font-size: 0.82rem;
+        line-height: 1.45;
+      }
+
+      .bw-biomarker-list li::before {
+        content: "";
+        position: absolute;
+        top: 0.62em;
+        left: 0;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: var(--pp-gold);
+      }
+
+      .bw-biomarkers-note {
+        max-width: 820px;
+        margin: 28px auto 0;
+        color: rgba(246, 244, 240, 0.48);
+        font-size: 0.76rem;
+        line-height: 1.6;
+        text-align: center;
+      }
+
+      .bw-state-access {
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        padding: clamp(38px, 5vw, 70px) var(--pp-page-gutter) clamp(96px, 10vw, 148px);
+        background: #152c3e;
+        isolation: isolate;
+      }
+
+      .bw-state-shell {
+        width: min(100%, 1120px);
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .bw-state-title {
+        margin: 0;
+        color: var(--pp-gold);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2.35rem, 4.4vw, 4rem);
+        font-weight: 400;
+        line-height: 1.05;
+        text-transform: uppercase;
+      }
+
+      .bw-state-intro {
+        max-width: 760px;
+        margin: 22px auto 0;
+        color: rgba(246, 244, 240, 0.7);
+        font-size: clamp(0.94rem, 1.25vw, 1.06rem);
+        line-height: 1.7;
+      }
+
+      .bw-state-form {
+        width: min(100%, 1040px);
+        margin: clamp(34px, 4vw, 48px) auto 0;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+        gap: 14px;
+        align-items: start;
+      }
+
+      .bw-state-field {
+        position: relative;
+        min-width: 0;
+      }
+
+      .bw-state-field-label {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        white-space: nowrap;
+      }
+
+      .bw-state-field input,
+      .bw-state-field select {
+        width: 100%;
+        min-height: 58px;
+        padding: 0 18px;
+        border: 1px solid rgba(var(--pp-gold-rgb), 0.28);
+        border-radius: 6px;
+        outline: none;
+        background: rgba(15, 31, 45, 0.86);
+        color: var(--pp-cream);
+        font: inherit;
+        font-size: 1rem;
+        transition:
+          border-color 180ms ease,
+          box-shadow 180ms ease,
+          background-color 180ms ease;
+      }
+
+      .bw-state-field input::placeholder {
+        color: rgba(246, 244, 240, 0.38);
+      }
+
+      .bw-state-field input:focus,
+      .bw-state-field select:focus {
+        border-color: rgba(var(--pp-gold-rgb), 0.78);
+        background: rgba(15, 31, 45, 0.94);
+        box-shadow: 0 0 0 3px rgba(var(--pp-gold-rgb), 0.1);
+      }
+
+      .bw-state-select::after {
+        content: "";
+        position: absolute;
+        top: 23px;
+        right: 20px;
+        width: 8px;
+        height: 8px;
+        border-right: 1px solid rgba(246, 244, 240, 0.72);
+        border-bottom: 1px solid rgba(246, 244, 240, 0.72);
+        pointer-events: none;
+        transform: rotate(45deg);
+      }
+
+      .bw-state-field select {
+        appearance: none;
+        padding-right: 48px;
+      }
+
+      .bw-state-field option {
+        background: #0f1f2d;
+        color: var(--pp-cream);
+      }
+
+      .bw-state-submit {
+        min-width: 178px;
+        min-height: 58px;
+        padding: 0 26px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 13px;
+        border: 1px solid rgba(246, 244, 240, 0.18);
+        border-radius: 6px;
+        background: linear-gradient(135deg, #f0d99f, var(--pp-prime-gold) 52%, #aa7d32);
+        color: #0f1f2d;
+        font-size: 0.8rem;
+        font-weight: 850;
+        text-transform: uppercase;
+        cursor: pointer;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.36),
+          0 12px 30px rgba(var(--pp-gold-rgb), 0.14);
+        transition:
+          transform 180ms ease,
+          box-shadow 180ms ease,
+          filter 180ms ease;
+      }
+
+      .bw-state-submit:hover,
+      .bw-state-submit:focus-visible {
+        filter: brightness(1.06);
+        transform: translateY(-2px);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.42),
+          0 15px 34px rgba(var(--pp-gold-rgb), 0.22);
+      }
+
+      .bw-state-submit-arrow {
+        width: 11px;
+        height: 11px;
+        border-top: 2px solid currentColor;
+        border-right: 2px solid currentColor;
+        transform: rotate(45deg);
+      }
+
+      .bw-state-note {
+        min-height: 1.4em;
+        margin: 4px 0 0;
+        grid-column: 1 / -1;
+        color: rgba(var(--pp-gold-rgb), 0.84);
+        font-size: 0.82rem;
+        line-height: 1.5;
+        text-align: center;
+      }
+
+      .home-final-panel {
+        position: relative;
+        width: 100%;
+        min-height: clamp(650px, 58vw, 860px);
+        padding: clamp(72px, 8vw, 120px) 0;
+        overflow: hidden;
+        background: linear-gradient(
+          180deg,
+          #152c3e 0%,
+          #152c3e 18%,
+          #0f1f2d 52%,
+          #0f1f2d 78%,
+          #0f1f2d 100%
+        );
+      }
+
+      .home-final-panel::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: min(92%, 1240px);
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(var(--pp-gold-rgb), 0.28) 12%,
+          var(--pp-gold) 50%,
+          rgba(var(--pp-gold-rgb), 0.28) 88%,
+          transparent
+        );
+        box-shadow: 0 0 14px rgba(var(--pp-gold-rgb), 0.2);
+        transform: translateX(-50%);
+      }
+
+      .home-final-panel::after {
+        content: "";
+        position: absolute;
+        top: -4px;
+        left: 50%;
+        width: 9px;
+        height: 9px;
+        background: var(--pp-gold);
+        box-shadow:
+          0 0 0 4px rgba(var(--pp-gold-rgb), 0.08),
+          0 0 16px rgba(var(--pp-gold-rgb), 0.48);
+        transform: translateX(-50%) rotate(45deg);
+      }
+
+      .home-social-follow {
+        position: absolute;
+        top: clamp(38px, 4.8vw, 70px);
+        left: 15%;
+        z-index: 1;
+        padding: 12px clamp(18px, 2vw, 26px);
+        display: inline-flex;
+        align-items: center;
+        gap: clamp(16px, 1.8vw, 24px);
+        color: var(--pp-cream);
+        font-size: clamp(0.78rem, 0.85vw, 0.9rem);
+        font-weight: 700;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .home-social-follow::before,
+      .home-social-follow::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 1px;
+        height: 56px;
+        background: linear-gradient(
+          180deg,
+          transparent,
+          rgba(var(--pp-gold-rgb), 0.32) 18%,
+          rgba(var(--pp-gold-rgb), 0.9) 50%,
+          rgba(var(--pp-gold-rgb), 0.32) 82%,
+          transparent
+        );
+        box-shadow: 0 0 14px rgba(var(--pp-gold-rgb), 0.3);
+        transform: translateY(-50%);
+      }
+
+      .home-social-follow::before {
+        left: 0;
+      }
+
+      .home-social-follow::after {
+        right: 0;
+      }
+
+      .home-social-label {
+        color: rgba(246, 244, 240, 0.88);
+        white-space: nowrap;
+      }
+
+      .home-social-links {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .home-social-links a {
+        width: 38px;
+        height: 38px;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(var(--pp-gold-rgb), 0.42);
+        border-radius: 50%;
+        background: rgba(15, 31, 45, 0.36);
+        color: var(--pp-prime-gold);
+        text-decoration: none;
+        transition:
+          border-color 240ms ease,
+          color 240ms ease,
+          transform 240ms ease,
+          background-color 240ms ease;
+      }
+
+      .home-social-links a:hover,
+      .home-social-links a:focus-visible {
+        border-color: rgba(var(--pp-gold-rgb), 0.82);
+        background: rgba(var(--pp-gold-rgb), 0.1);
+        color: var(--pp-cream);
+        transform: translateY(-2px);
+      }
+
+      .home-social-links svg {
+        display: block;
+        width: 17px;
+        height: 17px;
+        fill: currentColor;
+      }
+
+      .home-social-links svg rect,
+      .home-social-links svg circle {
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.8;
+      }
+
+      .home-legal-container {
+        width: min(90%, 1200px);
+        margin: 0 auto;
+        color: rgba(246, 244, 240, 0.76);
+        font-size: clamp(0.9rem, 1.02vw, 1.04rem);
+        line-height: 1.8;
+        text-align: left;
+        transform: translateY(clamp(42px, 6vh, 58px));
+      }
+
+      .home-legal-container p {
+        margin: 0;
+      }
+
+      .home-legal-container p + p {
+        margin-top: clamp(10px, 1vw, 16px);
+      }
+
+      .home-legal-copyright {
+        color: var(--pp-cream);
+        font-weight: 600;
+      }
+
+      .home-final-logo {
+        position: absolute;
+        top: calc(clamp(38px, 4.8vw, 70px) + 31px);
+        left: calc(15% + 300px + 10vw);
+        width: clamp(230px, 22vw, 330px);
+        height: auto;
+        transform: translateY(-50%);
+      }
+
+      .bw-plan-features {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: flex-start;
+        flex: 1;
+        margin: 0 clamp(24px, 2.8vw, 38px);
+        padding: 8px 0 10px;
+        border-top: 1px solid rgba(var(--pp-gold-rgb), 0.17);
+      }
+
+      .bw-plan-feature-list {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .bw-plan-feature-list li {
+        position: relative;
+        min-height: 42px;
+        padding: 10px 0 10px 34px;
+        border-bottom: 1px solid rgba(246, 244, 240, 0.08);
+        color: rgba(246, 244, 240, 0.82);
+        font-size: clamp(0.82rem, 0.9vw, 0.92rem);
+        font-weight: 600;
+        line-height: 1.45;
+      }
+
+      .bw-plan-feature-list li:last-child {
+        border-bottom: 0;
+      }
+
+      .bw-plan-feature-list li::before {
+        content: "";
+        position: absolute;
+        top: 15px;
+        left: 4px;
+        width: 16px;
+        height: 9px;
+        border-bottom: 2px solid var(--pp-gold);
+        border-left: 2px solid var(--pp-gold);
+        transform: rotate(-45deg);
+      }
+
+      .bw-plan-feature-list li.bw-plan-feature-x::before,
+      .bw-plan-feature-list li.bw-plan-feature-x::after {
+        content: "";
+        position: absolute;
+        top: 19px;
+        left: 3px;
+        width: 18px;
+        height: 2px;
+        border: 0;
+        background: var(--pp-gold);
+        transform: rotate(45deg);
+      }
+
+      .bw-plan-feature-list li.bw-plan-feature-x::after {
+        transform: rotate(-45deg);
+      }
+
+      .bw-plan-feature-list strong {
+        color: var(--pp-gold);
+        font-weight: 800;
+      }
+
+      @keyframes bw-plan-enter {
+        from {
+          opacity: 0;
+          transform: translateY(44px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @supports (animation-timeline: view()) {
+        .bw-membership-plan {
+          animation: bw-plan-enter linear both;
+          animation-timeline: view();
+          animation-range: entry 0% entry 34%;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .bw-state-access {
+          padding-top: 28px;
+          padding-bottom: 88px;
+        }
+
+        .bw-state-title {
+          font-size: clamp(2.1rem, 11vw, 3.25rem);
+        }
+
+        .home-final-panel {
+          min-height: 0;
+          padding: 72px 0 84px;
+        }
+
+        .home-social-follow {
+          position: relative;
+          top: auto;
+          left: auto;
+          width: min(88%, 420px);
+          margin: 0 auto 42px;
+          display: flex;
+          justify-content: center;
+        }
+
+        .home-legal-container {
+          width: min(88%, 620px);
+          font-size: 0.82rem;
+          line-height: 1.68;
+          transform: none;
+        }
+
+        .home-final-logo {
+          position: static;
+          display: block;
+          width: min(78%, 300px);
+          margin: 52px auto 0;
+          transform: none;
+        }
+
+        .bw-memberships {
+          padding: calc(18vh + 28px) var(--pp-page-gutter) 96px;
+        }
+
+        .bw-plan-summary {
+          padding: 32px 26px 22px;
+        }
+
+        .bw-plan-features {
+          margin-inline: 26px;
+          padding-block: 6px;
+        }
+
+        .bw-plan-footer {
+          padding: 22px 26px 34px;
+        }
+
+        .bw-plan-feature-list li {
+          padding-left: 40px;
+          font-size: 0.86rem;
+        }
+
+        .bw-physical-comparison {
+          padding-block: 76px;
+        }
+
+        .bw-physical-comparison-eyebrow {
+          line-height: 1.6;
+        }
+
+        .bw-comparison-table {
+          grid-template-columns: minmax(118px, 0.75fr) repeat(2, minmax(0, 1fr));
+          margin-top: 42px;
+        }
+
+        .bw-comparison-heading,
+        .bw-comparison-label,
+        .bw-comparison-value {
+          padding: 18px 10px;
+          font-size: 0.72rem;
+          line-height: 1.45;
+        }
+
+        .bw-comparison-heading-highlight {
+          font-size: 1rem;
+        }
+
+        .bw-comparison-value {
+          align-items: flex-start;
+          gap: 7px;
+        }
+
+        .bw-comparison-value::before {
+          font-size: 1.05rem;
+        }
+
+        .bw-guidance {
+          padding-bottom: 48px;
+        }
+
+        .bw-guidance-shell {
+          width: 100%;
+          padding: 40px 20px 46px;
+        }
+
+        .bw-consult-options {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+
+        .bw-pathways {
+          padding-top: 36px;
+          padding-bottom: 72px;
+        }
+
+        .bw-pathways-shell {
+          width: 100%;
+          padding: 42px 20px 50px;
+        }
+
+        .bw-path-toggle-inner {
+          display: grid;
+          width: 100%;
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .bw-path-toggle-button {
+          min-width: 0;
+          padding: 0 12px;
+          font-size: 0.7rem;
+        }
+
+        .bw-path-step {
+          grid-template-columns: 42px minmax(0, 1fr);
+        }
+
+        .bw-path-number {
+          width: 38px;
+          height: 38px;
+        }
+
+        .bw-path-step-body {
+          padding-left: 14px;
+        }
+
+        .bw-biomarkers {
+          padding-bottom: 96px;
+        }
+
+        .bw-biomarker-grid {
+          column-count: 1;
+          margin-top: 38px;
+        }
+      }
+
+      @media (min-width: 701px) and (max-width: 980px) {
+        .bw-biomarker-grid {
+          column-count: 2;
+        }
+      }
+
+      @media (min-width: 981px) and (max-width: 1240px) {
+        .bw-biomarker-grid {
+          column-count: 3;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .bw-consult-options {
+          grid-template-columns: minmax(0, 330px);
+        }
+
+        .bw-state-form {
+          width: min(100%, 560px);
+          grid-template-columns: 1fr;
+        }
+
+        .bw-state-submit {
+          width: 100%;
+        }
+
+        .bw-memberships-shell {
+          grid-template-columns: 1fr;
+        }
+
+        .bw-plan-description {
+          min-height: 0;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .bw-membership-plan {
+          animation: none;
+        }
+
+        .bw-membership-plan,
+        .bw-membership-plan::after,
+        .home-social-links a,
+        .bw-path-toggle-button,
+        .bw-path-number,
+        .bw-path-stem-fill,
+        .bw-path-step-title,
+        .bw-biomarker-card {
+          transition: none;
+        }
+      }
+    /* Blood Work V3: continuous ivory treatment matching the finished site pages. */
+    body.blood-work-page,
+    body.blood-work-page main {
+      background: #f7f4ed;
+      color: #0d2235;
+    }
+
+    body.blood-work-page .bw-plan-charge strong {
+      color: #b88f45 !important;
+    }
+
+    body.blood-work-page :is(
+      .bw-memberships,
+      .bw-guidance,
+      .bw-pathways,
+      .bw-biomarkers,
+      .bw-state-access,
+      .home-final-panel
+    ) {
+      background: #f7f4ed;
+      color: #0d2235;
+    }
+
+    body.blood-work-page .bw-memberships {
+      margin-top: 0;
+      padding-top: clamp(72px, 8vw, 118px);
+    }
+
+    body.blood-work-page :is(
+      .bw-membership-plan,
+      .bw-guidance-shell,
+      .bw-consult-options li,
+      .bw-pathways-shell,
+      .bw-path-toggle-inner,
+      .bw-biomarker-card,
+      .bw-state-shell
+    ) {
+      background: linear-gradient(145deg, #fbf9f4 0%, #efe8dc 100%);
+      border-color: rgba(var(--pp-gold-rgb), 0.38);
+      color: #0d2235;
+      box-shadow: 0 20px 48px rgba(13, 34, 53, 0.09);
+    }
+
+    body.blood-work-page .bw-state-shell {
+      box-sizing: border-box;
+      padding: clamp(38px, 5vw, 64px);
+      border: 1px solid rgba(var(--pp-gold-rgb), 0.38);
+      border-radius: 8px;
+    }
+
+    body.blood-work-page .bw-state-title {
+      max-width: 900px;
+      margin-inline: auto;
+      font-size: clamp(2.25rem, 4vw, 3.5rem);
+    }
+
+    .bw-state-coverage {
+      display: grid;
+      grid-template-columns: minmax(210px, 0.75fr) minmax(0, 2fr);
+      align-items: center;
+      gap: clamp(28px, 4vw, 48px);
+      margin-top: clamp(48px, 6vw, 80px);
+      padding: clamp(32px, 4vw, 48px) 0;
+      border-block: 1px solid rgba(var(--pp-gold-rgb), 0.42);
+      text-align: left;
+    }
+
+    body.blood-work-page .bw-state-coverage-title {
+      margin: 0;
+      color: #0d2235;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2rem;
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .bw-state-coverage-lead {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--pp-prime-navy);
+      font-size: 1.15rem;
+      line-height: 1.4;
+    }
+
+    .bw-state-coverage-total {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .bw-state-coverage-number {
+      color: #b88f45;
+      font-size: clamp(5rem, 8vw, 7rem);
+      letter-spacing: -0.06em;
+      line-height: 0.95;
+    }
+
+    .bw-state-list {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 16px 0;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    body.blood-work-page .bw-state-list li {
+      display: grid;
+      min-height: 30px;
+      place-items: center;
+      border-left: 1px solid rgba(var(--pp-gold-rgb), 0.32);
+      color: #0d2235;
+      font-size: 0.82rem;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: 0.06em;
+    }
+
+    body.blood-work-page .bw-state-list li:nth-child(12n + 1) {
+      border-left-color: transparent;
+    }
+
+    .bw-state-list abbr {
+      text-decoration: none;
+    }
+
+    @media (max-width: 900px) {
+      .bw-state-coverage {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .bw-state-heading {
+        justify-self: center;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .bw-state-list {
+        grid-template-columns: repeat(8, minmax(0, 1fr));
+      }
+
+      body.blood-work-page .bw-state-list li:nth-child(12n + 1) {
+        border-left-color: rgba(var(--pp-gold-rgb), 0.32);
+      }
+
+      body.blood-work-page .bw-state-list li:nth-child(8n + 1) {
+        border-left-color: transparent;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .bw-state-coverage {
+        padding-block: 28px;
+      }
+
+      .bw-state-list {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 12px 0;
+      }
+
+      body.blood-work-page .bw-state-list li:nth-child(8n + 1) {
+        border-left-color: rgba(var(--pp-gold-rgb), 0.32);
+      }
+
+      body.blood-work-page .bw-state-list li:nth-child(6n + 1) {
+        border-left-color: transparent;
+      }
+    }
+
+    body.blood-work-page .bw-state-form {
+      width: min(100%, 940px);
+    }
+
+    @media (max-width: 767px) {
+      body.blood-work-page .bw-state-shell {
+        padding: 32px 20px;
+      }
+    }
+
+    body.blood-work-page :is(
+      .bw-membership-plan::before,
+      .bw-membership-plan::after,
+      .bw-guidance::before,
+      .bw-guidance::after,
+      .bw-pathways::before,
+      .bw-pathways::after,
+      .bw-biomarkers::before,
+      .bw-biomarkers::after,
+      .bw-state-access::before,
+      .bw-state-access::after
+    ) {
+      opacity: 0.18;
+    }
+
+    body.blood-work-page main :is(h1, h2, h3, h4, p, li, label, strong):where(:not(.pp-section-kicker)) {
+      color: #0d2235;
+    }
+
+    body.blood-work-page :is(
+      .bw-plan-description,
+      .bw-plan-price-period,
+      .bw-plan-charge,
+      .bw-memberships-note,
+      .bw-guidance-intro,
+      .bw-guidance-copy,
+      .bw-guidance-note,
+      .bw-pathways-lede,
+      .bw-path-description,
+      .bw-path-step-copy,
+      .bw-biomarkers-intro,
+      .bw-biomarker-list,
+      .bw-biomarkers-note,
+      .bw-state-intro
+    ) {
+      color: var(--pp-prime-navy);
+    }
+
+    body.blood-work-page :is(
+      .bw-physical-comparison-eyebrow,
+      .bw-plan-price-amount,
+      .bw-guidance-subtitle,
+      .bw-path-eyebrow,
+      .bw-path-step-number,
+      .bw-biomarker-count
+    ) {
+      color: #b88f45;
+    }
+
+    body.blood-work-page .bw-plan-feature-list li::before,
+    body.blood-work-page .bw-biomarker-list li::before {
+      color: var(--pp-prime-gold);
+      border-color: var(--pp-prime-gold);
+    }
+
+    body.blood-work-page :is(.bw-plan-button, .bw-consult-button) {
+      background: var(--pp-prime-navy);
+      border-color: var(--pp-cta-border-color);
+      color: var(--pp-warm-ivory);
+      box-shadow: var(--pp-cta-shadow);
+    }
+
+    body.blood-work-page .bw-state-submit {
+      background: linear-gradient(135deg, #f0d99f, var(--pp-prime-gold) 56%, #b8893c);
+      border-color: var(--pp-prime-gold);
+      color: #0d2235;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.46), 0 12px 28px rgba(184, 137, 60, 0.2);
+    }
+
+    body.blood-work-page .bw-state-submit:is(:hover, :focus-visible) {
+      background: linear-gradient(135deg, #f6e4b4, #d5b16d 56%, #c09243);
+      border-color: #d5b16d;
+      color: #071522;
+    }
+
+    body.blood-work-page :is(.bw-plan-button, .bw-consult-button):is(:hover, :focus-visible) {
+      background: #203d52;
+      border-color: var(--pp-prime-gold);
+      color: var(--pp-warm-ivory);
+      box-shadow: var(--pp-cta-shadow-hover);
+    }
+
+    body.blood-work-page .bw-path-toggle-button {
+      color: #0d2235;
+    }
+
+    body.blood-work-page .bw-path-toggle-button[aria-pressed="true"] {
+      background: linear-gradient(135deg, #f0d99f, var(--pp-prime-gold) 56%, #b8893c);
+      color: #071522;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.46), 0 10px 24px rgba(184, 137, 60, 0.2);
+    }
+
+    body.blood-work-page .bw-path-toggle-button[aria-pressed="true"]:is(:hover, :focus-visible) {
+      background: linear-gradient(135deg, #f6e4b4, #d5b16d 56%, #c09243);
+      color: #071522;
+    }
+
+    body.blood-work-page .bw-path-number,
+    body.blood-work-page .bw-path-step:hover .bw-path-number {
+      border-color: var(--pp-prime-gold);
+      background: transparent;
+      color: #071522;
+      box-shadow: 0 6px 16px rgba(184, 137, 60, 0.12);
+    }
+
+    body.blood-work-page .bw-path-step-title,
+    body.blood-work-page .bw-path-step:hover .bw-path-step-title {
+      color: #0d2235;
+    }
+
+    body.blood-work-page .bw-state-field :is(input, select) {
+      background: #fffdf8;
+      border-color: rgba(var(--pp-gold-rgb), 0.42);
+      color: #0d2235;
+    }
+
+    body.blood-work-page .bw-state-field option {
+      background: #fffdf8;
+      color: #0d2235;
+    }
+
+    body.blood-work-page .home-final-panel::before {
+      background: linear-gradient(90deg, transparent, rgba(var(--pp-gold-rgb), 0.72), transparent);
+    }
+
+    body.blood-work-page .home-final-panel::after {
+      background: none;
+    }
+
+    body.blood-work-page .home-final-panel {
+      min-height: clamp(650px, 58vw, 860px);
+      padding: clamp(72px, 8vw, 120px) 0;
+      background: #f7f4ed;
+      color: #0d2235;
+    }
+
+    body.blood-work-page .home-social-follow,
+    body.blood-work-page .home-social-label {
+      color: #0d2235;
+    }
+
+    body.blood-work-page .home-social-follow {
+      letter-spacing: 0.08em;
+    }
+
+    body.blood-work-page .home-social-links a {
+      background: transparent;
+      border-color: rgba(var(--pp-gold-rgb), 0.58);
+      color: var(--pp-prime-gold);
+    }
+
+    body.blood-work-page .home-social-links a:hover,
+    body.blood-work-page .home-social-links a:focus-visible {
+      background: rgba(var(--pp-gold-rgb), 0.1);
+      color: #0d2235;
+    }
+
+    body.blood-work-page .home-legal-container {
+      margin: clamp(85px, 8vw, 115px) auto 0;
+      color: #0d2235;
+      font-size: clamp(0.95rem, 1.05vw, 1.08rem);
+      transform: none;
+    }
+
+    body.blood-work-page .home-legal-copyright {
+      color: #0d2235;
+    }
+
+    body.blood-work-page .home-final-logo {
+      top: calc(clamp(38px, 4.8vw, 70px) + 31px);
+      right: 22%;
+      left: auto;
+      width: clamp(180px, 16vw, 240px);
+    }
+
+    @media (max-width: 760px) {
+      body.blood-work-page .bw-memberships {
+        padding-top: 64px;
+      }
+
+      body.blood-work-page .home-final-panel {
+        min-height: 0;
+        padding: 72px 0 84px;
+      }
+
+      body.blood-work-page .home-social-follow {
+        position: relative;
+        top: auto;
+        left: auto;
+        display: flex;
+        justify-content: center;
+        width: min(88%, 420px);
+        margin: 0 auto 36px;
+      }
+
+      body.blood-work-page .home-legal-container {
+        width: min(88%, 620px);
+        margin-top: 0;
+        font-size: 0.82rem;
+        line-height: 1.68;
+      }
+
+      body.blood-work-page .home-final-logo {
+        position: static;
+        display: block;
+        width: min(78%, 300px);
+        margin: 64px auto 0;
+        transform: none;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="blood-work-buttons.css">
+  <link rel="stylesheet" href="css/bloodwork-hero.css?v=28">
+  <link rel="stylesheet" href="css/bloodwork-markers.css?v=10">
+  <link rel="stylesheet" href="css/bloodwork-report-backdrop.css?v=4">
+  <link rel="stylesheet" href="css/bloodwork-difference.css?v=6">
+  <link rel="stylesheet" href="css/bloodwork-guide.css?v=19">
+  <link rel="stylesheet" href="css/bloodwork-pricing.css?v=7">
+  <link rel="stylesheet" href="css/section-headings.css?v=2" />
+</head>
+  <body class="blood-work-page">
+    <header class="site-header" data-site-header-mount aria-label="Primary navigation"></header>
+
+    <main>
+      <!-- Bloodwork uses the shared scroll reveal in script.js and global.css.
+           New sections are discovered automatically; use content-level reveal hooks
+           inside large layouts and keep section backgrounds outside the animation. -->
+      <section class="bw-intro bw-reference" id="top" aria-labelledby="bloodwork-hero-title">
+        <div class="bw-reference-main">
+          <figure class="bw-reference-art" data-pp-reveal="fade" role="img" aria-label="Sunlight travels across a mountain lake above a stone walkway as biomarker cards fade into view." aria-describedby="bloodwork-biomarker-description">
+            <picture aria-hidden="true">
+              <source media="(max-width: 600px)" srcset="assets/bloodwork/bloodwork-lake-journey-mobile.webp">
+              <img class="bw-reference-scenery" src="assets/bloodwork/bloodwork-lake-journey.webp" width="1800" height="874" alt="" fetchpriority="high">
+            </picture>
+            <video class="bw-reference-scenery bw-reference-film" aria-hidden="true" muted loop playsinline preload="none"
+              data-desktop-src="assets/bloodwork/bloodwork-lake-journey.mp4"
+              data-mobile-src="assets/bloodwork/bloodwork-lake-journey-mobile.mp4"></video>
+          </figure>
+          <div class="bw-reference-copy">
+            <h1 class="bw-reference-title" data-pp-reveal id="bloodwork-hero-title"><span>More Clarity</span><span>for What&rsquo;s Ahead</span></h1>
+            <p class="bw-reference-description" data-pp-reveal style="--pp-reveal-delay: 70ms">Your health is more than just a number. Whether you're establishing a baseline, staying on top of your annual checkup, or monitoring your health throughout treatment, our bloodwork panels provide a clearer picture of how your body is functioning, helping you make informed decisions and take a more proactive approach to your long-term health.</p>
+            <ul class="bw-reference-benefits" data-pp-reveal style="--pp-reveal-delay: 140ms" aria-label="Bloodwork benefits">
+              <li><span>100+<br>Biomarkers</span></li>
+              <li><span>Multiple<br>Panel Options</span></li>
+              <li><span>Accessible at<br>Home or In Person</span></li>
+            </ul>
+          </div>
+          <div class="bw-reference-accessible" data-pp-reveal="off" id="bloodwork-biomarker-description">
+            <p>Hormonal Health: Testosterone, Estradiol, SHBG, Thyroid (TSH, T3, T4).</p>
+            <p>Metabolic Health: Glucose (A1C), Insulin, Lipid Panel, Liver Enzymes.</p>
+            <p>Heart Health: ApoB, hsCRP, Lipoprotein(a), Homocysteine.</p>
+            <p>Nutrient Status: Vitamin D, B12, Magnesium, Iron Studies.</p>
+            <p>Inflammation: hsCRP, Fibrinogen, Ferritin, Uric Acid.</p>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="bw-markers" id="what-we-test" aria-labelledby="bloodwork-markers-title">
+        <div class="bw-markers-shell">
+          <header class="bw-markers-heading" data-pp-reveal>
+            <p class="pp-section-kicker">What We Test</p>
+            <h2 class="bw-markers-title" id="bloodwork-markers-title">We Test the <span>Markers that Matter</span></h2>
+            <p class="bw-markers-description"><span class="bw-markers-description-line">Your biomarkers tell a deeper story about what's happening beneath the surface. From hormonal balance</span> <span class="bw-markers-description-line">and metabolic function to cardiovascular health, inflammation, and essential nutrients, our panels</span> <span class="bw-markers-description-line">measure the key indicators that matter most, giving you meaningful insights into your health</span> <span class="bw-markers-description-line">and a better understanding of where to focus your care.</span></p>
+          </header>
+          <div class="bw-markers-layout">
+            <div class="bw-markers-list" data-pp-reveal id="bloodwork-marker-list">
+              <div class="bw-marker-reel" data-marker-reel>
+                <div class="bw-marker-reel-window" id="bloodwork-category-window" data-marker-window>
+                  <ul class="bw-marker-reel-track" data-marker-track aria-label="Bloodwork categories">
+                    <li class="bw-marker-reel-item">Sex Hormones</li>
+                    <li class="bw-marker-reel-item">Metabolic Health</li>
+                    <li class="bw-marker-reel-item">Heart Health</li>
+                    <li class="bw-marker-reel-item">Liver Health</li>
+                    <li class="bw-marker-reel-item">Weight Loss</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="bw-markers-scene" data-pp-reveal>
+              <div class="bw-report-dashboard" role="group" aria-label="Illustrative biomarker dashboard">
+                <div class="bw-report-sidebar" aria-hidden="true">
+                  <span class="bw-report-sidebar-label">My health</span>
+                  <span class="bw-report-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z"/></svg><span>Home</span></span>
+                  <span class="bw-report-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11a8 8 0 0 1-8 8H8l-5 3v-7a8 8 0 1 1 18-4Z"/><path d="M8 9h8M8 13h5"/></svg><span>Chat</span></span>
+                  <span class="bw-report-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="6" width="16" height="15" rx="3"/><path d="M9 6V3h6v3m-3 5v6m-3-3h6"/></svg><span>Treatments</span></span>
+                  <span class="bw-report-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14 3 7 7m-5-5-3 3m5 0-3 3M5 12l7-7 7 7-7 7Zm2 7-4 4m5-12 3 3m0-6 3 3"/></svg><span>Shots</span></span>
+                  <span class="bw-report-nav-item is-selected"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3h8m-7 0v6l-5 9a2 2 0 0 0 2 3h12a2 2 0 0 0 2-3l-5-9V3M7 14h10"/></svg><span>Labs</span></span>
+                  <span class="bw-report-sidebar-footer">Health dashboard</span>
+                </div>
+                <div class="bw-report-workspace">
+                  <div class="bw-report-topbar">
+                    <span class="bw-report-topbar-title">Health overview</span>
+                    <span class="bw-report-sample">Sample report</span>
+                  </div>
+                  <div class="bw-report-content">
+                    <div class="bw-report-summary">
+                      <span class="bw-report-summary-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3h8m-7 0v6l-5 9a2 2 0 0 0 2 3h12a2 2 0 0 0 2-3l-5-9V3M7 14h10"/></svg></span>
+                      <div class="bw-report-summary-copy"><span class="bw-report-summary-title">Latest bloodwork</span><span class="bw-report-summary-detail">Your results, all in one place.</span></div>
+                      <div class="bw-report-total"><strong>6</strong><span>Biomarkers</span></div>
+                    </div>
+                    <div class="bw-report-results-heading"><span>Biomarker results</span><span>Overview</span></div>
+                    <dl class="bw-report-results">
+                      <div class="bw-report-marker">
+                        <dt>HbA1c</dt>
+                        <dd><span class="bw-report-value">5.2</span><span class="bw-report-unit">%</span></dd>
+                        <svg class="bw-report-sparkline" viewBox="0 0 100 30" fill="none" aria-hidden="true"><path class="bw-report-sparkline-baseline" d="M2 27h94"/><path d="M2 8 17 10 32 9 47 15 62 14 77 19 94 18"/><circle cx="94" cy="18" r="2.5"/></svg>
+                      </div>
+                      <div class="bw-report-marker">
+                        <dt>Ferritin</dt>
+                        <dd><span class="bw-report-value">78</span><span class="bw-report-unit">ng/mL</span></dd>
+                        <svg class="bw-report-sparkline" viewBox="0 0 100 30" fill="none" aria-hidden="true"><path class="bw-report-sparkline-baseline" d="M2 27h94"/><path d="M2 22 17 21 32 16 47 18 62 12 77 13 94 9"/><circle cx="94" cy="9" r="2.5"/></svg>
+                      </div>
+                      <div class="bw-report-marker">
+                        <dt>FSH</dt>
+                        <dd><span class="bw-report-value">5.4</span><span class="bw-report-unit">mIU/mL</span></dd>
+                        <svg class="bw-report-sparkline" viewBox="0 0 100 30" fill="none" aria-hidden="true"><path class="bw-report-sparkline-baseline" d="M2 27h94"/><path d="M2 16 17 13 32 17 47 12 62 14 77 11 94 13"/><circle cx="94" cy="13" r="2.5"/></svg>
+                      </div>
+                      <div class="bw-report-marker">
+                        <dt>ApoB</dt>
+                        <dd><span class="bw-report-value">82</span><span class="bw-report-unit">mg/dL</span></dd>
+                        <svg class="bw-report-sparkline" viewBox="0 0 100 30" fill="none" aria-hidden="true"><path class="bw-report-sparkline-baseline" d="M2 27h94"/><path d="M2 7 17 12 32 10 47 16 62 15 77 20 94 18"/><circle cx="94" cy="18" r="2.5"/></svg>
+                      </div>
+                      <div class="bw-report-marker">
+                        <dt>DHEA</dt>
+                        <dd><span class="bw-report-value">240</span><span class="bw-report-unit">ng/dL</span></dd>
+                        <svg class="bw-report-sparkline" viewBox="0 0 100 30" fill="none" aria-hidden="true"><path class="bw-report-sparkline-baseline" d="M2 27h94"/><path d="M2 19 17 16 32 17 47 11 62 12 77 8 94 10"/><circle cx="94" cy="10" r="2.5"/></svg>
+                      </div>
+                      <div class="bw-report-marker">
+                        <dt>IGF-1</dt>
+                        <dd><span class="bw-report-value">164</span><span class="bw-report-unit">ng/mL</span></dd>
+                        <svg class="bw-report-sparkline" viewBox="0 0 100 30" fill="none" aria-hidden="true"><path class="bw-report-sparkline-baseline" d="M2 27h94"/><path d="M2 20 17 17 32 18 47 14 62 15 77 11 94 12"/><circle cx="94" cy="12" r="2.5"/></svg>
+                      </div>
+                    </dl>
+                    <span class="bw-report-note">Sample values shown for illustration.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bw-guide" id="how-it-works" aria-labelledby="bloodwork-guide-title">
+        <div class="bw-guide-shell">
+          <header class="bw-guide-heading">
+            <div data-pp-reveal>
+              <p class="pp-section-kicker">How it works</p>
+              <h2 class="bw-guide-title" id="bloodwork-guide-title">Your Step by Step <span>Guide</span></h2>
+            </div>
+            <div class="bw-guide-intro" data-pp-reveal>
+              <p>Understanding your health shouldn't be complicated, and we believe regular bloodwork is one of the most important steps you can take toward better health.</p>
+              <details class="bw-guide-disclosure">
+                <summary class="bw-guide-read-more">
+                  <span class="bw-guide-read-label">Read more</span>
+                  <span class="bw-guide-close-label">Read less</span>
+                  <span class="bw-guide-read-icon" aria-hidden="true"></span>
+                </summary>
+                <div class="bw-guide-recommendations">
+                  <p>We encourage <strong>establishing a baseline</strong> before starting medication and checking in regularly, often every six months depending on <strong>your individual needs</strong>. It's not just about how you feel, but understanding what's happening inside your body and how your health or treatment may be affecting it.</p>
+                  <p>Being able to <strong>see your progress</strong>, recognize <strong>meaningful changes</strong>, and make <strong>informed decisions</strong> gives you the confidence to take control of your health. We're here to make that process simple, approachable, and worth looking forward to.</p>
+                </div>
+              </details>
+            </div>
+          </header>
+
+          <div class="bw-guide-stack">
+            <article class="bw-guide-step" aria-labelledby="bloodwork-step-one-title">
+              <p class="bw-guide-step-label"><span>Step 1</span><i aria-hidden="true"></i><span>Schedule your tests</span></p>
+              <div class="bw-guide-step-copy" data-pp-reveal>
+                <h3 class="bw-guide-step-title" id="bloodwork-step-one-title">Start with your <span>baseline.</span></h3>
+                <p class="bw-guide-step-description">Choose the bloodwork panel that fits your needs. With options ranging from Basic to Comprehensive. Testing is available at Quest or at home, giving you the flexibility to select the setting that works best for you.</p>
+                <div class="bw-guide-panels">
+                  <details class="bw-guide-panel" name="bloodwork-panel-information">
+                    <summary><span>Basic Panel</span><span class="bw-guide-panel-icon" aria-hidden="true"></span></summary>
+                    <div class="bw-guide-panel-content">
+                      <p>Designed for routine health check-ins, with a focus on blood health, heart health, liver and kidney function, thyroid activity, blood sugar, and selected hormones. A starting point for establishing your baseline and tracking changes over time.</p>
+                    </div>
+                  </details>
+                  <details class="bw-guide-panel" name="bloodwork-panel-information">
+                    <summary><span class="bw-guide-panel-heading"><span>Advanced Panel</span><span class="bw-guide-panel-badge">Recommended</span></span><span class="bw-guide-panel-icon" aria-hidden="true"></span></summary>
+                    <div class="bw-guide-panel-content">
+                      <p>Includes everything in the Basic Panel, plus a deeper look at heart health, blood sugar regulation, hormone function, inflammation, and nutrient levels. Designed for those who want a more detailed understanding of how their body is functioning.</p>
+                    </div>
+                  </details>
+                  <details class="bw-guide-panel" name="bloodwork-panel-information">
+                    <summary><span>Comprehensive Panel</span><span class="bw-guide-panel-icon" aria-hidden="true"></span></summary>
+                    <div class="bw-guide-panel-content">
+                      <p>Our broadest blood work package yet, the Comprehensive Panel includes everything in the Advanced Panel, plus more detailed testing of liver and kidney function and nutritional balance. It offers a broader view of your body's key systems and how they are functioning.</p>
+                    </div>
+                  </details>
+                </div>
+              </div>
+
+              <figure class="bw-guide-art" role="img" aria-label="100+ biomarkers available across panel options. Your baseline: a starting point for understanding changes over time." data-pp-reveal="fade">
+                <div class="bw-guide-art-canvas" aria-hidden="true">
+                  <svg class="bw-guide-art-waves" viewBox="0 0 720 600" preserveAspectRatio="xMidYMid slice" fill="none">
+                    <defs>
+                      <linearGradient id="bw-guide-navy" x1="20" y1="20" x2="680" y2="600" gradientUnits="userSpaceOnUse"><stop stop-color="#244457"/><stop offset="0.5" stop-color="#102633"/><stop offset="1" stop-color="#0b1b26"/></linearGradient>
+                      <linearGradient id="bw-guide-ribbon" x1="90" y1="50" x2="640" y2="570" gradientUnits="userSpaceOnUse"><stop stop-color="#a78d5b" stop-opacity="0.08"/><stop offset="0.48" stop-color="var(--pp-prime-gold)" stop-opacity="0.58"/><stop offset="1" stop-color="var(--pp-prime-gold)" stop-opacity="0.03"/></linearGradient>
+                      <linearGradient id="bw-guide-blue" x1="720" y1="30" x2="120" y2="550" gradientUnits="userSpaceOnUse"><stop stop-color="#7f9cab" stop-opacity="0.45"/><stop offset="1" stop-color="#345367" stop-opacity="0.03"/></linearGradient>
+                    </defs>
+                    <g id="bw-guide-wave-motif">
+                    <path fill="url(#bw-guide-navy)" d="M0 0h720v600H0z"/>
+                    <path fill="url(#bw-guide-blue)" d="M320-60h450v135C503 117 507 374 264 479 153 527 66 532-50 660V483c200-166 295-143 358-306C340 94 327 26 320-60Z"/>
+                    <path fill="url(#bw-guide-ribbon)" d="M688-60h111C652 86 658 257 507 350 320 466 160 388-55 651V522c169-198 369-173 503-287C554 144 588 24 688-60Z"/>
+                    <g stroke="#d9bd86" stroke-opacity="0.25" stroke-width="1">
+                      <path d="M758-35C589 119 643 229 472 332S136 428-28 626"/>
+                      <path d="M781-27C612 128 666 238 495 341S159 437-5 635"/>
+                      <path d="M804-19C635 137 689 247 518 350S182 446 18 644"/>
+                      <path d="M827-11C658 146 712 256 541 359S205 455 41 653"/>
+                    </g>
+                    <path d="M-40 239C104 217 152 119 250-40" stroke="#a2bbc7" stroke-opacity="0.14"/>
+                    <path d="M-40 259C124 237 172 139 270-40" stroke="#a2bbc7" stroke-opacity="0.1"/>
+                    </g>
+                  </svg>
+                  <span class="bw-guide-art-label">A clearer starting point</span>
+                  <div class="bw-guide-stat">
+                    <span class="bw-guide-stat-number">100+</span>
+                    <span class="bw-guide-stat-name">Biomarkers</span>
+                    <span class="bw-guide-stat-detail">Across our panel options</span>
+                  </div>
+                  <div class="bw-guide-baseline">
+                    <span class="bw-guide-baseline-line"></span>
+                    <span class="bw-guide-baseline-point"></span>
+                    <span class="bw-guide-baseline-title">Your baseline</span>
+                    <span class="bw-guide-baseline-caption">The beginning of your health story</span>
+                  </div>
+                </div>
+              </figure>
+              <a class="button bw-guide-cta" href="#bloodwork-pricing">
+                Start Now <span class="bw-guide-cta-arrow" aria-hidden="true">&rarr;</span>
+              </a>
+            </article>
+
+            <article class="bw-guide-step bw-guide-step--insights" id="get-insights" aria-labelledby="bloodwork-step-two-title">
+              <p class="bw-guide-step-label"><span>Step 2</span><i aria-hidden="true"></i><span>Get Insights</span></p>
+              <div class="bw-guide-step-copy" data-pp-reveal>
+                <h3 class="bw-guide-step-title" id="bloodwork-step-two-title">Review your <span>Results</span></h3>
+                <p class="bw-guide-step-description">Bring your results into focus. Explore the areas of your health covered by your panel, understand your starting point, and use your findings to guide a conversation with your provider.</p>
+                <ul class="bw-insights-benefits">
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 2.5 2.5L16 9"/></svg><span>Review results across key areas of your health</span></li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 2.5 2.5L16 9"/></svg><span>Prepare and review questions with your provider</span></li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 2.5 2.5L16 9"/></svg><span>Discuss medication options based on your results.</span></li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 2.5 2.5L16 9"/></svg><span>Review current medications and whether dosage adjustments may be appropriate.</span></li>
+                </ul>
+              </div>
+
+              <figure class="bw-guide-art bw-insights-art" role="img" aria-label="Illustrative biomarker report with an overview of heart health, metabolic health, hormones, thyroid, liver and kidneys, and nutrient status." data-pp-reveal="fade">
+                <div class="bw-insights-canvas" aria-hidden="true">
+                  <svg class="bw-insights-waves" viewBox="0 0 720 600" preserveAspectRatio="xMidYMid slice" fill="none">
+                    <defs>
+                      <linearGradient id="bw-insights-navy" x1="0" y1="0" x2="720" y2="600" gradientUnits="userSpaceOnUse"><stop stop-color="#294b5c"/><stop offset="0.55" stop-color="#142e3c"/><stop offset="1" stop-color="#0a1b26"/></linearGradient>
+                      <linearGradient id="bw-insights-gold" x1="90" y1="0" x2="570" y2="600" gradientUnits="userSpaceOnUse"><stop stop-color="#d3b780" stop-opacity="0.65"/><stop offset="0.5" stop-color="#a98d55" stop-opacity="0.3"/><stop offset="1" stop-color="#b89b63" stop-opacity="0.05"/></linearGradient>
+                      <linearGradient id="bw-insights-blue" x1="600" y1="0" x2="140" y2="600" gradientUnits="userSpaceOnUse"><stop stop-color="#9eb3ba" stop-opacity="0.28"/><stop offset="1" stop-color="#56798a" stop-opacity="0.03"/></linearGradient>
+                    </defs>
+                    <path fill="url(#bw-insights-navy)" d="M0 0h720v600H0z"/>
+                    <path fill="url(#bw-insights-gold)" d="M-90 360C101 242 227 179 340-70h133C359 231 142 338-90 511V360Z"/>
+                    <path fill="url(#bw-insights-blue)" d="M790-90H558C550 211 309 296 164 390 76 449 19 519-66 657H91C193 499 333 458 472 348 629 224 674 93 790-90Z"/>
+                    <g stroke="#d9bd86" stroke-opacity="0.2" stroke-width="1">
+                      <path d="M-40 433C130 282 293 242 409-35"/>
+                      <path d="M-40 456C153 306 316 266 432-11"/>
+                      <path d="M112 650C236 439 484 470 656 159S795-40 795-40"/>
+                      <path d="M139 664C263 453 511 484 683 173S822-26 822-26"/>
+                    </g>
+                  </svg>
+                  <span class="bw-insights-art-label">Your health, in focus</span>
+                  <div class="bw-insights-report">
+                    <span class="bw-insights-report-title">Health overview</span>
+                    <div class="bw-insights-report-rows">
+                      <div class="bw-insights-report-row">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+                        <span>Heart health</span>
+                        <span class="bw-insights-report-line"></span>
+                      </div>
+                      <div class="bw-insights-report-row">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-8 12h6l-1 8 9-12h-6l1-8Z"/></svg>
+                        <span>Metabolic health</span>
+                        <span class="bw-insights-report-line"></span>
+                      </div>
+                      <div class="bw-insights-report-row">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="m7 7 3 3m4 4 3 3m0-10-3 3m-4 4-3 3"/></svg>
+                        <span>Hormones</span>
+                        <span class="bw-insights-report-line"></span>
+                      </div>
+                      <div class="bw-insights-report-row">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8C7 2 3 6 4 12c1 6 5 8 8 3 3 5 7 3 8-3 1-6-3-10-8-4Z"/><path d="M12 8v7"/></svg>
+                        <span>Thyroid</span>
+                        <span class="bw-insights-report-line"></span>
+                      </div>
+                      <div class="bw-insights-report-row">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7C8 2 3 5 3 11s5 10 9 5V7Zm0 0c4-5 9-2 9 4s-5 10-9 5"/></svg>
+                        <span>Liver &amp; kidneys</span>
+                        <span class="bw-insights-report-line"></span>
+                      </div>
+                      <div class="bw-insights-report-row">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 3C9 2 3 7 4 14c1 7 11 7 14 1 2-4 2-8 2-12Z"/><path d="M3 22 16 8"/></svg>
+                        <span>Nutrient status</span>
+                        <span class="bw-insights-report-line"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bw-insights-results">
+                    <span class="bw-insights-results-label">Biomarkers</span>
+                    <div class="bw-insights-ring">
+                      <svg viewBox="0 0 200 200" fill="none"><circle cx="100" cy="100" r="87" stroke="#f2e4c7" stroke-opacity="0.16" stroke-width="5"/><path d="M56.5 175.34a87 87 0 1 1 108.15-17.1" stroke="#d7b779" stroke-width="6" stroke-linecap="round"/></svg>
+                      <span>Your<br>results</span>
+                    </div>
+                    <span class="bw-insights-results-caption">A clearer picture</span>
+                    <span class="bw-insights-results-rule"></span>
+                  </div>
+                  <span class="bw-insights-art-note">Illustrative report</span>
+                </div>
+              </figure>
+              <a class="button bw-guide-cta" href="#bloodwork-pricing">
+                Start Now <span class="bw-guide-cta-arrow" aria-hidden="true">&rarr;</span>
+              </a>
+            </article>
+
+            <article class="bw-guide-step bw-guide-step--progress" id="track-your-progress" aria-labelledby="bloodwork-step-three-title">
+              <p class="bw-guide-step-label"><span>Step 3</span><i aria-hidden="true"></i><span>Continuing Action</span></p>
+              <div class="bw-guide-step-copy" data-pp-reveal>
+                <h3 class="bw-guide-step-title" id="bloodwork-step-three-title">Track your <span>Progress</span></h3>
+                <p class="bw-guide-step-description">You're making progress! Repeat your bloodwork every six months to follow your body&rsquo;s changes, see trends over time, and track your achievements.</p>
+                <ul class="bw-insights-benefits">
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 2.5 2.5L16 9"/></svg><span>Compare results with your baseline over time</span></li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 2.5 2.5L16 9"/></svg><span>Reassess which medications remain appropriate as your health and goals evolve.</span></li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 2.5 2.5L16 9"/></svg><span>Continue to take steps to feel your absolute best</span></li>
+                </ul>
+              </div>
+
+              <figure class="bw-guide-art bw-progress-art" role="img" aria-label="An illustrative progress timeline from your baseline to a six-month check-in and ongoing tracking." data-pp-reveal="fade">
+                <div class="bw-progress-canvas" aria-hidden="true">
+                  <svg class="bw-progress-waves" viewBox="0 0 720 600" preserveAspectRatio="xMidYMid slice" fill="none">
+                    <defs>
+                      <linearGradient id="bw-progress-navy" x1="0" y1="0" x2="680" y2="600" gradientUnits="userSpaceOnUse"><stop stop-color="#2b4a59"/><stop offset="0.55" stop-color="#142e3d"/><stop offset="1" stop-color="#0b1b26"/></linearGradient>
+                      <linearGradient id="bw-progress-gold" x1="100" y1="600" x2="650" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#bda16b" stop-opacity="0.08"/><stop offset="0.5" stop-color="#cbb17c" stop-opacity="0.5"/><stop offset="1" stop-color="#e0cca5" stop-opacity="0.18"/></linearGradient>
+                      <linearGradient id="bw-progress-blue" x1="0" y1="600" x2="720" y2="100" gradientUnits="userSpaceOnUse"><stop stop-color="#577e92" stop-opacity="0.06"/><stop offset="1" stop-color="#9ab2bb" stop-opacity="0.32"/></linearGradient>
+                    </defs>
+                    <path fill="url(#bw-progress-navy)" d="M0 0h720v600H0z"/>
+                    <path fill="url(#bw-progress-blue)" d="M-80 630C109 369 351 453 486 154L594-70h196C614 166 623 313 365 424 177 505 111 582 69 670Z"/>
+                    <path fill="url(#bw-progress-gold)" d="M-70 553C118 337 301 397 431 208 511 91 523 18 570-70h119C565 116 589 270 356 370 147 459 83 537-70 690Z"/>
+                    <g stroke="#ddc797" stroke-opacity="0.2">
+                      <path d="M-30 548C125 365 322 430 468 212 525 128 560 35 606-35"/>
+                      <path d="M-18 569C137 386 334 451 480 233 537 149 572 56 618-14"/>
+                      <path d="M-6 590C149 407 346 472 492 254 549 170 584 77 630 7"/>
+                    </g>
+                    <path d="M80 382C190 270 270 410 360 334S540 342 640 212" stroke="#f4ead7" stroke-opacity="0.7" stroke-width="2.5" stroke-linecap="round"/>
+                    <g fill="#e5cf9f" fill-opacity="0.1" stroke="#e5cf9f" stroke-opacity="0.7">
+                      <circle cx="80" cy="382" r="18"/><circle cx="640" cy="212" r="18"/>
+                    </g>
+                    <g fill="#f7f4ed"><circle cx="80" cy="382" r="6"/><circle cx="640" cy="212" r="6"/></g>
+                  </svg>
+                  <span class="bw-progress-art-label">A longer view of your health</span>
+                  <div class="bw-progress-stat">
+                    <span class="bw-progress-number">6</span>
+                    <span class="bw-progress-unit">Months</span>
+                    <span class="bw-progress-detail">Your next check-in</span>
+                  </div>
+                  <div class="bw-progress-timeline">
+                    <span>Baseline</span>
+                    <span class="bw-progress-current">Month 6</span>
+                    <span>Over time</span>
+                  </div>
+                  <span class="bw-progress-art-note">Illustrative timeline</span>
+                </div>
+              </figure>
+              <a class="button bw-guide-cta" href="#bloodwork-pricing">
+                Start Now <span class="bw-guide-cta-arrow" aria-hidden="true">&rarr;</span>
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="bw-pricing" id="bloodwork-pricing" aria-labelledby="bloodwork-pricing-title" data-bloodwork-pricing>
+        <div class="bw-pricing-shell">
+          <header class="bw-pricing-heading" data-pp-reveal>
+            <h2 class="bw-pricing-title" id="bloodwork-pricing-title">Panels and Pricing</h2>
+            <p class="bw-pricing-intro">Explore bloodwork panels and Tasso at-home kits in one place.</p>
+          </header>
+          <div class="bw-pricing-selector" data-pp-reveal="fade">
+            <div class="bw-pricing-formats" role="group" aria-label="Testing format">
+              <button class="bw-pricing-format" type="button" data-bw-format="men" aria-pressed="true" aria-controls="bloodwork-pricing-lab">Men&rsquo;s Lab &amp; Mobile Panels</button>
+              <button class="bw-pricing-format" type="button" data-bw-format="women" aria-pressed="false" aria-controls="bloodwork-pricing-lab">Women&rsquo;s Lab &amp; Mobile Panels</button>
+              <button class="bw-pricing-format" type="button" data-bw-format="tasso" aria-pressed="false" aria-controls="bloodwork-pricing-tasso">At-Home Bloodwork</button>
+            </div>
+            <div class="bw-pricing-studio" id="bloodwork-pricing-lab" data-bw-format-panel="lab" role="region" aria-label="Men&rsquo;s Lab &amp; Mobile Panels">
+              <div class="bw-pricing-tiers" role="group" aria-label="Choose a bloodwork panel">
+                <button class="bw-pricing-tier" type="button" data-bw-tier="basic" aria-pressed="false" aria-controls="bloodwork-pricing-basic">Basic</button>
+                <button class="bw-pricing-tier" type="button" data-bw-tier="advanced" aria-pressed="true" aria-controls="bloodwork-pricing-advanced">Advanced<small>Recommended</small></button>
+                <button class="bw-pricing-tier" type="button" data-bw-tier="comprehensive" aria-pressed="false" aria-controls="bloodwork-pricing-comprehensive">Comprehensive</button>
+              </div>
+              <article class="bw-pricing-offer" id="bloodwork-pricing-basic" aria-labelledby="bloodwork-basic-title" data-bw-offer="basic" data-name="Basic Panel" data-quest="149" data-women-quest="159" data-mobile="229" hidden>
+                <div class="bw-pricing-copy">
+                  <p class="bw-pricing-eyebrow">Your starting point</p>
+                  <h3 id="bloodwork-basic-title"><span data-bw-audience>Men&rsquo;s</span> Basic <span>Panel</span></h3>
+                  <p class="bw-pricing-description">Routine check-ins across key areas of your health, from blood sugar and heart health to liver, kidney, and thyroid function.</p>
+                  <div class="bw-pricing-included">
+                    <h4 id="bloodwork-basic-included">Included tests &amp; markers</h4>
+                    <ul class="bw-pricing-marker-list" aria-labelledby="bloodwork-basic-included">
+                      <li>Hemoglobin</li>
+                      <li>Hematocrit</li>
+                      <li>Testosterone Free and Total</li>
+                      <li>PSA</li>
+                      <li>CBC/Differential</li>
+                      <li>CMP</li>
+                      <li>Standard Lipid Panel</li>
+                      <li>HbA1c</li>
+                      <li>TSH</li>
+                      <li data-bw-marker-audience="women" hidden>Estrogen</li>
+                      <li data-bw-marker-audience="women" hidden>Progesterone</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="bw-pricing-purchase">
+                  <p class="bw-pricing-eyebrow">Bloodwork, your way</p>
+                  <h4 class="bw-pricing-purchase-title">Your next step<br /><span>starts here.</span></h4>
+                  <p class="bw-pricing-purchase-intro">Choose the location you want to use for your blood draw</p>
+                  <div class="bw-pricing-payment-row">
+                    <div class="bw-pricing-payments">
+                      <p class="bw-pricing-payment-label">Payment options</p>
+                      <div class="bw-pricing-payment-logos" role="group" aria-label="Payment options">
+                        <img src="assets/payment-providers/affirm.png" alt="Affirm" width="429" height="171" loading="lazy" />
+                        <img src="assets/payment-providers/klarna.svg" alt="Klarna" width="1448" height="609" loading="lazy" />
+                        <img src="assets/payment-providers/afterpay.svg" alt="Afterpay" width="395" height="136" loading="lazy" />
+                      </div>
+                    </div>
+                    <p class="bw-pricing-price" aria-live="polite" aria-atomic="true"><strong data-bw-price>$149</strong><span>per panel</span></p>
+                  </div>
+                  <div class="bw-pricing-field">
+                    <label for="bloodwork-basic-collection">Choose your collection option</label>
+                    <div class="bw-pricing-select-wrap"><select id="bloodwork-basic-collection" name="basic-collection" data-bw-collection><option value="quest">Quest</option><option value="mobile">Mobile Phlebotomy</option></select></div>
+                  </div>
+                  <p class="bw-pricing-method-note" data-bw-method-note>Collection at a Quest location.</p>
+                  <ul class="bw-pricing-purchase-benefits">
+                    <li><span class="bw-pricing-check" aria-hidden="true">&check;</span><span><strong>Flexible collection:</strong> Choose Quest or mobile phlebotomy.</span></li>
+                    <li><span class="bw-pricing-check" aria-hidden="true">&check;</span><span><strong>Clear panel details:</strong> Explore the included tests and markers.</span></li>
+                    <li><span class="bw-pricing-check" aria-hidden="true">&check;</span><span><strong>Informed next steps:</strong> Review your results and questions with your provider.</span></li>
+                  </ul>
+                  <button class="bw-pricing-cta" type="button" data-bw-choose disabled><span>Choose Basic</span><span aria-hidden="true">&rarr;</span></button>
+                </div>
+              </article>
+              <article class="bw-pricing-offer" id="bloodwork-pricing-advanced" aria-labelledby="bloodwork-advanced-title" data-bw-offer="advanced" data-name="Advanced Panel" data-quest="299" data-mobile="389">
+                <div class="bw-pricing-copy">
+                  <p class="bw-pricing-eyebrow">A deeper understanding</p>
+                  <h3 id="bloodwork-advanced-title"><span data-bw-audience>Men&rsquo;s</span> Advanced <span>Panel</span></h3>
+                  <p class="bw-pricing-description">Everything in Basic, plus a closer look at heart health, blood sugar regulation, hormones, inflammation, and nutrients.</p>
+                  <div class="bw-pricing-included">
+                    <h4 id="bloodwork-advanced-included">Included tests &amp; markers</h4>
+                    <ul class="bw-pricing-marker-list" aria-labelledby="bloodwork-advanced-included">
+                      <li>Advanced Lipid Panel</li>
+                      <li>Hemoglobin A1c with eAG</li>
+                      <li>Homocysteine</li>
+                      <li>Testosterone Free and Total</li>
+                      <li>TSH</li>
+                      <li>DHEA-S</li>
+                      <li>Insulin</li>
+                      <li>Ferritin</li>
+                      <li>hsCRP</li>
+                      <li>CBC/Differential</li>
+                      <li>CMP</li>
+                      <li>SHBG + Albumin</li>
+                      <li>Estradiol</li>
+                      <li>LH</li>
+                      <li>FSH</li>
+                      <li>Prolactin</li>
+                      <li>PSA</li>
+                      <li>Vitamin D</li>
+                      <li>B12</li>
+                      <li>ApoB + Lp(a)</li>
+                      <li>IGF-1</li>
+                      <li data-bw-marker-audience="women" hidden>Estrogen</li>
+                      <li data-bw-marker-audience="women" hidden>Progesterone</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="bw-pricing-purchase">
+                  <p class="bw-pricing-eyebrow">Bloodwork, your way</p>
+                  <h4 class="bw-pricing-purchase-title">Your next step<br /><span>starts here.</span></h4>
+                  <p class="bw-pricing-purchase-intro">Choose the location you want to use for your blood draw</p>
+                  <div class="bw-pricing-payment-row">
+                    <div class="bw-pricing-payments">
+                      <p class="bw-pricing-payment-label">Payment options</p>
+                      <div class="bw-pricing-payment-logos" role="group" aria-label="Payment options">
+                        <img src="assets/payment-providers/affirm.png" alt="Affirm" width="429" height="171" loading="lazy" />
+                        <img src="assets/payment-providers/klarna.svg" alt="Klarna" width="1448" height="609" loading="lazy" />
+                        <img src="assets/payment-providers/afterpay.svg" alt="Afterpay" width="395" height="136" loading="lazy" />
+                      </div>
+                    </div>
+                    <p class="bw-pricing-price" aria-live="polite" aria-atomic="true"><strong data-bw-price>$299</strong><span>per panel</span></p>
+                  </div>
+                  <div class="bw-pricing-field">
+                    <label for="bloodwork-advanced-collection">Choose your collection option</label>
+                    <div class="bw-pricing-select-wrap"><select id="bloodwork-advanced-collection" name="advanced-collection" data-bw-collection><option value="quest">Quest</option><option value="mobile">Mobile Phlebotomy</option></select></div>
+                  </div>
+                  <p class="bw-pricing-method-note" data-bw-method-note>Collection at a Quest location.</p>
+                  <ul class="bw-pricing-purchase-benefits">
+                    <li><span class="bw-pricing-check" aria-hidden="true">&check;</span><span><strong>Flexible collection:</strong> Choose Quest or mobile phlebotomy.</span></li>
+                    <li><span class="bw-pricing-check" aria-hidden="true">&check;</span><span><strong>Clear panel details:</strong> Explore the included tests and markers.</span></li>
+                    <li><span class="bw-pricing-check" aria-hidden="true">&check;</span><span><strong>Informed next steps:</strong> Review your results and questions with your provider.</span></li>
+                  </ul>
+                  <button class="bw-pricing-cta" type="button" data-bw-choose disabled><span>Choose Advanced</span><span aria-hidden="true">&rarr;</span></button>
+                </div>
+              </article>
+              <article class="bw-pricing-offer" id="bloodwork-pricing-comprehensive" aria-labelledby="bloodwork-comprehensive-title" data-bw-offer="comprehensive" data-name="Comprehensive Panel" data-quest="379" data-mobile="459" hidden>
+                <div class="bw-pricing-copy">
+                  <p class="bw-pricing-eyebrow">Our broadest view</p>
+                  <h3 id="bloodwork-comprehensive-title"><span data-bw-audience>Men&rsquo;s</span> Comprehensive <span>Panel</span></h3>
+                  <p class="bw-pricing-description">Everything in Advanced, with more detail on liver and kidney function and nutritional balance.</p>
+                  <div class="bw-pricing-included">
+                    <h4 id="bloodwork-comprehensive-included">Included tests &amp; markers</h4>
+                    <ul class="bw-pricing-marker-list" aria-labelledby="bloodwork-comprehensive-included">
+                      <li>Advanced Lipid Panel</li>
+                      <li>Hemoglobin A1c with eAG</li>
+                      <li>Homocysteine</li>
+                      <li>Testosterone Free and Total</li>
+                      <li>TSH</li>
+                      <li>DHEA-S</li>
+                      <li>Insulin</li>
+                      <li>Ferritin</li>
+                      <li>hsCRP</li>
+                      <li>CBC/Differential</li>
+                      <li>CMP</li>
+                      <li>SHBG + Albumin</li>
+                      <li>Estradiol</li>
+                      <li>LH</li>
+                      <li>FSH</li>
+                      <li>Prolactin</li>
+                      <li>PSA</li>
+                      <li>Vitamin D</li>
+                      <li>B12 + Folate</li>
+                      <li>ApoB + Lp(a)</li>
+                      <li>IGF-1</li>
+                      <li>Full Iron Studies</li>
+                      <li>GGT</li>
+                      <li>Omega Check</li>
+                      <li>Cystatin C with eGFR</li>
+                      <li data-bw-marker-audience="women" hidden>Estrogen</li>
+                      <li data-bw-marker-audience="women" hidden>Progesterone</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="bw-pricing-purchase">
+                  <p class="bw-pricing-eyebrow">Bloodwork, your way</p>
+                  <h4 class="bw-pricing-purchase-title">Your next step<br /><span>starts here.</span></h4>
+                  <p class="bw-pricing-purchase-intro">Choose the location you want to use for your blood draw</p>
+                  <div class="bw-pricing-payment-row">
+                    <div class="bw-pricing-payments">
+                      <p class="bw-pricing-payment-label">Payment options</p>
+                      <div class="bw-pricing-payment-logos" role="group" aria-label="Payment options">
+                        <img src="assets/payment-providers/affirm.png" alt="Affirm" width="429" height="171" loading="lazy" />
+                        <img src="assets/payment-providers/klarna.svg" alt="Klarna" width="1448" height="609" loading="lazy" />
+                        <img src="assets/payment-providers/afterpay.svg" alt="Afterpay" width="395" height="136" loading="lazy" />
+                      </div>
+                    </div>
+                    <p class="bw-pricing-price" aria-live="polite" aria-atomic="true"><strong data-bw-price>$379</strong><span>per panel</span></p>
+                  </div>
+                  <div class="bw-pricing-field">
+                    <label for="bloodwork-comprehensive-collection">Choose your collection option</label>
+                    <div class="bw-pricing-select-wrap"><select id="bloodwork-comprehensive-collection" name="comprehensive-collection" data-bw-collection><option value="quest">Quest</option><option value="mobile">Mobile Phlebotomy</option></select></div>
+                  </div>
+                  <p class="bw-pricing-method-note" data-bw-method-note>Collection at a Quest location.</p>
+                  <ul class="bw-pricing-purchase-benefits">
+                    <li><span class="bw-pricing-check" aria-hidden="true">&check;</span><span><strong>Flexible collection:</strong> Choose Quest or mobile phlebotomy.</span></li>
+                    <li><span class="bw-pricing-check" aria-hidden="true">&check;</span><span><strong>Clear panel details:</strong> Explore the included tests and markers.</span></li>
+                    <li><span class="bw-pricing-check" aria-hidden="true">&check;</span><span><strong>Informed next steps:</strong> Review your results and questions with your provider.</span></li>
+                  </ul>
+                  <button class="bw-pricing-cta" type="button" data-bw-choose disabled><span>Choose Comprehensive</span><span aria-hidden="true">&rarr;</span></button>
+                </div>
+              </article>
+            </div>
+            <div class="bw-pricing-studio" id="bloodwork-pricing-tasso" data-bw-format-panel="tasso" hidden>
+              <div class="bw-pricing-kit">
+                <div class="bw-pricing-copy">
+                  <p class="bw-pricing-eyebrow">At-home collection</p>
+                  <h3>Tasso<br /><span>at-home kits</span></h3>
+                  <p class="bw-pricing-description">Explore kit options and choose based on the tests included.</p>
+                </div>
+                <div class="bw-pricing-purchase bw-pricing-kit-details">
+                  <div><span class="bw-pricing-coming-soon">Details coming soon</span></div>
+                  <h4>Explore at-home testing</h4>
+                  <p>Kit options, included tests, and pricing are coming soon.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bw-difference" id="why-were-different" aria-labelledby="bloodwork-difference-title">
+        <div class="bw-difference-shell">
+          <header class="bw-difference-heading" data-pp-reveal>
+            <p class="pp-section-kicker">Why We&rsquo;re Different</p>
+            <h2 class="bw-difference-title" id="bloodwork-difference-title">Not Your Average <span>Checkup</span></h2>
+          </header>
+          <div class="bw-difference-comparison" data-pp-reveal="fade">
+            <table class="bw-difference-table" aria-describedby="bloodwork-difference-note">
+              <caption class="bw-difference-sr-only">Prime Point Health bloodwork and standard checkup testing options</caption>
+              <colgroup>
+                <col class="bw-difference-feature-col">
+                <col class="bw-difference-provider-col">
+                <col class="bw-difference-provider-col">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col"><span class="bw-difference-sr-only">Care and testing</span></th>
+                  <th scope="col"><span class="bw-difference-brand"><span class="bw-difference-brand-mark" aria-hidden="true"><img src="assets/brand/Logo V2.png" alt="" width="1536" height="1024" loading="lazy" decoding="async"></span><span class="bw-difference-brand-name">Prime Point Health</span></span></th>
+                  <th scope="col">Standard checkup</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Lab testing on your schedule</th>
+                  <td><span class="bw-difference-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 12 4 4 8-8"/></svg></span><span class="bw-difference-sr-only">Available</span></td>
+                  <td class="bw-difference-standard"><span class="bw-difference-cross" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6.5 6.5 11 11m0-11-11 11"/></svg></span><span class="bw-difference-sr-only">Varies by provider</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Personalized action plan</th>
+                  <td><span class="bw-difference-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 12 4 4 8-8"/></svg></span><span class="bw-difference-sr-only">Available</span></td>
+                  <td class="bw-difference-standard"><span class="bw-difference-cross" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6.5 6.5 11 11m0-11-11 11"/></svg></span><span class="bw-difference-sr-only">Varies by provider</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Upload past results</th>
+                  <td><span class="bw-difference-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 12 4 4 8-8"/></svg></span><span class="bw-difference-sr-only">Available</span></td>
+                  <td class="bw-difference-standard"><span class="bw-difference-cross" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6.5 6.5 11 11m0-11-11 11"/></svg></span><span class="bw-difference-sr-only">Varies by practice</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">No insurance needed</th>
+                  <td><span class="bw-difference-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 12 4 4 8-8"/></svg></span><span class="bw-difference-sr-only">Available</span></td>
+                  <td class="bw-difference-standard"><span class="bw-difference-cross" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6.5 6.5 11 11m0-11-11 11"/></svg></span><span class="bw-difference-sr-only">Varies by practice</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Hormones &amp; fertility testing</th>
+                  <td><span class="bw-difference-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 12 4 4 8-8"/></svg></span><span class="bw-difference-sr-only">Available in panel options</span></td>
+                  <td class="bw-difference-standard"><span class="bw-difference-cross" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6.5 6.5 11 11m0-11-11 11"/></svg></span><span class="bw-difference-sr-only">When ordered</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Heavy metal &amp; toxin testing</th>
+                  <td><span class="bw-difference-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 12 4 4 8-8"/></svg></span><span class="bw-difference-sr-only">Available in panel options</span></td>
+                  <td class="bw-difference-standard"><span class="bw-difference-cross" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6.5 6.5 11 11m0-11-11 11"/></svg></span><span class="bw-difference-sr-only">When ordered</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Metabolic &amp; pancreatic testing</th>
+                  <td><span class="bw-difference-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 12 4 4 8-8"/></svg></span><span class="bw-difference-sr-only">Available in panel options</span></td>
+                  <td class="bw-difference-standard"><span class="bw-difference-cross" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6.5 6.5 11 11m0-11-11 11"/></svg></span><span class="bw-difference-sr-only">When ordered</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Heart testing beyond cholesterol</th>
+                  <td><span class="bw-difference-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 12 4 4 8-8"/></svg></span><span class="bw-difference-sr-only">Available in panel options</span></td>
+                  <td class="bw-difference-standard"><span class="bw-difference-cross" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6.5 6.5 11 11m0-11-11 11"/></svg></span><span class="bw-difference-sr-only">When ordered</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Nutrient/<wbr>electrolyte testing</th>
+                  <td><span class="bw-difference-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 12 4 4 8-8"/></svg></span><span class="bw-difference-sr-only">Available in panel options</span></td>
+                  <td class="bw-difference-standard"><span class="bw-difference-cross" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6.5 6.5 11 11m0-11-11 11"/></svg></span><span class="bw-difference-sr-only">When ordered</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Thyroid testing</th>
+                  <td><span class="bw-difference-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 12 4 4 8-8"/></svg></span><span class="bw-difference-sr-only">Available in panel options</span></td>
+                  <td class="bw-difference-standard"><span class="bw-difference-cross" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6.5 6.5 11 11m0-11-11 11"/></svg></span><span class="bw-difference-sr-only">When ordered</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="bw-difference-note" data-pp-reveal id="bloodwork-difference-note">Testing varies by panel. Standard checkup services depend on your provider and individual needs.</p>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="pp-footer" id="site-footer">
+      <div class="pp-footer-wordmark">
+        <span class="pp-footer-wordmark-intro">FIND YOUR</span>
+        <span class="pp-footer-wordmark-name">PRIME POINT</span>
+      </div>
+      <div class="pp-footer-grid">
+        <div class="pp-footer-intro">
+          <p>Optimize from within.</p>
+          <a href="treatments.html">Explore all treatments <span aria-hidden="true">&rarr;</span></a>
+        </div>
+        <nav class="pp-footer-medications" aria-label="Treatment categories">
+          <h2>Explore treatments</h2>
+          <a href="peptides.html">Peptide Therapy</a>
+          <a href="treatments.html#weight-loss">Weight Loss</a>
+          <a href="treatments.html#metabolic-health">Metabolic Health</a>
+          <a href="treatments.html#longevity">Longevity</a>
+          <a href="blood-work.html">Blood Work</a>
+        </nav>
+        <div class="pp-footer-follow">
+          <h2>Follow us</h2>
+          <p>Prime Point Health</p>
+          <div class="pp-footer-social">
+            <a href="https://www.instagram.com/primepoint_health/" target="_blank" rel="noopener noreferrer" aria-label="Prime Point Health on Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="17" cy="7" r=".8" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <span class="pp-footer-social-pending" role="img" aria-label="Facebook — link coming soon" title="Facebook link coming soon">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 21v-8h2.7l.4-3H14V8.1c0-.9.3-1.5 1.6-1.5h1.7V3.9c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3V10H8v3h2.6v8Z"/></svg>
+            </span>
+          </div>
+        </div>
+        <div class="pp-footer-legal">
+          <p class="pp-footer-copyright">Copyright &copy; 2026 Prime Point Health</p>
+          <nav aria-label="Legal links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-of-service.html">Terms of Service</a>
+            <a href="cancellation-policy.html">Cancellation Policy</a>
+            <a href="shipping-policy.html">Shipping Policy</a>
+          </nav>
+          <p class="pp-footer-disclosure">This website is provided for educational and informational purposes only and does not constitute providing medical advice or professional services. The information provided should not be used for diagnosing or treating a health problem or disease, and those seeking personal medical advice should consult with a licensed physician.</p>
+        </div>
+      </div>
+    </footer>
+
+
+    <script src="script.js?v=46"></script>
+    <script src="js/bloodwork-markers.js?v=2"></script>
+    <script src="js/bloodwork-lake.js?v=1"></script>
+    <script src="js/bloodwork-guide.js?v=5"></script>
+    <script src="js/bloodwork-pricing.js?v=7"></script>
+  </body>
+</html>
+

@@ -1,7 +1,6 @@
 .product-plan-price { margin: 0 0 24px; }
-.product-plan-price > p { display: flex; align-items: baseline; flex-wrap: wrap; gap: 7px; margin: 0; color: #536778; }
+.product-plan-price > p { display: flex; align-items: baseline; flex-wrap: wrap; gap: 7px; margin: 0; color: var(--pp-prime-navy); }
 .product-plan-price strong { color: var(--pp-prime-navy); font-size: clamp(2rem, 3vw, 2.6rem); font-weight: 500; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
-.product-plan-price s { margin-left: 3px; color: #8a939b; font-size: 1.45rem; text-decoration-thickness: 1.5px; }
 .product-plan-options { margin: 0; scroll-margin-top: calc(var(--pp-header-height) + 24px); }
 .product-plan-field { min-width: 0; margin: 0 0 24px; }
 .wellness-product-page .product-plan-field { width: min(100%, 430px); }

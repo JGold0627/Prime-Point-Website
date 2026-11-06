@@ -1,4 +1,9 @@
 PRIME POINT WEBSITE VERSIONS
+ACTIVE WORKING SITE (November 2, 2026)
+Use C:/Users/Goldj/Prime-Point-Website in VS Code for the expanded website and all new edits. Preview index.html in that folder. The separate development workflow is retired.
+The main project and expanded site were each backed up before the transfer. Their verified archives and manifests are in the checkpoints folder beside the original October 27 snapshot.
+The October 27 setup and switching instructions below are historical.
+
 Established: October 27, 2026 (America/New_York)
 
 The user wants to keep the current certification-review version separate from an ongoing development version. Do not overwrite either version to switch between them. No deployment or Git push was performed during setup.

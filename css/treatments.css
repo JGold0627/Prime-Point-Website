@@ -58,25 +58,11 @@
   text-shadow: 0 2px 18px rgba(15, 31, 45, 0.28);
 }
 
-.treatments-hero-copy p {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin: 0 0 14px;
-  font-family: Inter, "Segoe UI", Arial, sans-serif;
-  font-size: clamp(0.82rem, 1.05vw, 1rem);
-  font-weight: 500;
-  letter-spacing: 0.03em;
-}
-
-.treatments-hero-copy p span {
-  width: 9px;
-  height: 9px;
-  border: 2px solid rgba(255, 253, 248, 0.82);
-  border-radius: 50%;
-  background: var(--pp-prime-gold);
-  box-shadow: 0 0 0 3px rgba(198, 157, 82, 0.2);
+.treatments-hero-copy .pp-section-kicker {
+  /* Keep the small gold type legible over the hero photograph. */
+  background: rgb(246 244 240 / .9);
+  box-shadow: 0 0 12px 6px rgb(246 244 240 / .9);
+  text-shadow: none;
 }
 
 .treatments-hero-copy h1 {
@@ -178,7 +164,7 @@ a.treatment-card:focus-visible {
   padding: 8px 13px;
   border-radius: 999px;
   background: rgba(255, 253, 248, 0.93);
-  color: #687581;
+  color: var(--pp-prime-navy);
   font-family: Inter, "Segoe UI", Arial, sans-serif;
   font-size: clamp(0.78rem, 0.9vw, 0.93rem);
   font-weight: 500;
@@ -221,7 +207,7 @@ a.treatment-card:focus-visible {
 .treatment-card p {
   max-width: 96%;
   margin: 0;
-  color: #5e6c79;
+  color: var(--pp-prime-navy);
   font-family: Inter, "Segoe UI", Arial, sans-serif;
   font-size: clamp(0.92rem, 1.05vw, 1.08rem);
   line-height: 1.45;
@@ -288,7 +274,7 @@ a.treatment-card:focus-visible {
 .treatments-quality-intro {
   max-width: 720px;
   margin: clamp(22px, 2.5vw, 34px) 0 0;
-  color: #5e6c79;
+  color: var(--pp-prime-navy);
   font-family: Inter, "Segoe UI", Arial, sans-serif;
   font-size: clamp(1rem, 1.1vw, 1.16rem);
   line-height: 1.7;
@@ -366,7 +352,7 @@ a.treatment-card:focus-visible {
 .treatments-quality-list p {
   max-width: 690px;
   margin: -2px 62px 20px 0;
-  color: #5e6c79;
+  color: var(--pp-prime-navy);
   font-family: Inter, "Segoe UI", Arial, sans-serif;
   font-size: clamp(0.92rem, 1vw, 1.04rem);
   line-height: 1.6;

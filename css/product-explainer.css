@@ -1,0 +1,135 @@
+.product-explainer-sermorelin {
+  --explainer-photo: url("../assets/products/sermorelin-gym-backdrop.webp");
+}
+.product-explainer-bpc-157 {
+  --explainer-photo: url("../assets/products/bpc-157-tendon-rehab.webp");
+}
+.product-explainer-tb-500 {
+  --explainer-photo: url("../assets/products/tb-500-gym-weights-backdrop.webp");
+}
+.product-explainer-mots-c {
+  --explainer-photo: url("../assets/products/mots-c-park-running-backdrop.webp");
+}
+.product-explainer-kpv {
+  --explainer-photo: url("../assets/products/kpv-intestinal-villi.webp");
+}
+.product-explainer-semax {
+  --explainer-photo: url("../assets/products/semax-neurons.webp");
+}
+.product-explainer-ghk-cu {
+  --explainer-photo: url("../assets/products/ghk-cu-skin-texture.webp");
+}
+.product-explainer-epitalon {
+  --explainer-photo: url("../assets/products/epitalon-morning-light.webp");
+}
+.product-explainer-glutathione {
+  --explainer-photo: url("../assets/products/glutathione-cell-backdrop.webp");
+}
+.product-explainer-nad {
+  --explainer-photo: url("../assets/products/nad-mitochondrion-backdrop.webp");
+}
+.product-explainer-mic-b12 {
+  --explainer-photo: url("../assets/products/mic-b12-blood-cells-backdrop.webp");
+}
+
+.product-gallery-frame { position: relative; container-type: inline-size; }
+.product-gallery-frame [hidden] { display: none !important; }
+.product-infographic {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(10px, 3.5cqw, 26px);
+  padding: clamp(16px, 7cqw, 64px);
+  overflow: auto;
+  background: linear-gradient(95deg, rgba(249, 247, 242, .97), rgba(249, 247, 242, .88) 48%, rgba(249, 247, 242, .40)),
+    var(--explainer-photo) center / cover no-repeat, var(--pp-warm-ivory);
+  color: var(--pp-prime-navy);
+}
+/* Keep the TB-500 gym photograph soft beneath both the panel and its thumbnail. */
+.product-explainer-tb-500 .product-infographic {
+  background-image: linear-gradient(95deg, rgba(249, 247, 242, .97), rgba(249, 247, 242, .90) 48%, rgba(249, 247, 242, .68)),
+    var(--explainer-photo);
+}
+
+.product-infographic-label {
+  display: block;
+  margin: auto 0 0;
+  font: 400 clamp(24px, 7.6cqw, 60px)/1.06 Georgia, "Times New Roman", serif;
+  letter-spacing: -.035em;
+  text-wrap: balance;
+}
+.product-infographic-label::before {
+  content: "";
+  display: block;
+  width: 1.5em;
+  height: 2px;
+  margin-bottom: .5em;
+  background: var(--pp-dark-gold);
+}
+.product-infographic-intro {
+  display: block;
+  max-width: 37ch;
+  margin: 0;
+  font-size: clamp(14px, 3.2cqw, 23px);
+  line-height: 1.45;
+}
+.product-infographic-flow {
+  display: grid;
+  width: min(100%, 32rem);
+  margin: 0 0 auto;
+}
+.product-infographic-step {
+  display: grid;
+  grid-template-columns: 1fr 2.2fr;
+  align-items: baseline;
+  gap: clamp(10px, 3.5cqw, 28px);
+  padding-block: clamp(9px, 2.9cqw, 24px);
+  border-top: 1px solid rgba(143, 105, 39, .55);
+}
+.product-infographic-step :is(h3, .product-thumbnail-step-title) {
+  margin: 0;
+  color: #785723;
+  font: 400 clamp(19px, 4.7cqw, 32px)/1.1 Georgia, "Times New Roman", serif;
+}
+.product-infographic-step :is(p, .product-thumbnail-step-copy) {
+  margin: 0;
+  font-size: clamp(12px, 2.8cqw, 18px);
+  line-height: 1.4;
+}
+.wellness-product-thumbnails .product-info-thumbnail {
+  background: var(--pp-warm-ivory);
+  color: var(--pp-prime-navy);
+  font: inherit;
+  text-align: left;
+}
+.product-thumbnail-preview {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 6px;
+  pointer-events: none;
+}
+.product-thumbnail-canvas {
+  position: absolute;
+  display: block;
+  left: 50%;
+  top: 50%;
+  container-type: inline-size;
+  transform-origin: center;
+}
+.product-thumbnail-canvas > .product-infographic { overflow: hidden; }
+
+@container (max-width: 25rem) {
+  .product-explainer-semax .product-infographic {
+    padding: clamp(12px, 4cqw, 16px);
+    gap: 8px;
+  }
+}
+
+@media (max-width: 760px) {
+  .product-explainer-semax .product-gallery-frame { min-height: 28rem; }
+}

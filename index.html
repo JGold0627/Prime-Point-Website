@@ -6,12 +6,12 @@
     <title>Prime Point Health | Modern Health Optimization</title>
     <meta
       name="description"
-      content="Prime Point Health is a luxury telehealth platform for physician-guided weight management, metabolic health, and energy and recovery."
+      content="Prime Point Health is a luxury telehealth platform for physician-guided peptide therapy, GLP-1 programs, blood work, and supplement planning."
     />
-    <link rel="stylesheet" href="css/global.css?v=43" />
-    <link rel="stylesheet" href="css/home.css?v=21" />
-    <link rel="stylesheet" href="css/section-headings.css?v=1" />
-    <link rel="stylesheet" href="css/home-button-motion.css?v=2" />
+    <link rel="stylesheet" href="css/global.css?v=45" />
+    <link rel="stylesheet" href="css/home.css?v=54" />
+    <link rel="stylesheet" href="css/section-headings.css?v=2" />
+    <link rel="stylesheet" href="css/home-button-motion.css?v=3" />
   </head>
   <body class="home-page">
     <header class="site-header" data-site-header-mount aria-label="Primary navigation"></header>
@@ -22,16 +22,38 @@
       assessment dropdown positioned at 4.3% / 81%.
     -->
     <section class="home-hero" aria-label="Prime Point homepage hero">
+      <svg class="home-hero-daylight" viewBox="0 0 1536 1024" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+        <defs>
+          <radialGradient id="home-sunlight">
+            <stop stop-color="#fff8d7"/>
+            <stop offset=".15" stop-color="#ffdd9b" stop-opacity=".9"/>
+            <stop offset=".49" stop-color="#ffc876" stop-opacity=".34"/>
+            <stop offset="1" stop-color="#ffbe78" stop-opacity="0"/>
+          </radialGradient>
+          <!-- The far ridge occludes the solar disc as it rises and sets. -->
+          <clipPath id="home-skyline">
+            <path d="M0 0H1536V773L1504 775 1472 775 1440 771 1408 768 1376 771 1344 769 1312 766 1280 765 1248 765 1216 771 1184 774 1152 775 1120 777 1088 783 1056 784 1024 789 992 789 960 786 928 782 896 780 864 778 832 775 800 783 768 789 736 793 704 791 672 788 640 787 608 785 576 790 544 793 512 791 480 792 448 797 416 802 384 799 352 795 320 798 288 798 256 794 224 790 192 793 160 792 128 791 96 789 64 794 32 796 0 798Z"/>
+          </clipPath>
+        </defs>
+        <image href="assets/home/home-daylight-mountains.webp" width="1536" height="1024"/>
+        <g clip-path="url(#home-skyline)">
+          <g data-day-sun transform="translate(860 715)">
+            <circle r="110" fill="url(#home-sunlight)"/>
+            <circle r="17" fill="#fff9db" stroke="#f9cd84" stroke-width="1.2"/>
+          </g>
+        </g>
+      </svg>
+      <img class="home-hero-orbit" src="assets/home/home-hero-orbit.svg" width="1536" height="1024" alt="" aria-hidden="true" />
       <div class="home-hero-content">
         <div class="home-hero-centered-copy">
-          <p class="home-hero-eyebrow">PRECISION HEALTH &bull; PERSONALIZED CARE</p>
+          <p class="pp-section-kicker">PRECISION HEALTH &bull; PERSONALIZED CARE</p>
           <h1 class="home-hero-main-title">
-            <span>Better health,</span>
-            <span>built from within.</span>
+            <span>Better Health,</span>
+            <span>Built from Within</span>
           </h1>
 
           <p class="home-hero-main-lede">
-            Prime Point Health brings physician-guided care for energy and recovery, weight management, and whole-body health together in one place. With no required memberships or long-term commitments, you retain all the flexibility.
+            A telehealth clinic built for people who want transparency, personalized care, and confidence in the quality of their treatment. Prime Point Health brings health optimization into one platform. With no required memberships or long-term commitments, you retain all the flexibility.
           </p>
 
           <div class="home-hero-centered-actions">
@@ -44,21 +66,33 @@
       </a>
     </section>
 
-    <section class="home-journey" aria-hidden="true"></section>
+    <section class="home-commitment" id="our-commitment" aria-labelledby="home-commitment-title">
+      <div class="home-commitment-inner">
+        <div class="home-commitment-body">
+          <div class="home-commitment-feature">
+            <div class="home-commitment-brand">
+              <div class="home-commitment-wordmark">
+                <img src="assets/brand/Logo%20V2.png" alt="Prime Point Health — Optimize from Within" width="1536" height="1024" loading="lazy" decoding="async" />
+              </div>
+            </div>
+            <div class="home-commitment-intro">
+              <h2 id="home-commitment-title">Our Commitment to You</h2>
+              <p>We built Prime Point Health around a standard we take personally: <strong>care we would want for our own families.</strong></p>
+            </div>
+          </div>
+          <div class="home-commitment-copy">
+            <p><strong>Our mission</strong> is to help you understand your options, know who’s behind your care, and feel comfortable asking questions before taking the next step. Because choosing care should come with clear answers, thoughtful support, and people who take your health as seriously as you do.</p>
+            <p><strong>Our goal</strong> is to spend time evaluating pharmacy partners, asking hard questions about sourcing, preparation, testing, and understanding the quality behind what we offer. We want to differentiate ourselves in an industry where <u>misinformation is common and patient care is too often overlooked</u>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section class="home-services" id="services" aria-labelledby="home-services-title">
-      <p class="home-services-eyebrow">&mdash; OUR CORE SERVICES</p>
+      <p class="pp-section-kicker home-services-eyebrow">OUR CORE SERVICES</p>
       <h2 class="home-services-title pp-section-heading" id="home-services-title">
-        Making Healthiness<span>Easy to Achieve</span>
+        Explore the Care<span>That Fits your Goals</span>
       </h2>
-      <p class="home-services-supporting">
-        <span>
-          Prime Point brings physician-guided therapies, weight loss, metabolic
-          health support, and energy and recovery together in one trusted
-          destination&mdash;making personalized, proactive care simpler and helping you
-          move forward with clarity and confidence.
-        </span>
-      </p>
 
       <div class="home-services-carousel" data-home-carousel>
       <div class="home-services-rail" data-carousel-rail>
@@ -103,7 +137,7 @@
             <div class="home-service-card-icon" aria-hidden="true">
               <svg viewBox="0 0 48 48"><path d="M24 24c-5-8-7-10-11-10a10 10 0 0 0 0 20c4 0 6-2 11-10s7-10 11-10a10 10 0 0 1 0 20c-4 0-6-2-11-10Z"></path></svg>
             </div>
-            <h3>Energy &amp; Recovery</h3>
+            <h3>Longevity</h3>
             <span class="home-service-card-rule" aria-hidden="true"></span>
             <p>Proactive, physician-guided care focused on healthy aging, everyday vitality, and your long-term wellness goals.</p>
             <ul class="home-service-card-benefits">
@@ -114,6 +148,39 @@
           </div>
         </article>
 
+        <article class="home-service-card home-service-card--bloodwork">
+          <img class="home-service-card-media" src="assets/home/Bloodwork V2.png" alt="Blood samples in a bright laboratory" />
+          <div class="home-service-card-body">
+            <div class="home-service-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48"><path d="M17 7h14M20 7v27a7 7 0 0 0 14 0V7"></path><path d="M20 25h14M25 31h4"></path></svg>
+            </div>
+            <h3>Bloodwork</h3>
+            <span class="home-service-card-rule" aria-hidden="true"></span>
+            <p>Advanced lab testing that uncovers insights and helps guide your personalized health strategy.</p>
+            <ul class="home-service-card-benefits">
+              <li>Comprehensive panels</li>
+              <li>Organ &amp; hormone insights</li>
+              <li>Track. Compare. Optimize.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="home-service-card home-service-card--peptides">
+          <img class="home-service-card-media" src="assets/home/Peptides V2.png" alt="Cellular peptide visualization" />
+          <div class="home-service-card-body">
+            <div class="home-service-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="4"></circle><circle cx="10" cy="16" r="3"></circle><circle cx="38" cy="16" r="3"></circle><circle cx="14" cy="36" r="3"></circle><circle cx="34" cy="36" r="3"></circle><path d="M13 17l8 5m14-5-8 5m-10 12 5-7m9 7-5-7M10 19v10l4 5m24-15v10l-4 5"></path></svg>
+            </div>
+            <h3>Peptide Therapy</h3>
+            <span class="home-service-card-rule" aria-hidden="true"></span>
+            <p>Targeted peptide therapies to support recovery, performance, longevity, and healthy aging at the cellular level.</p>
+            <ul class="home-service-card-benefits">
+              <li>Evidence-based protocols</li>
+              <li>Physician-guided care</li>
+              <li>Personalized to your goals</li>
+            </ul>
+          </div>
+        </article>
       </div>
       </div>
       <div class="home-services-navigation" data-carousel-navigation>
@@ -131,8 +198,8 @@
     <section class="home-product-showcase" aria-labelledby="home-products-title">
       <div class="home-product-showcase-heading">
         <div>
-          <p class="home-product-showcase-eyebrow">&mdash; WHAT WE OFFER</p>
-          <h2 class="pp-section-heading" id="home-products-title">Clear plans,<span>visible progress</span></h2>
+          <p class="pp-section-kicker">WHAT WE OFFER</p>
+          <h2 class="pp-section-heading" id="home-products-title">Clear Plans,<span>Visible Progress</span></h2>
         </div>
       </div>
 
@@ -140,52 +207,52 @@
       <div class="home-product-rail" data-carousel-rail>
         <div class="home-product-track" id="home-treatments-track" data-carousel-track role="region" aria-label="Prime Point treatment options" aria-describedby="home-services-help" tabindex="0">
         <a class="home-product-card" href="semaglutide.html">
-          <div class="home-product-image-wrap"><span class="home-product-price"><i aria-hidden="true"></i>Starting from $178</span><img src="assets/temporary-unbranded/semaglutide-injection-cutout-v1.png" alt="Semaglutide injection bottle" /></div>
+          <div class="home-product-image-wrap"><span class="home-product-price"><i aria-hidden="true"></i>Starting from $179</span><img src="assets/glp-page-pieces/semaglutide-bottle-gold-v4.png" alt="Semaglutide injection bottle" /></div>
           <h3>Semaglutide</h3>
           <p>Science-backed weight support</p>
         </a>
         <a class="home-product-card" href="tirzepatide.html">
-          <div class="home-product-image-wrap"><span class="home-product-price"><i aria-hidden="true"></i>Starting from $286</span><img src="assets/temporary-unbranded/tirzepatide-injection-cutout-v1.png" alt="Tirzepatide injection bottle" /></div>
+          <div class="home-product-image-wrap"><span class="home-product-price"><i aria-hidden="true"></i>Starting from $261</span><img src="assets/glp-page-pieces/tirzepatide-bottle-gold-v3.png" alt="Tirzepatide injection bottle" /></div>
           <h3>Tirzepatide</h3>
           <p>Science-backed weight support</p>
         </a>
         <a class="home-product-card" href="semaglutide-tablets.html">
-          <div class="home-product-image-wrap"><span class="home-product-price"><i aria-hidden="true"></i>Starting from $178</span><img src="assets/temporary-unbranded/semaglutide-drops-cutout-v1.png" alt="Semaglutide Sublingual Drops bottle" /></div>
+          <div class="home-product-image-wrap"><span class="home-product-price"><i aria-hidden="true"></i>Starting from $159</span><img src="assets/glp-sublingual/semaglutide-sublingual-bottle-gold-v2.png" alt="Semaglutide Sublingual Drops bottle" /></div>
           <h3>Semaglutide Sublingual Drops</h3>
           <p>Science-backed weight support</p>
         </a>
         <a class="home-product-card" href="tirzepatide-tablets.html">
-          <div class="home-product-image-wrap"><span class="home-product-price"><i aria-hidden="true"></i>Starting from $286</span><img src="assets/temporary-unbranded/tirzepatide-drops-cutout-v1.png" alt="Tirzepatide Sublingual Drops bottle" /></div>
+          <div class="home-product-image-wrap"><span class="home-product-price"><i aria-hidden="true"></i>Starting from $261</span><img src="assets/glp-sublingual/tirzepatide-sublingual-bottle-gold-v2.png" alt="Tirzepatide Sublingual Drops bottle" /></div>
           <h3>Tirzepatide Sublingual Drops</h3>
           <p>Science-backed weight support</p>
         </a>
         <a class="home-product-card" href="sermorelin.html">
-          <div class="home-product-image-wrap"><span class="home-product-price"><i aria-hidden="true"></i>Starting from $185</span><img src="assets/temporary-unbranded/sermorelin-injection-cutout-v1.png" alt="Sermorelin injection bottle" /></div>
+          <div class="home-product-image-wrap"><span class="home-product-price"><i aria-hidden="true"></i>Starting from $193</span><img src="assets/glp-page-pieces/sermorelin-bottle-navy-v3.png" alt="Sermorelin injection bottle" /></div>
           <h3>Sermorelin</h3>
           <p>Support natural growth hormone and unlock better sleep, recovery, and lean muscle</p>
         </a>
         <a class="home-product-card" href="glutathione.html">
-          <div class="home-product-image-wrap"><span class="home-product-price"><i aria-hidden="true"></i>Starting from $86</span><img src="assets/temporary-unbranded/glutathione-injection-cutout-v1.png" alt="Glutathione injection bottle" /></div>
+          <div class="home-product-image-wrap"><span class="home-product-price"><i aria-hidden="true"></i>Starting from $116</span><img src="assets/glp-page-pieces/glutathione-bottle-navy-v4.png" alt="Glutathione injection bottle" /></div>
           <h3>Glutathione</h3>
           <p>Natural antioxidant support</p>
         </a>
         <a class="home-product-card" href="glutathione-nasal.html">
-          <div class="home-product-image-wrap"><span class="home-product-price"><i aria-hidden="true"></i>Starting from $130</span><img class="home-product-image-pretilted home-product-image-nasal" src="assets/temporary-unbranded/glutathione-nasal-tilted-v1.png" alt="Glutathione nasal bottle" /></div>
+          <div class="home-product-image-wrap"><span class="home-product-price"><i aria-hidden="true"></i>Starting from $138</span><img class="home-product-image-pretilted home-product-image-nasal" src="assets/glp-page-pieces/glutathione-nasal-navy-v2.png" alt="Glutathione nasal bottle" /></div>
           <h3>Glutathione Nasal</h3>
           <p>Natural antioxidant support</p>
         </a>
         <a class="home-product-card" href="nad-plus.html">
-          <div class="home-product-image-wrap"><span class="home-product-price"><i aria-hidden="true"></i>Starting from $166</span><img src="assets/temporary-unbranded/nad-plus-injection-cutout-v1.png" alt="NAD+ injection bottle" /></div>
+          <div class="home-product-image-wrap"><span class="home-product-price"><i aria-hidden="true"></i>Starting from $172</span><img src="assets/glp-page-pieces/NAD Plus Bottle Upright V3.png" alt="NAD+ injection bottle" /></div>
           <h3>NAD+</h3>
           <p>Supports energy and metabolism</p>
         </a>
         <a class="home-product-card" href="nad-plus-nasal.html">
-          <div class="home-product-image-wrap"><span class="home-product-price"><i aria-hidden="true"></i>Starting from $116</span><img class="home-product-image-nasal" src="assets/temporary-unbranded/nad-plus-nasal-cutout-v1.png" alt="NAD+ nasal bottle" /></div>
+          <div class="home-product-image-wrap"><span class="home-product-price"><i aria-hidden="true"></i>Starting from $124</span><img class="home-product-image-nasal" src="assets/glp-page-pieces/NAD Plus Nasal V2.png" alt="NAD+ nasal bottle" /></div>
           <h3>NAD+ Nasal</h3>
           <p>Supports energy and metabolism</p>
         </a>
         <a class="home-product-card" href="mic-b12.html">
-          <div class="home-product-image-wrap"><span class="home-product-price"><i aria-hidden="true"></i>Starting from $101</span><img src="assets/temporary-unbranded/mic-b12-injection-cutout-v1.png" alt="MIC + B12 injection bottle" /></div>
+          <div class="home-product-image-wrap"><span class="home-product-price"><i aria-hidden="true"></i>Starting from $108</span><img src="assets/glp-page-pieces/MIC Plus B12 Bottle V2.png" alt="MIC + B12 injection bottle" /></div>
           <h3>MIC + B12</h3>
           <p>Supports fat metabolism, boosts energy, and enhances your body's natural detox process</p>
         </a>
@@ -205,8 +272,8 @@
     <section class="home-care" id="care-made-simple" aria-labelledby="home-care-title">
       <div class="home-care-inner">
         <div class="home-care-copy">
-          <p class="home-product-showcase-eyebrow">&mdash; THE TRUTH</p>
-          <h2 class="pp-section-heading" id="home-care-title">Traditional healthcare <span>can be frustrating</span></h2>
+          <p class="pp-section-kicker">THE TRUTH</p>
+          <h2 class="pp-section-heading" id="home-care-title">Traditional Healthcare <span>Can be Frustrating</span></h2>
           <p class="home-care-intro">
             So we built a platform that isn&rsquo;t. Just accessible, expert-led care
             from the comfort of your home, straight to your front door.
@@ -230,8 +297,8 @@
                 <circle cx="20" cy="17" r="4"></circle>
                 <path d="M14 27v-2a6 6 0 0 1 12 0v2"></path>
               </svg>
-              <h3>On-going support</h3>
-              <p>Support &amp; structure through expert-led consultations and continuous follow-up.</p>
+              <h3>Highest Quality Products</h3>
+              <p>We thoroughly vet our pharmacy partners, reviewing their compounding practices and quality standards for endotoxin testing, sterility, and potency.</p>
             </article>
           </div>
         </div>
@@ -243,9 +310,9 @@
 
     <section class="home-roadmap" id="how-it-works" aria-labelledby="home-how-it-works-title">
       <div class="home-roadmap-inner">
-        <p class="home-product-showcase-eyebrow">&mdash; HOW WE WORK</p>
+        <p class="pp-section-kicker">HOW WE WORK</p>
         <h2 class="home-roadmap-title pp-section-heading" id="home-how-it-works-title">
-          Your next step,<span>made simple.</span>
+          Your Next Step,<span>Made Simple.</span>
         </h2>
         <p class="home-roadmap-intro">From exploring your options to a plan built around you, here&rsquo;s how to get started.</p>
 
@@ -282,9 +349,11 @@
           <nav class="home-roadmap-options" aria-label="Choose your starting point">
             <p>What would you like to explore?</p>
             <div class="home-roadmap-links">
+              <a href="peptides.html">Peptide Therapy</a>
               <a href="treatments.html#weight-loss">Weight loss</a>
               <a href="treatments.html#metabolic-health">Metabolic health</a>
-              <a href="treatments.html#energy-recovery">Energy &amp; Recovery</a>
+              <a href="treatments.html#longevity">Longevity</a>
+              <a href="blood-work.html">Bloodwork</a>
             </div>
           </nav>
         </details>
@@ -293,19 +362,19 @@
 
     <section class="home-faq" id="home-faq" aria-labelledby="home-faq-title" data-home-faq>
       <div class="home-faq-inner">
-        <p class="home-faq-eyebrow">&mdash; FREQUENTLY ASKED QUESTIONS</p>
+        <p class="pp-section-kicker">FREQUENTLY ASKED QUESTIONS</p>
         <h2 class="home-faq-title pp-section-heading" id="home-faq-title">
-          A little clarity.<span>A lot of possibility.</span>
+          A Little Clarity.<span>A Lot of Possibility.</span>
         </h2>
         <p class="home-faq-intro">Answers to help you feel ready for your next step.</p>
         <div class="home-faq-layout">
           <figure class="home-faq-photo">
-            <img src="assets/temporary-unbranded/medication-group-v1.png" alt="Ten medication products arranged in three rows on warm limestone steps" width="1448" height="1086" loading="lazy" decoding="async" />
+            <img src="assets/home/faq-medication-group-by-color-v5.png" alt="Ten Prime Point Health medication products grouped by ribbon color on limestone tiers: navy on top, blue in the middle, and gold at the base" width="1448" height="1086" loading="lazy" decoding="async" />
           </figure>
           <div class="home-faq-list">
             <details name="home-faq-questions">
               <summary>Who is Prime Point Health?<span class="home-faq-toggle" aria-hidden="true"></span></summary>
-              <div class="home-faq-answer"><p>Prime Point Health brings personalized healthcare into the comfort of your home. Through our fully online process, we connect patients in all 50 states with licensed healthcare professionals and pharmacies. Whether you&rsquo;re focused on daily wellness, weight management, or energy and recovery, you can consult with a provider licensed in your state to explore care that fits your needs. When clinically appropriate, your provider may recommend prescription options, with medications conveniently delivered to your door.</p></div>
+              <div class="home-faq-answer"><p>Prime Point Health brings personalized healthcare into the comfort of your home. Through our fully online process, we connect patients in all 50 states with licensed healthcare professionals and pharmacies. Whether you&rsquo;re focused on daily wellness, weight management, or longevity, you can consult with a provider licensed in your state to explore care that fits your needs. When clinically appropriate, your provider may recommend prescription options, with medications conveniently delivered to your door.</p></div>
             </details>
             <details name="home-faq-questions">
               <summary>What happens if I am not approved for medication?<span class="home-faq-toggle" aria-hidden="true"></span></summary>
@@ -313,7 +382,7 @@
             </details>
             <details name="home-faq-questions">
               <summary>How long does it take to receive medication?<span class="home-faq-toggle" aria-hidden="true"></span></summary>
-              <div class="home-faq-answer"><p>Once your medical intake and health history form have been reviewed and approved, you can expect your medication to arrive within 2&ndash;3 business days.</p></div>
+              <div class="home-faq-answer"><p>Once your medical intake and health history form have been reviewed and approved, you can expect your medication to arrive within 1&ndash;2 business days.</p></div>
             </details>
             <details name="home-faq-questions">
               <summary>Does Prime Point Health require insurance?<span class="home-faq-toggle" aria-hidden="true"></span></summary>
@@ -321,7 +390,7 @@
             </details>
             <details name="home-faq-questions">
               <summary>How do payments work?<span class="home-faq-toggle" aria-hidden="true"></span></summary>
-              <div class="home-faq-answer"><p>Prime Point Health offers flexible payment options without a membership. If approved for medication, you can pay monthly or purchase a three- or six-month supply delivered in a single shipment, depending on the medication. We also offer buy now, pay later options through our payment partners, giving you more flexibility in how you pay.</p></div>
+              <div class="home-faq-answer"><p>Prime Point Health offers flexible payment options without a membership. If approved for medication, you can pay monthly or purchase a three-month supply delivered in a single shipment, depending on the medication. We also offer buy now, pay later options through our payment partners, giving you more flexibility in how you pay.</p></div>
             </details>
           </div>
         </div>
@@ -342,7 +411,9 @@
           <h2>Explore treatments</h2>
           <a href="treatments.html#weight-loss">Weight Loss</a>
           <a href="treatments.html#metabolic-health">Metabolic Health</a>
-          <a href="treatments.html#energy-recovery">Energy &amp; Recovery</a>
+          <a href="treatments.html#longevity">Longevity</a>
+          <a href="blood-work.html">Blood Work</a>
+          <a href="peptides.html">Peptide Therapy</a>
         </nav>
         <div class="pp-footer-follow">
           <h2>Follow us</h2>
@@ -369,8 +440,9 @@
       </div>
     </footer>
 
-    <script src="script.js?v=39"></script>
+    <script src="script.js?v=46"></script>
     <script src="js/home-services.js?v=3"></script>
+    <script src="js/home-daylight.js"></script>
   </body>
 </html>
 

@@ -1,32 +1,10 @@
-.sermorelin-gallery-frame { position: relative; container-type: inline-size; }
-.sermorelin-gallery-frame [hidden] { display: none !important; }
-.sermorelin-infographic { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; gap: clamp(12px, 3cqw, 22px); padding: clamp(18px, 5cqw, 36px); background: var(--pp-prime-navy); color: var(--pp-warm-ivory); text-align: center; overflow: auto; }
-.sermorelin-infographic-label { margin: 0; padding: 7px 14px; border: 1px solid rgba(198,157,82,.6); border-radius: 999px; color: var(--pp-prime-gold); font-size: clamp(11px, 2.7cqw, 15px); line-height: 1.2; }
-.sermorelin-infographic-intro { margin: 0; width: 100%; max-width: 490px; font: 400 clamp(14px, 5.6cqw, 32px)/1.12 Georgia, "Times New Roman", serif; letter-spacing: -.02em; word-spacing: normal; text-align: center; }
-.sermorelin-infographic-line { display: block; width: max-content; margin-inline: auto; white-space: nowrap; }
-.sermorelin-infographic-flow { display: flex; flex: 1; flex-direction: column; justify-content: center; align-items: center; width: 100%; min-height: min-content; }
-.sermorelin-infographic-step { width: 76%; max-width: 300px; padding: clamp(10px, 2.8cqw, 18px); border: 1px solid rgba(198,157,82,.4); border-radius: 16px; background: #243c4d; }
-.sermorelin-infographic-step :is(h3, .sermorelin-thumbnail-step-title) { display: block; margin: 0 0 5px; color: var(--pp-prime-gold); font: 400 clamp(19px, 4.6cqw, 29px)/1.05 Georgia, "Times New Roman", serif; }
-.sermorelin-infographic-step :is(p, .sermorelin-thumbnail-step-copy) { display: block; margin: 0; font-size: clamp(11px, 2.8cqw, 16px); line-height: 1.35; color: #f4f2ec; }
-.sermorelin-infographic-arrow { display: block; color: var(--pp-prime-gold); font-size: clamp(17px, 4cqw, 25px); line-height: 1.1; margin-block: 4px; }
-.wellness-product-thumbnails .sermorelin-info-thumbnail { background: var(--pp-prime-navy); font: inherit; }
-.sermorelin-thumbnail-preview { position: relative; display: block; width: 100%; height: 100%; overflow: hidden; border-radius: 6px; pointer-events: none; }
-.sermorelin-thumbnail-canvas { position: absolute; display: block; left: 50%; top: 50%; container-type: inline-size; transform-origin: center; }
-.sermorelin-thumbnail-canvas > .sermorelin-infographic { position: absolute; min-height: 0; overflow: hidden; }
-@media (max-width: 760px) {
-  .sermorelin-gallery-frame.is-information { aspect-ratio: auto; max-height: none; }
-  .sermorelin-infographic { position: relative; min-height: 560px; }
-  .sermorelin-infographic-label { font-size: 12px; }
-  .sermorelin-infographic-step :is(h3, .sermorelin-thumbnail-step-title) { font-size: 23px; }
-  .sermorelin-infographic-step :is(p, .sermorelin-thumbnail-step-copy) { font-size: 13px; }
-}
 .sermorelin-benefits { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(36px, 5.8vw, 88px); align-items: start; margin-top: clamp(80px, 10vw, 160px); }
 .sermorelin-benefits-media { position: relative; width: 100%; height: var(--product-photo-height, auto); overflow: hidden; border-radius: 26px; aspect-ratio: 1; min-height: 0; background: var(--pp-prime-navy); }
 .sermorelin-benefits-media img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
 .sermorelin-benefits-copy { min-width: 0; }
 .sermorelin-benefits h2 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.5rem, 4vw, 4.6rem); font-weight: 400; line-height: 1.08; letter-spacing: -.035em; }
 .sermorelin-benefits h2 span { color: var(--pp-prime-gold); }
-.sermorelin-benefits-list { display: grid; align-content: center; min-height: 22em; gap: 26px; margin: 32px 0 0; padding: 0; list-style: none; color: #536778; font-size: clamp(17px, 1.3vw, 20px); line-height: 1.6; }
+.sermorelin-benefits-list { display: grid; align-content: center; min-height: 22em; gap: 26px; margin: 32px 0 0; padding: 0; list-style: none; color: var(--pp-prime-navy); font-size: clamp(17px, 1.3vw, 20px); line-height: 1.6; }
 .sermorelin-benefits-list li { display: grid; grid-template-columns: 18px minmax(0, 1fr); align-items: start; gap: 12px; }
 .sermorelin-benefits-arrow { color: var(--pp-dark-gold); }
 .sermorelin-benefits-list p { margin: 0; }
@@ -40,7 +18,7 @@
 .sermorelin-quality-eyebrow { margin: 0 0 18px; color: var(--pp-prime-gold); font-size: clamp(.72rem, .78vw, .84rem); font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
 .sermorelin-quality h2 { margin: 0; font: 400 clamp(2.7rem, 4.8vw, 5.4rem)/.98 Georgia, "Times New Roman", serif; letter-spacing: -.045em; }
 .sermorelin-quality h2 span { color: var(--pp-prime-gold); }
-.sermorelin-quality-intro { margin: clamp(22px, 2.5vw, 34px) 0 0; color: #5e6c79; font-size: clamp(1rem, 1.1vw, 1.16rem); line-height: 1.7; }
+.sermorelin-quality-intro { margin: clamp(22px, 2.5vw, 34px) 0 0; color: var(--pp-prime-navy); font-size: clamp(1rem, 1.1vw, 1.16rem); line-height: 1.7; }
 .sermorelin-quality-list { display: grid; margin-top: clamp(26px, 3vw, 40px); }
 .sermorelin-quality-list details { border-top: 1px solid rgba(15,31,45,.13); }
 .sermorelin-quality-list details:last-child { border-bottom: 1px solid rgba(15,31,45,.13); }
@@ -50,7 +28,7 @@
 .sermorelin-quality-toggle::before, .sermorelin-quality-toggle::after { content: ""; position: absolute; width: 14px; height: 1.5px; background: #9a712f; }
 .sermorelin-quality-toggle::after { transform: rotate(90deg); }
 .sermorelin-quality-list details[open] .sermorelin-quality-toggle::after { transform: rotate(0); }
-.sermorelin-quality-list p { margin: -2px 62px 20px 0; color: #5e6c79; font-size: clamp(.92rem, 1vw, 1.04rem); line-height: 1.6; }
+.sermorelin-quality-list p { margin: -2px 62px 20px 0; color: var(--pp-prime-navy); font-size: clamp(.92rem, 1vw, 1.04rem); line-height: 1.6; }
 @media (max-width: 760px) {
   .sermorelin-quality { grid-template-columns: 1fr; gap: 36px; margin-top: 72px; }
   .sermorelin-quality-media { height: auto; aspect-ratio: 4 / 3; }
@@ -66,7 +44,7 @@
 .sermorelin-science-art { position: relative; margin: 30px 0; padding: 24px; }
 .sermorelin-science-art::before { content: ""; position: absolute; inset: 0; border: 1px solid var(--pp-gold-soft); border-radius: 18px; }
 .sermorelin-science-art img { position: relative; display: block; width: 100%; margin: 0; aspect-ratio: 1; height: auto; object-fit: cover; border-radius: 12px; box-shadow: 0 12px 26px rgba(15,31,45,.09); }
-.sermorelin-science-card p { margin: 0; color: #536778; font-size: 1rem; line-height: 1.65; }
+.sermorelin-science-card p { margin: 0; color: var(--pp-prime-navy); font-size: 1rem; line-height: 1.65; }
 @media (max-width: 760px) {
   .sermorelin-science { margin-top: 72px; }
   .sermorelin-science-heading { flex-direction: column; align-items: flex-start; gap: 24px; }
@@ -106,7 +84,7 @@
 
 .sermorelin-faq-item {
   overflow: hidden;
-  border: 1px solid rgba(203, 167, 102, .2);
+  border: 1px solid rgba(var(--pp-gold-rgb), .2);
   border-radius: clamp(18px, 1.8vw, 28px);
   background: var(--pp-warm-ivory);
   color: #0f1f2d;
@@ -128,7 +106,7 @@
 }
 
 .sermorelin-faq-item summary::-webkit-details-marker { display: none; }
-.sermorelin-faq-item summary:focus-visible { outline: 3px solid rgba(203, 167, 102, .65); outline-offset: -6px; }
+.sermorelin-faq-item summary:focus-visible { outline: 3px solid rgba(var(--pp-gold-rgb), .65); outline-offset: -6px; }
 
 .sermorelin-faq-icon {
   position: relative;
@@ -136,7 +114,7 @@
   height: 32px;
   border: 1px solid rgba(155, 106, 36, .42);
   border-radius: 50%;
-  background: rgba(203, 167, 102, .1);
+  background: rgba(var(--pp-gold-rgb), .1);
 }
 
 .sermorelin-faq-icon::before,
@@ -165,7 +143,7 @@
 .sermorelin-faq-answer p {
   max-width: 1080px;
   margin: 0;
-  color: rgba(15, 31, 45, .78);
+  color: var(--pp-prime-navy);
   font-size: clamp(.98rem, 1.16vw, 1.18rem);
   font-weight: 400;
   line-height: 1.65;

@@ -8,7 +8,7 @@
   min-height: calc(100svh - var(--pp-header-height));
   padding: clamp(54px, 7vw, 96px) var(--pp-page-gutter) 110px;
   background:
-    radial-gradient(circle at 12% 12%, rgba(203, 167, 102, 0.12), transparent 28%),
+    radial-gradient(circle at 12% 12%, rgba(var(--pp-gold-rgb), 0.12), transparent 28%),
     radial-gradient(circle at 88% 26%, rgba(221, 234, 245, 0.74), transparent 32%),
     linear-gradient(145deg, #fbf9f4 0%, #f4efe7 58%, #e7eff5 100%);
 }
@@ -87,7 +87,7 @@
 
 .peptide-enrollment-card {
   padding: clamp(26px, 4vw, 44px);
-  border: 1px solid rgba(203, 167, 102, 0.38);
+  border: 1px solid rgba(var(--pp-gold-rgb), 0.38);
   border-radius: 28px 10px 28px 10px;
   background: rgba(255, 253, 248, 0.94);
   box-shadow: 0 24px 60px rgba(15, 31, 45, 0.1);
@@ -103,7 +103,7 @@
 .peptide-enrollment-note {
   margin: 24px 0 0;
   padding: 18px;
-  border: 1px solid rgba(203, 167, 102, 0.26);
+  border: 1px solid rgba(var(--pp-gold-rgb), 0.26);
   border-radius: 14px;
   background: rgba(221, 234, 245, 0.42);
   color: var(--pp-navy-muted);
@@ -149,7 +149,7 @@
 .peptide-enrollment-field input:focus,
 .peptide-enrollment-field select:focus {
   border-color: var(--pp-prime-gold);
-  box-shadow: 0 0 0 3px rgba(203, 167, 102, 0.14);
+  box-shadow: 0 0 0 3px rgba(var(--pp-gold-rgb), 0.14);
 }
 
 .peptide-enrollment-consent {
@@ -179,9 +179,9 @@
   justify-content: center;
   gap: 14px;
   padding: 0 24px;
-  border: 1px solid #cba766;
+  border: 1px solid var(--pp-prime-gold);
   border-radius: 999px;
-  background: linear-gradient(135deg, #f0d99f, #cba766 56%, #b8893c);
+  background: linear-gradient(135deg, #f0d99f, var(--pp-prime-gold) 56%, #b8893c);
   color: var(--pp-prime-navy);
   cursor: pointer;
   font: inherit;
@@ -216,7 +216,7 @@
   background: var(--pp-prime-navy);
   color: var(--pp-prime-gold);
   font-size: 2rem;
-  box-shadow: 0 0 0 8px rgba(203, 167, 102, 0.12);
+  box-shadow: 0 0 0 8px rgba(var(--pp-gold-rgb), 0.12);
 }
 
 @media (max-width: 800px) {

@@ -1,0 +1,527 @@
+.peptide-profile-page .wellness-product-photo {
+  background: #111a29;
+}
+
+.peptide-profile-page .wellness-product-photo.is-vial {
+  background: #f4efe7;
+}
+
+.peptide-profile-page .profile-function {
+  max-width: 56ch;
+  margin: 22px 0 0;
+  font-size: clamp(1.05rem, 1.35vw, 1.24rem);
+  line-height: 1.65;
+}
+
+.peptide-profile-page .profile-research-note {
+  margin: 20px 0 0;
+  padding-left: 16px;
+  border-left: 2px solid var(--pp-prime-gold);
+  font-size: .95rem;
+  line-height: 1.6;
+}
+
+.peptide-profile-page .glutathione-benefits-media {
+  min-height: clamp(240px, 23vw, 345px);
+}
+
+.peptide-profile-page .product-infographic-disclaimer {
+  flex-shrink: 0;
+  width: 100%;
+  margin: 0;
+  color: #5f676d;
+  font-size: clamp(12px, 2.1cqw, 14px);
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.bpc-overview {
+  margin-top: clamp(36px, 5vw, 80px);
+}
+
+.bpc-overview-heading {
+  max-width: 900px;
+  margin: 0 auto clamp(36px, 4.6vw, 68px);
+  text-align: center;
+}
+
+.bpc-overview-heading h2 {
+  margin: 0;
+  font: 400 clamp(2.5rem, 4vw, 4.6rem)/1.12 Georgia, "Times New Roman", serif;
+  letter-spacing: -.035em;
+}
+
+.bpc-overview-intro {
+  max-width: 770px;
+  margin: 24px auto 0;
+  color: #56606a;
+  font-size: clamp(1rem, 1.35vw, 1.18rem);
+  line-height: 1.65;
+}
+
+.bpc-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: clamp(18px, 2vw, 28px);
+}
+
+.bpc-overview-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: clamp(28px, 3.4vw, 52px);
+  border-radius: 26px;
+  background: rgba(255, 255, 255, .56);
+}
+
+.bpc-overview-card-heading h3 {
+  margin: 0;
+  font: 400 clamp(2rem, 2.7vw, 2.6rem)/1.15 Georgia, "Times New Roman", serif;
+  letter-spacing: -.025em;
+}
+
+.bpc-overview-card-heading p {
+  margin: 16px 0 0;
+  color: #56606a;
+  line-height: 1.6;
+}
+
+.bpc-research-facts {
+  margin: clamp(28px, 3vw, 44px) 0 0;
+}
+
+.bpc-research-facts > div {
+  display: grid;
+  grid-template-columns: minmax(100px, .8fr) minmax(0, 2fr);
+  gap: 20px;
+  padding: 20px 0;
+  border-top: 1px solid rgba(15, 31, 45, .12);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.bpc-research-facts > div:last-child {
+  border-bottom: 1px solid rgba(15, 31, 45, .12);
+}
+
+.bpc-research-facts dt {
+  color: var(--pp-prime-navy);
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.bpc-research-facts dd {
+  min-width: 0;
+  margin: 0;
+}
+
+.bpc-overview-action {
+  margin-top: auto;
+  padding-top: clamp(30px, 3.6vw, 54px);
+}
+
+.bpc-overview-action .wellness-product-cta {
+  width: 100%;
+  min-height: 58px;
+}
+
+.bpc-overview-action p {
+  margin: 16px 0 0;
+  color: #657078;
+  font-size: .82rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.bpc-learning-center {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: clamp(28px, 3.4vw, 52px);
+  border-radius: 26px;
+  background-color: var(--pp-warm-ivory);
+  background-image:
+    linear-gradient(135deg, rgba(249, 247, 242, .94), rgba(249, 247, 242, .84) 48%, rgba(249, 247, 242, .72)),
+    url("../assets/Peptides/learning-center-library.webp");
+  background-position: center, 65% center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: var(--pp-prime-navy);
+}
+
+.bpc-learning-center [hidden] { display: none; }
+
+.bpc-learning-center .bpc-overview-card-heading p {
+  color: var(--pp-prime-navy);
+}
+
+.learning-center-empty {
+  margin-block: auto;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  text-align: center;
+}
+
+.learning-center-preview {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 18px;
+  background: radial-gradient(ellipse at 85% 10%, #4a7180 0, #254552 40%, #0f1f2d 85%);
+}
+
+.learning-center-preview::before,
+.learning-center-preview::after {
+  content: "";
+  position: absolute;
+  width: 80%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(224, 201, 152, .18);
+  border-radius: 50%;
+  right: -25%;
+  top: -85%;
+  pointer-events: none;
+}
+
+.learning-center-preview::after { right: -19%; top: -72%; }
+
+.learning-center-preview img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.learning-center-play {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border: 1px solid rgba(224, 201, 152, .7);
+  border-radius: 50%;
+  background: rgba(15, 31, 45, .64);
+  color: #f6f4f0;
+}
+
+.learning-center-play svg { width: 26px; height: 26px; fill: currentColor; }
+
+.learning-center-empty h4 {
+  margin: 26px 0 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.learning-center-empty p {
+  max-width: 32ch;
+  margin: 10px auto 0;
+  color: var(--pp-prime-navy);
+  font-size: .95rem;
+  line-height: 1.6;
+}
+
+.learning-center-videos {
+  /* Keep two cards visible; additional videos scroll without extending the section. */
+  max-height: var(--learning-center-list-height, 36rem);
+  min-height: 0;
+  margin: 26px -18px -6px -6px;
+  padding: 6px 12px 6px 6px;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: #a3adae transparent;
+}
+
+.learning-center-videos:focus-visible {
+  outline: 2px solid var(--pp-dark-gold);
+  outline-offset: 2px;
+  border-radius: 18px;
+}
+
+.learning-center-playlist {
+  display: grid;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+[data-video-layout="stacked"] .learning-center-videos {
+  max-height: none;
+  margin: 16px 0 0;
+  padding: 0;
+  overflow: visible;
+  scrollbar-gutter: auto;
+}
+
+@media (min-width: 981px) {
+  [data-video-layout="stacked"] .learning-center-videos:not([hidden]) {
+    display: grid;
+    flex: 1;
+  }
+
+  [data-video-layout="stacked"] .learning-center-video-link {
+    padding-block: 36px;
+  }
+
+}
+
+.learning-center-video-link {
+  display: block;
+  height: 100%;
+  padding: 24px;
+  border: 1px solid rgba(15, 31, 45, .1);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, .68);
+  color: var(--pp-prime-navy);
+  text-decoration: none;
+}
+
+.learning-center-video-heading {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  align-items: center;
+  gap: 14px;
+}
+
+.learning-center-video-heading svg {
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  border: 1px solid rgba(151, 118, 48, .5);
+  border-radius: 50%;
+  fill: currentColor;
+}
+
+.learning-center-publisher {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--pp-prime-navy);
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.learning-center-video-title {
+  display: block;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.learning-center-speakers {
+  display: block;
+  margin-top: 18px;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.learning-center-description {
+  display: block;
+  margin-top: 8px;
+  color: var(--pp-prime-navy);
+  font-size: .9375rem;
+  line-height: 1.6;
+}
+
+.learning-center-watch {
+  display: block;
+  margin-top: 18px;
+  color: var(--pp-prime-navy);
+  font-size: .85rem;
+  font-weight: 600;
+}
+
+.learning-center-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.bpc-overview--compact .bpc-research-facts > div {
+  padding-block: clamp(24px, 2.4vw, 36px);
+}
+
+.bpc-overview--compact .learning-center-playlist {
+  gap: 10px;
+}
+
+.bpc-overview--compact .learning-center-video-link {
+  padding: clamp(8px, 1vw, 12px) 18px;
+}
+
+.bpc-overview--compact .bpc-learning-center .bpc-overview-card-heading p {
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+.bpc-overview--compact .learning-center-speakers,
+.bpc-overview--compact .learning-center-watch {
+  margin-top: 6px;
+}
+
+.learning-center-video-link:hover { border-color: rgba(151, 118, 48, .5); background: #fff; }
+.learning-center-video-link:hover .learning-center-video-title { color: var(--pp-prime-navy); }
+.learning-center-video-link:focus-visible { outline: 2px solid var(--pp-dark-gold); outline-offset: 4px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .learning-center-video-link { transition: border-color 180ms ease, background-color 180ms ease; }
+}
+
+@media (max-width: 980px) {
+  .bpc-overview-grid { grid-template-columns: minmax(0, 1fr); }
+  .learning-center-empty { margin-block: 0; padding-bottom: 0; }
+}
+
+@media (max-width: 560px) {
+  .bpc-overview-card,
+  .bpc-learning-center { padding: 26px 22px; border-radius: 20px; }
+  .bpc-overview--compact .bpc-learning-center { padding-block: clamp(20px, 5.4vw, 26px); }
+  .bpc-research-facts > div { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .learning-center-video-link { padding: 20px; }
+}
+
+.peptide-profile-page .glutathione-science-card h3 {
+  min-height: 0;
+  margin-bottom: 14px;
+}
+
+.peptide-profile-page .glutathione-quality-list {
+  margin: 0;
+}
+
+.peptide-profile-page .glutathione-infographic {
+  justify-content: center;
+}
+
+.peptide-profile-page .glutathione-infographic-flow {
+  flex: none;
+  gap: clamp(8px, 2cqw, 16px);
+}
+
+.peptide-profile-page .glutathione-infographic-step :is(h3, .glutathione-thumbnail-step-title) {
+  margin: 0;
+  color: var(--pp-warm-ivory);
+}
+
+.care-strip {
+  position: relative;
+  margin-top: clamp(36px, 5vw, 80px);
+  padding-block: clamp(30px, 3.6vw, 54px);
+  color: var(--pp-prime-navy);
+}
+
+.care-strip + .glutathione-benefits {
+  margin-top: clamp(36px, 5vw, 80px);
+}
+
+.care-strip-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 24px;
+  margin: 0;
+  padding: 0 24px;
+  list-style: none;
+}
+
+.care-strip-items li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  max-width: min(26rem, 78vw);
+  font-size: clamp(.95rem, 1.24vw, 1.15rem);
+  line-height: 1.45;
+}
+
+.care-strip-items svg {
+  flex: none;
+  width: 1.24em;
+  height: 1.24em;
+  margin-top: .1em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.care-strip-items strong,
+.care-strip-items span {
+  display: block;
+}
+
+.care-strip-items strong { font-weight: 600; }
+.care-strip-items span { margin-top: 3px; color: #56606a; }
+.care-strip-items[aria-hidden="true"],
+.care-strip-toggle,
+.care-strip-play { display: none; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .care-strip.is-looping .care-strip-window {
+    --fade-width: clamp(32px, 9%, 140px);
+    overflow: hidden;
+    mask-image: linear-gradient(to right,
+      transparent 0.6%,
+      black var(--fade-width),
+      black calc(100% - var(--fade-width)),
+      transparent 99.4%);
+  }
+
+  .care-strip.is-looping .care-strip-track {
+    display: flex;
+    width: max-content;
+    min-width: 200%;
+    animation: care-strip-scroll 36s linear infinite;
+  }
+
+  .care-strip.is-looping .care-strip-items {
+    --gap: clamp(48px, 6vw, 96px);
+    display: flex;
+    flex: 1 0 auto;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: var(--gap);
+    padding-inline: calc(var(--gap) / 2);
+  }
+
+  .care-strip.is-paused .care-strip-track { animation-play-state: paused; }
+
+  .care-strip-toggle:not([hidden]) {
+    position: absolute;
+    right: 6px;
+    bottom: 3px;
+    display: grid;
+    place-items: center;
+    width: 26px;
+    height: 26px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: #56606a;
+    cursor: pointer;
+  }
+
+  .care-strip-toggle:is(:hover, :focus-visible) { background: #e9e7e3; }
+  .care-strip-toggle svg { width: 12px; height: 12px; fill: currentColor; }
+  .care-strip.is-paused .care-strip-pause { display: none; }
+  .care-strip.is-paused .care-strip-play { display: block; }
+}
+
+@keyframes care-strip-scroll {
+  to { transform: translateX(-50%); }
+}

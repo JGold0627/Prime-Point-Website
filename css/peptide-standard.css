@@ -1,0 +1,80 @@
+/* Shared quality-of-care section from the peptide therapy page. */
+.peptide-standard {
+  padding: clamp(56px, 7vw, 104px) var(--pp-page-gutter);
+  scroll-margin-top: var(--pp-header-height);
+  background: var(--pp-warm-ivory);
+  color: var(--pp-prime-navy);
+}
+.peptide-standard-inner {
+  max-width: var(--pp-shell-max);
+  margin-inline: auto;
+  padding-top: clamp(32px, 4vw, 56px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: clamp(28px, 3.5vw, 48px) clamp(32px, 6vw, 88px);
+}
+.peptide-standard-inner > header { grid-column: 1 / -1; }
+.peptide-standard h2 {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -.035em;
+}
+.peptide-standard-list { margin: 0; padding: 0; list-style: none; }
+.peptide-standard-usa { display: grid; }
+.peptide-standard-usa li > span { white-space: nowrap; }
+.peptide-standard-flag-icon {
+  width: 1.35em;
+  height: auto;
+  margin-inline-start: .25em;
+  vertical-align: .1em;
+}
+.peptide-standard-usa ul {
+  display: grid;
+  row-gap: clamp(16px, 1.5vw, 22px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.peptide-standard-usa li {
+  display: flex;
+  align-items: center;
+  gap: .75em;
+  padding: .9em 1.25em;
+  border-radius: 12px;
+  background: white;
+  line-height: 1.4;
+}
+.peptide-standard-usa li::before {
+  content: "";
+  flex: 0 0 .65em;
+  height: .37em;
+  border-left: 2px solid;
+  border-bottom: 2px solid;
+  transform: translateY(-.14em) rotate(-45deg);
+}
+.peptide-standard-list li {
+  display: grid;
+  grid-template-columns: clamp(72px, 8.5vw, 120px) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(14px, 2vw, 28px);
+}
+.peptide-standard-list li + li {
+  margin-top: 22px;
+  padding-top: 22px;
+  border-top: 1px solid var(--pp-gold-soft);
+}
+.peptide-standard-list img { display: block; width: 100%; height: auto; border-radius: 18%; }
+.peptide-standard-vial { overflow: hidden; border-radius: 18%; }
+.peptide-standard-vial img { border-radius: 0; transform: scale(1.33); transform-origin: center top; }
+.peptide-standard-list h3 { margin: 0; font: 400 clamp(1.35rem, 2vw, 1.85rem)/1.2 Georgia, serif; }
+.peptide-standard-list p { max-width: 55ch; margin: 8px 0 0; color: #465c67; line-height: 1.65; }
+@media (max-width: 760px) {
+  .peptide-standard-inner { grid-template-columns: 1fr; }
+}
+
+/* Product pages already provide the shared page gutters. */
+.wellness-product-main > .peptide-standard {
+  padding-inline: 0;
+}

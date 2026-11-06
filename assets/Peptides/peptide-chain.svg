@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  viewBox="0 0 560 376" width="560" height="376" role="img" aria-labelledby="title desc">
+  <title id="title">A Peptide chain</title>
+  <desc id="desc">Nine connected amino acids. A gold orbital outline identifies one amino acid, and a gold link identifies a peptide bond between two neighbors.</desc>
+  <defs>
+    <radialGradient id="opal" cx="32%" cy="20%" r="83%">
+      <stop stop-color="#ffffff"/><stop offset=".22" stop-color="#e3f5ee"/>
+      <stop offset=".49" stop-color="#9cc8d0"/><stop offset=".73" stop-color="#497787"/>
+      <stop offset=".92" stop-color="#203f54"/><stop offset="1" stop-color="#8babb1"/>
+    </radialGradient>
+    <radialGradient id="blue" cx="30%" cy="20%" r="85%">
+      <stop stop-color="#e8f9ff"/><stop offset=".24" stop-color="#99cad9"/>
+      <stop offset=".57" stop-color="#56869c"/><stop offset=".85" stop-color="#1f435a"/>
+      <stop offset="1" stop-color="#638a98"/>
+    </radialGradient>
+    <radialGradient id="gold" cx="31%" cy="18%" r="84%">
+      <stop stop-color="#ffffed"/><stop offset=".26" stop-color="#f6dc9f"/>
+      <stop offset=".57" stop-color="#c29e59"/><stop offset=".85" stop-color="#755b36"/>
+      <stop offset="1" stop-color="#d6b471"/>
+    </radialGradient>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M0 0H24 M0 0V24" fill="none" stroke="#567a88" stroke-width=".7" opacity=".13"/>
+      <circle r="1.25" fill="#567a88" opacity=".23"/>
+    </pattern>
+    <g id="surface" fill="none" stroke="#edffff">
+      <circle r="23.8" stroke-width=".8" opacity=".62"/>
+      <g transform="rotate(-32)" stroke-width=".65" opacity=".34">
+        <ellipse rx="10" ry="23.4"/><ellipse rx="23.4" ry="8"/>
+        <path d="M-18-15 Q0-2 18-15 M-18 15 Q0 5 18 15"/>
+      </g>
+      <path d="M-16-12 Q-10-21-2-20" stroke-linecap="round" stroke-width="1.9" opacity=".85"/>
+    </g>
+    <g id="opal-unit"><circle r="24" fill="url(#opal)"/><use xlink:href="#surface"/></g>
+    <g id="blue-unit"><circle r="24" fill="url(#blue)"/><use xlink:href="#surface"/></g>
+    <path id="backbone" d="M45 229L87 231 128 193 179 155 247 150 312 194 374 218 440 190 506 141"/>
+  </defs>
+  <rect x="17" y="77" width="526" height="217" fill="url(#grid)"/>
+  <g fill="none" stroke="#567a88" opacity=".30">
+    <path d="M24 90V78H40 M520 78H536V90 M24 282V294H40 M520 294H536V282"/>
+    <path d="M55 261L506 169 M55 268L506 176" stroke-dasharray="2 7"/>
+  </g>
+  <text x="32" y="53" font-family="Georgia, serif" font-size="32" fill="#0f1f2d">A Peptide chain</text>
+  <path d="M467 42H526" stroke="#89a9b2" stroke-opacity=".6"/>
+  <path d="M504 42H526" stroke="#e2bd79" stroke-width="2.5"/>
+
+  <g fill="none" stroke-linejoin="round" stroke-linecap="round">
+    <use xlink:href="#backbone" transform="translate(0 5)" stroke="#071925" stroke-width="12" opacity=".18"/>
+    <use xlink:href="#backbone" stroke="#476675" stroke-width="9"/>
+    <use xlink:href="#backbone" transform="translate(0 -1.5)" stroke="#a0c9d2" stroke-width="5"/>
+    <use xlink:href="#backbone" transform="translate(0 -3)" stroke="#e0eee9" stroke-width="1.2"/>
+    <path d="M312 194 374 218" stroke="#b08b4e" stroke-width="8"/>
+    <path d="M312 192 374 216" stroke="#ffe5a5" stroke-width="3.2"/>
+  </g>
+  <use xlink:href="#blue-unit" transform="translate(45 229) scale(.50)"/>
+  <use xlink:href="#opal-unit" transform="translate(87 231) scale(.71)"/>
+  <use xlink:href="#blue-unit" transform="translate(128 193) scale(.91)"/>
+  <use xlink:href="#opal-unit" transform="translate(179 155) scale(1.05)"/>
+  <g transform="translate(247 150)">
+    <circle r="30" fill="url(#gold)"/><use xlink:href="#surface" transform="scale(1.25)"/>
+    <g fill="none" stroke="#a07b3d">
+      <circle r="36" stroke-width=".8" opacity=".68"/>
+      <circle r="40" stroke-width="1.8" stroke-dasharray="30 54" transform="rotate(-24)"/>
+    </g>
+  </g>
+  <use xlink:href="#opal-unit" transform="translate(312 194) scale(1.14)"/>
+  <use xlink:href="#blue-unit" transform="translate(374 218) scale(.98)"/>
+  <use xlink:href="#opal-unit" transform="translate(440 190) scale(.85)"/>
+  <use xlink:href="#blue-unit" transform="translate(506 141) scale(.69)"/>
+
+  <g fill="none" stroke="#8f6927" stroke-width="1.5">
+    <path d="M276 122L301 96H324 M343 206V241L365 263H393"/>
+    <circle cx="343" cy="206" r="4" fill="#193443"/>
+  </g>
+  <g fill="#705221" font-family="Segoe UI, Arial, sans-serif" font-weight="600" font-size="20">
+    <text x="331" y="102">Amino acid</text><text x="402" y="270">Peptide bond</text>
+  </g>
+  <path d="M32 312H528" stroke="#7b9aa1" stroke-opacity=".49"/>
+  <path d="M32 312H68" stroke="#dcba78" stroke-width="2"/>
+  <text x="32" y="347" fill="#384e5b" font-family="Segoe UI, Arial, sans-serif" font-size="20">Peptide bonds join amino acids into a chain.</text>
+</svg>

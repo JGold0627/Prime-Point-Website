@@ -40,6 +40,7 @@ These instructions apply to all future Codex chats working in this repository. P
 
 ## Website Editing Rules
 
+- On peptide product pages, use that peptide's approved “Potential function” text from the lineup in `peptides.html` verbatim for the “How does [peptide] work?” FAQ. Keep the FAQ and product page's “Potential function” paragraph in sync.
 - Do not reuse the same photo across the site unless the user explicitly specifies reuse or it is for GLP-1s. The existing GLP-1 photo treatment is already completed and is an allowed exception. Check existing photo usage before selecting or adding imagery for a new page or section.
 - Preserve existing navigation and page relationships.
 - Keep all visible pages accessible unless the user asks to remove or hide something.

@@ -52,7 +52,7 @@
 }
 
 .anti-aging-hero h1 em {
-  color: #cba766;
+  color: var(--pp-prime-gold);
   font-weight: 400;
 }
 
@@ -100,7 +100,7 @@
   right: -12vw;
   width: min(62vw, 760px);
   aspect-ratio: 1;
-  border: 1px solid rgba(203, 167, 102, 0.35);
+  border: 1px solid rgba(var(--pp-gold-rgb), 0.35);
   border-radius: 50%;
   transform: translateY(-50%);
 }
@@ -108,7 +108,7 @@
 .anti-aging-orbit::before {
   position: absolute;
   inset: 15%;
-  border: 1px solid rgba(203, 167, 102, 0.28);
+  border: 1px solid rgba(var(--pp-gold-rgb), 0.28);
   border-radius: inherit;
   content: "";
 }

@@ -1,4 +1,13 @@
-/* Homepage preview: review this interaction before extending it to other pages. */
+/* Homepage button motion; primary CTA appearance comes from the shared tokens. */
+body.home-page :is(
+  .home-hero-centered-actions .button-primary,
+  .home-care-cta,
+  .home-roadmap-cta,
+  .home-roadmap-links a,
+  .header-login
+) {
+  --home-button-interaction-shadow: var(--pp-cta-shadow-hover);
+}
 body.home-page :is(
   .home-hero-centered-actions .button-primary,
   .home-care-cta,
@@ -52,7 +61,7 @@ body.home-page :is(
 ):focus-visible {
   outline: 2px solid var(--home-prime-gold);
   outline-offset: 5px;
-  box-shadow: 0 6px 18px rgba(15, 31, 45, 0.12);
+  box-shadow: var(--home-button-interaction-shadow, 0 6px 18px rgba(15, 31, 45, 0.12));
 }
 
 body.home-page :is(
@@ -78,7 +87,7 @@ body.home-page :is(
   ):not(:disabled):hover {
     --home-button-lift: -3px;
     --home-button-arrow-x: 4px;
-    box-shadow: 0 8px 22px rgba(15, 31, 45, 0.16);
+    box-shadow: var(--home-button-interaction-shadow, 0 8px 22px rgba(15, 31, 45, 0.16));
   }
 
   body.home-page :is(

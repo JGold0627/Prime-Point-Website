@@ -1,5 +1,5 @@
 .bw-panels {
-  --bw-panel-line: rgba(203, 167, 102, 0.32);
+  --bw-panel-line: rgba(var(--pp-gold-rgb), 0.32);
   --bw-panel-surface: #f7f4ed;
 }
 
@@ -23,7 +23,7 @@
 
 .blood-work-page .bw-panels .bw-panels-intro {
   margin: 24px auto 0;
-  color: var(--pp-slate-blue);
+  color: var(--pp-prime-navy);
   font-size: 1rem;
   line-height: 1.7;
 }
@@ -76,7 +76,7 @@
   height: 6px;
   border-radius: 50%;
   background: var(--pp-prime-gold);
-  box-shadow: 0 0 0 6px rgba(203, 167, 102, 0.1);
+  box-shadow: 0 0 0 6px rgba(var(--pp-gold-rgb), 0.1);
 }
 
 .bw-panel-orbit-core {
@@ -89,7 +89,7 @@
   border-radius: 50%;
   border: 1px solid var(--bw-panel-line);
   background: radial-gradient(circle at 35% 28%, #fcfbf8, var(--pp-pale-blue));
-  box-shadow: 0 0 65px 8px rgba(203, 167, 102, 0.13);
+  box-shadow: 0 0 65px 8px rgba(var(--pp-gold-rgb), 0.13);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -148,7 +148,7 @@
   background: #f1ede5;
   color: var(--pp-prime-navy);
   border-color: var(--bw-panel-line);
-  box-shadow: 0 4px 14px rgba(203, 167, 102, 0.08);
+  box-shadow: 0 4px 14px rgba(var(--pp-gold-rgb), 0.08);
 }
 
 .bw-panel-category:focus-visible {
@@ -210,7 +210,7 @@
   gap: 20px;
   min-height: 68px;
   padding: 16px 0;
-  border-bottom: 1px solid rgba(203, 167, 102, 0.24);
+  border-bottom: 1px solid rgba(var(--pp-gold-rgb), 0.24);
   font-size: 0.98rem;
   line-height: 1.5;
 }
@@ -246,7 +246,7 @@
   margin: 20px 0 0;
   font-size: 0.8rem;
   line-height: 1.6;
-  color: var(--pp-slate-blue);
+  color: var(--pp-prime-navy);
 }
 
 @keyframes bw-panel-orbit {

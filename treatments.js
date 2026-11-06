@@ -21,7 +21,7 @@ treatmentFilters.forEach((filter) => {
 const syncTreatmentCategoryLink = () => {
   const requestedCategory = window.location.hash.slice(1);
   // Keep older shared category links working after the label change.
-  const category = requestedCategory === "longevity" ? "energy-recovery" : requestedCategory;
+  const category = requestedCategory === "energy-recovery" ? "longevity" : requestedCategory;
   const filter = Array.from(treatmentFilters).find((item) => item.id === category && category);
   if (filter) filter.click();
 };

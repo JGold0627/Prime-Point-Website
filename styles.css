@@ -1,11 +1,11 @@
 ﻿/* Legacy compatibility entrypoint. Active pages now load css/global.css plus their page stylesheet. */
-@import url("css/global.css?v=43");
-@import url("css/home.css");
-@import url("css/glp.css");
-@import url("css/peptides.css");
+@import url("css/global.css?v=45");
+@import url("css/home.css?v=49");
+@import url("css/glp.css?v=5");
+@import url("css/peptides.css?v=22");
 @import url("css/bloodwork.css");
 @import url("css/supplements.css");
-@import url("css/about.css");
+@import url("css/about.css?v=1");
 @import url("css/faq.css");
 @import url("css/contact.css");
 
