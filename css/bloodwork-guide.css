@@ -483,6 +483,10 @@ html.pp-reveal-ready .bw-guide-art:not(.pp-reveal-visible) .bw-guide-baseline-po
   outline-offset: 5px;
 }
 
+.bw-guide-navigation {
+  display: none;
+}
+
 .bw-guide-stack > .bw-guide-step {
   --bw-step-padding: clamp(24px, 2.4vw, 32px);
   position: relative;
@@ -850,6 +854,58 @@ body.blood-work-page main .bw-insights-benefits li {
 }
 
 @media screen and (max-width: 900px) {
+  .bw-guide-navigation:not([hidden]) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin-top: clamp(40px, 7vw, 64px);
+    color: var(--pp-prime-navy);
+    font-size: 0.875rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .bw-guide-navigation button {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    border: 1px solid #b58b3d;
+    border-radius: 50%;
+    background: #fbf8f2;
+    color: var(--pp-prime-navy);
+    cursor: pointer;
+  }
+
+  .bw-guide-navigation button:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
+
+  .bw-guide-navigation button:focus-visible {
+    outline: 2px solid var(--bw-guide-gold);
+    outline-offset: 4px;
+  }
+
+  .bw-guide-navigation button:enabled:hover {
+    background: #eee4d0;
+  }
+
+  .bw-guide-navigation svg {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .bw-guide-navigation:not([hidden]) + .bw-guide-stack {
+    margin-top: 12px;
+  }
+
   .bw-guide-stack {
     display: grid;
     grid-auto-flow: column;

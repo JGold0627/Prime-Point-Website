@@ -11,10 +11,56 @@
   const desktop = window.matchMedia('(min-width: 901px)');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const header = document.querySelector('.site-header');
+  const navigation = document.querySelector('.bw-guide-navigation');
+  const previous = navigation?.querySelector('[data-bw-guide-prev]');
+  const next = navigation?.querySelector('[data-bw-guide-next]');
+  const position = navigation?.querySelector('[data-bw-guide-position]');
   let frame = 0;
+
+  const currentStep = () => {
+    const distance = steps[1].offsetLeft - steps[0].offsetLeft;
+    return Math.max(0, Math.min(steps.length - 1, Math.round(stack.scrollLeft / distance)));
+  };
+
+  const updateNavigation = () => {
+    if (!navigation || !previous || !next || !position) return;
+    navigation.hidden = desktop.matches;
+    if (desktop.matches) return;
+    const index = currentStep();
+    previous.disabled = index === 0;
+    next.disabled = index === steps.length - 1;
+    const label = `Step ${index + 1} of ${steps.length}`;
+    if (position.textContent !== label) position.textContent = label;
+  };
+
+  const moveToStep = (index) => {
+    if (desktop.matches) return;
+    const step = steps[Math.max(0, Math.min(steps.length - 1, index))];
+    stack.scrollTo({
+      left: step.offsetLeft - steps[0].offsetLeft,
+      behavior: reducedMotion.matches ? 'instant' : 'smooth',
+    });
+  };
+
+  previous?.addEventListener('click', () => moveToStep(currentStep() - 1));
+  next?.addEventListener('click', () => moveToStep(currentStep() + 1));
+  stack.addEventListener('scroll', updateNavigation, { passive: true });
+  stack.addEventListener('keydown', (event) => {
+    if (desktop.matches || event.target !== stack) return;
+    const destinations = {
+      ArrowLeft: currentStep() - 1,
+      ArrowRight: currentStep() + 1,
+      Home: 0,
+      End: steps.length - 1,
+    };
+    if (!(event.key in destinations)) return;
+    event.preventDefault();
+    moveToStep(destinations[event.key]);
+  });
 
   const update = () => {
     frame = 0;
+    updateNavigation();
     if (!desktop.matches || reducedMotion.matches) {
       stack.classList.remove('is-stacking');
       return;
@@ -109,6 +155,7 @@
   });
 
   const observer = new ResizeObserver(scheduleUpdate);
+  observer.observe(stack);
   steps.forEach((step) => [...step.children].forEach((child) => observer.observe(child)));
   if (header) observer.observe(header);
   stack.addEventListener('toggle', scheduleUpdate, true);
