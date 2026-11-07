@@ -188,7 +188,6 @@ const globalHeaderMarkup = `
       </div>
 
       <nav class="mobile-nav-menu" id="mobile-nav-menu" aria-label="Mobile navigation" hidden>
-        <p class="mobile-nav-eyebrow">Explore Prime Point</p>
         <div class="mobile-nav-group">
           <button class="mobile-nav-topic" type="button" data-mobile-nav-trigger aria-expanded="false" aria-controls="mobile-weight-loss-links"><span>Weight Loss</span><span class="mobile-nav-chevron" aria-hidden="true"></span></button>
           <div class="mobile-nav-submenu" id="mobile-weight-loss-links" hidden>

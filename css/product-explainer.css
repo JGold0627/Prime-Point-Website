@@ -124,7 +124,8 @@
 .product-thumbnail-canvas > .product-infographic { overflow: hidden; }
 
 @container (max-width: 25rem) {
-  .product-explainer-semax .product-infographic {
+  .product-explainer-semax .product-infographic,
+  .product-explainer-ghk-cu .product-infographic {
     padding: clamp(12px, 4cqw, 16px);
     gap: 8px;
   }

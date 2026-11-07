@@ -131,6 +131,13 @@
 }
 .lineup-cta:hover { background: #294453; }
 .lineup-cta span { color: #e5ce9d; }
+.lineup-research-note {
+  margin: 16px 0 0;
+  color: #6b7579;
+  font-size: .75rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
 .lineup-visual {
   pointer-events: none;
   position: absolute;

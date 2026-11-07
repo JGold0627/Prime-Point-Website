@@ -2,9 +2,9 @@
   // Keep prices in cents; URL parameters select a catalog plan, never set its price.
   const products = {
     'semaglutide': { name: 'Semaglutide', rates: { '1': 19900, '3': 17900 } },
-    'semaglutide-tablets': { name: 'Semaglutide Sublingual Drops', rates: { '1': 19900, '3': 15900 } },
-    'tirzepatide': { name: 'Tirzepatide', rates: { '1': 29900, '3': 26100 } },
-    'tirzepatide-tablets': { name: 'Tirzepatide Sublingual Drops', rates: { '1': 29900, '3': 26100 } },
+    'semaglutide-tablets': { name: 'Semaglutide Sublingual Drops', rates: { '1': 19900, '3': 17900 } },
+    'tirzepatide': { name: 'Tirzepatide', rates: { '1': 29900, '3': 26900 } },
+    'tirzepatide-tablets': { name: 'Tirzepatide Sublingual Drops', rates: { '1': 29900, '3': 26900 } },
     'sermorelin': { name: 'Sermorelin', rates: { '1': 22500, '3': 19300 } },
     'glutathione': { name: 'Glutathione', rates: { '1': 12900, '3': 11600 } },
     'glutathione-nasal': { name: 'Glutathione Nasal Spray', rates: { '1': 16900, '3': 13800 } },

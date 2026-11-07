@@ -238,6 +238,30 @@ body.blood-work-page main .bw-difference-note {
   text-wrap: balance;
 }
 
+.bw-difference-cta {
+  display: flex;
+  gap: 18px;
+  width: min(100%, 280px);
+  min-height: 60px;
+  margin: clamp(32px, 4vw, 48px) auto 0;
+  background: var(--bw-navy);
+  color: var(--pp-warm-ivory);
+  font-size: 0.875rem;
+}
+
+.bw-difference-cta:hover,
+.bw-difference-cta:focus-visible {
+  background: #203d52;
+  border-color: var(--pp-prime-gold);
+  color: var(--pp-warm-ivory);
+  box-shadow: var(--pp-cta-shadow-hover);
+}
+
+.bw-difference-cta:focus-visible {
+  outline: 2px solid var(--pp-prime-gold);
+  outline-offset: 5px;
+}
+
 .bw-difference-sr-only {
   position: absolute;
   width: 1px;
