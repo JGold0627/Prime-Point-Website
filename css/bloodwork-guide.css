@@ -478,6 +478,11 @@ html.pp-reveal-ready .bw-guide-art:not(.pp-reveal-visible) .bw-guide-baseline-po
   margin-top: clamp(56px, 7vw, 96px);
 }
 
+.bw-guide-stack:focus-visible {
+  outline: 2px solid var(--bw-guide-gold);
+  outline-offset: 5px;
+}
+
 .bw-guide-stack > .bw-guide-step {
   --bw-step-padding: clamp(24px, 2.4vw, 32px);
   position: relative;
@@ -842,6 +847,31 @@ body.blood-work-page main .bw-insights-benefits li {
   }
 
   body.blood-work-page main .bw-guide-step-title { max-width: 22ch; }
+}
+
+@media screen and (max-width: 900px) {
+  .bw-guide-stack {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc(100% - 20px);
+    align-items: start;
+    gap: 16px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: var(--bw-guide-gold) #e8dfd0;
+    padding-block: 8px 16px;
+  }
+
+  .bw-guide-stack > .bw-guide-step,
+  .bw-guide-stack > .bw-guide-step + .bw-guide-step {
+    min-width: 0;
+    max-width: none;
+    margin: 0;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
 }
 
 @media (max-width: 480px) {

@@ -1,6 +1,7 @@
 /* Focused bloodwork selector, on the shared ivory and gold canvas. */
 #bloodwork-pricing {
   --bw-price-gold: var(--pp-prime-gold);
+  --bw-price-outline: #b58b3d;
   --bw-price-line: #d9c8ac;
   padding: clamp(72px, 8vw, 120px) 0;
   background: #f7f4ed;
@@ -71,7 +72,7 @@
 #bloodwork-pricing .bw-pricing-format {
   min-height: 50px;
   padding: 13px 24px;
-  border: 2px solid var(--bw-price-gold);
+  border: 1px solid var(--bw-price-outline);
   border-radius: 999px;
   background: #fbf8f2;
   color: var(--pp-prime-navy);
@@ -85,7 +86,7 @@
 }
 #bloodwork-pricing .bw-pricing-studio {
   padding: clamp(24px, 3.5vw, 44px);
-  border: 2px solid var(--bw-price-gold);
+  border: 1px solid var(--bw-price-outline);
   border-radius: 28px;
   background: #fbf8f2;
   box-shadow: 0 16px 42px rgba(15, 31, 45, .045);
@@ -118,7 +119,7 @@
   border-color: var(--bw-price-gold);
   background: #f1e8d7;
 }
-#bloodwork-pricing .bw-pricing-format:hover { border-color: #8f6927; }
+#bloodwork-pricing .bw-pricing-format:hover { border-color: var(--bw-price-outline); }
 #bloodwork-pricing .bw-pricing-tier:hover { border-color: var(--bw-price-gold); }
 #bloodwork-pricing .bw-pricing-offer,
 #bloodwork-pricing .bw-pricing-kit {
