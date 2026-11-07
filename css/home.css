@@ -1322,8 +1322,8 @@
 
 .home-product-showcase-heading {
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: space-between;
   text-align: left;
   gap: 32px;
   width: min(calc(100% - (var(--pp-page-gutter) * 2)), 1440px);
@@ -1488,13 +1488,25 @@ a.home-product-card:is(:active, .is-pressed) .home-product-image-wrap {
   }
 }
 
-.home-product-image-wrap img {
+.home-product-image-wrap > :is(img, svg) {
   width: 74%;
   height: 82%;
   object-fit: contain;
   transform: scale(0.94);
   filter: drop-shadow(0 22px 24px rgba(43, 31, 18, 0.22));
   transition: transform 260ms ease;
+}
+
+.home-product-packshot text {
+  fill: #102134;
+  font: 700 54px Arial, sans-serif;
+  letter-spacing: 3px;
+  text-anchor: middle;
+}
+
+.home-product-packshot.home-product-image-nasal text {
+  font-size: 40px;
+  letter-spacing: 2px;
 }
 
 .home-product-price {
@@ -3241,6 +3253,19 @@ a.home-product-card:is(:active, .is-pressed) .home-product-image-wrap {
   box-shadow: var(--pp-cta-shadow);
 }
 
+.home-product-showcase-heading .home-products-cta {
+  flex-shrink: 0;
+  margin-top: 0;
+}
+
+@media (max-width: 900px) {
+  .home-product-showcase-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+}
+
 .home-care-cta span { color: var(--home-prime-gold); font-size: 1.3rem; }
 .home-care-cta:hover { background: #233c50; border-color: var(--pp-prime-gold); }
 .home-care-cta:focus-visible { outline: 2px solid var(--home-prime-gold); outline-offset: 5px; }
@@ -3327,7 +3352,8 @@ a.home-product-card:is(:active, .is-pressed) .home-product-image-wrap {
 
 /* The FAQ photograph keeps its collapsed-column height as answers expand. */
 .home-faq {
-  padding: clamp(72px, 8vw, 116px) var(--pp-page-gutter) clamp(88px, 9vw, 132px);
+  --home-faq-action-gap: calc((clamp(88px, 9vw, 132px) + 26px) / 2);
+  padding: clamp(72px, 8vw, 116px) var(--pp-page-gutter) 0;
   background: var(--home-warm-ivory);
   color: var(--home-prime-navy);
 }
@@ -3337,7 +3363,11 @@ a.home-product-card:is(:active, .is-pressed) .home-product-image-wrap {
 .home-faq-actions {
   display: flex;
   justify-content: center;
+  /* Balance the space between the FAQ content, CTA, and gold footer divider. */
+  padding-block: var(--home-faq-action-gap);
 }
+
+.home-faq-actions .home-care-cta { margin-top: 0; }
 
 /* Consistent gold typography for the homepage's small section labels. */
 .home-hero-eyebrow,
