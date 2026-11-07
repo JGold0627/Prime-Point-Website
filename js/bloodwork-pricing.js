@@ -3,6 +3,7 @@
   if (!root) return;
 
   const formatButtons = [...root.querySelectorAll('[data-bw-format]')];
+  const formatSelect = root.querySelector('[data-bw-format-select]');
   const formatPanels = [...root.querySelectorAll('[data-bw-format-panel]')];
   const tierButtons = [...root.querySelectorAll('[data-bw-tier]')];
   const offers = [...root.querySelectorAll('[data-bw-offer]')];
@@ -19,6 +20,7 @@
 
   function showFormat(format) {
     if (!formatButtons.some(button => button.dataset.bwFormat === format)) return;
+    if (formatSelect) formatSelect.value = format;
     const target = format === 'tasso' ? 'tasso' : 'lab';
     if (Object.hasOwn(audiences, format)) currentAudience = format;
     formatButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.bwFormat === format)));
@@ -53,11 +55,15 @@
   }
 
   formatButtons.forEach(button => button.addEventListener('click', () => showFormat(button.dataset.bwFormat)));
+  formatSelect?.addEventListener('change', () => showFormat(formatSelect.value));
   tierButtons.forEach(button => button.addEventListener('click', () => showTier(button.dataset.bwTier)));
 
   offers.forEach(offer => {
     offer.querySelector('[data-bw-collection]').addEventListener('change', () => updateOffer(offer));
     updateOffer(offer);
   });
-  window.addEventListener('pageshow', () => offers.forEach(updateOffer));
+  window.addEventListener('pageshow', () => {
+    const selected = formatButtons.find(button => button.getAttribute('aria-pressed') === 'true');
+    showFormat(selected?.dataset.bwFormat ?? 'men');
+  });
 })();

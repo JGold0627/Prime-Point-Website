@@ -1942,7 +1942,7 @@
   <link rel="stylesheet" href="css/bloodwork-report-backdrop.css?v=4">
   <link rel="stylesheet" href="css/bloodwork-difference.css?v=6">
   <link rel="stylesheet" href="css/bloodwork-guide.css?v=21">
-  <link rel="stylesheet" href="css/bloodwork-pricing.css?v=9">
+  <link rel="stylesheet" href="css/bloodwork-pricing.css?v=10">
   <link rel="stylesheet" href="css/section-headings.css?v=2" />
 </head>
   <body class="blood-work-page">
@@ -2314,6 +2314,11 @@
             <p class="bw-pricing-intro">Explore bloodwork panels and Tasso at-home kits in one place.</p>
           </header>
           <div class="bw-pricing-selector" data-pp-reveal="fade">
+            <select class="bw-pricing-format-select" data-bw-format-select aria-label="Testing format" aria-controls="bloodwork-pricing-lab bloodwork-pricing-tasso">
+              <option value="men">Men&rsquo;s Lab &amp; Mobile Panels</option>
+              <option value="women">Women&rsquo;s Lab &amp; Mobile Panels</option>
+              <option value="tasso">At-Home Bloodwork</option>
+            </select>
             <div class="bw-pricing-formats" role="group" aria-label="Testing format">
               <button class="bw-pricing-format" type="button" data-bw-format="men" aria-pressed="true" aria-controls="bloodwork-pricing-lab">Men&rsquo;s Lab &amp; Mobile Panels</button>
               <button class="bw-pricing-format" type="button" data-bw-format="women" aria-pressed="false" aria-controls="bloodwork-pricing-lab">Women&rsquo;s Lab &amp; Mobile Panels</button>
@@ -2650,7 +2655,7 @@
     <script src="js/bloodwork-markers.js?v=2"></script>
     <script src="js/bloodwork-lake.js?v=1"></script>
     <script src="js/bloodwork-guide.js?v=6"></script>
-    <script src="js/bloodwork-pricing.js?v=7"></script>
+    <script src="js/bloodwork-pricing.js?v=8"></script>
   </body>
 </html>
 

@@ -61,6 +61,7 @@
   outline-offset: 4px;
 }
 #bloodwork-pricing .bw-pricing-selector { margin-top: clamp(32px, 4vw, 48px); }
+#bloodwork-pricing .bw-pricing-format-select { display: none; }
 #bloodwork-pricing .bw-pricing-formats {
   display: flex;
   align-items: center;
@@ -431,6 +432,21 @@
   font-size: .8rem;
 }
 @media (max-width: 760px) {
+  #bloodwork-pricing .bw-pricing-formats { display: none; }
+  #bloodwork-pricing .bw-pricing-format-select {
+    display: block;
+    width: 100%;
+    min-height: 52px;
+    margin: 0 0 20px;
+    padding: 12px 14px;
+    border: 1px solid var(--bw-price-outline);
+    border-radius: 14px;
+    background-color: #fbf8f2;
+    color: var(--pp-prime-navy);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.4;
+  }
   #bloodwork-pricing .bw-pricing-shell { width: calc(100% - 36px); }
   #bloodwork-pricing .bw-pricing-studio { padding: 22px; border-radius: 22px; }
   #bloodwork-pricing .bw-pricing-offer,
@@ -447,7 +463,6 @@
   #bloodwork-pricing .bw-pricing-method-note { min-height: 0; }
 }
 @media (max-width: 560px) {
-  #bloodwork-pricing .bw-pricing-formats { display: grid; grid-template-columns: 1fr; gap: 10px; }
   #bloodwork-pricing .bw-pricing-tiers { grid-template-columns: 1fr; gap: 9px; margin-bottom: 24px; }
   #bloodwork-pricing .bw-pricing-tier { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 52px; padding: 13px 16px; text-align: left; }
   #bloodwork-pricing .bw-pricing-tier small { margin: 0; }
