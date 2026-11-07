@@ -3416,14 +3416,16 @@ body.home-page h2.pp-section-heading > span {
 
 .home-faq-layout {
   display: grid;
-  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, min(50%, var(--home-faq-photo-height, 566px))) minmax(0, 1fr);
   gap: clamp(36px, 5vw, 78px);
   align-items: start;
 }
 
 .home-faq-photo {
   position: relative;
-  height: var(--home-faq-photo-height, 425px);
+  /* Match the full photograph's proportions so it fills its rounded frame. */
+  aspect-ratio: 1;
+  height: auto;
   margin: 0;
   overflow: hidden;
   border-radius: 26px;
@@ -3431,6 +3433,8 @@ body.home-page h2.pp-section-heading > span {
 }
 
 .home-faq-photo img {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
   height: 100%;
@@ -3445,8 +3449,8 @@ body.home-page h2.pp-section-heading > span {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  min-height: 84px;
-  padding: 25px 0;
+  min-height: 112px;
+  padding: 32px 0;
   color: var(--home-prime-navy);
   font-family: var(--pp-font-body);
   font-size: clamp(1rem, 1.35vw, 1.15rem);
@@ -3470,8 +3474,6 @@ body.home-page h2.pp-section-heading > span {
 
 @media (max-width: 800px) {
   .home-faq-layout { grid-template-columns: minmax(0, 1fr); gap: 32px; }
-  .home-faq-photo { height: auto; aspect-ratio: 4 / 3; }
-  .home-faq-photo img { position: absolute; inset: 0; }
 }
 
 @media (max-width: 560px) {
