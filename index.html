@@ -9,7 +9,7 @@
       content="Prime Point Health is a luxury telehealth platform for physician-guided peptide therapy, GLP-1 programs, blood work, and supplement planning."
     />
     <link rel="stylesheet" href="css/global.css?v=47" />
-    <link rel="stylesheet" href="css/home.css?v=63" />
+    <link rel="stylesheet" href="css/home.css?v=74" />
     <link rel="stylesheet" href="css/section-headings.css?v=2" />
     <link rel="stylesheet" href="css/home-button-motion.css?v=3" />
   </head>
@@ -22,28 +22,10 @@
       assessment dropdown positioned at 4.3% / 81%.
     -->
     <section class="home-hero" aria-label="Prime Point homepage hero">
-      <svg class="home-hero-daylight" viewBox="0 0 1536 1024" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-        <defs>
-          <radialGradient id="home-sunlight">
-            <stop stop-color="#fff8d7"/>
-            <stop offset=".15" stop-color="#ffdd9b" stop-opacity=".9"/>
-            <stop offset=".49" stop-color="#ffc876" stop-opacity=".34"/>
-            <stop offset="1" stop-color="#ffbe78" stop-opacity="0"/>
-          </radialGradient>
-          <!-- The far ridge occludes the solar disc as it rises and sets. -->
-          <clipPath id="home-skyline">
-            <path d="M0 0H1536V773L1504 775 1472 775 1440 771 1408 768 1376 771 1344 769 1312 766 1280 765 1248 765 1216 771 1184 774 1152 775 1120 777 1088 783 1056 784 1024 789 992 789 960 786 928 782 896 780 864 778 832 775 800 783 768 789 736 793 704 791 672 788 640 787 608 785 576 790 544 793 512 791 480 792 448 797 416 802 384 799 352 795 320 798 288 798 256 794 224 790 192 793 160 792 128 791 96 789 64 794 32 796 0 798Z"/>
-          </clipPath>
-        </defs>
-        <image href="assets/home/home-daylight-mountains.webp" width="1536" height="1024"/>
-        <g clip-path="url(#home-skyline)">
-          <g data-day-sun transform="translate(860 715)">
-            <circle r="110" fill="url(#home-sunlight)"/>
-            <circle r="17" fill="#fff9db" stroke="#f9cd84" stroke-width="1.2"/>
-          </g>
-        </g>
-      </svg>
-      <img class="home-hero-orbit" src="assets/home/home-hero-orbit.svg" width="1536" height="1024" alt="" aria-hidden="true" />
+      <img class="home-hero-daylight" src="assets/home/home-daylight-mountains.webp" width="1536" height="1024" alt="" />
+      <picture class="home-hero-orbit">
+        <img src="assets/home/home-hero-orbit.svg?v=2" width="1536" height="1024" alt="" />
+      </picture>
       <div class="home-hero-content">
         <div class="home-hero-centered-copy">
           <h1 class="home-hero-main-title">
@@ -69,33 +51,18 @@
       <div class="home-commitment-inner">
         <header class="home-commitment-intro">
           <h2 id="home-commitment-title">Our Commitment to You</h2>
-          <p>We built Prime Point Health around a standard <br>we take personally: <strong>care we would want for <br>our own families.</strong></p>
-          <svg class="home-commitment-underline" viewBox="0 0 240 12" aria-hidden="true" focusable="false">
-            <path d="M1 11C70 1 170 -3 239 3C164 0 80 7 1 11Z"/>
-          </svg>
+          <p>We built Prime Point Health around a standard we take personally: <strong>care we would want for our own families.</strong></p>
         </header>
         <div class="home-commitment-copy">
           <div class="home-commitment-card">
-            <h3>
-              <svg class="home-commitment-icon" viewBox="0 0 36 36" aria-hidden="true" focusable="false">
-                <circle cx="18" cy="10" r="4.7"/><circle cx="7.5" cy="14" r="3.2"/><circle cx="28.5" cy="14" r="3.2"/>
-                <path d="M10 29v-3.2a8 8 0 0 1 16 0V29Zm-7-1v-3.2a5.7 5.7 0 0 1 6.8-5.6M33 28v-3.2a5.7 5.7 0 0 0-6.8-5.6"/>
-              </svg>
-              Our Mission
-            </h3>
+            <h3>Our <span>Vision</span></h3>
             <p>We believe patients deserve more than convenient access to treatment. They deserve transparency, honest guidance, and people who genuinely care about the decisions affecting their health. Every choice we make is guided by one question: would we feel confident recommending this care to our own families?</p>
           </div>
-          <div class="home-commitment-seal" aria-hidden="true">
-            <img src="assets/brand/Bask-Round-Logo-120x120.png" width="120" height="120" alt="">
+          <div class="home-commitment-divider" role="separator">
+            <img src="assets/brand/commitment-monogram.svg" width="120" height="120" alt="" />
           </div>
-          <div class="home-commitment-card">
-            <h3>
-              <svg class="home-commitment-icon" viewBox="0 0 36 36" aria-hidden="true" focusable="false">
-                <path d="M18 2.5c3.8 3 8 4.7 13 5.1-.3 12.8-4.4 20-13 25.5C9.4 27.6 5.3 20.4 5 7.6c5-.4 9.2-2.1 13-5.1Z"/>
-                <path d="m12.5 17.8 3.7 3.7 7.4-8"/>
-              </svg>
-              Our Goal
-            </h3>
+          <div class="home-commitment-card home-commitment-card-reversed">
+            <h3>Our <span>Mission</span></h3>
             <p>To take the time to <strong>evaluate our pharmacy partners</strong>. Ask difficult questions about sourcing, preparation, testing, and to understand the quality behind every treatment we offer. We believe patients deserve that level of diligence, and we're committed to making it a defining part of prime point health.</p>
           </div>
         </div>
@@ -405,7 +372,6 @@
 
     <script src="script.js?v=46"></script>
     <script src="js/home-services.js?v=3"></script>
-    <script src="js/home-daylight.js"></script>
   </body>
 </html>
 

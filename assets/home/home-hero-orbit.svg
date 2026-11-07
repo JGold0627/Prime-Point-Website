@@ -1,4 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 1024" width="1536" height="1024">
+<svg xmlns="http://www.w3.org/2000/svg" id="motion" viewBox="0 0 1536 1024" width="1536" height="1024">
+  <style>
+    :target .orbit-point {
+      transform-origin: 963px 509px;
+      animation: follow-arc 6s ease-in-out -3s infinite alternate;
+    }
+    @keyframes follow-arc {
+      from { transform: rotate(-18deg); }
+      to { transform: rotate(18deg); }
+    }
+  </style>
   <defs>
     <linearGradient id="ring" x1="550" y1="380" x2="1378" y2="540" gradientUnits="userSpaceOnUse">
       <stop stop-color="#fffdf7" stop-opacity=".8"/><stop offset=".54" stop-color="#efcf9a" stop-opacity=".73"/><stop offset="1" stop-color="#d6a14c"/>
@@ -14,5 +24,5 @@
     <path d="M1113 557 Q1255 530 1378 436 Q1453 388 1539 317"/>
   </g>
   <circle cx="963" cy="509" r="419.5" fill="none" stroke="url(#ring)" stroke-width="1"/>
-  <circle cx="1376" cy="435.5" r="9.5" fill="url(#point)" stroke="#fffdf5" stroke-width="1.6"/>
+  <circle class="orbit-point" cx="1376" cy="435.5" r="9.5" fill="url(#point)" stroke="#fffdf5" stroke-width="1.6"/>
 </svg>
