@@ -196,6 +196,18 @@ a.treatment-card:focus-visible {
   transform: scaleX(1.14);
 }
 
+.treatment-card-product text {
+  fill: #102134;
+  font: 700 54px Arial, sans-serif;
+  letter-spacing: 3px;
+  text-anchor: middle;
+}
+
+.treatment-card-product--nasal text {
+  font-size: 40px;
+  letter-spacing: 2px;
+}
+
 .treatment-card h2 {
   margin: 20px 0 5px;
   font-family: Georgia, "Times New Roman", serif;

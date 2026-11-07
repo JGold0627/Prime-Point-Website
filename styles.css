@@ -1,5 +1,5 @@
 ﻿/* Legacy compatibility entrypoint. Active pages now load css/global.css plus their page stylesheet. */
-@import url("css/global.css?v=45");
+@import url("css/global.css?v=47");
 @import url("css/home.css?v=49");
 @import url("css/glp.css?v=5");
 @import url("css/peptides.css?v=22");

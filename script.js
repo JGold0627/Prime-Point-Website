@@ -32,19 +32,6 @@ const headerCurrentState = (section) => activeHeaderSection === section ? ' aria
 const isMemberHome = currentPage === "member-home.html";
 const isMemberSession = isMemberHome;
 
-const peptideNavigationPages = [
-  { href: "peptides.html", label: "Explore Peptide Therapy" },
-  { href: "bpc-157.html", label: "BPC-157" },
-  { href: "mots-c.html", label: "MOTS-C" },
-  { href: "kpv.html", label: "KPV" },
-  { href: "semax.html", label: "Semax" },
-  { href: "ghk-cu.html", label: "GHK-Cu" },
-  { href: "epitalon.html", label: "Epitalon" },
-];
-const peptideNavigationLinks = (className = "") => peptideNavigationPages.map(({ href, label }) =>
-  `<a${className ? ` class="${className}"` : ""} href="${href}"${currentPage === href ? ' aria-current="page"' : ""}>${label}</a>`
-).join("\n");
-
 const globalHeaderMarkup = `
   <header class="site-header" data-site-header="global" aria-label="Primary navigation">
     <div class="nav-shell">
@@ -167,17 +154,7 @@ const globalHeaderMarkup = `
           </div>
         </div>
         <a class="nav-link${headerLinkClass("blood-work")}"${headerCurrentState("blood-work")} href="blood-work.html">Blood Work</a>
-        <div class="glp-nav-dropdown peptide-nav-dropdown">
-          <a class="nav-link glp-nav-link${headerLinkClass("peptides")}"${headerCurrentState("peptides")} href="peptides.html">Peptide Therapy</a>
-          <button class="glp-nav-trigger" type="button" aria-label="Show Peptide Therapy pages" aria-haspopup="true" aria-expanded="false" aria-controls="peptide-nav-menu">
-            <span class="glp-nav-chevron" aria-hidden="true"></span>
-          </button>
-          <div class="glp-nav-menu peptide-nav-menu" id="peptide-nav-menu" aria-hidden="true">
-            <div class="glp-nav-menu-group">
-              ${peptideNavigationLinks()}
-            </div>
-          </div>
-        </div>
+        <a class="nav-link${headerLinkClass("peptides")}"${headerCurrentState("peptides")} href="peptides.html">Peptide Therapy</a>
       </nav>
 
       <button class="mobile-nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav-menu">
@@ -241,10 +218,7 @@ const globalHeaderMarkup = `
           <a class="mobile-nav-topic" href="blood-work.html"><span>Blood Work</span><span class="mobile-nav-link-arrow" aria-hidden="true">&rarr;</span></a>
         </div>
         <div class="mobile-nav-group">
-          <button class="mobile-nav-topic" type="button" data-mobile-nav-trigger aria-expanded="false" aria-controls="mobile-peptide-links"><span>Peptide Therapy</span><span class="mobile-nav-chevron" aria-hidden="true"></span></button>
-          <div class="mobile-nav-submenu" id="mobile-peptide-links" hidden>
-            ${peptideNavigationLinks("mobile-nav-sublink")}
-          </div>
+          <a class="mobile-nav-topic" href="peptides.html"${headerCurrentState("peptides")}><span>Peptide Therapy</span><span class="mobile-nav-link-arrow" aria-hidden="true">&rarr;</span></a>
         </div>
         <div class="mobile-nav-group mobile-nav-account">
           <a class="header-action mobile-nav-login" href="${isMemberSession ? 'member-home.html' : 'https://my.joinprimepoint.com'}">${isMemberSession ? 'Member Home' : 'Log In'}</a>

@@ -2,8 +2,13 @@
   background: #111a29;
 }
 
-.peptide-profile-page .wellness-product-photo.is-vial {
+.peptide-profile-page .wellness-product-photo.is-vial,
+.peptide-profile-page .wellness-product-photo.is-packaging {
   background: #f4efe7;
+}
+
+.peptide-profile-page .wellness-product-thumbnails [data-product-view="packaging"] img {
+  object-fit: contain;
 }
 
 .peptide-profile-page .profile-function {
