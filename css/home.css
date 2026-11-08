@@ -77,6 +77,31 @@
   padding-bottom: calc(var(--home-hero-copy-padding) + var(--home-hero-height) * 0.4);
 }
 
+/* Blend the mobile header into the video behind, rather than over, the title.
+   Include landscape phones and use a plain gradient for Safari compositing. */
+@media (max-width: 767px), (max-width: 1024px) and (hover: none) and (pointer: coarse) {
+  .home-page .site-header::after {
+    display: none;
+  }
+
+  .home-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    z-index: 1;
+    height: clamp(88px, 18vh, 128px);
+    background: linear-gradient(
+      to bottom,
+      var(--home-warm-ivory) 0%,
+      rgba(246, 244, 240, 0.86) 20%,
+      rgba(246, 244, 240, 0.38) 52%,
+      rgba(246, 244, 240, 0.08) 80%,
+      rgba(246, 244, 240, 0) 100%
+    );
+    pointer-events: none;
+  }
+}
+
 /* Continuous care highlights over the lower video, above the scroll cue. */
 .home-hero-ticker {
   position: absolute;
@@ -539,6 +564,27 @@
   text-wrap: balance;
 }
 
+.home-section-number {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 0 0 auto;
+  color: #7b8388;
+  font-family: var(--pp-font-body, Inter, "Segoe UI", Arial, sans-serif);
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.1em;
+}
+
+.home-section-number::after {
+  content: "";
+  width: 32px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.45;
+}
+
 .home-commitment-row {
   display: grid;
   grid-template-columns: minmax(0, var(--commitment-photo-width)) minmax(0, 1fr);
@@ -580,6 +626,10 @@
 }
 
 .home-commitment-copy h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(12px, 1.5vw, 20px);
   margin: 0 0 16px;
   color: var(--home-prime-navy);
   font-family: var(--pp-font-body, Inter, "Segoe UI", Arial, sans-serif);
@@ -587,6 +637,14 @@
   font-weight: 600;
   line-height: 1.15;
   letter-spacing: -0.035em;
+}
+
+.home-commitment-copy h3::before,
+.home-commitment-copy h3::after {
+  content: "";
+  flex: 0 1 clamp(24px, 3vw, 44px);
+  height: 1px;
+  background: rgba(var(--pp-gold-rgb), 0.7);
 }
 
 .home-commitment-copy p {
@@ -3286,10 +3344,10 @@ a.home-product-card:is(:active, .is-pressed) .home-product-image-wrap {
   width: min(calc(50% - var(--pp-page-gutter)), calc(720px - var(--pp-page-gutter)));
   margin: 0 auto clamp(38px, 4vw, 62px);
   margin-inline-start: max(0px, calc((100% - 1440px) / 2));
-  text-align: center;
+  text-align: left;
 }
 
-.home-care-lead .home-care-intro { margin-inline: auto; }
+.home-care-lead .home-care-intro { margin-inline: 0; }
 
 @media (max-width: 900px) {
   .home-care-lead {
@@ -3526,7 +3584,7 @@ body.home-page .home-product-showcase-heading h2.pp-section-heading {
 .home-faq-intro {
   width: calc(50% - var(--pp-page-gutter));
   margin: 0 auto 28px 0;
-  text-align: center;
+  text-align: left;
   color: var(--pp-prime-navy);
   font-family: var(--pp-font-body);
   font-size: clamp(1rem, 1.3vw, 1.2rem);
@@ -3801,7 +3859,7 @@ body.home-page .home-services--stacked h2.home-services-title > span {
   white-space: nowrap;
 }
 
-body.home-page .home-services--stacked h2.home-services-title > span:nth-child(2) {
+body.home-page .home-services--stacked:not(.home-services--products) h2.home-services-title > span:nth-child(2) {
   font-size: 0.8em;
   line-height: 1.25;
 }
@@ -3996,4 +4054,48 @@ body.home-page .home-services--products h2.home-services-title {
     grid-column: 1;
     justify-self: start;
   }
+}
+
+/* Match the care and FAQ titles to the commitment and bestsellers headings. */
+body.home-page h2.home-feature-title {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto clamp(28px, 3vw, 40px);
+  color: var(--home-prime-navy);
+  font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+  font-size: 4.25rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.055em;
+  text-align: left;
+  text-transform: none;
+  white-space: normal;
+  text-wrap: balance;
+}
+
+@media (max-width: 900px) {
+  body.home-page h2.home-feature-title { font-size: 3.6rem; }
+}
+
+@media (max-width: 767px) {
+  body.home-page h2.home-feature-title { font-size: 2.75rem; }
+}
+
+@media (max-width: 560px) {
+  body.home-page h2.home-feature-title { font-size: clamp(1.5rem, 8vw, 2.25rem); }
+}
+
+/* A quieter, consistent editorial treatment for the main section headings. */
+body.home-page h2.home-commitment-title,
+body.home-page .home-services--products h2.home-services-title,
+body.home-page h2.home-feature-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: calc(clamp(1.625rem, calc(1.25rem + 2vw), 3.25rem) + 3px);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
 }
