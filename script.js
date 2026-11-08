@@ -993,7 +993,8 @@ window.addEventListener("pageshow", () => {
 
   revealItems.forEach((item) => item.classList.add("pp-reveal-item"));
 
-  const revealObserver = new IntersectionObserver(
+  const isHomePage = document.body.classList.contains("home-page");
+  const createRevealObserver = () => new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) {
@@ -1005,10 +1006,16 @@ window.addEventListener("pageshow", () => {
       });
     },
     {
-      rootMargin: "-32px 0px -32px 0px",
+      // The homepage waits until content is well inside the viewport, then
+      // recedes before it leaves. Other pages retain their existing timing.
+      rootMargin: isHomePage
+        ? `-${Math.round(window.innerHeight * 0.14)}px 0px -${Math.round(window.innerHeight * 0.22)}px 0px`
+        : "-32px 0px -32px 0px",
       threshold: 0,
     }
   );
+
+  let revealObserver = createRevealObserver();
 
   const syncMotionPreference = () => {
     revealObserver.disconnect();
@@ -1021,4 +1028,16 @@ window.addEventListener("pageshow", () => {
 
   reducedMotion.addEventListener("change", syncMotionPreference);
   syncMotionPreference();
+
+  if (isHomePage) {
+    let resizeFrame = 0;
+    window.addEventListener("resize", () => {
+      cancelAnimationFrame(resizeFrame);
+      resizeFrame = requestAnimationFrame(() => {
+        revealObserver.disconnect();
+        revealObserver = createRevealObserver();
+        syncMotionPreference();
+      });
+    });
+  }
 })();

@@ -1,3 +1,175 @@
+// Keep the homepage background playing quietly without visible controls.
+(() => {
+  const video = document.querySelector('#home-hero-video');
+  if (!video) return;
+  video.muted = true;
+  video.loop = true;
+  video.controls = false;
+  const resume = () => {
+    if (!document.hidden) video.play()?.catch(() => {});
+  };
+  video.addEventListener('canplay', resume);
+  document.addEventListener('visibilitychange', resume);
+  window.addEventListener('pageshow', resume);
+  // Retry after a gesture on browsers that restrict automatic playback.
+  document.addEventListener('pointerdown', resume, { passive: true });
+  document.addEventListener('keydown', resume);
+  resume();
+})();
+
+// Start the looping hero highlights independently of the video.
+document.querySelector('[data-home-hero-ticker]')?.classList.add('is-ready');
+
+// Rotate the services deck independently of the products' scrolling carousel.
+document.querySelectorAll('[data-home-service-deck]').forEach((deck) => {
+  const stack = deck.querySelector('[data-service-stack]');
+  if (!stack) return;
+  const cards = [...stack.querySelectorAll('.home-service-card')];
+  if (cards.length < 2) return;
+
+  // Keep the desktop stack directly under the final letter of the first line.
+  const heading = document.querySelector('#home-services-title > span');
+  const compactLayout = window.matchMedia('(max-width: 1150px)');
+  const alignDeck = () => {
+    deck.style.setProperty('--service-deck-offset', '0px');
+    const text = heading?.firstChild;
+    if (compactLayout.matches || text?.nodeType !== 3) return;
+    const end = text.textContent.trimEnd().length;
+    if (!end) return;
+    const letter = document.createRange();
+    letter.setStart(text, end - 1);
+    letter.setEnd(text, end);
+    const offset = letter.getBoundingClientRect().left - deck.getBoundingClientRect().left;
+    deck.style.setProperty('--service-deck-offset', `${offset}px`);
+  };
+  if (heading) {
+    new ResizeObserver(alignDeck).observe(heading);
+    compactLayout.addEventListener('change', alignDeck);
+    document.fonts?.ready.then(alignDeck);
+    document.fonts?.addEventListener('loadingdone', alignDeck);
+    alignDeck();
+  }
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let current = 0;
+  let turnTimer = 0;
+  let gesture = null;
+  let suppressClickUntil = 0;
+
+  const render = (announce = false) => {
+    stack.setAttribute('aria-live', announce ? 'polite' : 'off');
+    cards.forEach((card, index) => {
+      const depth = (index - current + cards.length) % cards.length;
+      card.dataset.serviceDepth = String(depth);
+      card.style.setProperty('--service-depth', depth);
+      card.style.setProperty('--service-order', cards.length - depth);
+      card.inert = false;
+      card.removeAttribute('aria-hidden');
+      card.setAttribute('role', 'group');
+      card.setAttribute('aria-roledescription', 'slide');
+      card.setAttribute('aria-label', `${index + 1} of ${cards.length}`);
+    });
+  };
+
+  const move = (target, announce = false) => {
+    const destination = (target + cards.length) % cards.length;
+    if (destination === current) return;
+    window.clearTimeout(turnTimer);
+    cards.forEach((card) => card.classList.remove('is-turning'));
+    const departing = cards[current];
+    if (!reducedMotion.matches) departing.classList.add('is-turning');
+    current = destination;
+    render(announce);
+    if (!reducedMotion.matches) {
+      turnTimer = window.setTimeout(() => {
+        departing.classList.remove('is-turning');
+      }, 560);
+    }
+  };
+
+  // Read a stable copy while the original five cards keep their place in the loop.
+  const dialog = document.querySelector('[data-service-dialog]');
+  const dialogContent = dialog?.querySelector('[data-service-dialog-content]');
+  const dialogTitle = dialog?.querySelector('#home-service-dialog-title');
+  const closeButton = dialog?.querySelector('[data-service-dialog-close]');
+  let opener = null;
+  if (dialog && dialogContent && dialogTitle && closeButton) {
+    cards.forEach((card) => {
+      const openButton = document.createElement('button');
+      openButton.type = 'button';
+      openButton.className = 'home-service-card-open';
+      openButton.setAttribute('aria-label', `Read about ${card.querySelector('h3').textContent.trim()}`);
+      openButton.setAttribute('aria-haspopup', 'dialog');
+      openButton.setAttribute('aria-controls', dialog.id);
+      openButton.addEventListener('click', () => {
+        if (Date.now() < suppressClickUntil || dialog.open) return;
+        const preview = card.cloneNode(true);
+        preview.classList.remove('is-turning');
+        ['style', 'data-service-depth', 'role', 'aria-roledescription', 'aria-label', 'aria-hidden', 'inert'].forEach((attribute) => preview.removeAttribute(attribute));
+        preview.querySelector('.home-service-card-open')?.remove();
+        preview.querySelectorAll('[id]').forEach((element) => element.removeAttribute('id'));
+        const photo = preview.querySelector('img');
+        if (photo) photo.loading = 'eager';
+        dialogTitle.textContent = card.querySelector('h3').textContent;
+        dialogContent.replaceChildren(preview);
+        opener = openButton;
+        document.documentElement.classList.add('home-service-dialog-open');
+        dialog.showModal();
+        closeButton.focus({ preventScroll: true });
+        dialogContent.scrollTop = 0;
+      });
+      card.appendChild(openButton);
+    });
+    closeButton.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', (event) => {
+      if (event.target !== dialog) return;
+      const bounds = dialog.getBoundingClientRect();
+      if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
+    });
+    dialog.addEventListener('close', () => {
+      document.documentElement.classList.remove('home-service-dialog-open');
+      dialogContent.replaceChildren();
+      opener?.focus({ preventScroll: true });
+      opener = null;
+    });
+  }
+
+  deck.addEventListener('keydown', (event) => {
+    if (event.target !== stack || !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+    event.preventDefault();
+    if (event.key === 'ArrowLeft') move(current - 1, true);
+    if (event.key === 'ArrowRight') move(current + 1, true);
+    if (event.key === 'Home') move(0, true);
+    if (event.key === 'End') move(cards.length - 1, true);
+  });
+  stack.addEventListener('pointerdown', (event) => {
+    if (event.pointerType === 'touch' && event.isPrimary) {
+      gesture = { id: event.pointerId, x: event.clientX, y: event.clientY };
+    }
+  }, { passive: true });
+  stack.addEventListener('pointerup', (event) => {
+    if (gesture?.id !== event.pointerId) return;
+    const dx = event.clientX - gesture.x;
+    const dy = event.clientY - gesture.y;
+    gesture = null;
+    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.4) {
+      suppressClickUntil = Date.now() + 400;
+      move(current + (dx < 0 ? 1 : -1), true);
+    }
+  }, { passive: true });
+  stack.addEventListener('pointercancel', () => { gesture = null; });
+  reducedMotion.addEventListener('change', () => {
+    window.clearTimeout(turnTimer);
+    cards.forEach((card) => card.classList.remove('is-turning'));
+  });
+
+  render();
+  deck.classList.add('is-ready');
+  stack.setAttribute('aria-label', 'Care options, continuous rotation');
+  // Hover, focus, scrolling and the reading dialog never stop or reset this clock.
+  window.setInterval(() => move(current + 1), 4000);
+});
+
 document.querySelectorAll('[data-home-carousel]').forEach((carousel) => {
   const rail = carousel.querySelector('[data-carousel-rail]');
   const track = rail?.querySelector('[data-carousel-track]');

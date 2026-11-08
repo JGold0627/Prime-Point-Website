@@ -9,7 +9,7 @@
       content="Prime Point Health is a luxury telehealth platform for physician-guided peptide therapy, GLP-1 programs, blood work, and supplement planning."
     />
     <link rel="stylesheet" href="css/global.css?v=47" />
-    <link rel="stylesheet" href="css/home.css?v=82" />
+    <link rel="stylesheet" href="css/home.css?v=110" />
     <link rel="stylesheet" href="css/section-headings.css?v=2" />
     <link rel="stylesheet" href="css/home-button-motion.css?v=3" />
   </head>
@@ -22,23 +22,37 @@
       assessment dropdown positioned at 4.3% / 81%.
     -->
     <section class="home-hero" aria-label="Prime Point homepage hero">
-      <img class="home-hero-daylight" src="assets/home/home-daylight-mountains.webp" width="1536" height="1024" alt="" />
-      <picture class="home-hero-orbit">
-        <img src="assets/home/home-hero-orbit.svg?v=2" width="1536" height="1024" alt="" />
-      </picture>
+      <video class="home-hero-video" id="home-hero-video" width="960" height="540" autoplay loop muted playsinline preload="metadata" poster="assets/home/home-pursuit-poster.webp" disablepictureinpicture aria-hidden="true" tabindex="-1">
+        <source src="assets/home/The_Pursuit_Compatible.mp4" type="video/mp4" />
+      </video>
       <div class="home-hero-content">
         <div class="home-hero-centered-copy">
           <h1 class="home-hero-main-title">
-            <span>Better Health,</span>
-            <span>Built from Within</span>
+            <span>Better Health</span>
+            <span>Built.From.Within</span>
           </h1>
 
-          <p class="home-hero-main-lede">
-            A telehealth clinic built for people who want transparency, personalized care, and confidence in the quality of their treatment. Prime Point Health brings health optimization into one platform. With no required memberships or long-term commitments, you retain all the flexibility.
-          </p>
-
-          <div class="home-hero-centered-actions">
-            <a class="button button-primary" href="treatments.html">Explore our treatments <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+      <div class="home-hero-ticker" data-home-hero-ticker data-pp-reveal="off" role="region" aria-label="Prime Point care highlights">
+        <div class="home-hero-ticker-viewport" id="home-hero-highlights">
+          <div class="home-hero-ticker-track">
+            <ul class="home-hero-ticker-group" role="list">
+              <li>No Insurance Required</li>
+              <li>Clinically Tested</li>
+              <li>Verified Sourcing</li>
+              <li>Compounded in the USA</li>
+              <li>Free Shipping</li>
+              <li>100% Personalized Care</li>
+            </ul>
+            <ul class="home-hero-ticker-group" aria-hidden="true">
+              <li>No Insurance Required</li>
+              <li>Clinically Tested</li>
+              <li>Verified Sourcing</li>
+              <li>Compounded in the USA</li>
+              <li>Free Shipping</li>
+              <li>100% Personalized Care</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -49,136 +63,40 @@
 
     <section class="home-commitment" id="our-commitment" aria-labelledby="home-commitment-title">
       <div class="home-commitment-inner">
-        <header class="home-commitment-intro">
-          <h2 id="home-commitment-title">Our Commitment to You</h2>
-          <p>We built Prime Point Health around a standard we take personally: <strong>care we would want for our own families.</strong></p>
-        </header>
-        <div class="home-commitment-copy">
-          <div class="home-commitment-card">
-            <h3>Our <span>Vision</span></h3>
+        <h2 class="home-commitment-title" id="home-commitment-title">Our Commitment to You</h2>
+
+        <article class="home-commitment-row" aria-labelledby="home-vision-title">
+          <figure class="home-commitment-photo">
+            <img src="assets/home/Vision.jpg" width="2592" height="3888" alt="A hand holding a camera lens that frames a mountain sunset" loading="lazy" decoding="async" />
+          </figure>
+          <div class="home-commitment-copy">
+            <h3 id="home-vision-title">Our Vision</h3>
             <p>We believe patients deserve more than convenient access to treatment. They deserve transparency, honest guidance, and people who genuinely care about the decisions affecting their health. Every choice we make is guided by one question: would we feel confident recommending this care to our own families?</p>
           </div>
-          <div class="home-commitment-divider" aria-hidden="true">
-            <img src="assets/brand/commitment-monogram.svg" width="120" height="120" alt="" />
+        </article>
+
+        <article class="home-commitment-row home-commitment-row--reverse" aria-labelledby="home-mission-title">
+          <figure class="home-commitment-photo">
+            <img src="assets/home/Mission.jpg" width="4016" height="6016" alt="A measuring tape and scale beside letter tiles reading No action, no change" loading="lazy" decoding="async" />
+          </figure>
+          <div class="home-commitment-copy">
+            <h3 id="home-mission-title">Our Mission</h3>
+            <p>To take the time to evaluate our pharmacy partners. Ask difficult questions about sourcing, preparation, testing, and to understand the quality behind every treatment we offer. We believe patients deserve that level of diligence, and we're committed to making it a defining part of prime point health.</p>
           </div>
-          <div class="home-commitment-card">
-            <h3>Our <span>Mission</span></h3>
-            <p>To take the time to <strong>evaluate our pharmacy partners</strong>. Ask difficult questions about sourcing, preparation, testing, and to understand the quality behind every treatment we offer. We believe patients deserve that level of diligence, and we're committed to making it a defining part of prime point health.</p>
-          </div>
-        </div>
+        </article>
       </div>
     </section>
 
-    <section class="home-services" id="services" aria-labelledby="home-services-title">
-      <h2 class="home-services-title pp-section-heading" id="home-services-title">
-        Explore the Care<span>That Fits your Goals</span>
-      </h2>
-
-      <div class="home-services-carousel" data-home-carousel>
-      <div class="home-services-rail" data-carousel-rail>
-      <div class="home-services-grid" id="home-services-track" data-carousel-track role="region" aria-label="Core services" aria-describedby="home-services-help" tabindex="0">
-        <article class="home-service-card home-service-card--weight-loss">
-          <img class="home-service-card-media" src="assets/home/weight-loss-service-v1.png" alt="Woman in blue activewear walking up sunlit stone steps" loading="lazy" />
-          <div class="home-service-card-body">
-            <div class="home-service-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48"><rect x="10" y="9" width="28" height="31" rx="7"></rect><path d="M16 21a8 8 0 0 1 16 0H16Z"></path><path d="m24 21 4-6M19 33h10"></path></svg>
-            </div>
-            <h3>Weight Loss</h3>
-            <span class="home-service-card-rule" aria-hidden="true"></span>
-            <p>Physician-guided treatment options and personalized support for your weight-loss journey.</p>
-            <ul class="home-service-card-benefits">
-              <li>Personalized weight-loss plans</li>
-              <li>Prescription options, if appropriate</li>
-              <li>Ongoing progress reviews</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="home-service-card home-service-card--glp">
-          <img class="home-service-card-media" src="assets/home/GLP-1's V2.png" alt="Woman overlooking a mountain landscape" />
-          <div class="home-service-card-body">
-            <div class="home-service-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48"><path d="M24 7c8 10 13 16 13 24a13 13 0 0 1-26 0c0-8 5-14 13-24Z"></path><path d="M18 31c4-2 6-6 7-11 4 5 6 9 5 13"></path></svg>
-            </div>
-            <h3>Metabolic Health</h3>
-            <span class="home-service-card-rule" aria-hidden="true"></span>
-            <p>Medically supervised treatments to help support metabolic health, energy levels, and long-term wellness.</p>
-            <ul class="home-service-card-benefits">
-              <li>Personalized treatment plans</li>
-              <li>Ongoing physician monitoring</li>
-              <li>Metabolic &amp; body composition support</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="home-service-card home-service-card--longevity">
-          <img class="home-service-card-media" src="assets/home/longevity-service-v1.png" alt="Mature couple enjoying a walk beside the coast" loading="lazy" />
-          <div class="home-service-card-body">
-            <div class="home-service-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48"><path d="M24 24c-5-8-7-10-11-10a10 10 0 0 0 0 20c4 0 6-2 11-10s7-10 11-10a10 10 0 0 1 0 20c-4 0-6-2-11-10Z"></path></svg>
-            </div>
-            <h3>Longevity</h3>
-            <span class="home-service-card-rule" aria-hidden="true"></span>
-            <p>Proactive, physician-guided care focused on healthy aging, everyday vitality, and your long-term wellness goals.</p>
-            <ul class="home-service-card-benefits">
-              <li>Personalized healthy-aging plans</li>
-              <li>Lab-informed health insights</li>
-              <li>Ongoing wellness guidance</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="home-service-card home-service-card--bloodwork">
-          <img class="home-service-card-media" src="assets/home/Bloodwork V2.png" alt="Blood samples in a bright laboratory" />
-          <div class="home-service-card-body">
-            <div class="home-service-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48"><path d="M17 7h14M20 7v27a7 7 0 0 0 14 0V7"></path><path d="M20 25h14M25 31h4"></path></svg>
-            </div>
-            <h3>Bloodwork</h3>
-            <span class="home-service-card-rule" aria-hidden="true"></span>
-            <p>Advanced lab testing that uncovers insights and helps guide your personalized health strategy.</p>
-            <ul class="home-service-card-benefits">
-              <li>Comprehensive panels</li>
-              <li>Organ &amp; hormone insights</li>
-              <li>Track. Compare. Optimize.</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="home-service-card home-service-card--peptides">
-          <img class="home-service-card-media" src="assets/home/Peptides V2.png" alt="Cellular peptide visualization" />
-          <div class="home-service-card-body">
-            <div class="home-service-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="4"></circle><circle cx="10" cy="16" r="3"></circle><circle cx="38" cy="16" r="3"></circle><circle cx="14" cy="36" r="3"></circle><circle cx="34" cy="36" r="3"></circle><path d="M13 17l8 5m14-5-8 5m-10 12 5-7m9 7-5-7M10 19v10l4 5m24-15v10l-4 5"></path></svg>
-            </div>
-            <h3>Peptide Therapy</h3>
-            <span class="home-service-card-rule" aria-hidden="true"></span>
-            <p>Targeted peptide therapies to support recovery, performance, longevity, and healthy aging at the cellular level.</p>
-            <ul class="home-service-card-benefits">
-              <li>Evidence-based protocols</li>
-              <li>Physician-guided care</li>
-              <li>Personalized to your goals</li>
-            </ul>
-          </div>
-        </article>
-      </div>
-      </div>
-      <div class="home-services-navigation" data-carousel-navigation>
-        <p class="home-services-navigation-label">Explore all services</p>
-        <div class="home-services-progress" aria-hidden="true"><span data-carousel-progress></span></div>
-        <div class="home-services-arrows">
-          <button type="button" data-carousel-prev aria-label="Previous services" aria-controls="home-services-track" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6"></path></svg></button>
-          <button type="button" data-carousel-next aria-label="Next services" aria-controls="home-services-track"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></button>
-        </div>
-      </div>
-      </div>
-      <p class="home-services-help" id="home-services-help">Move your pointer toward either edge to explore, swipe, or use the arrow buttons. When the cards are focused, use the left and right arrow keys, Home, or End. Press Escape to stop motion.</p>
-    </section>
-
-    <section class="home-product-showcase" aria-labelledby="home-products-title">
+    <!-- Rotating care cards saved as Homepage cards in revisions/homepage-cards.zip. -->
+    <section class="home-product-showcase home-services--stacked home-services--products" id="services" aria-labelledby="home-services-title">
+      <p class="home-services-help" id="home-products-help">Move your pointer toward either edge to explore, swipe, or use the arrow buttons. When the cards are focused, use the left and right arrow keys, Home, or End. Press Escape to stop motion.</p>
       <div class="home-product-showcase-heading">
         <div>
-          <h2 class="pp-section-heading" id="home-products-title">Clear Plans,<span>Visible Progress</span></h2>
+          <h2 class="home-services-title pp-section-heading" id="home-services-title">
+            <span>Explore the Care</span>
+            <span>that fits</span>
+            <span>Your Goals</span>
+          </h2>
         </div>
         <a class="home-care-cta home-products-cta" href="treatments.html">
           Explore our Products <span aria-hidden="true">&rarr;</span>
@@ -204,7 +122,7 @@
 
       <div class="home-product-carousel" data-home-carousel>
       <div class="home-product-rail" data-carousel-rail>
-        <div class="home-product-track" id="home-treatments-track" data-carousel-track role="region" aria-label="Prime Point treatment options" aria-describedby="home-services-help" tabindex="0">
+        <div class="home-product-track" id="home-treatments-track" data-carousel-track role="region" aria-label="Prime Point treatment options" aria-describedby="home-products-help" tabindex="0">
         <a class="home-product-card" href="semaglutide.html">
           <div class="home-product-image-wrap"><span class="home-product-price"><i aria-hidden="true"></i>Starting from $179</span><img src="assets/glp-page-pieces/semaglutide-bottle-gold-v4.png" alt="Semaglutide injection bottle" /></div>
           <h3>Semaglutide</h3>
@@ -337,17 +255,18 @@
     </section>
 
     <section class="home-care" id="care-made-simple" aria-labelledby="home-care-title">
+      <h2 class="pp-section-heading" id="home-care-title">Traditional Healthcare <span>Can be Frustrating</span></h2>
+      <div class="home-care-lead">
+        <p class="home-care-intro">
+          So we built a platform that isn&rsquo;t. Just accessible, expert-led care
+          from the comfort of your home, straight to your front door.
+        </p>
+        <a class="home-care-cta" href="treatments.html">
+          Explore treatments <span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
       <div class="home-care-inner">
         <div class="home-care-copy">
-          <h2 class="pp-section-heading" id="home-care-title">Traditional Healthcare <span>Can be Frustrating</span></h2>
-          <p class="home-care-intro">
-            So we built a platform that isn&rsquo;t. Just accessible, expert-led care
-            from the comfort of your home, straight to your front door.
-          </p>
-          <a class="home-care-cta" href="treatments.html">
-            Explore treatments <span aria-hidden="true">&rarr;</span>
-          </a>
-
           <div class="home-care-features">
             <article class="home-care-card">
               <svg class="home-care-icon" viewBox="0 0 40 40" aria-hidden="true">
@@ -377,7 +296,7 @@
     <section class="home-faq" id="home-faq" aria-labelledby="home-faq-title" data-home-faq>
       <div class="home-faq-inner">
         <h2 class="home-faq-title pp-section-heading" id="home-faq-title">
-          A Little Clarity.<span>A Lot of Possibility.</span>
+          A Little Clarity. <span>A Lot of Possibility.</span>
         </h2>
         <p class="home-faq-intro">Answers to help you feel ready for your next step.</p>
         <div class="home-faq-layout">
@@ -458,8 +377,8 @@
       </div>
     </footer>
 
-    <script src="script.js?v=46"></script>
-    <script src="js/home-services.js?v=3"></script>
+    <script src="script.js?v=47"></script>
+    <script src="js/home-services.js?v=12"></script>
   </body>
 </html>
 
