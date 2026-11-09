@@ -491,7 +491,7 @@ img {
   background: transparent;
 }
 
-.metabolic-product-art img {
+.metabolic-product-art :is(img, .metabolic-product-packshot) {
   position: absolute;
   inset: auto 7% 0;
   width: 86%;
@@ -516,6 +516,41 @@ img {
   height: 90%;
   transform: scaleX(1.14);
   transform-origin: center bottom;
+}
+
+/* Five product portraits share the existing category-menu treatment. */
+.peptides-nav-menu {
+  max-width: 1540px;
+  max-height: calc(100dvh - var(--pp-header-height) - 24px);
+  overflow-y: auto;
+}
+
+/* Match the NAD+ image height even in the narrower five-product cards. */
+.peptides-nav-menu .metabolic-product-art :is(img, .metabolic-product-packshot) {
+  inset: auto auto 0 50%;
+  width: auto;
+  max-width: none;
+  height: 90%;
+  aspect-ratio: 2 / 3;
+  transform: translateX(-50%);
+}
+
+.peptides-nav-menu .metabolic-product-art .metabolic-product-image-nasal {
+  /* Allow for the spray artwork's slightly larger transparent bottom margin. */
+  bottom: -1.75%;
+  height: 91.5%;
+}
+
+.metabolic-product-packshot text {
+  fill: #102134;
+  font: 700 54px Arial, sans-serif;
+  letter-spacing: 3px;
+  text-anchor: middle;
+}
+
+.metabolic-product-packshot.metabolic-product-image-nasal text {
+  font-size: 40px;
+  letter-spacing: 2px;
 }
 
 .metabolic-product-name {

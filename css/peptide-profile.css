@@ -40,6 +40,14 @@
   line-height: 1.4;
 }
 
+/* Slightly smaller desktop gallery, with the original page layout and type. */
+@media (min-width: 1101px) {
+  .peptide-profile-page .product-plan-gallery {
+    width: 90%;
+    height: calc(var(--product-photo-height, 800px) * .9 + 12px);
+  }
+}
+
 .bpc-overview {
   margin-top: clamp(36px, 5vw, 80px);
 }
@@ -361,10 +369,20 @@
 }
 
 .bpc-overview--compact .learning-center-playlist {
+  grid-auto-rows: 1fr;
   gap: 10px;
 }
 
+.bpc-overview--compact .learning-center-playlist > li {
+  display: flex;
+  min-width: 0;
+}
+
 .bpc-overview--compact .learning-center-video-link {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
   padding: clamp(8px, 1vw, 12px) 18px;
 }
 
@@ -373,9 +391,13 @@
   line-height: 1.5;
 }
 
-.bpc-overview--compact .learning-center-speakers,
-.bpc-overview--compact .learning-center-watch {
+.bpc-overview--compact .learning-center-speakers {
   margin-top: 6px;
+}
+
+.bpc-overview--compact .learning-center-watch {
+  margin-top: auto;
+  padding-top: 6px;
 }
 
 .learning-center-video-link:hover { border-color: rgba(151, 118, 48, .5); background: #fff; }

@@ -154,7 +154,85 @@ const globalHeaderMarkup = `
           </div>
         </div>
         <a class="nav-link${headerLinkClass("blood-work")}"${headerCurrentState("blood-work")} href="blood-work.html">Blood Work</a>
-        <a class="nav-link${headerLinkClass("peptides")}"${headerCurrentState("peptides")} href="peptides.html">Peptide Therapy</a>
+        <div class="glp-nav-dropdown metabolic-nav-dropdown">
+          <a class="nav-link glp-nav-link${headerLinkClass("peptides")}"${headerCurrentState("peptides")} href="peptides.html">Peptide Therapy</a>
+          <button
+            class="glp-nav-trigger"
+            type="button"
+            aria-label="Show Peptide Therapy offerings"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="peptides-nav-menu"
+          >
+            <span class="glp-nav-chevron" aria-hidden="true"></span>
+          </button>
+          <div class="glp-nav-menu metabolic-nav-menu peptides-nav-menu" id="peptides-nav-menu" aria-hidden="true">
+            <svg width="0" height="0" style="position: absolute" aria-hidden="true" focusable="false">
+              <defs>
+                <g id="nav-catalog-peptide-vial">
+                  <image id="nav-catalog-vial-photo" href="assets/glp-page-pieces/glutathione-bottle-navy-v4.png" width="1024" height="1536" />
+                  <svg x="299" y="901" width="438" height="55" viewBox="299 884 438 13" preserveAspectRatio="none" overflow="hidden">
+                    <use href="#nav-catalog-vial-photo" />
+                  </svg>
+                </g>
+                <g id="nav-catalog-peptide-spray">
+                  <image id="nav-catalog-spray-photo" href="assets/glp-page-pieces/glutathione-nasal-upright-navy-v3.png" width="1024" height="1536" />
+                  <svg x="352" y="1089" width="316" height="44" viewBox="352 1072 316 13" preserveAspectRatio="none" overflow="hidden">
+                    <use href="#nav-catalog-spray-photo" />
+                  </svg>
+                </g>
+              </defs>
+            </svg>
+            <div class="metabolic-menu-shell">
+              <div class="metabolic-menu-heading">
+                <span>Explore Peptide Therapy</span>
+                <small>Choose an offering to learn more</small>
+              </div>
+              <div class="metabolic-product-grid">
+                <a class="metabolic-product-card" href="bpc-157.html">
+                  <span class="metabolic-product-art">
+                    <svg class="metabolic-product-packshot" viewBox="0 0 1024 1536" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
+                      <use href="#nav-catalog-peptide-vial" />
+                      <text x="517" y="947">BPC-157</text>
+                    </svg>
+                  </span>
+                  <span class="metabolic-product-name">BPC-157</span>
+                </a>
+                <a class="metabolic-product-card" href="mots-c.html">
+                  <span class="metabolic-product-art">
+                    <svg class="metabolic-product-packshot" viewBox="0 0 1024 1536" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
+                      <use href="#nav-catalog-peptide-vial" />
+                      <text x="517" y="947">MOTS-C</text>
+                    </svg>
+                  </span>
+                  <span class="metabolic-product-name">MOTS-c</span>
+                </a>
+                <a class="metabolic-product-card" href="semax.html">
+                  <span class="metabolic-product-art">
+                    <svg class="metabolic-product-packshot metabolic-product-image-nasal" viewBox="0 0 1024 1536" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
+                      <use href="#nav-catalog-peptide-spray" />
+                      <text x="510" y="1125">SEMAX</text>
+                    </svg>
+                  </span>
+                  <span class="metabolic-product-name">Semax Nasal</span>
+                </a>
+                <a class="metabolic-product-card" href="ghk-cu.html">
+                  <span class="metabolic-product-art"><img src="assets/treatments/ghk-cu-facial-cream.webp" alt="" decoding="async" /></span>
+                  <span class="metabolic-product-name">GHK-Cu</span>
+                </a>
+                <a class="metabolic-product-card" href="epitalon.html">
+                  <span class="metabolic-product-art">
+                    <svg class="metabolic-product-packshot" viewBox="0 0 1024 1536" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
+                      <use href="#nav-catalog-peptide-vial" />
+                      <text x="517" y="947">EPITALON</text>
+                    </svg>
+                  </span>
+                  <span class="metabolic-product-name">Epitalon</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </nav>
 
       <button class="mobile-nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav-menu">
@@ -217,7 +295,17 @@ const globalHeaderMarkup = `
           <a class="mobile-nav-topic" href="blood-work.html"><span>Blood Work</span><span class="mobile-nav-link-arrow" aria-hidden="true">&rarr;</span></a>
         </div>
         <div class="mobile-nav-group">
-          <a class="mobile-nav-topic" href="peptides.html"${headerCurrentState("peptides")}><span>Peptide Therapy</span><span class="mobile-nav-link-arrow" aria-hidden="true">&rarr;</span></a>
+          <div class="mobile-nav-topic-row">
+            <a class="mobile-nav-topic" href="peptides.html"${headerCurrentState("peptides")}><span>Peptide Therapy</span></a>
+            <button class="mobile-nav-submenu-toggle" type="button" data-mobile-nav-trigger aria-label="Show Peptide Therapy offerings" aria-expanded="false" aria-controls="mobile-peptides-links"><span class="mobile-nav-chevron" aria-hidden="true"></span></button>
+          </div>
+          <div class="mobile-nav-submenu" id="mobile-peptides-links" hidden>
+            <a class="mobile-nav-sublink" href="bpc-157.html">BPC-157</a>
+            <a class="mobile-nav-sublink" href="mots-c.html">MOTS-c</a>
+            <a class="mobile-nav-sublink" href="semax.html">Semax Nasal</a>
+            <a class="mobile-nav-sublink" href="ghk-cu.html">GHK-Cu</a>
+            <a class="mobile-nav-sublink" href="epitalon.html">Epitalon</a>
+          </div>
         </div>
         <div class="mobile-nav-group mobile-nav-account">
           <a class="header-action mobile-nav-login" href="${isMemberSession ? 'member-home.html' : 'https://my.joinprimepoint.com'}">${isMemberSession ? 'Member Home' : 'Log In'}</a>
