@@ -682,35 +682,38 @@ document.querySelectorAll(".contact-question-capture").forEach((form) => {
 
 document.querySelectorAll("[data-home-faq]").forEach((section) => {
   const list = section.querySelector(".home-faq-list");
-  if (!list) return;
+  const photo = section.querySelector(".home-faq-photo");
+  if (!list || !photo) return;
+  const questions = Array.from(list.querySelectorAll("details"));
+  if (!questions.length) return;
 
   const desktop = window.matchMedia("(min-width: 801px)");
   let lastWidth = -1;
   let measurementFrame = 0;
   const pixels = (value) => Number.parseFloat(value) || 0;
 
-  const sizePhoto = () => {
+  const sizeQuestions = () => {
     measurementFrame = 0;
     if (!desktop.matches) {
-      section.style.removeProperty("--home-faq-photo-height");
+      section.style.removeProperty("--home-faq-row-height");
       return;
     }
 
-    // Measure only question rows and borders, even when an answer is open.
+    // Share the photo's height between closed questions, excluding divider borders.
+    // Answer heights never enter this calculation or affect the photo dimensions.
     const listStyle = getComputedStyle(list);
-    let collapsedHeight = pixels(listStyle.borderTopWidth) + pixels(listStyle.borderBottomWidth);
-    list.querySelectorAll("details").forEach((item) => {
-      const summary = item.querySelector("summary");
+    let borderHeight = pixels(listStyle.borderTopWidth) + pixels(listStyle.borderBottomWidth);
+    questions.forEach((item) => {
       const style = getComputedStyle(item);
-      collapsedHeight += summary.getBoundingClientRect().height
-        + pixels(style.borderTopWidth) + pixels(style.borderBottomWidth);
+      borderHeight += pixels(style.borderTopWidth) + pixels(style.borderBottomWidth);
     });
-    section.style.setProperty("--home-faq-photo-height", `${Math.ceil(collapsedHeight)}px`);
+    const rowHeight = Math.max(44, (photo.getBoundingClientRect().height - borderHeight) / questions.length);
+    section.style.setProperty("--home-faq-row-height", `${rowHeight}px`);
   };
 
   const scheduleMeasurement = () => {
     cancelAnimationFrame(measurementFrame);
-    measurementFrame = requestAnimationFrame(sizePhoto);
+    measurementFrame = requestAnimationFrame(sizeQuestions);
   };
 
   // Answer height changes must never trigger a new photograph size.
@@ -723,7 +726,7 @@ document.querySelectorAll("[data-home-faq]").forEach((section) => {
   desktop.addEventListener("change", scheduleMeasurement);
   document.fonts?.ready.then(scheduleMeasurement);
   document.fonts?.addEventListener("loadingdone", scheduleMeasurement);
-  sizePhoto();
+  sizeQuestions();
 });
 
 document.querySelectorAll(".compact-faq details").forEach((item) => {

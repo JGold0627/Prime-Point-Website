@@ -19,7 +19,8 @@
 
 .home-hero {
   --home-hero-height: calc(100vh - var(--pp-header-height));
-  --home-hero-copy-padding: 72px;
+  --home-hero-ticker-bottom: clamp(88px, 11vh, 108px);
+  --home-hero-copy-bottom: calc(var(--home-hero-ticker-bottom) + 84px);
   position: relative;
   z-index: 1;
   display: grid;
@@ -69,44 +70,41 @@
   position: relative;
   z-index: 2;
   display: grid;
-  place-items: center;
+  place-items: stretch;
   width: 100%;
   min-height: inherit;
-  padding: var(--home-hero-copy-padding) var(--pp-page-gutter);
-  /* Lift the copy by 20% of the hero height while preserving room on short screens. */
-  padding-bottom: calc(var(--home-hero-copy-padding) + var(--home-hero-height) * 0.4);
+  padding: 0 var(--pp-page-gutter);
 }
 
-/* Blend the mobile header into the video behind, rather than over, the title.
-   Include landscape phones and use a plain gradient for Safari compositing. */
-@media (max-width: 767px), (max-width: 1024px) and (hover: none) and (pointer: coarse) {
-  .home-page .site-header::after {
-    display: none;
-  }
+/* One header-to-video blend at every viewport size and input mode.
+   Keep the fade behind the title and overlap the join to cover fractional pixels. */
+.home-page .site-header::after {
+  display: none;
+}
 
-  .home-hero::after {
-    content: "";
-    position: absolute;
-    inset: 0 0 auto;
-    z-index: 1;
-    height: clamp(88px, 18vh, 128px);
-    background: linear-gradient(
-      to bottom,
-      var(--home-warm-ivory) 0%,
-      rgba(246, 244, 240, 0.86) 20%,
-      rgba(246, 244, 240, 0.38) 52%,
-      rgba(246, 244, 240, 0.08) 80%,
-      rgba(246, 244, 240, 0) 100%
-    );
-    pointer-events: none;
-  }
+.home-hero::after {
+  content: "";
+  position: absolute;
+  inset: -2px 0 auto;
+  z-index: 1;
+  height: clamp(88px, 18vh, 128px);
+  background: linear-gradient(
+    to bottom,
+    var(--home-warm-ivory) 0px,
+    var(--home-warm-ivory) 4px,
+    rgba(246, 244, 240, 0.86) 20%,
+    rgba(246, 244, 240, 0.38) 52%,
+    rgba(246, 244, 240, 0.08) 80%,
+    rgba(246, 244, 240, 0) 100%
+  ) no-repeat;
+  pointer-events: none;
 }
 
 /* Continuous care highlights over the lower video, above the scroll cue. */
 .home-hero-ticker {
   position: absolute;
   inset-inline: 0;
-  bottom: clamp(88px, 11vh, 108px);
+  bottom: var(--home-hero-ticker-bottom);
   z-index: 3;
   display: flex;
   align-items: center;
@@ -167,6 +165,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .home-hero { --home-hero-copy-bottom: calc(var(--home-hero-ticker-bottom) + 160px); }
   .home-hero-ticker { padding-inline: var(--pp-page-gutter); }
   .home-hero-ticker-viewport { -webkit-mask-image: none; mask-image: none; }
   .home-hero-ticker.is-ready .home-hero-ticker-track { animation: none; }
@@ -228,11 +227,12 @@
   }
 }
 
-.home-hero-centered-copy {
-  width: min(100%, 1280px);
-  /* Preserve the headline's vertical position after removing the hero CTA. */
-  padding-bottom: 112px;
-  text-align: center;
+.home-hero-split-copy {
+  display: grid;
+  width: min(100%, 1440px);
+  min-width: 0;
+  min-height: inherit;
+  margin-inline: auto;
 }
 
 .home-hero-eyebrow {
@@ -255,25 +255,133 @@
 }
 
 .home-hero-main-title {
+  --home-hero-type-scale: 1.05;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: clamp(56px, 12vh, 120px);
+  min-width: 0;
+  min-height: inherit;
   margin: 0;
-  transform: translateY(-24px);
+  padding-top: clamp(72px, calc(var(--home-hero-height) * 0.17), 144px);
+  /* Reserve a clear band above the scrolling highlights, even on short screens. */
+  padding-bottom: var(--home-hero-copy-bottom);
   color: var(--home-prime-navy);
-  font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif;
-  font-size: 4.25rem;
-  font-weight: 900;
-  line-height: 1;
-  letter-spacing: -0.055em;
+  font-family: "Manrope", "Segoe UI", Arial, sans-serif;
+  font-weight: 500;
+  line-height: 1.12;
+  text-align: left;
   text-transform: uppercase;
 }
 
 .home-hero-main-title span {
+  position: relative;
   display: block;
+  max-width: 100%;
   white-space: nowrap;
 }
 
+.home-hero-main-title span::after {
+  content: "";
+  position: absolute;
+  top: calc(100% + 0.12em);
+  inset-inline: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(var(--pp-gold-rgb), 0) 0%,
+    var(--home-prime-gold) 22%,
+    var(--home-prime-gold) 78%,
+    rgba(var(--pp-gold-rgb), 0) 100%
+  );
+  clip-path: polygon(0 50%, 16% 0, 84% 0, 100% 50%, 84% 100%, 16% 100%);
+  pointer-events: none;
+}
+
+.home-hero-main-title span:first-child {
+  align-self: flex-end;
+  font-size: calc(clamp(0.875rem, 2vw, 1.5rem) * var(--home-hero-type-scale));
+  letter-spacing: 0.24em;
+  text-align: right;
+}
+
 .home-hero-main-title span:last-child {
-  margin-top: 0.06em;
-  font-style: italic;
+  align-self: flex-start;
+  font-size: calc(clamp(1.375rem, 4vw, 3.25rem) * var(--home-hero-type-scale));
+  font-weight: 800;
+  font-style: normal;
+  letter-spacing: -0.025em;
+}
+
+/* Centered mark variation: the split layout above remains ready to restore. */
+.home-hero-brand-mark { display: none; }
+.home-hero-centered-lockup { display: contents; }
+
+.home-hero--centered-mark .home-hero-split-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: clamp(20px, 2vw, 28px);
+  padding-top: clamp(56px, calc(var(--home-hero-height) * 0.1), 104px);
+  padding-bottom: var(--home-hero-copy-bottom);
+}
+
+.home-hero--centered-mark .home-hero-centered-lockup {
+  --hero-orbit-size: clamp(220px, 28vw, 360px);
+  position: relative;
+  display: grid;
+  justify-items: center;
+  width: 100%;
+  padding-top: calc(var(--hero-orbit-size) * 0.32);
+}
+
+.home-hero--centered-mark .home-hero-brand-mark {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  display: block;
+  width: var(--hero-orbit-size);
+  aspect-ratio: 1;
+  color: var(--home-prime-gold);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.home-hero-brand-mark svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.home-hero--centered-mark .home-hero-main-title {
+  position: relative;
+  z-index: 1;
+  align-items: center;
+  justify-content: flex-start;
+  gap: clamp(14px, 1.6vw, 22px);
+  min-height: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.home-hero--centered-mark .home-hero-main-title span {
+  align-self: center;
+  text-align: center;
+}
+
+.home-hero--centered-mark .home-hero-main-title span:first-child {
+  font-weight: 400;
+  letter-spacing: 0.32em;
+}
+
+.home-hero--centered-mark .home-hero-main-title span:last-child {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+.home-hero--centered-mark .home-hero-main-title span::after {
+  display: none;
 }
 
 .home-hero-main-lede {
@@ -539,7 +647,7 @@
 /* One compact commitment section with alternating portraits. */
 .home-commitment {
   --commitment-heading-size: 4.25rem;
-  --commitment-photo-width: clamp(200px, 18vw, 260px);
+  --commitment-photo-width: clamp(260px, 24vw, 350px);
   padding: clamp(48px, 5vw, 72px) var(--pp-page-gutter) 0;
   background: var(--home-warm-ivory);
   color: var(--home-prime-navy);
@@ -600,7 +708,7 @@
   position: relative;
   width: 100%;
   /* The frame stays the same size regardless of the adjacent copy's height. */
-  aspect-ratio: 5 / 6;
+  aspect-ratio: 10 / 9;
   margin: 0;
   overflow: hidden;
   border-radius: 22px;
@@ -684,7 +792,7 @@
     margin-inline: auto;
   }
   .home-commitment-row + .home-commitment-row { margin-top: 36px; }
-  .home-commitment-photo { width: min(70%, 260px); }
+  .home-commitment-photo { width: min(85%, 350px); }
   .home-commitment-copy { width: 100%; }
   .home-commitment-row--reverse .home-commitment-photo,
   .home-commitment-row--reverse .home-commitment-copy { grid-area: auto; }
@@ -1978,10 +2086,6 @@ a.home-product-card:is(:active, .is-pressed) .home-product-image-wrap {
 }
 
 @media (max-width: 900px) {
-  .home-hero-main-title {
-    font-size: 3.6rem;
-  }
-
   .home-services-title,
   .home-product-showcase-heading h2 {
     font-size: clamp(2.8rem, 8vw, 4rem);
@@ -2000,10 +2104,6 @@ a.home-product-card:is(:active, .is-pressed) .home-product-image-wrap {
 }
 
 @media (max-width: 767px) {
-  .home-hero-main-title {
-    font-size: 2.75rem;
-  }
-
   .home-hero-main-lede {
     font-size: 1rem;
   }
@@ -2046,7 +2146,6 @@ a.home-product-card:is(:active, .is-pressed) .home-product-image-wrap {
 
   .home-hero {
     --home-hero-height: calc(100svh - var(--pp-header-height));
-    --home-hero-copy-padding: 56px;
   }
 
   .home-hero-eyebrow {
@@ -2058,15 +2157,6 @@ a.home-product-card:is(:active, .is-pressed) .home-product-image-wrap {
 
   .home-hero-eyebrow::after {
     margin-inline: auto;
-  }
-
-  .home-hero-main-title {
-    font-size: clamp(1.5rem, 8vw, 2.25rem);
-    transform: translateY(-16px);
-  }
-
-  .home-hero-centered-copy {
-    padding-bottom: 88px;
   }
 
   .home-hero-main-lede {
@@ -3506,7 +3596,7 @@ html.pp-reveal-ready body.home-page .pp-reveal-item:focus-within {
   transition: none;
 }
 
-/* The FAQ photograph keeps its collapsed-column height as answers expand. */
+/* Match closed FAQ rows to the square photo; answers never resize the image. */
 .home-faq {
   --home-faq-action-gap: calc((clamp(88px, 9vw, 132px) + 26px) / 2);
   padding: clamp(72px, 8vw, 116px) var(--pp-page-gutter) 0;
@@ -3597,7 +3687,7 @@ body.home-page .home-product-showcase-heading h2.pp-section-heading {
 
 .home-faq-layout {
   display: grid;
-  grid-template-columns: minmax(0, min(50%, var(--home-faq-photo-height, 566px))) minmax(0, 1fr);
+  grid-template-columns: minmax(0, min(50%, 566px)) minmax(0, 1fr);
   gap: clamp(36px, 5vw, 78px);
   align-items: start;
 }
@@ -3630,7 +3720,7 @@ body.home-page .home-product-showcase-heading h2.pp-section-heading {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  min-height: 112px;
+  min-height: var(--home-faq-row-height, 112px);
   padding: 32px 0;
   color: var(--home-prime-navy);
   font-family: var(--pp-font-body);
@@ -3652,6 +3742,10 @@ body.home-page .home-product-showcase-heading h2.pp-section-heading {
 .home-faq-answer a { color: var(--home-prime-navy); text-underline-offset: 4px; }
 .home-faq-list summary:focus-visible,
 .home-faq-answer a:focus-visible { outline: 2px solid var(--home-prime-gold); outline-offset: 5px; }
+
+@media (min-width: 801px) {
+  .home-faq-list summary { padding-block: 12px; }
+}
 
 @media (max-width: 800px) {
   .home-faq-layout { grid-template-columns: minmax(0, 1fr); gap: 32px; }
