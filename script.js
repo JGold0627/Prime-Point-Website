@@ -217,7 +217,7 @@ const globalHeaderMarkup = `
                   <span class="metabolic-product-name">Semax Nasal</span>
                 </a>
                 <a class="metabolic-product-card" href="ghk-cu.html">
-                  <span class="metabolic-product-art"><img src="assets/treatments/ghk-cu-facial-cream.webp" alt="" decoding="async" /></span>
+                  <span class="metabolic-product-art"><img class="metabolic-product-image-jar" src="assets/treatments/ghk-cu-cream-jar-packshot.png" width="1254" height="1254" alt="" decoding="async" /></span>
                   <span class="metabolic-product-name">GHK-Cu</span>
                 </a>
                 <a class="metabolic-product-card" href="epitalon.html">
@@ -339,7 +339,7 @@ if (!footerIntro) {
 
 [
   { href: "contact.html", label: "Contact Us" },
-  { href: "about.html", label: "About Us" },
+  { href: "https://www.arora-health.com/about-us", label: "About Us" },
 ].forEach(({ href, label }) => {
   let link = footerIntro.querySelector(`a[href="${href}"]`);
   if (!link) {

@@ -134,7 +134,7 @@ main {
   margin: 0;
   color: #0f1f2d;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(3.5rem, 5.8vw, 6.4rem);
+  font-size: clamp(36px, 4.14vw, 64.8px);
   font-weight: 500;
   line-height: 0.92;
   letter-spacing: -0.04em;
@@ -144,7 +144,7 @@ main {
   max-width: 650px;
   margin: clamp(22px, 2.4vw, 34px) 0 0;
   color: var(--pp-prime-navy);
-  font-size: clamp(1.05rem, 1.35vw, 1.3rem);
+  font-size: clamp(17px, 1.45vw, 22px);
   line-height: 1.55;
 }
 
@@ -1213,11 +1213,14 @@ main {
   .semaglutide-lifestyle-card { height: clamp(480px, 84vw, 720px); }
 }
 
+@media (max-width: 760px) {
+  .semaglutide-details-panel h1 { font-size: clamp(34.2px, 8.1vw, 52.2px); }
+}
+
 @media (max-width: 560px) {
   .semaglutide-hero { padding: 18px 14px 44px; }
   .semaglutide-product-panel { min-height: 470px; }
   .semaglutide-details-panel { min-height: 0; padding: 34px 24px 38px; }
-  .semaglutide-details-panel h1 { font-size: clamp(2.25rem, 12vw, 4.25rem); }
   .semaglutide-badge { top: 20px; right: 20px; padding: 8px 13px; font-size: 0.66rem; }
   .semaglutide-bottle { height: 62%; max-width: 82%; }
   .semaglutide-review-line { grid-template-columns: 1fr; align-items: start; }

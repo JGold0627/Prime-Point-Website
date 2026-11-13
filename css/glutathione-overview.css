@@ -1,0 +1,605 @@
+/* Shared by Glutathione injection and nasal; matches the completed product sections. */
+.wellness-product-details .glutathione-product-title {
+  margin: 0 0 8px;
+  white-space: normal;
+}
+
+.glutathione-nasal-page .glutathione-product-format {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.glutathione-product-spec {
+  margin: 0 0 22px;
+  color: var(--pp-prime-navy);
+  font-size: .875rem;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: .02em;
+}
+
+/* Match the looping care strip on the individual peptide pages. */
+.glutathione-care-strip {
+  position: relative;
+  margin-top: clamp(36px, 5vw, 80px);
+  padding-block: clamp(30px, 3.6vw, 54px);
+  color: var(--pp-prime-navy);
+}
+
+.glutathione-care-strip-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 24px;
+  margin: 0;
+  padding: 0 24px;
+  list-style: none;
+}
+
+.glutathione-care-strip-items li {
+  display: flex;
+  flex: none;
+  align-items: flex-start;
+  gap: 12px;
+  width: clamp(250px, 26vw, 340px);
+  max-width: 100%;
+  font-size: clamp(.95rem, 1.24vw, 1.15rem);
+  line-height: 1.45;
+}
+
+.glutathione-care-strip-items li > div { min-width: 0; }
+
+.glutathione-care-strip-items svg {
+  flex: none;
+  width: 1.24em;
+  height: 1.24em;
+  margin-top: .1em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.glutathione-care-strip-items strong,
+.glutathione-care-strip-items span { display: block; }
+.glutathione-care-strip-items strong { font-weight: 600; }
+.glutathione-care-strip-items span {
+  margin-top: 4px;
+  color: #56606a;
+  font-size: .9em;
+  line-height: 1.5;
+}
+.glutathione-care-strip-items[aria-hidden="true"] { display: none; }
+.glutathione-care-strip-window:focus-visible {
+  outline: 2px solid var(--pp-prime-gold);
+  outline-offset: 6px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .glutathione-care-strip.is-looping .glutathione-care-strip-window {
+    --fade-width: clamp(32px, 9%, 140px);
+    overflow: hidden;
+    mask-image: linear-gradient(to right,
+      transparent 0.6%,
+      black var(--fade-width),
+      black calc(100% - var(--fade-width)),
+      transparent 99.4%);
+  }
+
+  .glutathione-care-strip.is-looping .glutathione-care-strip-track {
+    display: flex;
+    width: max-content;
+    min-width: 200%;
+    animation: glutathione-care-strip-scroll 36s linear infinite;
+  }
+
+  .glutathione-care-strip.is-looping .glutathione-care-strip-items {
+    --gap: clamp(48px, 6vw, 96px);
+    display: flex;
+    flex: 1 0 auto;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    gap: var(--gap);
+    padding-inline: calc(var(--gap) / 2);
+    white-space: normal;
+  }
+
+  .glutathione-care-strip:focus-within .glutathione-care-strip-track {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes glutathione-care-strip-scroll {
+  to { transform: translateX(-50%); }
+}
+
+/* Six short points surround a freestanding bottle, with the same page gutters. */
+.glutathione-overview {
+  margin-top: clamp(40px, 5vw, 72px);
+  padding-block: 16px clamp(24px, 3vw, 44px);
+  color: var(--pp-prime-navy);
+  text-align: center;
+}
+
+.glutathione-overview-heading {
+  margin-bottom: clamp(36px, 4vw, 60px);
+}
+
+.glutathione-overview-heading h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(32px, 3.4vw, 50px);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -.05em;
+}
+
+.glutathione-overview-heading p {
+  max-width: 760px;
+  margin: 14px auto 0;
+  color: #56606a;
+  font-size: clamp(16px, 1.4vw, 20px);
+  line-height: 1.55;
+}
+
+.glutathione-overview-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(200px, .78fr) minmax(0, 1fr);
+  grid-template-areas: "left bottle right";
+  align-items: center;
+  gap: clamp(24px, 4vw, 64px);
+}
+
+.glutathione-overview-points {
+  display: grid;
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  align-self: stretch;
+  gap: clamp(28px, 3vw, 44px);
+  min-width: 0;
+}
+
+.glutathione-overview-points--left { grid-area: left; }
+.glutathione-overview-points--right { grid-area: right; }
+
+.glutathione-overview-point {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.glutathione-overview-point > svg {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 14px;
+  color: var(--pp-prime-gold);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.glutathione-overview-point h3 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(18px, 1.5vw, 21px);
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: -.03em;
+}
+
+.glutathione-overview-point p {
+  max-width: 40ch;
+  margin: 8px 0 0;
+  color: #56606a;
+  font-size: clamp(15px, 1.25vw, 18px);
+  line-height: 1.55;
+}
+
+.glutathione-overview-bottle {
+  grid-area: bottle;
+  align-self: center;
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: clamp(380px, 34vw, 500px);
+  margin: 0;
+}
+
+/* Soft lighting and a diffused floor shadow stay behind the original bottle. */
+.glutathione-overview-bottle::before,
+.glutathione-overview-bottle::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.glutathione-overview-bottle::before {
+  inset: 0 -12% 2%;
+  background: radial-gradient(ellipse at 50% 42%,
+    #fff 0% 28%,
+    rgba(255, 253, 244, .96) 42%,
+    rgba(215, 226, 232, .48) 59%,
+    rgba(246, 244, 240, 0) 78%);
+  filter: blur(6px);
+}
+
+.glutathione-overview-bottle::after {
+  left: 18%;
+  bottom: 10%;
+  width: 64%;
+  height: 9%;
+  background: radial-gradient(ellipse,
+    rgba(15, 31, 45, .18) 0%,
+    rgba(15, 31, 45, .07) 38%,
+    rgba(15, 31, 45, 0) 72%);
+  filter: blur(5px);
+}
+
+.glutathione-overview-bottle img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 88%;
+  height: 88%;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 14px rgba(15, 31, 45, .12));
+}
+
+.glutathione-overview-trust {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px clamp(20px, 3vw, 44px);
+  width: min(100%, 1120px);
+  margin: clamp(36px, 4vw, 56px) auto 0;
+  padding: 16px 24px;
+  border: 1px solid var(--pp-gold-soft);
+  border-radius: 16px;
+  list-style: none;
+}
+
+.glutathione-overview-trust li,
+.glutathione-overview-insurance {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.glutathione-overview-trust svg,
+.glutathione-overview-insurance svg {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.glutathione-overview-trust svg { color: var(--pp-prime-gold); }
+
+.glutathione-overview-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.glutathione-overview-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 210px;
+  min-height: 56px;
+  padding: 14px 28px;
+  border: 1px solid var(--pp-prime-navy);
+  border-radius: 999px;
+  background: var(--pp-prime-navy);
+  color: var(--pp-warm-ivory);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: background-color .2s ease, border-color .2s ease;
+}
+
+.glutathione-overview-cta:hover { background: #223b4f; border-color: #223b4f; }
+.glutathione-overview-cta--secondary { background: transparent; color: var(--pp-prime-navy); border-color: rgba(15, 31, 45, .2); }
+.glutathione-overview-cta--secondary:hover { background: #eeebe5; border-color: var(--pp-prime-gold); }
+.glutathione-overview-cta:focus-visible { outline: 2px solid var(--pp-prime-gold); outline-offset: 4px; }
+
+.glutathione-overview-insurance { margin: 22px 0 0; color: #56606a; }
+.glutathione-overview-note { margin: 10px 0 0; color: #56606a; font-size: 12px; line-height: 1.5; }
+.glutathione-page #product-plan-options { scroll-margin-top: calc(var(--pp-header-height) + 24px); }
+
+@media (max-width: 980px) {
+  .glutathione-overview-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas: "bottle bottle" "left right";
+    gap: 36px;
+  }
+  .glutathione-overview-bottle { width: min(100%, 280px); height: 360px; justify-self: center; }
+}
+
+@media (max-width: 600px) {
+  .glutathione-overview { margin-top: 36px; }
+  .glutathione-overview-heading { margin-bottom: 24px; }
+  .glutathione-overview-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "bottle" "left" "right"; }
+  .glutathione-overview-bottle { height: 320px; }
+  .glutathione-overview-points { grid-template-rows: none; gap: 32px; }
+  .glutathione-overview-point p { max-width: 34ch; }
+  .glutathione-overview-trust { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .glutathione-overview-actions { gap: 12px; }
+  .glutathione-overview-cta { width: 100%; min-width: 0; }
+}
+
+.glutathione-faq-section {
+  margin-top: clamp(80px, 8vw, 128px);
+}
+
+.glutathione-faq-section > h2 {
+  margin: 0 0 clamp(36px, 4.5vw, 64px);
+  color: var(--pp-prime-navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.6rem, 4.3vw, 5rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -.05em;
+  text-align: center;
+}
+
+.glutathione-faq-section > h2 span {
+  color: var(--pp-prime-gold);
+}
+
+.glutathione-faq-list {
+  display: grid;
+  gap: clamp(16px, 1.7vw, 24px);
+}
+
+.glutathione-faq-item {
+  overflow: hidden;
+  border: 1px solid rgba(var(--pp-gold-rgb), .2);
+  border-radius: clamp(18px, 1.8vw, 28px);
+  background: var(--pp-warm-ivory);
+  color: #0f1f2d;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .72), 0 16px 34px rgba(0, 0, 0, .12);
+}
+
+.glutathione-faq-item summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 32px;
+  align-items: center;
+  gap: 24px;
+  min-height: clamp(70px, 5.5vw, 86px);
+  padding: clamp(16px, 1.6vw, 22px) clamp(24px, 2.8vw, 42px);
+  font-size: clamp(1.12rem, 1.55vw, 1.55rem);
+  font-weight: 400;
+  line-height: 1.22;
+  list-style: none;
+  cursor: pointer;
+}
+
+.glutathione-faq-item summary::-webkit-details-marker { display: none; }
+.glutathione-faq-item summary:focus-visible { outline: 3px solid rgba(var(--pp-gold-rgb), .65); outline-offset: -6px; }
+
+.glutathione-faq-icon {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(155, 106, 36, .42);
+  border-radius: 50%;
+  background: rgba(var(--pp-gold-rgb), .1);
+}
+
+.glutathione-faq-icon::before,
+.glutathione-faq-icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 13px;
+  height: 2px;
+  border-radius: 999px;
+  background: #8f6927;
+  transform: translate(-50%, -50%);
+  transition: transform 180ms ease;
+}
+
+.glutathione-faq-icon::after { transform: translate(-50%, -50%) rotate(90deg); }
+.glutathione-faq-item[open] .glutathione-faq-icon::after { transform: translate(-50%, -50%); }
+
+.glutathione-faq-answer {
+  margin: 0 clamp(26px, 3vw, 46px);
+  padding: clamp(22px, 2.2vw, 32px) 0 clamp(28px, 3vw, 42px);
+  border-top: 1px solid rgba(155, 106, 36, .2);
+}
+
+.glutathione-faq-answer p {
+  max-width: 1080px;
+  margin: 0;
+  color: var(--pp-prime-navy);
+  font-size: clamp(.98rem, 1.16vw, 1.18rem);
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glutathione-faq-icon::before,
+  .glutathione-faq-icon::after { transition: none; }
+}
+
+@media (max-width: 760px) {
+  .glutathione-faq-section > h2 { font-size: clamp(2.3rem, 11vw, 3.15rem); }
+  .glutathione-faq-item summary { grid-template-columns: minmax(0, 1fr) 30px; gap: 16px; min-height: 64px; padding: 16px 18px; }
+  .glutathione-faq-icon { width: 30px; height: 30px; }
+  .glutathione-faq-answer { margin: 0 20px; padding: 20px 0 28px; }
+
+  .glutathione-science {
+    margin-top: 72px;
+  }
+
+  .glutathione-science-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .glutathione-science-card {
+    padding: 26px;
+  }
+
+  .glutathione-science-card h3 {
+    min-height: 0;
+    font-size: 28px;
+  }
+
+  .glutathione-quality {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    margin-top: 72px;
+  }
+
+  .glutathione-quality-media {
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .glutathione-quality-media img {
+    object-position: center 20%;
+  }
+}
+
+/* Match the finished Glutathione sections and product layout on every screen. */
+.glutathione-page .product-comparison-actions { margin-top: 52px; }
+
+.glutathione-page #glutathione-quality-title,
+.glutathione-page #glutathione-faq-title {
+  text-align: center;
+  text-wrap: balance;
+}
+
+.glutathione-page .peptide-standard-vial--glutathione {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  align-self: start;
+  background: #e9e4db;
+}
+
+.glutathione-page .peptide-standard-vial--glutathione img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 5%;
+  object-fit: contain;
+  transform: none;
+}
+
+/* Retain the page's sections and visual treatments with tighter phone spacing. */
+@media (max-width: 760px) {
+  .glutathione-page .wellness-product-main {
+    width: calc(100% - 2 * clamp(14px, 4vw, 24px));
+    padding-block: 18px 48px;
+  }
+  .glutathione-page .wellness-breadcrumb { gap: 8px; margin-bottom: 18px; font-size: 12px; }
+  .glutathione-page .wellness-product-layout { gap: 22px; }
+  .glutathione-page .wellness-product-gallery { width: min(100%, 360px); justify-self: center; }
+  .glutathione-page .wellness-product-photo { width: 100%; height: auto; aspect-ratio: 4 / 5; }
+  .glutathione-page .wellness-product-thumbnails { gap: 10px; margin-top: 12px; }
+  .glutathione-page .wellness-product-thumbnails button { width: 56px; height: 66px; }
+  .glutathione-page .wellness-product-caption { margin-top: 8px; }
+  .glutathione-page .wellness-product-details { padding-top: 0; }
+  .glutathione-page .wellness-product-details h1 { font-size: clamp(36px, 9vw, 44px); }
+  .glutathione-page .glutathione-product-spec { margin-bottom: 12px; }
+  .glutathione-page .product-plan-price { margin-bottom: 16px; }
+  .glutathione-page .product-plan-price strong { font-size: 32px; }
+  .glutathione-page .wellness-product-intro { max-width: none; margin-bottom: 20px; font-size: 16px; line-height: 1.5; }
+  .glutathione-page .wellness-product-details .product-plan-field { width: 100%; margin-bottom: 16px; }
+  .glutathione-page .product-plan-field label { margin-bottom: 8px; font-size: 14px; }
+  .glutathione-page .product-plan-field select { min-height: 52px; padding-block: 13px; font-size: 16px; }
+  .glutathione-page .product-payment-logos { width: min(100%, 200px); margin-bottom: 16px; }
+  .glutathione-page .wellness-product-cta { width: 100%; min-height: 56px; }
+  .glutathione-page .wellness-product-review-note { margin-block: 12px 18px; }
+  .glutathione-page .wellness-product-features { gap: 8px; margin-bottom: 20px; font-size: 14px; }
+  .glutathione-page .wellness-product-faq { gap: 10px; }
+  .glutathione-page .wellness-product-faq details { padding-inline: 14px; }
+  .glutathione-page .wellness-product-faq summary { min-height: 56px; padding-block: 14px; font-size: 15px; }
+  .glutathione-page .wellness-product-faq p { margin-bottom: 16px; font-size: 15px; line-height: 1.55; }
+  .glutathione-page .product-infographic { padding: 20px; gap: 14px; }
+  .glutathione-page .product-infographic-label { font-size: clamp(24px, 7cqw, 30px); }
+  .glutathione-page .product-infographic-intro { font-size: 14px; }
+  .glutathione-page .product-infographic-step { gap: 12px; padding-block: 12px; }
+
+  .glutathione-page .glutathione-care-strip { margin-top: 28px; padding-block: 20px; }
+  .glutathione-page .glutathione-care-strip-items li { width: clamp(220px, 70vw, 280px); font-size: 14px; }
+  .glutathione-page .glutathione-care-strip-items span { font-size: 13px; }
+  .glutathione-page .glutathione-care-strip.is-looping .glutathione-care-strip-items { --gap: 36px; }
+
+  .glutathione-page .glutathione-overview { margin-top: 28px; padding-block: 8px 12px; }
+  .glutathione-page .glutathione-overview-heading { margin-bottom: 22px; }
+  .glutathione-page :is(.glutathione-overview-heading, .product-comparison-heading) h2,
+  .glutathione-page #glutathione-quality-title,
+  .glutathione-page #glutathione-faq-title {
+    font-size: clamp(28px, 7.2vw, 36px);
+    line-height: 1.12;
+    letter-spacing: -.035em;
+  }
+  .glutathione-page .glutathione-overview-heading p { margin-top: 12px; font-size: 15px; line-height: 1.5; }
+  .glutathione-page .glutathione-overview-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas: "bottle bottle" "left right";
+    gap: 24px 16px;
+  }
+  .glutathione-page .glutathione-overview-bottle { width: 160px; max-width: 100%; height: 220px; }
+  .glutathione-page .glutathione-overview-points { grid-template-rows: repeat(3, minmax(0, 1fr)); gap: 20px; }
+  .glutathione-page .glutathione-overview-point { justify-content: flex-start; }
+  .glutathione-page .glutathione-overview-point > svg { width: 24px; height: 24px; margin-bottom: 8px; }
+  .glutathione-page .glutathione-overview-point h3 { font-size: 19px; line-height: 1.2; }
+  .glutathione-page .glutathione-overview-point p { max-width: none; margin-top: 8px; font-size: 14px; line-height: 1.5; }
+  .glutathione-page .glutathione-overview-actions { gap: 10px; margin-top: 24px; }
+  .glutathione-page .glutathione-overview-cta { flex: 1 1 0; width: auto; min-width: 0; min-height: 48px; padding: 12px 10px; font-size: 14px; }
+  .glutathione-page .glutathione-overview-insurance { margin-top: 16px; font-size: 12px; }
+
+  .glutathione-page .product-comparison { margin-top: 40px; padding: 24px 12px; }
+  .glutathione-page .product-comparison-heading { margin-bottom: 20px; }
+  .glutathione-page .product-comparison-heading p { font-size: 13px; line-height: 1.5; }
+  .glutathione-page .product-comparison-name { min-height: 120px; padding: 14px 8px; }
+  .glutathione-page .product-comparison-name small { font-size: 10px; letter-spacing: .035em; }
+  .glutathione-page .product-comparison-name strong { font-size: 16px; }
+  .glutathione-page .product-comparison-name > span { font-size: 12px; }
+  .glutathione-page .product-comparison-table tbody th { padding-block: 18px 8px; font-size: 15px; }
+  .glutathione-page .product-comparison-table td { padding: 12px 8px; font-size: 14px; line-height: 1.5; }
+  .glutathione-page .product-comparison-actions { margin-top: 40px; }
+  .glutathione-page .product-comparison-cta { min-height: 50px; font-size: 15px; }
+
+  .glutathione-page #glutathione-quality { padding-block: 36px 0; }
+  .glutathione-page .peptide-standard-inner { padding-top: 12px; gap: 24px; }
+  .glutathione-page .peptide-standard-usa ul { row-gap: 10px; }
+  .glutathione-page .peptide-standard-usa li { min-height: 50px; padding: 12px 14px; font-size: 14px; }
+  .glutathione-page .peptide-standard-list li { grid-template-columns: clamp(64px, 18vw, 80px) minmax(0, 1fr); gap: 14px; }
+  .glutathione-page .peptide-standard-list li + li { margin-top: 18px; padding-top: 18px; }
+  .glutathione-page .peptide-standard-list h3 { font-size: 22px; }
+  .glutathione-page .peptide-standard-list p { margin-top: 8px; font-size: 14px; line-height: 1.55; }
+
+  .glutathione-page .glutathione-faq-section { margin-top: 40px; }
+  .glutathione-page #glutathione-faq-title { margin-bottom: 22px; }
+  .glutathione-page .glutathione-faq-list { gap: 12px; }
+  .glutathione-page .glutathione-faq-item summary { grid-template-columns: minmax(0, 1fr) 26px; min-height: 60px; gap: 12px; padding: 16px; font-size: 16px; line-height: 1.35; }
+  .glutathione-page .glutathione-faq-icon { width: 26px; height: 26px; }
+  .glutathione-page .glutathione-faq-answer { margin-inline: 16px; padding-block: 16px 20px; }
+  .glutathione-page .glutathione-faq-answer p { font-size: 15px; line-height: 1.6; }
+  .glutathione-page .wellness-product-end-cta { margin-top: 32px; }
+}

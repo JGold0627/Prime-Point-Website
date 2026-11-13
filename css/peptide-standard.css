@@ -74,7 +74,12 @@
   .peptide-standard-inner { grid-template-columns: 1fr; }
 }
 
-/* Product pages already provide the shared page gutters. */
-.wellness-product-main > .peptide-standard {
+/* Product and treatment pages already provide the shared page gutters. */
+.wellness-product-main > .peptide-standard,
+.treatments-page main > .peptide-standard {
   padding-inline: 0;
+}
+
+.treatments-page .peptide-standard-inner {
+  max-width: var(--treatments-shell);
 }

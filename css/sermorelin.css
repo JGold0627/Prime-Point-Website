@@ -1,10 +1,13 @@
 .sermorelin-benefits { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(36px, 5.8vw, 88px); align-items: start; margin-top: clamp(80px, 10vw, 160px); }
-.sermorelin-benefits-media { position: relative; width: 100%; height: var(--product-photo-height, auto); overflow: hidden; border-radius: 26px; aspect-ratio: 1; min-height: 0; background: var(--pp-prime-navy); }
-.sermorelin-benefits-media img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
+.sermorelin-benefits-figure { min-width: 0; margin: 0; }
+.sermorelin-benefits-media { position: relative; width: 100%; height: var(--product-photo-height, auto); overflow: hidden; border-radius: 26px; aspect-ratio: 3 / 4; min-width: 0; min-height: 0; background: #e8dfd1; }
+.sermorelin-benefits-media img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; object-position: 62% center; }
+.sermorelin-benefits-disclaimer { margin-top: 14px; color: #52616b; font-size: .8125rem; font-style: italic; line-height: 1.55; }
 .sermorelin-benefits-copy { min-width: 0; }
-.sermorelin-benefits h2 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.5rem, 4vw, 4.6rem); font-weight: 400; line-height: 1.08; letter-spacing: -.035em; }
-.sermorelin-benefits h2 span { color: var(--pp-prime-gold); }
-.sermorelin-benefits-list { display: grid; align-content: center; min-height: 22em; gap: 26px; margin: 32px 0 0; padding: 0; list-style: none; color: var(--pp-prime-navy); font-size: clamp(17px, 1.3vw, 20px); line-height: 1.6; }
+.sermorelin-benefits h2 { margin: 0; color: var(--pp-prime-navy); font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.5rem, 4vw, 4.6rem); font-weight: 400; line-height: 1.08; letter-spacing: -.035em; }
+.sermorelin-benefits h2 span { display: block; color: var(--pp-prime-gold); }
+.sermorelin-benefits-intro { margin: 24px 0 0; color: var(--pp-prime-navy); font-size: clamp(17px, 1.3vw, 20px); line-height: 1.6; }
+.sermorelin-benefits-list { display: grid; gap: 26px; margin: 32px 0 0; padding: 0; list-style: none; color: var(--pp-prime-navy); font-size: clamp(17px, 1.3vw, 20px); line-height: 1.6; }
 .sermorelin-benefits-list li { display: grid; grid-template-columns: 18px minmax(0, 1fr); align-items: start; gap: 12px; }
 .sermorelin-benefits-arrow { color: var(--pp-dark-gold); }
 .sermorelin-benefits-list p { margin: 0; }
@@ -44,7 +47,9 @@
 .sermorelin-science-art { position: relative; margin: 30px 0; padding: 24px; }
 .sermorelin-science-art::before { content: ""; position: absolute; inset: 0; border: 1px solid var(--pp-gold-soft); border-radius: 18px; }
 .sermorelin-science-art img { position: relative; display: block; width: 100%; margin: 0; aspect-ratio: 1; height: auto; object-fit: cover; border-radius: 12px; box-shadow: 0 12px 26px rgba(15,31,45,.09); }
+.sermorelin-science-art .sermorelin-science-photo--composition { object-position: center bottom; }
 .sermorelin-science-card p { margin: 0; color: var(--pp-prime-navy); font-size: 1rem; line-height: 1.65; }
+.sermorelin-science-disclaimer { margin: 28px 0 0; color: #52616b; font-size: .875rem; font-style: italic; line-height: 1.65; text-align: center; }
 @media (max-width: 760px) {
   .sermorelin-science { margin-top: 72px; }
   .sermorelin-science-heading { flex-direction: column; align-items: flex-start; gap: 24px; }
@@ -53,10 +58,10 @@
   .sermorelin-science-card h3 { min-height: 0; font-size: 28px; }
 }
 @media (max-width: 760px) {
-  .sermorelin-benefits { grid-template-columns: 1fr; gap: 30px; margin-top: 72px; }
-  .sermorelin-benefits-media { height: auto; max-height: 530px; border-radius: 20px; }
+  .sermorelin-benefits { grid-template-columns: minmax(0, 1fr); gap: 30px; margin-top: 72px; }
+  .sermorelin-benefits-media { height: auto; aspect-ratio: 1; max-height: 530px; border-radius: 20px; }
   .sermorelin-benefits h2 { font-size: clamp(36px, 8.5vw, 52px); }
-  .sermorelin-benefits-list { min-height: 0; align-content: start; margin-top: 28px; gap: 24px; }
+  .sermorelin-benefits-list { margin-top: 28px; gap: 24px; }
 }
 
 .sermorelin-faq-section {

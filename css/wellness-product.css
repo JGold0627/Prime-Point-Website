@@ -16,14 +16,14 @@
 .wellness-product-details { padding-top: 8px; min-width: 0; }
 .wellness-product-eyebrow { display: flex; align-items: center; gap: 10px; margin: 0 0 18px; color: var(--pp-prime-navy); font-size: .8rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
 .wellness-product-eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--pp-prime-gold); box-shadow: 0 0 0 4px var(--pp-gold-faint); }
-.wellness-product-details h1 { margin: 0 0 22px; font-family: Georgia, "Times New Roman", serif; font-size: clamp(40px, 4.6vw, 72px); font-weight: 400; line-height: 1.04; letter-spacing: -.045em; overflow-wrap: anywhere; }
+.wellness-product-details h1 { margin: 0 0 22px; font-family: Georgia, "Times New Roman", serif; font-size: clamp(36px, 4.14vw, 64.8px); font-weight: 400; line-height: 1.04; letter-spacing: -.045em; overflow-wrap: anywhere; }
 .wellness-product-details h1 sup { display: inline-block; margin-left: 8px; font: 400 .28em/1 Inter, "Segoe UI", Arial, sans-serif; vertical-align: super; letter-spacing: 0; }
 .wellness-product-price { margin: 0 0 23px; font-size: 1rem; color: var(--pp-prime-navy); }
 .wellness-product-price strong { color: var(--pp-prime-navy); font-size: 1.7rem; font-weight: 500; margin-left: 5px; }
 .wellness-product-price-offer { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 10px; }
 .wellness-product-price-amounts { display: inline-flex; align-items: baseline; gap: 8px; white-space: nowrap; }
 .wellness-product-price-amounts strong { margin-left: 0; }
-.wellness-product-intro { margin: 0 0 26px; max-width: 540px; font-size: clamp(18px, 1.65vw, 25px); line-height: 1.5; color: var(--pp-prime-navy); }
+.wellness-product-intro { margin: 0 0 26px; max-width: 540px; font-size: clamp(17px, 1.45vw, 22px); line-height: 1.5; color: var(--pp-prime-navy); }
 /* Match the GLP-1 intake button treatment across the wellness range. */
 .wellness-product-cta {
   display: inline-flex;
@@ -94,7 +94,7 @@
   .wellness-product-layout { grid-template-columns: 1fr; gap: 30px; }
   .wellness-product-gallery { position: static; }
   .wellness-product-photo { max-height: 530px; border-radius: 20px; }
-  .wellness-product-details h1 { font-size: clamp(38px, 9vw, 58px); }
+  .wellness-product-details h1 { font-size: clamp(34.2px, 8.1vw, 52.2px); }
 }
 @media (max-width: 560px) { .wellness-product-cta { min-height: 60px; } }
 @media (prefers-reduced-motion: reduce) {

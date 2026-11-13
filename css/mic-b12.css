@@ -1,344 +1,343 @@
-.mic-b12-benefits {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: clamp(36px, 5.8vw, 88px);
-  align-items: start;
-  margin-top: clamp(80px, 10vw, 160px);
+.wellness-product-details .mic-b12-product-title {
+  margin: 0 0 8px;
+  white-space: nowrap;
 }
 
-/* Match the initial copy height; expanding text never stretches the photo. */
-.mic-b12-benefits-media {
-  position: relative;
-  width: 100%;
-  height: var(--product-photo-height, auto);
-  aspect-ratio: 4 / 5;
-  min-width: 0;
-  min-height: 0;
-  overflow: hidden;
-  border-radius: 26px;
-  background: #e8dfd1;
-}
-
-.mic-b12-benefits-media img {
-  position: absolute;
-  inset: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 15%;
-}
-
-.mic-b12-benefits-copy {
-  min-width: 0;
-}
-
-.mic-b12-benefits h2 {
-  margin: 0;
+.mic-b12-product-spec {
+  margin: 0 0 22px;
   color: var(--pp-prime-navy);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(2.5rem, 4vw, 4.6rem);
+  font-size: .875rem;
   font-weight: 400;
-  line-height: 1.08;
-  letter-spacing: -.035em;
+  line-height: 1.4;
+  letter-spacing: .02em;
 }
 
-.mic-b12-benefits h2 span {
-  display: block;
-  color: var(--pp-prime-gold);
+/* Match the looping care strip on the individual peptide pages. */
+.mic-b12-care-strip {
+  position: relative;
+  margin-top: clamp(36px, 5vw, 80px);
+  padding-block: clamp(30px, 3.6vw, 54px);
+  color: var(--pp-prime-navy);
 }
 
-.mic-b12-benefits-list {
-  display: grid;
-  gap: 26px;
-  margin: 32px 0 0;
-  padding: 0;
+.mic-b12-care-strip-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 24px;
+  margin: 0;
+  padding: 0 24px;
   list-style: none;
-  color: var(--pp-prime-navy);
-  font-size: clamp(17px, 1.3vw, 20px);
-  line-height: 1.6;
 }
 
-.mic-b12-benefits-list li {
-  display: grid;
-  grid-template-columns: 18px minmax(0, 1fr);
-  align-items: start;
+.mic-b12-care-strip-items li {
+  display: flex;
+  flex: none;
+  align-items: flex-start;
   gap: 12px;
+  width: clamp(250px, 26vw, 340px);
+  max-width: 100%;
+  font-size: clamp(.95rem, 1.24vw, 1.15rem);
+  line-height: 1.45;
 }
 
-.mic-b12-benefits-arrow {
-  color: var(--pp-dark-gold);
+.mic-b12-care-strip-items li > div { min-width: 0; }
+
+.mic-b12-care-strip-items svg {
+  flex: none;
+  width: 1.24em;
+  height: 1.24em;
+  margin-top: .1em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
-.mic-b12-benefits-list p {
-  margin: 0;
+.mic-b12-care-strip-items strong,
+.mic-b12-care-strip-items span { display: block; }
+.mic-b12-care-strip-items strong { font-weight: 600; }
+.mic-b12-care-strip-items span {
+  margin-top: 4px;
+  color: #56606a;
+  font-size: .9em;
+  line-height: 1.5;
+}
+.mic-b12-care-strip-items[aria-hidden="true"] { display: none; }
+.mic-b12-care-strip-window:focus-visible {
+  outline: 2px solid var(--pp-prime-gold);
+  outline-offset: 6px;
 }
 
-.mic-b12-benefits-list strong {
+@media (prefers-reduced-motion: no-preference) {
+  .mic-b12-care-strip.is-looping .mic-b12-care-strip-window {
+    --fade-width: clamp(32px, 9%, 140px);
+    overflow: hidden;
+    mask-image: linear-gradient(to right,
+      transparent 0.6%,
+      black var(--fade-width),
+      black calc(100% - var(--fade-width)),
+      transparent 99.4%);
+  }
+
+  .mic-b12-care-strip.is-looping .mic-b12-care-strip-track {
+    display: flex;
+    width: max-content;
+    min-width: 200%;
+    animation: mic-b12-care-strip-scroll 36s linear infinite;
+  }
+
+  .mic-b12-care-strip.is-looping .mic-b12-care-strip-items {
+    --gap: clamp(48px, 6vw, 96px);
+    display: flex;
+    flex: 1 0 auto;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    gap: var(--gap);
+    padding-inline: calc(var(--gap) / 2);
+    white-space: normal;
+  }
+
+  .mic-b12-care-strip:focus-within .mic-b12-care-strip-track {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes mic-b12-care-strip-scroll {
+  to { transform: translateX(-50%); }
+}
+
+/* Six short points surround a freestanding bottle, with the same page gutters. */
+.mic-b12-overview {
+  margin-top: clamp(40px, 5vw, 72px);
+  padding-block: 16px clamp(24px, 3vw, 44px);
   color: var(--pp-prime-navy);
-  font-weight: 600;
+  text-align: center;
 }
 
-.mic-b12-benefits-cta {
-  margin-top: 30px;
+.mic-b12-overview-heading {
+  margin-bottom: clamp(36px, 4vw, 60px);
 }
 
-@media (max-width: 760px) {
-  .mic-b12-benefits {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 30px;
-    margin-top: 72px;
-  }
-
-  .mic-b12-benefits-media {
-    height: auto;
-    aspect-ratio: 1;
-    max-height: 530px;
-    border-radius: 20px;
-  }
-
-  .mic-b12-benefits h2 {
-    font-size: clamp(36px, 8.5vw, 52px);
-  }
-
-  .mic-b12-benefits-list {
-    margin-top: 28px;
-    gap: 24px;
-  }
-}
-
-.mic-b12-science {
-  margin-top: clamp(80px, 10vw, 160px);
-}
-
-.mic-b12-science-heading {
-  margin-bottom: 36px;
-}
-
-.mic-b12-science-heading h2 {
+.mic-b12-overview-heading h2 {
   margin: 0;
-  font: 400 clamp(36px, 3.8vw, 58px)/1.12 Georgia, "Times New Roman", serif;
-  letter-spacing: -.035em;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(32px, 3.4vw, 50px);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -.05em;
 }
 
-.mic-b12-science-heading h2 span {
-  color: var(--pp-prime-gold);
+.mic-b12-overview-heading p {
+  max-width: 760px;
+  margin: 14px auto 0;
+  color: #56606a;
+  font-size: clamp(16px, 1.4vw, 20px);
+  line-height: 1.55;
 }
 
-.mic-b12-science-grid {
+.mic-b12-overview-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
+  grid-template-columns: minmax(0, 1fr) minmax(200px, .78fr) minmax(0, 1fr);
+  grid-template-areas: "left bottle right";
+  align-items: center;
+  gap: clamp(24px, 4vw, 64px);
 }
 
-.mic-b12-science-card {
+.mic-b12-overview-points {
+  display: grid;
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  align-self: stretch;
+  gap: clamp(28px, 3vw, 44px);
+  min-width: 0;
+}
+
+.mic-b12-overview-points--left { grid-area: left; }
+.mic-b12-overview-points--right { grid-area: right; }
+
+.mic-b12-overview-point {
   display: flex;
   flex-direction: column;
-  min-width: 0;
-  padding: clamp(22px, 2.6vw, 40px);
-  border: 1px solid var(--pp-gold-soft);
-  border-radius: 20px;
-  background: rgba(255,255,255,.38);
-}
-
-.mic-b12-science-card h3 {
-  margin: 0;
-  min-height: 2.4em;
-  font: 400 clamp(23px, 2.1vw, 32px)/1.2 Georgia, "Times New Roman", serif;
-  letter-spacing: -.02em;
-}
-
-/* Width determines each square photo; longer descriptions cannot stretch it. */
-.mic-b12-science-art {
-  position: relative;
-  flex: 0 0 auto;
-  margin: 30px 0;
-  padding: 24px;
-  border: 1px solid var(--pp-gold-soft);
-  border-radius: 18px;
-}
-
-.mic-b12-science-art img {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 12px 26px rgba(15,31,45,.09);
-}
-
-.mic-b12-science-card p {
-  margin: 0;
-  color: var(--pp-prime-navy);
-  font-size: 1rem;
-  line-height: 1.65;
-}
-
-.mic-b12-quality {
-  display: grid;
-  grid-template-columns: minmax(0, .94fr) minmax(0, 1.06fr);
-  gap: clamp(42px, 6vw, 96px);
-  align-items: start;
-  margin-top: clamp(96px, 10vw, 168px);
-}
-
-/* Measured from collapsed copy; accordion expansion never resizes this frame. */
-.mic-b12-quality-media {
-  position: relative;
-  width: 100%;
-  height: var(--product-photo-height, auto);
-  aspect-ratio: 2 / 3;
-  min-height: 0;
-  overflow: hidden;
-  border: 1px solid rgba(198,157,82,.25);
-  border-radius: clamp(22px, 2vw, 32px);
-  background: #ece7dd;
-  box-shadow: 0 24px 60px rgba(15,31,45,.1);
-}
-
-.mic-b12-quality-media img {
-  position: absolute;
-  inset: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.mic-b12-quality-content {
-  min-width: 0;
-}
-
-.mic-b12-quality-eyebrow {
-  margin: 0 0 18px;
-  color: var(--pp-prime-gold);
-  font-size: clamp(.72rem, .78vw, .84rem);
-  font-weight: 700;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-}
-
-.mic-b12-quality h2 {
-  margin: 0;
-  font: 400 clamp(2.7rem, 4.8vw, 5.4rem)/.98 Georgia, "Times New Roman", serif;
-  letter-spacing: -.045em;
-}
-
-.mic-b12-quality h2 span {
-  color: var(--pp-prime-gold);
-}
-
-.mic-b12-quality-intro {
-  margin: clamp(22px, 2.5vw, 34px) 0 0;
-  color: var(--pp-prime-navy);
-  font-size: clamp(1rem, 1.1vw, 1.16rem);
-  line-height: 1.7;
-}
-
-.mic-b12-quality-list {
-  display: grid;
-  margin-top: clamp(26px, 3vw, 40px);
-}
-
-.mic-b12-quality-list details {
-  border-top: 1px solid rgba(15,31,45,.13);
-}
-
-.mic-b12-quality-list details:last-child {
-  border-bottom: 1px solid rgba(15,31,45,.13);
-}
-
-.mic-b12-quality-list summary {
-  display: flex;
-  min-height: 72px;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 16px 0;
-  cursor: pointer;
-  font: 400 clamp(1.22rem, 1.5vw, 1.58rem)/1.15 Georgia, "Times New Roman", serif;
+  justify-content: center;
+}
+
+.mic-b12-overview-point > svg {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 14px;
+  color: var(--pp-prime-gold);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.mic-b12-overview-point h3 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(18px, 1.5vw, 21px);
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: -.03em;
+}
+
+.mic-b12-overview-point p {
+  max-width: 40ch;
+  margin: 8px 0 0;
+  color: #56606a;
+  font-size: clamp(15px, 1.25vw, 18px);
+  line-height: 1.55;
+}
+
+.mic-b12-overview-bottle {
+  grid-area: bottle;
+  align-self: center;
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: clamp(380px, 34vw, 500px);
+  margin: 0;
+}
+
+/* Soft lighting and a diffused floor shadow stay behind the original bottle. */
+.mic-b12-overview-bottle::before,
+.mic-b12-overview-bottle::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.mic-b12-overview-bottle::before {
+  inset: 0 -12% 2%;
+  background: radial-gradient(ellipse at 50% 42%,
+    #fff 0% 28%,
+    rgba(255, 253, 244, .96) 42%,
+    rgba(215, 226, 232, .48) 59%,
+    rgba(246, 244, 240, 0) 78%);
+  filter: blur(6px);
+}
+
+.mic-b12-overview-bottle::after {
+  left: 18%;
+  bottom: 10%;
+  width: 64%;
+  height: 9%;
+  background: radial-gradient(ellipse,
+    rgba(15, 31, 45, .18) 0%,
+    rgba(15, 31, 45, .07) 38%,
+    rgba(15, 31, 45, 0) 72%);
+  filter: blur(5px);
+}
+
+.mic-b12-overview-bottle img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 88%;
+  height: 88%;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 14px rgba(15, 31, 45, .12));
+}
+
+.mic-b12-overview-trust {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px clamp(20px, 3vw, 44px);
+  width: min(100%, 1120px);
+  margin: clamp(36px, 4vw, 56px) auto 0;
+  padding: 16px 24px;
+  border: 1px solid var(--pp-gold-soft);
+  border-radius: 16px;
   list-style: none;
 }
 
-.mic-b12-quality-list summary::-webkit-details-marker {
-  display: none;
+.mic-b12-overview-trust li,
+.mic-b12-overview-insurance {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
-.mic-b12-quality-list summary:focus-visible {
-  outline: 2px solid var(--pp-prime-gold);
-  outline-offset: 4px;
+.mic-b12-overview-trust svg,
+.mic-b12-overview-insurance svg {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
-.mic-b12-quality-toggle {
-  position: relative;
-  display: grid;
-  place-items: center;
-  flex: 0 0 38px;
-  width: 38px;
-  height: 38px;
-  border: 1px solid rgba(198,157,82,.65);
-  border-radius: 50%;
-  background: rgba(198,157,82,.08);
+.mic-b12-overview-trust svg { color: var(--pp-prime-gold); }
+
+.mic-b12-overview-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 48px;
 }
 
-.mic-b12-quality-toggle::before,
-.mic-b12-quality-toggle::after {
-  content: "";
-  position: absolute;
-  width: 14px;
-  height: 1.5px;
-  background: #9a712f;
+.mic-b12-overview-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 210px;
+  min-height: 56px;
+  padding: 14px 28px;
+  border: 1px solid var(--pp-prime-navy);
+  border-radius: 999px;
+  background: var(--pp-prime-navy);
+  color: var(--pp-warm-ivory);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: background-color .2s ease, border-color .2s ease;
 }
 
-.mic-b12-quality-toggle::after {
-  transform: rotate(90deg);
-}
+.mic-b12-overview-cta:hover { background: #223b4f; border-color: #223b4f; }
+.mic-b12-overview-cta--secondary { background: transparent; color: var(--pp-prime-navy); border-color: rgba(15, 31, 45, .2); }
+.mic-b12-overview-cta--secondary:hover { background: #eeebe5; border-color: var(--pp-prime-gold); }
+.mic-b12-overview-cta:focus-visible { outline: 2px solid var(--pp-prime-gold); outline-offset: 4px; }
 
-.mic-b12-quality-list details[open] .mic-b12-quality-toggle::after {
-  transform: rotate(0);
-}
+.mic-b12-overview-insurance { margin: 22px 0 0; color: #56606a; }
+.mic-b12-overview-note { margin: 10px 0 0; color: #56606a; font-size: 12px; line-height: 1.5; }
+#mic-b12-plan-options { scroll-margin-top: calc(var(--pp-header-height) + 24px); }
 
-.mic-b12-quality-list p {
-  margin: -2px 62px 20px 0;
-  color: var(--pp-prime-navy);
-  font-size: clamp(.92rem, 1vw, 1.04rem);
-  line-height: 1.6;
-}
-
-@media (max-width: 760px) {
-  .mic-b12-science {
-    margin-top: 72px;
-  }
-
-  .mic-b12-science-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .mic-b12-science-card {
-    padding: 26px;
-  }
-
-  .mic-b12-science-card h3 {
-    min-height: 0;
-    font-size: 28px;
-  }
-
-  .mic-b12-quality {
-    grid-template-columns: 1fr;
+@media (max-width: 980px) {
+  .mic-b12-overview-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas: "bottle bottle" "left right";
     gap: 36px;
-    margin-top: 72px;
   }
+  .mic-b12-overview-bottle { width: min(100%, 280px); height: 360px; justify-self: center; }
+}
 
-  .mic-b12-quality-media {
-    height: auto;
-    aspect-ratio: 4 / 3;
-  }
-
-  .mic-b12-quality-media img {
-    object-position: center 20%;
-  }
+@media (max-width: 600px) {
+  .mic-b12-overview { margin-top: 36px; }
+  .mic-b12-overview-heading { margin-bottom: 24px; }
+  .mic-b12-overview-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "bottle" "left" "right"; }
+  .mic-b12-overview-bottle { height: 320px; }
+  .mic-b12-overview-points { grid-template-rows: none; gap: 32px; }
+  .mic-b12-overview-point p { max-width: 34ch; }
+  .mic-b12-overview-trust { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .mic-b12-overview-actions { gap: 12px; }
+  .mic-b12-overview-cta { width: 100%; min-width: 0; }
 }
 
 .mic-b12-faq-section {
@@ -348,8 +347,9 @@
 .mic-b12-faq-section > h2 {
   margin: 0 0 clamp(36px, 4.5vw, 64px);
   color: var(--pp-prime-navy);
+  font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(2.6rem, 4.3vw, 5rem);
-  font-weight: 430;
+  font-weight: 400;
   line-height: 1;
   letter-spacing: -.05em;
   text-align: center;
@@ -441,4 +441,159 @@
   .mic-b12-faq-item summary { grid-template-columns: minmax(0, 1fr) 30px; gap: 16px; min-height: 64px; padding: 16px 18px; }
   .mic-b12-faq-icon { width: 30px; height: 30px; }
   .mic-b12-faq-answer { margin: 0 20px; padding: 20px 0 28px; }
+
+  .mic-b12-science {
+    margin-top: 72px;
+  }
+
+  .mic-b12-science-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mic-b12-science-card {
+    padding: 26px;
+  }
+
+  .mic-b12-science-card h3 {
+    min-height: 0;
+    font-size: 28px;
+  }
+
+  .mic-b12-quality {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    margin-top: 72px;
+  }
+
+  .mic-b12-quality-media {
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .mic-b12-quality-media img {
+    object-position: center 20%;
+  }
+}
+
+/* Match the finished MIC + B12 sections and product layout on every screen. */
+.mic-b12-page .product-comparison-actions { margin-top: 52px; }
+
+.mic-b12-page #mic-b12-quality-title,
+.mic-b12-page #mic-b12-faq-title {
+  text-align: center;
+  text-wrap: balance;
+}
+
+.mic-b12-page .peptide-standard-vial--mic-b12 {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  align-self: start;
+  background: #e9e4db;
+}
+
+.mic-b12-page .peptide-standard-vial--mic-b12 img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 5%;
+  object-fit: contain;
+  transform: none;
+}
+
+/* Retain the page's sections and visual treatments with tighter phone spacing. */
+@media (max-width: 760px) {
+  .mic-b12-page .wellness-product-main {
+    width: calc(100% - 2 * clamp(14px, 4vw, 24px));
+    padding-block: 18px 48px;
+  }
+  .mic-b12-page .wellness-breadcrumb { gap: 8px; margin-bottom: 18px; font-size: 12px; }
+  .mic-b12-page .wellness-product-layout { gap: 22px; }
+  .mic-b12-page .wellness-product-gallery { width: min(100%, 360px); justify-self: center; }
+  .mic-b12-page .wellness-product-photo { width: 100%; height: auto; aspect-ratio: 4 / 5; }
+  .mic-b12-page .wellness-product-thumbnails { gap: 10px; margin-top: 12px; }
+  .mic-b12-page .wellness-product-thumbnails button { width: 56px; height: 66px; }
+  .mic-b12-page .wellness-product-caption { margin-top: 8px; }
+  .mic-b12-page .wellness-product-details { padding-top: 0; }
+  .mic-b12-page .wellness-product-details h1 { font-size: clamp(36px, 9vw, 44px); }
+  .mic-b12-page .mic-b12-product-spec { margin-bottom: 12px; }
+  .mic-b12-page .product-plan-price { margin-bottom: 16px; }
+  .mic-b12-page .product-plan-price strong { font-size: 32px; }
+  .mic-b12-page .wellness-product-intro { max-width: none; margin-bottom: 20px; font-size: 16px; line-height: 1.5; }
+  .mic-b12-page .wellness-product-details .product-plan-field { width: 100%; margin-bottom: 16px; }
+  .mic-b12-page .product-plan-field label { margin-bottom: 8px; font-size: 14px; }
+  .mic-b12-page .product-plan-field select { min-height: 52px; padding-block: 13px; font-size: 16px; }
+  .mic-b12-page .product-payment-logos { width: min(100%, 200px); margin-bottom: 16px; }
+  .mic-b12-page .wellness-product-cta { width: 100%; min-height: 56px; }
+  .mic-b12-page .wellness-product-review-note { margin-block: 12px 18px; }
+  .mic-b12-page .wellness-product-features { gap: 8px; margin-bottom: 20px; font-size: 14px; }
+  .mic-b12-page .wellness-product-faq { gap: 10px; }
+  .mic-b12-page .wellness-product-faq details { padding-inline: 14px; }
+  .mic-b12-page .wellness-product-faq summary { min-height: 56px; padding-block: 14px; font-size: 15px; }
+  .mic-b12-page .wellness-product-faq p { margin-bottom: 16px; font-size: 15px; line-height: 1.55; }
+  .mic-b12-page .product-infographic { padding: 20px; gap: 14px; }
+  .mic-b12-page .product-infographic-label { font-size: clamp(24px, 7cqw, 30px); }
+  .mic-b12-page .product-infographic-intro { font-size: 14px; }
+  .mic-b12-page .product-infographic-step { gap: 12px; padding-block: 12px; }
+
+  .mic-b12-page .mic-b12-care-strip { margin-top: 28px; padding-block: 20px; }
+  .mic-b12-page .mic-b12-care-strip-items li { width: clamp(220px, 70vw, 280px); font-size: 14px; }
+  .mic-b12-page .mic-b12-care-strip-items span { font-size: 13px; }
+  .mic-b12-page .mic-b12-care-strip.is-looping .mic-b12-care-strip-items { --gap: 36px; }
+
+  .mic-b12-page .mic-b12-overview { margin-top: 28px; padding-block: 8px 12px; }
+  .mic-b12-page .mic-b12-overview-heading { margin-bottom: 22px; }
+  .mic-b12-page :is(.mic-b12-overview-heading, .product-comparison-heading) h2,
+  .mic-b12-page #mic-b12-quality-title,
+  .mic-b12-page #mic-b12-faq-title {
+    font-size: clamp(28px, 7.2vw, 36px);
+    line-height: 1.12;
+    letter-spacing: -.035em;
+  }
+  .mic-b12-page .mic-b12-overview-heading p { margin-top: 12px; font-size: 15px; line-height: 1.5; }
+  .mic-b12-page .mic-b12-overview-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas: "bottle bottle" "left right";
+    gap: 24px 16px;
+  }
+  .mic-b12-page .mic-b12-overview-bottle { width: 160px; max-width: 100%; height: 220px; }
+  .mic-b12-page .mic-b12-overview-points { grid-template-rows: repeat(3, minmax(0, 1fr)); gap: 20px; }
+  .mic-b12-page .mic-b12-overview-point { justify-content: flex-start; }
+  .mic-b12-page .mic-b12-overview-point > svg { width: 24px; height: 24px; margin-bottom: 8px; }
+  .mic-b12-page .mic-b12-overview-point h3 { font-size: 19px; line-height: 1.2; }
+  .mic-b12-page .mic-b12-overview-point p { max-width: none; margin-top: 8px; font-size: 14px; line-height: 1.5; }
+  .mic-b12-page .mic-b12-overview-actions { gap: 10px; margin-top: 24px; }
+  .mic-b12-page .mic-b12-overview-cta { flex: 1 1 0; width: auto; min-width: 0; min-height: 48px; padding: 12px 10px; font-size: 14px; }
+  .mic-b12-page .mic-b12-overview-insurance { margin-top: 16px; font-size: 12px; }
+
+  .mic-b12-page .product-comparison { margin-top: 40px; padding: 24px 12px; }
+  .mic-b12-page .product-comparison-heading { margin-bottom: 20px; }
+  .mic-b12-page .product-comparison-heading p { font-size: 13px; line-height: 1.5; }
+  .mic-b12-page .product-comparison-name { min-height: 120px; padding: 14px 8px; }
+  .mic-b12-page .product-comparison-name small { font-size: 10px; letter-spacing: .035em; }
+  .mic-b12-page .product-comparison-name strong { font-size: 16px; }
+  .mic-b12-page .product-comparison-name > span { font-size: 12px; }
+  .mic-b12-page .product-comparison-table tbody th { padding-block: 18px 8px; font-size: 15px; }
+  .mic-b12-page .product-comparison-table td { padding: 12px 8px; font-size: 14px; line-height: 1.5; }
+  .mic-b12-page .product-comparison-actions { margin-top: 40px; }
+  .mic-b12-page .product-comparison-cta { min-height: 50px; font-size: 15px; }
+
+  .mic-b12-page #mic-b12-quality { padding-block: 36px 0; }
+  .mic-b12-page .peptide-standard-inner { padding-top: 12px; gap: 24px; }
+  .mic-b12-page .peptide-standard-usa ul { row-gap: 10px; }
+  .mic-b12-page .peptide-standard-usa li { min-height: 50px; padding: 12px 14px; font-size: 14px; }
+  .mic-b12-page .peptide-standard-list li { grid-template-columns: clamp(64px, 18vw, 80px) minmax(0, 1fr); gap: 14px; }
+  .mic-b12-page .peptide-standard-list li + li { margin-top: 18px; padding-top: 18px; }
+  .mic-b12-page .peptide-standard-list h3 { font-size: 22px; }
+  .mic-b12-page .peptide-standard-list p { margin-top: 8px; font-size: 14px; line-height: 1.55; }
+
+  .mic-b12-page .mic-b12-faq-section { margin-top: 40px; }
+  .mic-b12-page #mic-b12-faq-title { margin-bottom: 22px; }
+  .mic-b12-page .mic-b12-faq-list { gap: 12px; }
+  .mic-b12-page .mic-b12-faq-item summary { grid-template-columns: minmax(0, 1fr) 26px; min-height: 60px; gap: 12px; padding: 16px; font-size: 16px; line-height: 1.35; }
+  .mic-b12-page .mic-b12-faq-icon { width: 26px; height: 26px; }
+  .mic-b12-page .mic-b12-faq-answer { margin-inline: 16px; padding-block: 16px 20px; }
+  .mic-b12-page .mic-b12-faq-answer p { font-size: 15px; line-height: 1.6; }
+  .mic-b12-page .wellness-product-end-cta { margin-top: 32px; }
 }

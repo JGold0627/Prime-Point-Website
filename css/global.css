@@ -541,6 +541,15 @@ img {
   height: 91.5%;
 }
 
+.peptides-nav-menu .metabolic-product-art .metabolic-product-image-jar {
+  inset: auto 16% 8%;
+  width: 68%;
+  max-width: 68%;
+  height: 72%;
+  aspect-ratio: 1;
+  transform: none;
+}
+
 .metabolic-product-packshot text {
   fill: #102134;
   font: 700 54px Arial, sans-serif;
