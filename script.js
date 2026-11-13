@@ -217,7 +217,7 @@ const globalHeaderMarkup = `
                   <span class="metabolic-product-name">Semax Nasal</span>
                 </a>
                 <a class="metabolic-product-card" href="ghk-cu.html">
-                  <span class="metabolic-product-art"><img class="metabolic-product-image-jar" src="assets/treatments/ghk-cu-cream-jar-packshot.png" width="1254" height="1254" alt="" decoding="async" /></span>
+                  <span class="metabolic-product-art"><img class="metabolic-product-image-jar" src="assets/treatments/ghk-cu-glass-jar-packshot.png" width="1254" height="1254" alt="" decoding="async" /></span>
                   <span class="metabolic-product-name">GHK-Cu</span>
                 </a>
                 <a class="metabolic-product-card" href="epitalon.html">
