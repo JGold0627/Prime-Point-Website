@@ -71,7 +71,7 @@
               <img src="assets/payment-providers/klarna.svg" alt="Klarna" width="1448" height="609" />
               <img src="assets/payment-providers/afterpay.svg" alt="Afterpay" width="395" height="136" />
             </div>
-            <a class="wellness-product-cta product-plan-continue" href="mailto:care@joinprimepoint.com?subject=MOTS-c%20inquiry" aria-label="Get started with MOTS-c by emailing the care team"><span>Get Started</span><span aria-hidden="true">&rarr;</span></a>
+            <a class="wellness-product-cta product-plan-continue" href="https://start.joinprimepoint.com/mots-c-injection" aria-label="Get started with MOTS-c"><span>Get Started</span><span aria-hidden="true">&rarr;</span></a>
           </div>
           <p class="wellness-product-review-note">Prescription only when clinically appropriate. Eligibility and results vary.</p>
           <ul class="wellness-product-features"><li>Licensed-provider review</li><li>Personalized care, 100% online</li><li>Independent third-party testing</li></ul>
@@ -137,7 +137,7 @@
               </div>
             </dl>
             <div class="bpc-overview-action">
-              <a class="wellness-product-cta" href="mailto:care@joinprimepoint.com?subject=MOTS-c%20inquiry" aria-label="Get started with MOTS-c by emailing the care team"><span>Get Started</span><span aria-hidden="true">&rarr;</span></a>
+              <a class="wellness-product-cta" href="https://start.joinprimepoint.com/mots-c-injection" aria-label="Get started with MOTS-c"><span>Get Started</span><span aria-hidden="true">&rarr;</span></a>
               <p>Prescription only when clinically appropriate. Eligibility and results vary.</p>
             </div>
           </article>
@@ -258,7 +258,7 @@
           </details>
         </div>
       </section>
-      <div class="wellness-product-end-cta"><a class="wellness-product-cta" href="mailto:care@joinprimepoint.com?subject=MOTS-c%20inquiry"><span>Get Started</span><span aria-hidden="true">&rarr;</span></a></div>
+      <div class="wellness-product-end-cta"><a class="wellness-product-cta" href="https://start.joinprimepoint.com/mots-c-injection"><span>Get Started</span><span aria-hidden="true">&rarr;</span></a></div>
     </main>
     <footer class="pp-footer" id="site-footer">
       <div class="pp-footer-wordmark">
@@ -314,8 +314,7 @@
           style: 'currency', currency: 'USD', maximumFractionDigits: 0
         }).format(Number(selected.dataset.monthlyPrice));
         bpcPlanPrice.textContent = price;
-        bpcPlanAction.href = `mailto:care@joinprimepoint.com?subject=${encodeURIComponent(name + ' inquiry')}`;
-        bpcPlanAction.setAttribute('aria-label', `Get started with ${name}, ${price} per month, by emailing the care team`);
+        bpcPlanAction.setAttribute('aria-label', `Get started with ${name}, ${price} per month`);
       };
       bpcPlanSelect.addEventListener('change', updateBpcPlan);
       window.addEventListener('pageshow', updateBpcPlan);

@@ -72,7 +72,7 @@
               <img src="assets/payment-providers/klarna.svg" alt="Klarna" width="1448" height="609" />
               <img src="assets/payment-providers/afterpay.svg" alt="Afterpay" width="395" height="136" />
             </div>
-            <a class="wellness-product-cta product-plan-continue" href="mailto:care@joinprimepoint.com?subject=BPC-157%20inquiry" aria-label="Get started with BPC-157 by emailing the care team"><span>Get Started</span><span aria-hidden="true">&rarr;</span></a>
+            <a class="wellness-product-cta product-plan-continue" href="https://start.joinprimepoint.com/bpc-157-injection" aria-label="Get started with BPC-157"><span>Get Started</span><span aria-hidden="true">&rarr;</span></a>
           </div>
           <p class="wellness-product-review-note">Prescription only when clinically appropriate. Eligibility and results vary.</p>
           <ul class="wellness-product-features"><li>Licensed-provider review</li><li>Personalized care, 100% online</li><li>Independent third-party testing</li></ul>
@@ -137,7 +137,7 @@
               </div>
             </dl>
             <div class="bpc-overview-action">
-              <a class="wellness-product-cta" href="mailto:care@joinprimepoint.com?subject=BPC-157%20inquiry" aria-label="Get started with BPC-157 by emailing the care team"><span>Get Started</span><span aria-hidden="true">&rarr;</span></a>
+              <a class="wellness-product-cta" href="https://start.joinprimepoint.com/bpc-157-injection" aria-label="Get started with BPC-157"><span>Get Started</span><span aria-hidden="true">&rarr;</span></a>
               <p>Prescription only when clinically appropriate. Eligibility and results vary.</p>
             </div>
           </article>
@@ -264,7 +264,7 @@
           </details>
         </div>
       </section>
-      <div class="wellness-product-end-cta"><a class="wellness-product-cta" href="mailto:care@joinprimepoint.com?subject=BPC-157%20inquiry"><span>Get Started</span><span aria-hidden="true">&rarr;</span></a></div>
+      <div class="wellness-product-end-cta"><a class="wellness-product-cta" href="https://start.joinprimepoint.com/bpc-157-injection"><span>Get Started</span><span aria-hidden="true">&rarr;</span></a></div>
     </main>
     <footer class="pp-footer" id="site-footer">
       <div class="pp-footer-wordmark">
@@ -312,6 +312,12 @@
       const bpcPlanSelect = document.getElementById('product-plan');
       const bpcPlanPrice = document.querySelector('.product-plan-price strong');
       const bpcPlanAction = document.querySelector('.product-plan-continue');
+      const bpcPhotoButton = document.querySelector('[data-product-image]');
+      const bpcProductPhoto = document.querySelector('[data-product-photo]');
+      const bpcPlanPhotos = {
+        'bpc-157': { src: bpcPhotoButton.dataset.productImage, alt: bpcPhotoButton.dataset.productAlt },
+        'bpc-157-tb4': { src: 'assets/products/bpc-157-tb4-limestone.png', alt: 'Prime Point Health BPC-157/TB-4 vial labeled Medication, Injectable, Rx Only' }
+      };
       const updateBpcPlan = () => {
         const selected = bpcPlanSelect.selectedOptions[0];
         if (!selected) return;
@@ -320,10 +326,19 @@
           style: 'currency', currency: 'USD', maximumFractionDigits: 0
         }).format(Number(selected.dataset.monthlyPrice));
         bpcPlanPrice.textContent = price;
-        bpcPlanAction.href = `mailto:care@joinprimepoint.com?subject=${encodeURIComponent(name + ' inquiry')}`;
-        bpcPlanAction.setAttribute('aria-label', `Get started with ${name}, ${price} per month, by emailing the care team`);
+        bpcPlanAction.setAttribute('aria-label', `Get started with ${name}, ${price} per month`);
+        const photo = bpcPlanPhotos[selected.value];
+        bpcPhotoButton.dataset.productImage = photo.src;
+        bpcPhotoButton.dataset.productAlt = photo.alt;
+        bpcPhotoButton.setAttribute('aria-label', `View ${name} vial`);
+        bpcPhotoButton.querySelector('img').src = photo.src;
+        bpcProductPhoto.src = photo.src;
+        bpcProductPhoto.alt = photo.alt;
       };
-      bpcPlanSelect.addEventListener('change', updateBpcPlan);
+      bpcPlanSelect.addEventListener('change', () => {
+        updateBpcPlan();
+        bpcPhotoButton.click();
+      });
       window.addEventListener('pageshow', updateBpcPlan);
       updateBpcPlan();
 

@@ -1,0 +1,149 @@
+<div id="pp-color-options">
+  <style>
+    #pp-color-options { color-scheme: light; }
+    #pp-color-options .pp-preview-stage { padding: 16px 8px 24px; }
+    #pp-color-options .pp-preview {
+      --pp-header: #d8c49c;
+      --pp-featured: #eee2c9;
+      --pp-accent: #715731;
+      --pp-oral: #eeede9;
+      --pp-oral-header: #e3e1da;
+      --pp-line: #dcd8cf;
+      color: #172632;
+      background: linear-gradient(145deg, #f7f5f1, #f2efea 65%, #eeebe5);
+      padding: 30px 22px;
+      border: 1px solid #fffaf2;
+      border-radius: 26px;
+      box-shadow: 0 16px 30px -20px #625a4966, inset 0 1px 0 #ffffff;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      overflow-wrap: break-word;
+    }
+    #pp-color-options .pp-preview *, #pp-color-options .pp-preview *::before,
+    #pp-color-options .pp-preview *::after { box-sizing: border-box; }
+    #pp-color-options .pp-preview[data-palette="sage"] {
+      --pp-header: #b7c7b7; --pp-featured: #dfe7dc; --pp-accent: #425e49;
+      --pp-oral: #eeede9; --pp-oral-header: #e3e1da;
+    }
+    #pp-color-options .pp-preview[data-palette="mist"] {
+      --pp-header: #b9cfd8; --pp-featured: #dce8ec; --pp-accent: #3e5d6b;
+      --pp-oral: #eeede9; --pp-oral-header: #e3e1da;
+    }
+    #pp-color-options .pp-heading { max-width: 590px; margin: 0 auto 24px; text-align: center; }
+    #pp-color-options .pp-heading h2 {
+      margin: 0; color: #172632; font: 400 32px/1.12 Georgia, "Times New Roman", serif;
+      letter-spacing: -.045em; text-wrap: balance;
+    }
+    #pp-color-options .pp-heading p { margin: 12px 0 0; font-size: 13px; line-height: 1.5; }
+    #pp-color-options .pp-table { width: 100%; border-collapse: separate; border-spacing: 0; table-layout: fixed; }
+    #pp-color-options .pp-label-col { width: 26%; }
+    #pp-color-options .pp-table th, #pp-color-options .pp-table td { margin: 0; }
+    #pp-color-options .pp-table thead th { padding: 0; vertical-align: bottom; font-weight: 400; }
+    #pp-color-options .pp-name {
+      display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+      gap: 5px; min-height: 160px; padding: 17px 12px;
+      color: #60615c; background: var(--pp-oral-header); text-align: center;
+    }
+    #pp-color-options .pp-name.pp-featured-name {
+      background: linear-gradient(145deg, var(--pp-featured), var(--pp-header));
+      color: #172632; box-shadow: inset 0 2px 0 var(--pp-accent);
+    }
+    #pp-color-options .pp-logo { display: block; width: 44px; height: 44px; object-fit: contain; flex: none; margin: 0 auto auto; }
+    #pp-color-options .pp-name small { font-size: 11px; line-height: 1.4; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; text-decoration: underline; text-underline-offset: 3px; margin-bottom: auto; padding-bottom: 8px; }
+    #pp-color-options .pp-name strong { font-size: 18px; line-height: 1.25; font-weight: 600; }
+    #pp-color-options .pp-name > span { font-size: 12px; line-height: 1.5; }
+    #pp-color-options .pp-table tbody th { padding: 19px 16px 19px 0; border-bottom: 1px solid var(--pp-line); font-size: 15px; line-height: 1.4; font-weight: 500; text-align: left; }
+    #pp-color-options .pp-table td { padding: 17px 13px; border-bottom: 1px solid var(--pp-line); border-right: 1px solid var(--pp-line); background: var(--pp-oral); color: #60615c; font-size: 13px; line-height: 1.5; text-align: center; vertical-align: middle; }
+    #pp-color-options .pp-table td.pp-featured { background: var(--pp-featured); color: #172632; border-bottom-color: #ffffff9c; border-right-color: #ffffffb3; box-shadow: inset 1px 0 0 #ffffff70; }
+    #pp-color-options .pp-check { display: block; width: 22px; height: 22px; margin: 0 auto 8px; color: var(--pp-accent); }
+    #pp-color-options .pp-check svg { display: block; width: 22px; height: 22px; stroke-width: 1.5; }
+    #pp-color-options .pp-table tbody tr:last-child th { border-bottom: 0; }
+    #pp-color-options .pp-actions { margin-top: 32px; text-align: center; }
+    #pp-color-options .pp-cta { display: inline-flex; align-items: center; justify-content: center; width: min(100%, 300px); min-height: 48px; padding: 12px 24px; border: 0; border-radius: 999px; background: var(--pp-accent); color: #ffffff; font: 600 15px/1.4 Inter, "Segoe UI", Arial, sans-serif; text-decoration: none; }
+    #pp-color-options .pp-mobile-label { display: none; }
+    #pp-color-options .pp-sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+    @media(max-width: 580px) {
+      #pp-color-options .pp-preview-stage { padding: 12px 2px 24px; }
+      #pp-color-options .pp-preview { padding: 24px 12px; border-radius: 22px; }
+      #pp-color-options .pp-heading { margin-bottom: 20px; }
+      #pp-color-options .pp-heading h2 { font-size: 29px; }
+      #pp-color-options .pp-table, #pp-color-options .pp-table thead, #pp-color-options .pp-table tbody { display: block; }
+      #pp-color-options .pp-table colgroup, #pp-color-options .pp-corner { display: none; }
+      #pp-color-options .pp-table tr { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      #pp-color-options .pp-table thead th { display: flex; flex-direction: column; }
+      #pp-color-options .pp-name { flex: 1; min-height: 160px; padding: 14px 8px; }
+      #pp-color-options .pp-name strong { font-size: 16px; }
+      #pp-color-options .pp-name small { letter-spacing: .03em; }
+      #pp-color-options .pp-logo { width: 36px; height: 36px; }
+      #pp-color-options .pp-table tbody th { grid-column: 1 / -1; border: 0; padding: 18px 0 9px; }
+      #pp-color-options .pp-table td { padding: 14px 9px; }
+      #pp-color-options .pp-mobile-label { display: block; margin-bottom: 8px; font-size: 11px; font-weight: 600; }
+    }
+  </style>
+  <div class="viz-carousel viz-dotted-background" aria-label="Prime Point comparison color options">
+    <section class="pp-preview-stage" data-variant="Champagne & Linen" aria-label="Champagne and linen comparison">
+      <div class="pp-preview" data-palette="champagne" aria-label="Champagne and linen colors">
+        <header class="pp-heading">
+          <h2>Not all Glutathione options are the same.</h2>
+          <p>Be wary of cheap research peptides, or medication with low to no absorption such as supplements. We only offer real high-potency doctor-prescribed Glutathione Nasal Spray you can trust.</p>
+        </header>
+        <table class="pp-table" role="table" aria-label="Glutathione Nasal Spray and oral supplements">
+          <colgroup><col class="pp-label-col"><col><col></colgroup>
+          <thead role="rowgroup"><tr role="row">
+            <th class="pp-corner" scope="col" role="columnheader"><span class="pp-sr-only">What to compare</span></th>
+            <th scope="col" role="columnheader"><span class="pp-name pp-featured-name"><img class="pp-logo" src="data:image/png;base64,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" alt="Prime Point Health" width="44" height="44"><strong>Glutathione Nasal Spray</strong><span>Clinician-guided care</span></span></th>
+            <th scope="col" role="columnheader"><span class="pp-name"><small>Over the counter</small><strong>Oral Supplements</strong><span>Formulations vary by product</span></span></th>
+          </tr></thead>
+          <tbody role="rowgroup">
+            <tr role="row"><th scope="row" role="rowheader">Prescription and Accessability</th><td class="pp-featured" role="cell"><span class="pp-mobile-label" aria-hidden="true">Prime Point</span><span class="pp-check"><i data-lucide="circle-check" aria-hidden="true"></i></span>Yes - prescription by a licensed provider</td><td role="cell"><span class="pp-mobile-label" aria-hidden="true">Oral supplements</span>Yes - Over the counter</td></tr>
+            <tr role="row"><th scope="row" role="rowheader">Purity and Transparency</th><td class="pp-featured" role="cell"><span class="pp-mobile-label" aria-hidden="true">Prime Point</span><span class="pp-check"><i data-lucide="circle-check" aria-hidden="true"></i></span>Clinical-grade, US pharmacy sourced</td><td role="cell"><span class="pp-mobile-label" aria-hidden="true">Oral supplements</span>Variable quality &amp; under-dosed</td></tr>
+            <tr role="row"><th scope="row" role="rowheader">Absorption Rate</th><td class="pp-featured" role="cell"><span class="pp-mobile-label" aria-hidden="true">Prime Point</span><span class="pp-check"><i data-lucide="circle-check" aria-hidden="true"></i></span>Absorbed through the nasal membrane, bypassing the digestive system</td><td role="cell"><span class="pp-mobile-label" aria-hidden="true">Oral supplements</span>Absorption varies due to breakdown in the digestive tract.</td></tr>
+            <tr role="row"><th scope="row" role="rowheader">Medical Guidance</th><td class="pp-featured" role="cell"><span class="pp-mobile-label" aria-hidden="true">Prime Point</span><span class="pp-check"><i data-lucide="circle-check" aria-hidden="true"></i></span>Includes consultation and dosage guidance</td><td role="cell"><span class="pp-mobile-label" aria-hidden="true">Oral supplements</span>None</td></tr>
+            <tr role="row"><th scope="row" role="rowheader">Results</th><td class="pp-featured" role="cell"><span class="pp-mobile-label" aria-hidden="true">Prime Point</span><span class="pp-check"><i data-lucide="circle-check" aria-hidden="true"></i></span>Patients report changes seen in the first few weeks</td><td role="cell"><span class="pp-mobile-label" aria-hidden="true">Oral supplements</span>Slow or negligible</td></tr>
+            <tr role="row"><th scope="row" role="rowheader">Safety and Oversight</th><td class="pp-featured" role="cell"><span class="pp-mobile-label" aria-hidden="true">Prime Point</span><span class="pp-check"><i data-lucide="circle-check" aria-hidden="true"></i></span>HIPAA-compliant &amp; pharmacy-verified</td><td role="cell"><span class="pp-mobile-label" aria-hidden="true">Oral supplements</span>Often lacks 3rd-party testing</td></tr>
+          </tbody>
+        </table>
+        <div class="pp-actions"><span class="pp-cta">Get Started</span></div>
+      </div>
+    </section>
+    <section class="pp-preview-stage" data-variant="Sage & Stone" aria-label="Sage and stone comparison" hidden>
+      <div class="pp-preview" data-palette="sage" aria-label="Sage and stone colors"></div>
+    </section>
+    <section class="pp-preview-stage" data-variant="Mist Blue & Pearl" aria-label="Mist blue and pearl comparison" hidden>
+      <div class="pp-preview" data-palette="mist" aria-label="Mist blue and pearl colors"></div>
+    </section>
+  </div>
+  <script>
+    (() => {
+      const root = document.getElementById('pp-color-options');
+      const original = root.querySelector('[data-palette="champagne"]');
+      root.querySelectorAll('.pp-preview').forEach((preview) => {
+        if (preview !== original) {
+          Array.from(original.children).forEach((child) => preview.appendChild(child.cloneNode(true)));
+        }
+        if (globalThis.Tweak) {
+          const computed = getComputedStyle(preview);
+          const state = {
+            header: computed.getPropertyValue('--pp-header').trim(),
+            featured: computed.getPropertyValue('--pp-featured').trim(),
+            oral: computed.getPropertyValue('--pp-oral').trim(),
+            accent: computed.getPropertyValue('--pp-accent').trim()
+          };
+          const render = () => {
+            preview.style.setProperty('--pp-header', state.header);
+            preview.style.setProperty('--pp-featured', state.featured);
+            preview.style.setProperty('--pp-oral', state.oral);
+            preview.style.setProperty('--pp-accent', state.accent);
+          };
+          const tweak = new Tweak({container: preview, onChange: render});
+          tweak.addColorPicker(state, 'header', {label: 'Prime Point header', reference: '--pp-header'});
+          tweak.addColorPicker(state, 'featured', {label: 'Prime Point column', reference: '--pp-featured'});
+          tweak.addColorPicker(state, 'oral', {label: 'Oral column', reference: '--pp-oral'});
+          tweak.addColorPicker(state, 'accent', {label: 'Checks and button', reference: '--pp-accent'});
+        }
+      });
+      if (globalThis.lucide) globalThis.lucide.createIcons();
+    })();
+  </script>
+</div>
