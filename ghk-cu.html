@@ -72,7 +72,7 @@
               <img src="assets/payment-providers/klarna.svg" alt="Klarna" width="1448" height="609" />
               <img src="assets/payment-providers/afterpay.svg" alt="Afterpay" width="395" height="136" />
             </div>
-            <a class="wellness-product-cta product-plan-continue" href="mailto:care@joinprimepoint.com?subject=GHK-Cu%20Cream%20inquiry%20(30%20grams%2C%201%20month)" aria-label="Get started with GHK-Cu Cream by emailing the care team"><span>Get Started</span><span aria-hidden="true">&rarr;</span></a>
+            <button type="button" disabled class="wellness-product-cta product-plan-continue" aria-label="Get started with GHK-Cu Cream"><span>Get Started</span><span aria-hidden="true">&rarr;</span></button>
           </div>
           <p class="wellness-product-review-note">Prescription only when clinically appropriate. Eligibility and results vary.</p>
           <ul class="wellness-product-features"><li>Licensed-provider review</li><li>Personalized care, 100% online</li><li>Independent third-party testing</li></ul>
@@ -133,7 +133,7 @@
               </div>
             </dl>
             <div class="bpc-overview-action">
-              <a class="wellness-product-cta" href="mailto:care@joinprimepoint.com?subject=GHK-Cu%20inquiry" aria-label="Get started with GHK-Cu by emailing the care team"><span>Get Started</span><span aria-hidden="true">&rarr;</span></a>
+              <button type="button" disabled class="wellness-product-cta" aria-label="Get started with GHK-Cu"><span>Get Started</span><span aria-hidden="true">&rarr;</span></button>
               <p>Prescription only when clinically appropriate. Eligibility and results vary.</p>
             </div>
           </article>
@@ -253,7 +253,7 @@
           </details>
         </div>
       </section>
-      <div class="wellness-product-end-cta"><a class="wellness-product-cta" href="mailto:care@joinprimepoint.com?subject=GHK-Cu%20inquiry"><span>Get Started</span><span aria-hidden="true">&rarr;</span></a></div>
+      <div class="wellness-product-end-cta"><button type="button" disabled class="wellness-product-cta"><span>Get Started</span><span aria-hidden="true">&rarr;</span></button></div>
     </main>
     <footer class="pp-footer" id="site-footer">
       <div class="pp-footer-wordmark">
@@ -304,7 +304,7 @@
         cream: { src: photoButton.dataset.productImage, alt: photoButton.dataset.productAlt, name: 'GHK-Cu Facial Cream' },
         injectable: { src: 'assets/products/ghk-cu-limestone.webp', alt: 'Prime Point Health GHK-Cu injectable vial on limestone', name: 'GHK-Cu Injectable' }
       };
-      const inquiryLinks = document.querySelectorAll('.wellness-product-cta[href^="mailto:"]');
+      const startButtons = document.querySelectorAll('button.wellness-product-cta');
 
       function updateGhkPlan() {
         const option = planSelect.selectedOptions[0];
@@ -324,10 +324,8 @@
           image.alt = photo.alt;
         }
 
-        const subject = encodeURIComponent(`${option.text} inquiry`);
-        for (const link of inquiryLinks) {
-          link.href = `mailto:care@joinprimepoint.com?subject=${subject}`;
-          link.setAttribute('aria-label', `Email the care team about ${option.text}`);
+        for (const button of startButtons) {
+          button.setAttribute('aria-label', `Get started with ${option.text}`);
         }
       }
       planSelect.addEventListener('change', () => {
