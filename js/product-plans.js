@@ -5,7 +5,7 @@
     'semaglutide-tablets': { name: 'Semaglutide Sublingual Drops', rates: { '1': 19900, '3': 17900 } },
     'tirzepatide': { name: 'Tirzepatide', rates: { '1': 29900, '3': 26900 } },
     'tirzepatide-tablets': { name: 'Tirzepatide Sublingual Drops', rates: { '1': 29900, '3': 26900 } },
-    'sermorelin': { name: 'Sermorelin', rates: { '1': 17900 } },
+    'sermorelin': { name: 'Sermorelin', rates: { '1': 17900, '3': 16100 } },
     'glutathione': { name: 'Glutathione', rates: { '1': 10900, '3': 9900 } },
     'glutathione-nasal': { name: 'Glutathione Nasal Spray', rates: { '1': 11900, '3': 10800 } },
     'mic-b12': { name: 'MIC + B12', rates: { '1': 11900, '3': 10700 } },
