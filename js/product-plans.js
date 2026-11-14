@@ -6,11 +6,11 @@
     'tirzepatide': { name: 'Tirzepatide', rates: { '1': 29900, '3': 26900 } },
     'tirzepatide-tablets': { name: 'Tirzepatide Sublingual Drops', rates: { '1': 29900, '3': 26900 } },
     'sermorelin': { name: 'Sermorelin', rates: { '1': 17900 } },
-    'glutathione': { name: 'Glutathione', rates: { '1': 13900, '3': 12500 } },
-    'glutathione-nasal': { name: 'Glutathione Nasal Spray', rates: { '1': 13900, '3': 12500 } },
-    'mic-b12': { name: 'MIC + B12', rates: { '1': 13900, '3': 10800 } },
-    'nad-plus': { name: 'NAD+', rates: { '1': 17900, '3': 16100 } },
-    'nad-plus-nasal': { name: 'NAD+ Nasal', spec: '300 mg/mL · 15 mL', rates: { '1': 19900, '3': 17900 } }
+    'glutathione': { name: 'Glutathione', rates: { '1': 10900, '3': 9900 } },
+    'glutathione-nasal': { name: 'Glutathione Nasal Spray', rates: { '1': 11900, '3': 10800 } },
+    'mic-b12': { name: 'MIC + B12', rates: { '1': 11900, '3': 10700 } },
+    'nad-plus': { name: 'NAD+', rates: { '1': 13900, '3': 12500 } },
+    'nad-plus-nasal': { name: 'NAD+ Nasal', spec: '300 mg/mL · 15 mL', rates: { '1': 14900, '3': 13500 } }
   };
   const money = cents => new Intl.NumberFormat('en-US', {
     style: 'currency', currency: 'USD', maximumFractionDigits: 0
