@@ -20,6 +20,15 @@
 .product-plan-field select:hover { border-color: var(--pp-prime-navy); background: #e2ebf1; }
 .product-plan-field select:focus-visible { outline: 2px solid var(--pp-dark-gold); outline-offset: 3px; }
 .product-plan-field option { background: var(--pp-warm-ivory); color: var(--pp-prime-navy); }
+/* Keep the full purchase/subscription labels visible on compact layouts. */
+@media (max-width: 850px) {
+  .wellness-product-page .product-plan-options--purchase .product-plan-field select { font-size: .875rem; padding-inline: 12px 34px; }
+  .product-plan-options--purchase .product-plan-select-wrap::after { right: 14px; }
+}
+@media (max-width: 350px) {
+  .wellness-product-page .product-plan-options--purchase .product-plan-field select { font-size: .8125rem; padding-inline: 10px 28px; }
+  .product-plan-options--purchase .product-plan-select-wrap::after { right: 11px; }
+}
 .product-payment-logos { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.4fr); align-items: center; gap: 9px; width: min(100%, 220px); min-width: 0; margin: 0 0 24px; }
 .product-payment-logos img { display: block; width: 100%; height: auto; object-fit: contain; }
 @media (prefers-reduced-motion: reduce) {

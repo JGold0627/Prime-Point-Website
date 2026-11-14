@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/mic-b12.css?v=19" />
     <link rel="stylesheet" href="css/product-comparison.css?v=13" />
     <link rel="stylesheet" href="css/product-explainer.css?v=1" />
-    <link rel="stylesheet" href="css/product-plans.css?v=4" />
+    <link rel="stylesheet" href="css/product-plans.css?v=5" />
     <link rel="stylesheet" href="css/section-headings.css?v=3" />
     <link rel="stylesheet" href="css/peptide-standard.css?v=2" />
   </head>
@@ -52,16 +52,17 @@
         <div class="wellness-product-details">
           <h1 class="mic-b12-product-title" id="product-title">MIC + B12<sup>Rx</sup></h1>
           <div class="product-plan-price" aria-live="polite" aria-atomic="true">
-            <p><strong data-plan-price>$119</strong><span>/ month</span></p>
+            <p><strong data-plan-price>$119</strong><span data-plan-period>one-time</span></p>
           </div>
           <p class="wellness-product-intro">Support fat metabolism, boost energy, and enhance your body's natural detox process</p>
-          <div class="product-plan-options" id="product-plan-options" data-product-plans="mic-b12">
+          <div class="product-plan-options product-plan-options--purchase" id="product-plan-options" data-product-plans="mic-b12">
             <div class="product-plan-field">
               <label for="product-plan">Choose your plan</label>
               <div class="product-plan-select-wrap">
                 <select id="product-plan" name="plan" required>
-                  <option value="1" selected>1 month - $119 / month</option>
-                  <option value="3">3 months - $107 / month</option>
+                  <option value="single" selected>Single Month - $119</option>
+                  <option value="1">1 month subscription - $119 / month</option>
+                  <option value="3">3 month subscription - $107 / Month</option>
                 </select>
               </div>
             </div>
@@ -386,7 +387,7 @@
       })();
     </script>
     <script src="script.js?v=46"></script>
-    <script src="js/product-plans.js?v=38"></script>
+    <script src="js/product-plans.js?v=42"></script>
     <script src="js/wellness-product.js?v=13"></script>
   </body>
 </html>
