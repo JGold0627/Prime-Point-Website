@@ -2,11 +2,22 @@
 (() => {
   const video = document.querySelector('#home-hero-video');
   if (!video) return;
+  const hero = video.closest('.home-hero');
   video.muted = true;
+  video.defaultMuted = true;
   video.loop = true;
   video.controls = false;
+  video.playsInline = true;
+  video.disablePictureInPicture = true;
+  video.disableRemotePlayback = true;
+  video.removeAttribute('controls');
+  const setPlaying = playing => hero.classList.toggle('is-video-playing', playing);
+  const showPoster = () => setPlaying(false);
+  video.addEventListener('playing', () => setPlaying(true));
+  ['pause', 'waiting', 'stalled', 'emptied', 'error'].forEach(event => video.addEventListener(event, showPoster));
   const resume = () => {
-    if (!document.hidden) video.play()?.catch(() => {});
+    if (document.hidden) return;
+    video.play()?.then(() => setPlaying(!video.paused && video.readyState >= 2)).catch(showPoster);
   };
   video.addEventListener('canplay', resume);
   document.addEventListener('visibilitychange', resume);

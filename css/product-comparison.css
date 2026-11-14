@@ -58,19 +58,27 @@
 }
 
 .product-comparison-table {
+  display: block;
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
-  table-layout: fixed;
 }
 
-.product-comparison-label-column { width: 26%; }
+.product-comparison-table colgroup { display: none; }
+.product-comparison-table thead { display: block; }
+.product-comparison-table thead tr,
+.product-comparison-table tbody {
+  display: grid;
+  grid-template-columns: minmax(0, 26fr) repeat(2, minmax(0, 37fr));
+}
+.product-comparison-table tbody tr { display: contents; }
 .product-comparison-table th,
-.product-comparison-table td { overflow-wrap: break-word; }
-.product-comparison-table thead th { padding: 0 0 14px; vertical-align: bottom; }
+.product-comparison-table td { min-width: 0; overflow-wrap: break-word; }
+.product-comparison-table thead th { display: flex; flex-direction: column; padding: 0 0 14px; }
 
 /* One continuous card behind each column keeps the rows aligned and divided. */
 .product-comparison-table tbody {
+  /* A grid establishes a reliable containing block for the cards on tablets. */
   position: relative;
   isolation: isolate;
 }
@@ -130,6 +138,7 @@
   position: relative;
   z-index: 1;
   display: flex;
+  flex: 1;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
@@ -183,6 +192,8 @@
 .product-comparison-capsules { width: 64px; height: 52px; }
 
 .product-comparison-table tbody th {
+  display: flex;
+  align-items: center;
   padding: 24px 28px 24px 0;
   border-bottom: 1px solid var(--comparison-line);
   text-align: left;
@@ -194,6 +205,10 @@
 .product-comparison-table td {
   position: relative;
   z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 20px clamp(16px, 2vw, 30px);
   border: 0;
   background: transparent;
@@ -286,14 +301,10 @@
     padding: 30px 16px;
     border-radius: 22px;
   }
-  .product-comparison-heading { margin-bottom: 14px; }
-  .product-comparison-table,
-  .product-comparison-table thead,
-  .product-comparison-table tbody { display: block; }
-  .product-comparison-table colgroup,
+  .product-comparison-heading { margin-bottom: 24px; }
   .product-comparison-table .product-comparison-corner { display: none; }
-  .product-comparison-table tr { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .product-comparison-table thead th { display: block; }
+  .product-comparison-table thead tr,
+  .product-comparison-table tbody { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .product-comparison-visual { height: 110px; }
   .product-comparison-visual img,
   .product-comparison-visual svg { height: 84px; width: 66px; }

@@ -31,7 +31,8 @@
   background-color: var(--home-warm-ivory);
 }
 
-.home-hero-video {
+.home-hero-video,
+.home-hero-poster {
   /* Keep fractional video bounds from repeating the mask's opaque first row. */
   --home-hero-video-mask: linear-gradient(180deg, #000 64%, rgba(0, 0, 0, 0.96) 70%, rgba(0, 0, 0, 0.84) 76%, rgba(0, 0, 0, 0.6) 82%, rgba(0, 0, 0, 0.32) 88%, rgba(0, 0, 0, 0.1) 94%, transparent 98%);
   position: absolute;
@@ -53,6 +54,27 @@
   mask-size: 100% 100%;
   /* The fade is already transparent here; clip any compositor edge pixels. */
   clip-path: inset(0 0 2px 0);
+}
+
+.home-hero-poster { display: none; }
+
+/* Keep small-screen browser playback overlays out of the decorative hero. */
+@media (max-width: 1150px), (hover: none) and (pointer: coarse) {
+  .home-hero-poster { display: block; }
+  .home-hero.is-video-playing .home-hero-poster { visibility: hidden; }
+  .home-hero-video { opacity: 0; }
+  .home-hero.is-video-playing .home-hero-video { opacity: 1; }
+  .home-hero .home-hero-scroll-cue { display: none; }
+  .home-hero-video::-webkit-media-controls,
+  .home-hero-video::-webkit-media-controls-enclosure,
+  .home-hero-video::-webkit-media-controls-panel,
+  .home-hero-video::-webkit-media-controls-play-button,
+  .home-hero-video::-webkit-media-controls-overlay-play-button,
+  .home-hero-video::-webkit-media-controls-start-playback-button {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
 }
 
 .home-hero::before {
