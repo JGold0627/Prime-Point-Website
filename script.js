@@ -198,6 +198,15 @@ const globalHeaderMarkup = `
                   </span>
                   <span class="metabolic-product-name">BPC-157</span>
                 </a>
+                <a class="metabolic-product-card" href="bpc-157-tb4.html">
+                  <span class="metabolic-product-art">
+                    <svg class="metabolic-product-packshot" viewBox="0 0 1024 1536" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
+                      <use href="#nav-catalog-peptide-vial" />
+                      <text x="517" y="947" textLength="400" lengthAdjust="spacingAndGlyphs">BPC-157 / TB-4</text>
+                    </svg>
+                  </span>
+                  <span class="metabolic-product-name">BPC-157 / TB-4</span>
+                </a>
                 <a class="metabolic-product-card" href="mots-c.html">
                   <span class="metabolic-product-art">
                     <svg class="metabolic-product-packshot" viewBox="0 0 1024 1536" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
@@ -301,6 +310,7 @@ const globalHeaderMarkup = `
           </div>
           <div class="mobile-nav-submenu" id="mobile-peptides-links" hidden>
             <a class="mobile-nav-sublink" href="bpc-157.html">BPC-157</a>
+            <a class="mobile-nav-sublink" href="bpc-157-tb4.html">BPC-157 / TB-4</a>
             <a class="mobile-nav-sublink" href="mots-c.html">MOTS-c</a>
             <a class="mobile-nav-sublink" href="semax.html">Semax Nasal</a>
             <a class="mobile-nav-sublink" href="ghk-cu.html">GHK-Cu</a>

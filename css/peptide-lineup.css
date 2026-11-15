@@ -155,12 +155,18 @@
   object-position: 70% 50%;
   opacity: .72;
 }
+#lineup-profile-bpc-157-tb4 .lineup-visual img { object-position: 70% 15%; }
+#lineup-profile-bpc-157-tb4 .lineup-name { text-wrap: balance; }
 .lineup-visual::after {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(95deg, rgba(9, 29, 42, .88), rgba(9, 29, 42, .58) 43%, transparent 85%);
 }
+.lineup-profile--placeholder .lineup-profile-header { color: var(--pp-prime-navy); }
+.lineup-profile--placeholder .lineup-name { text-wrap: balance; }
+.lineup-profile--placeholder .lineup-visual { background: #e6e9e5; }
+.lineup-profile--placeholder .lineup-visual::after { content: none; }
 .lineup-index {
   display: flex;
   gap: 5px;

@@ -59,7 +59,11 @@
     const link = slide.querySelector(".lineup-cta");
     if (href) link.href = href;
     link.setAttribute("aria-label", href ? `Learn more about ${name}` : "Learn more in the Peptide Therapy FAQ");
-    artwork(slide.querySelector(".lineup-visual"), index, choice.dataset.photo);
+    if (choice.dataset.placeholder === "true") {
+      slide.classList.add("lineup-profile--placeholder");
+    } else {
+      artwork(slide.querySelector(".lineup-visual"), index, choice.dataset.photo);
+    }
     stage.append(slide);
     return slide;
   });

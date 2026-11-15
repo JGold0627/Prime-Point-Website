@@ -51,7 +51,7 @@
           <p class="wellness-product-caption">Product illustration. Actual packaging may vary.</p>
         </div>
         <div class="wellness-product-details">
-          <h1 class="glutathione-product-title" id="product-title">BPC-157<sup>Rx</sup></h1>
+          <h1 class="glutathione-product-title" id="product-title"><span data-product-title-name>BPC-157</span><sup>Rx</sup></h1>
           <p class="glutathione-product-spec">5 mg/mL &middot; 3 mL</p>
           <div class="product-plan-price">
             <p aria-live="polite" aria-atomic="true"><strong>$259</strong><span>/ month</span></p>
@@ -63,7 +63,7 @@
               <div class="product-plan-select-wrap">
                 <select id="product-plan" name="plan" required>
                   <option value="bpc-157" data-plan-name="BPC-157" data-monthly-price="259" selected>BPC-157 plan - $259 / month</option>
-                  <option value="bpc-157-tb4" data-plan-name="BPC-157 &amp; TB4" data-monthly-price="379">BPC-157 &amp; TB4 - plan - $379 / month</option>
+                  <option value="bpc-157-tb4" data-plan-name="BPC-157 / TB-4" data-monthly-price="379">BPC-157 &amp; TB4 - plan - $379 / month</option>
                 </select>
               </div>
             </div>
@@ -78,7 +78,7 @@
           <ul class="wellness-product-features"><li>Licensed-provider review</li><li>Personalized care, 100% online</li><li>Independent third-party testing</li></ul>
           <div class="wellness-product-faq">
             <details name="product-information"><summary>How is this different from buying peptides online?</summary><p>Many peptides sold online are labelled "research use only". BPC-157 is only prescribed after an assessment with a Prime Point Health clinician, before it's prepared by a US-based licensed 503A pharmacy.</p></details>
-            <details name="product-information"><summary>How does BPC-157 work?</summary><p id="bpc-function-answer">Early research suggests it may influence angiogenesis (the growth of new blood vessels), support soft tissue healing in tendons, ligaments, and muscles, and promote repair of the gastrointestinal lining.</p></details>
+            <details name="product-information"><summary>How does BPC-157 work?</summary><p id="bpc-function-answer">BPC-157 is being studied for how it interacts with the body's natural tissue repair processes. Early research suggests it may stimulate angiogenesis, the formation of new blood vessels, support the movement of cells involved in healing, and influence collagen production, a key component of tendons, ligaments, and connective tissue. These mechanisms could play a role in tissue regeneration and recovery from injury, although these effects have primarily been observed in laboratory and animal studies and remain unproven in humans.</p></details>
           </div>
         </div>
       </section>
@@ -310,6 +310,7 @@
     </footer>
     <script>
       const bpcPlanSelect = document.getElementById('product-plan');
+      const bpcProductTitle = document.querySelector('[data-product-title-name]');
       const bpcPlanPrice = document.querySelector('.product-plan-price strong');
       const bpcPlanAction = document.querySelector('.product-plan-continue');
       const bpcPhotoButton = document.querySelector('[data-product-image]');
@@ -322,6 +323,7 @@
         const selected = bpcPlanSelect.selectedOptions[0];
         if (!selected) return;
         const name = selected.dataset.planName;
+        bpcProductTitle.textContent = name;
         const price = new Intl.NumberFormat('en-US', {
           style: 'currency', currency: 'USD', maximumFractionDigits: 0
         }).format(Number(selected.dataset.monthlyPrice));
