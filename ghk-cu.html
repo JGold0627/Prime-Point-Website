@@ -54,7 +54,7 @@
           <h1 class="glutathione-product-title" id="product-title">GHK-Cu<sup>Rx</sup></h1>
           <p class="glutathione-product-spec">30 grams - 1 Month Dose</p>
           <div class="product-plan-price">
-            <p aria-live="polite" aria-atomic="true"><strong>$129</strong><span>/ month</span></p>
+            <p aria-live="polite" aria-atomic="true"><strong>$139</strong><span>/ month</span></p>
           </div>
           <p class="wellness-product-intro">GHK-Cu is a naturally occurring copper-binding peptide found in the body. Researchers study its role in maintaining and repairing the tissue that gives skin its strength and structure.</p>
           <div class="product-plan-options" id="product-plan-options">
@@ -62,7 +62,7 @@
               <label for="product-plan">Pick your option</label>
               <div class="product-plan-select-wrap">
                 <select id="product-plan" name="plan" required>
-                  <option value="cream-monthly" data-form="cream" data-price="$129" data-months="1" data-size="30 grams" selected>GHK-Cu Cream - $129 / month (30 grams)</option>
+                  <option value="cream-monthly" data-form="cream" data-price="$139" data-months="1" data-size="30 grams" selected>GHK-Cu Cream - $139 / month (30 grams)</option>
                   <option value="injectable-monthly" data-form="injectable" data-price="$179" data-months="1" data-size="30 mg">GHK-Cu Injectable - $179 / month (30 mg)</option>
                 </select>
               </div>
@@ -72,8 +72,10 @@
               <img src="assets/payment-providers/klarna.svg" alt="Klarna" width="1448" height="609" />
               <img src="assets/payment-providers/afterpay.svg" alt="Afterpay" width="395" height="136" />
             </div>
-            <!-- Paused product CTA; original markup retained for restoration: <button type="button" disabled class="wellness-product-cta product-plan-continue" aria-label="Get started with GHK-Cu Cream"><span>Get Started</span><span aria-hidden="true">&rarr;</span></button> -->
-            <p class="peptide-coming-soon"><em>Coming Soon</em></p>
+            <div data-ghk-cream-action>
+              <a class="wellness-product-cta product-plan-continue" href="https://start.joinprimepoint.com/ghk-cu-topical" aria-label="Get started with GHK-Cu Cream"><span>Get Started</span><span aria-hidden="true">&rarr;</span></a>
+            </div>
+            <p class="peptide-coming-soon" hidden><em>Coming Soon</em></p>
           </div>
           <p class="wellness-product-review-note">Prescription only when clinically appropriate. Eligibility and results vary. Cancel anytime.</p>
           <ul class="wellness-product-features"><li>Licensed-provider review</li><li>Personalized care, 100% online</li><li>Independent third-party testing</li></ul>
@@ -305,7 +307,9 @@
         cream: { src: photoButton.dataset.productImage, alt: photoButton.dataset.productAlt, name: 'GHK-Cu Facial Cream' },
         injectable: { src: 'assets/products/ghk-cu-limestone.webp', alt: 'Prime Point Health GHK-Cu injectable vial on limestone', name: 'GHK-Cu Injectable' }
       };
-      const startButtons = document.querySelectorAll('button.wellness-product-cta');
+      const creamAction = document.querySelector('[data-ghk-cream-action]');
+      const creamCta = creamAction.querySelector('a');
+      const comingSoon = document.querySelector('.peptide-coming-soon');
 
       function updateGhkPlan() {
         const option = planSelect.selectedOptions[0];
@@ -325,8 +329,11 @@
           image.alt = photo.alt;
         }
 
-        for (const button of startButtons) {
-          button.setAttribute('aria-label', `Get started with ${option.text}`);
+        const isCream = form === 'cream';
+        creamAction.hidden = !isCream;
+        comingSoon.hidden = isCream;
+        if (isCream) {
+          creamCta.setAttribute('aria-label', `Get started with ${option.text}`);
         }
       }
       planSelect.addEventListener('change', () => {
