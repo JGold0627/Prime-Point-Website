@@ -210,8 +210,9 @@
   .lineup-overline { margin-bottom: 8px; font-size: .68rem; }
   .lineup-name { font-size: 2.55rem; }
   .lineup-fields { margin-bottom: 22px; }
-  .lineup-fields dd { margin-bottom: 17px; }
-  .lineup-fields dt:not(:first-child) { padding-top: 16px; }
+  .lineup-fields [data-overview] { margin-bottom: 0; }
+  .lineup-fields .lineup-function-label,
+  .lineup-fields [data-function] { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .lineup-profile, .lineup-profile::after { transition: none; }
