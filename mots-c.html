@@ -57,7 +57,7 @@
             <p aria-live="polite" aria-atomic="true"><strong>$229</strong><span>/ month</span></p>
           </div>
           <p class="wellness-product-intro">MOTS-c is a naturally occurring peptide produced from genetic material in mitochondria—the structures that help power your cells. It helps researchers understand how the body responds to changes in energy demand.</p>
-          <div class="product-plan-options" id="product-plan-options">
+          <div class="product-plan-options" id="product-plan-options" data-product-option-prices="mots-c">
             <div class="product-plan-field">
               <label for="product-plan">Choose your plan</label>
               <div class="product-plan-select-wrap">
@@ -303,6 +303,7 @@
         </div>
       </div>
     </footer>
+    <script src="js/product-plans.js?v=44"></script>
     <script>
       const bpcPlanSelect = document.getElementById('product-plan');
       const bpcPlanPrice = document.querySelector('.product-plan-price strong');
@@ -312,7 +313,7 @@
         if (!selected) return;
         const name = selected.dataset.planName;
         const price = new Intl.NumberFormat('en-US', {
-          style: 'currency', currency: 'USD', maximumFractionDigits: 0
+          style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 2
         }).format(Number(selected.dataset.monthlyPrice));
         bpcPlanPrice.textContent = price;
         bpcPlanAction?.setAttribute('aria-label', `Get started with ${name}, ${price} per month`);

@@ -57,7 +57,7 @@
             <p aria-live="polite" aria-atomic="true"><strong>$379</strong><span>/ month</span></p>
           </div>
           <p class="wellness-product-intro">BPC-157 is being studied for blood vessel growth and repair signaling, while TB-4 is being studied for cell movement and tissue rebuilding. The pairing explores complementary steps in tissue repair, with evidence still largely limited to laboratory and animal studies.</p>
-          <div class="product-plan-options" id="product-plan-options">
+          <div class="product-plan-options" id="product-plan-options" data-product-option-prices="bpc-157">
             <div class="product-plan-field">
               <label for="product-plan">Choose your plan</label>
               <div class="product-plan-select-wrap">
@@ -304,6 +304,7 @@
         </div>
       </div>
     </footer>
+    <script src="js/product-plans.js?v=44"></script>
     <script>
       const bpcPlanSelect = document.getElementById('product-plan');
       const bpcProductTitle = document.querySelector('[data-product-title-name]');
@@ -320,7 +321,7 @@
         const name = selected.dataset.planName;
         bpcProductTitle.textContent = name;
         const price = new Intl.NumberFormat('en-US', {
-          style: 'currency', currency: 'USD', maximumFractionDigits: 0
+          style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 2
         }).format(Number(selected.dataset.monthlyPrice));
         bpcPlanPrice.textContent = price;
         bpcPlanAction?.setAttribute('aria-label', `Get started with ${name}, ${price} per month`);

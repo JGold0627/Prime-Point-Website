@@ -57,7 +57,7 @@
             <p aria-live="polite" aria-atomic="true"><strong>$399</strong><span>/ month</span></p>
           </div>
           <p class="wellness-product-intro">Epitalon is a synthetic peptide modeled after a substance associated with the pineal gland, which helps regulate the body’s sleep-wake cycle. Researchers are studying its potential connection to cellular aging and the body’s internal clock.</p>
-          <div class="product-plan-options" id="product-plan-options">
+          <div class="product-plan-options" id="product-plan-options" data-product-option-prices="epitalon">
             <div class="product-plan-field">
               <label for="product-plan">Choose your plan</label>
               <div class="product-plan-select-wrap">
@@ -302,6 +302,7 @@
         </div>
       </div>
     </footer>
+    <script src="js/product-plans.js?v=44"></script>
     <script>
       const bpcPlanSelect = document.getElementById('product-plan');
       const bpcPlanPrice = document.querySelector('.product-plan-price strong');
@@ -311,7 +312,7 @@
         if (!selected) return;
         const name = selected.dataset.planName;
         const price = new Intl.NumberFormat('en-US', {
-          style: 'currency', currency: 'USD', maximumFractionDigits: 0
+          style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 2
         }).format(Number(selected.dataset.monthlyPrice));
         bpcPlanPrice.textContent = price;
         bpcPlanAction?.setAttribute('aria-label', `Get started with ${name}, ${price} per month`);

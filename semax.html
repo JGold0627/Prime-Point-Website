@@ -57,7 +57,7 @@
             <p aria-live="polite" aria-atomic="true"><strong>$279</strong><span>/ month</span></p>
           </div>
           <p class="wellness-product-intro">Semax is a synthetic peptide derived from the ACTH 4-10 fragment. It is best known as a nootropic &mdash; a compound studied for its effects on focus, memory, and mental performance.</p>
-          <div class="product-plan-options" id="product-plan-options">
+          <div class="product-plan-options" id="product-plan-options" data-product-option-prices="semax">
             <div class="product-plan-field">
               <label for="product-plan">Choose your plan</label>
               <div class="product-plan-select-wrap">
@@ -298,6 +298,7 @@
         </div>
       </div>
     </footer>
+    <script src="js/product-plans.js?v=44"></script>
     <script>
       const bpcPlanSelect = document.getElementById('product-plan');
       const bpcPlanPrice = document.querySelector('.product-plan-price strong');
@@ -307,7 +308,7 @@
         if (!selected) return;
         const name = selected.dataset.planName;
         const price = new Intl.NumberFormat('en-US', {
-          style: 'currency', currency: 'USD', maximumFractionDigits: 0
+          style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 2
         }).format(Number(selected.dataset.monthlyPrice));
         bpcPlanPrice.textContent = price;
         bpcPlanAction?.setAttribute('aria-label', `Get started with ${name}, ${price} per month`);
