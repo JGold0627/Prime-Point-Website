@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="css/wellness-product.css?v=16" />
     <link rel="stylesheet" href="css/glutathione.css?v=12" />
     <link rel="stylesheet" href="css/product-explainer.css?v=6" />
-    <link rel="stylesheet" href="css/product-plans.css?v=4" />
+    <link rel="stylesheet" href="css/product-plans.css?v=7" />
     <link rel="stylesheet" href="css/section-headings.css?v=3" />
-    <link rel="stylesheet" href="css/peptide-profile.css?v=22" />
+    <link rel="stylesheet" href="css/peptide-profile.css?v=23" />
     <link rel="stylesheet" href="css/peptide-standard.css?v=1" />
   </head>
   <body class="wellness-product-page peptide-profile-page">
@@ -71,9 +71,10 @@
               <img src="assets/payment-providers/klarna.svg" alt="Klarna" width="1448" height="609" />
               <img src="assets/payment-providers/afterpay.svg" alt="Afterpay" width="395" height="136" />
             </div>
-            <a class="wellness-product-cta product-plan-continue" href="mailto:care@joinprimepoint.com?subject=KPV%20inquiry" aria-label="Get started with KPV by emailing the care team"><span>Get Started</span><span aria-hidden="true">&rarr;</span></a>
+            <!-- Paused product CTA; original markup retained for restoration: <a class="wellness-product-cta product-plan-continue" href="mailto:care@joinprimepoint.com?subject=KPV%20inquiry" aria-label="Get started with KPV by emailing the care team"><span>Get Started</span><span aria-hidden="true">&rarr;</span></a> -->
+            <p class="peptide-coming-soon"><em>Coming Soon</em></p>
           </div>
-          <p class="wellness-product-review-note">Prescription only when clinically appropriate. Eligibility and results vary.</p>
+          <p class="wellness-product-review-note">Prescription only when clinically appropriate. Eligibility and results vary. Cancel anytime.</p>
           <ul class="wellness-product-features"><li>Licensed-provider review</li><li>Personalized care, 100% online</li><li>Independent third-party testing</li></ul>
           <div class="wellness-product-faq">
             <details name="product-information"><summary>How is this different from buying peptides online?</summary><p>Many peptides sold online are labelled "research use only". KPV is only prescribed after an assessment with a Prime Point Health clinician, before it's prepared by a US-based licensed 503A pharmacy.</p></details>
@@ -132,7 +133,7 @@
               </div>
             </dl>
             <div class="bpc-overview-action">
-              <a class="wellness-product-cta" href="mailto:care@joinprimepoint.com?subject=KPV%20inquiry" aria-label="Get started with KPV by emailing the care team"><span>Get Started</span><span aria-hidden="true">&rarr;</span></a>
+              <!-- Paused product CTA; original markup retained for restoration: <a class="wellness-product-cta" href="mailto:care@joinprimepoint.com?subject=KPV%20inquiry" aria-label="Get started with KPV by emailing the care team"><span>Get Started</span><span aria-hidden="true">&rarr;</span></a> -->
               <p>Prescription only when clinically appropriate. Eligibility and results vary.</p>
             </div>
           </article>
@@ -251,7 +252,7 @@
           </details>
         </div>
       </section>
-      <div class="wellness-product-end-cta"><a class="wellness-product-cta" href="mailto:care@joinprimepoint.com?subject=KPV%20inquiry"><span>Get Started</span><span aria-hidden="true">&rarr;</span></a></div>
+      <!-- Paused product CTA; original markup retained for restoration: <div class="wellness-product-end-cta"><a class="wellness-product-cta" href="mailto:care@joinprimepoint.com?subject=KPV%20inquiry"><span>Get Started</span><span aria-hidden="true">&rarr;</span></a></div> -->
     </main>
     <footer class="pp-footer" id="site-footer">
       <div class="pp-footer-wordmark">
@@ -304,8 +305,8 @@
         if (!selected) return;
         const name = selected.dataset.planName;
         bpcPlanPrice.textContent = 'Coming Soon';
-        bpcPlanAction.href = `mailto:care@joinprimepoint.com?subject=${encodeURIComponent(name + ' inquiry')}`;
-        bpcPlanAction.setAttribute('aria-label', `Get started with ${name} by emailing the care team`);
+        if (bpcPlanAction) bpcPlanAction.href = `mailto:care@joinprimepoint.com?subject=${encodeURIComponent(name + ' inquiry')}`;
+        bpcPlanAction?.setAttribute('aria-label', `Get started with ${name} by emailing the care team`);
       };
       bpcPlanSelect.addEventListener('change', updateBpcPlan);
       window.addEventListener('pageshow', updateBpcPlan);

@@ -20,13 +20,6 @@
 .product-plan-field select:hover { border-color: var(--pp-prime-navy); background: #e2ebf1; }
 .product-plan-field select:focus-visible { outline: 2px solid var(--pp-dark-gold); outline-offset: 3px; }
 .product-plan-field option { background: var(--pp-warm-ivory); color: var(--pp-prime-navy); }
-.product-plan-field .product-plan-cancellation-note {
-  margin: 8px 0 0;
-  color: #50636c;
-  font-size: .78rem;
-  font-weight: 400;
-  line-height: 1.4;
-}
 /* Keep the full purchase/subscription labels visible on compact layouts. */
 @media (max-width: 850px) {
   .wellness-product-page .product-plan-options--purchase .product-plan-field select { font-size: .875rem; padding-inline: 12px 34px; }
