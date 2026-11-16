@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/global.css?v=47" />
     <link rel="stylesheet" href="css/glp.css?v=5" />
     <link rel="stylesheet" href="css/product-plans.css?v=4" />
-    <link rel="stylesheet" href="css/semaglutide.css?v=25" />
+    <link rel="stylesheet" href="css/semaglutide.css?v=26" />
     <link rel="stylesheet" href="css/section-headings.css?v=3" />
     <link rel="stylesheet" href="css/peptide-standard.css?v=1" />
   </head>
@@ -60,10 +60,10 @@
               <li><span class="semaglutide-check" aria-hidden="true">&#10003;</span><span><strong>Follow-up support</strong> with individualized guidance when prescribed.</span></li>
             </ul>
 
-            <a class="semaglutide-cta" href="https://start.joinprimepoint.com/start-online-visit/glp" data-plan-cta>
-              <span>START NOW</span>
-              <span class="semaglutide-cta-icon" aria-hidden="true">&rarr;</span>
-            </a>
+            <!-- Saved CTA destination for reactivation: https://start.joinprimepoint.com/start-online-visit/glp
+                 Previously used by the hero [data-plan-cta], .glp-body-start,
+                 .glp-options-start, and the final .glp-start-section CTA. -->
+            <p class="semaglutide-coming-soon"><em>Coming soon</em></p>
 
             <p class="semaglutide-note">Eligibility varies. Prescriptions are not guaranteed. Results vary.</p>
           </div>
@@ -178,7 +178,6 @@
         <div class="glp-body-shell">
           <div class="glp-body-heading">
             <h2 id="glp-body-title">How Tirzepatide works <span>in the body</span></h2>
-            <a class="glp-body-start" href="https://start.joinprimepoint.com/start-online-visit/glp"><span>Get started</span><span aria-hidden="true">&rarr;</span></a>
           </div>
           <div class="glp-body-grid" role="region" aria-labelledby="glp-body-title" tabindex="0">
             <article class="glp-body-card">
@@ -249,7 +248,6 @@
             <div class="glp-options-copy">
               <h2 id="tirzepatide-tablets-options-title"><span>Weight Loss Options</span><span>For <em>Every Body</em></span></h2>
               <p>Personalized sublingual drops and injectable plans guided by licensed doctors, designed to put choice and confidence back in your hands.</p>
-              <a class="glp-options-start" href="https://start.joinprimepoint.com/start-online-visit/glp"><span>START NOW</span><span class="glp-options-start-icon" aria-hidden="true">&rarr;</span></a>
             </div>
             <div class="glp-options-visual" aria-label="Available GLP-1 medication formats">
               <img class="glp-options-image glp-options-image-semaglutide" src="assets/glp-page-pieces/semaglutide-bottle-gold-v4.png" alt="Semaglutide injection bottle" />
@@ -321,13 +319,6 @@
         </div>
       </section>
 
-      <section class="glp-start-section" aria-label="Start your online visit">
-        <a class="semaglutide-cta" href="https://start.joinprimepoint.com/start-online-visit/glp">
-          <span>START NOW</span>
-          <span class="semaglutide-cta-icon" aria-hidden="true">&rarr;</span>
-        </a>
-      </section>
-
       <footer class="pp-footer" id="site-footer">
       <div class="pp-footer-wordmark">
         <span class="pp-footer-wordmark-intro">FIND YOUR</span>
@@ -373,7 +364,7 @@
     </main>
 
     <script src="script.js?v=46"></script>
-    <script src="js/product-plans.js?v=28"></script>
+    <script src="js/product-plans.js?v=43"></script>
     <script>
       document.querySelectorAll(".semaglutide-accordion").forEach((accordion) => {
         const questions = [...accordion.querySelectorAll(".semaglutide-question")];

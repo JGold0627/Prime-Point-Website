@@ -1,4 +1,7 @@
 (() => {
+  // Paused while backend configuration is completed. To restore, enable this
+  // flag and restore the "single" options in the five supporting product pages.
+  const singlePurchasesEnabled = false;
   // Keep prices in cents; URL parameters select a catalog plan, never set its price.
   const products = {
     'semaglutide': { name: 'Semaglutide', rates: { '1': 19900, '3': 17900 } },
@@ -18,7 +21,7 @@
   const selection = (productId, plan) => {
     if (!Object.hasOwn(products, productId)) return null;
     const product = products[productId];
-    const oneTime = plan === 'single' && product.singlePurchase === true;
+    const oneTime = singlePurchasesEnabled && plan === 'single' && product.singlePurchase === true;
     const ratePlan = oneTime ? '1' : plan;
     if (!Object.hasOwn(product.rates, ratePlan)) return null;
     const months = Number(ratePlan);
@@ -42,6 +45,7 @@
       const period = details.querySelector('[data-plan-period]');
       if (period) period.textContent = selected.oneTime ? 'one-time' : '/ month';
       const button = panel.querySelector('[data-plan-cta]');
+      if (!button) return; // Coming-soon pages still display selectable plan pricing.
       const actionLabel = button.querySelector('span').textContent.trim();
       const planLabel = selected.oneTime ? 'single-month purchase' : `${selected.months}-month ${products[productId].singlePurchase ? 'subscription' : 'plan'}`;
       const priceLabel = `${money(selected.monthly)} ${selected.oneTime ? 'one-time' : 'per month'}`;
