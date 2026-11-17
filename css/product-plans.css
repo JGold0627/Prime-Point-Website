@@ -20,6 +20,10 @@
 .product-plan-field select:hover { border-color: var(--pp-prime-navy); background: #e2ebf1; }
 .product-plan-field select:focus-visible { outline: 2px solid var(--pp-dark-gold); outline-offset: 3px; }
 .product-plan-field option { background: var(--pp-warm-ivory); color: var(--pp-prime-navy); }
+/* Every GHK-Cu formulation uses the select's standard typography. */
+[data-product-option-prices="ghk-cu"] option { font: inherit; }
+[data-ghk-product-action][hidden] { display: none; }
+[data-ghk-product-action] .wellness-product-cta[aria-disabled="true"] { cursor: not-allowed; }
 /* Keep the full purchase/subscription labels visible on compact layouts. */
 @media (max-width: 850px) {
   .wellness-product-page .product-plan-options--purchase .product-plan-field select { font-size: .875rem; padding-inline: 12px 34px; }

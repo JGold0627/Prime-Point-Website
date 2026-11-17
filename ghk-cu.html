@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/wellness-product.css?v=16" />
     <link rel="stylesheet" href="css/glutathione.css?v=12" />
     <link rel="stylesheet" href="css/product-explainer.css?v=7" />
-    <link rel="stylesheet" href="css/product-plans.css?v=7" />
+    <link rel="stylesheet" href="css/product-plans.css?v=10" />
     <link rel="stylesheet" href="css/section-headings.css?v=3" />
     <link rel="stylesheet" href="css/peptide-profile.css?v=23" />
     <link rel="stylesheet" href="css/peptide-standard.css?v=1" />
@@ -51,7 +51,7 @@
           <p class="wellness-product-caption">Product illustration. Actual packaging may vary.</p>
         </div>
         <div class="wellness-product-details">
-          <h1 class="glutathione-product-title" id="product-title">GHK-Cu<sup>Rx</sup></h1>
+          <h1 class="glutathione-product-title" id="product-title"><span data-product-title-name>GHK-Cu Cream</span><sup>Rx</sup></h1>
           <p class="glutathione-product-spec">30 grams - 1 Month Dose</p>
           <div class="product-plan-price">
             <p aria-live="polite" aria-atomic="true"><strong>$139</strong><span>/ month</span></p>
@@ -62,8 +62,10 @@
               <label for="product-plan">Pick your option</label>
               <div class="product-plan-select-wrap">
                 <select id="product-plan" name="plan" required>
-                  <option value="cream-monthly" data-form="cream" data-price="$139" data-months="1" data-size="30 grams" selected>GHK-Cu Cream - $139 / month (30 grams)</option>
-                  <option value="injectable-monthly" data-form="injectable" data-price="$179" data-months="1" data-size="30 mg">GHK-Cu Injectable - $179 / month (30 mg)</option>
+                  <!-- Each formulation controls its heading and optional product-spec line. -->
+                  <option value="cream-monthly" data-form="cream" data-product-title="GHK-Cu Cream" data-checkout-url="https://start.joinprimepoint.com/ghk-cu-topical" data-price="$139" data-months="1" data-size="30 grams" selected>GHK-Cu Cream - $139 / month (30 grams)</option>
+                  <option value="hair-monthly" data-form="hair" data-product-title="GHK-Cu Hair Foam" data-product-spec="Contains Finasteride and latanoprost" data-checkout-url="https://start.joinprimepoint.com/ghk-cu-finasteride-latanoprost-hair-foam" data-price="$139" data-months="1">GHK-Cu Hair Treatment - $139 / month</option>
+                  <option value="injectable-monthly" data-form="injectable" data-product-title="GHK-Cu" data-price="$179" data-months="1" data-size="30 mg">GHK-Cu Injectable - $179 / month (30 mg)</option>
                 </select>
               </div>
             </div>
@@ -72,7 +74,7 @@
               <img src="assets/payment-providers/klarna.svg" alt="Klarna" width="1448" height="609" />
               <img src="assets/payment-providers/afterpay.svg" alt="Afterpay" width="395" height="136" />
             </div>
-            <div data-ghk-cream-action>
+            <div data-ghk-product-action>
               <a class="wellness-product-cta product-plan-continue" href="https://start.joinprimepoint.com/ghk-cu-topical" aria-label="Get started with GHK-Cu Cream"><span>Get Started</span><span aria-hidden="true">&rarr;</span></a>
             </div>
             <p class="peptide-coming-soon" hidden><em>Coming Soon</em></p>
@@ -136,7 +138,9 @@
               </div>
             </dl>
             <div class="bpc-overview-action">
-              <!-- Paused product CTA; original markup retained for restoration: <button type="button" disabled class="wellness-product-cta" aria-label="Get started with GHK-Cu"><span>Get Started</span><span aria-hidden="true">&rarr;</span></button> -->
+              <div data-ghk-product-action>
+                <a class="wellness-product-cta" href="https://start.joinprimepoint.com/ghk-cu-topical" aria-label="Get started with GHK-Cu Cream"><span>Get Started</span><span aria-hidden="true">&rarr;</span></a>
+              </div>
               <p>Prescription only when clinically appropriate. Eligibility and results vary.</p>
             </div>
           </article>
@@ -255,7 +259,9 @@
           </details>
         </div>
       </section>
-      <!-- Paused product CTA; original markup retained for restoration: <div class="wellness-product-end-cta"><button type="button" disabled class="wellness-product-cta"><span>Get Started</span><span aria-hidden="true">&rarr;</span></button></div> -->
+      <div class="wellness-product-end-cta" data-ghk-product-action>
+        <a class="wellness-product-cta" href="https://start.joinprimepoint.com/ghk-cu-topical" aria-label="Get started with GHK-Cu Cream"><span>Get Started</span><span aria-hidden="true">&rarr;</span></a>
+      </div>
     </main>
     <footer class="pp-footer" id="site-footer">
       <div class="pp-footer-wordmark">
@@ -299,25 +305,27 @@
         </div>
       </div>
     </footer>
-    <script src="js/product-plans.js?v=44"></script>
+    <script src="js/product-plans.js?v=45"></script>
     <script>
       const planSelect = document.getElementById('product-plan');
+      const productTitle = document.querySelector('[data-product-title-name]');
       const photoButton = document.querySelector('[data-product-image]');
       const productPhotos = {
         cream: { src: photoButton.dataset.productImage, alt: photoButton.dataset.productAlt, name: 'GHK-Cu Facial Cream' },
+        hair: { src: 'assets/products/ghk-cu-hair-foam-glass-pump.png', alt: 'Prime Point Health GHK-Cu Hair Foam in a clear glass pump bottle with a champagne-gold collar, labeled Contains Finasteride and latanoprost', name: 'GHK-Cu Hair Foam' },
         injectable: { src: 'assets/products/ghk-cu-limestone.webp', alt: 'Prime Point Health GHK-Cu injectable vial on limestone', name: 'GHK-Cu Injectable' }
       };
-      const creamAction = document.querySelector('[data-ghk-cream-action]');
-      const creamCta = creamAction.querySelector('a');
+      const productActions = document.querySelectorAll('[data-ghk-product-action]');
       const comingSoon = document.querySelector('.peptide-coming-soon');
 
       function updateGhkPlan() {
         const option = planSelect.selectedOptions[0];
         const { form, price, size, months } = option.dataset;
+        productTitle.textContent = option.dataset.productTitle || option.text.split(' - ')[0];
         const period = months === '1' ? 'month' : `${months} months`;
         document.querySelector('.product-plan-price strong').textContent = price;
         document.querySelector('.product-plan-price span').textContent = `/ ${period}`;
-        document.querySelector('.glutathione-product-spec').textContent = `${size} - ${months} Month Dose`;
+        document.querySelector('.glutathione-product-spec').textContent = option.dataset.productSpec || `${size} - ${months} Month Dose`;
 
         const photo = productPhotos[form];
         photoButton.dataset.productImage = photo.src;
@@ -329,11 +337,24 @@
           image.alt = photo.alt;
         }
 
-        const isCream = form === 'cream';
-        creamAction.hidden = !isCream;
-        comingSoon.hidden = isCream;
-        if (isCream) {
-          creamCta.setAttribute('aria-label', `Get started with ${option.text}`);
+        const isOffered = form === 'cream' || form === 'hair';
+        const checkoutUrl = isOffered ? option.dataset.checkoutUrl : '';
+        comingSoon.hidden = isOffered;
+        for (const productAction of productActions) {
+          const productCta = productAction.querySelector('a');
+          productAction.hidden = !isOffered;
+          productCta.setAttribute('aria-label', `Get started with ${option.text}`);
+          if (checkoutUrl) {
+            productCta.setAttribute('href', checkoutUrl);
+            productCta.removeAttribute('aria-disabled');
+            productCta.removeAttribute('tabindex');
+            productCta.removeAttribute('role');
+          } else {
+            productCta.removeAttribute('href');
+            productCta.setAttribute('aria-disabled', 'true');
+            productCta.setAttribute('tabindex', '-1');
+            productCta.setAttribute('role', 'link');
+          }
         }
       }
       planSelect.addEventListener('change', () => {

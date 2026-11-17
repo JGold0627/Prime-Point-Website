@@ -27,9 +27,13 @@ function page(file, script = source, search = '') {
     addEventListener: listen
   };
   const price = {}, period = {}, spec = {}, title = {}, image = {}, thumbnail = {};
+  const makeCta = markup => ({ ...attributes(markup), querySelector: () => ({ textContent: 'Get Started' }), setAttribute(key, value) { this[key] = value; }, removeAttribute(key) { delete this[key]; } });
   const ctaMatch = html.match(/<(?:a|button)\b[^>]*(?:data-plan-cta|class="wellness-product-cta product-plan-continue")[^>]*>/);
-  const cta = ctaMatch ? { ...attributes(ctaMatch[0]), querySelector: () => ({ textContent: 'Get Started' }), setAttribute(key, value) { this[key] = value; } } : null;
-  const creamAction = { hidden: false, querySelector: () => cta };
+  const cta = ctaMatch ? makeCta(ctaMatch[0]) : null;
+  const productActions = [...html.matchAll(/<div\b[^>]*\bdata-ghk-product-action\b[^>]*>\s*(<a\b[^>]*>)/g)].map((match, index) => {
+    const actionCta = index === 0 ? cta : makeCta(match[1]);
+    return { hidden: false, querySelector: () => actionCta };
+  });
   const comingSoon = { hidden: true };
   const photo = { dataset: dataset(attributes(html.match(/<button[^>]+data-product-image[^>]+>/)?.[0] || '')), setAttribute() {}, querySelector: () => thumbnail, click() {} };
   const track = { firstElementChild: { cloneNode: () => ({ setAttribute() {} }) }, append() {} };
@@ -48,7 +52,7 @@ function page(file, script = source, search = '') {
     '[data-product-image]': photo, '[data-product-photo]': image,
     '[data-product-title-name]': title, '.product-plan-price strong': price,
     '.product-plan-price span': period, '.glutathione-product-spec': spec,
-    '.product-plan-continue': cta, '[data-ghk-cream-action]': creamAction,
+    '.product-plan-continue': cta,
     '.peptide-coming-soon': comingSoon, '.care-strip': strip
   };
   const context = vm.createContext({
@@ -61,18 +65,19 @@ function page(file, script = source, search = '') {
         if (selector === '[data-product-starting-price]') return badges;
         if (selector === '[data-product-option-prices]') return custom ? [panel] : [];
         if (selector === '[data-product-photo], .peptide-standard-vial img') return [image];
+        if (selector === '[data-ghk-product-action]') return productActions;
         if (selector.startsWith('[data-product-start=')) return [];
         throw new Error(`Unexpected selector: ${selector}`);
       }
     }
   });
-  assert(html.includes('js/product-plans.js?v=44'), `${file}: missing current shared script`);
+  assert(/<script src="js\/product-plans\.js\?v=\d+"><\/script>/.test(html), `${file}: missing shared pricing script`);
   vm.runInContext(script, context, { filename: 'product-plans.js' });
   if (custom) {
     assert(html.indexOf('js/product-plans.js') < html.indexOf('<script>'), `${file}: pricing must load before selection logic`);
     for (const match of html.matchAll(/<script>([\s\S]*?)<\/script>/g)) vm.runInContext(match[1], context, { filename: file });
   }
-  return { html, badges, options, select, price, cta, creamAction, comingSoon, image, fire: event => (events[event] || []).forEach(fn => fn()) };
+  return { html, badges, options, select, price, title, spec, thumbnail, cta, productActions, comingSoon, image, fire: event => (events[event] || []).forEach(fn => fn()) };
 }
 
 function verify(script, checkFallbacks = false) {
@@ -102,10 +107,25 @@ function verify(script, checkFallbacks = false) {
       const value = amount(option.textContent);
       assert.equal(product.price.textContent, Number.isFinite(value) ? money(value) : 'Coming Soon', `${id}: selected price`);
       if (id === 'ghk-cu') {
-        const cream = option.dataset.form === 'cream';
-        assert.equal(product.creamAction.hidden, !cream);
-        assert.equal(product.comingSoon.hidden, cream);
-        assert.equal(product.cta.href, 'https://start.joinprimepoint.com/ghk-cu-topical');
+        const offered = option.dataset.form !== 'injectable';
+        assert.equal(product.productActions.length, 3, 'GHK-Cu: hero, overview, and bottom CTAs must be present');
+        for (const action of product.productActions) {
+          assert.equal(action.hidden, !offered);
+          const link = action.querySelector('a');
+          assert.equal(link.href, option.dataset.checkoutUrl || undefined);
+          assert.equal(link['aria-disabled'], option.dataset.checkoutUrl ? undefined : 'true');
+          assert.equal(link.tabindex, option.dataset.checkoutUrl ? undefined : '-1');
+          assert.equal(link['aria-label'], `Get started with ${option.text}`);
+        }
+        assert.equal(product.comingSoon.hidden, offered);
+        assert.equal(product.title.textContent, option.dataset.productTitle);
+        assert.equal(product.thumbnail.src, product.image.src);
+        assert(fs.existsSync(path.join(root, product.image.src)), `Missing ${option.dataset.form} product image`);
+        if (option.dataset.form === 'hair') {
+          assert.equal(product.title.textContent, 'GHK-Cu Hair Foam');
+          assert.equal(product.spec.textContent, 'Contains Finasteride and latanoprost');
+          assert.equal(product.image.src, 'assets/products/ghk-cu-hair-foam-glass-pump.png');
+        }
       }
     }
   }
@@ -130,4 +150,30 @@ for (let i = 0; i < original.catalog.badges.length; i++) {
 }
 // A cheaper, unavailable injection must not become the face cream's starting price.
 verify(source.replace(/'injectable-monthly': \d+/, "'injectable-monthly': 100"));
+// A confirmed hair checkout URL enables only that selection; repeated switching
+// must never leave the face-cream URL attached to the hair or injectable option.
+const ghk = page('ghk-cu.html');
+const hair = ghk.options.find(option => option.dataset.form === 'hair');
+hair.dataset.checkoutUrl = 'https://example.test/hair-checkout';
+for (const value of ['hair-monthly', 'cream-monthly', 'injectable-monthly', 'hair-monthly', 'cream-monthly']) {
+  ghk.select.value = value;
+  ghk.fire('change');
+  ghk.fire('pageshow');
+  const option = ghk.select.selectedOptions[0];
+  for (const action of ghk.productActions) {
+    const link = action.querySelector('a');
+    assert.equal(action.hidden, option.dataset.form === 'injectable');
+    assert.equal(link.href, option.dataset.checkoutUrl || undefined);
+    assert.equal(link['aria-disabled'], option.dataset.checkoutUrl ? undefined : 'true');
+    assert.equal(link.tabindex, option.dataset.checkoutUrl ? undefined : '-1');
+  }
+}
+// Removing a checkout URL must also clear every previously active link.
+hair.dataset.checkoutUrl = '';
+ghk.select.value = hair.value;
+ghk.fire('change');
+for (const action of ghk.productActions) {
+  assert.equal(action.querySelector('a').href, undefined);
+  assert.equal(action.querySelector('a')['aria-disabled'], 'true');
+}
 console.log('PASS: 21 cards, 17 product pages, price-change propagation, plan selection, CTA availability, and paused one-time plans.');

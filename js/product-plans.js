@@ -21,8 +21,8 @@
     'kpv': { name: 'KPV', rates: {}, priceLabel: 'Coming Soon' },
     'semax': { name: 'Semax Nasal', rates: { 'semax': 27900 } },
     'epitalon': { name: 'Epitalon', rates: { 'epitalon': 39900 } },
-    // Only the face cream is available; injectable pricing must not lower its badge.
-    'ghk-cu': { name: 'GHK-Cu', rates: { 'cream-monthly': 13900, 'injectable-monthly': 17900 }, startingPlans: ['cream-monthly'] }
+    // Only the face cream has checkout enabled; pending options must not lower its badge.
+    'ghk-cu': { name: 'GHK-Cu', rates: { 'cream-monthly': 13900, 'hair-monthly': 13900, 'injectable-monthly': 17900 }, startingPlans: ['cream-monthly'] }
   };
   const money = cents => new Intl.NumberFormat('en-US', {
     style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 2
