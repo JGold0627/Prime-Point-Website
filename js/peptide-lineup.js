@@ -116,17 +116,27 @@
   let press = null;
   let skipClick = false;
   stage.addEventListener("pointerdown", event => {
-    if (!event.isPrimary || event.button !== 0) return;
+    if (!event.isPrimary) { press = null; return; }
+    if (event.button !== 0) return;
     skipClick = false;
-    press = { x: event.clientX, y: event.clientY, id: event.pointerId };
+    press = { x: event.clientX, y: event.clientY, id: event.pointerId, axis: null };
+  });
+  stage.addEventListener("pointermove", event => {
+    if (event.pointerType !== "touch" || press?.id !== event.pointerId || press.axis) return;
+    const dx = Math.abs(event.clientX - press.x);
+    const dy = Math.abs(event.clientY - press.y);
+    if (Math.max(dx, dy) < 12) return;
+    // Once a gesture starts vertically, keep it available for native page scrolling.
+    press.axis = dx > dy * 1.5 ? "horizontal" : "vertical";
   });
   stage.addEventListener("pointerup", event => {
     if (press?.id !== event.pointerId) return;
     const dx = event.clientX - press.x;
     const dy = event.clientY - press.y;
+    const axis = press.axis;
     press = null;
     skipClick = Math.max(Math.abs(dx), Math.abs(dy)) > 8;
-    if (event.pointerType === "touch" && Math.abs(dx) > 36 && Math.abs(dx) > Math.abs(dy)) {
+    if (event.pointerType === "touch" && axis === "horizontal" && Math.abs(dx) > 56 && Math.abs(dx) > Math.abs(dy) * 1.5) {
       select(selected + (dx < 0 ? 1 : -1));
     }
   });
@@ -140,31 +150,39 @@
     if (side) select(selected + side);
   });
 
-  // Pace continuous scrolling while letting a fresh gesture or reversal respond immediately.
+  // Wheel browsing is limited to the center card; the surrounding area scrolls the page.
   let wheelDistance = 0;
   let lastWheelTime = 0;
   let lastDirection = 0;
   let nextStepTime = 0;
   stage.addEventListener("wheel", event => {
     if (event.ctrlKey || event.metaKey || !event.cancelable) return;
+    if (!slides[selected].contains(event.target)) {
+      wheelDistance = 0;
+      lastDirection = 0;
+      return;
+    }
     const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
-    if (!delta) return;
+    if (!delta) {
+      wheelDistance = 0;
+      return;
+    }
     event.preventDefault();
     const direction = Math.sign(delta);
     const now = performance.now();
-    if (now - lastWheelTime > 160 || direction !== lastDirection) {
+    if (now - lastWheelTime > 200 || direction !== lastDirection) {
       wheelDistance = 0;
       nextStepTime = 0;
     }
     lastWheelTime = now;
     lastDirection = direction;
     if (now < nextStepTime) return;
-    const unit = event.deltaMode === 1 ? 24 : event.deltaMode === 2 ? stage.clientHeight : 1;
+    const unit = event.deltaMode === 1 ? 24 : event.deltaMode === 2 ? stage.clientWidth : 1;
     wheelDistance += Math.abs(delta) * unit;
-    if (wheelDistance < 24) return;
+    if (wheelDistance < 72) return;
     select(selected + direction);
     wheelDistance = 0;
-    nextStepTime = now + 350;
+    nextStepTime = now + 500;
   }, { passive: false });
 
   lineup.querySelector(".lineup-gallery").hidden = false;
