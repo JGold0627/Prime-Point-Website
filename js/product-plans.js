@@ -8,9 +8,9 @@
   // Rates are monthly unless priceBasis is 'plan' (the total for that duration).
   const products = {
     'semaglutide': { name: 'Semaglutide', priceBasis: 'plan', rates: { '1': 12900, '3': 29900 } },
-    'semaglutide-tablets': { name: 'Semaglutide Sublingual Drops', rates: { '1': 19900, '3': 17900 } },
+    'semaglutide-tablets': { name: 'Semaglutide Sublingual Drops', priceBasis: 'plan', rates: { '1': 12900, '3': 34900 } },
     'tirzepatide': { name: 'Tirzepatide', priceBasis: 'plan', rates: { '1': 18900, '3': 35700 } },
-    'tirzepatide-tablets': { name: 'Tirzepatide Sublingual Drops', rates: { '1': 29900, '3': 26900 } },
+    'tirzepatide-tablets': { name: 'Tirzepatide Sublingual Drops', priceBasis: 'plan', rates: { '1': 18900, '3': 35700 } },
     'sermorelin': { name: 'Sermorelin', rates: { '1': 17900, '3': 16100 } },
     'glutathione': { name: 'Glutathione', singlePurchase: true, rates: { '1': 12900, '3': 11600 } },
     'glutathione-nasal': { name: 'Glutathione Nasal Spray', singlePurchase: true, rates: { '1': 13900, '3': 12500 } },
