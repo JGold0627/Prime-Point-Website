@@ -32,7 +32,26 @@ const headerCurrentState = (section) => activeHeaderSection === section ? ' aria
 const isMemberHome = currentPage === "member-home.html";
 const isMemberSession = isMemberHome;
 
+const welcomeOfferSequence = `
+  <span class="pp-welcome-rule"></span>
+  <span>WELCOME TO PRIME POINT</span>
+  <svg class="pp-welcome-star" viewBox="0 0 24 24" focusable="false"><path d="M12 0C13.4 7.1 16.9 10.6 24 12C16.9 13.4 13.4 16.9 12 24C10.6 16.9 7.1 13.4 0 12C7.1 10.6 10.6 7.1 12 0Z" /></svg>
+  <span>10% OFF YOUR FIRST ORDER</span>
+  <svg class="pp-welcome-star" viewBox="0 0 24 24" focusable="false"><path d="M12 0C13.4 7.1 16.9 10.6 24 12C16.9 13.4 13.4 16.9 12 24C10.6 16.9 7.1 13.4 0 12C7.1 10.6 10.6 7.1 12 0Z" /></svg>
+  <span>USE CODE: &quot;FIRSTTIME&quot;</span>
+`;
+
 const globalHeaderMarkup = `
+  <div class="pp-welcome-bar" role="region" aria-label="Welcome offer" data-pp-reveal="off">
+    <p class="pp-welcome-copy">WELCOME TO PRIME POINT. 10% OFF YOUR FIRST ORDER. USE CODE: &quot;FIRSTTIME&quot;</p>
+    <div class="pp-welcome-track" aria-hidden="true">
+      <div class="pp-welcome-group">${welcomeOfferSequence.repeat(2)}</div>
+      <div class="pp-welcome-group">${welcomeOfferSequence.repeat(2)}</div>
+    </div>
+    <button class="pp-welcome-pause" type="button" aria-label="Pause offer scrolling" aria-pressed="false">
+      <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path class="pp-welcome-pause-icon" d="M5 3v10M11 3v10" /><path class="pp-welcome-play-icon" d="m5 3 7 5-7 5Z" /></svg>
+    </button>
+  </div>
   <header class="site-header" data-site-header="global" aria-label="Primary navigation">
     <div class="nav-shell">
       <a class="brand" href="index.html" aria-label="Prime Point Health home">
@@ -332,6 +351,20 @@ if (pageHeader) {
 } else {
   document.body.insertAdjacentHTML("afterbegin", globalHeaderMarkup);
 }
+
+const welcomeOfferBar = document.querySelector(".pp-welcome-bar");
+const welcomeOfferPause = welcomeOfferBar?.querySelector(".pp-welcome-pause");
+if (welcomeOfferBar && "ResizeObserver" in window) {
+  // The static reduced-motion version can wrap; keep dropdowns clear of its actual height.
+  new ResizeObserver(() => {
+    document.documentElement.style.setProperty("--pp-offer-offset", `${welcomeOfferBar.offsetHeight}px`);
+  }).observe(welcomeOfferBar);
+}
+welcomeOfferPause?.addEventListener("click", () => {
+  const paused = welcomeOfferBar.classList.toggle("is-paused");
+  welcomeOfferPause.setAttribute("aria-pressed", String(paused));
+  welcomeOfferPause.setAttribute("aria-label", paused ? "Resume offer scrolling" : "Pause offer scrolling");
+});
 
 // Keep these destinations available on every page, including account pages.
 let footerIntro = document.querySelector(".pp-footer-intro");

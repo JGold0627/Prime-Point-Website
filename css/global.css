@@ -25,6 +25,7 @@
   --pp-canvas-deep: #152c3e;
   --pp-canvas-black: #0b1823;
   --pp-header-height: 115px;
+  --pp-offer-height: 42px;
   --pp-shell-max: 1440px;
   --pp-page-gutter: clamp(20px, 4vw, 56px);
 }
@@ -130,6 +131,141 @@ body {
 
 img {
   max-width: 100%;
+}
+
+/* The offer is a separate row so the navigation and logo keep their original geometry. */
+.pp-welcome-bar {
+  position: relative;
+  width: 100%;
+  height: var(--pp-offer-height);
+  overflow: hidden;
+  background: #0b1928;
+  border-bottom: 1px solid rgba(185, 155, 80, 0.35);
+  color: #f6f4f0;
+  font: 600 14px/1.2 Inter, "Segoe UI", Arial, sans-serif;
+  letter-spacing: 0.035em;
+}
+
+.pp-welcome-copy {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.pp-welcome-track {
+  display: flex;
+  width: max-content;
+  height: 100%;
+  animation: pp-welcome-scroll 44s linear infinite;
+}
+
+.pp-welcome-group {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: space-around;
+  min-width: 100vw;
+  gap: clamp(22px, 2vw, 32px);
+  padding-right: clamp(22px, 2vw, 32px);
+  white-space: nowrap;
+}
+
+.pp-welcome-group > * {
+  flex-shrink: 0;
+}
+
+.pp-welcome-rule {
+  width: 56px;
+  height: 2px;
+  background: linear-gradient(90deg, #a98b47, #d0b56b, #a98b47);
+}
+
+.pp-welcome-star {
+  width: 19px;
+  height: 19px;
+  fill: #b99b50;
+}
+
+.pp-welcome-pause {
+  position: absolute;
+  inset: 0 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: #0b1928;
+  box-shadow: -8px 0 12px #0b1928;
+  color: #d0b56b;
+  cursor: pointer;
+}
+
+.pp-welcome-pause svg {
+  width: 13px;
+  height: 13px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+
+.pp-welcome-play-icon,
+.pp-welcome-bar.is-paused .pp-welcome-pause-icon {
+  display: none;
+}
+
+.pp-welcome-bar.is-paused .pp-welcome-play-icon {
+  display: block;
+}
+
+.pp-welcome-pause:focus-visible {
+  outline: 1px solid #d0b56b;
+  outline-offset: -5px;
+}
+
+.pp-welcome-track:hover,
+.pp-welcome-bar.is-paused .pp-welcome-track {
+  animation-play-state: paused;
+}
+
+@keyframes pp-welcome-scroll {
+  to { transform: translateX(-50%); }
+}
+
+@media (max-width: 560px) {
+  :root { --pp-offer-height: 36px; }
+  .pp-welcome-bar { font-size: 11.5px; }
+  .pp-welcome-group { gap: 20px; padding-right: 20px; }
+  .pp-welcome-rule { width: 40px; }
+  .pp-welcome-star { width: 16px; height: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pp-welcome-bar {
+    height: auto;
+    min-height: var(--pp-offer-height);
+    padding: 10px 16px;
+    text-align: center;
+  }
+
+  .pp-welcome-track,
+  .pp-welcome-pause { display: none; animation: none; }
+
+  .pp-welcome-copy {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip-path: none;
+    white-space: normal;
+    line-height: 1.6;
+  }
 }
 
 /* Component: Header V2 - site-wide source of truth. */
@@ -390,7 +526,7 @@ img {
 
 .metabolic-nav-menu {
   position: fixed;
-  top: calc(var(--pp-header-height) + 12px);
+  top: calc(var(--pp-header-height) + var(--pp-offer-offset, var(--pp-offer-height)) + 12px);
   right: auto;
   left: 50%;
   width: calc(100% - clamp(40px, 5vw, 96px));
@@ -521,7 +657,7 @@ img {
 /* Five product portraits share the existing category-menu treatment. */
 .peptides-nav-menu {
   max-width: 1540px;
-  max-height: calc(100dvh - var(--pp-header-height) - 24px);
+  max-height: calc(100dvh - var(--pp-header-height) - var(--pp-offer-offset, var(--pp-offer-height)) - 24px);
   overflow-y: auto;
 }
 
@@ -992,8 +1128,8 @@ img {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     width: min(420px, calc(100% - 2 * var(--pp-page-gutter)));
-    max-height: calc(100vh - var(--pp-header-height) - 24px);
-    max-height: calc(100dvh - var(--pp-header-height) - 24px);
+    max-height: calc(100vh - var(--pp-header-height) - var(--pp-offer-offset, var(--pp-offer-height)) - 24px);
+    max-height: calc(100dvh - var(--pp-header-height) - var(--pp-offer-offset, var(--pp-offer-height)) - 24px);
     overflow-y: auto;
     overscroll-behavior: contain;
     padding: 14px;
