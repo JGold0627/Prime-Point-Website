@@ -11,7 +11,7 @@
     'semaglutide-tablets': { name: 'Semaglutide Sublingual Drops', priceBasis: 'plan', rates: { '1': 12900, '3': 34900 } },
     'tirzepatide': { name: 'Tirzepatide', priceBasis: 'plan', rates: { '1': 18900, '3': 35700 } },
     'tirzepatide-tablets': { name: 'Tirzepatide Sublingual Drops', priceBasis: 'plan', rates: { '1': 18900, '3': 35700 } },
-    'sermorelin': { name: 'Sermorelin', rates: { '1': 17900, '3': 16100 } },
+    'sermorelin': { name: 'Sermorelin', priceBasis: 'plan', rates: { '1': 13900, '3': 34900 } },
     'glutathione': { name: 'Glutathione', singlePurchase: true, rates: { '1': 12900, '3': 11600 } },
     'glutathione-nasal': { name: 'Glutathione Nasal Spray', singlePurchase: true, rates: { '1': 13900, '3': 12500 } },
     'mic-b12': { name: 'MIC + B12', singlePurchase: true, rates: { '1': 11900, '3': 10700 } },
