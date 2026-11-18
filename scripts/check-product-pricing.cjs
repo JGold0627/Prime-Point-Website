@@ -77,7 +77,7 @@ function page(file, script = source, search = '') {
     assert(html.indexOf('js/product-plans.js') < html.indexOf('<script>'), `${file}: pricing must load before selection logic`);
     for (const match of html.matchAll(/<script>([\s\S]*?)<\/script>/g)) vm.runInContext(match[1], context, { filename: file });
   }
-  return { html, badges, options, select, price, title, spec, thumbnail, cta, productActions, comingSoon, image, fire: event => (events[event] || []).forEach(fn => fn()) };
+  return { html, badges, options, select, price, period, title, spec, thumbnail, cta, productActions, comingSoon, image, fire: event => (events[event] || []).forEach(fn => fn()) };
 }
 
 function verify(script, checkFallbacks = false) {
@@ -140,6 +140,19 @@ function verify(script, checkFallbacks = false) {
 }
 
 const original = verify(source, true);
+// Semaglutide quotes the whole plan price, including direct three-month links.
+const semaglutide = page('semaglutide.html', source, '?plan=3&price=1');
+assert.equal(semaglutide.price.textContent, '$299');
+assert.equal(semaglutide.period.textContent, '/ 3 months');
+assert(semaglutide.cta['aria-label'].includes('$299 total for 3 months'));
+assert.equal(semaglutide.cta.href, 'https://start.joinprimepoint.com/semaglutide-injection');
+assert(semaglutide.options.every(option => !option.textContent.includes('/mo')));
+semaglutide.select.value = '1';
+semaglutide.fire('change');
+assert.equal(semaglutide.price.textContent, '$129');
+assert.equal(semaglutide.period.textContent, '/ month');
+assert(semaglutide.cta['aria-label'].includes('$129 total for 1 month'));
+assert.equal(original.catalog.badges.find(badge => badge.dataset.productStartingPrice === 'semaglutide').textContent, 'Starting from $129');
 // Change every numeric rate by $7.12. All displayed prices must follow, including
 // fractional amounts, without modifying a product page or either card listing.
 const changed = source.replace(/rates: \{([^}]+)\}/g, (_, rates) => `rates: {${rates.replace(/: (\d+)/g, (_, cents) => `: ${Number(cents) + 712}`)}}`);

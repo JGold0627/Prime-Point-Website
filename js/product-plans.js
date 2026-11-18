@@ -5,10 +5,11 @@
   // Pricing source of truth: edit rates here when a product's cost changes.
   // Product dropdowns, selected prices, CTA labels, and catalog starting prices
   // all read these amounts. Keep prices in cents; URL parameters only select plans.
+  // Rates are monthly unless priceBasis is 'plan' (the total for that duration).
   const products = {
-    'semaglutide': { name: 'Semaglutide', rates: { '1': 19900, '3': 17900 } },
+    'semaglutide': { name: 'Semaglutide', priceBasis: 'plan', rates: { '1': 12900, '3': 29900 } },
     'semaglutide-tablets': { name: 'Semaglutide Sublingual Drops', rates: { '1': 19900, '3': 17900 } },
-    'tirzepatide': { name: 'Tirzepatide', rates: { '1': 29900, '3': 26900 } },
+    'tirzepatide': { name: 'Tirzepatide', priceBasis: 'plan', rates: { '1': 18900, '3': 34900 } },
     'tirzepatide-tablets': { name: 'Tirzepatide Sublingual Drops', rates: { '1': 29900, '3': 26900 } },
     'sermorelin': { name: 'Sermorelin', rates: { '1': 17900, '3': 16100 } },
     'glutathione': { name: 'Glutathione', singlePurchase: true, rates: { '1': 12900, '3': 11600 } },
@@ -58,8 +59,9 @@
     const ratePlan = oneTime ? '1' : plan;
     if (!Object.hasOwn(product.rates, ratePlan)) return null;
     const months = Number(ratePlan);
-    const monthly = product.rates[ratePlan];
-    return { productId, name: product.name, spec: product.spec, plan, months, monthly, oneTime };
+    const price = product.rates[ratePlan];
+    const perPlan = product.priceBasis === 'plan';
+    return { productId, name: product.name, spec: product.spec, plan, months, price, perPlan, oneTime };
   };
   const params = new URLSearchParams(window.location.search);
   const panel = document.querySelector('[data-product-plans]');
@@ -76,14 +78,17 @@
       const selected = selection(productId, planSelect.value);
       if (!selected) return;
       const details = panel.closest('.wellness-product-details, .semaglutide-details-panel');
-      details.querySelector('[data-plan-price]').textContent = money(selected.monthly);
+      details.querySelector('[data-plan-price]').textContent = money(selected.price);
       const period = details.querySelector('[data-plan-period]');
-      if (period) period.textContent = selected.oneTime ? 'one-time' : '/ month';
+      if (period) period.textContent = selected.oneTime ? 'one-time'
+        : selected.perPlan && selected.months > 1 ? `/ ${selected.months} months` : '/ month';
       const button = panel.querySelector('[data-plan-cta]');
       if (!button) return; // Coming-soon pages still display selectable plan pricing.
       const actionLabel = button.querySelector('span').textContent.trim();
       const planLabel = selected.oneTime ? 'single-month purchase' : `${selected.months}-month ${products[productId].singlePurchase ? 'subscription' : 'plan'}`;
-      const priceLabel = `${money(selected.monthly)} ${selected.oneTime ? 'one-time' : 'per month'}`;
+      const pricePeriod = selected.oneTime ? 'one-time' : selected.perPlan
+        ? `total for ${selected.months} ${selected.months === 1 ? 'month' : 'months'}` : 'per month';
+      const priceLabel = `${money(selected.price)} ${pricePeriod}`;
       button.setAttribute('aria-label', `${actionLabel} with ${selected.name}, ${planLabel}, ${priceLabel}`);
     };
     panel.addEventListener('change', update);
