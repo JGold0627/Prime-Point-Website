@@ -368,6 +368,17 @@
   font-size: 1.15rem;
   line-height: 1;
 }
+body.blood-work-page main .bw-coming-soon {
+  margin: 0;
+  padding: 10px 0;
+  color: var(--pp-prime-navy);
+  font: italic 400 clamp(1.5rem, 2.2vw, 2rem)/1.3 Georgia, "Times New Roman", serif;
+  text-align: center;
+}
+body.blood-work-page main .bw-coming-soon--difference {
+  margin: clamp(32px, 4vw, 48px) auto 0;
+}
+
 #bloodwork-pricing .bw-pricing-cta {
   display: flex;
   align-items: center;

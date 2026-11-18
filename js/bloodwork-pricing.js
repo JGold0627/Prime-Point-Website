@@ -51,7 +51,7 @@
       marker.hidden = marker.dataset.bwMarkerAudience !== currentAudience;
     });
     const name = `${audience} ${offer.dataset.name}`;
-    offer.querySelector('[data-bw-choose]').setAttribute('aria-label', `Choose ${name}, ${labels[method]}, ${money(amount)}`);
+    offer.querySelector('[data-bw-choose]')?.setAttribute('aria-label', `Choose ${name}, ${labels[method]}, ${money(amount)}`);
   }
 
   formatButtons.forEach(button => button.addEventListener('click', () => showFormat(button.dataset.bwFormat)));
