@@ -9,7 +9,7 @@
   const products = {
     'semaglutide': { name: 'Semaglutide', priceBasis: 'plan', rates: { '1': 12900, '3': 29900 } },
     'semaglutide-tablets': { name: 'Semaglutide Sublingual Drops', priceBasis: 'plan', rates: { '1': 12900, '3': 34900 } },
-    'tirzepatide': { name: 'Tirzepatide', rates: { '1': 19900, '3': 12900 } },
+    'tirzepatide': { name: 'Tirzepatide', rates: { '1': 19900, '3': 14900 } },
     'tirzepatide-tablets': { name: 'Tirzepatide Sublingual Drops', priceBasis: 'plan', rates: { '1': 18900, '3': 35700 } },
     'sermorelin': { name: 'Sermorelin', priceBasis: 'plan', rates: { '1': 13900, '3': 34900 } },
     'glutathione': { name: 'Glutathione', singlePurchase: true, rates: { '1': 12900, '3': 11600 } },
