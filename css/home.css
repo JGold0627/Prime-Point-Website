@@ -4357,3 +4357,28 @@ body.home-page h2.home-feature-title {
   line-height: 1.12;
   letter-spacing: -0.025em;
 }
+
+/* Keep the shared care guide aligned with the homepage section headings. */
+.home-page .home-care-path {
+  --care-edge-fade: clamp(160px, 20vw, 280px);
+  margin-top: clamp(48px, 5vw, 80px);
+}
+/* Fade the photo into the ivory canvas while keeping its soft wash continuous. */
+.home-page .home-care-path::before {
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+.home-care-path .care-path-inner {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 1440px;
+  padding-inline: 0;
+}
+.home-care-path .care-path-heading { text-align: left; }
+.home-care-path .home-section-number { margin-bottom: 18px; }
+body.home-page .home-care-path h2.home-feature-title { margin: 0; }
+.home-care-path .care-path-steps {
+  width: min(540px, calc(100% - 2 * (var(--care-loop-reach) + 8px)));
+  margin-inline: calc(var(--care-loop-reach) + 8px) 0;
+}
+.home-care-path .care-path-number { justify-self: start; }
+.home-care-path .care-path-card :is(h3, p) { text-align: left; }

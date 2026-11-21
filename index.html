@@ -29,8 +29,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;800&amp;display=swap" />
     <link rel="stylesheet" href="css/global.css?v=47" />
-    <link rel="stylesheet" href="css/home.css?v=147" />
+    <link rel="stylesheet" href="css/home.css?v=149" />
     <link rel="stylesheet" href="css/section-headings.css?v=2" />
+    <link rel="stylesheet" href="css/care-path.css?v=11" />
+    <link rel="stylesheet" href="css/home-guided-process.css?v=10" />
     <link rel="stylesheet" href="css/home-button-motion.css?v=3" />
   </head>
   <body class="home-page">
@@ -234,42 +236,127 @@
       </div>
     </section>
 
-    <section class="home-care" id="care-made-simple" aria-labelledby="home-care-title">
-      <h2 class="pp-section-heading home-feature-title" id="home-care-title">
-        <small class="home-section-number" aria-hidden="true">03.</small>
-        <span>Traditional Healthcare<br />Can be Frustrating</span>
-      </h2>
-      <div class="home-care-lead">
-        <p class="home-care-intro">
-          So we built a platform that isn&rsquo;t. Just accessible, expert-led care
-          from the comfort of your home, straight to your front door.
-        </p>
-      </div>
-      <div class="home-care-inner">
-        <div class="home-care-copy">
-          <div class="home-care-features">
-            <article class="home-care-card">
-              <svg class="home-care-icon" viewBox="0 0 40 40" aria-hidden="true">
-                <path d="M11 30H7a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3h26a3 3 0 0 1 3 3v18a3 3 0 0 1-3 3H22l-7 7"></path>
-                <path d="M20 12v12m-6-6h12"></path>
-              </svg>
-              <h3>Prescribed, Doctor-led plans</h3>
-              <p>Programs led by industry specialists, designed for you</p>
-            </article>
-            <article class="home-care-card">
-              <svg class="home-care-icon" viewBox="0 0 40 40" aria-hidden="true">
-                <path d="M31 12a14 14 0 0 0-23 1M8 6v7h7M9 28a14 14 0 0 0 23-1m0 7v-7h-7"></path>
-                <circle cx="20" cy="17" r="4"></circle>
-                <path d="M14 27v-2a6 6 0 0 1 12 0v2"></path>
-              </svg>
-              <h3>Highest Quality Products</h3>
-              <p>We thoroughly vet our pharmacy partners, reviewing their compounding practices and quality standards for endotoxin testing, sterility, and potency.</p>
-            </article>
+    <section class="care-path home-care-path" id="care-made-simple" aria-labelledby="home-care-title" data-pp-reveal="off">
+      <img class="care-path-background" src="assets/Peptides/care-path-courtyard.webp" width="1774" height="887" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+      <div class="care-path-inner">
+        <header class="care-path-heading">
+          <small class="home-section-number" aria-hidden="true">03.</small>
+          <h2 class="pp-section-heading home-feature-title" id="home-care-title"><span>Your Path, Made Easy</span></h2>
+        </header>
+        <div class="home-guided" data-home-guided>
+          <div class="home-guided-tabs" role="tablist" aria-label="Your six steps with Prime Point">
+            <button class="home-guided-tab" type="button" role="tab" id="home-step-education" aria-controls="home-panel-education" aria-selected="true" tabindex="0"><span>Step 1</span> <span>Education</span></button>
+            <button class="home-guided-tab" type="button" role="tab" id="home-step-medication" aria-controls="home-panel-medication" aria-selected="false" tabindex="-1"><span>Step 2</span> <span>Explore Treatments</span></button>
+            <button class="home-guided-tab" type="button" role="tab" id="home-step-biomarkers" aria-controls="home-panel-biomarkers" aria-selected="false" tabindex="-1"><span>Step 3</span> <span>Biomarkers</span></button>
+            <button class="home-guided-tab" type="button" role="tab" id="home-step-intake" aria-controls="home-panel-intake" aria-selected="false" tabindex="-1"><span>Step 4</span> <span>Health Intake</span></button>
+            <button class="home-guided-tab" type="button" role="tab" id="home-step-review" aria-controls="home-panel-review" aria-selected="false" tabindex="-1"><span>Step 5</span> <span>Provider Review</span></button>
+            <button class="home-guided-tab" type="button" role="tab" id="home-step-fulfillment" aria-controls="home-panel-fulfillment" aria-selected="false" tabindex="-1"><span>Step 6</span> <span>Fast Fulfillment</span></button>
+          </div>
+          <div class="home-guided-panels">
+            <div class="home-guided-panel" id="home-panel-education" role="tabpanel" aria-labelledby="home-step-education" aria-hidden="false" tabindex="0">
+              <div class="home-guided-main">
+                <p class="home-guided-label">Step 1</p>
+                <h3>Education</h3>
+                <p class="home-guided-description">We believe you deserve to understand what goes into your body and make informed choices about your health</p>
+              </div>
+              <div class="home-guided-detail">
+                <h4>Start with understanding</h4>
+                <ul class="home-guided-points">
+                  <li>Explore the information behind each medication</li>
+                  <li>Learn what to expect from the process</li>
+                  <li>Discuss your questions one-on-one with your licensed provider at any time</li>
+                </ul>
+              </div>
+            </div>
+            <div class="home-guided-panel" id="home-panel-medication" role="tabpanel" aria-labelledby="home-step-medication" aria-hidden="true" tabindex="-1" inert>
+              <div class="home-guided-main">
+                <p class="home-guided-label">Step 2</p>
+                <h3>Explore Treatments</h3>
+                <p class="home-guided-description">Your health goals are personal. Explore Prime Point&rsquo;s range of medication options to learn what may be right for you</p>
+              </div>
+              <div class="home-guided-detail">
+                <h4>Find a treatment that fits</h4>
+                <ul class="home-guided-points">
+                  <li>Make an informed decision for treatment</li>
+                  <li>Browse Prime Point&rsquo;s variety of products</li>
+                  <li>Shop by health goal, from weight management to recovery</li>
+                </ul>
+              </div>
+            </div>
+            <div class="home-guided-panel" id="home-panel-biomarkers" role="tabpanel" aria-labelledby="home-step-biomarkers" aria-hidden="true" tabindex="-1" inert>
+              <div class="home-guided-main">
+                <p class="home-guided-label">Step 3</p>
+                <h3>Biomarkers</h3>
+                <p class="home-guided-description">Explore bloodwork, consider results you already have, or plan your next test</p>
+                <p class="home-guided-disclaimer"><em>Bloodwork is not required to purchase medication</em></p>
+              </div>
+              <div class="home-guided-detail">
+                <h4>Where are you starting?</h4>
+                <div class="home-guided-choices" role="group" aria-label="Your starting point for bloodwork">
+                  <button type="button" data-guided-biomarker="learn" aria-pressed="true">I want to learn</button>
+                  <button type="button" data-guided-biomarker="results" aria-pressed="false">I have results</button>
+                  <button type="button" data-guided-biomarker="test" aria-pressed="false">I plan to test</button>
+                </div>
+                <div class="home-guided-responses" aria-live="polite">
+                  <p aria-hidden="false">Explore what bloodwork can tell you and which questions you would like to discuss with your provider
+                    <a class="home-guided-learn-more" href="blood-work.html" aria-label="Learn more about bloodwork">Learn more</a>
+                  </p>
+                  <p aria-hidden="true">Great! Upload your results to your patient portal and your provider will use them when evaluating your medication</p>
+                  <ul class="home-guided-points" aria-hidden="true">
+                    <li>Consider what tier of bloodwork fits your goals best</li>
+                    <li>Upload your results to your patient portal to discuss with your provider</li>
+                    <li>Bloodwork is not required at Prime Point, but we always recommend understanding your biomarkers</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="home-guided-panel" id="home-panel-intake" role="tabpanel" aria-labelledby="home-step-intake" aria-hidden="true" tabindex="-1" inert>
+              <div class="home-guided-main">
+                <p class="home-guided-label">Step 4</p>
+                <h3>Health Intake</h3>
+                <p class="home-guided-description">Share your health history, current medications, and goals in a short online questionnaire</p>
+              </div>
+              <div class="home-guided-detail">
+                <h4>Help your provider understand you</h4>
+                <ul class="home-guided-points">
+                  <li>Tell us about your health history</li>
+                  <li>Include your medications and relevant health information</li>
+                  <li>Share what you hope to discuss with your provider</li>
+                </ul>
+              </div>
+            </div>
+            <div class="home-guided-panel" id="home-panel-review" role="tabpanel" aria-labelledby="home-step-review" aria-hidden="true" tabindex="-1" inert>
+              <div class="home-guided-main">
+                <p class="home-guided-label">Step 5</p>
+                <h3>Provider Review</h3>
+                <p class="home-guided-description">A licensed provider reviews your information and determines whether a prescription is appropriate</p>
+              </div>
+              <div class="home-guided-detail">
+                <h4>Care informed by clinical review</h4>
+                <ul class="home-guided-points">
+                  <li>Your provider evaluates your health information</li>
+                  <li>Eligibility and medication choices are considered individually</li>
+                  <li>A prescription is issued only when clinically appropriate</li>
+                </ul>
+              </div>
+            </div>
+            <div class="home-guided-panel" id="home-panel-fulfillment" role="tabpanel" aria-labelledby="home-step-fulfillment" aria-hidden="true" tabindex="-1" inert>
+              <div class="home-guided-main">
+                <p class="home-guided-label">Step 6</p>
+                <h3>Fast Fulfillment</h3>
+                <p class="home-guided-description">If prescribed, your medication is prepared by a licensed pharmacy and shipped to your door within 1 to 2 business days</p>
+              </div>
+              <div class="home-guided-detail">
+                <h4>From your prescription to your doorstep</h4>
+                <ul class="home-guided-points">
+                  <li>Your approved prescription is sent to a licensed 503A pharmacy</li>
+                  <li>Your medication is prepared individually for you</li>
+                  <li>Your order is delivered straight to your doorstep in 1&ndash;2 business days</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
-        <figure class="home-care-photo">
-          <img src="assets/home/connected-care-v1.png" alt="Three friends enjoying a relaxed walk together on a sunlit coastal path" width="1024" height="1536" loading="lazy" decoding="async" />
-        </figure>
       </div>
     </section>
 
@@ -361,6 +448,7 @@
     <script src="script.js?v=48"></script>
     <script src="js/product-plans.js?v=47"></script>
     <script src="js/home-services.js?v=13"></script>
+    <script src="js/home-guided-process.js?v=5"></script>
   </body>
 </html>
 
