@@ -54,15 +54,15 @@
           <h1 class="glutathione-product-title" id="product-title">MOTS-c<sup>Rx</sup></h1>
           <p class="glutathione-product-spec">10 mg/mL &middot; 2 mL</p>
           <div class="product-plan-price">
-            <p aria-live="polite" aria-atomic="true"><strong>$229</strong><span>/ month</span></p>
+            <p aria-live="polite" aria-atomic="true"><strong>$229</strong><span>/ Month</span></p>
           </div>
           <p class="wellness-product-intro">MOTS-c is a naturally occurring peptide produced from genetic material in mitochondria—the structures that help power your cells. It helps researchers understand how the body responds to changes in energy demand.</p>
-          <div class="product-plan-options" id="product-plan-options" data-product-option-prices="mots-c">
+          <div class="product-plan-options product-plan-options--purchase" id="product-plan-options" data-product-option-prices="mots-c">
             <div class="product-plan-field">
               <label for="product-plan">Choose your plan</label>
               <div class="product-plan-select-wrap">
                 <select id="product-plan" name="plan" required>
-                  <option value="mots-c" data-plan-name="MOTS-c" data-monthly-price="229" selected>MOTS-c plan - $229 / month</option>
+                  <option value="mots-c" data-plan-name="MOTS-c" data-monthly-price="229" selected>1 Month Subscription - $229 / Month</option>
                 </select>
               </div>
             </div>
@@ -303,7 +303,7 @@
         </div>
       </div>
     </footer>
-    <script src="js/product-plans.js?v=44"></script>
+    <script src="js/product-plans.js?v=46"></script>
     <script>
       const bpcPlanSelect = document.getElementById('product-plan');
       const bpcPlanPrice = document.querySelector('.product-plan-price strong');
@@ -316,7 +316,7 @@
           style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 2
         }).format(Number(selected.dataset.monthlyPrice));
         bpcPlanPrice.textContent = price;
-        bpcPlanAction?.setAttribute('aria-label', `Get started with ${name}, ${price} per month`);
+        bpcPlanAction?.setAttribute('aria-label', `Get started with ${name}, ${price} per Month`);
       };
       bpcPlanSelect.addEventListener('change', updateBpcPlan);
       window.addEventListener('pageshow', updateBpcPlan);

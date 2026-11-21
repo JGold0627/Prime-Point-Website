@@ -295,6 +295,16 @@ main {
   padding-block: 10px;
 }
 
+/* Keep the full subscription wording legible on every GLP-1 phone layout. */
+@media (max-width: 560px) {
+  .semaglutide-plan-field select { font-size: clamp(.75rem, 3.6vw, .875rem); padding-inline: 12px 32px; }
+  .semaglutide-plan-field .product-plan-select-wrap::after { right: 13px; }
+}
+@media (max-width: 350px) {
+  .semaglutide-plan-field select { font-size: .75rem; padding-inline: 8px 24px; }
+  .semaglutide-plan-field .product-plan-select-wrap::after { right: 10px; }
+}
+
 .semaglutide-plan-field + .semaglutide-feature-list {
   gap: 10px;
   margin: clamp(18px, calc(1.35vw + 6px), 25px) 0 14px;

@@ -54,15 +54,15 @@
           <h1 class="glutathione-product-title" id="product-title">Epitalon<sup>Rx</sup></h1>
           <p class="glutathione-product-spec">25 mg/mL &middot; 6 mL</p>
           <div class="product-plan-price">
-            <p aria-live="polite" aria-atomic="true"><strong>$399</strong><span>/ month</span></p>
+            <p aria-live="polite" aria-atomic="true"><strong>$399</strong><span>/ Month</span></p>
           </div>
           <p class="wellness-product-intro">Epitalon is a synthetic peptide modeled after a substance associated with the pineal gland, which helps regulate the body’s sleep-wake cycle. Researchers are studying its potential connection to cellular aging and the body’s internal clock.</p>
-          <div class="product-plan-options" id="product-plan-options" data-product-option-prices="epitalon">
+          <div class="product-plan-options product-plan-options--purchase" id="product-plan-options" data-product-option-prices="epitalon">
             <div class="product-plan-field">
               <label for="product-plan">Choose your plan</label>
               <div class="product-plan-select-wrap">
                 <select id="product-plan" name="plan" required>
-                  <option value="epitalon" data-plan-name="Epitalon" data-monthly-price="399" selected>Epitalon plan - $399 / month</option>
+                  <option value="epitalon" data-plan-name="Epitalon" data-monthly-price="399" selected>1 Month Subscription - $399 / Month</option>
                 </select>
               </div>
             </div>
@@ -302,7 +302,7 @@
         </div>
       </div>
     </footer>
-    <script src="js/product-plans.js?v=44"></script>
+    <script src="js/product-plans.js?v=46"></script>
     <script>
       const bpcPlanSelect = document.getElementById('product-plan');
       const bpcPlanPrice = document.querySelector('.product-plan-price strong');
@@ -315,7 +315,7 @@
           style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 2
         }).format(Number(selected.dataset.monthlyPrice));
         bpcPlanPrice.textContent = price;
-        bpcPlanAction?.setAttribute('aria-label', `Get started with ${name}, ${price} per month`);
+        bpcPlanAction?.setAttribute('aria-label', `Get started with ${name}, ${price} per Month`);
       };
       bpcPlanSelect.addEventListener('change', updateBpcPlan);
       window.addEventListener('pageshow', updateBpcPlan);

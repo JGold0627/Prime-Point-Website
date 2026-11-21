@@ -54,15 +54,15 @@
           <h1 class="glutathione-product-title" id="product-title"><span data-product-title-name>BPC-157 / TB-4</span><sup>Rx</sup></h1>
           <p class="glutathione-product-spec">5 mg/mL &middot; 3 mL</p>
           <div class="product-plan-price">
-            <p aria-live="polite" aria-atomic="true"><strong>$379</strong><span>/ month</span></p>
+            <p aria-live="polite" aria-atomic="true"><strong>$349</strong><span>/ Month</span></p>
           </div>
           <p class="wellness-product-intro">BPC-157 is being studied for blood vessel growth and repair signaling, while TB-4 is being studied for cell movement and tissue rebuilding. The pairing explores complementary steps in tissue repair, with evidence still largely limited to laboratory and animal studies.</p>
-          <div class="product-plan-options" id="product-plan-options" data-product-option-prices="bpc-157">
+          <div class="product-plan-options product-plan-options--purchase" id="product-plan-options" data-product-option-prices="bpc-157">
             <div class="product-plan-field">
               <label for="product-plan">Choose your plan</label>
               <div class="product-plan-select-wrap">
                 <select id="product-plan" name="plan" required>
-                  <option value="bpc-157-tb4" data-plan-name="BPC-157 / TB-4" data-monthly-price="379" selected>BPC-157 / TB-4 plan - $379 / month</option>
+                  <option value="bpc-157-tb4" data-plan-name="BPC-157 / TB-4" data-monthly-price="349" selected>1 Month Subscription - $349 / Month</option>
                 </select>
               </div>
             </div>
@@ -304,7 +304,7 @@
         </div>
       </div>
     </footer>
-    <script src="js/product-plans.js?v=44"></script>
+    <script src="js/product-plans.js?v=48"></script>
     <script>
       const bpcPlanSelect = document.getElementById('product-plan');
       const bpcProductTitle = document.querySelector('[data-product-title-name]');
@@ -324,7 +324,7 @@
           style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 2
         }).format(Number(selected.dataset.monthlyPrice));
         bpcPlanPrice.textContent = price;
-        bpcPlanAction?.setAttribute('aria-label', `Get started with ${name}, ${price} per month`);
+        bpcPlanAction?.setAttribute('aria-label', `Get started with ${name}, ${price} per Month`);
         const photo = bpcPlanPhotos[selected.value];
         bpcPhotoButton.dataset.productImage = photo.src;
         bpcPhotoButton.dataset.productAlt = photo.alt;

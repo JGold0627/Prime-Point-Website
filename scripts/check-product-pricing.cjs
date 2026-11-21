@@ -89,7 +89,11 @@ function verify(script, checkFallbacks = false) {
     const id = badge.dataset.productStartingPrice;
     const product = page(`${id}.html`, script);
     const eligible = id === 'ghk-cu' ? product.options.filter(option => option.dataset.form === 'cream') : product.options;
-    const prices = eligible.map(option => amount(option.textContent)).filter(Number.isFinite);
+    const prices = eligible.map(option => {
+      product.select.value = option.value;
+      product.fire('change');
+      return amount(product.price.textContent);
+    }).filter(Number.isFinite);
     const expected = prices.length ? `Starting from ${money(Math.min(...prices))}` : 'Coming Soon';
     assert.equal(badge.textContent, expected, id);
     if (checkFallbacks) {
@@ -105,7 +109,11 @@ function verify(script, checkFallbacks = false) {
       product.fire('change');
       product.fire('pageshow');
       const value = amount(option.textContent);
-      assert.equal(product.price.textContent, Number.isFinite(value) ? money(value) : 'Coming Soon', `${id}: selected price`);
+      if (option.textContent.endsWith('/Month') && /^\/ \d+ Months$/.test(product.period.textContent)) {
+        assert.equal(money(value), money(amount(product.price.textContent) / Number(option.value)), `${id}: monthly equivalent of plan total`);
+      } else {
+        assert.equal(product.price.textContent, Number.isFinite(value) ? money(value) : 'Coming Soon', `${id}: selected price`);
+      }
       if (id === 'ghk-cu') {
         const offered = option.dataset.form !== 'injectable';
         assert.equal(product.productActions.length, 3, 'GHK-Cu: hero, overview, and bottom CTAs must be present');
@@ -130,29 +138,48 @@ function verify(script, checkFallbacks = false) {
     }
   }
   const combo = page('bpc-157-tb4.html', script);
-  assert.equal(combo.price.textContent, page('bpc-157.html', script).options.find(option => option.value === 'bpc-157-tb4').textContent.match(/\$[\d,.]+/)[0]);
+  assert.deepEqual(page('bpc-157.html', script).options.map(option => option.value), ['bpc-157']);
+  assert.equal(combo.price.textContent, combo.options.find(option => option.value === 'bpc-157-tb4').textContent.match(/\$[\d,.]+/)[0]);
   for (const id of ['glutathione', 'glutathione-nasal', 'nad-plus', 'nad-plus-nasal', 'mic-b12']) {
     const product = page(`${id}.html`, script, '?plan=single&price=1');
     assert.equal(product.select.value, '1', `${id}: paused single purchase must not reactivate`);
-    assert(product.cta['aria-label'].includes('subscription'));
+    assert(product.cta['aria-label'].includes('Subscription'));
   }
   return { home, catalog };
 }
 
 const original = verify(source, true);
-// Semaglutide quotes the whole plan price, including direct three-month links.
+// Semaglutide quotes the approved whole-dollar monthly rate, including direct three-month links.
 const semaglutide = page('semaglutide.html', source, '?plan=3&price=1');
-assert.equal(semaglutide.price.textContent, '$299');
-assert.equal(semaglutide.period.textContent, '/ 3 months');
-assert(semaglutide.cta['aria-label'].includes('$299 total for 3 months'));
+assert.equal(semaglutide.price.textContent, '$99');
+assert.equal(semaglutide.period.textContent, '/ Month');
+assert(semaglutide.cta['aria-label'].includes('$99 per Month'));
 assert.equal(semaglutide.cta.href, 'https://start.joinprimepoint.com/semaglutide-injection');
-assert(semaglutide.options.every(option => !option.textContent.includes('/mo')));
+assert.deepEqual(semaglutide.options.map(option => option.textContent), [
+  '1 Month Subscription - $129/Month', '3 Month Subscription - $99/Month'
+]);
 semaglutide.select.value = '1';
 semaglutide.fire('change');
 assert.equal(semaglutide.price.textContent, '$129');
-assert.equal(semaglutide.period.textContent, '/ month');
-assert(semaglutide.cta['aria-label'].includes('$129 total for 1 month'));
-assert.equal(original.catalog.badges.find(badge => badge.dataset.productStartingPrice === 'semaglutide').textContent, 'Starting from $129');
+assert.equal(semaglutide.period.textContent, '/ Month');
+assert(semaglutide.cta['aria-label'].includes('$129 per Month'));
+assert.equal(original.catalog.badges.find(badge => badge.dataset.productStartingPrice === 'semaglutide').textContent, 'Starting from $99');
+// Monthly option labels and selected prices stay in sync with the approved rates.
+for (const [id, monthly, selectedPrice, period] of [
+  ['semaglutide-tablets', '$116', '$116', '/ Month'],
+  ['tirzepatide', '$149', '$149', '/ Month'],
+  ['tirzepatide-tablets', '$119', '$357', '/ 3 Months'],
+  ['sermorelin', '$129', '$129', '/ Month']
+]) {
+  const product = page(`${id}.html`, source, '?plan=3&price=1');
+  assert.equal(product.options.find(option => option.value === '3').textContent, `3 Month Subscription - ${monthly}/Month`);
+  assert.equal(product.price.textContent, selectedPrice);
+  assert.equal(product.period.textContent, period);
+}
+for (const id of ['semaglutide', 'semaglutide-tablets', 'tirzepatide', 'tirzepatide-tablets', 'sermorelin', 'glutathione', 'glutathione-nasal', 'mic-b12', 'nad-plus', 'nad-plus-nasal']) {
+  const product = page(`${id}.html`);
+  assert(product.options.every(option => /^[13] Month Subscription - \$\d+\/Month$/.test(option.textContent)), `${id}: whole-dollar subscription labels`);
+}
 // Change every numeric rate by $7.12. All displayed prices must follow, including
 // fractional amounts, without modifying a product page or either card listing.
 const changed = source.replace(/rates: \{([^}]+)\}/g, (_, rates) => `rates: {${rates.replace(/: (\d+)/g, (_, cents) => `: ${Number(cents) + 712}`)}}`);

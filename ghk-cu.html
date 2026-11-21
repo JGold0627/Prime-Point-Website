@@ -54,7 +54,7 @@
           <h1 class="glutathione-product-title" id="product-title"><span data-product-title-name>GHK-Cu Cream</span><sup>Rx</sup></h1>
           <p class="glutathione-product-spec">30 grams - 1 Month Dose</p>
           <div class="product-plan-price">
-            <p aria-live="polite" aria-atomic="true"><strong>$139</strong><span>/ month</span></p>
+            <p aria-live="polite" aria-atomic="true"><strong>$139</strong><span>/ Month</span></p>
           </div>
           <p class="wellness-product-intro">GHK-Cu is a naturally occurring copper-binding peptide found in the body. Researchers study its role in maintaining and repairing the tissue that gives skin its strength and structure.</p>
           <div class="product-plan-options" id="product-plan-options" data-product-option-prices="ghk-cu">
@@ -63,9 +63,9 @@
               <div class="product-plan-select-wrap">
                 <select id="product-plan" name="plan" required>
                   <!-- Each formulation controls its heading and optional product-spec line. -->
-                  <option value="cream-monthly" data-form="cream" data-product-title="GHK-Cu Cream" data-checkout-url="https://start.joinprimepoint.com/ghk-cu-topical" data-price="$139" data-months="1" data-size="30 grams" selected>GHK-Cu Cream - $139 / month (30 grams)</option>
-                  <option value="hair-monthly" data-form="hair" data-product-title="GHK-Cu Hair Foam" data-product-spec="Contains Finasteride and latanoprost" data-checkout-url="https://start.joinprimepoint.com/ghk-cu-finasteride-latanoprost-hair-foam" data-price="$139" data-months="1">GHK-Cu Hair Treatment - $139 / month</option>
-                  <option value="injectable-monthly" data-form="injectable" data-product-title="GHK-Cu" data-price="$179" data-months="1" data-size="30 mg">GHK-Cu Injectable - $179 / month (30 mg)</option>
+                  <option value="cream-monthly" data-form="cream" data-product-title="GHK-Cu Cream" data-checkout-url="https://start.joinprimepoint.com/ghk-cu-topical" data-price="$139" data-months="1" data-size="30 grams" selected>GHK-Cu Cream - $139 / Month (30 grams)</option>
+                  <option value="hair-monthly" data-form="hair" data-product-title="GHK-Cu Hair Foam" data-product-spec="Contains Finasteride and latanoprost" data-checkout-url="https://start.joinprimepoint.com/ghk-cu-finasteride-latanoprost-hair-foam" data-price="$139" data-months="1">GHK-Cu Hair Treatment - $139 / Month</option>
+                  <option value="injectable-monthly" data-form="injectable" data-product-title="GHK-Cu" data-price="$179" data-months="1" data-size="30 mg">GHK-Cu Injectable - $179 / Month (30 mg)</option>
                 </select>
               </div>
             </div>
@@ -305,7 +305,7 @@
         </div>
       </div>
     </footer>
-    <script src="js/product-plans.js?v=45"></script>
+    <script src="js/product-plans.js?v=46"></script>
     <script>
       const planSelect = document.getElementById('product-plan');
       const productTitle = document.querySelector('[data-product-title-name]');
@@ -322,7 +322,7 @@
         const option = planSelect.selectedOptions[0];
         const { form, price, size, months } = option.dataset;
         productTitle.textContent = option.dataset.productTitle || option.text.split(' - ')[0];
-        const period = months === '1' ? 'month' : `${months} months`;
+        const period = months === '1' ? 'Month' : `${months} Months`;
         document.querySelector('.product-plan-price strong').textContent = price;
         document.querySelector('.product-plan-price span').textContent = `/ ${period}`;
         document.querySelector('.glutathione-product-spec').textContent = option.dataset.productSpec || `${size} - ${months} Month Dose`;
