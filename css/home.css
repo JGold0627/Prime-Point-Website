@@ -3858,7 +3858,7 @@ body.home-page .home-product-showcase-heading h2.pp-section-heading {
 
 .home-faq-photo {
   position: relative;
-  /* Match the full photograph's proportions so it fills its rounded frame. */
+  /* Keep the photo's square frame independent of expanded FAQ answers. */
   aspect-ratio: 1;
   height: auto;
   margin: 0;
@@ -3873,7 +3873,7 @@ body.home-page .home-product-showcase-heading h2.pp-section-heading {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
 }
 
@@ -3884,8 +3884,8 @@ body.home-page .home-product-showcase-heading h2.pp-section-heading {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  min-height: var(--home-faq-row-height, 112px);
-  padding: 32px 0;
+  min-height: var(--home-faq-row-height, 92px);
+  padding: 24px 0;
   color: var(--home-prime-navy);
   font-family: var(--pp-font-body);
   font-size: clamp(1rem, 1.35vw, 1.15rem);
@@ -3903,6 +3903,7 @@ body.home-page .home-product-showcase-heading h2.pp-section-heading {
 .home-faq-list details[open] .home-faq-toggle::after { transform: rotate(0deg); }
 .home-faq-answer { padding: 0 42px 27px 0; }
 .home-faq-answer p { margin: 0; color: var(--home-prime-navy); font-family: var(--pp-font-body); font-size: 1rem; line-height: 1.7; }
+.home-faq-answer p + p { margin-top: 14px; }
 .home-faq-answer a { color: var(--home-prime-navy); text-underline-offset: 4px; }
 .home-faq-list summary:focus-visible,
 .home-faq-answer a:focus-visible { outline: 2px solid var(--home-prime-gold); outline-offset: 5px; }
@@ -3918,7 +3919,7 @@ body.home-page .home-product-showcase-heading h2.pp-section-heading {
 @media (max-width: 560px) {
   .home-faq-intro { margin-top: 28px; }
   .home-faq-photo { border-radius: 22px; }
-  .home-faq-list summary { min-height: 76px; gap: 18px; padding: 22px 0; }
+  .home-faq-list summary { min-height: 72px; gap: 18px; padding: 18px 0; }
   .home-faq-answer { padding-right: 20px; }
 }
 
@@ -4373,7 +4374,10 @@ body.home-page h2.home-feature-title {
   max-width: 1440px;
   padding-inline: 0;
 }
-.home-care-path .care-path-heading { text-align: left; }
+.home-care-path .care-path-heading {
+  margin-bottom: clamp(44px, 4vw, 56px);
+  text-align: left;
+}
 .home-care-path .home-section-number { margin-bottom: 18px; }
 body.home-page .home-care-path h2.home-feature-title { margin: 0; }
 .home-care-path .care-path-steps {

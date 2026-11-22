@@ -382,7 +382,7 @@ if (!footerIntro) {
 
 [
   { href: "contact.html", label: "Contact Us" },
-  { href: "https://www.arora-health.com/about-us", label: "About Us" },
+  { href: "https://www.arora-health.com/about", label: "About our Care Team" },
 ].forEach(({ href, label }) => {
   let link = footerIntro.querySelector(`a[href="${href}"]`);
   if (!link) {
