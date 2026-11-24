@@ -17,7 +17,7 @@
     'mic-b12': { name: 'MIC + B12', monthlyOptionLabels: true, singlePurchase: true, rates: { '1': 11900, '3': 10700 } },
     'nad-plus': { name: 'NAD+', monthlyOptionLabels: true, singlePurchase: true, rates: { '1': 13900, '3': 12500 } },
     'nad-plus-nasal': { name: 'NAD+ Nasal', monthlyOptionLabels: true, singlePurchase: true, spec: '300 mg/mL · 15 mL', rates: { '1': 14900, '3': 13500 } },
-    'bpc-157': { name: 'BPC-157', rates: { 'bpc-157': 23900, 'bpc-157-tb4': 34900 } },
+    'bpc-157': { name: 'BPC-157', rates: { 'bpc-157': 24900, 'bpc-157-tb4': 34900 } },
     'mots-c': { name: 'MOTS-c', rates: { 'mots-c': 22900 } },
     'kpv': { name: 'KPV', rates: {}, priceLabel: 'Coming Soon' },
     'semax': { name: 'Semax Nasal', rates: { 'semax': 24900 } },
