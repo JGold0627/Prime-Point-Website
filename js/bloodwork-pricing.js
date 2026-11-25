@@ -58,6 +58,17 @@
   formatSelect?.addEventListener('change', () => showFormat(formatSelect.value));
   tierButtons.forEach(button => button.addEventListener('click', () => showTier(button.dataset.bwTier)));
 
+  document.querySelectorAll('[data-bw-start-basic]').forEach(link => {
+    link.addEventListener('click', () => {
+      const basic = offers.find(offer => offer.dataset.bwOffer === 'basic');
+      if (!basic) return;
+      // Show the collection option and panel advertised by the $149 hero CTA.
+      basic.querySelector('[data-bw-collection]').value = 'quest';
+      showFormat('men');
+      showTier('basic');
+    });
+  });
+
   offers.forEach(offer => {
     offer.querySelector('[data-bw-collection]').addEventListener('change', () => updateOffer(offer));
     updateOffer(offer);

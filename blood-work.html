@@ -1937,12 +1937,12 @@
     }
   </style>
   <link rel="stylesheet" href="blood-work-buttons.css">
-  <link rel="stylesheet" href="css/bloodwork-hero.css?v=28">
-  <link rel="stylesheet" href="css/bloodwork-markers.css?v=10">
+  <link rel="stylesheet" href="css/bloodwork-hero.css?v=40">
+  <link rel="stylesheet" href="css/bloodwork-markers.css?v=12">
   <link rel="stylesheet" href="css/bloodwork-report-backdrop.css?v=4">
-  <link rel="stylesheet" href="css/bloodwork-difference.css?v=7">
-  <link rel="stylesheet" href="css/bloodwork-guide.css?v=21">
-  <link rel="stylesheet" href="css/bloodwork-pricing.css?v=11">
+  <link rel="stylesheet" href="css/bloodwork-difference.css?v=8">
+  <link rel="stylesheet" href="css/bloodwork-guide.css?v=24">
+  <link rel="stylesheet" href="css/bloodwork-pricing.css?v=13">
   <link rel="stylesheet" href="css/section-headings.css?v=2" />
 </head>
   <body class="blood-work-page">
@@ -1954,30 +1954,107 @@
            inside large layouts and keep section backgrounds outside the animation. -->
       <section class="bw-intro bw-reference" id="top" aria-labelledby="bloodwork-hero-title">
         <div class="bw-reference-main">
-          <figure class="bw-reference-art" data-pp-reveal="fade" role="img" aria-label="Sunlight travels across a mountain lake above a stone walkway as biomarker cards fade into view." aria-describedby="bloodwork-biomarker-description">
-            <picture aria-hidden="true">
-              <source media="(max-width: 600px)" srcset="assets/bloodwork/bloodwork-lake-journey-mobile.webp">
-              <img class="bw-reference-scenery" src="assets/bloodwork/bloodwork-lake-journey.webp" width="1800" height="874" alt="" fetchpriority="high">
-            </picture>
-            <video class="bw-reference-scenery bw-reference-film" aria-hidden="true" muted loop playsinline preload="none"
-              data-desktop-src="assets/bloodwork/bloodwork-lake-journey.mp4"
-              data-mobile-src="assets/bloodwork/bloodwork-lake-journey-mobile.mp4"></video>
+          <figure class="bw-reference-art" data-pp-reveal="off" aria-label="Interactive biomarker explorer">
+            <img class="bw-reference-backdrop" src="assets/bloodwork/bloodwork-hologram-studio.jpg" width="1774" height="887" alt="" aria-hidden="true" fetchpriority="high">
+            <div class="bw-explorer" data-bw-explorer>
+              <div class="bw-explorer-canvas" data-bw-canvas>
+                <div class="bw-explorer-stage" data-bw-stage>
+                  <img class="bw-reference-scenery" src="assets/bloodwork/bloodwork-hologram-studio.jpg" width="1774" height="887" alt="A pale blue holographic figure with selectable biomarker regions">
+                </div>
+                  <div class="bw-explorer-hotspots" role="group" aria-label="Choose a biomarker category">
+                    <button class="bw-hotspot bw-hotspot--hormonal" type="button" data-bw-region="hormonal" data-focus-x="0.732" data-focus-y="0.455" data-zoom="2.35" style="--hotspot-x: 73.2%; --hotspot-y: 45.5%" aria-label="Explore Hormonal Health markers" aria-expanded="false" aria-controls="bw-explorer-detail">
+                      <span class="bw-hotspot-dot" aria-hidden="true"></span><span class="bw-hotspot-label" aria-hidden="true">Hormonal Health</span>
+                    </button>
+                    <button class="bw-hotspot bw-hotspot--heart" type="button" data-bw-region="heart" data-focus-x="0.752" data-focus-y="0.28" data-zoom="2.3" style="--hotspot-x: 75.2%; --hotspot-y: 28%" aria-label="Explore Heart Health markers" aria-expanded="false" aria-controls="bw-explorer-detail">
+                      <span class="bw-hotspot-dot" aria-hidden="true"></span><span class="bw-hotspot-label" aria-hidden="true">Heart Health</span>
+                    </button>
+                    <button class="bw-hotspot bw-hotspot--nutrients" type="button" data-bw-region="nutrients" data-focus-x="0.754" data-focus-y="0.38" data-zoom="2.15" style="--hotspot-x: 75.4%; --hotspot-y: 38%" aria-label="Explore Nutrient Status markers" aria-expanded="false" aria-controls="bw-explorer-detail">
+                      <span class="bw-hotspot-dot" aria-hidden="true"></span><span class="bw-hotspot-label" aria-hidden="true">Nutrient Status</span>
+                    </button>
+                    <button class="bw-hotspot bw-hotspot--metabolic" type="button" data-bw-region="metabolic" data-focus-x="0.710" data-focus-y="0.39" data-zoom="2.25" style="--hotspot-x: 71%; --hotspot-y: 39%" aria-label="Explore Metabolic Health markers" aria-expanded="false" aria-controls="bw-explorer-detail">
+                      <span class="bw-hotspot-dot" aria-hidden="true"></span><span class="bw-hotspot-label" aria-hidden="true">Metabolic Health</span>
+                    </button>
+                    <button class="bw-hotspot bw-hotspot--inflammation" type="button" data-bw-region="inflammation" data-focus-x="0.76" data-focus-y="0.656" data-zoom="2.1" style="--hotspot-x: 76%; --hotspot-y: 65.6%" aria-label="Explore Inflammation markers" aria-expanded="false" aria-controls="bw-explorer-detail">
+                      <span class="bw-hotspot-dot" aria-hidden="true"></span><span class="bw-hotspot-label" aria-hidden="true">Inflammation</span>
+                    </button>
+                  </div>
+                <div class="bw-explorer-focus" aria-hidden="true"></div>
+              </div>
+              <div class="bw-explorer-intro">
+                <span>Explore your biomarkers</span>
+                <p>Select a point to take a closer look</p>
+              </div>
+              <div class="bw-explorer-detail" id="bw-explorer-detail" role="region" aria-labelledby="bw-explorer-title" hidden>
+                <button class="bw-explorer-back" type="button" data-bw-reset aria-label="Exit to full body view"><span aria-hidden="true">&larr;</span> Exit</button>
+                <p class="bw-explorer-eyebrow" data-bw-marker-count></p>
+                <h2 id="bw-explorer-title" data-bw-title></h2>
+                <ul class="bw-explorer-markers" data-bw-marker-list tabindex="-1" aria-label="Tests and markers in this category" aria-describedby="bw-explorer-list-note"></ul>
+                <p class="bw-explorer-list-caption">
+                  <span id="bw-explorer-list-note">Varies by panel</span>
+                  <span data-bw-scroll-hint hidden>Scroll to explore <span aria-hidden="true">&darr;</span></span>
+                </p>
+                <a class="bw-explorer-link" href="#bloodwork-pricing">Compare panels &amp; pricing <span aria-hidden="true">&rarr;</span></a>
+                <div class="bw-explorer-nav" role="group" aria-label="Explore another biomarker area">
+                  <button type="button" data-bw-previous><span aria-hidden="true">&larr;</span> Previous area</button>
+                  <button type="button" data-bw-next>Next area <span aria-hidden="true">&rarr;</span></button>
+                </div>
+              </div>
+              <p class="bw-reference-accessible" role="status" data-bw-status></p>
+              <a class="bw-explorer-fallback" href="#what-we-test">Explore bloodwork markers &rarr;</a>
+              <template data-bw-region-content="hormonal">
+                <li><strong>Testosterone Free and Total</strong></li>
+                <li><strong>Estradiol</strong></li>
+                <li><strong>SHBG + Albumin</strong></li>
+                <li><strong>DHEA-S</strong></li>
+                <li><strong>LH</strong></li>
+                <li><strong>FSH</strong></li>
+                <li><strong>Prolactin</strong></li>
+                <li><strong>TSH</strong></li>
+                <li><strong>IGF-1</strong></li>
+                <li><strong>Estrogen</strong></li>
+                <li><strong>Progesterone</strong></li>
+              </template>
+              <template data-bw-region-content="heart">
+                <li><strong>ApoB + Lp(a)</strong></li>
+                <li><strong>Advanced Lipid Panel</strong></li>
+                <li><strong>Standard Lipid Panel</strong></li>
+                <li><strong>hsCRP</strong></li>
+                <li><strong>Homocysteine</strong></li>
+                <li><strong>Omega Check</strong></li>
+              </template>
+              <template data-bw-region-content="nutrients">
+                <li><strong>Vitamin D</strong></li>
+                <li><strong>B12 + Folate</strong></li>
+                <li><strong>Ferritin</strong></li>
+                <li><strong>Full Iron Studies</strong></li>
+                <li><strong>Omega Check</strong></li>
+              </template>
+              <template data-bw-region-content="metabolic">
+                <li><strong>Hemoglobin A1c with eAG</strong></li>
+                <li><strong>Insulin</strong></li>
+                <li><strong>CMP</strong></li>
+                <li><strong>Advanced Lipid Panel</strong></li>
+                <li><strong>GGT</strong></li>
+                <li><strong>Cystatin C with eGFR</strong></li>
+              </template>
+              <template data-bw-region-content="inflammation">
+                <li><strong>hsCRP</strong></li>
+                <li><strong>Ferritin</strong></li>
+                <li><strong>CBC/Differential</strong></li>
+              </template>
+            </div>
           </figure>
           <div class="bw-reference-copy">
-            <h1 class="bw-reference-title" data-pp-reveal id="bloodwork-hero-title"><span>More Clarity</span><span>for What&rsquo;s Ahead</span></h1>
-            <p class="bw-reference-description" data-pp-reveal style="--pp-reveal-delay: 70ms">Your health is more than just a number. Whether you're establishing a baseline, staying on top of your annual checkup, or monitoring your health throughout treatment, our bloodwork panels provide a clearer picture of how your body is functioning, helping you make informed decisions and take a more proactive approach to your long-term health.</p>
+            <div class="bw-reference-message">
+              <h1 class="bw-reference-title" data-pp-reveal id="bloodwork-hero-title"><span>Your health is more</span> <span>than just a number</span></h1>
+              <p class="bw-reference-description" data-pp-reveal style="--pp-reveal-delay: 80ms">Invest in what matters. Test the markers that tell the difference.</p>
+              <a class="bw-reference-cta" href="#bloodwork-pricing" data-bw-start-basic>Get started for $149</a>
+            </div>
             <ul class="bw-reference-benefits" data-pp-reveal style="--pp-reveal-delay: 140ms" aria-label="Bloodwork benefits">
-              <li><span>100+<br>Biomarkers</span></li>
-              <li><span>Multiple<br>Panel Options</span></li>
-              <li><span>Accessible at<br>Home or In Person</span></li>
+              <li><span><strong>100+</strong><br>Biomarkers</span></li>
+              <li><span><strong>Multiple</strong><br>Panel Options</span></li>
+              <li><span><strong>Accessible at</strong><br>Home or In Person</span></li>
             </ul>
-          </div>
-          <div class="bw-reference-accessible" data-pp-reveal="off" id="bloodwork-biomarker-description">
-            <p>Hormonal Health: Testosterone, Estradiol, SHBG, Thyroid (TSH, T3, T4).</p>
-            <p>Metabolic Health: Glucose (A1C), Insulin, Lipid Panel, Liver Enzymes.</p>
-            <p>Heart Health: ApoB, hsCRP, Lipoprotein(a), Homocysteine.</p>
-            <p>Nutrient Status: Vitamin D, B12, Magnesium, Iron Studies.</p>
-            <p>Inflammation: hsCRP, Fibrinogen, Ferritin, Uric Acid.</p>
           </div>
         </div>
       </section>
@@ -2126,28 +2203,8 @@
                 </div>
               </div>
 
-              <figure class="bw-guide-art" role="img" aria-label="100+ biomarkers available across panel options. Your baseline: a starting point for understanding changes over time." data-pp-reveal="fade">
+              <figure class="bw-guide-art bw-baseline-art" role="img" aria-label="100+ biomarkers available across panel options. Your baseline: a starting point for understanding changes over time." data-pp-reveal="fade">
                 <div class="bw-guide-art-canvas" aria-hidden="true">
-                  <svg class="bw-guide-art-waves" viewBox="0 0 720 600" preserveAspectRatio="xMidYMid slice" fill="none">
-                    <defs>
-                      <linearGradient id="bw-guide-navy" x1="20" y1="20" x2="680" y2="600" gradientUnits="userSpaceOnUse"><stop stop-color="#244457"/><stop offset="0.5" stop-color="#102633"/><stop offset="1" stop-color="#0b1b26"/></linearGradient>
-                      <linearGradient id="bw-guide-ribbon" x1="90" y1="50" x2="640" y2="570" gradientUnits="userSpaceOnUse"><stop stop-color="#a78d5b" stop-opacity="0.08"/><stop offset="0.48" stop-color="var(--pp-prime-gold)" stop-opacity="0.58"/><stop offset="1" stop-color="var(--pp-prime-gold)" stop-opacity="0.03"/></linearGradient>
-                      <linearGradient id="bw-guide-blue" x1="720" y1="30" x2="120" y2="550" gradientUnits="userSpaceOnUse"><stop stop-color="#7f9cab" stop-opacity="0.45"/><stop offset="1" stop-color="#345367" stop-opacity="0.03"/></linearGradient>
-                    </defs>
-                    <g id="bw-guide-wave-motif">
-                    <path fill="url(#bw-guide-navy)" d="M0 0h720v600H0z"/>
-                    <path fill="url(#bw-guide-blue)" d="M320-60h450v135C503 117 507 374 264 479 153 527 66 532-50 660V483c200-166 295-143 358-306C340 94 327 26 320-60Z"/>
-                    <path fill="url(#bw-guide-ribbon)" d="M688-60h111C652 86 658 257 507 350 320 466 160 388-55 651V522c169-198 369-173 503-287C554 144 588 24 688-60Z"/>
-                    <g stroke="#d9bd86" stroke-opacity="0.25" stroke-width="1">
-                      <path d="M758-35C589 119 643 229 472 332S136 428-28 626"/>
-                      <path d="M781-27C612 128 666 238 495 341S159 437-5 635"/>
-                      <path d="M804-19C635 137 689 247 518 350S182 446 18 644"/>
-                      <path d="M827-11C658 146 712 256 541 359S205 455 41 653"/>
-                    </g>
-                    <path d="M-40 239C104 217 152 119 250-40" stroke="#a2bbc7" stroke-opacity="0.14"/>
-                    <path d="M-40 259C124 237 172 139 270-40" stroke="#a2bbc7" stroke-opacity="0.1"/>
-                    </g>
-                  </svg>
                   <span class="bw-guide-art-label">A clearer starting point</span>
                   <div class="bw-guide-stat">
                     <span class="bw-guide-stat-number">100+</span>
@@ -2182,22 +2239,6 @@
 
               <figure class="bw-guide-art bw-insights-art" role="img" aria-label="Illustrative biomarker report with an overview of heart health, metabolic health, hormones, thyroid, liver and kidneys, and nutrient status." data-pp-reveal="fade">
                 <div class="bw-insights-canvas" aria-hidden="true">
-                  <svg class="bw-insights-waves" viewBox="0 0 720 600" preserveAspectRatio="xMidYMid slice" fill="none">
-                    <defs>
-                      <linearGradient id="bw-insights-navy" x1="0" y1="0" x2="720" y2="600" gradientUnits="userSpaceOnUse"><stop stop-color="#294b5c"/><stop offset="0.55" stop-color="#142e3c"/><stop offset="1" stop-color="#0a1b26"/></linearGradient>
-                      <linearGradient id="bw-insights-gold" x1="90" y1="0" x2="570" y2="600" gradientUnits="userSpaceOnUse"><stop stop-color="#d3b780" stop-opacity="0.65"/><stop offset="0.5" stop-color="#a98d55" stop-opacity="0.3"/><stop offset="1" stop-color="#b89b63" stop-opacity="0.05"/></linearGradient>
-                      <linearGradient id="bw-insights-blue" x1="600" y1="0" x2="140" y2="600" gradientUnits="userSpaceOnUse"><stop stop-color="#9eb3ba" stop-opacity="0.28"/><stop offset="1" stop-color="#56798a" stop-opacity="0.03"/></linearGradient>
-                    </defs>
-                    <path fill="url(#bw-insights-navy)" d="M0 0h720v600H0z"/>
-                    <path fill="url(#bw-insights-gold)" d="M-90 360C101 242 227 179 340-70h133C359 231 142 338-90 511V360Z"/>
-                    <path fill="url(#bw-insights-blue)" d="M790-90H558C550 211 309 296 164 390 76 449 19 519-66 657H91C193 499 333 458 472 348 629 224 674 93 790-90Z"/>
-                    <g stroke="#d9bd86" stroke-opacity="0.2" stroke-width="1">
-                      <path d="M-40 433C130 282 293 242 409-35"/>
-                      <path d="M-40 456C153 306 316 266 432-11"/>
-                      <path d="M112 650C236 439 484 470 656 159S795-40 795-40"/>
-                      <path d="M139 664C263 453 511 484 683 173S822-26 822-26"/>
-                    </g>
-                  </svg>
                   <span class="bw-insights-art-label">Your health, in focus</span>
                   <div class="bw-insights-report">
                     <span class="bw-insights-report-title">Health overview</span>
@@ -2237,7 +2278,7 @@
                   <div class="bw-insights-results">
                     <span class="bw-insights-results-label">Biomarkers</span>
                     <div class="bw-insights-ring">
-                      <svg viewBox="0 0 200 200" fill="none"><circle cx="100" cy="100" r="87" stroke="#f2e4c7" stroke-opacity="0.16" stroke-width="5"/><path d="M56.5 175.34a87 87 0 1 1 108.15-17.1" stroke="#d7b779" stroke-width="6" stroke-linecap="round"/></svg>
+                      <svg viewBox="0 0 200 200" fill="none"><circle cx="100" cy="100" r="87" stroke="currentColor" stroke-opacity="0.16" stroke-width="5"/><path d="M56.5 175.34a87 87 0 1 1 108.15-17.1" stroke="currentColor" stroke-width="6" stroke-linecap="round"/></svg>
                       <span>Your<br>results</span>
                     </div>
                     <span class="bw-insights-results-caption">A clearer picture</span>
@@ -2265,25 +2306,12 @@
 
               <figure class="bw-guide-art bw-progress-art" role="img" aria-label="An illustrative progress timeline from your baseline to a six-month check-in and ongoing tracking." data-pp-reveal="fade">
                 <div class="bw-progress-canvas" aria-hidden="true">
-                  <svg class="bw-progress-waves" viewBox="0 0 720 600" preserveAspectRatio="xMidYMid slice" fill="none">
-                    <defs>
-                      <linearGradient id="bw-progress-navy" x1="0" y1="0" x2="680" y2="600" gradientUnits="userSpaceOnUse"><stop stop-color="#2b4a59"/><stop offset="0.55" stop-color="#142e3d"/><stop offset="1" stop-color="#0b1b26"/></linearGradient>
-                      <linearGradient id="bw-progress-gold" x1="100" y1="600" x2="650" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#bda16b" stop-opacity="0.08"/><stop offset="0.5" stop-color="#cbb17c" stop-opacity="0.5"/><stop offset="1" stop-color="#e0cca5" stop-opacity="0.18"/></linearGradient>
-                      <linearGradient id="bw-progress-blue" x1="0" y1="600" x2="720" y2="100" gradientUnits="userSpaceOnUse"><stop stop-color="#577e92" stop-opacity="0.06"/><stop offset="1" stop-color="#9ab2bb" stop-opacity="0.32"/></linearGradient>
-                    </defs>
-                    <path fill="url(#bw-progress-navy)" d="M0 0h720v600H0z"/>
-                    <path fill="url(#bw-progress-blue)" d="M-80 630C109 369 351 453 486 154L594-70h196C614 166 623 313 365 424 177 505 111 582 69 670Z"/>
-                    <path fill="url(#bw-progress-gold)" d="M-70 553C118 337 301 397 431 208 511 91 523 18 570-70h119C565 116 589 270 356 370 147 459 83 537-70 690Z"/>
-                    <g stroke="#ddc797" stroke-opacity="0.2">
-                      <path d="M-30 548C125 365 322 430 468 212 525 128 560 35 606-35"/>
-                      <path d="M-18 569C137 386 334 451 480 233 537 149 572 56 618-14"/>
-                      <path d="M-6 590C149 407 346 472 492 254 549 170 584 77 630 7"/>
-                    </g>
-                    <path d="M80 382C190 270 270 410 360 334S540 342 640 212" stroke="#f4ead7" stroke-opacity="0.7" stroke-width="2.5" stroke-linecap="round"/>
-                    <g fill="#e5cf9f" fill-opacity="0.1" stroke="#e5cf9f" stroke-opacity="0.7">
+                  <svg class="bw-progress-trend" viewBox="0 0 720 600" preserveAspectRatio="xMidYMid slice" fill="none">
+                    <path d="M80 382C190 270 270 410 360 334S540 342 640 212" stroke="currentColor" stroke-opacity="0.7" stroke-width="2.5" stroke-linecap="round"/>
+                    <g fill="currentColor" fill-opacity="0.1" stroke="currentColor" stroke-opacity="0.7">
                       <circle cx="80" cy="382" r="18"/><circle cx="640" cy="212" r="18"/>
                     </g>
-                    <g fill="#f7f4ed"><circle cx="80" cy="382" r="6"/><circle cx="640" cy="212" r="6"/></g>
+                    <g fill="currentColor"><circle cx="80" cy="382" r="6"/><circle cx="640" cy="212" r="6"/></g>
                   </svg>
                   <span class="bw-progress-art-label">A longer view of your health</span>
                   <div class="bw-progress-stat">
@@ -2646,10 +2674,10 @@
 
 
     <script src="script.js?v=46"></script>
+  <script src="js/bloodwork-explorer.js?v=3"></script>
     <script src="js/bloodwork-markers.js?v=2"></script>
-    <script src="js/bloodwork-lake.js?v=1"></script>
     <script src="js/bloodwork-guide.js?v=6"></script>
-    <script src="js/bloodwork-pricing.js?v=9"></script>
+    <script src="js/bloodwork-pricing.js?v=10"></script>
   </body>
 </html>
 
