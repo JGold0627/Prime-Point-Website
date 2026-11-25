@@ -13,7 +13,7 @@ body.blood-work-page .site-header { background: #f7f4ed; }
 /* This dark hero meets the header cleanly, without the shared ivory fade. */
 body.blood-work-page .site-header::after { display: none; }
 .bw-reference-main {
-  /* Copy and the zoom canvas share a boundary in every explorer state. */
+  /* Reserve space for the copy while the canvas blends into the shared backdrop. */
   --bw-copy-width: 42%;
   position: relative;
   isolation: isolate;
@@ -41,7 +41,15 @@ body.blood-work-page .site-header::after { display: none; }
   inset: 0 0 0 var(--bw-copy-width);
   isolation: isolate;
 }
-.bw-explorer-canvas { position: absolute; inset: 0; overflow: hidden; background: #111b2a; }
+.bw-explorer-canvas {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #111b2a;
+  /* Keep the feather on the fixed canvas so it also blends during a region zoom. */
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 clamp(120px, 14vw, 240px));
+  mask-image: linear-gradient(to right, transparent 0, #000 clamp(120px, 14vw, 240px));
+}
 .bw-explorer-stage {
   position: absolute;
   top: 0;
@@ -279,6 +287,10 @@ body.blood-work-page main .bw-reference .bw-reference-cta:hover { background: #e
   .bw-reference-art { position: relative; order: 1; inset: auto; width: 100%; height: clamp(500px, 70vw, 660px); }
   .bw-reference-backdrop { display: none; }
   .bw-explorer { inset: 0; }
+  .bw-explorer-canvas {
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 56px);
+    mask-image: linear-gradient(to bottom, transparent 0, #000 56px);
+  }
   .bw-explorer-stage { width: 200%; right: -8%; }
 }
 @media (max-width: 760px) {
