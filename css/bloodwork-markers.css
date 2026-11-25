@@ -57,7 +57,7 @@ body.blood-work-page main .bw-markers-title {
 
 .bw-markers-title span {
   display: block;
-  color: inherit;
+  color: var(--bw-markers-gold);
 }
 
 body.blood-work-page main .bw-markers-description {
@@ -170,7 +170,7 @@ body.blood-work-page main .bw-marker-reel-item {
 }
 
 body.blood-work-page main .bw-marker-reel-item.is-current {
-  color: var(--pp-prime-navy);
+  color: var(--bw-markers-gold);
   opacity: 1;
 }
 

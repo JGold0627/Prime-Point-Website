@@ -53,7 +53,7 @@ body.blood-work-page main .bw-guide-title {
 
 .bw-guide-title span,
 .bw-guide-step-title span {
-  color: inherit;
+  color: var(--bw-guide-gold);
 }
 
 .bw-guide-intro {
@@ -341,8 +341,6 @@ body.blood-work-page main .bw-guide-panel-content p + p {
 
 /* This illustration keeps its own dimensions as the copy wraps. */
 .bw-guide-art {
-  --bw-art-panel-background: linear-gradient(145deg, #203b55, #122336);
-  --bw-art-panel-shadow: 0 24px 42px rgba(0, 7, 18, 0.38), 0 0 30px rgba(128, 204, 255, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.24);
   position: relative;
   width: 100%;
   aspect-ratio: 6 / 5;
@@ -350,14 +348,11 @@ body.blood-work-page main .bw-guide-panel-content p + p {
   margin: 0;
   overflow: hidden;
   isolation: isolate;
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(var(--pp-gold-rgb), 0.32);
   border-radius: 24px;
-  background:
-    radial-gradient(ellipse at 75% 22%, rgba(139, 211, 255, 0.22), transparent 55%),
-    radial-gradient(ellipse at 45% 100%, rgba(78, 160, 224, 0.10), transparent 60%),
-    linear-gradient(135deg, #0b1421 5%, #1d3049 57%, #34465f 100%);
-  color: #fff;
-  box-shadow: 0 28px 60px rgba(14, 32, 53, 0.24), 0 8px 20px rgba(14, 32, 53, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  background: var(--bw-navy);
+  color: #f7f4ed;
+  box-shadow: 0 22px 52px rgba(15, 31, 45, 0.10);
   container-type: inline-size;
 }
 
@@ -370,9 +365,17 @@ body.blood-work-page main .bw-guide-panel-content p + p {
   padding: 7%;
 }
 
+.bw-guide-art-waves {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  z-index: -1;
+}
+
 .bw-guide-art-label {
-  color: #fff;
-  font-size: clamp(11px, 2cqw, 13px);
+  color: #e1c898;
+  font-size: clamp(10px, 2cqw, 13px);
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -384,13 +387,13 @@ body.blood-work-page main .bw-guide-panel-content p + p {
   align-items: center;
   align-self: center;
   justify-self: center;
-  width: 72%;
+  width: 64%;
   padding: clamp(14px, 4cqw, 28px) 4%;
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(234, 216, 181, 0.52);
   border-radius: 20px;
-  background: var(--bw-art-panel-background);
-  color: #fff;
-  box-shadow: var(--bw-art-panel-shadow);
+  background: linear-gradient(145deg, rgba(246, 244, 240, 0.14), rgba(246, 244, 240, 0.04));
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08), inset 0 1px rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
 }
 
 .bw-guide-stat-number {
@@ -409,8 +412,8 @@ body.blood-work-page main .bw-guide-panel-content p + p {
 
 .bw-guide-stat-detail {
   margin-top: 8px;
-  color: #fff;
-  font-size: clamp(12px, 2cqw, 14px);
+  color: #e3e8e9;
+  font-size: clamp(10px, 2cqw, 13px);
   line-height: 1.4;
 }
 
@@ -423,26 +426,26 @@ body.blood-work-page main .bw-guide-panel-content p + p {
 .bw-guide-baseline-line {
   width: 1px;
   height: clamp(8px, 3cqw, 20px);
-  background: linear-gradient(transparent, #fff);
+  background: linear-gradient(transparent, #d8ba82);
 }
 
 .bw-guide-baseline-point {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 0 0 5px rgba(170, 221, 255, 0.14), 0 0 18px rgba(170, 221, 255, 0.55);
+  background: #e7ce9d;
+  box-shadow: 0 0 0 5px rgba(231, 206, 157, 0.12);
   animation: bw-guide-baseline-pulse 2.4s ease-in-out infinite;
 }
 
 @keyframes bw-guide-baseline-pulse {
   0%, 100% {
-    opacity: 0.8;
-    box-shadow: 0 0 0 4px rgba(170, 221, 255, 0.12), 0 0 18px rgba(170, 221, 255, 0.35);
+    opacity: 0.65;
+    box-shadow: 0 0 0 4px rgba(231, 206, 157, 0.12), 0 0 0 9px rgba(231, 206, 157, 0);
   }
   50% {
     opacity: 1;
-    box-shadow: 0 0 0 5px rgba(170, 221, 255, 0.25), 0 0 26px rgba(170, 221, 255, 0.65);
+    box-shadow: 0 0 0 5px rgba(231, 206, 157, 0.28), 0 0 0 11px rgba(231, 206, 157, 0.08);
   }
 }
 
@@ -457,8 +460,8 @@ html.pp-reveal-ready .bw-guide-art:not(.pp-reveal-visible) .bw-guide-baseline-po
 }
 
 .bw-guide-baseline-caption {
-  color: #fff;
-  font-size: clamp(12px, 2cqw, 14px);
+  color: #d0dde3;
+  font-size: clamp(10px, 2cqw, 13px);
   line-height: 1.4;
 }
 
@@ -577,11 +580,19 @@ body.blood-work-page main .bw-insights-benefits li {
   inset: 0;
 }
 
+.bw-insights-waves {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
 .bw-insights-art-label {
   position: absolute;
   top: 8%;
   left: 7%;
-  color: #fff;
+  color: #e1c898;
   font-size: clamp(10px, 2cqw, 13px);
   font-weight: 600;
   letter-spacing: 0.2em;
@@ -595,15 +606,16 @@ body.blood-work-page main .bw-insights-benefits li {
   flex-direction: column;
   width: 65%;
   padding: 4%;
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(234, 216, 181, 0.42);
   border-radius: clamp(12px, 3cqw, 22px);
-  background: var(--bw-art-panel-background);
-  box-shadow: var(--bw-art-panel-shadow);
+  background: linear-gradient(140deg, rgba(246, 244, 240, 0.14), rgba(246, 244, 240, 0.025));
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(10px);
 }
 
 .bw-insights-report-title {
   margin-bottom: 4%;
-  color: #fff;
+  color: #f7f4ed;
   font-family: Georgia, 'Times New Roman', serif;
   font-size: clamp(14px, 3.6cqw, 25px);
   line-height: 1.2;
@@ -623,8 +635,8 @@ body.blood-work-page main .bw-insights-benefits li {
   align-items: center;
   column-gap: 3.5%;
   row-gap: 5px;
-  border-top: 1px solid rgba(255, 255, 255, 0.16);
-  color: #fff;
+  border-top: 1px solid rgba(235, 225, 206, 0.16);
+  color: #f1eee6;
   font-size: clamp(10px, 2.7cqw, 18px);
   line-height: 1.2;
 }
@@ -632,14 +644,14 @@ body.blood-work-page main .bw-insights-benefits li {
 .bw-insights-report-row svg {
   grid-row: span 2;
   width: 100%;
-  color: #fff;
+  color: #e2cc9f;
 }
 
 .bw-insights-report-line {
   width: 24%;
   height: 3px;
   border-radius: 3px;
-  background: linear-gradient(90deg, #fff 70%, rgba(255, 255, 255, 0.25) 70%);
+  background: linear-gradient(90deg, #b8c7bd 70%, rgba(231, 213, 179, 0.32) 70%);
 }
 
 .bw-insights-report-row:nth-child(even) .bw-insights-report-line { width: 18%; }
@@ -653,14 +665,15 @@ body.blood-work-page main .bw-insights-benefits li {
   justify-content: center;
   width: 34%;
   padding: 3%;
-  border: 1px solid rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(234, 216, 181, 0.58);
   border-radius: clamp(12px, 3cqw, 22px);
-  background: var(--bw-art-panel-background);
-  box-shadow: var(--bw-art-panel-shadow);
+  background: linear-gradient(145deg, rgba(53, 74, 82, 0.94), rgba(16, 37, 49, 0.94));
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.18), inset 0 1px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(14px);
 }
 
 .bw-insights-results-label {
-  color: #fff;
+  color: #e2cc9f;
   font-size: clamp(8px, 1.7cqw, 12px);
   letter-spacing: 0.12em;
   line-height: 1.2;
@@ -684,7 +697,7 @@ body.blood-work-page main .bw-insights-benefits li {
 }
 
 .bw-insights-ring span {
-  color: #fff;
+  color: #f7f4ed;
   font-family: Georgia, 'Times New Roman', serif;
   font-size: clamp(15px, 4.5cqw, 32px);
   line-height: 1.05;
@@ -692,7 +705,7 @@ body.blood-work-page main .bw-insights-benefits li {
 }
 
 .bw-insights-results-caption {
-  color: #fff;
+  color: #e2e7e7;
   font-size: clamp(8px, 1.8cqw, 12px);
   line-height: 1.2;
   text-align: center;
@@ -702,35 +715,35 @@ body.blood-work-page main .bw-insights-benefits li {
   width: 28%;
   height: 2px;
   margin-top: 8%;
-  background: #fff;
+  background: #d7b779;
 }
 
 .bw-insights-art-note {
   position: absolute;
   right: 7%;
   bottom: 4%;
-  color: #fff;
+  color: #c4d0d3;
   font-size: clamp(8px, 1.7cqw, 11px);
   letter-spacing: 0.04em;
 }
 
 /* Step three: a six-month check-in on the same fixed-size illustration surface. */
 .bw-progress-canvas,
-.bw-progress-trend {
+.bw-progress-waves {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
 }
 
-.bw-progress-trend { z-index: -1; }
+.bw-progress-waves { z-index: -1; }
 
 .bw-progress-art-label {
   position: absolute;
   top: 8%;
   left: 7%;
   right: 7%;
-  color: #fff;
+  color: #e1c898;
   font-size: clamp(9px, 2cqw, 13px);
   font-weight: 600;
   letter-spacing: 0.18em;
@@ -747,15 +760,16 @@ body.blood-work-page main .bw-insights-benefits li {
   flex-direction: column;
   align-items: center;
   padding: 6% 3%;
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(234, 216, 181, 0.55);
   border-radius: clamp(16px, 3cqw, 24px);
-  background: var(--bw-art-panel-background);
-  box-shadow: var(--bw-art-panel-shadow);
+  background: linear-gradient(145deg, rgba(224, 232, 230, 0.2), rgba(203, 176, 122, 0.16));
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.12), inset 0 1px rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
   text-align: center;
 }
 
 .bw-progress-number {
-  color: #fff;
+  color: #f7f4ed;
   font-family: Georgia, 'Times New Roman', serif;
   font-size: clamp(52px, 18cqw, 130px);
   font-weight: 400;
@@ -765,14 +779,14 @@ body.blood-work-page main .bw-insights-benefits li {
 
 .bw-progress-unit {
   margin-top: 6%;
-  color: #fff;
+  color: #f7f4ed;
   font-size: clamp(17px, 3.8cqw, 27px);
   line-height: 1.2;
 }
 
 .bw-progress-detail {
   margin-top: 5%;
-  color: #fff;
+  color: #eadfc8;
   font-size: clamp(9px, 2cqw, 14px);
   line-height: 1.4;
 }
@@ -784,7 +798,7 @@ body.blood-work-page main .bw-insights-benefits li {
   right: 8%;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  color: #fff;
+  color: #d7e0e2;
   font-size: clamp(10px, 2.2cqw, 15px);
   line-height: 1.4;
   text-align: center;
@@ -797,7 +811,7 @@ body.blood-work-page main .bw-insights-benefits li {
   left: 16.666%;
   right: 16.666%;
   height: 1px;
-  background: rgba(255, 255, 255, 0.45);
+  background: rgba(225, 200, 152, 0.45);
 }
 
 .bw-progress-timeline > span { position: relative; }
@@ -810,20 +824,20 @@ body.blood-work-page main .bw-insights-benefits li {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #fff;
+  background: #a7b9bd;
 }
 
-.bw-progress-timeline > .bw-progress-current { color: #fff; }
+.bw-progress-timeline > .bw-progress-current { color: #f0dab0; }
 .bw-progress-timeline > .bw-progress-current::before {
-  background: #fff;
-  box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.15), 0 0 18px rgba(170, 221, 255, 0.55);
+  background: #e5cc99;
+  box-shadow: 0 0 0 5px rgba(229, 204, 153, 0.15);
 }
 
 .bw-progress-art-note {
   position: absolute;
   right: 7%;
   bottom: 3%;
-  color: #fff;
+  color: #c4d0d3;
   font-size: clamp(8px, 1.7cqw, 11px);
   letter-spacing: 0.04em;
 }

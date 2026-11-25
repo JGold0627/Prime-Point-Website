@@ -49,7 +49,7 @@ body.blood-work-page main .bw-difference-title {
 }
 
 .bw-difference-title span {
-  color: inherit;
+  color: var(--bw-difference-gold);
 }
 
 .bw-difference-comparison {
